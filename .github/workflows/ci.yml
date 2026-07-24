@@ -1,0 +1,33 @@
+name: CI
+
+# 每个 PR / main push 都跑：校验汉化文件 + 试打分发包。
+# 快而全的第一道防线；安装脚本的三系统矩阵在 installer-test.yml。
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    name: 校验 + 试打包
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      # 把踩过的雷全部变成硬检查：
+      # JSON 合法性 / 枚举协议值禁翻 / VaultPatcher 主配置 / .gui choice 保持英文
+      - name: 汉化文件校验
+        run: python3 scripts/check.py
+
+      - name: 安装脚本语法检查
+        run: bash -n installer/install.sh
+
+      - name: 试打分发包
+        run: ./scripts/build_dist.sh 0.0.0-ci
+
+      - name: 上传测试构建
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-ci
+          path: dist/*.zip
+          retention-days: 7

@@ -1,0 +1,135 @@
+name: Release
+
+# 构建分发包并发布 GitHub Release。
+# 资源包 zip 不入 git —— 由 build_dist.sh 从 resourcepacks/ATM10汉化包-7.2/ 源码目录现场压缩。
+#
+# 触发方式：
+#   1. push tag v* —— 自动按 tag 名解析版本号、自动发布 release；
+#   2. workflow_dispatch —— Actions 页面手动触发，可选发布。
+on:
+  workflow_dispatch:
+    inputs:
+      publish_release:
+        description: Publish a GitHub release after building
+        type: boolean
+        required: true
+        default: false
+      version:
+        description: Release version, for example 7.2.0 (required if publishing)
+        type: string
+        required: false
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build distribution zip
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      # 发版前最后一道防线：校验必须过
+      - name: 汉化文件校验
+        run: python3 scripts/check.py
+
+      # 三条路径：
+      #   tag push (v7.2.0) ──> publish=true, version=7.2.0
+      #   manual + publish=true + version='X.Y.Z' ──> publish=true
+      #   manual + publish=false ──> 只构建不发布
+      - name: Resolve release options
+        id: release
+        shell: bash
+        env:
+          PUBLISH_RELEASE: ${{ inputs.publish_release || false }}
+          RELEASE_INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          set -euo pipefail
+
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+            tag="$GITHUB_REF_NAME"
+            # 支持 v7.2.0 (stable) 和 v7.2.0-beta.1 / v7.2.0-rc.1
+            if [[ ! "$tag" =~ ^v[0-9]+(\.[0-9]+){1,2}(-(beta|rc)\.[0-9]+)?$ ]]; then
+              echo "Tag '$tag' is not in a recognized form; refusing to publish." >&2
+              exit 1
+            fi
+            version="${tag#v}"
+            beta=false
+            [[ "$version" =~ -(beta|rc)\. ]] && beta=true
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "version=$version" >> "$GITHUB_OUTPUT"
+            echo "beta=$beta" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          publish_release="$PUBLISH_RELEASE"
+          version="$RELEASE_INPUT_VERSION"
+
+          if [[ "$publish_release" != "true" ]]; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "version=${version:-0.0.0-ci}" >> "$GITHUB_OUTPUT"
+            echo "beta=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [[ -z "$version" ]]; then
+            echo "A version is required when publishing a release." >&2
+            exit 1
+          fi
+          if [[ ! "$version" =~ ^[0-9]+(\.[0-9]+){1,2}(-(beta|rc)\.[0-9]+)?$ ]]; then
+            echo "Version must look like 7.2.0 or 7.2.0-beta.1." >&2
+            exit 1
+          fi
+          beta=false
+          [[ "$version" =~ -(beta|rc)\. ]] && beta=true
+          echo "publish=true" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "beta=$beta" >> "$GITHUB_OUTPUT"
+
+      - name: Build distribution zip
+        run: ./scripts/build_dist.sh "${{ steps.release.outputs.version }}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/*.zip
+          if-no-files-found: error
+
+      # 幂等 + 自愈：release 已存在 → 覆盖上传 + 重新发布；不存在 → 新建。
+      # Release 说明取自 CHANGELOG.md 对应版本段落。
+      - name: Publish GitHub release
+        if: steps.release.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+          IS_BETA: ${{ steps.release.outputs.beta }}
+        run: |
+          set -euo pipefail
+
+          NOTES=$(awk -v ver="$RELEASE_VERSION" '
+            $0 ~ "^## " ver { found=1; next }
+            found && /^## / { exit }
+            found { buf = buf $0 "\n" }
+            END { sub(/^\n+/, "", buf); sub(/\n+$/, "", buf); print buf }
+          ' CHANGELOG.md)
+          if [ -z "$NOTES" ]; then
+            NOTES="ATM10 7.2 汉化补丁 绿油油版 $RELEASE_VERSION"
+          fi
+
+          PRERELEASE_FLAG=""
+          [[ "$IS_BETA" == "true" ]] && PRERELEASE_FLAG="--prerelease"
+
+          if gh release view "v$RELEASE_VERSION" >/dev/null 2>&1; then
+            gh release upload "v$RELEASE_VERSION" dist/*.zip --clobber
+            gh release edit "v$RELEASE_VERSION" --draft=false --notes "$NOTES" $PRERELEASE_FLAG
+          else
+            gh release create "v$RELEASE_VERSION" \
+              dist/*.zip \
+              --title "绿油油版汉化 v$RELEASE_VERSION" \
+              --notes "$NOTES" \
+              $PRERELEASE_FLAG
+          fi

@@ -1,0 +1,93 @@
+# -*- coding: utf-8 -*-
+"""发版前校验：把踩过的雷全部变成硬检查。
+
+1. vaultpatcher/modules/*.json 必须是合法 JSON 且结构正确
+2. 枚举协议值（McJtyLib 存储/网络协议值）绝不允许出现在翻译 key 里 —— 翻了必崩
+   （历史事故：choice('忽略红石') → IllegalStateException: Unknown element name）
+3. config/vaultpatcher_asm/config.json：load_all_modules 必须 true（否则自建模块不加载），
+   debug_mode.is_enable 必须 false（否则刷数千条日志拖性能）
+4. 资源包源码目录内所有 lang/*.json 与 pack.mcmeta 必须可解析
+5. 资源包内 RFTools 系 .gui 文件的 choice(...) 参数必须保持英文
+"""
+import json, re, sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PACK_DIR = ROOT / 'resourcepacks' / 'ATM10汉化包-7.2'
+errors = []
+
+# McJtyLib 枚举协议值：NamedCodec 按名字反查，翻译后反查失败 → 崩溃
+FORBIDDEN_KEYS = {
+    'Ignored', 'Off', 'On',                      # RedstoneMode
+    'Copy', 'Move', 'Swap', 'Back', 'Collect',   # BuilderMode
+    'Loop1', 'Loop2', 'Loop3', 'Loop4',          # SequencerMode
+    'Once1', 'Once2', 'Pulse', 'Cycle',
+    'Amount+', 'Amount-', 'Mod', 'Name',         # SortingMode 等
+    'Shield', 'Solid', 'Invisible',              # ShieldRenderingMode
+}
+
+# 1+2: VaultPatcher 模块
+for p in sorted((ROOT / 'vaultpatcher' / 'modules').glob('*.json')):
+    try:
+        mod = json.loads(p.read_text(encoding='utf-8'))
+    except Exception as e:
+        errors.append(f'{p.name}: JSON 解析失败: {e}')
+        continue
+    if not isinstance(mod, list):
+        errors.append(f'{p.name}: 顶层必须是数组')
+        continue
+    for blk in mod:
+        if not isinstance(blk, dict):
+            errors.append(f'{p.name}: 模块元素必须是对象')
+            continue
+        tcs = blk.get('target_class') or []
+        # 仅当替换可能命中 McJtyLib 枚举常量池时才算雷：
+        #   - 无 target_class（全局替换）
+        #   - 定向到 mcjty.* 的非 client 类（枚举/协议类所在地）
+        # 定向到具体 GUI/Screen 类的同名显示标签（如形状卡的 Solid）是安全的
+        risky = (not tcs) or any(c.startswith('mcjty.') and '.client.' not in c for c in tcs)
+        if not risky:
+            continue
+        for pair in blk.get('pairs', []):
+            k = pair.get('key', '')
+            if k.strip() in FORBIDDEN_KEYS:
+                where = '全局替换' if not tcs else f'定向 {tcs}'
+                errors.append(f'{p.name}: 禁止翻译枚举协议值 "{k}"（{where}，会导致游戏崩溃）')
+
+# 3: VaultPatcher 主配置
+cfg_path = ROOT / 'config' / 'vaultpatcher_asm' / 'config.json'
+cfg = json.loads(cfg_path.read_text(encoding='utf-8'))
+if cfg.get('load_all_modules') is not True:
+    errors.append('config.json: load_all_modules 必须为 true，否则自建模块不加载')
+if cfg.get('debug_mode', {}).get('is_enable') is not False:
+    errors.append('config.json: debug_mode.is_enable 必须为 false（发布版禁止开调试日志）')
+
+# 4+5: 资源包源码目录
+CJK = re.compile(r'[一-鿿]')
+if not PACK_DIR.is_dir():
+    errors.append(f'缺少资源包源码目录: {PACK_DIR.relative_to(ROOT)}')
+else:
+    try:
+        json.loads((PACK_DIR / 'pack.mcmeta').read_text(encoding='utf-8'))
+    except Exception as e:
+        errors.append(f'pack.mcmeta 解析失败: {e}')
+    for p in PACK_DIR.rglob('*'):
+        rel = p.relative_to(PACK_DIR)
+        if p.suffix == '.json' and '/lang/' in f'/{rel.as_posix()}/':
+            try:
+                json.loads(p.read_text(encoding='utf-8'))
+            except Exception as e:
+                errors.append(f'{rel}: JSON 解析失败: {e}')
+        elif p.suffix == '.gui':
+            text = p.read_text(encoding='utf-8', errors='replace')
+            for m in re.finditer(r"choice\(\s*'([^']*)'", text):
+                if CJK.search(m.group(1)):
+                    errors.append(
+                        f"{rel}: choice('{m.group(1)}') 是协议值，必须保持英文（翻译会崩溃）")
+
+if errors:
+    print(f'❌ 校验失败，共 {len(errors)} 处：')
+    for e in errors:
+        print('  -', e)
+    sys.exit(1)
+print('✅ 全部校验通过（VaultPatcher 模块 / 枚举协议值 / 主配置 / 资源包 lang / .gui choice）')
