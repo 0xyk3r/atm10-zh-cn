@@ -9,6 +9,10 @@ macOS/Linux 走 install.sh，Windows 走 install.ps1（powershell 5.1，与用�
 import platform, shutil, subprocess, sys, tempfile, zipfile
 from pathlib import Path
 
+# Windows runner 的 stdout 默认 cp1252，打不出中文/emoji
+sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 ROOT = Path(__file__).resolve().parent.parent
 IS_WIN = platform.system() == 'Windows'
 PACK = 'ATM10汉化包-7.2'
