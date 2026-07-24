@@ -1,0 +1,16 @@
+{
+ "pack": {
+  "pack_format": 34,
+  "description": "ATM10 7.2 汉化包 · 绿油油版（基于BBSMC汉化修改 · 星野夢華整理）",
+  "supported_formats": [
+   34
+  ]
+ },
+ "language": {
+  "zh_cn": {
+   "name": "Chinese (Simplified)",
+   "region": "China",
+   "bidirectional": false
+  }
+ }
+}

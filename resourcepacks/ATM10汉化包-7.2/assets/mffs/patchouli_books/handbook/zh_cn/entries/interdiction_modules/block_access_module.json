@@ -1,0 +1,23 @@
+{
+  "name": "访问拦截模块",
+  "icon": "mffs:block_access_module",
+  "category": "mffs:interdiction_modules",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "mffs:block_access_module",
+      "link_recipe": true,
+      "text": "$(5)访问拦截模块$()是$(l:mffs:machines/interdiction_matrix)结界矩阵$()的可选模块。它使结界矩阵能够限制玩家对某一方块右键点击并打开其GUI界面的能力。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mffs:block_access_module",
+      "text": "合成$(5)访问拦截模块。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "操作",
+      "text": "若未授权玩家试图右键点击位于结界矩阵（配备$(5)访问拦截模块$()）作用范围内的方块或机器，则无法打开其GUI界面。正如我们所预期的那样，作用区域外的方块或机器仍可正常使用。"
+    }
+  ]
+}

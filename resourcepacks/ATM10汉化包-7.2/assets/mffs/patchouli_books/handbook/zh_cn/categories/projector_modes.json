@@ -1,0 +1,6 @@
+{
+  "name": "投影模式",
+  "description": "力场投射器支持的多种力场形状。",
+  "sortnum": 3,
+  "icon": "mffs:cube_mode"
+}
