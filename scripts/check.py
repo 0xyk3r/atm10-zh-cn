@@ -54,6 +54,21 @@ for p in sorted((ROOT / 'vaultpatcher' / 'modules').glob('*.json')):
                 where = '全局替换' if not tcs else f'定向 {tcs}'
                 errors.append(f'{p.name}: 禁止翻译枚举协议值 "{k}"（{where}，会导致游戏崩溃）')
 
+# 2.5: 服务端模块子集：禁止全局替换块（会污染服务端 NBT/注册名）
+# 唯一豁免：key 带前导空格的纯显示文本（如 "    Void mode"）
+server_list = [l.strip() for l in (ROOT / 'scripts' / 'server_modules.txt').read_text(encoding='utf-8').splitlines()
+               if l.strip() and not l.startswith('#')]
+for name in server_list:
+    p = ROOT / 'vaultpatcher' / 'modules' / f'{name}.json'
+    if not p.exists():
+        errors.append(f'server_modules.txt: 清单里的 {name}.json 不存在')
+        continue
+    for blk in json.loads(p.read_text(encoding='utf-8')):
+        if isinstance(blk, dict) and 'pairs' in blk and not blk.get('target_class'):
+            bad = [pr['key'] for pr in blk['pairs'] if not pr.get('key', '').startswith(' ')]
+            if bad:
+                errors.append(f'{name}.json: 服务端模块含全局替换 {bad}（会污染服务端数据，禁止入服务端清单）')
+
 # 3: VaultPatcher 主配置
 cfg_path = ROOT / 'config' / 'vaultpatcher_asm' / 'config.json'
 cfg = json.loads(cfg_path.read_text(encoding='utf-8'))

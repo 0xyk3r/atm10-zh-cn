@@ -1,132 +1,80 @@
 # All the Mods 10 · 7.2 汉化补丁 —— 绿油油版
 
-> 整理／补译：**星野夢華 (Hoshino Yumeka)** · 基于 BBSMC 汉化二次修改
+整理／补译：**星野夢華 (Hoshino Yumeka)**，基于 BBSMC 汉化二次修改（改动幅度较大，
+故独立命名）。BBSMC 原版说明与致谢见 [原版说明与致谢(BBSMC).txt](原版说明与致谢(BBSMC).txt)。
 
-原始词条来自 BBSMC 汉化组，本人在其基础上做了大量补译、纠错与机制层修复
-（改动幅度较大，故独立命名为「绿油油版」）。原版说明与致谢见
-[原版说明与致谢(BBSMC).txt](原版说明与致谢(BBSMC).txt)。
+每个 [Release](../../releases) 提供两个**彼此独立**的压缩包：
 
-## 安装方法
+| 包 | 给谁用 | 说明 |
+|---|---|---|
+| `…-客户端-vX.zip` | 每个玩家 | 附带三平台安装器，见下 |
+| `…-服务端-vX.zip` | 开服的人 | 手动覆盖，见包内 `README-服务端.md` |
 
-1. 从 [Releases](../../releases) 下载最新压缩包并解压；
+## 客户端安装
+
+1. 下载 `…-客户端-vX.zip` 并解压；
 2. 把解压出的**整个文件夹**放进 ATM10 实例根目录
-   （即含 `mods/`、`options.txt` 的那一层，通常是
-   `.minecraft/versions/All the Mods 10/`）；
+   （含 `mods/`、`options.txt` 的那一层，通常是 `.minecraft/versions/All the Mods 10/`）；
 3. 运行安装器：
    - **Windows**：双击 `双击安装-Windows.bat`
    - **macOS / Linux**：终端运行 `bash install.sh`
-4. 按菜单选 **[1] 应用汉化**。安装器会：
-   - 自动**备份**所有将被覆盖的文件（可随时恢复）；
-   - 复制汉化文件并在 `options.txt` 中**自动启用资源包**（不启用会全英文）；
-   - 询问是否安装可选的 **JEI 拼音搜索** mod（支持拼音检索物品）。
+4. 选 **[1] 应用汉化**。安装器会自动备份将被覆盖的文件、在 `options.txt`
+   里启用汉化资源包（不启用会全英文），并询问是否安装可选的 **JEI 拼音搜索** mod。
 
-其余功能：`[2] 仅备份`、`[3] 恢复备份`（还原被覆盖文件、删除安装时新增
-的文件、还原 `options.txt`）。命令行用法见脚本头部注释
-（`apply` / `apply-with-pinyin` / `backup` / `restore`）。
+回退：菜单选 **[3] 恢复备份**（还原被覆盖文件、删除新增文件、还原 options.txt）。
+命令行用法见脚本头部注释（`apply` / `apply-with-pinyin` / `backup` / `restore`）。
 
-**服务器**：仅需覆盖 `config/`。`vaultpatcher/`、`resourcepacks/`、
-`kubejs/client_scripts/` 均为纯客户端渲染层，服务器不需要。
+## 服务端安装
 
-## 补丁内容一览
+蜂笼蜂名、RFTools 建造机聊天反馈等文本由**服务端**生成，只装客户端包救不了。
+下载 `…-服务端-vX.zip`，按包内 [README-服务端.md](SERVER.md) 覆盖到服务器并重启。
 
-| 目录 | 作用 |
-|---|---|
-| `resourcepacks/` | 资源包（语言 / GUI / 字体） |
-| `vaultpatcher/` + `mods/vaultpatcher.jar` | 硬编码文本补丁（见下方技术说明） |
-| `kubejs/` | 客户端脚本（资源蜜蜂基因名） |
-| `config/` | 神秘农业作物名等配置修正 + VaultPatcher 主配置 |
-| `可选mods-拼音搜索/` | 可选：JEI 拼音搜索（安装器会询问） |
+⚠️ 不要把客户端包覆盖到服务器：其中 `config/mysticalcustomization/`（作物名汉化）
+是纯客户端配置，上了服务器会让所有玩家进服时刷
+`An error occurred creating crop with id null`。
 
-## 本版额外汉化 / 修复内容
+## 本版额外汉化 / 修复（相对 BBSMC）
 
-### RFTools 全系（重点）
+- **RFTools 全系**：26 个 `.gui` 界面文件全部汉化；96 条字节码硬编码界面文本
+  （形状卡、过滤器、存储扫描器、护盾、传送、移动仓等）。
+  `Copy` / `Move` / `Ignored` 等模式选项是**协议值**，翻译会崩游戏，按设计保留英文。
+- **结构罗盘**：补 114 个缺失结构名（CTOV / Towns & Towers / Explorify / BWG / Structory）。
+- **传送石碑**：补 17 条维度分组名（挖矿维度 / 异界 / 彼岸 / 以太等，已进服实测）。
+- **资源蜜蜂**：462 种蜂名。客户端渲染层替换 + 服务端语言注入 mod
+  （服务端烙进 NBT 的蜂名直接是中文；旧蜂笼名字已烙死，只对新抓的生效）。
+- **神秘农业**：修正 12 种作物种子假翻译（config `name` 字段，纯客户端）。
+- **其他**：PotionsMaster 154 条、Shiny! 2000+ 实体名、灵视 / 穿墙等属性名、
+  花粉筛升级 / 枫糖浆等漏配键、字体乱码清理。
 
-- 26 个 `.gui` 界面文件全部汉化（建造机、存储扫描器、护盾、传送、
-  维度电池、时序器、屏幕、过滤器等）
-- 96 条界面**硬编码**文本汉化（不在语言文件内，需字节码层补丁）——
-  覆盖形状卡类型（精准采集 / 时运 / 普通采石、抽 / 放液体）、物品过滤器
-  （白 / 黑名单、按模组匹配、组件匹配）、存储扫描器（可路由 / 导出）、
-  模块化存储视图、护盾红石模式、移动仓消耗、拨号器收藏、环境控制器等
-- ⚠️ `Copy` / `Move` / `Ignored` 等模式选项为**协议值**，翻译会导致游戏
-  崩溃，故按设计保留英文（仅译其提示文字）
-
-### 结构罗盘 / 自然罗盘
-
-补全 114 个缺失结构名：CTOV 大 / 中 / 小型村庄与掠夺者前哨（各生物群系）、
-Towns & Towers 各风格村庄 / 前哨、Explorify 补给贮藏点 / 瞭望塔、
-BWG 特色村庄、Structory 下界 / 末地塔楼等。
-
-### 传送石碑 (Waystones)
-
-补全 17 条维度分组名（运行时动态键，官方语言文件不含）：挖矿维度、
-异界、彼岸、以太、暮色森林、深暗之园等。
-
-### 资源蜜蜂 (Productive Bees)
-
-- 基因样本 / 蜂笼 / 基因瓶的蜂种名汉化（462 种蜂）
-- 采用客户端渲染时替换方案，解决蜂名显示为英文 ID
-  （如 `productivebees:lumber_bee`）的问题
-
-### 神秘农业 (Mystical Agriculture)
-
-修正种子「假翻译」根因：作物显示名取自 config 的 `name` 字段而非语言
-文件，已直接改 config（难得素 / 振金 / 恩特罗 / 蔚蓝银 / 深红铁等
-12 种作物 + 魔法等级名）。
-
-### 其他补译
-
-- PotionsMaster 154 条动态药水词条
-- Shiny! 闪光生物 2000+ 实体名（原版优先，去除误译）
-- 属性名：灵视 (spectral_sight)、穿墙 (phase) 等
-- 花粉筛升级、枫糖浆等上游漏配键
-- 字体乱码 (U+FFFD) 清理
-
-## 技术说明（给想二次修改的人）
+## 汉化机制（给想二次修改的人）
 
 汉化分三层，缺一不可：
 
-1. **资源包**（仓库内为源码目录 `resourcepacks/ATM10汉化包-7.2/`，
-   **zip 由 CI / 构建脚本压缩，不入 git**）
-   标准 `assets/<mod>/lang/zh_cn.json` 与 McJtyLib 的 `.gui` 界面文件，
-   游戏启动时加载。
-2. **VaultPatcher** (`vaultpatcher/modules/*.json`)
-   处理「硬编码在 class 字节码里、语言文件够不着」的界面文本。
-   `config/vaultpatcher_asm/config.json` 中 `load_all_modules` 必须为
-   `true`，否则自建模块不加载。**切记：枚举协议值（模式选项）不可翻，
-   否则崩溃** —— CI 会拦截。
-3. **KubeJS 客户端脚本** (`kubejs/client_scripts/`)
-   处理运行时动态拼接的文本（如资源蜜蜂把蜂 ID 拼进 tooltip）。
-   用 `NativeEvents` 订阅 `ItemTooltipEvent`，渲染时正则替换。
+1. **资源包** —— 仓库内是源码目录 `resourcepacks/ATM10汉化包-7.2/`
+   （zip 由构建脚本 / CI 现场压缩，不入 git）。标准 lang 文件 + McJtyLib `.gui`。
+2. **VaultPatcher**（`vaultpatcher/modules/*.json`）—— patch 硬编码在字节码里的文本。
+   `load_all_modules` 必须为 `true`。**枚举协议值不可翻**，CI 有硬检查。
+   服务端只能装类定向模块（清单：`scripts/server_modules.txt`）。
+3. **KubeJS 客户端脚本**（`kubejs/client_scripts/`）—— 处理运行时拼接的文本。
+
+服务端专属第四层：`server-lang-mod/` 语言注入 mod（lowcodefml 纯资源 jar），
+让专用服务器把中文蜂名烙进物品 NBT。
 
 ## 开发 / 发版
 
 ```bash
-# 校验（CI 同款）：JSON 合法性、枚举协议值、VaultPatcher 配置、.gui choice
-python3 scripts/check.py
-
-# 安装脚本端到端测试（CI 在 macOS / Windows / Linux 三系统各跑一遍）
-python3 scripts/test_installer.py
-
-# 打分发包（现场压缩资源包 zip + 附带安装器）
-./scripts/build_dist.sh 7.2.0
+python3 scripts/check.py            # CI 同款校验（协议值/配置/lang/.gui/服务端模块清单）
+python3 scripts/test_installer.py   # 安装器端到端测试
+./scripts/build_dist.sh 7.2.0       # 打客户端+服务端两个分发包
 ```
 
-CI 说明：
+- **ci.yml**：每个 PR / push 校验 + 试打包
+- **installer-test.yml**：安装脚本一动就在 **macOS / Windows / Linux** 三系统跑端到端
+- **release.yml**：推 tag `v*` 自动构建两个包并发布 Release（说明取自 CHANGELOG）
 
-- **ci.yml** —— 每个 PR / push 跑校验 + 试打包；
-- **installer-test.yml** —— 安装脚本一旦改动，自动在
-  **macOS / Windows / Linux 三台 runner** 上跑端到端测试；
-- **release.yml** —— 推 tag `v*`（如 `v7.2.0`）即自动校验、打包并发布
-  GitHub Release，说明取自 `CHANGELOG.md` 对应版本段落。
+## 致谢与 License
 
-## 致谢
+BBSMC 汉化组（原始底本）· All the Mods 团队（整合包）· 各 mod 原作者。
 
-- **BBSMC 汉化组** —— 提供原始汉化底本
-- **All the Mods 团队** —— 整合包本体
-- 各 mod 原作者
-
-问题反馈请走 [Issues](../../issues)，附带截图与具体物品 / 界面名。
-
-## License
-
-[GPL-3.0](LICENSE)。BBSMC 原始词条与各 mod 资源的权利归其原作者所有。
+本仓库以 [GPL-3.0](LICENSE) 发布；BBSMC 原始词条与各 mod 资源的权利归其原作者所有。
+问题反馈请走 [Issues](../../issues)，附截图与具体物品 / 界面名。
