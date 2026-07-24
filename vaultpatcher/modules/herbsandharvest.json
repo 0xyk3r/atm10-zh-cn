@@ -1,0 +1,47 @@
+[
+  {
+    "name": "herbsandharvest_zh_cn",
+    "desc": "herbsandharvest-1.21.1-15.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "herbsandharvest-1.21.1-15.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.mamailes.herbsandharvest.item.CheeseItem"
+    ],
+    "pairs": [
+      {
+        "key": "Saturation: ",
+        "value": "饱和度："
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "com.mamailes.herbsandharvest.item.CheeseWheelBlockItem"
+    ],
+    "pairs": [
+      {
+        "key": "Nutrition: ",
+        "value": "营养学： "
+      },
+      {
+        "key": "Saturation: ",
+        "value": "饱和度："
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "com.mamailes.herbsandharvest.item.CropItem"
+    ],
+    "pairs": [
+      {
+        "key": "Saturation: ",
+        "value": "饱和度："
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "fzzy_config_zh_cn",
+    "desc": "fzzy_config-0.7.6+1.21+neoforge.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "fzzy_config-0.7.6+1.21+neoforge.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "me.fzzyhmstrs.fzzy_config.util.FcText"
+    ],
+    "pairs": [
+      {
+        "key": "null cannot be cast to non-null type java.lang.String",
+        "value": "null 无法转换为非 null 类型 java.lang.String"
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "twilightforest_zh_cn",
+    "desc": "twilightforest-1.21.1-4.8.3345-universal.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "twilightforest-1.21.1-4.8.3345-universal.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "twilightforest.item.travellers_gear.modifiers.TravellersModifier"
+    ],
+    "pairs": [
+      {
+        "key": "EquipmentSlotGroup must only use armor slots",
+        "value": "装备槽组只能使用护甲槽"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "twilightforest.world.components.placements.AvoidLandmarkModifier"
+    ],
+    "pairs": [
+      {
+        "key": "Feature Decorator cannot have no occupancy",
+        "value": "特征装饰器不能没有占用率"
+      }
+    ]
+  }
+]

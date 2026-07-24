@@ -1,0 +1,47 @@
+[
+  {
+    "name": "spark_zh_cn",
+    "desc": "spark-1.10.124-neoforge.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "spark-1.10.124-neoforge.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "me.lucko.spark.common.command.modules.GcMonitoringModule$ReportingGcMonitor"
+    ],
+    "pairs": [
+      {
+        "key": " (cause = ",
+        "value": "（原因 = "
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "me.lucko.spark.common.command.modules.SamplerModule"
+    ],
+    "pairs": [
+      {
+        "key": "Allocation Profiler",
+        "value": "分配分析器"
+      },
+      {
+        "key": "built-in java",
+        "value": "内置 Java"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "me.lucko.spark.common.sampler.async.AsyncProfilerAccess$NativeLoadingException"
+    ],
+    "pairs": [
+      {
+        "key": "A runtime error occurred whilst loading the native library",
+        "value": "加载原生库时发生运行时错误"
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "artifacts_zh_cn",
+    "desc": "artifacts-neoforge-13.2.1.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "artifacts-neoforge-13.2.1.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "artifacts.component.ability.EnchantmentLevelModifiers$Entry"
+    ],
+    "pairs": [
+      {
+        "key": "Unsupported enchantment: %s",
+        "value": "不支持的附魔：%s"
+      }
+    ]
+  }
+]

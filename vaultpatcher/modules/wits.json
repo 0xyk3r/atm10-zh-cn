@@ -1,0 +1,25 @@
+[
+  {
+    "name": "wits_zh_cn",
+    "desc": "wits-1.3.0+1.21-neoforge.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "wits-1.3.0+1.21-neoforge.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.telepathicgrunt.wits.commands.WITSCommand"
+    ],
+    "pairs": [
+      {
+        "key": "There's no structures at your location.",
+        "value": "您所在的位置没有结构。"
+      },
+      {
+        "key": "There's no structures at the location.",
+        "value": "该位置没有结构。"
+      }
+    ]
+  }
+]

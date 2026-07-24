@@ -1,0 +1,25 @@
+[
+  {
+    "name": "simplylight_zh_cn",
+    "desc": "simplylight-1.5.3+1.21.1-b4.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "simplylight-1.5.3+1.21.1-b4.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.flanks255.simplylight.blocks.LampPost"
+    ],
+    "pairs": [
+      {
+        "key": "Light Blue",
+        "value": "淡蓝色"
+      },
+      {
+        "key": "Light Gray",
+        "value": "淡灰色"
+      }
+    ]
+  }
+]

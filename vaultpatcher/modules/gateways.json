@@ -1,0 +1,36 @@
+[
+  {
+    "name": "gateways_zh_cn",
+    "desc": "GatewaysToEternity-1.21.1-5.1.0.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "GatewaysToEternity-1.21.1-5.1.0.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "dev.shadowsoffire.gateways.command.GatewayCommand"
+    ],
+    "pairs": [
+      {
+        "key": "Unknown Gateway",
+        "value": "未知网关"
+      },
+      {
+        "key": "Exception thrown - see log",
+        "value": "抛出了异常 - 请查看日志"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "dev.shadowsoffire.gateways.gate.GateRules"
+    ],
+    "pairs": [
+      {
+        "key": "Unknown: ",
+        "value": "未知："
+      }
+    ]
+  }
+]

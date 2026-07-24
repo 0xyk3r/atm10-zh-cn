@@ -1,0 +1,36 @@
+[
+  {
+    "name": "little_big_redstone_zh_cn",
+    "desc": "little-big-redstone-1.9.0-1.21.1.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "little-big-redstone-1.9.0-1.21.1.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "net.swedz.little_big_redstone.LBR"
+    ],
+    "pairs": [
+      {
+        "key": "Text not yet loaded",
+        "value": "文本尚未加载"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "net.swedz.little_big_redstone.microchip.object.logic.LogicTypes"
+    ],
+    "pairs": [
+      {
+        "key": "Unknown registry key in ",
+        "value": " 中存在未知注册表键"
+      },
+      {
+        "key": "Unregistered holder in ",
+        "value": "未注册的持有者位于 "
+      }
+    ]
+  }
+]

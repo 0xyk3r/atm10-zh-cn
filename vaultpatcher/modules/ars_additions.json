@@ -1,0 +1,56 @@
+[
+  {
+    "name": "ars_additions_zh_cn",
+    "desc": "ars_additions-1.21.1-21.3.0.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "ars_additions-1.21.1-21.3.0.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.github.jarva.arsadditions.common.commands.ArsChunksCommand"
+    ],
+    "pairs": [
+      {
+        "key": "Player required when running from console.",
+        "value": "从控制台运行时需要指定玩家。"
+      },
+      {
+        "key": "No chunk loading tickets found.",
+        "value": "未找到区块加载票证。"
+      },
+      {
+        "key": "Unknown UUID for player '",
+        "value": "玩家的 UUID 未知：'"
+      },
+      {
+        "key": "No chunk loading tickets for ",
+        "value": "没有以下对象的区块加载票证："
+      },
+      {
+        "key": "Chunk loading tickets for ",
+        "value": "以下对象的区块加载票证："
+      },
+      {
+        "key": "Chunks: ",
+        "value": "区块："
+      },
+      {
+        "key": "Listing chunk loading tickets for ",
+        "value": "正在列出以下对象的区块加载票证："
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "com.github.jarva.arsadditions.common.ritual.RitualChunkLoading"
+    ],
+    "pairs": [
+      {
+        "key": "Arcane Permanence",
+        "value": "奥术永载"
+      }
+    ]
+  }
+]

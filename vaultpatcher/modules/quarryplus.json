@@ -1,0 +1,21 @@
+[
+  {
+    "name": "quarryplus_zh_cn",
+    "desc": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.yogpc.qp.machine.misc.GeneratorBlock"
+    ],
+    "pairs": [
+      {
+        "key": "Change generator mode to %d(%d FE)",
+        "value": "将发电机模式更改为 %d（%d FE）"
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "reliquary_zh_cn",
+    "desc": "reliquary-1.21.1-2.0.74.1509.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "reliquary-1.21.1-2.0.74.1509.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "reliquary.client.gui.AlkahestryTomeScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Perform basic,\nintermediate or\nadvanced Alkahestry.",
+        "value": "进行基础、\n中级或\n高级炼金术。"
+      }
+    ]
+  }
+]

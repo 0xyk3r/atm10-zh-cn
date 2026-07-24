@@ -1,0 +1,36 @@
+[
+  {
+    "name": "computercraft_zh_cn",
+    "desc": "cc-tweaked-1.21.1-forge-1.113.1.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "cc-tweaked-1.21.1-forge-1.113.1.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "dan200.computercraft.shared.command.CommandComputerCraft"
+    ],
+    "pairs": [
+      {
+        "key": "Instance UUID",
+        "value": "实例UUID"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "dan200.computercraft.shared.turtle.core.TurtlePlaceCommand"
+    ],
+    "pairs": [
+      {
+        "key": "Cannot place block here",
+        "value": "此处无法放置方块"
+      },
+      {
+        "key": "Cannot place item here",
+        "value": "无法在此处放置物品"
+      }
+    ]
+  }
+]

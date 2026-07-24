@@ -1,0 +1,21 @@
+[
+  {
+    "name": "glassential_dynamic_zh_cn",
+    "desc": "Glassential-renewed-1.21.1-3.4.4.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "Glassential-renewed-1.21.1-3.4.4.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.github.bigenergy.glassential.client.gui.ColorPickerScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Color Picker",
+        "value": "拾色器"
+      }
+    ]
+  }
+]

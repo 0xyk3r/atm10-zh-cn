@@ -1,0 +1,21 @@
+[
+  {
+    "name": "utilityvest_dynamic_zh_cn",
+    "desc": "utilityvest-1.3.0.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "utilityvest-1.3.0.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "dev.satherov.utilityvest.client.screen.RadialMenuScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Radial Menu",
+        "value": "径向菜单"
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "craftingtweaks_zh_cn",
+    "desc": "craftingtweaks-neoforge-1.21.1-21.1.10.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "craftingtweaks-neoforge-1.21.1-21.1.10.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "net.blay09.mods.craftingtweaks.command.CraftingTweaksCommand"
+    ],
+    "pairs": [
+      {
+        "key": "Crafting Tweaks debug mode: ",
+        "value": "合成辅助调试模式："
+      }
+    ]
+  }
+]

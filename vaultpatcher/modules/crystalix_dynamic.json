@@ -1,0 +1,32 @@
+[
+  {
+    "name": "crystalix_dynamic_zh_cn",
+    "desc": "crystalix-3.0.0.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "crystalix-3.0.0.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "dev.satherov.crystalix.client.renderer.ColorPickerScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Color Selection",
+        "value": "颜色选择"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "dev.satherov.crystalix.client.renderer.RadialMenuScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Radial Menu",
+        "value": "径向菜单"
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "mininggadgets_zh_cn",
+    "desc": "mininggadgets-1.18.6.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "mininggadgets-1.18.6.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.direwolf20.mininggadgets.client.screens.widget.ToggleButton"
+    ],
+    "pairs": [
+      {
+        "key": "Enabled: ",
+        "value": "已启用："
+      }
+    ]
+  }
+]

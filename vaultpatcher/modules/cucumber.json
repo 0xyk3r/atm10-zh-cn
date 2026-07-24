@@ -1,0 +1,43 @@
+[
+  {
+    "name": "cucumber_zh_cn",
+    "desc": "Cucumber-1.21.1-8.0.16.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "Cucumber-1.21.1-8.0.16.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.blakebr0.cucumber.client.screen.widget.EnergyBarWidget"
+    ],
+    "pairs": [
+      {
+        "key": "Energy Bar",
+        "value": "能量棒"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "com.blakebr0.cucumber.client.screen.widget.FuelWidget"
+    ],
+    "pairs": [
+      {
+        "key": "Fuel",
+        "value": "燃料"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "com.blakebr0.cucumber.client.screen.widget.ProgressArrowWidget"
+    ],
+    "pairs": [
+      {
+        "key": "Progress Arrow",
+        "value": "进度箭头"
+      }
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "fluxnetworks_zh_cn",
+    "desc": "FluxNetworks-1.21.1-8.0.0.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "FluxNetworks-1.21.1-8.0.0.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "sonar.fluxnetworks.api.energy.EnergyType"
+    ],
+    "pairs": [
+      {
+        "key": "Forge Energy",
+        "value": "Forge能量"
+      },
+      {
+        "key": "Energy Unit",
+        "value": "能量单元"
+      }
+    ]
+  }
+]

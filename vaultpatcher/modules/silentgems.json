@@ -1,0 +1,29 @@
+[
+  {
+    "name": "silentgems_zh_cn",
+    "desc": "silentgems-1.21.1-neoforge-5.1.3.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "silentgems-1.21.1-neoforge-5.1.3.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "net.silentchaos512.gems.item.TeleporterLinker"
+    ],
+    "pairs": [
+      {
+        "key": "Teleporters linked!",
+        "value": "传送装置已链接！"
+      },
+      {
+        "key": "Teleporter position stored!",
+        "value": "传送器坐标已保存！"
+      },
+      {
+        "key": "Could not link teleporter at ",
+        "value": "无法链接位于的传送器"
+      }
+    ]
+  }
+]

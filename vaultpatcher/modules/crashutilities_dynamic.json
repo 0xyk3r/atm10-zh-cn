@@ -1,0 +1,33 @@
+[
+  {
+    "name": "crashutilities_dynamic_zh_cn",
+    "desc": "crashutilities-9.0.4.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "crashutilities-9.0.4.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.darkere.crashutils.Screens.CUScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Return to player",
+        "value": "返回玩家"
+      },
+      {
+        "key": "None",
+        "value": "无"
+      },
+      {
+        "key": "Go Back",
+        "value": "返回"
+      },
+      {
+        "key": "(Double click to teleport)",
+        "value": "（双击传送）"
+      }
+    ]
+  }
+]

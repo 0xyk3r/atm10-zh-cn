@@ -1,0 +1,48 @@
+[
+ {
+  "name": "rftoolsbuilder_hardcode_zh",
+  "desc": "RFTools建造机 硬编码文本汉化",
+  "authors": "星野夢華",
+  "mods": "rftoolsbuilder-1.21-7.0.5.jar",
+  "dynamic": false,
+  "i18n": false
+ },
+ {
+  "target_class": [
+   "mcjty.rftoolsbuilder.modules.builder.blocks.BuilderTileEntity"
+  ],
+  "pairs": [
+   {
+    "key": "    Space card: ",
+    "value": "    空间卡："
+   },
+   {
+    "key": "    Y level: ",
+    "value": "    Y层："
+   },
+   {
+    "key": "Mode:",
+    "value": "模式："
+   },
+   {
+    "key": "\u0001Progress:",
+    "value": "\u0001进度："
+   },
+   {
+    "key": "    Chunk:  \u0001 of \u0001",
+    "value": "    区块：\u0001 / \u0001"
+   }
+  ]
+ },
+ {
+  "target_classes": [
+   "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardType"
+  ],
+  "pairs": [
+   {
+    "key": "    Void mode",
+    "value": "    虚空模式"
+   }
+  ]
+ }
+]

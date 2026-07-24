@@ -1,0 +1,37 @@
+[
+  {
+    "name": "quarryplus_dynamic_zh_cn",
+    "desc": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.yogpc.qp.machine.marker.ChunkMarkerScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Top+",
+        "value": "顶部+"
+      },
+      {
+        "key": "Top-",
+        "value": "顶部-"
+      },
+      {
+        "key": "Bottom+",
+        "value": "底部+"
+      },
+      {
+        "key": "Bottom-",
+        "value": "底部-"
+      },
+      {
+        "key": "Size",
+        "value": "数量"
+      }
+    ]
+  }
+]

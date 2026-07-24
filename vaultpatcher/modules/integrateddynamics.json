@@ -1,0 +1,32 @@
+[
+  {
+    "name": "integrateddynamics_zh_cn",
+    "desc": "integrateddynamics-1.21.1-neoforge-1.33.3.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "integrateddynamics-1.21.1-neoforge-1.33.3.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "org.cyclops.integrateddynamicscompat.modcompat.rei.mechanicalsqueezer.ReiMechanicalSqueezerCategory"
+    ],
+    "pairs": [
+      {
+        "key": "Chance: ",
+        "value": "概率："
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "org.cyclops.integrateddynamicscompat.modcompat.rei.squeezer.ReiSqueezerCategory"
+    ],
+    "pairs": [
+      {
+        "key": "Chance: ",
+        "value": "概率："
+      }
+    ]
+  }
+]

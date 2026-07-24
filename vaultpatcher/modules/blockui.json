@@ -1,0 +1,53 @@
+[
+  {
+    "name": "blockui_zh_cn",
+    "desc": "blockui-1.0.211-1.21.1-snapshot.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "blockui-1.0.211-1.21.1-snapshot.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.ldtteam.blockui.Alignment"
+    ],
+    "pairs": [
+      {
+        "key": "top left",
+        "value": "顶部左侧"
+      },
+      {
+        "key": "top horizontal",
+        "value": "顶部水平"
+      },
+      {
+        "key": "top right",
+        "value": "顶部右侧"
+      },
+      {
+        "key": "vertical left",
+        "value": "垂直左侧"
+      },
+      {
+        "key": "vertical horizontal",
+        "value": "垂直水平"
+      },
+      {
+        "key": "vertical right",
+        "value": "垂直右侧"
+      },
+      {
+        "key": "bottom left",
+        "value": "底部左侧"
+      },
+      {
+        "key": "bottom horizontal",
+        "value": "底部水平"
+      },
+      {
+        "key": "bottom right",
+        "value": "底部右侧"
+      }
+    ]
+  }
+]

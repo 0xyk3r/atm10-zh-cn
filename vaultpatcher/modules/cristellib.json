@@ -1,0 +1,21 @@
+[
+  {
+    "name": "cristellib_zh_cn",
+    "desc": "cristellib-neoforge-1.21.1-3.1.7.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "cristellib-neoforge-1.21.1-3.1.7.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "de.cristelknight.cristellib.api.BuiltInAPI"
+    ],
+    "pairs": [
+      {
+        "key": "Cristel Lib Config Pack",
+        "value": "Cristel Lib 配置包"
+      }
+    ]
+  }
+]

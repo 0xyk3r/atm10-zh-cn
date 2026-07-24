@@ -1,0 +1,36 @@
+[
+  {
+    "name": "compactmachines_dynamic_zh_cn",
+    "desc": "compactmachines-neoforge-7.0.81.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "compactmachines-neoforge-7.0.81.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "dev.compactmods.machines.client.room.MachineRoomScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Room Preview Disabled",
+        "value": "房间预览已禁用"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "dev.compactmods.machines.room.ui.upgrades.RoomUpgradeScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Close",
+        "value": "关闭"
+      },
+      {
+        "key": "Room Upgrades",
+        "value": "房间升级"
+      }
+    ]
+  }
+]

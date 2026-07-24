@@ -1,0 +1,73 @@
+[
+  {
+    "name": "ars_nouveau_zh_cn",
+    "desc": "ars_technica-1.21.1-2.7.6.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "ars_technica-1.21.1-2.7.6.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.zeroregard.ars_technica.api.ProcessingTooltipHelper"
+    ],
+    "pairs": [
+      {
+        "key": "[Create Recipe: ",
+        "value": "[创建配方："
+      },
+      {
+        "key": "[Create Processing: ",
+        "value": "[创建处理："
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "com.zeroregard.ars_technica.glyphs.EffectFuse"
+    ],
+    "pairs": [
+      {
+        "key": "Heated Mixing",
+        "value": "加热搅拌"
+      },
+      {
+        "key": "Superheated Mixing",
+        "value": "超高温搅拌"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "com.zeroregard.ars_technica.glyphs.EffectPolish"
+    ],
+    "pairs": [
+      {
+        "key": "Refines items into their polished variants",
+        "value": "将物品精制为其抛光变种"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "com.zeroregard.ars_technica.glyphs.EffectPress"
+    ],
+    "pairs": [
+      {
+        "key": "Flattens items into their pressed variants",
+        "value": "将物品压制为其压制变种"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "alexthw.starbunclemania.common.item.DirectionScroll"
+    ],
+    "pairs": [
+      {
+        "key": "Direction set to ",
+        "value": "方向已设为 "
+      }
+    ]
+  }
+]

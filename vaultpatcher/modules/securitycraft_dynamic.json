@@ -1,0 +1,21 @@
+[
+  {
+    "name": "securitycraft_dynamic_zh_cn",
+    "desc": "[1.21.1] SecurityCraft v1.10.1.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "[1.21.1] SecurityCraft v1.10.1.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "net.geforcemods.securitycraft.screen.SetPasscodeScreen"
+    ],
+    "pairs": [
+      {
+        "key": "CODE:",
+        "value": "代码："
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "appmek_zh_cn",
+    "desc": "Applied-Mekanistics-1.6.3.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "Applied-Mekanistics-1.6.3.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "me.ramidzkh.mekae2.ae2.MekanismKey"
+    ],
+    "pairs": [
+      {
+        "key": "Tried to load an invalid chemical key from NBT: %s",
+        "value": "尝试从 NBT 中加载无效的化学键：%s"
+      }
+    ]
+  }
+]

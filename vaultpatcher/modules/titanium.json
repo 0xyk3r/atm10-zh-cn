@@ -1,0 +1,21 @@
+[
+  {
+    "name": "titanium_zh_cn",
+    "desc": "titanium-1.21-4.0.43.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "titanium-1.21-4.0.43.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.hrznstudio.titanium.recipe.condition.ContentExistsCondition"
+    ],
+    "pairs": [
+      {
+        "key": "Not a registry ops",
+        "value": "不是注册表操作"
+      }
+    ]
+  }
+]

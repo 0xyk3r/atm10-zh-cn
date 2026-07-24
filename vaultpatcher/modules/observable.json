@@ -1,0 +1,21 @@
+[
+  {
+    "name": "observable_zh_cn",
+    "desc": "observable-5.4.4.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "observable-5.4.4.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "observable.server.CommandsKt"
+    ],
+    "pairs": [
+      {
+        "key": "Error setting value\n",
+        "value": "设置值时出错"
+      }
+    ]
+  }
+]

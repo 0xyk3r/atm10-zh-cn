@@ -1,0 +1,54 @@
+[
+  {
+    "name": "tombstone_zh_cn",
+    "desc": "tombstone-neoforge-1.21.1-9.5.1.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "tombstone-neoforge-1.21.1-9.5.1.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "ovh.corail.tombstone.gui.ScreenConfig"
+    ],
+    "pairs": [
+      {
+        "key": "Save",
+        "value": "保存"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "ovh.corail.tombstone.gui.ScreenReadableScroll"
+    ],
+    "pairs": [
+      {
+        "key": "Readable Scroll",
+        "value": "可读卷轴"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "ovh.corail.tombstone.item.ItemMagicScroll"
+    ],
+    "pairs": [
+      {
+        "key": "[effect added by %s]",
+        "value": "效果由 %s 添加"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "ovh.corail.tombstone.registry.ModTabs"
+    ],
+    "pairs": [
+      {
+        "key": "Corail Tombstone",
+        "value": "Corail 的墓碑"
+      }
+    ]
+  }
+]

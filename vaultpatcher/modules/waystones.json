@@ -1,0 +1,21 @@
+[
+  {
+    "name": "waystones_zh_cn",
+    "desc": "waystones-neoforge-1.21.1-21.1.34.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "waystones-neoforge-1.21.1-21.1.34.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "net.blay09.mods.waystones.command.ModCommands"
+    ],
+    "pairs": [
+      {
+        "key": "Unknown waystone style: ",
+        "value": "未知的道标石样式："
+      }
+    ]
+  }
+]

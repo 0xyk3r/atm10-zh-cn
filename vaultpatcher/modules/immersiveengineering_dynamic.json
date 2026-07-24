@@ -1,0 +1,21 @@
+[
+  {
+    "name": "immersiveengineering_dynamic_zh_cn",
+    "desc": "ImmersiveEngineering-1.21.1-12.4.2-194.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "ImmersiveEngineering-1.21.1-12.4.2-194.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "blusunrize.lib.manual.gui.ManualScreen"
+    ],
+    "pairs": [
+      {
+        "key": "It looks like you meant:",
+        "value": "看起来你想表达的是："
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "extradisks_zh_cn",
+    "desc": "ExtraDisks-1.21.1-4.0.15.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "ExtraDisks-1.21.1-4.0.15.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "de.melanx.extradisks.Registration"
+    ],
+    "pairs": [
+      {
+        "key": "Extra Disks",
+        "value": "额外磁盘"
+      }
+    ]
+  }
+]

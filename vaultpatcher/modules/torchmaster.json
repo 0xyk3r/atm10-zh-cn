@@ -1,0 +1,25 @@
+[
+  {
+    "name": "torchmaster_zh_cn",
+    "desc": "torchmaster-neoforge-1.21.1-21.1.9.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "torchmaster-neoforge-1.21.1-21.1.9.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "net.xalcon.torchmaster.commands.CommandTorchmaster$SubCommands$3"
+    ],
+    "pairs": [
+      {
+        "key": "Attempting village siege",
+        "value": "正在尝试村庄围攻"
+      },
+      {
+        "key": "Exception during siege setup",
+        "value": "攻城设置期间发生异常"
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "kubejs_fluid_bucket_zh_cn",
+    "desc": "KubeJS 流体桶名称后缀汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "kubejs",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "dev.latvian.mods.kubejs.fluid.FluidBuilder"
+    ],
+    "pairs": [
+      {
+        "key": " Bucket",
+        "value": "桶"
+      }
+    ]
+  }
+]

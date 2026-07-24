@@ -1,0 +1,43 @@
+[
+  {
+    "name": "cyclopscore_zh_cn",
+    "desc": "cyclopscore-1.21.1-neoforge-1.29.1.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "cyclopscore-1.21.1-neoforge-1.29.1.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "org.cyclops.cyclopscore.client.gui.GuiMainMenuExtensionDevWorld"
+    ],
+    "pairs": [
+      {
+        "key": "Couldn't load level list",
+        "value": "无法加载等级列表"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "org.cyclops.cyclopscore.command.argument.ArgumentTypeConfigProperty"
+    ],
+    "pairs": [
+      {
+        "key": "Unknown property",
+        "value": "未知属性"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "org.cyclops.cyclopscore.command.argument.ArgumentTypeEnum"
+    ],
+    "pairs": [
+      {
+        "key": "Unknown value",
+        "value": "未知值"
+      }
+    ]
+  }
+]

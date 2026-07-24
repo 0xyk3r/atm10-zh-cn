@@ -1,0 +1,63 @@
+[
+  {
+    "name": "oracle_index_zh_cn",
+    "desc": "oracle_index-neoforge-1.3.0.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "oracle_index-neoforge-1.3.0.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "rearth.oracle.ui.OracleScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Unknown Name",
+        "value": "未知名称"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "rearth.oracle.ui.SearchScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Sorry, Oracle Index Search is not available on your platform.",
+        "value": "抱歉，Oracle Index Search 在你的平台上不可用。"
+      },
+      {
+        "key": "If you want this search feature, you can use the xplat jar available on the mods github.",
+        "value": "如果你想使用此搜索功能，可以使用该模组 GitHub 上提供的 xplat jar。"
+      },
+      {
+        "key": "This is not the default file due to jar size limitations.",
+        "value": "由于 jar 大小限制，这不是默认文件。"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "rearth.oracle.util.MarkdownParser"
+    ],
+    "pairs": [
+      {
+        "key": "Invalid crafting recipe data: expected 9 inputs",
+        "value": "合成配方数据无效：需提供 9 个输入项"
+      },
+      {
+        "key": "Image not found: ",
+        "value": "未找到图像："
+      },
+      {
+        "key": "Error reading image: ",
+        "value": "读取图像时出错："
+      },
+      {
+        "key": "<invalid link>",
+        "value": "<非法链接>"
+      }
+    ]
+  }
+]

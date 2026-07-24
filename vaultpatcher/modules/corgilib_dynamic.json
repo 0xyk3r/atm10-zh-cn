@@ -1,0 +1,33 @@
+[
+  {
+    "name": "corgilib_dynamic_zh_cn",
+    "desc": "Corgilib-NeoForge-1.21.1-5.0.0.9.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "Corgilib-NeoForge-1.21.1-5.0.0.9.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "corgitaco.corgilib.client.screen.widget.EmergencyAnnouncementScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Don't Show Again",
+        "value": "不再显示"
+      },
+      {
+        "key": "Back",
+        "value": "返回"
+      },
+      {
+        "key": "Help Corgi Taco",
+        "value": "帮助柯吉塔可"
+      },
+      {
+        "key": "Announcement Info",
+        "value": "公告信息"
+      }
+    ]
+  }
+]

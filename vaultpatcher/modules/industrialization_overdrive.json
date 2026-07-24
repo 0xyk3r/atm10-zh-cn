@@ -1,0 +1,25 @@
+[
+  {
+    "name": "industrialization_overdrive_zh_cn",
+    "desc": "industrialization_overdrive-1.11.2+1.21.1.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "industrialization_overdrive-1.11.2+1.21.1.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "dev.wp.industrialization_overdrive.item.Terminal"
+    ],
+    "pairs": [
+      {
+        "key": "Unable to get shape matcher for this multiblock.",
+        "value": "无法为此多结构获取形状匹配器。"
+      },
+      {
+        "key": "Required items:",
+        "value": "所需物品："
+      }
+    ]
+  }
+]

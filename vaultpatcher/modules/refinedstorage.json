@@ -1,0 +1,21 @@
+[
+  {
+    "name": "refinedstorage_zh_cn",
+    "desc": "refinedstorage-neoforge-2.0.9.jar 硬编码文本汉化",
+    "authors": "Auto-Translation-Tool",
+    "mods": "refinedstorage-neoforge-2.0.9.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.refinedmods.refinedstorage.neoforge.debug.DebugStickItem"
+    ],
+    "pairs": [
+      {
+        "key": "Gave a storage disk with ",
+        "value": "给予了一个存储磁盘，其中包含 "
+      }
+    ]
+  }
+]

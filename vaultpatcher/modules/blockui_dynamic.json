@@ -1,0 +1,61 @@
+[
+  {
+    "name": "blockui_dynamic_zh_cn",
+    "desc": "blockui-1.0.211-1.21.1-snapshot.jar 硬编码文本汉化（动态替换）",
+    "authors": "Auto-Translation-Tool",
+    "mods": "blockui-1.0.211-1.21.1-snapshot.jar",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.ldtteam.blockui.BOScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Blockout GUI",
+        "value": "屏蔽GUI"
+      },
+      {
+        "key": "Rendering BO screen",
+        "value": "正在渲染 BO 屏幕"
+      },
+      {
+        "key": "KeyPressed event for BO screen",
+        "value": "BO 屏幕的 KeyPressed 事件"
+      },
+      {
+        "key": "CharTyped event for BO screen",
+        "value": "BO 屏幕的 CharTyped 事件"
+      },
+      {
+        "key": "MousePressed event for BO screen",
+        "value": "BO 屏幕的 MousePressed 事件"
+      },
+      {
+        "key": "MouseScroll event for BO screen",
+        "value": "BO 屏幕的 MouseScroll 事件"
+      },
+      {
+        "key": "MouseDragged event for BO screen",
+        "value": "BO 屏幕的 MouseDragged 事件"
+      },
+      {
+        "key": "MouseReleased event for BO screen",
+        "value": "BO 屏幕的 MouseReleased 事件"
+      },
+      {
+        "key": "Ticking/Updating BO screen",
+        "value": "正在 Tick/更新 BO 屏幕"
+      },
+      {
+        "key": "Closing BO screen",
+        "value": "正在关闭BO界面"
+      },
+      {
+        "key": "XML: %s Scaling: %s (vanilla: %.2f our: %.2f) ",
+        "value": "XML：%s 缩放：%s（原版：%.2f 我们的：%.2f） "
+      }
+    ]
+  }
+]
