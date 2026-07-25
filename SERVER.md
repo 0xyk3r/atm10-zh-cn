@@ -62,12 +62,25 @@ README-服务端.md · LICENSE · 项目主页与反馈.url
    （含 `mods/`、`server.properties` 的那一层）。
 3. **完整重启服务器**（VaultPatcher 在类加载时生效，热重载无效）。
 
+> **只更新任务书文本时可以不重启**：`config/ftbquests/quests/lang/` 下的语言文件
+> 覆盖后，执行 `ftbquests reload` 即可让所有在线玩家生效（玩家侧重新打开任务书，
+> 或重连一次）。Docker 部署可用：
+>
+> ```bash
+> docker exec <容器名> rcon-cli ftbquests reload
+> ```
+>
+> 控制台直接敲 `ftbquests reload` 也一样。VaultPatcher / kubejs 的改动仍需完整重启。
+
 ## 验证
 
 - 服务器**能正常启动、无报错**（尤其别出现 `error creating crop with id null`——若出现，
   说明误把客户端包的 `config/mysticalcustomization` 上了服务器，见下）。
 - 进服后：任务书标题 / 描述为中文；建造机未选择时的聊天提示为中文；
   抓到的新蜂 / 放进背包的老蜂笼名字为中文。
+- 任务书里提到的物品名，应当与你在 JEI 里搜到的**完全一致**（本包以「任务绑定的
+  物品真名」为单一真源做过全量反查对齐）。若发现对不上，请
+  [提 Issue](https://github.com/chiba233/atm10-zh-cn/issues) 附任务截图。
 
 ## 不包含什么 · 为什么
 
