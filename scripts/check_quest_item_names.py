@@ -15,7 +15,9 @@ MCROOT = "/Users/yumeka/Documents/minecraft/.minecraft"
 REPO = "/Users/yumeka/Documents/projects/atm10-zh-cn"
 PACK = os.path.join(REPO, "resourcepacks/ATM10汉化包-7.2")
 QDIR = os.path.join(INST, "config/ftbquests/quests")
-CODE = re.compile(r'[&§](?:#[0-9A-Fa-f]{6}|[0-9a-fk-orA-FK-OR])')
+# 注意：也要剥掉 &z 这类**非法**颜色码。ATM 任务书里真有 "&zRainbow Plating"，
+# 不剥的话 `(?<![A-Za-z])Rainbow` 的词边界会被前面的 z 吃掉，精确匹配整条漏掉。
+CODE = re.compile(r'[&§](?:#[0-9A-Fa-f]{6}|[0-9A-Za-z])')
 strip = lambda s: CODE.sub('', s)
 # 比较时归一化空格：「16k 存储元件」和「16k存储元件」不算不一致
 norm = lambda s: re.sub(r'[\s\u00a0]+', '', strip(s))
