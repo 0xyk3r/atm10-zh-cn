@@ -137,6 +137,12 @@
     按 Insanite=狂质 / Inanite=虚素 重写。
   - **张冠李戴**：Magentite（玫磁）被当成 Magnetite 译为「磁铁矿」（真实矿物，
     与游戏内容无关）；副标题「粉碎…钚矿石」实为 Blutonium 锭，非矿石。
+- **铁路工艺 Crusher：碎石机 → 粉碎机**：它不止能碎石头，而且 MC 里「石头」是特指的
+  方块名，叫碎石机会误导。**从物品真源改起**，不是只改任务书：
+  `block/container.railcraft.crusher`、JEI 配方分类（碎石→粉碎）、进度描述、
+  Patchouli 导览书（该页本来就自相矛盾：标题写粉碎机、正文写碎石机；
+  顺手修正文里写反的尺寸 2×3×2 → 3×2×2），以及任务书标题。
+  注意「碎石螨 / 碎石盾牌 / 碎石小径 / 神化 stonebreaker」是别的东西，未触碰。
 - **Oritech 统一为「奥瑞科技」**：本包 oritech 界面侧（`oracle_index.title.oritech` /
   `advancements.oritech.begin` / `key.oritech.hotkey_category`）本来就是「奥瑞科技」，
   是任务书被统一成了「奥日科技」、创造栏还留着「Oritech 机械」这种英文品牌形式，三处分家。
