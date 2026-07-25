@@ -137,6 +137,17 @@
     按 Insanite=狂质 / Inanite=虚素 重写。
   - **张冠李戴**：Magentite（玫磁）被当成 Magnetite 译为「磁铁矿」（真实矿物，
     与游戏内容无关）；副标题「粉碎…钚矿石」实为 Blutonium 锭，非矿石。
+- **「石」字滥用清查**（MC 里「石头」是特指方块，「石」不能随手加）：全量比对英文原文，
+  找出中文用了「石」但英文毫无石/矿物概念的键，剔除矿物学正名（橄榄石 Peridot、
+  绿松石 Turquoise、金绿柱石 Heliodor、蓝柱石 Euclase、硝石 Saltpeter、圆粒金刚石 Bort、
+  符石 Sigil、石斑鱼 Grouper、石中剑 Caliburn、石化蜂蜜 Petrified Honey 等）后，实修：
+  - **Chipped 的 155 个 Column 全译成「柱石」** → 统一为「柱」。整合包其余模组
+    （Create 安山岩柱 / Rechiseled 紫水晶柱 / Synergy 耐火黏土柱…）与原版
+    （石英柱 / 紫珀柱）都用「柱」，只有 Chipped 例外；且套在非石头材质上直接读不通
+    （切制冰柱石 / 泥土柱石 / 粗铜柱石），石头材质则叠字（切制石头柱石）。
+  - `Frosted Ice`「霜冰石」→「霜冰」：它是冰不是石，且与同模组 `Icestone`（真的是石头，
+    译「冰石」）撞得更晕。
+  - `Pillar`「白金柱石」→「白金柱」：同族 `Pillar Top` 本来就译作「浮雕顶柱」，自相矛盾。
 - **铁路工艺 Crusher：碎石机 → 粉碎机**：它不止能碎石头，而且 MC 里「石头」是特指的
   方块名，叫碎石机会误导。**从物品真源改起**，不是只改任务书：
   `block/container.railcraft.crusher`、JEI 配方分类（碎石→粉碎）、进度描述、
