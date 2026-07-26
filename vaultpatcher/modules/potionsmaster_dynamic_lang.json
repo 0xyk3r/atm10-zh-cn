@@ -1,0 +1,45 @@
+[
+  {
+    "name": "potionsmaster_dynamic_lang_guard",
+    "desc": "PotionsMaster 在语言表建好后用 Map.put 强行覆盖 154 条动态键（22 种矿 × 7 条）为英文，把资源包的中文顶掉。这里改掉它注入时用的 key 模板，让那 154 条英文落进废键，资源包的译文得以保留。仅客户端，不可上服务端。",
+    "authors": "Hoshino Yumeka",
+    "mods": "potionsmaster-21.1.113-1.0.1.jar",
+    "dynamic": false,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "com.thevortex.potionsmaster.client.DynamicLanguageProvider"
+    ],
+    "pairs": [
+      {
+        "key": "item.potionsmaster.",
+        "value": "vphanhua.dropped.powder."
+      },
+      {
+        "key": "item.potionsmaster.calcinated_",
+        "value": "vphanhua.dropped.calcinated_powder."
+      },
+      {
+        "key": "effect.potionsmaster.",
+        "value": "vphanhua.dropped.effect."
+      },
+      {
+        "key": "item.minecraft.potion.effect.",
+        "value": "vphanhua.dropped.potion."
+      },
+      {
+        "key": "item.minecraft.splash_potion.effect.",
+        "value": "vphanhua.dropped.splash."
+      },
+      {
+        "key": "item.minecraft.lingering_potion.effect.",
+        "value": "vphanhua.dropped.lingering."
+      },
+      {
+        "key": "item.minecraft.tipped_arrow.effect.",
+        "value": "vphanhua.dropped.arrow."
+      }
+    ]
+  }
+]

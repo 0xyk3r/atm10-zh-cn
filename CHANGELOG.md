@@ -262,6 +262,19 @@
   —— 这个筛子不成立，单次出现的真错误照样存在。现已把去重后的两百多组候选整份读完，
   并把这条教训写进 `scripts/check_quest_desc_terms.py` 的说明里。
 
+- **修 PotionsMaster 矿石透视药水的中文被模组顶掉**：本包早已备齐这 154 个动态键
+  （22 种矿 × 7 条：粉、煅烧粉、效果、药水、喷溅、滞留、药箭），一个不缺，但游戏里仍显示
+  `Potion of Allthemodium Sight`。反编译 `DynamicLanguageProvider` 查明原因：它是一个
+  资源重载监听器，在**语言表建好之后**用反射拿到 `Language` 的存储 Map，再用 `Map.put`
+  （不是 `putIfAbsent`）把自己生成的英文写进去——资源包的译文被原地覆盖。日志实锤：
+  `Successfully found translation storage with 234869 entries` → `Successfully injected 154
+  dynamic language entries for 22 ores`。
+  它还有个 `injected` 静态开关，每次启动只注入一次，所以启动后按一次 **F3+T** 重载资源，
+  语言表会按资源包重建而模组不再注入，中文就回来了——这也是「时灵时不灵」的由来。
+  修法：新增 VaultPatcher 模块 `potionsmaster_dynamic_lang.json`，把它注入时用的 **key 模板**
+  改掉（`item.minecraft.potion.effect.` → `vphanhua.dropped.potion.` 等 7 条），
+  让那 154 条英文落进废键，资源包的中文得以保留。仅客户端，未列入服务端模块清单。
+
 **已知限制**
 
 - **Sodium「粒子效果」里的原版粒子名无法汉化**：sodium-extra 0.9.3 自身问题
