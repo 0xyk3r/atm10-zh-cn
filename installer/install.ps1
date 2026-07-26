@@ -123,34 +123,48 @@ function Do-Backup {
     Write-Host "✅ 已备份 $n 个将被覆盖的文件到 backups/$script:TS/"
 }
 
+# ATM10 7.2 默认启用的资源包，顺序照抄游戏自己写出来的 options.txt。
+# 为什么要写死这一串：全新实例没有 options.txt，如果只写我们一个包，
+# 游戏首次启动会把这 15 个内置包**全部插到我们后面**（实测汉化包落到第 3 位，
+# 被 mod_resources 和五百多个模组包压在底下，汉化基本不生效）。
+# 资源包是**后面的覆盖前面的**，我们必须排在最后一个。
+$DefaultPacks = '""modularbees:dynamic_assets"",""vanilla"",""mod_resources"",""add_xycraft_overrides_stone"",""add_xycraft_overrides_metal"",""add_xycraft_overrides_glass"",""moonlight:merged_pack"",""mod/towntalk:respack"",""mod/dyenamicsandfriends:compat_packs/productivemetalworks/"",""mod/dyenamicsandfriends:compat_packs/connectedglass/"",""mod/dyenamicsandfriends:compat_packs/luminax/"",""mod/dyenamicsandfriends:compat_packs/cookingforblockheads/"",""mod/dyenamicsandfriends:compat_packs/botanypots/"",""mod/dyenamicsandfriends:compat_packs/chromacarvings/"",""modern_industrialization/generated""'
+
 function Patch-Options {
     $opt = Join-Path $script:Target 'options.txt'
-    # 全新实例还没启动过，options.txt 尚不存在（Minecraft 退出时才写）。
-    # 直接建一个只含必要两行的：Minecraft 启动时会把其余选项按默认值补齐再回写，
-    # 部分 options.txt 是合法的。
-    # （不要指望 config/defaultoptions —— ATM10 7.2 并没有装 DefaultOptions 模组，
-    #   那个目录是历史遗留，写进去没有任何东西会读它。）
     if (!(Test-Path -LiteralPath $opt)) {
-        [System.IO.File]::WriteAllText($opt, "lang:zh_cn`nresourcePacks:[`"$PackEntry`"]`n", $Utf8NoBom)
+        $line = 'resourcePacks:[' + $DefaultPacks + ',"' + $PackEntry + '"]'
+        [System.IO.File]::WriteAllText($opt, "lang:zh_cn`n$line`n", $Utf8NoBom)
         Write-Host 'ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。'
         Write-Host '   首次启动游戏时 Minecraft 会自动补齐其余设置。'
         return
     }
-    $content = [System.IO.File]::ReadAllText($opt)
-    if ($content -match [regex]::Escape($PackEntry)) {
-        Write-Host 'options.txt 已启用汉化资源包，跳过'
-        return
+    $lines = [System.IO.File]::ReadAllLines($opt)
+    $idx = -1
+    for ($i = 0; $i -lt $lines.Length; $i++) {
+        if ($lines[$i].StartsWith('resourcePacks:[')) { $idx = $i; break }
     }
-    if ($content -match '(?m)^resourcePacks:\[\]\s*$') {
-        $content = $content -replace '(?m)^resourcePacks:\[\]', ('resourcePacks:["' + $PackEntry + '"]')
-    } elseif ($content -match '(?m)^resourcePacks:\[.+\]\s*$') {
-        $content = $content -replace '(?m)^resourcePacks:\[(.+)\]', ('resourcePacks:[$1,"' + $PackEntry + '"]')
-    } else {
+    if ($idx -lt 0) {
         Write-Host '⚠️ options.txt 中没有 resourcePacks 行，请进游戏手动启用资源包'
         return
     }
-    [System.IO.File]::WriteAllText($opt, $content, $Utf8NoBom)
-    Write-Host '✅ 已在 options.txt 启用汉化资源包（不启用会全英文）'
+    $cur = $lines[$idx]
+    $body = $cur.Substring('resourcePacks:['.Length)
+    $body = $body.Substring(0, $body.Length - 1)
+    # 先把已有的汉化包条目摘掉，再追加到**末尾**。
+    # 不能只判断「已存在就跳过」——旧版本装出来的实例里它可能排在很前面，
+    # 那样等于没启用（后面的包会把它整个盖掉），必须重新挪到最后。
+    $body = $body -replace [regex]::Escape('"' + $PackEntry + '"'), ''
+    $body = ($body -replace ',{2,}', ',').Trim(',')
+    $new = if ($body) { 'resourcePacks:[' + $body + ',"' + $PackEntry + '"]' }
+           else       { 'resourcePacks:["' + $PackEntry + '"]' }
+    if ($new -eq $cur) {
+        Write-Host 'options.txt 已正确启用汉化资源包（在列表最后），跳过'
+        return
+    }
+    $lines[$idx] = $new
+    [System.IO.File]::WriteAllLines($opt, $lines, $Utf8NoBom)
+    Write-Host '✅ 已在 options.txt 启用汉化资源包并置于列表最后（不在最后会被其他包盖掉）'
 }
 
 ##

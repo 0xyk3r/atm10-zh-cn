@@ -143,33 +143,48 @@ clean_legacy_quest_lang() {
   fi
 }
 
+# ATM10 7.2 默认启用的资源包，顺序照抄游戏自己写出来的 options.txt。
+# 为什么要写死这一串：全新实例没有 options.txt，如果只写我们一个包，
+# 游戏首次启动会把这 15 个内置包**全部插到我们后面**（实测汉化包落到第 3 位，
+# 被 mod_resources 和五百多个模组包压在底下，汉化基本不生效）。
+# 资源包是**后面的覆盖前面的**，我们必须排在最后一个。
+DEFAULT_PACKS='"modularbees:dynamic_assets","vanilla","mod_resources","add_xycraft_overrides_stone","add_xycraft_overrides_metal","add_xycraft_overrides_glass","moonlight:merged_pack","mod/towntalk:respack","mod/dyenamicsandfriends:compat_packs/productivemetalworks/","mod/dyenamicsandfriends:compat_packs/connectedglass/","mod/dyenamicsandfriends:compat_packs/luminax/","mod/dyenamicsandfriends:compat_packs/cookingforblockheads/","mod/dyenamicsandfriends:compat_packs/botanypots/","mod/dyenamicsandfriends:compat_packs/chromacarvings/","modern_industrialization/generated"'
+
 patch_options() {
   OPT="$TARGET/options.txt"
   # 全新实例还没启动过，options.txt 尚不存在（Minecraft 退出时才写）。
-  # 直接建一个只含必要两行的：Minecraft 启动时会把其余选项按默认值补齐再回写，
-  # 部分 options.txt 是合法的。
+  # 建一份含默认包列表 + 汉化包（放最后）的：Minecraft 启动时会把其余选项
+  # 按默认值补齐再回写，部分 options.txt 是合法的。
   # （不要指望 config/defaultoptions —— ATM10 7.2 并没有装 DefaultOptions 模组，
   #   那个目录是历史遗留，写进去没有任何东西会读它。）
   if [ ! -f "$OPT" ]; then
-    printf 'lang:zh_cn\nresourcePacks:["%s"]\n' "$PACK_ENTRY" > "$OPT"
+    printf 'lang:zh_cn\nresourcePacks:[%s,"%s"]\n' "$DEFAULT_PACKS" "$PACK_ENTRY" > "$OPT"
     say "ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。"
     say "   首次启动游戏时 Minecraft 会自动补齐其余设置。"
     return
   fi
-  if grep -q "$PACK_ENTRY" "$OPT"; then
-    say "options.txt 已启用汉化资源包，跳过"
-    return
-  fi
-  if grep -q '^resourcePacks:\[\]' "$OPT"; then
-    sed -i.hanhua-bak "s|^resourcePacks:\[\]|resourcePacks:[\"$PACK_ENTRY\"]|" "$OPT"
-  elif grep -q '^resourcePacks:\[' "$OPT"; then
-    sed -i.hanhua-bak "s|^resourcePacks:\[\(.*\)\]|resourcePacks:[\1,\"$PACK_ENTRY\"]|" "$OPT"
-  else
+  cur="$(grep '^resourcePacks:' "$OPT" | head -1)"
+  if [ -z "$cur" ]; then
     say "⚠️ options.txt 中没有 resourcePacks 行，请进游戏手动启用资源包"
     return
   fi
-  rm -f "$OPT.hanhua-bak"
-  say "✅ 已在 options.txt 启用汉化资源包（不启用会全英文）"
+  body="${cur#resourcePacks:[}"; body="${body%]}"
+  # 先把已有的汉化包条目摘掉，再追加到**末尾**。
+  # 不能只判断「已存在就跳过」——旧版本装出来的实例里它可能排在很前面，
+  # 那样等于没启用（后面的包会把它整个盖掉），必须重新挪到最后。
+  body="$(printf '%s' "$body" | sed "s|\"$PACK_ENTRY\"||g; s|,,*|,|g; s|^,||; s|,$||")"
+  if [ -n "$body" ]; then
+    new="resourcePacks:[$body,\"$PACK_ENTRY\"]"
+  else
+    new="resourcePacks:[\"$PACK_ENTRY\"]"
+  fi
+  if [ "$new" = "$cur" ]; then
+    say "options.txt 已正确启用汉化资源包（在列表最后），跳过"
+    return
+  fi
+  awk -v n="$new" '/^resourcePacks:/{print n; next} {print}' "$OPT" > "$OPT.hanhua-tmp" \
+    && mv "$OPT.hanhua-tmp" "$OPT"
+  say "✅ 已在 options.txt 启用汉化资源包并置于列表最后（不在最后会被其他包盖掉）"
 }
 
 do_apply() {
