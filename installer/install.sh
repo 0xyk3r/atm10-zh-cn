@@ -161,6 +161,8 @@ patch_options() {
     printf 'lang:zh_cn\nresourcePacks:[%s,"%s"]\n' "$DEFAULT_PACKS" "$PACK_ENTRY" > "$OPT"
     say "ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。"
     say "   首次启动游戏时 Minecraft 会自动补齐其余设置。"
+    say "   💡 若首次进游戏后发现翻译没生效，退出游戏再跑一次本安装器即可——"
+    say "      那说明你的整合包比预期多了几个内置资源包，重跑会把汉化包重新挪到最后一位。"
     return
   fi
   cur="$(grep '^resourcePacks:' "$OPT" | head -1)"
