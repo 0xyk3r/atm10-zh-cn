@@ -24,6 +24,9 @@ ENTRY = f'file/{PACK}.zip'
 tmp = Path(tempfile.mkdtemp(prefix='hanhua-test-'))
 inst = tmp / 'instance'
 (inst / 'mods').mkdir(parents=True)
+# 实例判定用「mods 里 jar 数 >= 20」把真实例和汉化包自己的 mods/ 区分开
+for i in range(25):
+    (inst / 'mods' / f'modpack-{i}.jar').write_text('x', encoding='utf-8')
 OPTS_BEFORE = 'version:4189\nresourcePacks:["vanilla","mod_resources"]\nlang:zh_cn\n'
 (inst / 'options.txt').write_text(OPTS_BEFORE, encoding='utf-8')
 
@@ -106,8 +109,11 @@ else:
 
 # ---- 回归：手动输入带引号/空格的实例路径（复制粘贴/拖拽常见形态）----
 # 造一个路径含空格的实例；释放文件夹放在「非实例」的松散目录里 → check_target 触发输入循环
-spaced = tmp / 'Game Dir With Spaces'
+# 路径同时含空格与中文：Windows 上两者都常见（PCL2 默认就往中文目录装）
+spaced = tmp / '我的 Game Dir With Spaces 绿油油'
 (spaced / 'mods').mkdir(parents=True)
+for i in range(25):
+    (spaced / 'mods' / f'modpack-{i}.jar').write_text('x', encoding='utf-8')
 SPACED_OPTS = 'version:4189\nresourcePacks:[]\n'
 (spaced / 'options.txt').write_text(SPACED_OPTS, encoding='utf-8')
 loose = tmp / 'loose' / 'ATM10-hanhua'   # 父目录 tmp/loose 不含 mods/options.txt
@@ -162,6 +168,8 @@ inplace = tmp / 'inplace-instance'
 (inplace / 'mods').mkdir(parents=True)
 INPLACE_OPTS = 'version:4189\nresourcePacks:[]\nlang:zh_cn\n'
 (inplace / 'options.txt').write_text(INPLACE_OPTS, encoding='utf-8')
+for i in range(25):
+    (inplace / 'mods' / f'modpack-{i}.jar').write_text('x', encoding='utf-8')
 for d in ('config', 'kubejs', 'vaultpatcher'):          # 模拟解压覆盖
     shutil.copytree(ROOT / d, inplace / d, dirs_exist_ok=True)
 (inplace / 'resourcepacks').mkdir(exist_ok=True)
@@ -183,6 +191,38 @@ assert ENTRY in (inplace / 'options.txt').read_text(encoding='utf-8'), \
     f'就地解压模式未启用资源包：\n{out}'
 assert (inplace / 'config' / 'vaultpatcher_asm' / 'config.json').exists(), '就地解压模式误删了文件'
 print('✅ 就地解压（源即目标）不再自我复制 OK')
+
+# ---- 回归：刚装好、一次都没启动过的实例（没有 options.txt）----
+# Minecraft 是退出时才写 options.txt。旧版把它当实例判定的必要条件，
+# 于是无论用户怎么输路径都被判定为「不是实例」，卡在输入循环里出不来。
+fresh = tmp / '全新 实例 never-launched'
+(fresh / 'mods').mkdir(parents=True)
+for i in range(25):
+    (fresh / 'mods' / f'modpack-{i}.jar').write_text('x', encoding='utf-8')
+frel = fresh / 'atm10-zh_cn-client'
+frel.mkdir()
+for d in ('config', 'kubejs', 'mods', 'vaultpatcher'):
+    shutil.copytree(ROOT / d, frel / d)
+(frel / 'resourcepacks').mkdir()
+shutil.copy2(rel / 'resourcepacks' / f'{PACK}.zip', frel / 'resourcepacks' / f'{PACK}.zip')
+for s_ in ('install.sh', 'install.ps1'):
+    shutil.copy2(ROOT / 'installer' / s_, frel / s_)
+
+if IS_WIN:
+    cmd = ['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass',
+           '-File', str(frel / 'install.ps1'), 'apply']
+else:
+    cmd = ['bash', str(frel / 'install.sh'), 'apply']
+r = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8',
+                   errors='replace', timeout=300)
+out = (r.stdout or '') + (r.stderr or '')
+assert r.returncode == 0, f'全新实例（无 options.txt）安装失败(rc={r.returncode})：\n{out}'
+assert '不是游戏实例根目录' not in out, f'没识别出全新实例：\n{out}'
+assert (fresh / 'config' / 'vaultpatcher_asm' / 'config.json').exists(), '文件未落位'
+defopt = (fresh / 'config' / 'defaultoptions' / 'options.txt').read_text(encoding='utf-8')
+assert ENTRY in defopt, f'defaultoptions 未预置资源包，首次启动不会自动启用：\n{defopt}'
+assert 'lang:zh_cn' in defopt, 'defaultoptions 丢了中文语言设置'
+print('✅ 全新实例（无 options.txt，路径含中文+空格）OK')
 
 shutil.rmtree(tmp, ignore_errors=True)
 print(f'✅ 安装脚本端到端测试通过（{platform.system()}）')

@@ -23,9 +23,11 @@ python3 scripts/check.py
 CSTAGE="dist/${CBASE}"
 rm -rf "$CSTAGE"
 mkdir -p "$CSTAGE/resourcepacks"
-(cd "resourcepacks/${PACK_NAME}" && zip -X -q -r "../../${CSTAGE}/resourcepacks/${PACK_NAME}.zip" . -x '*.DS_Store')
+python3 scripts/mkzip.py "${CSTAGE}/resourcepacks/${PACK_NAME}.zip" "resourcepacks/${PACK_NAME}"
 cp -R config kubejs mods vaultpatcher 可选mods-拼音搜索 "$CSTAGE/"
 cp installer/install.sh installer/install.ps1 "installer/双击安装-Windows.bat" "$CSTAGE/"
+# ASCII 别名：万一中文名在用户的解压软件下还是乱码，起码还有一个认得出的入口
+cp "installer/双击安装-Windows.bat" "$CSTAGE/install-windows.bat"
 cp README.md CHANGELOG.md LICENSE 致谢与技术说明.md "$CSTAGE/"
 printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' > "$CSTAGE/项目主页与反馈.url"
 chmod +x "$CSTAGE/install.sh"
@@ -55,9 +57,11 @@ printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' >
 
 # ---------- 压缩 ----------
 find dist -name '.DS_Store' -delete
+# 用 mkzip.py 而不是系统 zip：Info-ZIP 不置 UTF-8 标志位，
+# Windows 自带解压会把中文名按 GBK 解成乱码（详见 scripts/mkzip.py）
 rm -f "dist/${CBASE}-v${VERSION}.zip" "dist/${SBASE}-v${VERSION}.zip"
-(cd dist && zip -X -q -r "${CBASE}-v${VERSION}.zip" "${CBASE}")
-(cd dist && zip -X -q -r "${SBASE}-v${VERSION}.zip" "${SBASE}")
+python3 scripts/mkzip.py "dist/${CBASE}-v${VERSION}.zip" "$CSTAGE" "${CBASE}"
+python3 scripts/mkzip.py "dist/${SBASE}-v${VERSION}.zip" "$SSTAGE" "${SBASE}"
 
 for f in "dist/${CBASE}-v${VERSION}.zip" "dist/${SBASE}-v${VERSION}.zip"; do
   echo "已生成: $f ($(du -h "$f" | cut -f1))"

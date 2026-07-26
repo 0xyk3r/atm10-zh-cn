@@ -221,6 +221,21 @@
   随后又运行安装脚本时，脚本目录与实例目录是同一层，`Copy-Item` 把文件复制到自己头上，
   抛 `Cannot overwrite the item ... with itself`。安装器现在会识别这种装法、跳过复制只补 `options.txt`，
   并明确告知这种装法没有备份可回退。macOS/Linux 侧同步加固。
+- **修安装器在「全新未启动过的实例」上死循环**：`options.txt` 是 Minecraft **退出时**才写的，
+  刚装好的整合包根本没有这个文件，而安装器把它当成识别实例的必要条件 → 无论用户输什么路径
+  都判定「不是实例」，反复追问。现在按 `mods/` + jar 数量识别实例（ATM10 有 400+ 个 jar，
+  汉化包自己的 `mods/` 只有 1 个，可靠区分）；没有 `options.txt` 时改由整合包自带的
+  **DefaultOptions** 接手——`config/defaultoptions/options.txt` 里已预置资源包与中文语言，
+  首次启动游戏时自动生效。
+- **Windows 路径鲁棒性**：`双击安装-Windows.bat` 改为纯 ASCII + CRLF，并在 `chcp` **之前**
+  取好 `%~dp0`（cmd 按字节偏移重读批处理文件，中途切代码页会在非 ASCII 路径下错位）；
+  `install.ps1` 所有路径操作改用 `-LiteralPath`（含空格、中文、方括号的路径都不会被当通配符）。
+  测试覆盖含中文+空格的实例路径。
+- **修压缩包里的中文文件名在 Windows 自带解压下变乱码**：macOS/Linux 自带的 Info-ZIP 不置
+  UTF-8 标志位（general purpose bit 11），Windows「提取全部」就按系统代码页去解，
+  `双击安装-Windows.bat` 到用户手里成了乱码——而那正是要双击的文件。改用
+  `scripts/mkzip.py` 打包（Python zipfile 会自动置位），并另附一个 ASCII 别名
+  `install-windows.bat` 兜底。
 - **发布包改用 ASCII 文件名**：`atm10-zh_cn-client-vX.zip` / `atm10-zh_cn-server-vX.zip`
   （中文压缩包名/目录名在 Windows 各解压软件之间编码不一致，用户拿到手就是乱码）。
 - **README 重写安装章节**：新增「我该下载哪个包？」——明确回答**单人玩家只装客户端包**

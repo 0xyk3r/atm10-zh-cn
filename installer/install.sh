@@ -24,6 +24,17 @@ IN_PLACE=0
 
 say() { printf '%s\n' "$*"; }
 
+# 判定一个目录是不是游戏实例根目录。
+# 不能只看 options.txt —— **刚装好、一次都没启动过的整合包没有 options.txt**
+# （它是 Minecraft 首次退出时才写的）。也不能只看 mods/ —— 汉化包自己的文件夹里
+# 也有个 mods/（装着 vaultpatcher.jar）。用 jar 数量区分：ATM10 有 400+ 个，汉化包只有 1 个。
+is_instance() {
+  [ -d "$1/mods" ] || return 1
+  [ -f "$1/options.txt" ] && return 0
+  n=$(ls "$1"/mods/*.jar 2>/dev/null | wc -l | tr -d ' ')
+  [ "${n:-0}" -ge 20 ]
+}
+
 set_in_place() {
   if [ "$(cd "$SCRIPT_DIR" && pwd -P)" = "$(cd "$TARGET" && pwd -P)" ]; then
     IN_PLACE=1
@@ -35,17 +46,17 @@ set_in_place() {
 }
 
 check_target() {
-  if [ -d "$TARGET/mods" ] && [ -f "$TARGET/options.txt" ]; then
+  if is_instance "$TARGET"; then
     set_in_place
     return
   fi
   # 就地解压：脚本自己所在的这一层就是实例根目录
-  if [ -d "$SCRIPT_DIR/mods" ] && [ -f "$SCRIPT_DIR/options.txt" ]; then
+  if is_instance "$SCRIPT_DIR"; then
     TARGET="$SCRIPT_DIR"
     set_in_place
     return
   fi
-  say "⚠️ 上一级目录不是游戏实例根目录（含 mods/ 与 options.txt 的那一层）。"
+  say "⚠️ 上一级目录不是游戏实例根目录（含 mods/ 的那一层）。"
   if [ -t 0 ]; then
     while :; do
       printf '请输入 ATM10 实例根目录完整路径（q 退出）: '
@@ -59,16 +70,16 @@ check_target() {
       case "$inp" in *\\*) inp="$(printf '%s' "$inp" | sed 's/\\\(.\)/\1/g')" ;; esac
       inp="${inp%/}"
       case "$inp" in "~"*) inp="$HOME${inp#\~}" ;; esac
-      if [ -d "$inp/mods" ] && [ -f "$inp/options.txt" ]; then
+      if is_instance "$inp"; then
         TARGET="$inp"
         say "✅ 目标实例: $TARGET"
         set_in_place
         return
       fi
-      say "❌ 该路径下未找到 mods/ 与 options.txt，请重试。"
+      say "❌ 该路径下没找到 ATM10 的 mods/（应该有几百个 .jar），请重试。"
     done
   fi
-  say "   请把整个汉化文件夹放进实例根目录后再运行本脚本。"
+  say "   请把整个汉化文件夹放进实例根目录（含 mods/ 的那一层）后再运行本脚本。"
   exit 1
 }
 
@@ -96,12 +107,26 @@ do_backup() {
       printf '%s\n' "$f" >> "$BK/新增文件清单.txt"
     fi
   done < <(payload_files)
-  cp -p "$TARGET/options.txt" "$BK/options.txt"
+  [ -f "$TARGET/options.txt" ] && cp -p "$TARGET/options.txt" "$BK/options.txt"
   say "✅ 已备份 $n 个将被覆盖的文件到 backups/$TS/"
 }
 
 patch_options() {
   OPT="$TARGET/options.txt"
+  # 全新实例还没启动过，options.txt 尚不存在（Minecraft 退出时才写）。
+  # 这种情况交给整合包自带的 DefaultOptions：它会在首次启动时把
+  # config/defaultoptions/options.txt 里的键补进玩家的 options.txt。
+  if [ ! -f "$OPT" ]; then
+    DEF="$TARGET/config/defaultoptions/options.txt"
+    if [ -f "$DEF" ] && grep -q "$PACK_ENTRY" "$DEF"; then
+      say "ℹ️ 这个实例还没启动过（没有 options.txt）。"
+      say "   已通过 config/defaultoptions 预置资源包与中文语言，首次启动游戏时自动生效。"
+    else
+      say "⚠️ 没有 options.txt，也没找到 config/defaultoptions/options.txt。"
+      say "   请首次进游戏后手动到 选项 → 资源包 里启用「ATM10汉化包-7.2」。"
+    fi
+    return
+  fi
   if grep -q "$PACK_ENTRY" "$OPT"; then
     say "options.txt 已启用汉化资源包，跳过"
     return
