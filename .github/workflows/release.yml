@@ -133,11 +133,13 @@ jobs:
           PRERELEASE_FLAG=""
           [[ "$IS_BETA" == "true" ]] && PRERELEASE_FLAG="--prerelease"
 
-          # gh CLI 对中文文件名有 bug，上传前先改英文名
+          # build_dist.sh 直接产出 ASCII 名（连解压出来的文件夹名也是 ASCII）——
+          # 以前只在上传前把 zip 改名，用户解压后拿到的仍是中文文件夹，
+          # Windows 各解压软件编码不一致会变乱码。
           CLIENT_ZIP="dist/atm10-zh_cn-client-v${RELEASE_VERSION}.zip"
           SERVER_ZIP="dist/atm10-zh_cn-server-v${RELEASE_VERSION}.zip"
-          cp dist/*客户端*.zip "$CLIENT_ZIP"
-          cp dist/*服务端*.zip "$SERVER_ZIP"
+          [ -f "$CLIENT_ZIP" ] || { echo "缺少 $CLIENT_ZIP"; exit 1; }
+          [ -f "$SERVER_ZIP" ] || { echo "缺少 $SERVER_ZIP"; exit 1; }
 
           gh release delete "v$RELEASE_VERSION" --yes 2>/dev/null || true
 

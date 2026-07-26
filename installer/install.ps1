@@ -44,6 +44,12 @@ function Check-Target {
         Set-InPlace
         return
     }
+    # 就地解压：脚本自己所在的这一层就是实例根目录
+    if ((Test-Path (Join-Path $ScriptDir 'mods')) -and (Test-Path (Join-Path $ScriptDir 'options.txt'))) {
+        $script:Target = $ScriptDir
+        Set-InPlace
+        return
+    }
     Write-Host '⚠️ 上一级目录不是游戏实例根目录（含 mods\ 与 options.txt 的那一层）。'
     while ($true) {
         $inp = Read-Host '请输入 ATM10 实例根目录完整路径（q 退出）'
@@ -149,15 +155,19 @@ function Do-Pinyin {
         Write-Host "（$PinyinDir 内没有 jar，跳过）"
         return
     }
-    $manifest = Join-Path $script:BK '新增文件清单.txt'
+    # 就地解压模式没有本次备份（BK 为空），只装不登记
+    $manifest = if ($script:BK) { Join-Path $script:BK '新增文件清单.txt' } else { $null }
     foreach ($j in $jars) {
         $dst = Join-Path $script:Target "mods/$($j.Name)"
-        if (Test-Path $dst) {
-            New-Item -ItemType Directory -Force -Path (Join-Path $script:BK 'mods') | Out-Null
-            Copy-Item $dst (Join-Path $script:BK "mods/$($j.Name)")
-        } else {
-            [System.IO.File]::AppendAllText($manifest, "mods/$($j.Name)`n", $Utf8NoBom)
+        if ($script:BK) {
+            if (Test-Path $dst) {
+                New-Item -ItemType Directory -Force -Path (Join-Path $script:BK 'mods') | Out-Null
+                Copy-Item $dst (Join-Path $script:BK "mods/$($j.Name)")
+            } else {
+                [System.IO.File]::AppendAllText($manifest, "mods/$($j.Name)`n", $Utf8NoBom)
+            }
         }
+        if ($j.FullName -eq $dst) { continue }
         Copy-Item $j.FullName $dst -Force
         Write-Host "  已安装: mods/$($j.Name)"
     }

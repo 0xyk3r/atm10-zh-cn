@@ -154,5 +154,35 @@ assert lbks and (lbks[-1] / 'options.txt').read_text(encoding='utf-8') == SPACED
     '未正确定位到带空格的实例目录'
 print('✅ 引号/空格路径输入清洗 OK')
 
+# ---- 回归：就地解压（压缩包内容直接覆盖到实例根目录，随后又跑安装器）----
+# 此时脚本所在目录 == 实例目录，源与目标是同一批文件。
+# 旧版会走进「把文件复制到自己头上」→ Windows 抛
+# "Cannot overwrite the item ... with itself"，Unix 则 cp 同源同目标失败。
+inplace = tmp / 'inplace-instance'
+(inplace / 'mods').mkdir(parents=True)
+INPLACE_OPTS = 'version:4189\nresourcePacks:[]\nlang:zh_cn\n'
+(inplace / 'options.txt').write_text(INPLACE_OPTS, encoding='utf-8')
+for d in ('config', 'kubejs', 'vaultpatcher'):          # 模拟解压覆盖
+    shutil.copytree(ROOT / d, inplace / d, dirs_exist_ok=True)
+(inplace / 'resourcepacks').mkdir(exist_ok=True)
+shutil.copy2(rel / 'resourcepacks' / f'{PACK}.zip', inplace / 'resourcepacks' / f'{PACK}.zip')
+for s_ in ('install.sh', 'install.ps1'):
+    shutil.copy2(ROOT / 'installer' / s_, inplace / s_)
+
+if IS_WIN:
+    cmd = ['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass',
+           '-File', str(inplace / 'install.ps1'), 'apply']
+else:
+    cmd = ['bash', str(inplace / 'install.sh'), 'apply']
+r = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8',
+                   errors='replace', timeout=300)
+out = (r.stdout or '') + (r.stderr or '')
+assert r.returncode == 0, f'就地解压模式安装失败(rc={r.returncode})：\n{out}'
+assert 'with itself' not in out, f'仍在把文件复制到自己头上：\n{out}'
+assert ENTRY in (inplace / 'options.txt').read_text(encoding='utf-8'), \
+    f'就地解压模式未启用资源包：\n{out}'
+assert (inplace / 'config' / 'vaultpatcher_asm' / 'config.json').exists(), '就地解压模式误删了文件'
+print('✅ 就地解压（源即目标）不再自我复制 OK')
+
 shutil.rmtree(tmp, ignore_errors=True)
 print(f'✅ 安装脚本端到端测试通过（{platform.system()}）')

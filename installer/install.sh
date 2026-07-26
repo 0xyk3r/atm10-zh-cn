@@ -39,6 +39,12 @@ check_target() {
     set_in_place
     return
   fi
+  # 就地解压：脚本自己所在的这一层就是实例根目录
+  if [ -d "$SCRIPT_DIR/mods" ] && [ -f "$SCRIPT_DIR/options.txt" ]; then
+    TARGET="$SCRIPT_DIR"
+    set_in_place
+    return
+  fi
   say "⚠️ 上一级目录不是游戏实例根目录（含 mods/ 与 options.txt 的那一层）。"
   if [ -t 0 ]; then
     while :; do
@@ -139,11 +145,14 @@ do_pinyin() {
     [ -e "$j" ] || continue
     found=1
     base="$(basename "$j")"
-    if [ -f "$TARGET/mods/$base" ]; then
-      mkdir -p "$BK/mods"
-      cp -p "$TARGET/mods/$base" "$BK/mods/$base"
-    else
-      printf 'mods/%s\n' "$base" >> "$BK/新增文件清单.txt"
+    # 就地解压模式没有本次备份（BK 为空），只装不登记
+    if [ -n "$BK" ]; then
+      if [ -f "$TARGET/mods/$base" ]; then
+        mkdir -p "$BK/mods"
+        cp -p "$TARGET/mods/$base" "$BK/mods/$base"
+      else
+        printf 'mods/%s\n' "$base" >> "$BK/新增文件清单.txt"
+      fi
     fi
     cp -p "$j" "$TARGET/mods/$base"
     say "  已安装: mods/$base"
