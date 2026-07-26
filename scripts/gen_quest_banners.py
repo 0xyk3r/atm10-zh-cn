@@ -435,25 +435,31 @@ def sample_style(im):
     if not im.getbbox():
         return (0, 0, 0), Image.new('RGB', (max(1, W), max(1, H)), (255, 255, 255)), 2, '空'
     # 描边厚度按图高估：原图描边普遍是字高的 4~5%
-    ring = max(1, round(H * 0.05))
-    a = im.getchannel('A').point(lambda v: 255 if v > 200 else 0)
-    er = a.filter(ImageFilter.MinFilter(2 * ring + 1))     # 腐蚀掉描边那几层
-    ap, ep = a.load(), er.load()
-    edge, inner = [], {}
-    for y in range(H):
-        for x in range(W):
-            if not ap[x, y]:
-                continue
-            (inner.setdefault(y, []) if ep[x, y] else edge).append(px[x, y][:3])
-
     def med(seq):
         return tuple(int(statistics.median(c[i] for c in seq)) for i in range(3))
 
-    if not inner:                       # 字太细，腐蚀后什么都不剩，退回不腐蚀
+    a = im.getchannel('A').point(lambda v: 255 if v > 200 else 0)
+    ap = a.load()
+    # 腐蚀量按图高 5% 起，若腐蚀后什么都不剩（像素字笔画本来就细）就**逐级减小**，
+    # 而不是退回「完全不腐蚀」——那条兜底会把黑描边整个算进材质，
+    # 中文笔画里就会出现莫名其妙的黑纹理（斯库拉就是这么烂的）。
+    edge, inner = [], {}
+    for ring in range(max(1, round(H * 0.05)), 0, -1):
+        er = a.filter(ImageFilter.MinFilter(2 * ring + 1))
+        ep = er.load()
+        edge, inner = [], {}
         for y in range(H):
             for x in range(W):
-                if ap[x, y]:
-                    inner.setdefault(y, []).append(px[x, y][:3])
+                if not ap[x, y]:
+                    continue
+                (inner.setdefault(y, []) if ep[x, y] else edge).append(px[x, y][:3])
+        if sum(len(v) for v in inner.values()) >= 40:
+            break
+    if not inner:      # 连 1 圈都腐蚀没了：整字就一两像素宽，取全部像素里最亮的一档当本色
+        allpx = [px[x, y][:3] for y in range(H) for x in range(W) if ap[x, y]]
+        allpx.sort(key=sum, reverse=True)
+        inner = {0: allpx[:max(1, len(allpx) // 3)]}
+        edge = allpx[-max(1, len(allpx) // 3):]
     # 描边色取腐蚀掉的外圈里**最深**的那一档，避免把渐变亮部当描边
     if edge:
         edge.sort(key=sum)
