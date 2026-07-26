@@ -114,17 +114,14 @@ do_backup() {
 patch_options() {
   OPT="$TARGET/options.txt"
   # 全新实例还没启动过，options.txt 尚不存在（Minecraft 退出时才写）。
-  # 这种情况交给整合包自带的 DefaultOptions：它会在首次启动时把
-  # config/defaultoptions/options.txt 里的键补进玩家的 options.txt。
+  # 直接建一个只含必要两行的：Minecraft 启动时会把其余选项按默认值补齐再回写，
+  # 部分 options.txt 是合法的。
+  # （不要指望 config/defaultoptions —— ATM10 7.2 并没有装 DefaultOptions 模组，
+  #   那个目录是历史遗留，写进去没有任何东西会读它。）
   if [ ! -f "$OPT" ]; then
-    DEF="$TARGET/config/defaultoptions/options.txt"
-    if [ -f "$DEF" ] && grep -q "$PACK_ENTRY" "$DEF"; then
-      say "ℹ️ 这个实例还没启动过（没有 options.txt）。"
-      say "   已通过 config/defaultoptions 预置资源包与中文语言，首次启动游戏时自动生效。"
-    else
-      say "⚠️ 没有 options.txt，也没找到 config/defaultoptions/options.txt。"
-      say "   请首次进游戏后手动到 选项 → 资源包 里启用「ATM10汉化包-7.2」。"
-    fi
+    printf 'lang:zh_cn\nresourcePacks:["%s"]\n' "$PACK_ENTRY" > "$OPT"
+    say "ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。"
+    say "   首次启动游戏时 Minecraft 会自动补齐其余设置。"
     return
   fi
   if grep -q "$PACK_ENTRY" "$OPT"; then

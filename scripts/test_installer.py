@@ -219,9 +219,11 @@ out = (r.stdout or '') + (r.stderr or '')
 assert r.returncode == 0, f'全新实例（无 options.txt）安装失败(rc={r.returncode})：\n{out}'
 assert '不是游戏实例根目录' not in out, f'没识别出全新实例：\n{out}'
 assert (fresh / 'config' / 'vaultpatcher_asm' / 'config.json').exists(), '文件未落位'
-defopt = (fresh / 'config' / 'defaultoptions' / 'options.txt').read_text(encoding='utf-8')
-assert ENTRY in defopt, f'defaultoptions 未预置资源包，首次启动不会自动启用：\n{defopt}'
-assert 'lang:zh_cn' in defopt, 'defaultoptions 丢了中文语言设置'
+newopt = fresh / 'options.txt'
+assert newopt.exists(), f'全新实例没建出 options.txt：\n{out}'
+txt = newopt.read_text(encoding='utf-8')
+assert ENTRY in txt, f'新建的 options.txt 没写入资源包：\n{txt}'
+assert 'lang:zh_cn' in txt, f'新建的 options.txt 没写入中文语言：\n{txt}'
 print('✅ 全新实例（无 options.txt，路径含中文+空格）OK')
 
 shutil.rmtree(tmp, ignore_errors=True)
