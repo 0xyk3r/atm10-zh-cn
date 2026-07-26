@@ -494,11 +494,6 @@
   "key": "entity.armorplus.ender_dragon_zombie",
   "zh": "末影龙僵尸"
  },
- "armorplus:freeze_bomb": {
-  "en": "",
-  "key": "entity.armorplus.freeze_bomb",
-  "zh": "冰冻炸弹（弹射物，爆炸性）"
- },
  "armorplus:frost_wolf": {
   "en": "",
   "key": "entity.armorplus.frost_wolf",
@@ -518,11 +513,6 @@
   "en": "",
   "key": "entity.armorplus.skeletal_king",
   "zh": "骷髅王"
- },
- "armorplus:wither_minion": {
-  "en": "",
-  "key": "entity.armorplus.wither_minion",
-  "zh": "凋灵仆从（弹射物，召唤物）"
  },
  "armorplus:witherling": {
   "en": "",
@@ -1224,21 +1214,6 @@
   "key": "entity.artifacts.mimic",
   "zh": "宝箱怪"
  },
- "barrel:working": {
-  "en": "The barrel is working!",
-  "key": "entity.barrel.working",
-  "zh": "这个桶正在运作中！"
- },
- "beekeeper:messagenobees": {
-  "en": "I can't find any bees!",
-  "key": "entity.beekeeper.messagenobees",
-  "zh": "我找不到任何蜜蜂!"
- },
- "beekeeper:messagenohives": {
-  "en": "Either there are no hives for me to work at, or you haven't assigned me any. Use the hive tool available from my hut to do so.",
-  "key": "entity.beekeeper.messagenohives",
-  "zh": "要么是没有蜂箱让我工作，要么是你没有给我指定，使用从我的小屋找到蜂箱工具来指定蜂箱。"
- },
  "bhc:boss_mobs": {
   "en": "Boss Mobs",
   "key": "entity.bhc.boss_mobs",
@@ -1378,71 +1353,6 @@
   "en": "",
   "key": "entity.bountifulharvest.turkey",
   "zh": "火鸡"
- },
- "builder:cantdeconstruct": {
-  "en": "This building can't be deconstructed!",
-  "key": "entity.builder.cantdeconstruct",
-  "zh": "该建筑不能被拆除！"
- },
- "builder:inventoryfull": {
-  "en": "Building inventory is full, could not insert %s",
-  "key": "entity.builder.inventoryfull",
-  "zh": "建筑物品栏已满，无法放入%s"
- },
- "builder:messagebuildcomplete": {
-  "en": "Completed building %s on the %s side of the colony.",
-  "key": "entity.builder.messagebuildcomplete",
-  "zh": "完成了%s的建造，位于殖民地的%s侧。"
- },
- "builder:messagebuildernecessary": {
-  "en": "This building requires a Builder's Hut of level %d or higher to be upgraded, repaired, or deconstructed!",
-  "key": "entity.builder.messagebuildernecessary",
-  "zh": "要升级、修复或者拆除该建筑物，需要 %d 级或以上等级的建筑工小屋！"
- },
- "builder:messagebuilderstoofar": {
-  "en": "There is no Builder close enough to work on this building! Assign a Builder to it manually in the build screen or build it closer to the existing Builders.",
-  "key": "entity.builder.messagebuilderstoofar",
-  "zh": "附近没有可用的建筑工来建造此建筑！请在建造页面手动分配建筑工，或者将建筑位置靠近现有的建筑工。"
- },
- "builder:messagebuildmanualfinish": {
-  "en": "\n§fYou can assign me another task now!",
-  "key": "entity.builder.messagebuildmanualfinish",
-  "zh": "\n§f你现在可以给我安排其他任务了！"
- },
- "builder:messagebuildstart": {
-  "en": "I've started work on %s!",
-  "key": "entity.builder.messagebuildstart",
-  "zh": "我已开始建造%s！"
- },
- "builder:messagebuildtoohigh": {
-  "en": "%s is too high! Please lower the building below Y %s.",
-  "key": "entity.builder.messagebuildtoohigh",
-  "zh": "%s 太高了！请将建筑物降低到高度 Y %s 以下。"
- },
- "builder:messagebuildtoolow": {
-  "en": "%s is too low! Please raise the building above Y %s.",
-  "key": "entity.builder.messagebuildtoolow",
-  "zh": "%s 太低了！请将建筑物抬升到高度 Y %s 以上。"
- },
- "builder:messageneedmaterial": {
-  "en": "I need %s (amount: %d).",
-  "key": "entity.builder.messageneedmaterial",
-  "zh": "我需要%s（数量：%d）。"
- },
- "builder:messagenobuilder": {
-  "en": "You need a Builder to build or upgrade this building.",
-  "key": "entity.builder.messagenobuilder",
-  "zh": "您需要一名建筑工来建造或升级这个建筑。"
- },
- "builder:messageremovalcomplete": {
-  "en": "Completed deconstruction %s on the %s side of the colony. §6To move the building, use the 'Pick Up' button in the building's 'Build Options' GUI.",
-  "key": "entity.builder.messageremovalcomplete",
-  "zh": "完成了%s的拆除，位于殖民地的%s侧。§6要移动这个建筑，点击“建筑选项”界面中的“拾起建筑”按钮。"
- },
- "builder:messagerepaircomplete": {
-  "en": "Completed repair of %s on the %s side of the colony.",
-  "key": "entity.builder.messagerepaircomplete",
-  "zh": "完成了%s的修复，位于殖民地的%s侧。"
  },
  "bytebuddies:bytebuddy": {
   "en": "",
@@ -1677,12 +1587,6 @@
   "key": "entity.cataclysm.ignis",
   "zh": "焰魔"
  },
- "cataclysm:ignis.defeat_message": {
-  "en": "Within Nether Fortresses, Ignited Beserkers have awakend...",
-  "key": "entity.cataclysm.ignis.defeat_message",
-  "sub": true,
-  "zh": "下界要塞中的炎狱亡灵蓄势待发..."
- },
  "cataclysm:ignis_abyss_fireball": {
   "en": "Ignis' Abyss Fireball",
   "key": "entity.cataclysm.ignis_abyss_fireball",
@@ -1873,17 +1777,6 @@
   "key": "entity.cataclysm.the_leviathan",
   "zh": "利维坦"
  },
- "cataclysm:the_leviathan.defeat_message": {
-  "en": "The Abyss gazes into you, Coral Golems will now appear in the ocean...",
-  "key": "entity.cataclysm.the_leviathan.defeat_message",
-  "sub": true,
-  "zh": "深渊凝视着你..."
- },
- "cataclysm:the_leviathan_immune": {
-  "en": "The Leviathan is invincible outside of water!",
-  "key": "entity.cataclysm.the_leviathan_immune",
-  "zh": "利维坦处于水外时是无敌的！"
- },
  "cataclysm:the_prowler": {
   "en": "The Prowler",
   "key": "entity.cataclysm.the_prowler",
@@ -1973,11 +1866,6 @@
   "en": "You can't escape",
   "key": "entity.cataclysm.you_cant_escape",
   "zh": "你不能逃脱"
- },
- "cavalry:nohorse": {
-  "en": "No trained horses are ready for me to ride.",
-  "key": "entity.cavalry.nohorse",
-  "zh": "我没有训练好的马匹可以骑乘。"
  },
  "chicken_roost:c_acaciawood": {
   "en": "",
@@ -2363,11 +2251,6 @@
   "en": "",
   "key": "entity.chicken_roost.c_ghasttear",
   "zh": "恶魂之泪鸡"
- },
- "chicken_roost:c_ghostchicken": {
-  "en": "",
-  "key": "entity.chicken_roost.c_ghostchicken",
-  "zh": "Ghost Chicken - WIP"
  },
  "chicken_roost:c_glass": {
   "en": "",
@@ -3054,11 +2937,6 @@
   "key": "entity.chromacarvings.yellow_snow_golem",
   "zh": "黄色雪傀儡"
  },
- "composter:noitems": {
-  "en": "Please define a list of items to be composted!",
-  "key": "entity.composter.noitems",
-  "zh": "请指定要进行堆肥的物品"
- },
  "create:carriage_contraption": {
   "en": "Carriage Contraption",
   "key": "entity.create.carriage_contraption",
@@ -3303,16 +3181,6 @@
   "en": "Stalker",
   "key": "entity.deeperdarker.stalker",
   "zh": "潜行者"
- },
- "deliveryman:forcepickup": {
-  "en": "A courier will come along and do a pickup shortly!",
-  "key": "entity.deliveryman.forcepickup",
-  "zh": "快递员很快就会来取货！"
- },
- "deliveryman:forcepickupfailed": {
-  "en": "Unable to comply, pickup already in progress!",
-  "key": "entity.deliveryman.forcepickupfailed",
-  "zh": "无法执行，已经有进行中的取货工作了！"
  },
  "draconicevolution:draconic_arrow": {
   "en": "Draconic Arrow",
@@ -4375,11 +4243,6 @@
   "key": "entity.everythingcopper.waxed_exposed_chest_copper_minecart",
   "zh": "涂蜡的斑驳铜运输矿车"
  },
- "everythingcopper:waxed_exposed_command_block_copper_minecart": {
-  "en": "Waxed Exposed Copper Minecart with Command Block",
-  "key": "entity.everythingcopper.waxed_exposed_command_block_copper_minecart",
-  "zh": "涂蜡的斑驳铜命令方块矿车"
- },
  "everythingcopper:waxed_exposed_copper_golem": {
   "en": "Waxed Exposed Copper Golem",
   "key": "entity.everythingcopper.waxed_exposed_copper_golem",
@@ -4414,11 +4277,6 @@
   "en": "Waxed Oxidized Copper Minecart with Chest",
   "key": "entity.everythingcopper.waxed_oxidized_chest_copper_minecart",
   "zh": "涂蜡的氧化铜运输矿车"
- },
- "everythingcopper:waxed_oxidized_command_block_copper_minecart": {
-  "en": "Waxed Oxidized Copper Minecart with Command Block",
-  "key": "entity.everythingcopper.waxed_oxidized_command_block_copper_minecart",
-  "zh": "涂蜡的氧化铜命令方块矿车"
  },
  "everythingcopper:waxed_oxidized_copper_golem": {
   "en": "Waxed Oxidized Copper Golem",
@@ -4494,11 +4352,6 @@
   "en": "Waxed Weathered Copper Minecart with Chest",
   "key": "entity.everythingcopper.waxed_weathered_chest_copper_minecart",
   "zh": "涂蜡的锈蚀铜运输矿车"
- },
- "everythingcopper:waxed_weathered_command_block_copper_minecart": {
-  "en": "Waxed Weathered Copper Minecart with Command Block",
-  "key": "entity.everythingcopper.waxed_weathered_command_block_copper_minecart",
-  "zh": "涂蜡的锈蚀铜命令方块矿车"
  },
  "everythingcopper:waxed_weathered_copper_golem": {
   "en": "Waxed Weathered Copper Golem",
@@ -4610,16 +4463,6 @@
   "key": "entity.extended_industrialization.nano_saber_sweep",
   "zh": "纳米剑扫击"
  },
- "farmer:needseed": {
-  "en": "I need %s to plant.",
-  "key": "entity.farmer.needseed",
-  "zh": "我需要%s 才能种植。"
- },
- "farmer:nofreefields": {
-  "en": "Place more fields to get me working.",
-  "key": "entity.farmer.nofreefields",
-  "zh": "放置更多农田来让我工作。"
- },
  "farmersdelight:rotten_tomato": {
   "en": "Rotten Tomato",
   "key": "entity.farmersdelight.rotten_tomato",
@@ -4629,16 +4472,6 @@
   "en": "Merchant",
   "key": "entity.farmingforblockheads.merchant",
   "zh": "商人"
- },
- "fisherman:messagesuboptimalpond": {
-  "en": "This pond at at position X:%d Y:%d Z:%d isn't great - the currents under the surface are too strong. If you want me to fish there, replace the flowing water with water source blocks.",
-  "key": "entity.fisherman.messagesuboptimalpond",
-  "zh": "X:%d Y:%d Z:%d那里的池塘不太好钓鱼——水面下的暗流太急了。你想让我在那里钓鱼的话，先把那些流动水换成水源方块。"
- },
- "fisherman:messagewatertoofar": {
-  "en": "I can't find any suitable water for fishing! There should be an area of water at least 7 blocks long and wide, and 2 blocks deep nearby.",
-  "key": "entity.fisherman.messagewatertoofar",
-  "zh": "我找不到适合钓鱼的水域！附近应该有一个至少长宽都为7个方块，深度为2个方块的水域。"
  },
  "forbidden_arcanus:boom_arrow": {
   "en": "",
@@ -5549,11 +5382,6 @@
   "en": "",
   "key": "entity.irons_spellbooks.fire_breath_projectile",
   "zh": "火焰吐息"
- },
- "irons_spellbooks:fire_eruption": {
-  "en": "Fire Eruption",
-  "key": "entity.irons_spellbooks.fire_eruption",
-  "zh": "火焰：震爆"
  },
  "irons_spellbooks:fire_field": {
   "en": "Fiery Field",
@@ -7021,12 +6849,6 @@
   "key": "entity.minecraft.sulfur_cube",
   "zh": "硫方怪"
  },
- "minecraft:sulfur_cube.content": {
-  "en": "",
-  "key": "entity.minecraft.sulfur_cube.content",
-  "sub": true,
-  "zh": "包含：%s"
- },
  "minecraft:tadpole": {
   "en": "Tadpole",
   "key": "entity.minecraft.tadpole",
@@ -7685,16 +7507,6 @@
   "en": "Zombified Piglin",
   "key": "entity.minecraft.zombified_piglin",
   "zh": "僵尸猪灵"
- },
- "miner:invalidmineshaft": {
-  "en": "I can't work at the mine because the mineshaft is missing the proper indication.",
-  "key": "entity.miner.invalidmineshaft",
-  "zh": "我无法在矿井中工作因为矿井遗失了正确的标示。"
- },
- "miner:messagerequiresbetterhut": {
-  "en": "Please upgrade my hut to dig deeper!",
-  "key": "entity.miner.messagerequiresbetterhut",
-  "zh": "请升级小屋以使我能够挖掘到更深的地方!"
  },
  "moofluids:fluid_cow": {
   "en": "",
@@ -10814,11 +10626,6 @@
   "en": "",
   "key": "entity.reliquified_twilight_forest.hydra_fire_puddle",
   "zh": "炽热血洼"
- },
- "researcher:moreknowledge": {
-  "en": "During your absence, your Researchers used the time to do some extra work. This will speed up their current research a bit!",
-  "key": "entity.researcher.moreknowledge",
-  "zh": "你不在的时候，研究员们利用这段时间做了一些额外的工作。这会大大增加他们目前的研究进度！"
  },
  "rftoolsdim:dimensional_blob_common": {
   "en": "",
@@ -15282,15 +15089,6 @@
   },
   "zh": "闪光炮弹"
  },
- "shiny:shiny_cantdeconstruct": {
-  "en": "",
-  "key": "entity.shiny.shiny_cantdeconstruct",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光该建筑不能被拆除！"
- },
  "shiny:shiny_capitaine": {
   "en": "",
   "key": "entity.shiny.shiny_capitaine",
@@ -19071,15 +18869,6 @@
   },
   "zh": "闪光龙炎钢蜜蜂"
  },
- "shiny:shiny_fire_eruption": {
-  "en": "",
-  "key": "entity.shiny.shiny_fire_eruption",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光火焰：震爆"
- },
  "shiny:shiny_fire_essence_bee": {
   "en": "",
   "key": "entity.shiny.shiny_fire_essence_bee",
@@ -19458,24 +19247,6 @@
   },
   "zh": "闪光弹射物"
  },
- "shiny:shiny_forcepickup": {
-  "en": "",
-  "key": "entity.shiny.shiny_forcepickup",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光快递员很快就会来取货！"
- },
- "shiny:shiny_forcepickupfailed": {
-  "en": "",
-  "key": "entity.shiny.shiny_forcepickupfailed",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光无法执行，已经有进行中的取货工作了！"
- },
  "shiny:shiny_forgotten": {
   "en": "",
   "key": "entity.shiny.shiny_forgotten",
@@ -19529,15 +19300,6 @@
    "zh": "闪光%s"
   },
   "zh": "闪光冷冻人"
- },
- "shiny:shiny_freeze_bomb": {
-  "en": "",
-  "key": "entity.shiny.shiny_freeze_bomb",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光冰冻炸弹（弹射物，爆炸性）"
  },
  "shiny:shiny_frog": {
   "en": "Shiny Frog",
@@ -21240,15 +21002,6 @@
   },
   "zh": "闪光交互实体"
  },
- "shiny:shiny_invalidmineshaft": {
-  "en": "",
-  "key": "entity.shiny.shiny_invalidmineshaft",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光我无法在矿井中工作因为矿井遗失了正确的标示。"
- },
  "shiny:shiny_invar_bee": {
   "en": "",
   "key": "entity.shiny.shiny_invar_bee",
@@ -21257,15 +21010,6 @@
    "zh": "闪光%s"
   },
   "zh": "闪光殷钢蜜蜂"
- },
- "shiny:shiny_inventoryfullchestfull": {
-  "en": "",
-  "key": "entity.shiny.shiny_inventoryfullchestfull",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光请为我的箱子或者架子腾出空间。我没法存放东西了。"
  },
  "shiny:shiny_iodine_bee": {
   "en": "",
@@ -22662,60 +22406,6 @@
   },
   "zh": "闪光仁慈之山羊"
  },
- "shiny:shiny_messagebuilderstoofar": {
-  "en": "",
-  "key": "entity.shiny.shiny_messagebuilderstoofar",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光附近没有可用的建筑工来建造此建筑！请在建造页面手动分配建筑工，或者将建筑位置靠近现有的建筑工。"
- },
- "shiny:shiny_messagenobees": {
-  "en": "",
-  "key": "entity.shiny.shiny_messagenobees",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光我找不到任何蜜蜂!"
- },
- "shiny:shiny_messagenobuilder": {
-  "en": "",
-  "key": "entity.shiny.shiny_messagenobuilder",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光您需要一名建筑工来建造或升级这个建筑。"
- },
- "shiny:shiny_messagenohives": {
-  "en": "",
-  "key": "entity.shiny.shiny_messagenohives",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光要么是没有蜂箱让我工作，要么是你没有给我指定，使用从我的小屋找到蜂箱工具来指定蜂箱。"
- },
- "shiny:shiny_messagerequiresbetterhut": {
-  "en": "",
-  "key": "entity.shiny.shiny_messagerequiresbetterhut",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光请升级小屋以使我能够挖掘到更深的地方!"
- },
- "shiny:shiny_messagewatertoofar": {
-  "en": "",
-  "key": "entity.shiny.shiny_messagewatertoofar",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光我找不到适合钓鱼的水域！附近应该有一个至少长宽都为7个方块，深度为2个方块的水域。"
- },
  "shiny:shiny_meteor": {
   "en": "",
   "key": "entity.shiny.shiny_meteor",
@@ -22958,15 +22648,6 @@
    "zh": "闪光%s"
   },
   "zh": "闪光哞菇"
- },
- "shiny:shiny_moreknowledge": {
-  "en": "",
-  "key": "entity.shiny.shiny_moreknowledge",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光你不在的时候，研究员们利用这段时间做了一些额外的工作。这会大大增加他们目前的研究进度！"
  },
  "shiny:shiny_morganite_bee": {
   "en": "",
@@ -23408,24 +23089,6 @@
    "zh": "闪光%s"
   },
   "zh": "闪光锘蜜蜂"
- },
- "shiny:shiny_nofreefields": {
-  "en": "",
-  "key": "entity.shiny.shiny_nofreefields",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光放置更多农田来让我工作。"
- },
- "shiny:shiny_nohorse": {
-  "en": "",
-  "key": "entity.shiny.shiny_nohorse",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光我没有训练好的马匹可以骑乘。"
  },
  "shiny:shiny_noitems": {
   "en": "",
@@ -28359,15 +28022,6 @@
   },
   "zh": "闪光利维坦"
  },
- "shiny:shiny_the_leviathan_immune": {
-  "en": "",
-  "key": "entity.shiny.shiny_the_leviathan_immune",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光利维坦处于水外时是无敌的！"
- },
  "shiny:shiny_the_prowler": {
   "en": "",
   "key": "entity.shiny.shiny_the_prowler",
@@ -30739,15 +30393,6 @@
   },
   "zh": "闪光凋灵榴弹"
  },
- "shiny:shiny_wither_minion": {
-  "en": "",
-  "key": "entity.shiny.shiny_wither_minion",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光凋灵仆从（弹射物，召唤物）"
- },
  "shiny:shiny_wither_missile": {
   "en": "",
   "key": "entity.shiny.shiny_wither_missile",
@@ -30891,15 +30536,6 @@
    "zh": "闪光%s"
   },
   "zh": "闪光啄木鸟"
- },
- "shiny:shiny_working": {
-  "en": "",
-  "key": "entity.shiny.shiny_working",
-  "tmpl": {
-   "en": "Shiny %s",
-   "zh": "闪光%s"
-  },
-  "zh": "闪光这个桶正在运作中！"
  },
  "shiny:shiny_world_spike_minecart": {
   "en": "",
@@ -31273,578 +30909,260 @@
   "key": "entity.takumicraft.acidcreeper",
   "zh": "酸液苦力怕"
  },
- "takumicraft:acidcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.acidcreeper.desc",
-  "sub": true,
-  "zh": "沉浸吧，沉浸吧，沉浸在腐蚀之中吧。"
- },
  "takumicraft:allaycreeper": {
   "en": "",
   "key": "entity.takumicraft.allaycreeper",
   "zh": "悦灵苦力怕"
- },
- "takumicraft:allaycreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.allaycreeper.desc",
-  "sub": true,
-  "zh": "既无法成为妖精，也无法成为朋友的悲伤之灵。"
  },
  "takumicraft:amethystcreeper": {
   "en": "",
   "key": "entity.takumicraft.amethystcreeper",
   "zh": "紫水晶苦力怕"
  },
- "takumicraft:amethystcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.amethystcreeper.desc",
-  "sub": true,
-  "zh": "钻石之心，坚硬，且强韧。"
- },
  "takumicraft:arrowcreeper": {
   "en": "",
   "key": "entity.takumicraft.arrowcreeper",
   "zh": "箭苦力怕"
- },
- "takumicraft:arrowcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.arrowcreeper.desc",
-  "sub": true,
-  "zh": "万箭齐发，无所遁形。"
  },
  "takumicraft:artcreeper": {
   "en": "",
   "key": "entity.takumicraft.artcreeper",
   "zh": "艺术苦力怕"
  },
- "takumicraft:artcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.artcreeper.desc",
-  "sub": true,
-  "zh": "在周围随机放置方块。可真是有艺术性啊。"
- },
  "takumicraft:bamboocreeper": {
   "en": "",
   "key": "entity.takumicraft.bamboocreeper",
   "zh": "竹子苦力怕"
- },
- "takumicraft:bamboocreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.bamboocreeper.desc",
-  "sub": true,
-  "zh": "再现了竹子破土而出的壮观景象。"
  },
  "takumicraft:bangcreeper": {
   "en": "",
   "key": "entity.takumicraft.bangcreeper",
   "zh": "爆炸苦力怕"
  },
- "takumicraft:bangcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.bangcreeper.desc",
-  "sub": true,
-  "zh": "强力的爆炸甚至连黑曜石都能摧毁。已经没有能从这场高密度的破坏中护身的办法了。"
- },
  "takumicraft:batcreeper": {
   "en": "",
   "key": "entity.takumicraft.batcreeper",
   "zh": "蝙蝠苦力怕"
- },
- "takumicraft:batcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.batcreeper.desc",
-  "sub": true,
-  "zh": "在洞穴中潜伏的绿色的蝙蝠。不要问它会不会爆炸。"
  },
  "takumicraft:bedcreeper": {
   "en": "",
   "key": "entity.takumicraft.bedcreeper",
   "zh": "床苦力怕"
  },
- "takumicraft:bedcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.bedcreeper.desc",
-  "sub": true,
-  "zh": "床也是易燃易爆物吧？就跟下界一样嘛！"
- },
- "takumicraft:bedcreeper.message": {
-  "en": "",
-  "key": "entity.takumicraft.bedcreeper.message",
-  "sub": true,
-  "zh": "%s的重生点被床苦力怕炸毁了！"
- },
  "takumicraft:beecreeper": {
   "en": "",
   "key": "entity.takumicraft.beecreeper",
   "zh": "蜜蜂苦力怕"
- },
- "takumicraft:beecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.beecreeper.desc",
-  "sub": true,
-  "zh": "小心点，这只蜜蜂带有爆伤和毒伤的二段伤害。"
  },
  "takumicraft:bigbatcreeper": {
   "en": "",
   "key": "entity.takumicraft.bigbatcreeper",
   "zh": "大蝙蝠苦力怕"
  },
- "takumicraft:bigbatcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.bigbatcreeper.desc",
-  "sub": true,
-  "zh": "被血所染红的大蝙蝠，身上燃起的黑烟到底是什么呢。"
- },
  "takumicraft:birdcreeper": {
   "en": "",
   "key": "entity.takumicraft.birdcreeper",
   "zh": "小鸟苦力怕"
- },
- "takumicraft:birdcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.birdcreeper.desc",
-  "sub": true,
-  "zh": "呈小鸟模样的苦力怕，飞来又落下。愤怒的时候可能会下个“弹”。"
  },
  "takumicraft:blazecreeper": {
   "en": "",
   "key": "entity.takumicraft.blazecreeper",
   "zh": "烈焰人苦力怕"
  },
- "takumicraft:blazecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.blazecreeper.desc",
-  "sub": true,
-  "zh": "接近了就会爆炸，离远了就会放火。在下界飘浮的苦力怕，从地狱中向史蒂夫招手。"
- },
  "takumicraft:boltcreeper": {
   "en": "",
   "key": "entity.takumicraft.boltcreeper",
   "zh": "雷电苦力怕"
- },
- "takumicraft:boltcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.boltcreeper.desc",
-  "sub": true,
-  "zh": "雷声轰鸣，横空出世。在被烧尽之前抵抗它吧。"
  },
  "takumicraft:breezecreeper": {
   "en": "",
   "key": "entity.takumicraft.breezecreeper",
   "zh": "旋风人苦力怕"
  },
- "takumicraft:breezecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.breezecreeper.desc",
-  "sub": true,
-  "zh": "接近了就会爆炸，离远了就会吹风。在狂风中飘浮的苦力怕，从风暴里向史蒂夫招手。"
- },
  "takumicraft:callcreeper": {
   "en": "",
   "key": "entity.takumicraft.callcreeper",
   "zh": "传唤苦力怕"
- },
- "takumicraft:callcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.callcreeper.desc",
-  "sub": true,
-  "zh": "这个苦力怕的爆炸之声，只是一呼百应的开始那下。"
  },
  "takumicraft:catcreeper": {
   "en": "",
   "key": "entity.takumicraft.catcreeper",
   "zh": "猫苦力怕"
  },
- "takumicraft:catcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.catcreeper.desc",
-  "sub": true,
-  "zh": "斯国一！你是擅长收集苦力怕的friends呢！"
- },
  "takumicraft:chasecreeper": {
   "en": "",
   "key": "entity.takumicraft.chasecreeper",
   "zh": "追逐苦力怕"
- },
- "takumicraft:chasecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.chasecreeper.desc",
-  "sub": true,
-  "zh": "那苦力怕，乃最骏之物。"
  },
  "takumicraft:cherrycreeper": {
   "en": "",
   "key": "entity.takumicraft.cherrycreeper",
   "zh": "樱花苦力怕"
  },
- "takumicraft:cherrycreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.cherrycreeper.desc",
-  "sub": true,
-  "zh": "来一场别样的樱花飘散美景。"
- },
  "takumicraft:childcreeper": {
   "en": "",
   "key": "entity.takumicraft.childcreeper",
   "zh": "亲子苦力怕"
- },
- "takumicraft:childcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.childcreeper.desc",
-  "sub": true,
-  "zh": "怀揣着对孩子的爱，甚至不惜舍身保护。"
  },
  "takumicraft:colorcreeper": {
   "en": "",
   "key": "entity.takumicraft.colorcreeper",
   "zh": "颜色苦力怕"
  },
- "takumicraft:colorcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.colorcreeper.desc",
-  "sub": true,
-  "zh": "改变方块颜色与形状的活麻烦。我好不容易做好的像素画啊⋯⋯"
- },
  "takumicraft:coppercreeper": {
   "en": "",
   "key": "entity.takumicraft.coppercreeper",
   "zh": "铜苦力怕"
- },
- "takumicraft:coppercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.coppercreeper.desc",
-  "sub": true,
-  "zh": "闪耀的身躯与不锈的技艺，历久弥坚的铜苦力怕。"
  },
  "takumicraft:cowcreeper": {
   "en": "",
   "key": "entity.takumicraft.cowcreeper",
   "zh": "牛苦力怕"
  },
- "takumicraft:cowcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.cowcreeper.desc",
-  "sub": true,
-  "zh": "呈牛模样的苦力怕。想尝尝它的牛奶吗？爆炸味的。"
- },
  "takumicraft:dashcreeper": {
   "en": "",
   "key": "entity.takumicraft.dashcreeper",
   "zh": "冲刺苦力怕"
- },
- "takumicraft:dashcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.dashcreeper.desc",
-  "sub": true,
-  "zh": "那苦力怕，乃最速之物。"
  },
  "takumicraft:diamondcreeper": {
   "en": "",
   "key": "entity.takumicraft.diamondcreeper",
   "zh": "钻石苦力怕"
  },
- "takumicraft:diamondcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.diamondcreeper.desc",
-  "sub": true,
-  "zh": "强韧的肉体与坚硬的精神，永不磨灭的钻石苦力怕。"
- },
  "takumicraft:dirtcreeper": {
   "en": "",
   "key": "entity.takumicraft.dirtcreeper",
   "zh": "泥土苦力怕"
- },
- "takumicraft:dirtcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.dirtcreeper.desc",
-  "sub": true,
-  "zh": "爆炸时对泥土特攻。使大地在爆炸的地震中轰然沉没。"
  },
  "takumicraft:dripstonecreeper": {
   "en": "",
   "key": "entity.takumicraft.dripstonecreeper",
   "zh": "滴水石苦力怕"
  },
- "takumicraft:dripstonecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.dripstonecreeper.desc",
-  "sub": true,
-  "zh": "小心来自头顶上的贯穿伤害！"
- },
  "takumicraft:drownedcreeper": {
   "en": "",
   "key": "entity.takumicraft.drownedcreeper",
   "zh": "溺尸苦力怕"
- },
- "takumicraft:drownedcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.drownedcreeper.desc",
-  "sub": true,
-  "zh": "来自深海的苦力怕，手持三叉戟迈向大地。"
  },
  "takumicraft:emeraldcreeper": {
   "en": "",
   "key": "entity.takumicraft.emeraldcreeper",
   "zh": "绿宝石苦力怕"
  },
- "takumicraft:emeraldcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.emeraldcreeper.desc",
-  "sub": true,
-  "zh": "巨大的躯体与强力的耐久，无法打倒的绿宝石苦力怕。"
- },
  "takumicraft:endercreeper": {
   "en": "",
   "key": "entity.takumicraft.endercreeper",
   "zh": "末影苦力怕"
- },
- "takumicraft:endercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.endercreeper.desc",
-  "sub": true,
-  "zh": "被它炸到的话⋯⋯好好享受你的旅程吧。"
  },
  "takumicraft:evokercreeper": {
   "en": "",
   "key": "entity.takumicraft.evokercreeper",
   "zh": "唤魔者苦力怕"
  },
- "takumicraft:evokercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.evokercreeper.desc",
-  "sub": true,
-  "zh": "魔导士苏醒于府邸，蠢蠢欲动。暗夜疾风，呼唤暗影。"
- },
  "takumicraft:fallcreeper": {
   "en": "",
   "key": "entity.takumicraft.fallcreeper",
   "zh": "落沙苦力怕"
- },
- "takumicraft:fallcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.fallcreeper.desc",
-  "sub": true,
-  "zh": "万物均如沙砾般坠落。大地，生物，乃至这个游戏世界。"
  },
  "takumicraft:fallingbombcreeper": {
   "en": "",
   "key": "entity.takumicraft.fallingbombcreeper",
   "zh": "阿阇梨苦力怕"
  },
- "takumicraft:fallingbombcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.fallingbombcreeper.desc",
-  "sub": true,
-  "zh": "阿阇梨之道乃降下的灾厄，掩埋大地，尽数崩解。"
- },
  "takumicraft:fallingslimecreeper": {
   "en": "",
   "key": "entity.takumicraft.fallingslimecreeper",
   "zh": "阿修罗苦力怕"
- },
- "takumicraft:fallingslimecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.fallingslimecreeper.desc",
-  "sub": true,
-  "zh": "阿修罗之道乃降下的威胁，掩埋虚空，尽数毁灭。"
  },
  "takumicraft:firecreeper": {
   "en": "",
   "key": "entity.takumicraft.firecreeper",
   "zh": "火焰苦力怕"
  },
- "takumicraft:firecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.firecreeper.desc",
-  "sub": true,
-  "zh": "它爆炸的时候已经完了，放火烧山牢底坐穿。"
- },
  "takumicraft:fireworkscreeper": {
   "en": "",
   "key": "entity.takumicraft.fireworkscreeper",
   "zh": "烟花苦力怕"
- },
- "takumicraft:fireworkscreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.fireworkscreeper.desc",
-  "sub": true,
-  "zh": "偶尔看看夜空吧。在这充满苦难的世界，烟火或许能给你一些慰藉。"
  },
  "takumicraft:glasscreeper": {
   "en": "",
   "key": "entity.takumicraft.glasscreeper",
   "zh": "玻璃苦力怕"
  },
- "takumicraft:glasscreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.glasscreeper.desc",
-  "sub": true,
-  "zh": "有着怀旧的透明感，但会给你提供最新款的防爆玻璃。"
- },
  "takumicraft:glowingsquidcreeper": {
   "en": "",
   "key": "entity.takumicraft.glowingsquidcreeper",
   "zh": "发光鱿鱼苦力怕"
- },
- "takumicraft:glowingsquidcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.glowingsquidcreeper.desc",
-  "sub": true,
-  "zh": "发光的鱿鱼，当然也充满爆炸性。别被洞穴中的荧光迷惑了。"
  },
  "takumicraft:glowstonecreeper": {
   "en": "",
   "key": "entity.takumicraft.glowstonecreeper",
   "zh": "荧石苦力怕"
  },
- "takumicraft:glowstonecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.glowstonecreeper.desc",
-  "sub": true,
-  "zh": "照亮下界，爆炸带来了光明。"
- },
  "takumicraft:goatcreeper": {
   "en": "",
   "key": "entity.takumicraft.goatcreeper",
   "zh": "山羊苦力怕"
- },
- "takumicraft:goatcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.goatcreeper.desc",
-  "sub": true,
-  "zh": "史上最伟大的，拥有会爆炸的角的山羊之主。"
  },
  "takumicraft:gunorecreeper": {
   "en": "",
   "key": "entity.takumicraft.gunorecreeper",
   "zh": "火药矿石苦力怕"
  },
- "takumicraft:gunorecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.gunorecreeper.desc",
-  "sub": true,
-  "zh": "火药矿石化成的苦力怕。只要用手一挖，就会现出真身。"
- },
  "takumicraft:happinesscreeper": {
   "en": "",
   "key": "entity.takumicraft.happinesscreeper",
   "zh": "幸福苦力怕"
- },
- "takumicraft:happinesscreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.happinesscreeper.desc",
-  "sub": true,
-  "zh": "写作爆爆，读作抱抱。"
  },
  "takumicraft:horsecreeper": {
   "en": "",
   "key": "entity.takumicraft.horsecreeper",
   "zh": "马苦力怕"
  },
- "takumicraft:horsecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.horsecreeper.desc",
-  "sub": true,
-  "zh": "呈马模样的苦力怕。一流的速度，一流的爆炸。"
- },
  "takumicraft:hotspringcreeper": {
   "en": "",
   "key": "entity.takumicraft.hotspringcreeper",
   "zh": "温泉苦力怕"
- },
- "takumicraft:hotspringcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.hotspringcreeper.desc",
-  "sub": true,
-  "zh": "将温泉一涌而出的苦力怕。治疗伤口、横扫饥饿。感谢招待。"
  },
  "takumicraft:huskcreeper": {
   "en": "",
   "key": "entity.takumicraft.huskcreeper",
   "zh": "尸壳苦力怕"
  },
- "takumicraft:huskcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.huskcreeper.desc",
-  "sub": true,
-  "zh": "来自沙漠的僵尸苦力怕。吃到爆炸的话难免会饿吧？"
- },
  "takumicraft:hydrothermalcreeper": {
   "en": "",
   "key": "entity.takumicraft.hydrothermalcreeper",
   "zh": "岩浆块苦力怕"
- },
- "takumicraft:hydrothermalcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.hydrothermalcreeper.desc",
-  "sub": true,
-  "zh": "由岩浆块所化成的苦力怕。只要用水一浇，就会现出真身。"
  },
  "takumicraft:icecreeper": {
   "en": "",
   "key": "entity.takumicraft.icecreeper",
   "zh": "冰苦力怕"
  },
- "takumicraft:icecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.icecreeper.desc",
-  "sub": true,
-  "zh": "冰冰凉的苦力怕，相比怕火更怕风。"
- },
  "takumicraft:ironcreeper": {
   "en": "",
   "key": "entity.takumicraft.ironcreeper",
   "zh": "铁苦力怕"
- },
- "takumicraft:ironcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.ironcreeper.desc",
-  "sub": true,
-  "zh": "小巧的躯体与迅捷的动作，难以命中的铁苦力怕。"
  },
  "takumicraft:kingcreeper": {
   "en": "",
   "key": "entity.takumicraft.kingcreeper",
   "zh": "帝王苦力怕"
  },
- "takumicraft:kingcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.kingcreeper.desc",
-  "sub": true,
-  "zh": "跪下，以祈求活命吧。帝王凯旋之日，乃苦力怕胜利之时。"
- },
  "takumicraft:lavacreeper": {
   "en": "",
   "key": "entity.takumicraft.lavacreeper",
   "zh": "熔岩苦力怕"
- },
- "takumicraft:lavacreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.lavacreeper.desc",
-  "sub": true,
-  "zh": "熔岩如海啸般涌来，小心溺“水”。"
  },
  "takumicraft:lightcreeper": {
   "en": "",
   "key": "entity.takumicraft.lightcreeper",
   "zh": "荧光苦力怕"
  },
- "takumicraft:lightcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.lightcreeper.desc",
-  "sub": true,
-  "zh": "愿圣光与你同在。"
- },
  "takumicraft:llamacreeper": {
   "en": "",
   "key": "entity.takumicraft.llamacreeper",
   "zh": "羊驼苦力怕"
- },
- "takumicraft:llamacreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.llamacreeper.desc",
-  "sub": true,
-  "zh": "羊驼型的苦力怕。嘿⸺tui！"
  },
  "takumicraft:lostcreeper": {
   "en": "",
@@ -31862,165 +31180,75 @@
   "key": "entity.takumicraft.macecreeper",
   "zh": "重锤苦力怕"
  },
- "takumicraft:macecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.macecreeper.desc",
-  "sub": true,
-  "zh": "血染的祭司碎裂大地的一击，会将灵魂也都爆裂殆尽。"
- },
  "takumicraft:minispidercreeper": {
   "en": "",
   "key": "entity.takumicraft.minispidercreeper",
   "zh": "幼年蜘蛛苦力怕"
- },
- "takumicraft:minispidercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.minispidercreeper.desc",
-  "sub": true,
-  "zh": "由蜘蛛苦力怕产下的这些孩子们，哪怕隔着再小的缝隙也会当你的跟屁虫。"
  },
  "takumicraft:musclecreeper": {
   "en": "",
   "key": "entity.takumicraft.musclecreeper",
   "zh": "肌肉苦力怕"
  },
- "takumicraft:musclecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.musclecreeper.desc",
-  "sub": true,
-  "zh": "Happy，Happy，用肌肉填满空隙。"
- },
  "takumicraft:musiccreeper": {
   "en": "",
   "key": "entity.takumicraft.musiccreeper",
   "zh": "音乐苦力怕"
- },
- "takumicraft:musiccreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.musiccreeper.desc",
-  "sub": true,
-  "zh": "向玩家们退击自己最喜欢的曲子。SAN值大危机，这破绽吃枣药丸。"
  },
  "takumicraft:myceliumcreeper": {
   "en": "",
   "key": "entity.takumicraft.myceliumcreeper",
   "zh": "菌丝苦力怕"
  },
- "takumicraft:myceliumcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.myceliumcreeper.desc",
-  "sub": true,
-  "zh": "带有爬行的菌丝与蘑菇的苦力怕。"
- },
  "takumicraft:naturalcreeper": {
   "en": "",
   "key": "entity.takumicraft.naturalcreeper",
   "zh": "自然苦力怕"
- },
- "takumicraft:naturalcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.naturalcreeper.desc",
-  "sub": true,
-  "zh": "炸弹树上炸弹果，炸弹树下你和我。炸弹树干挖呀挖，爆炸多又多。"
  },
  "takumicraft:netheritecreeper": {
   "en": "",
   "key": "entity.takumicraft.netheritecreeper",
   "zh": "下界合金苦力怕"
  },
- "takumicraft:netheritecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.netheritecreeper.desc",
-  "sub": true,
-  "zh": "太古的力量与牢固的铠甲，永不破灭的下界合金苦力怕。"
- },
  "takumicraft:objetcreeper": {
   "en": "",
   "key": "entity.takumicraft.objetcreeper",
   "zh": "杰作苦力怕"
- },
- "takumicraft:objetcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.objetcreeper.desc",
-  "sub": true,
-  "zh": "为你献上杰作，爆炸性的防爆艺术品。"
  },
  "takumicraft:ofalencreeper": {
   "en": "",
   "key": "entity.takumicraft.ofalencreeper",
   "zh": "至尊苦力怕"
  },
- "takumicraft:ofalencreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.ofalencreeper.desc",
-  "sub": true,
-  "zh": "它，现身了，聚集着异世界的矿石之力，战斗吧，以武力战胜魔法！"
- },
  "takumicraft:parrotcreeper": {
   "en": "",
   "key": "entity.takumicraft.parrotcreeper",
   "zh": "鹦鹉苦力怕"
- },
- "takumicraft:parrotcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.parrotcreeper.desc",
-  "sub": true,
-  "zh": "和绿鹦鹉看起来很相似。完全就是会落在肩上的炸弹。"
  },
  "takumicraft:patinacreeper": {
   "en": "",
   "key": "entity.takumicraft.patinacreeper",
   "zh": "青铜苦力怕"
  },
- "takumicraft:patinacreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.patinacreeper.desc",
-  "sub": true,
-  "zh": "斑驳的身躯与扎实的技艺，经久不衰的青铜苦力怕。"
- },
  "takumicraft:phantomcreeper": {
   "en": "",
   "key": "entity.takumicraft.phantomcreeper",
   "zh": "幻翼苦力怕"
- },
- "takumicraft:phantomcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.phantomcreeper.desc",
-  "sub": true,
-  "zh": "从幻影中诞生的新型空中打击。"
  },
  "takumicraft:piercecreeper": {
   "en": "",
   "key": "entity.takumicraft.piercecreeper",
   "zh": "贯穿苦力怕"
  },
- "takumicraft:piercecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.piercecreeper.desc",
-  "sub": true,
-  "zh": "一穿穿至大地的最底层。那么，目标是基岩！"
- },
  "takumicraft:pigcreeper": {
   "en": "",
   "key": "entity.takumicraft.pigcreeper",
   "zh": "猪苦力怕"
  },
- "takumicraft:pigcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.pigcreeper.desc",
-  "sub": true,
-  "zh": "呈猪模样的苦力怕。想当年苦力怕的样子是来自一只失败的猪模型。"
- },
  "takumicraft:potatocreeper": {
   "en": "",
   "key": "entity.takumicraft.potatocreeper",
   "zh": "马铃薯苦力怕"
- },
- "takumicraft:potatocreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.potatocreeper.desc",
-  "sub": true,
-  "zh": "所有人都变身土豆吧。"
  },
  "takumicraft:powdersnowcreeper": {
   "en": "",
@@ -32038,342 +31266,150 @@
   "key": "entity.takumicraft.rabbitcreeper",
   "zh": "兔子苦力怕"
  },
- "takumicraft:rabbitcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.rabbitcreeper.desc",
-  "sub": true,
-  "zh": "呈兔子模样的苦力怕。杀手兔，它来了。"
- },
  "takumicraft:ravagercreeper": {
   "en": "",
   "key": "entity.takumicraft.ravagercreeper",
   "zh": "劫掠兽苦力怕"
- },
- "takumicraft:ravagercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.ravagercreeper.desc",
-  "sub": true,
-  "zh": "释放着愤怒、野性与破坏的魔兽在横行肆虐。"
  },
  "takumicraft:redstonecreeper": {
   "en": "",
   "key": "entity.takumicraft.redstonecreeper",
   "zh": "红石苦力怕"
  },
- "takumicraft:redstonecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.redstonecreeper.desc",
-  "sub": true,
-  "zh": "敏捷的行动与快速的爆炸，不可阻挡的红石苦力怕。"
- },
  "takumicraft:restcreeper": {
   "en": "",
   "key": "entity.takumicraft.restcreeper",
   "zh": "休息苦力怕"
- },
- "takumicraft:restcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.restcreeper.desc",
-  "sub": true,
-  "zh": "愿您能安息。"
  },
  "takumicraft:returncreeper": {
   "en": "",
   "key": "entity.takumicraft.returncreeper",
   "zh": "回程苦力怕"
  },
- "takumicraft:returncreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.returncreeper.desc",
-  "sub": true,
-  "zh": "恶毒的苦力怕。如果带着床走到哪睡到哪的话估计就不会见到地狱般的光景了吧。总之很麻烦。"
- },
- "takumicraft:returncreeper.message": {
-  "en": "",
-  "key": "entity.takumicraft.returncreeper.message",
-  "sub": true,
-  "zh": "%s被回程苦力怕炸飞到了重生点！"
- },
  "takumicraft:rewritecreeper": {
   "en": "",
   "key": "entity.takumicraft.rewritecreeper",
   "zh": "重写苦力怕"
- },
- "takumicraft:rewritecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.rewritecreeper.desc",
-  "sub": true,
-  "zh": "能将周围的方块炸成另一种随机方块。塞翁炸马，焉知非福。"
  },
  "takumicraft:rushcreeper": {
   "en": "",
   "key": "entity.takumicraft.rushcreeper",
   "zh": "突袭苦力怕"
  },
- "takumicraft:rushcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.rushcreeper.desc",
-  "sub": true,
-  "zh": "那苦力怕，乃最强之物。"
- },
  "takumicraft:sandcreeper": {
   "en": "",
   "key": "entity.takumicraft.sandcreeper",
   "zh": "沙子苦力怕"
- },
- "takumicraft:sandcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.sandcreeper.desc",
-  "sub": true,
-  "zh": "被沙子埋住了的话就无路可逃了。带上火把吧！"
  },
  "takumicraft:sculkcreeper": {
   "en": "",
   "key": "entity.takumicraft.sculkcreeper",
   "zh": "幽匿苦力怕"
  },
- "takumicraft:sculkcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.sculkcreeper.desc",
-  "sub": true,
-  "zh": "太古的力量与侵蚀的黑暗，永不破灭的幽匿苦力怕。"
- },
  "takumicraft:sheepcreeper": {
   "en": "",
   "key": "entity.takumicraft.sheepcreeper",
   "zh": "羊苦力怕"
- },
- "takumicraft:sheepcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.sheepcreeper.desc",
-  "sub": true,
-  "zh": "呈羊模样的苦力怕。共16种颜色，还有隐藏款式！"
  },
  "takumicraft:silentcreeper": {
   "en": "",
   "key": "entity.takumicraft.silentcreeper",
   "zh": "静默苦力怕"
  },
- "takumicraft:silentcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.silentcreeper.desc",
-  "sub": true,
-  "zh": "它来了，它悄悄地来了。不带来一丝声响，却带走你的性命。"
- },
  "takumicraft:skeletoncreeper": {
   "en": "",
   "key": "entity.takumicraft.skeletoncreeper",
   "zh": "骷髅苦力怕"
- },
- "takumicraft:skeletoncreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.skeletoncreeper.desc",
-  "sub": true,
-  "zh": "射出的是会爆炸的箭矢。它将世界化为充满爆炸的战场。"
  },
  "takumicraft:sleepercreeper": {
   "en": "",
   "key": "entity.takumicraft.sleepercreeper",
   "zh": "安眠苦力怕"
  },
- "takumicraft:sleepercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.sleepercreeper.desc",
-  "sub": true,
-  "zh": "你的床看起来很安全呢⋯⋯？"
- },
- "takumicraft:sleepercreeper.message": {
-  "en": "",
-  "key": "entity.takumicraft.sleepercreeper.message",
-  "sub": true,
-  "zh": "%s的重生点被安眠苦力怕骚扰了！"
- },
  "takumicraft:slimecreeper": {
   "en": "",
   "key": "entity.takumicraft.slimecreeper",
   "zh": "史莱姆苦力怕"
- },
- "takumicraft:slimecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.slimecreeper.desc",
-  "sub": true,
-  "zh": "死后爆炸，爆炸后分裂。我愿称之为：“苦力怕集束炸弹”。"
  },
  "takumicraft:spidercreeper": {
   "en": "",
   "key": "entity.takumicraft.spidercreeper",
   "zh": "蜘蛛苦力怕"
  },
- "takumicraft:spidercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.spidercreeper.desc",
-  "sub": true,
-  "zh": "习得忍术的这类苦力怕寄居在天花板和墙缝里，可谓是能重装房屋的一大害虫。"
- },
  "takumicraft:squidcreeper": {
   "en": "",
   "key": "entity.takumicraft.squidcreeper",
   "zh": "鱿鱼苦力怕"
- },
- "takumicraft:squidcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.squidcreeper.desc",
-  "sub": true,
-  "zh": "绿色的鱿鱼，充满爆炸性。像水雷一样麻烦。"
  },
  "takumicraft:stonecreeper": {
   "en": "",
   "key": "entity.takumicraft.stonecreeper",
   "zh": "石头苦力怕"
  },
- "takumicraft:stonecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.stonecreeper.desc",
-  "sub": true,
-  "zh": "爆炸时对石头特攻。使洞窟在爆炸的风暴中轰然倒塌。"
- },
  "takumicraft:straycreeper": {
   "en": "",
   "key": "entity.takumicraft.straycreeper",
   "zh": "流浪者苦力怕"
- },
- "takumicraft:straycreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.straycreeper.desc",
-  "sub": true,
-  "zh": "用药水和弓箭将玩家粉碎。"
  },
  "takumicraft:vexcreeper": {
   "en": "",
   "key": "entity.takumicraft.vexcreeper",
   "zh": "恼鬼苦力怕"
  },
- "takumicraft:vexcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.vexcreeper.desc",
-  "sub": true,
-  "zh": "仆从苏醒于府邸，羽翼腾空。暗夜风雷，轰鸣之音。"
- },
  "takumicraft:vindicatorcreeper": {
   "en": "",
   "key": "entity.takumicraft.vindicatorcreeper",
   "zh": "卫道士苦力怕"
- },
- "takumicraft:vindicatorcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.vindicatorcreeper.desc",
-  "sub": true,
-  "zh": "斗士苏醒于福地，踏步迈出。暗夜一闪，贯穿死亡。"
  },
  "takumicraft:voidcreeper": {
   "en": "",
   "key": "entity.takumicraft.voidcreeper",
   "zh": "虚空苦力怕"
  },
- "takumicraft:voidcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.voidcreeper.desc",
-  "sub": true,
-  "zh": "破除上方，带来平面。削平大地，引领新世界。"
- },
  "takumicraft:watercreeper": {
   "en": "",
   "key": "entity.takumicraft.watercreeper",
   "zh": "水苦力怕"
- },
- "takumicraft:watercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.watercreeper.desc",
-  "sub": true,
-  "zh": "被水淹没了的话就无处可逃了。带上水桶吧！"
  },
  "takumicraft:weathercreeper": {
   "en": "",
   "key": "entity.takumicraft.weathercreeper",
   "zh": "天气苦力怕"
  },
- "takumicraft:weathercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.weathercreeper.desc",
-  "sub": true,
-  "zh": "司管天气，唤雷呼雨的苦力怕。如果你够聪明的话就懂了。"
- },
  "takumicraft:witchcreeper": {
   "en": "",
   "key": "entity.takumicraft.witchcreeper",
   "zh": "女巫苦力怕"
- },
- "takumicraft:witchcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.witchcreeper.desc",
-  "sub": true,
-  "zh": "魔法、药水和爆炸，把玩家迷得团团转！"
  },
  "takumicraft:witherskeletoncreeper": {
   "en": "",
   "key": "entity.takumicraft.witherskeletoncreeper",
   "zh": "凋灵骷髅苦力怕"
  },
- "takumicraft:witherskeletoncreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.witherskeletoncreeper.desc",
-  "sub": true,
-  "zh": "爆炸时还会附加凋零状态。将下界彻底陷入阿鼻地狱的噩梦中。"
- },
  "takumicraft:wolfcreeper": {
   "en": "",
   "key": "entity.takumicraft.wolfcreeper",
   "zh": "狼苦力怕"
- },
- "takumicraft:wolfcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.wolfcreeper.desc",
-  "sub": true,
-  "zh": "呈狼模样的苦力怕。骨头对它可能不太好用。"
  },
  "takumicraft:woodcreeper": {
   "en": "",
   "key": "entity.takumicraft.woodcreeper",
   "zh": "木头苦力怕"
  },
- "takumicraft:woodcreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.woodcreeper.desc",
-  "sub": true,
-  "zh": "爆炸时对木头特攻。使森林在爆炸的火焰中轰燃殆尽。"
- },
  "takumicraft:yukaricreeper": {
   "en": "",
   "key": "entity.takumicraft.yukaricreeper",
   "zh": "结月缘苦力怕"
- },
- "takumicraft:yukaricreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.yukaricreeper.desc",
-  "sub": true,
-  "zh": "她现身于将一切变成“超平坦”的爆炸之中。缔结吧，明月与无垠的大地！"
  },
  "takumicraft:zombiecreeper": {
   "en": "",
   "key": "entity.takumicraft.zombiecreeper",
   "zh": "僵尸苦力怕"
  },
- "takumicraft:zombiecreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.zombiecreeper.desc",
-  "sub": true,
-  "zh": "将村民变为同族的苦力怕。传说它袭击过的村子全都变成了废墟。"
- },
  "takumicraft:zombievillagercreeper": {
   "en": "",
   "key": "entity.takumicraft.zombievillagercreeper",
   "zh": "村民僵尸苦力怕"
- },
- "takumicraft:zombievillagercreeper.desc": {
-  "en": "",
-  "key": "entity.takumicraft.zombievillagercreeper.desc",
-  "sub": true,
-  "zh": "被苦力怕感染的村民。就算施以治愈魔法也会很快被爆炸吞噬。"
  },
  "tempad:timedoor": {
   "en": "Timedoor",
@@ -32401,96 +31437,6 @@
   "key": "entity.the_bumblezone.bee_queen",
   "zh": "蜂后"
  },
- "the_bumblezone:bee_queen.advancements_warning": {
-  "en": "To reset Queen's Desire advancements, right click again with empty hand",
-  "key": "entity.the_bumblezone.bee_queen.advancements_warning",
-  "sub": true,
-  "zh": "要重置女王的愿望进度，请再次用空手右击"
- },
- "the_bumblezone:bee_queen.christmas_trade_performed": {
-  "en": "Merry Christmas!",
-  "key": "entity.the_bumblezone.bee_queen.christmas_trade_performed",
-  "sub": true,
-  "zh": "圣诞快乐!"
- },
- "the_bumblezone:bee_queen.easter_trade_performed": {
-  "en": "Happy Easter!",
-  "key": "entity.the_bumblezone.bee_queen.easter_trade_performed",
-  "sub": true,
-  "zh": "复活节快乐!"
- },
- "the_bumblezone:bee_queen.forth_of_july_trade_performed": {
-  "en": "Happy 4th of July!",
-  "key": "entity.the_bumblezone.bee_queen.forth_of_july_trade_performed",
-  "sub": true,
-  "zh": "今天是什么特别的节日吗？BZZZ？"
- },
- "the_bumblezone:bee_queen.halloween_trade_performed": {
-  "en": "Trick or Treat!",
-  "key": "entity.the_bumblezone.bee_queen.halloween_trade_performed",
-  "sub": true,
-  "zh": "不给糖就捣蛋！"
- },
- "the_bumblezone:bee_queen.mention_bonus_trade": {
-  "en": "BZZZ! (Queen wants %s for next %s minutes)",
-  "key": "entity.the_bumblezone.bee_queen.mention_bonus_trade",
-  "sub": true,
-  "zh": "BZZZ！（女王想要%s，持续%s分钟）"
- },
- "the_bumblezone:bee_queen.mention_bonus_trade_inventory": {
-  "en": "Bzz! BZZZ! (Queen wants %s from your inventory!)",
-  "key": "entity.the_bumblezone.bee_queen.mention_bonus_trade_inventory",
-  "sub": true,
-  "zh": "BZ！BZZZ！（女王想要你物品栏中的%s！）"
- },
- "the_bumblezone:bee_queen.mention_bonus_trade_performed": {
-  "en": "Trade Bonus! %sx the rewards!",
-  "key": "entity.the_bumblezone.bee_queen.mention_bonus_trade_performed",
-  "sub": true,
-  "zh": "交易奖励！%sx 的奖励！"
- },
- "the_bumblezone:bee_queen.mention_bonus_trade_satisfied": {
-  "en": "Bzzz..! (The Queen is satisfied now)",
-  "key": "entity.the_bumblezone.bee_queen.mention_bonus_trade_satisfied",
-  "sub": true,
-  "zh": "BZZZ..！（女王现在满意了）"
- },
- "the_bumblezone:bee_queen.mention_regular_trade_held": {
-  "en": "Bzz? (Queen is interested in your held item)",
-  "key": "entity.the_bumblezone.bee_queen.mention_regular_trade_held",
-  "sub": true,
-  "zh": "BZZZ？（女王对你手中的物品感兴趣）"
- },
- "the_bumblezone:bee_queen.mention_reset": {
-  "en": "Congrats on your accomplishments! To redo the Queen's Desire quest-line, right click Bee Queen with empty hand to reset those advancements",
-  "key": "entity.the_bumblezone.bee_queen.mention_reset",
-  "sub": true,
-  "zh": "恭喜你的成就！要重新开始女王的愿望任务，请用空手右击蜂后以重置这些进度"
- },
- "the_bumblezone:bee_queen.mention_special_day_trade": {
-  "en": "BZZZ! (Queen wants %s!)",
-  "key": "entity.the_bumblezone.bee_queen.mention_special_day_trade",
-  "sub": true,
-  "zh": "BZZZ! (女王想要%s!)"
- },
- "the_bumblezone:bee_queen.new_year_trade_performed": {
-  "en": "Happy New Year!",
-  "key": "entity.the_bumblezone.bee_queen.new_year_trade_performed",
-  "sub": true,
-  "zh": "新年好啊!"
- },
- "the_bumblezone:bee_queen.reset_advancements": {
-  "en": "Queen's Desire advancements have been reset!",
-  "key": "entity.the_bumblezone.bee_queen.reset_advancements",
-  "sub": true,
-  "zh": "女王的愿望进度已重置！"
- },
- "the_bumblezone:bee_queen.thanksgiving_trade_performed": {
-  "en": "Happy Thanksgiving!",
-  "key": "entity.the_bumblezone.bee_queen.thanksgiving_trade_performed",
-  "sub": true,
-  "zh": "感恩节快乐！"
- },
  "the_bumblezone:bee_stinger": {
   "en": "Bee Stinger",
   "key": "entity.the_bumblezone.bee_stinger",
@@ -32505,11 +31451,6 @@
   "en": "Beehemoth",
   "key": "entity.the_bumblezone.beehemoth",
   "zh": "巨蜂"
- },
- "the_bumblezone:beehemoth_friendship_progress": {
-  "en": "Friendship: %s/1000",
-  "key": "entity.the_bumblezone.beehemoth_friendship_progress",
-  "zh": "友谊度：%s/1000"
  },
  "the_bumblezone:beehemoth_queen": {
   "en": "Queen Beehemoth",
@@ -33541,16 +32482,5 @@
   "en": "",
   "key": "entity.woot_revived.mob_shard",
   "zh": "生物碎片"
- },
- "worker:inventoryfullchestfull": {
-  "en": "Please make space in my chests/racks. I am not able to dump my inventory.",
-  "key": "entity.worker.inventoryfullchestfull",
-  "zh": "请为我的箱子或者架子腾出空间。我没法存放东西了。"
- },
- "yoyo:throw.subtitle": {
-  "en": "",
-  "key": "entity.yoyo.throw.subtitle",
-  "sub": true,
-  "zh": "悠悠球：飞出"
  }
 }

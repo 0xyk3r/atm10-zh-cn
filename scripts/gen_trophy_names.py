@@ -74,6 +74,13 @@ SKIP_IDS = {
     'minecraft:player',            # 玩家奖杯走 createPlayerTrophy，名字是玩家名
 }
 
+# `entity.` 前缀并不代表就是实体名：MineColonies 用 `entity.<职业>.<消息>` 存工人台词、
+# The Bumblezone 用 `entity.the_bumblezone.bee_queen.<事件>` 存蜂后对白。
+# 这些混进来会造出「复活节快乐!奖杯」这种垃圾键。实体名一定是**短名词**，
+# 不会有句子标点、也不会很长 —— 用这个把台词滤掉。
+SENTENCEY = re.compile(r'[！!？?。，,；;：:…]')
+MAX_NAME_LEN = 16
+
 
 def id_to_name(entity_id):
     """复刻 TrophyManager.idToName：冒号后首字母大写，其余 `_` 换空格。"""
@@ -155,6 +162,11 @@ def scan(instance):
         zh = pack_zh.get(key) or jar_zh.get(key)
         if not zh or zh == en:
             continue                      # 没中文 / 中文就是英文 → 没得翻
+        if SENTENCEY.search(zh) or len(zh) > MAX_NAME_LEN:
+            continue                      # 是台词/对白，不是实体名
+        # 英文侧同理。逗号要放行 —— "Echo of Tyros, First Flamebearer" 是正经 Boss 名
+        if en and (re.search(r'[!?…]', en) or len(en) > 44):
+            continue
         rec = {'key': key, 'en': en or '', 'zh': zh}
         if sub:
             rec['sub'] = True

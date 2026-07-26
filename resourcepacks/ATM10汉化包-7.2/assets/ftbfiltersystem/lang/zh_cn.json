@@ -22,7 +22,7 @@
  "ftbfiltersystem.gui.item_source.inventory": "容器",
  "ftbfiltersystem.gui.item_source.mod": "模组",
  "ftbfiltersystem.gui.nbt_ok": "SNBT 解析完成",
- "ftbfiltersystem.gui.nbt_bad": "SNBT 解析失败!",
+ "ftbfiltersystem.gui.nbt_bad": "SNBT 解析失败！",
  "ftbfiltersystem.gui.filter_ok": "过滤器解析成功",
  "ftbfiltersystem.gui.filter_bad": "过滤器解析失败！",
  "ftbfiltersystem.gui.custom_id": "自定义事件 ID:",
