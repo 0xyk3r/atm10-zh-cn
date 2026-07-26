@@ -586,8 +586,13 @@ def render_vector(text, w, h, outline, plate, sw, face):
         if abs(k - 1) < 0.01:
             break
         size = max(1, size * k)
+    # core 必须用**同样的 stroke_width** 画（只是描边填 0），否则多行会错位：
+    # PIL 算多行行距时是 line_spacing = 单行高 + stroke_width + spacing，
+    # 带描边和不带描边算出来的第二行位置差约两倍描边宽 —— 第二行下半截 core 盖不到，
+    # 渲染出来就只剩 allm 的描边色，看着像字被截掉一块。
     core = Image.new('L', big, 0)
-    ImageDraw.Draw(core).text(org, text, font=f, fill=255, align='center', spacing=sp)
+    ImageDraw.Draw(core).text(org, text, font=f, fill=255, stroke_width=sw * SS,
+                              stroke_fill=0, align='center', spacing=sp)
     allm, core = allm.crop(bb), core.crop(bb)
     gw, gh = max(1, round(allm.width / SS)), max(1, round(allm.height / SS))
     allm = allm.resize((gw, gh), Image.LANCZOS)
