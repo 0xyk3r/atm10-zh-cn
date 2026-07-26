@@ -98,21 +98,67 @@ QUESTS = INST / 'config' / 'ftbquests' / 'quests'
 MARGIN = 4    # 原图四周的透明边
 LINE_GAP = 2  # 多行时的行距（1 倍尺度像素）
 
-# 矢量字备选：(路径, 索引)
-FACE = {
+# ---------------------------------------------------------------- 字体
+# 优先用仓库里 assets-src/fonts/<名字>.(ttf|otf|ttc)；没有就退回系统自带的。
+# 想让某一类更贴原图，把对应字体丢进那个目录即可，不用改代码（见该目录的 README）。
+FONTS_DIR = ROOT / 'assets-src' / 'fonts'
+SYSTEM_FALLBACK = {
     'thin':  ('/System/Library/Fonts/Hiragino Sans GB.ttc', 0),   # 冬青黑 W3
     'bold':  ('/System/Library/Fonts/Hiragino Sans GB.ttc', 2),   # 冬青黑 W6
     'serif': ('/System/Library/Fonts/Songti.ttc', 0),             # 宋体 SC Black
+    'deco':  ('/System/Library/Fonts/Songti.ttc', 0),
 }
-# 原图明显是衬线/装饰体的，点名走宋体
-SERIF = {
-    'aether/aether_title.png', 'bumblezone/bumble_title.png',
-    'natures_aura/natures_aura_title.png', 'occultism/occultism_title.png',
-    'draconic/draconic_title.png', 'apothic/gear_sigils.png', 'apothic/gear_tiers.png',
-    'chap3/creative_items.png', 'chap3/creative_star.png',
-    'undergarden/undergarden_title.png', 'relics/relics_title.png',
-    'iron_spells/spells_title.png',
-}
+
+
+def face_file(name):
+    for ext in ('.ttf', '.otf', '.ttc'):
+        p = FONTS_DIR / (name + ext)
+        if p.exists():
+            return str(p), 0
+    return SYSTEM_FALLBACK.get(name, SYSTEM_FALLBACK['bold'])
+
+
+# 按「模组/目录」分组指定字面。原图每套标题图共用一种字体，所以按组指定即可，
+# 不必逐张点名。pixel = 用 Minecraft 自带的 Unifont 点阵渲染。
+FACE_BY_PREFIX = [
+    # ---- 方块像素字（MC 风的硬边字）
+    ('mek/',                     'pixel'), ('cataclysm/',            'pixel'),
+    ('powah/',                   'pixel'), ('twilight_forest_title', 'pixel'),
+    ('deepndark/',               'pixel'), ('immersive/',            'pixel'),
+    ('forbidden/forbidden_title_tier', 'pixel'), ('bumblezone/bumble_title_', 'pixel'),
+    ('basicarmor/',              'pixel'), ('allthemodium/all_title', 'pixel'),
+    ('chap2/atmstar_title1',     'pixel'), ('chap3/creative_chap4',  'pixel'),
+    ('extremereactors/',         'pixel'), ('oritech/',              'pixel'),
+    ('pylons/',                  'pixel'), ('apothic/enchant_',      'pixel'),
+    ('pneumaticcraft/',          'pixel'), ('industrialforegoing/',  'pixel'),
+    ('artifacts/',               'pixel'), ('id_title',              'pixel'),
+    ('extended_advanced_ae/',    'pixel'), ('mystical_agriculture/', 'pixel'),
+    ('undergarden/undergarden_biomes',    'pixel'),
+    ('undergarden/undergarden_friendly',  'pixel'),
+    ('undergarden/undergarden_hostile',   'pixel'),
+    ('undergarden/undergarden_neutral',   'pixel'),
+    ('undergarden/undergarden_tools',     'pixel'),
+    ('undergarden/undergarden_vegetation','pixel'),
+    ('chap2/atmstar_title2',     'pixel'), ('chap3/creative_creative', 'pixel'),
+    # ---- 粗衬线 / 装饰
+    ('aether/',                  'serif'), ('bumblezone/bumble_title.png', 'serif'),
+    ('natures_aura/',            'serif'), ('occultism/',            'serif'),
+    ('draconic/',                'serif'), ('undergarden/undergarden_title', 'serif'),
+    ('relics/',                  'serif'), ('iron_spells/',          'serif'),
+    ('apothic/gear_',            'serif'), ('chap3/creative_items',  'serif'),
+    ('chap3/creative_star',      'serif'), ('iceandfire/',           'serif'),
+    ('mahou/',                   'serif'), ('eternal/',              'serif'),
+    # ---- 细体
+    ('ars/',                     'thin'),  ('router/',               'thin'),
+    # ---- 其余默认粗黑
+]
+
+
+def pick_face(rel):
+    for pre, kind in FACE_BY_PREFIX:
+        if rel.startswith(pre):
+            return kind
+    return 'bold'
 
 
 def pixel_scale(im):
@@ -439,6 +485,50 @@ def sample_style(im):
     return outline, plate.resize((W, H), Image.LANCZOS), max(2, round(H * 0.045)), '材质'
 
 
+def render_vector(text, w, h, outline, plate, sw, face):
+    """矢量字渲染：4 倍超采样，内部取材质、外圈上描边色"""
+    path, idx = face_file(face)
+    SS = 4
+    aw, ah = w - 2 * MARGIN, h - 2 * MARGIN
+    size = ah
+    for _ in range(12):
+        f = ImageFont.truetype(path, max(1, int(size)) * SS, index=idx)
+        big = (w * SS * 3, h * SS * 3)
+        allm = Image.new('L', big, 0)
+        ImageDraw.Draw(allm).text((w * SS, h * SS), text, font=f, fill=255,
+                                  stroke_width=sw * SS, stroke_fill=255,
+                                  align='center', spacing=int(size * SS * 0.12))
+        bb = allm.getbbox()
+        tw, th = (bb[2] - bb[0]) / SS, (bb[3] - bb[1]) / SS
+        k = min(aw / tw, ah / th)
+        if abs(k - 1) < 0.01:
+            break
+        size = max(1, size * k)
+    core = Image.new('L', big, 0)
+    ImageDraw.Draw(core).text((w * SS, h * SS), text, font=f, fill=255,
+                              align='center', spacing=int(size * SS * 0.12))
+    allm, core = allm.crop(bb), core.crop(bb)
+    gw, gh = max(1, round(allm.width / SS)), max(1, round(allm.height / SS))
+    allm = allm.resize((gw, gh), Image.LANCZOS)
+    core = core.resize((gw, gh), Image.LANCZOS)
+    tex = plate.resize((gw, gh), Image.LANCZOS).load()
+    glyph = Image.new('RGBA', (gw, gh), (0, 0, 0, 0))
+    ga, gc, gp = allm.load(), core.load(), glyph.load()
+    for y in range(gh):
+        for x in range(gw):
+            a = ga[x, y]
+            if not a:
+                continue
+            col = tex[x, y]
+            t = gc[x, y] / 255
+            gp[x, y] = (round(outline[0] + (col[0] - outline[0]) * t),
+                        round(outline[1] + (col[1] - outline[1]) * t),
+                        round(outline[2] + (col[2] - outline[2]) * t), a)
+    canvas = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+    canvas.alpha_composite(glyph, ((w - gw) // 2, (h - gh) // 2))
+    return canvas, gw, gh
+
+
 def render(text, w, h, outline, plate, sw):
     """用 Unifont 位图排字，整数倍最近邻放大后按材质板上色"""
     lines = text.split('\n')
@@ -530,7 +620,11 @@ def main(check_only=False):
             outline = STYLE[rel][0]
             plate = Image.new('RGB', plate.size, STYLE[rel][1])
             how = '指定色'
-        img, gw, gh = render(text, sub.width, sub.height, outline, plate, sw)
+        face = pick_face(rel)
+        if face == 'pixel':
+            img, gw, gh = render(text, sub.width, sub.height, outline, plate, sw)
+        else:
+            img, gw, gh = render_vector(text, sub.width, sub.height, outline, plate, sw, face)
         if cfg:
             # 保留框外的装饰：在原图上抠掉文字框，再把中文贴回去
             canvas = im.copy()
@@ -553,7 +647,8 @@ def main(check_only=False):
             dst.parent.mkdir(parents=True, exist_ok=True)
             img.save(dst)
         note = '' if (not used or used[0] == text) else '  ← 与章节标题「%s」不同' % used[0]
-        print('  %-50s %-7s %-8s %dx%d%s' % (rel, text, how, im.width, im.height, note))
+        print('  %-48s %-7s %-5s %-10s %dx%d%s'
+              % (rel, text, face, how, im.width, im.height, note))
         n += 1
     print(('校验通过' if check_only else '已生成') + ' %d 张 -> %s' % (n, OUT.relative_to(ROOT)))
 
