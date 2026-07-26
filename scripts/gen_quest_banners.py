@@ -19,9 +19,11 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
 这些是带渐变和描边的艺术字，一张张配色调不过来，也不可复现。做法是：
 
 1. **描边色**：取「不透明但四邻里有透明像素」的那一圈的中位色；
-2. **填充渐变**：把原图内容区按行切片，每行取非描边实心像素的中位色，
-   得到一条竖向渐变，再按相对高度重采样到新字上——原图是金色渐变，
-   中文就也是金色渐变。
+2. **填充用原图的材质，不是单一颜色**：ATM 的标题字大多不是纯色——APOTHIC 是裂纹石头、
+   UNDERGARDEN 是长苔石、EXTENDED AND ADVANCED AE 干脆是用方块贴图拼出来的立体字。
+   只取一个颜色或一条竖向渐变，纹理和方块效果就全没了（"抠烂了"）。
+   做法是按行提取原字内部（非描边）的像素序列，横向平铺成一张与画布同大的材质板，
+   再用中文字形当遮罩去取色——中文看起来就像用同一种材料刻出来的。
    **只取最高的那一条文字带**：不少原图是两行且两行异色（APOTHIC 灰 / ENCHANTING 紫、
    DRACONIC / EVOLUTION、INDUSTRIAL FOREGOING 加一行小字副标），
    整块一起采会把「上灰下紫」当成渐变，映到一行中文上就是拦腰一道色带（斑纹）；
@@ -295,8 +297,9 @@ def sample_style(im):
     outline = med(edge) if edge else (0, 0, 0)
     ys = sorted(inner)
     if not ys:
-        return outline, [(255, 255, 255)], max(2, round(H * 0.045))
-    # 切成一条条连续的「有墨行」，只留最高的那条 —— 多行异色的原图不能整块当渐变采
+        return outline, Image.new('RGB', (W, H), (255, 255, 255)), max(2, round(H * 0.045))
+    # 切成一条条连续的「有墨行」，只留最高的那条 —— 多行异色的原图（APOTHIC 灰 /
+    # ENCHANTING 紫）整块一起用会让中文上下两截色
     peak = max(len(v) for v in inner.values())
     runs, cur = [], []
     for y in range(ys[0], ys[-1] + 1):
@@ -306,18 +309,19 @@ def sample_style(im):
             runs.append(cur); cur = []
     if cur:
         runs.append(cur)
-    band = max(runs, key=len) if runs else ys
-    grad = [med(inner[y]) for y in band if y in inner] or [med([c for v in inner.values() for c in v])]
-    # 逐行中位色本身是抖的（像素画一行里深浅块交替），直接拿去拉伸会变成一条条横纹。
-    # 先做滑动平均抹平，取样时再线性插值（见 render），两步一起才不出斑纹。
-    w = max(1, len(grad) // 6)
-    grad = [tuple(sum(g[i] for g in grad[max(0, j - w):j + w + 1])
-                  // len(grad[max(0, j - w):j + w + 1]) for i in range(3))
-            for j in range(len(grad))]
-    return outline, grad, max(2, round(H * 0.045))
+    band = [y for y in (max(runs, key=len) if runs else ys) if y in inner]
+    # 材质板：每一行把该行原字内部的像素序列横向平铺满整宽，再纵向拉伸到画布高。
+    # 这样石纹/苔藓/方块贴图都留得住，而不是塌成一个颜色。
+    plate = Image.new('RGB', (W, len(band)))
+    pp = plate.load()
+    for j, y in enumerate(band):
+        seq = inner[y]
+        for x in range(W):
+            pp[x, j] = seq[x % len(seq)]
+    return outline, plate.resize((W, H), Image.LANCZOS), max(2, round(H * 0.045))
 
 
-def render(text, w, h, outline, grad, sw):
+def render(text, w, h, outline, plate, sw):
     aw, ah = w - 2 * MARGIN, h - 2 * MARGIN
     size = ah
     for _ in range(12):
@@ -341,19 +345,16 @@ def render(text, w, h, outline, grad, sw):
     allm = allm.resize((gw, gh), Image.LANCZOS)
     core = core.resize((gw, gh), Image.LANCZOS)
 
+    tex = plate.resize((gw, gh), Image.LANCZOS).load()
     glyph = Image.new('RGBA', (gw, gh), (0, 0, 0, 0))
     ga, gc, gp = allm.load(), core.load(), glyph.load()
-    n = len(grad)
     for y in range(gh):
-        # 线性插值，不用最近邻——源色带常比目标字高矮，最近邻会把同一色重复若干行再跳变
-        f = y / max(1, gh - 1) * (n - 1)
-        i0 = min(n - 1, int(f)); i1 = min(n - 1, i0 + 1); t0 = f - i0
-        col = tuple(round(grad[i0][k] + (grad[i1][k] - grad[i0][k]) * t0) for k in range(3))
         for x in range(gw):
             a = ga[x, y]
             if not a:
                 continue
-            t = gc[x, y] / 255
+            col = tex[x, y]
+            t = gc[x, y] / 255          # 内部取材质、边缘过渡到描边色
             gp[x, y] = (round(outline[0] + (col[0] - outline[0]) * t),
                         round(outline[1] + (col[1] - outline[1]) * t),
                         round(outline[2] + (col[2] - outline[2]) * t), a)
@@ -394,10 +395,11 @@ def main(check_only=False):
             sys.exit('❌ %s 被多个章节引用 %s，不能写死一个标题' % (rel, used))
         im = Image.open(src).convert('RGBA')
         sub, at, cfg = crop_box(im, rel)
-        outline, grad, sw = sample_style(sub)
-        if rel in STYLE:
-            outline, grad = STYLE[rel][0], [STYLE[rel][1]]
-        img, gw, gh = render(text, sub.width, sub.height, outline, grad, sw)
+        outline, plate, sw = sample_style(sub)
+        if rel in STYLE:      # 少数原图字色与底纹太接近，采样出来看不清，直接给定
+            outline = STYLE[rel][0]
+            plate = Image.new('RGB', plate.size, STYLE[rel][1])
+        img, gw, gh = render(text, sub.width, sub.height, outline, plate, sw)
         if cfg:
             # 保留框外的装饰：在原图上抠掉文字框，再把中文贴回去
             canvas = im.copy()
@@ -420,8 +422,8 @@ def main(check_only=False):
             dst.parent.mkdir(parents=True, exist_ok=True)
             img.save(dst)
         note = '' if (not used or used[0] == text) else '  ← 与章节标题「%s」不同' % used[0]
-        print('  %-50s %-7s %dx%d 描边%s宽%d 渐变%d色%s'
-              % (rel, text, im.width, im.height, outline, sw, len(grad), note))
+        print('  %-50s %-7s %dx%d 描边%s 宽%d%s'
+              % (rel, text, im.width, im.height, outline, sw, note))
         n += 1
     print(('校验通过' if check_only else '已生成') + ' %d 张 -> %s' % (n, OUT.relative_to(ROOT)))
 
