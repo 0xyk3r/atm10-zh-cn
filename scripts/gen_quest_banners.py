@@ -42,10 +42,15 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
 暮色森林那条石砖带被文字压着，抹掉会留个洞，所以从文字上方干净的砖行取一条
 纹理平铺补上。
 
-字体用系统自带的中粗黑体。找不到像素风中文字体，所以字形风格无法与原图的
-像素英文完全一致——这是这类「艺术字汉化」的固有限制（社区通行做法要么就是
-重绘、要么干脆保留英文）。本包选择重绘：宁可字体风格不完全一致，
-也不要同一本任务书里中英横幅混杂。
+## 字形：直接用 Minecraft 自己的 Unifont
+
+早期版本用系统黑体渲染，字形是平滑矢量，跟原图的像素英文完全不搭。
+正解是用 **Minecraft 渲染中文时用的那套字**——GNU Unifont，16×16 点阵，
+整合包 assets 里就有（`minecraft/font/unifont.zip`，随资源索引下载，无需外部字体）。
+
+流程：按 Unifont 的 `.hex` 位图在 **1 倍尺度**拼出文字 → 按整数倍**最近邻**放大到目标框。
+这样笔画边缘是硬像素块，和原图的像素英文同一套观感；描边也在 1 倍尺度做膨胀再一起放大，
+所以描边同样是方块状，不会出现矢量字那种圆滑边。
 
 ## 例外：不动的图
 
@@ -72,17 +77,30 @@ INST = Path('/Users/yumeka/Documents/minecraft/.minecraft/versions/All the Mods 
 SRC = INST / 'kubejs' / 'assets' / 'atm' / 'textures' / 'questpics'
 QUESTS = INST / 'config' / 'ftbquests' / 'quests'
 
-FONT_CANDIDATES = [
-    ('/System/Library/Fonts/Hiragino Sans GB.ttc', 2),   # 冬青黑体简体中文 W6
-    ('/System/Library/Fonts/STHeiti Medium.ttc', 1),     # 黑体-简 Medium
-    ('/System/Library/Fonts/PingFang.ttc', 4),           # 苹方-简 Medium
-]
-FONT, FONT_INDEX = next(((f, i) for f, i in FONT_CANDIDATES if Path(f).exists()), (None, 0))
-if FONT is None:
-    sys.exit('找不到可用的中文字体，候选：%s' % [f for f, _ in FONT_CANDIDATES])
-
-SS = 4        # 超采样倍数
 MARGIN = 4    # 原图四周的透明边
+LINE_GAP = 2  # 多行时的行距（1 倍尺度像素）
+
+
+def load_unifont():
+    """Minecraft 自己用来渲染中文的 GNU Unifont（16×16 点阵），从游戏 assets 里取"""
+    import json as _json, zipfile as _zip
+    mc = INST.parent.parent
+    ver = _json.loads((INST / (next(INST.glob('*.jar')).stem + '.json')).read_text(encoding='utf-8'))
+    idx = _json.loads((mc / 'assets' / 'indexes' / (ver['assetIndex']['id'] + '.json'))
+                      .read_text(encoding='utf-8'))['objects']
+    h = idx['minecraft/font/unifont.zip']['hash']
+    with _zip.ZipFile(mc / 'assets' / 'objects' / h[:2] / h) as z:
+        name = next(n for n in z.namelist() if n.endswith('.hex'))
+        raw = z.read(name).decode('ascii')
+    g = {}
+    for line in raw.splitlines():
+        cp, bits = line.split(':')
+        w = len(bits) // 4                      # 8 或 16 像素宽
+        g[int(cp, 16)] = (w, [int(bits[r * (w // 4):(r + 1) * (w // 4)], 16) for r in range(16)])
+    return g
+
+
+UNIFONT = load_unifont()
 
 # 图 → 中文。取值来自「引用该图那一章的中文标题」，脚本会核验对得上。
 # 少数几条与章节标题不同，原因写在行尾。
@@ -330,42 +348,54 @@ def sample_style(im):
 
 
 def render(text, w, h, outline, plate, sw):
-    aw, ah = w - 2 * MARGIN, h - 2 * MARGIN
-    size = ah
-    for _ in range(12):
-        f = ImageFont.truetype(FONT, max(1, int(size)) * SS, index=FONT_INDEX)
-        big = (w * SS * 3, h * SS * 3)
-        allm = Image.new('L', big, 0)
-        ImageDraw.Draw(allm).text((w * SS, h * SS), text, font=f, fill=255,
-                                  stroke_width=sw * SS, stroke_fill=255,
-                                  align='center', spacing=int(size * SS * 0.12))
-        bb = allm.getbbox()
-        tw, th = (bb[2] - bb[0]) / SS, (bb[3] - bb[1]) / SS
-        k = min(aw / tw, ah / th)
-        if abs(k - 1) < 0.01:
-            break
-        size = max(1, size * k)
-    core = Image.new('L', big, 0)
-    ImageDraw.Draw(core).text((w * SS, h * SS), text, font=f, fill=255,
-                              align='center', spacing=int(size * SS * 0.12))
-    allm, core = allm.crop(bb), core.crop(bb)
-    gw, gh = max(1, round(allm.width / SS)), max(1, round(allm.height / SS))
-    allm = allm.resize((gw, gh), Image.LANCZOS)
-    core = core.resize((gw, gh), Image.LANCZOS)
+    """用 Unifont 位图排字，整数倍最近邻放大后按材质板上色"""
+    lines = text.split('\n')
+    rows = []
+    for ln in lines:
+        gs = [UNIFONT.get(ord(c), (16, [0] * 16)) for c in ln]
+        rows.append((sum(g[0] for g in gs), gs))
+    W1 = max(r[0] for r in rows)
+    H1 = len(rows) * 16 + (len(rows) - 1) * LINE_GAP
 
-    tex = plate.resize((gw, gh), Image.LANCZOS).load()
+    # 1 倍尺度的字形遮罩
+    core1 = [[0] * W1 for _ in range(H1)]
+    for li, (lw, gs) in enumerate(rows):
+        x0 = (W1 - lw) // 2
+        y0 = li * (16 + LINE_GAP)
+        for gw, bm in gs:
+            for r in range(16):
+                bits = bm[r]
+                for c in range(gw):
+                    if bits >> (gw - 1 - c) & 1:
+                        core1[y0 + r][x0 + c] = 1
+            x0 += gw
+
+    # 描边：1 倍尺度上按切比雪夫距离膨胀 ow 圈，放大后就是方块状的粗描边
+    aw, ah = w - 2 * MARGIN, h - 2 * MARGIN
+    ow = 1 if sw <= 6 else 2
+    k = max(1, min((aw) // (W1 + 2 * ow), (ah) // (H1 + 2 * ow)))
+    pad = ow
+    AW, AH = W1 + 2 * pad, H1 + 2 * pad
+    all1 = [[0] * AW for _ in range(AH)]
+    for y in range(H1):
+        for x in range(W1):
+            if core1[y][x]:
+                for dy in range(-ow, ow + 1):
+                    for dx in range(-ow, ow + 1):
+                        all1[y + pad + dy][x + pad + dx] = 1
+
+    gw, gh = AW * k, AH * k
+    tex = plate.resize((max(1, gw), max(1, gh)), Image.LANCZOS).load()
     glyph = Image.new('RGBA', (gw, gh), (0, 0, 0, 0))
-    ga, gc, gp = allm.load(), core.load(), glyph.load()
-    for y in range(gh):
-        for x in range(gw):
-            a = ga[x, y]
-            if not a:
+    gp = glyph.load()
+    for Y in range(gh):
+        y1 = Y // k
+        for X in range(gw):
+            x1 = X // k
+            if not all1[y1][x1]:
                 continue
-            col = tex[x, y]
-            t = gc[x, y] / 255          # 内部取材质、边缘过渡到描边色
-            gp[x, y] = (round(outline[0] + (col[0] - outline[0]) * t),
-                        round(outline[1] + (col[1] - outline[1]) * t),
-                        round(outline[2] + (col[2] - outline[2]) * t), a)
+            inside = 0 <= y1 - pad < H1 and 0 <= x1 - pad < W1 and core1[y1 - pad][x1 - pad]
+            gp[X, Y] = (tex[X, Y] + (255,)) if inside else (outline + (255,))
     canvas = Image.new('RGBA', (w, h), (0, 0, 0, 0))
     canvas.alpha_composite(glyph, ((w - gw) // 2, (h - gh) // 2))
     return canvas, gw, gh
