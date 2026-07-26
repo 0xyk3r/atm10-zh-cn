@@ -153,13 +153,51 @@ function Patch-Options {
     Write-Host '✅ 已在 options.txt 启用汉化资源包（不启用会全英文）'
 }
 
+##
+# 清理 7.2 release8 之前的遗留文件。
+#
+# 那之前本包的任务书 delta 用的是 `<章节名>.snbt`，与整合包自带的同名文件**撞名**，
+# 安装时直接覆盖 —— 整合包那一章上百条翻译当场没了，任务书变英文。
+# （已经启动过的实例看不出来：整合包那批早合并完并改名成 .snbt_merged 了。）
+#
+# 现在统一加 zz_hanhua_ 前缀，不会再撞名。这里把旧名字的残留删掉，
+# 且只在**内容与本包同名新文件逐字节相同**时才删 —— 这样能确定它是本包的旧产物，
+# 绝不会误删整合包自己的文件。
+function Clear-LegacyQuestLang {
+    $qd = Join-Path $script:Target 'config\ftbquests\quests\lang\zh_cn\chapters'
+    $sd = Join-Path $ScriptDir 'config\ftbquests\quests\lang\zh_cn\chapters'
+    if (!(Test-Path -LiteralPath $qd) -or !(Test-Path -LiteralPath $sd)) { return }
+    $hit = 0
+    foreach ($new in Get-ChildItem -LiteralPath $sd -Filter 'zz_hanhua_*.snbt' -File) {
+        $base = $new.Name -replace '^zz_hanhua_', ''
+        foreach ($n in @($base, "_$base")) {
+            $old = Join-Path $qd $n
+            if (!(Test-Path -LiteralPath $old)) { continue }
+            $a = [System.IO.File]::ReadAllBytes($old)
+            $b = [System.IO.File]::ReadAllBytes($new.FullName)
+            if ($a.Length -eq $b.Length -and
+                [System.Linq.Enumerable]::SequenceEqual($a, $b)) {
+                Remove-Item -LiteralPath $old -Force
+                $hit++
+            }
+        }
+    }
+    if ($hit -gt 0) {
+        Write-Host "🧹 清理了 $hit 个旧版本残留的任务书语言文件。"
+        Write-Host '⚠️ 旧版本可能覆盖过整合包自带的任务书翻译。若任务书仍有整章英文，'
+        Write-Host '   请重装一次整合包再运行本安装器（本包已不会再覆盖整合包的文件）。'
+    }
+}
+
 function Do-Apply {
     if ($script:InPlace) {
+        Clear-LegacyQuestLang
         Patch-Options
         Write-Host '✅ 汉化文件已在位，options.txt 已处理完毕。'
         return
     }
     Do-Backup
+    Clear-LegacyQuestLang
     foreach ($f in Get-PayloadFiles) {
         $dst = Join-Path $script:Target $f
         if ((Join-Path $ScriptDir $f) -eq $dst) { continue }   # 双保险：源即目标就跳过

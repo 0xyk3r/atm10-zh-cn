@@ -111,6 +111,38 @@ do_backup() {
   say "✅ 已备份 $n 个将被覆盖的文件到 backups/$TS/"
 }
 
+##
+# 清理 7.2 release8 之前的遗留文件。
+#
+# 那之前本包的任务书 delta 用的是 `<章节名>.snbt`，与整合包自带的同名文件**撞名**，
+# 安装时直接覆盖 —— 整合包那一章上百条翻译当场没了，任务书变英文。
+# （已经启动过的实例看不出来：整合包那批早合并完并改名成 .snbt_merged 了。）
+#
+# 现在统一加 zz_hanhua_ 前缀，不会再撞名。这里把旧名字的残留删掉，
+# 且只在**内容与本包同名新文件逐字节相同**时才删 —— 这样能确定它是本包的旧产物，
+# 绝不会误删整合包自己的文件。
+clean_legacy_quest_lang() {
+  QD="$TARGET/config/ftbquests/quests/lang/zh_cn/chapters"
+  SD="$SCRIPT_DIR/config/ftbquests/quests/lang/zh_cn/chapters"
+  [ -d "$QD" ] && [ -d "$SD" ] || return 0
+  hit=0
+  for new in "$SD"/zz_hanhua_*.snbt; do
+    [ -f "$new" ] || continue
+    base="$(basename "$new")"; base="${base#zz_hanhua_}"
+    for old in "$QD/$base" "$QD/_$base"; do
+      if [ -f "$old" ] && cmp -s "$old" "$new"; then
+        rm -f "$old"
+        hit=$((hit + 1))
+      fi
+    done
+  done
+  if [ "$hit" -gt 0 ]; then
+    say "🧹 清理了 $hit 个旧版本残留的任务书语言文件。"
+    say "⚠️ 旧版本可能覆盖过整合包自带的任务书翻译。若任务书仍有整章英文，"
+    say "   请重装一次整合包再运行本安装器（本包已不会再覆盖整合包的文件）。"
+  fi
+}
+
 patch_options() {
   OPT="$TARGET/options.txt"
   # 全新实例还没启动过，options.txt 尚不存在（Minecraft 退出时才写）。
@@ -142,11 +174,13 @@ patch_options() {
 
 do_apply() {
   if [ "$IN_PLACE" = "1" ]; then
+    clean_legacy_quest_lang
     patch_options
     say "✅ 汉化文件已在位，options.txt 已处理完毕。"
     return
   fi
   do_backup
+  clean_legacy_quest_lang
   while IFS= read -r f; do
     mkdir -p "$TARGET/$(dirname "$f")"
     [ "$SCRIPT_DIR/$f" = "$TARGET/$f" ] && continue   # 双保险：源即目标就跳过

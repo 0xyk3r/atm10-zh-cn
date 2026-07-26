@@ -218,6 +218,26 @@ if FMT_SNAPSHOT.exists():
                 errors.append(f'{rel}: {k} 非法 § 颜色码 {sorted(new_sect)}'
                               f'（§ 后面那个字会被渲染器吞掉）\n      zh={zh!r}')
 
+# 8: 任务书 delta 的文件名必须带 zz_hanhua_ 前缀
+#
+# 整合包自己也把任务书翻译拆成同一个目录下的 `<章节名>.snbt`，由 ftbquestslangsplitter
+# 在开服/进存档时按**文件名字母序**逐个合并进 zh_cn.snbt，后合并的覆盖先合并的。
+# 于是文件名同时决定两件事，两件都出过事：
+#
+#   1. 撞名 = 删掉整合包的翻译。安装器是直接覆盖文件的，本包的 aether.snbt 只有 2 个键，
+#      盖掉了整合包同名文件的 167 个键。**已经启动过的实例看不出来**（整合包那批早就
+#      合并完并改名成 .snbt_merged 了），只有全新实例会中招——那 23 章的中文当场全没，
+#      任务书变英文。
+#   2. 排序太靠前 = 本包的修正不生效。早先用 `_` 开头（ASCII 0x5F < 小写字母 0x61），
+#      在全新实例上会先于整合包的文件合并，然后被整合包的原值盖回去。
+#
+# 统一加 zz_hanhua_ 前缀两个问题一起解决：不可能撞名，且一定最后合并。
+QLANG = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
+for p in sorted(QLANG.rglob('*.snbt')):
+    if not p.name.startswith('zz_hanhua_'):
+        errors.append(f'任务书 delta {p.relative_to(ROOT)} 缺少 zz_hanhua_ 前缀'
+                      f'（会和整合包自带的同名文件撞车，安装时把人家的翻译整个覆盖掉）')
+
 # 7: 任务书 delta 之间的重复键
 QDELTA = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
 _KEY = re.compile(r'\t([A-Za-z0-9_.]+):\s*(.*)$')
@@ -245,4 +265,4 @@ if errors:
         print('  -', e)
     sys.exit(1)
 print('✅ 全部校验通过（VaultPatcher 模块 / 枚举协议值 / 主配置 / 资源包 lang / '
-      '.gui choice / 占位符与颜色码 / 任务书 delta 无重复键）')
+      '.gui choice / 占位符与颜色码 / 任务书 delta 无重复键与前缀正确）')
