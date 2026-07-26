@@ -21,7 +21,10 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
 1. **描边色**：取「不透明但四邻里有透明像素」的那一圈的中位色；
 2. **填充渐变**：把原图内容区按行切片，每行取非描边实心像素的中位色，
    得到一条竖向渐变，再按相对高度重采样到新字上——原图是金色渐变，
-   中文就也是金色渐变；
+   中文就也是金色渐变。
+   **只取最高的那一条文字带**：不少原图是两行且两行异色（APOTHIC 灰 / ENCHANTING 紫、
+   DRACONIC / EVOLUTION、INDUSTRIAL FOREGOING 加一行小字副标），
+   整块一起采会把「上灰下紫」当成渐变，映到一行中文上就是拦腰一道色带（斑纹）；
 3. **描边宽度**：按图高的 4.5% 估，最少 2px；
 4. 文字按 `min(可用宽/字宽, 可用高/字高)` 等比放到最大后居中，
    4 倍超采样渲染再缩回，边缘与原图同级顺滑。
@@ -87,7 +90,6 @@ BOXES = {
     'occultism/occultism_title.png': dict(box=(16, 27, 73, 67)),                 # 左右两只怪要留
     'pneumaticcraft/pnc_title.png':  dict(box=(0, 0, 92, 100)),                  # 右侧小图标要留
     'twilight_forest_title.png':     dict(box=(5, 18, 95, 72), patch_from=(86, 96)),  # 字压在石砖带上
-    'id_title.png':                  dict(box=(0, 26, 100, 78)),                 # 400×400 里只中间一条是字
 }
 
 # 少数图自动采样会采到底纹/装饰而不是字本身，颜色发灰看不清，这里直接给定
@@ -97,6 +99,8 @@ STYLE = {
     'ars/ars_nouveau_title.png':  ((58, 12, 78), (196, 96, 234)),   # 原字是发光紫，中位色偏暗
     'router/router_title.png':    ((54, 36, 18), (242, 222, 172)),  # 原字是米色，底纹拉灰了
     'occultism/occultism_title.png': ((28, 6, 34), (150, 40, 168)),
+    'allthemodium/all_title.png': ((0, 0, 0), (236, 236, 236)),      # 原字自带上下两色调，会成一道横带
+    'id_title.png':              ((22, 58, 68), (126, 238, 252)),
 }
 
 BANNERS = {
@@ -113,7 +117,7 @@ BANNERS = {
     'deepndark/dnd_title.png':                              '更深更暗',
     'draconic/draconic_title.png':                          '龙之进化',
     'forbidden/forbidden_title.png':                        '禁忌与奥秘',
-    'id_title.png':                                         '动态联合',
+    'id_title.png':                                         '动态\n联合',   # 原图两行，画布 400x400，单行会缩得很小
     'immersive/immersive_title.png':                        '沉浸工程',
     'industrialforegoing/industrial_foregoing_title.png':   '工业先锋',
     'iron_spells/spells_title.png':                         '铁魔法',      # 章节标题仍夹英文，横幅用社区通用名
@@ -162,7 +166,26 @@ def sample_style(im):
         return tuple(int(statistics.median(c[i] for c in seq)) for i in range(3))
     outline = med(edge) if edge else (0, 0, 0)
     ys = sorted(inner)
-    grad = [med(inner[y]) for y in ys] or [med([c for v in inner.values() for c in v])] or [(255,) * 3]
+    if not ys:
+        return outline, [(255, 255, 255)], max(2, round(H * 0.045))
+    # 切成一条条连续的「有墨行」，只留最高的那条 —— 多行异色的原图不能整块当渐变采
+    peak = max(len(v) for v in inner.values())
+    runs, cur = [], []
+    for y in range(ys[0], ys[-1] + 1):
+        if len(inner.get(y, ())) >= peak * 0.06:
+            cur.append(y)
+        elif cur:
+            runs.append(cur); cur = []
+    if cur:
+        runs.append(cur)
+    band = max(runs, key=len) if runs else ys
+    grad = [med(inner[y]) for y in band if y in inner] or [med([c for v in inner.values() for c in v])]
+    # 逐行中位色本身是抖的（像素画一行里深浅块交替），直接拿去拉伸会变成一条条横纹。
+    # 先做滑动平均抹平，取样时再线性插值（见 render），两步一起才不出斑纹。
+    w = max(1, len(grad) // 6)
+    grad = [tuple(sum(g[i] for g in grad[max(0, j - w):j + w + 1])
+                  // len(grad[max(0, j - w):j + w + 1]) for i in range(3))
+            for j in range(len(grad))]
     return outline, grad, max(2, round(H * 0.045))
 
 
@@ -194,7 +217,10 @@ def render(text, w, h, outline, grad, sw):
     ga, gc, gp = allm.load(), core.load(), glyph.load()
     n = len(grad)
     for y in range(gh):
-        col = grad[min(n - 1, int(y / max(1, gh - 1) * (n - 1)))]
+        # 线性插值，不用最近邻——源色带常比目标字高矮，最近邻会把同一色重复若干行再跳变
+        f = y / max(1, gh - 1) * (n - 1)
+        i0 = min(n - 1, int(f)); i1 = min(n - 1, i0 + 1); t0 = f - i0
+        col = tuple(round(grad[i0][k] + (grad[i1][k] - grad[i0][k]) * t0) for k in range(3))
         for x in range(gw):
             a = ga[x, y]
             if not a:
