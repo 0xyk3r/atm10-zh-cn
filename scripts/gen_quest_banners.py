@@ -255,7 +255,10 @@ STYLE = {
     'occultism/occultism_title.png': ((28, 6, 34), (150, 40, 168)),
     'allthemodium/all_title.png': ((0, 0, 0), (236, 236, 236)),      # 原字自带上下两色调，会成一道横带
     'id_title.png':              ((22, 58, 68), (126, 238, 252)),
-    'extended_advanced_ae/title.png': ((18, 18, 22), (198, 202, 210)),  # 原字是深灰压深灰，采样出来看不清
+    'extended_advanced_ae/title.png': ((18, 18, 22), (198, 202, 210)),
+    # 原字是浅灰石纹配深描边，但框里两行字之间的暗底会把采样拉黑，采出来正好反过来
+    'pneumaticcraft/pnc_title.png': ((26, 26, 28), (176, 176, 178)),
+    'immersive/immersive_title.png': ((28, 28, 30), (168, 168, 172)),  # 原字是深灰压深灰，采样出来看不清
 }
 
 # 只有这几张确实是「文字当遮罩、底下压材质图」，值得抠；其余一律取本色干净地画。
@@ -503,7 +506,7 @@ def sample_style(im, rel=''):
     # 硬抠的收益远小于它带来的问题（描边混进材质→黑斑、两行时第二行套暗部→像缺笔）。
     pool = [c for y in band for c in inner[y]]
     if rel not in TEXTURED:
-        return (outline, Image.new('RGB', (W, H), med(pool) if pool else (255,) * 3),
+        return (outline, Image.new('RGB', (W, H), body_color(pool, outline)),
                 max(2, round(H * 0.045)), '本色')
 
     # 材质板：每一行把该行原字内部的像素序列横向平铺满整宽，再纵向拉伸到画布高。
@@ -518,6 +521,22 @@ def sample_style(im, rel=''):
     from PIL import ImageFilter
     plate = plate.filter(ImageFilter.GaussianBlur(max(1, W / 240)))
     return outline, plate.resize((W, H), Image.LANCZOS), max(2, round(H * 0.045)), '材质'
+
+
+def body_color(pool, outline, med=None):
+    """字的本色。取中位色；若与描边色太接近就改取偏亮的四分位。
+
+    气动工艺那张就是这么翻的：原字是浅灰配深描边，腐蚀后剩下的多是中间调，
+    中位色几乎等于描边色，画出来整个字糊成一团深色，白字完全看不见。
+    """
+    if not pool:
+        return (255, 255, 255)
+    import statistics as _st
+    m = tuple(int(_st.median(c[i] for c in pool)) for i in range(3))
+    if sum(abs(m[i] - outline[i]) for i in range(3)) >= 90:
+        return m
+    bright = sorted(pool, key=sum)[int(len(pool) * 0.75):] or pool
+    return tuple(int(_st.median(c[i] for c in bright)) for i in range(3))
 
 
 def tile_plate(plate, text, gw, gh):
@@ -613,7 +632,10 @@ def render(text, w, h, outline, plate, sw):
 
     # 描边：1 倍尺度上按切比雪夫距离膨胀 ow 圈，放大后就是方块状的粗描边
     aw, ah = w - 2 * MARGIN, h - 2 * MARGIN
-    ow = 1 if sw <= 6 else 2
+    # 描边固定 1 圈（1 倍尺度）。放大 k 倍后描边就是 k 像素，与 Unifont 的 1px 笔画
+    # 放大后同宽——早先按 sw 取 2 圈，k=8 时描边 16px 而笔画才 8px，字被描边吃掉，
+    # 中间的本色几乎看不见（气动工艺就是这么糊掉的）。
+    ow = 1
     k = max(1, min((aw) // (W1 + 2 * ow), (ah) // (H1 + 2 * ow)))
     pad = ow
     AW, AH = W1 + 2 * pad, H1 + 2 * pad
