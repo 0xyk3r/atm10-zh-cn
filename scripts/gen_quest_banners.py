@@ -22,7 +22,12 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
    （原图描边普遍有 3~4 像素厚，只排除紧贴透明的那一圈远远不够——剩下几层黑描边
    会被当成材质采进去，中文笔画上就是一块块黑斑）。腐蚀掉的外圈取中位色作描边色，
    腐蚀后活下来的才算内部像素；
-2. **填充用原图的材质，不是单一颜色**：ATM 的标题字大多不是纯色——APOTHIC 是裂纹石头、
+2. **默认只取颜色，不抠材质**：绝大多数标题字就是「单色 + 描边」，
+   取原图的本色与描边色、自己干净地画就够了。硬去抠材质反而引入一串问题
+   （描边被当材质→黑斑、两行时第二行套上暗部→像缺笔、细笔画腐蚀不动→整片黑）。
+   只有**确实是材质字**的那几张（APOTHIC 裂纹石、UNDERGARDEN 长苔石、
+   FIRE DRAGON 岩浆岩……）才走材质路径，名单写死在 TEXTURED 里。
+   下面这段讲的就是那条材质路径：ATM 的标题字大多不是纯色——APOTHIC 是裂纹石头、
    UNDERGARDEN 是长苔石、EXTENDED AND ADVANCED AE 干脆是用方块贴图拼出来的立体字。
    只取一个颜色或一条竖向渐变，纹理和方块效果就全没了（"抠烂了"）。
    做法是按行提取原字内部（非描边）的像素序列，横向平铺成一张与画布同大的材质板，
@@ -253,6 +258,18 @@ STYLE = {
     'extended_advanced_ae/title.png': ((18, 18, 22), (198, 202, 210)),  # 原字是深灰压深灰，采样出来看不清
 }
 
+# 只有这几张确实是「文字当遮罩、底下压材质图」，值得抠；其余一律取本色干净地画。
+# 想给某张加材质，把路径加进来即可。
+TEXTURED = {
+    'apothic/logo.png',                      # 裂纹石头
+    'apothic/spawners_title.png',
+    'undergarden/undergarden_title.png',     # 长苔石
+    'iceandfire/iaf_title_firedragon.png',   # 岩浆岩
+    'iceandfire/iaf_title_icedragon.png',
+    'relics/relics_title.png',
+    'aether/aether_title.png',               # 金色云纹
+}
+
 BANNERS = {
     'aether/aether_title.png':                              '天境',
     'allthemodium/all_title.png':                           '第二章',      # 该图是章节序号，不是章名
@@ -427,7 +444,7 @@ def crop_box(im, rel):
     return im.crop(bb), (bb[0], bb[1]), None
 
 
-def sample_style(im):
+def sample_style(im, rel=''):
     """从原图采出（描边色, 竖向渐变色表, 描边宽）"""
     from PIL import ImageFilter
     px = im.load()
@@ -481,6 +498,14 @@ def sample_style(im):
     if cur:
         runs.append(cur)
     band = [y for y in (max(runs, key=len) if runs else ys) if y in inner]
+
+    # 默认只取本色、自己干净地画。抠材质只对确实是材质字的那几张做——
+    # 硬抠的收益远小于它带来的问题（描边混进材质→黑斑、两行时第二行套暗部→像缺笔）。
+    pool = [c for y in band for c in inner[y]]
+    if rel not in TEXTURED:
+        return (outline, Image.new('RGB', (W, H), med(pool) if pool else (255,) * 3),
+                max(2, round(H * 0.045)), '本色')
+
     # 材质板：每一行把该行原字内部的像素序列横向平铺满整宽，再纵向拉伸到画布高。
     # 这样石纹/苔藓/方块贴图都留得住，而不是塌成一个颜色。
     plate = Image.new('RGB', (W, len(band)))
@@ -649,7 +674,7 @@ def main(check_only=False):
             sys.exit('❌ %s 被多个章节引用 %s，不能写死一个标题' % (rel, used))
         im = Image.open(src).convert('RGBA')
         sub, at, cfg = crop_box(im, rel)
-        outline, plate, sw, how = sample_style(sub)
+        outline, plate, sw, how = sample_style(sub, rel)
         if rel in STYLE:      # 少数原图字色与底纹太接近，采样出来看不清，直接给定
             outline = STYLE[rel][0]
             plate = Image.new('RGB', plate.size, STYLE[rel][1])
