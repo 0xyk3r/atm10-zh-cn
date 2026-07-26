@@ -312,12 +312,20 @@ def sample_style(im):
     band = [y for y in (max(runs, key=len) if runs else ys) if y in inner]
     # 材质板：每一行把该行原字内部的像素序列横向平铺满整宽，再纵向拉伸到画布高。
     # 这样石纹/苔藓/方块贴图都留得住，而不是塌成一个颜色。
+    # 每行只取「离描边最远」的那部分像素——字母边缘那一圈带 3D 阴影，
+    # 混进材质里会在中文笔画上出现黑斑；掐掉两端各 20% 只留笔画中段。
     plate = Image.new('RGB', (W, len(band)))
     pp = plate.load()
     for j, y in enumerate(band):
         seq = inner[y]
+        if len(seq) > 8:
+            k = len(seq) // 5
+            seq = seq[k:len(seq) - k]
         for x in range(W):
             pp[x, j] = seq[x % len(seq)]
+    # 横向做一次窄窗平滑：平铺会把字母片段反复重复，直接用会看出周期性拖影
+    from PIL import ImageFilter
+    plate = plate.filter(ImageFilter.GaussianBlur(max(1, W / 240)))
     return outline, plate.resize((W, H), Image.LANCZOS), max(2, round(H * 0.045))
 
 
