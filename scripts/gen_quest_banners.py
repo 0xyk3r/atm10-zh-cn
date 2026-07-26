@@ -34,6 +34,10 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
 4. 文字按 `min(可用宽/字宽, 可用高/字高)` 等比放到最大后居中，
    4 倍超采样渲染再缩回，边缘与原图同级顺滑。
 
+**中文排几行，材质板就竖向重复几遍**：材质板是从原图**一行**英文取的竖向剖面
+（上部高光、下部阴影）。中文若排两行而材质只拉伸一次，第二行就正好落在剖面的
+下半段——整行套上字母底部的暗部阴影，看起来像被抠烂了。
+
 **尺寸基准是原图的内容框，不是整块画布** —— 有些图（如 id_title 400×400）文字只占
 中间一条，按整块画布铺满会让中文比原文大一圈，贴进任务书的固定框里就撑爆了。
 
@@ -313,7 +317,7 @@ BANNERS = {
     'chap3/creative_chap4.png': '第四章',
     'chap3/creative_creative.png': '创造',
     'chap3/creative_items.png': '创造物品',
-    'chap3/creative_star.png': '之星自动化',
+    'chap3/creative_star.png': 'ATM之星自动化',
     'create/create_title_contrapt.png': '装置',
     'create/create_title_fluid.png': '流体物流',
     'create/create_title_item.png': '物品物流',
@@ -485,6 +489,23 @@ def sample_style(im):
     return outline, plate.resize((W, H), Image.LANCZOS), max(2, round(H * 0.045)), '材质'
 
 
+def tile_plate(plate, text, gw, gh):
+    """中文排几行，材质板就竖向重复几遍——否则第二行会套到字母底部的暗部阴影。
+
+    另外：原图两行时，"最高的那条墨带"有时会把两行连着算成一条（下行的升部与
+    上行的降部之间没断开），这样材质板里就含了「亮—暗—亮—暗」两轮。
+    所以多行时只取材质板的上 55%（高光与本色所在），再重复，避免整行套上阴影。
+    """
+    n = text.count('\n') + 1
+    if n > 1:
+        plate = plate.crop((0, 0, plate.width, max(2, int(plate.height * 0.55))))
+        stack = Image.new('RGB', (plate.width, plate.height * n))
+        for i in range(n):
+            stack.paste(plate, (0, i * plate.height))
+        plate = stack
+    return plate.resize((max(1, gw), max(1, gh)), Image.LANCZOS)
+
+
 def render_vector(text, w, h, outline, plate, sw, face):
     """矢量字渲染：4 倍超采样，内部取材质、外圈上描边色"""
     path, idx = face_file(face)
@@ -493,11 +514,19 @@ def render_vector(text, w, h, outline, plate, sw, face):
     size = ah
     for _ in range(12):
         f = ImageFont.truetype(path, max(1, int(size)) * SS, index=idx)
-        big = (w * SS * 3, h * SS * 3)
+        # 画布必须按文字的实际尺寸开。早先固定用 (w*SS*3, h*SS*3) 并从 (w*SS, h*SS)
+        # 起笔，长文字会画出右边界被裁掉，getbbox 量到残缺字形，字号迭代跟着算错，
+        # 输出就是缺角断笔的「抠烂」字。
+        sp = int(round(size * SS * 0.12))
+        tb = ImageDraw.Draw(Image.new('L', (1, 1))).multiline_textbbox(
+            (0, 0), text, font=f, stroke_width=sw * SS, align='center', spacing=sp)
+        pad = int(sw * SS) + 8
+        big = (int(tb[2] - tb[0]) + 2 * pad, int(tb[3] - tb[1]) + 2 * pad)
         allm = Image.new('L', big, 0)
-        ImageDraw.Draw(allm).text((w * SS, h * SS), text, font=f, fill=255,
+        org = (pad - int(tb[0]), pad - int(tb[1]))
+        ImageDraw.Draw(allm).text(org, text, font=f, fill=255,
                                   stroke_width=sw * SS, stroke_fill=255,
-                                  align='center', spacing=int(size * SS * 0.12))
+                                  align='center', spacing=sp)
         bb = allm.getbbox()
         tw, th = (bb[2] - bb[0]) / SS, (bb[3] - bb[1]) / SS
         k = min(aw / tw, ah / th)
@@ -505,13 +534,12 @@ def render_vector(text, w, h, outline, plate, sw, face):
             break
         size = max(1, size * k)
     core = Image.new('L', big, 0)
-    ImageDraw.Draw(core).text((w * SS, h * SS), text, font=f, fill=255,
-                              align='center', spacing=int(size * SS * 0.12))
+    ImageDraw.Draw(core).text(org, text, font=f, fill=255, align='center', spacing=sp)
     allm, core = allm.crop(bb), core.crop(bb)
     gw, gh = max(1, round(allm.width / SS)), max(1, round(allm.height / SS))
     allm = allm.resize((gw, gh), Image.LANCZOS)
     core = core.resize((gw, gh), Image.LANCZOS)
-    tex = plate.resize((gw, gh), Image.LANCZOS).load()
+    tex = tile_plate(plate, text, gw, gh).load()
     glyph = Image.new('RGBA', (gw, gh), (0, 0, 0, 0))
     ga, gc, gp = allm.load(), core.load(), glyph.load()
     for y in range(gh):
@@ -567,7 +595,7 @@ def render(text, w, h, outline, plate, sw):
                         all1[y + pad + dy][x + pad + dx] = 1
 
     gw, gh = AW * k, AH * k
-    tex = plate.resize((max(1, gw), max(1, gh)), Image.LANCZOS).load()
+    tex = tile_plate(plate, text, gw, gh).load()
     glyph = Image.new('RGBA', (gw, gh), (0, 0, 0, 0))
     gp = glyph.load()
     for Y in range(gh):
