@@ -18,7 +18,10 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
 
 这些是带渐变和描边的艺术字，一张张配色调不过来，也不可复现。做法是：
 
-1. **描边色**：取「不透明但四邻里有透明像素」的那一圈的中位色；
+1. **描边色 / 内部像素的划分**：先用最小值滤波把不透明区**整体腐蚀掉描边的厚度**
+   （原图描边普遍有 3~4 像素厚，只排除紧贴透明的那一圈远远不够——剩下几层黑描边
+   会被当成材质采进去，中文笔画上就是一块块黑斑）。腐蚀掉的外圈取中位色作描边色，
+   腐蚀后活下来的才算内部像素；
 2. **填充用原图的材质，不是单一颜色**：ATM 的标题字大多不是纯色——APOTHIC 是裂纹石头、
    UNDERGARDEN 是长苔石、EXTENDED AND ADVANCED AE 干脆是用方块贴图拼出来的立体字。
    只取一个颜色或一条竖向渐变，纹理和方块效果就全没了（"抠烂了"）。
@@ -42,7 +45,22 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
 暮色森林那条石砖带被文字压着，抹掉会留个洞，所以从文字上方干净的砖行取一条
 纹理平铺补上。
 
-## 字形：直接用 Minecraft 自己的 Unifont
+## 字形：逐图判定，不是全套一种字
+
+原图 154 张的字体各不相同——有 MC 那种方块像素字（CHAPTER 2 / Mekanism / Powah）、
+有粗衬线（The Aether / Bumblezone / Nature's Aura）、有粗黑无衬线（Create / Artifacts）、
+也有细体（Deeper and Darker / Integrated Dynamics）。全用同一种字既不像原作也不好看。
+
+判定是机械的，不靠人眼逐张点名：
+
+- **是不是像素字**：把不透明遮罩按 k×k 方格对齐检查（k 从大到小试），
+  若某个 k≥2 能让每个格子内部要么全实要么全空，说明原图是 1 倍点阵放大 k 倍来的，
+  即像素字体 → 用 Minecraft 自己的 Unifont 点阵渲染，放大倍率对齐原图的 k。
+- **笔画粗细**：量平均笔画宽度占字高的比例，据此在细黑 / 粗黑 / 粗宋之间选。
+- 少数明显是衬线体的（天境 / 嗡嗡领域 / 自然灵气 / 遗物 / 神秘学 等）在 SERIF 表里点名，
+  走宋体 Black。
+
+## 点阵渲染细节
 
 早期版本用系统黑体渲染，字形是平滑矢量，跟原图的像素英文完全不搭。
 正解是用 **Minecraft 渲染中文时用的那套字**——GNU Unifont，16×16 点阵，
@@ -79,6 +97,67 @@ QUESTS = INST / 'config' / 'ftbquests' / 'quests'
 
 MARGIN = 4    # 原图四周的透明边
 LINE_GAP = 2  # 多行时的行距（1 倍尺度像素）
+
+# 矢量字备选：(路径, 索引)
+FACE = {
+    'thin':  ('/System/Library/Fonts/Hiragino Sans GB.ttc', 0),   # 冬青黑 W3
+    'bold':  ('/System/Library/Fonts/Hiragino Sans GB.ttc', 2),   # 冬青黑 W6
+    'serif': ('/System/Library/Fonts/Songti.ttc', 0),             # 宋体 SC Black
+}
+# 原图明显是衬线/装饰体的，点名走宋体
+SERIF = {
+    'aether/aether_title.png', 'bumblezone/bumble_title.png',
+    'natures_aura/natures_aura_title.png', 'occultism/occultism_title.png',
+    'draconic/draconic_title.png', 'apothic/gear_sigils.png', 'apothic/gear_tiers.png',
+    'chap3/creative_items.png', 'chap3/creative_star.png',
+    'undergarden/undergarden_title.png', 'relics/relics_title.png',
+    'iron_spells/spells_title.png',
+}
+
+
+def pixel_scale(im):
+    """原图是不是像素字？是就返回放大倍率 k，不是返回 1。
+
+    判据一（硬）：像素字**没有抗锯齿**——alpha 只有 0 和 255 两种值。
+    矢量渲染的标题字边缘一定有半透明过渡，这条一票否决。
+    判据二：再找最大的 k，使得按 k×k 方格切开后几乎每格内部纯色。
+    """
+    a = im.getchannel('A')
+    bb = a.getbbox()
+    if not bb:
+        return 1
+    a = a.crop(bb)
+    hist = a.histogram()
+    tot = sum(hist)
+    soft = tot - hist[0] - hist[255]
+    if soft / max(1, tot) > 0.02:          # 有抗锯齿 → 矢量字
+        return 1
+    a = a.point(lambda v: 255 if v > 128 else 0)
+    ap = a.load()
+    W, H = a.size
+    for k in range(8, 1, -1):
+        if W // k < 4 or H // k < 4:
+            continue
+        bad = n = 0
+        for by in range(H // k):
+            for bx in range(W // k):
+                v = {ap[bx * k + dx, by * k + dy] for dy in range(k) for dx in range(k)}
+                n += 1
+                if len(v) > 1:
+                    bad += 1
+        if n and bad / n < 0.02:
+            return k
+    return 1
+
+
+def ink_density(im):
+    """外接框内的着墨比例，用来选字重：粗体密、细体疏"""
+    a = im.getchannel('A').point(lambda v: 255 if v > 128 else 0)
+    bb = a.getbbox()
+    if not bb:
+        return 0.0
+    a = a.crop(bb)
+    return sum(1 for v in a.getdata() if v) / (a.size[0] * a.size[1])
 
 
 def load_unifont():
@@ -300,22 +379,40 @@ def crop_box(im, rel):
 
 def sample_style(im):
     """从原图采出（描边色, 竖向渐变色表, 描边宽）"""
+    from PIL import ImageFilter
     px = im.load()
     W, H = im.size
-    solid = [(x, y) for y in range(H) for x in range(W) if px[x, y][3] > 200]
-    if not solid:
-        return (0, 0, 0), [(255, 255, 255)], 2
+    if not im.getbbox():
+        return (0, 0, 0), Image.new('RGB', (max(1, W), max(1, H)), (255, 255, 255)), 2, '空'
+    # 描边厚度按图高估：原图描边普遍是字高的 4~5%
+    ring = max(1, round(H * 0.05))
+    a = im.getchannel('A').point(lambda v: 255 if v > 200 else 0)
+    er = a.filter(ImageFilter.MinFilter(2 * ring + 1))     # 腐蚀掉描边那几层
+    ap, ep = a.load(), er.load()
     edge, inner = [], {}
-    for x, y in solid:
-        out = any(not (0 <= x + dx < W and 0 <= y + dy < H) or px[x + dx, y + dy][3] < 64
-                  for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
-        (edge if out else inner.setdefault(y, [])).append(px[x, y][:3])
+    for y in range(H):
+        for x in range(W):
+            if not ap[x, y]:
+                continue
+            (inner.setdefault(y, []) if ep[x, y] else edge).append(px[x, y][:3])
+
     def med(seq):
         return tuple(int(statistics.median(c[i] for c in seq)) for i in range(3))
-    outline = med(edge) if edge else (0, 0, 0)
+
+    if not inner:                       # 字太细，腐蚀后什么都不剩，退回不腐蚀
+        for y in range(H):
+            for x in range(W):
+                if ap[x, y]:
+                    inner.setdefault(y, []).append(px[x, y][:3])
+    # 描边色取腐蚀掉的外圈里**最深**的那一档，避免把渐变亮部当描边
+    if edge:
+        edge.sort(key=sum)
+        outline = med(edge[:max(1, len(edge) // 3)])
+    else:
+        outline = (0, 0, 0)
     ys = sorted(inner)
     if not ys:
-        return outline, Image.new('RGB', (W, H), (255, 255, 255)), max(2, round(H * 0.045))
+        return outline, Image.new('RGB', (W, H), (255, 255, 255)), max(2, round(H * 0.045)), '空'
     # 切成一条条连续的「有墨行」，只留最高的那条 —— 多行异色的原图（APOTHIC 灰 /
     # ENCHANTING 紫）整块一起用会让中文上下两截色
     peak = max(len(v) for v in inner.values())
@@ -330,21 +427,16 @@ def sample_style(im):
     band = [y for y in (max(runs, key=len) if runs else ys) if y in inner]
     # 材质板：每一行把该行原字内部的像素序列横向平铺满整宽，再纵向拉伸到画布高。
     # 这样石纹/苔藓/方块贴图都留得住，而不是塌成一个颜色。
-    # 每行只取「离描边最远」的那部分像素——字母边缘那一圈带 3D 阴影，
-    # 混进材质里会在中文笔画上出现黑斑；掐掉两端各 20% 只留笔画中段。
     plate = Image.new('RGB', (W, len(band)))
     pp = plate.load()
     for j, y in enumerate(band):
         seq = inner[y]
-        if len(seq) > 8:
-            k = len(seq) // 5
-            seq = seq[k:len(seq) - k]
         for x in range(W):
             pp[x, j] = seq[x % len(seq)]
     # 横向做一次窄窗平滑：平铺会把字母片段反复重复，直接用会看出周期性拖影
     from PIL import ImageFilter
     plate = plate.filter(ImageFilter.GaussianBlur(max(1, W / 240)))
-    return outline, plate.resize((W, H), Image.LANCZOS), max(2, round(H * 0.045))
+    return outline, plate.resize((W, H), Image.LANCZOS), max(2, round(H * 0.045)), '材质'
 
 
 def render(text, w, h, outline, plate, sw):
@@ -433,10 +525,11 @@ def main(check_only=False):
             sys.exit('❌ %s 被多个章节引用 %s，不能写死一个标题' % (rel, used))
         im = Image.open(src).convert('RGBA')
         sub, at, cfg = crop_box(im, rel)
-        outline, plate, sw = sample_style(sub)
+        outline, plate, sw, how = sample_style(sub)
         if rel in STYLE:      # 少数原图字色与底纹太接近，采样出来看不清，直接给定
             outline = STYLE[rel][0]
             plate = Image.new('RGB', plate.size, STYLE[rel][1])
+            how = '指定色'
         img, gw, gh = render(text, sub.width, sub.height, outline, plate, sw)
         if cfg:
             # 保留框外的装饰：在原图上抠掉文字框，再把中文贴回去
@@ -460,8 +553,7 @@ def main(check_only=False):
             dst.parent.mkdir(parents=True, exist_ok=True)
             img.save(dst)
         note = '' if (not used or used[0] == text) else '  ← 与章节标题「%s」不同' % used[0]
-        print('  %-50s %-7s %dx%d 描边%s 宽%d%s'
-              % (rel, text, im.width, im.height, outline, sw, note))
+        print('  %-50s %-7s %-8s %dx%d%s' % (rel, text, how, im.width, im.height, note))
         n += 1
     print(('校验通过' if check_only else '已生成') + ' %d 张 -> %s' % (n, OUT.relative_to(ROOT)))
 
