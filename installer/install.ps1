@@ -22,10 +22,26 @@ $PackEntry = 'file/ATM10汉化包-7.2.zip'
 $PinyinDir = '可选mods-拼音搜索'
 $script:TS = ''
 $script:BK = ''
+# 就地解压：用户把压缩包内容直接解到了实例根目录，此时「源」和「目标」是同一个目录，
+# 再复制一次就是 Copy-Item 自己覆盖自己 → IOException。这种情况文件本来就已到位。
+$script:InPlace = $false
 $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+
+function Set-InPlace {
+    $a = (Resolve-Path $ScriptDir).Path.TrimEnd('\')
+    $b = (Resolve-Path $script:Target).Path.TrimEnd('\')
+    if ($a -eq $b) {
+        $script:InPlace = $true
+        Write-Host 'ℹ️ 检测到汉化文件已经在实例根目录里（压缩包内容被直接解压到了这一层）。'
+        Write-Host '   文件本来就已到位，无需复制；本次只做 options.txt 的资源包启用。'
+        Write-Host '   ⚠️ 这种装法没有备份可回退——原文件在你解压覆盖的那一刻就没了。'
+        Write-Host '   想要可回退的安装，请解压到别处、把整个文件夹放进实例根目录再运行安装器。'
+    }
+}
 
 function Check-Target {
     if ((Test-Path (Join-Path $script:Target 'mods')) -and (Test-Path (Join-Path $script:Target 'options.txt'))) {
+        Set-InPlace
         return
     }
     Write-Host '⚠️ 上一级目录不是游戏实例根目录（含 mods\ 与 options.txt 的那一层）。'
@@ -41,6 +57,7 @@ function Check-Target {
         if ((Test-Path (Join-Path $inp 'mods')) -and (Test-Path (Join-Path $inp 'options.txt'))) {
             $script:Target = $inp
             Write-Host "✅ 目标实例: $script:Target"
+            Set-InPlace
             return
         }
         Write-Host '❌ 该路径下未找到 mods\ 与 options.txt，请重试。'
@@ -58,6 +75,10 @@ function Get-PayloadFiles {
 }
 
 function Do-Backup {
+    if ($script:InPlace) {
+        Write-Host '⚠️ 就地解压模式下没有可备份的原文件（已被解压覆盖），跳过备份。'
+        return
+    }
     $script:TS = Get-Date -Format 'yyyyMMdd-HHmmss'
     $script:BK = Join-Path $ScriptDir "backups/$script:TS"
     New-Item -ItemType Directory -Force -Path $script:BK | Out-Null
@@ -101,9 +122,15 @@ function Patch-Options {
 }
 
 function Do-Apply {
+    if ($script:InPlace) {
+        Patch-Options
+        Write-Host '✅ 汉化文件已在位，options.txt 已处理完毕。'
+        return
+    }
     Do-Backup
     foreach ($f in Get-PayloadFiles) {
         $dst = Join-Path $script:Target $f
+        if ((Join-Path $ScriptDir $f) -eq $dst) { continue }   # 双保险：源即目标就跳过
         New-Item -ItemType Directory -Force -Path (Split-Path $dst) | Out-Null
         Copy-Item $f $dst -Force
     }

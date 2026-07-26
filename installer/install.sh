@@ -18,11 +18,25 @@ PACK_ENTRY='file/ATM10汉化包-7.2.zip'
 PINYIN_DIR="可选mods-拼音搜索"
 TS=""
 BK=""
+# 就地解压：用户把压缩包内容直接解到实例根目录，源与目标同一层，
+# 再复制一次就是自己覆盖自己。这种情况文件本来就已到位。
+IN_PLACE=0
 
 say() { printf '%s\n' "$*"; }
 
+set_in_place() {
+  if [ "$(cd "$SCRIPT_DIR" && pwd -P)" = "$(cd "$TARGET" && pwd -P)" ]; then
+    IN_PLACE=1
+    say "ℹ️ 检测到汉化文件已经在实例根目录里（压缩包内容被直接解压到了这一层）。"
+    say "   文件本来就已到位，无需复制；本次只做 options.txt 的资源包启用。"
+    say "   ⚠️ 这种装法没有备份可回退——原文件在你解压覆盖的那一刻就没了。"
+    say "   想要可回退的安装，请解压到别处、把整个文件夹放进实例根目录再运行安装器。"
+  fi
+}
+
 check_target() {
   if [ -d "$TARGET/mods" ] && [ -f "$TARGET/options.txt" ]; then
+    set_in_place
     return
   fi
   say "⚠️ 上一级目录不是游戏实例根目录（含 mods/ 与 options.txt 的那一层）。"
@@ -42,6 +56,7 @@ check_target() {
       if [ -d "$inp/mods" ] && [ -f "$inp/options.txt" ]; then
         TARGET="$inp"
         say "✅ 目标实例: $TARGET"
+        set_in_place
         return
       fi
       say "❌ 该路径下未找到 mods/ 与 options.txt，请重试。"
@@ -58,6 +73,10 @@ payload_files() {
 }
 
 do_backup() {
+  if [ "$IN_PLACE" = "1" ]; then
+    say "⚠️ 就地解压模式下没有可备份的原文件（已被解压覆盖），跳过备份。"
+    return
+  fi
   TS="$(date +%Y%m%d-%H%M%S)"
   BK="$SCRIPT_DIR/backups/$TS"
   mkdir -p "$BK"
@@ -94,9 +113,15 @@ patch_options() {
 }
 
 do_apply() {
+  if [ "$IN_PLACE" = "1" ]; then
+    patch_options
+    say "✅ 汉化文件已在位，options.txt 已处理完毕。"
+    return
+  fi
   do_backup
   while IFS= read -r f; do
     mkdir -p "$TARGET/$(dirname "$f")"
+    [ "$SCRIPT_DIR/$f" = "$TARGET/$f" ] && continue   # 双保险：源即目标就跳过
     cp -p "$f" "$TARGET/$f"
   done < <(payload_files)
   patch_options

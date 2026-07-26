@@ -16,7 +16,6 @@
 	quest.257893DD23BF5017.quest_desc: [
 		"要获得&3罗格多锭&r，我们得前往 Y=0 以下的深邃之境，这需要一把&a遗忆镐&r或&6ATM镐&r。\\n\\n开采&3罗格多矿石&r也需要同级镐子，它在深邃之境各处都有分布。\\n\\n你也可以用&a遗忆&r或&6ATM&r斧头采集&3罗格多古根&r——它们常见得多，但只给&3罗格多粒&r，不像&3矿石&r给完整的锭。"
 	]
-	quest.257893DD23BF5017.title: "&3罗格多锭"
 	quest.2A2041098C069772.quest_desc: [
 		"&7渊居民&r在 Y=0 以下的深邃之境刷新，你需要&a遗忆镐&r或同级镐子才能挖下去。\\n\\n&7渊居民&r长得诡异地像人，戴着神秘面具，手持长矛或木斧。\\n\\n它们有矮胖和瘦高两种体型，但都有 10 颗心。\\n\\n除了手里的武器，它们没有别的掉落。"
 		"{image:atm:textures/questpics/undergarden/undergarden_denizens.png width:100 height:200 align:center}"

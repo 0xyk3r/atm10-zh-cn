@@ -11,6 +11,9 @@
    debug_mode.is_enable 必须 false（否则刷数千条日志拖性能）
 4. 资源包源码目录内所有 lang/*.json 与 pack.mcmeta 必须可解析
 5. 资源包内 RFTools 系 .gui 文件的 choice(...) 参数必须保持英文
+6. 译文的占位符 / 颜色码不得比英文原文更危险（多出占位符、%s 降级、裸 % 结尾、非法 §）
+7. 任务书 delta（zh_cn/chapters/*.snbt）之间不得有重复键 —— 谁生效取决于合并顺序，
+   等于埋了一颗随时翻脸的雷（历史事故：refined_storage.snbt 的旧标题盖掉了已对齐的新标题）
 """
 import json, re, sys
 from pathlib import Path
@@ -215,9 +218,31 @@ if FMT_SNAPSHOT.exists():
                 errors.append(f'{rel}: {k} 非法 § 颜色码 {sorted(new_sect)}'
                               f'（§ 后面那个字会被渲染器吞掉）\n      zh={zh!r}')
 
+# 7: 任务书 delta 之间的重复键
+QDELTA = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
+_KEY = re.compile(r'\t([A-Za-z0-9_.]+):\s*(.*)$')
+_seen = {}
+for p in sorted(QDELTA.glob('*.snbt')):
+    lines = p.read_text(encoding='utf-8').split('\n')
+    i = 0
+    while i < len(lines):
+        m = _KEY.match(lines[i])
+        if m:
+            k, rest = m.group(1), m.group(2)
+            bal = rest.count('[') - rest.count(']')
+            while bal > 0 and i + 1 < len(lines):     # 跨行数组
+                i += 1
+                bal += lines[i].count('[') - lines[i].count(']')
+            if k in _seen:
+                errors.append(f'任务书 delta 重复键 {k}：{_seen[k]} 与 {p.name} 都定义了'
+                              f'（哪份生效取决于合并顺序，必须只保留一份）')
+            _seen[k] = p.name
+        i += 1
+
 if errors:
     print(f'❌ 校验失败，共 {len(errors)} 处：')
     for e in errors:
         print('  -', e)
     sys.exit(1)
-print('✅ 全部校验通过（VaultPatcher 模块 / 枚举协议值 / 主配置 / 资源包 lang / .gui choice）')
+print('✅ 全部校验通过（VaultPatcher 模块 / 枚举协议值 / 主配置 / 资源包 lang / '
+      '.gui choice / 占位符与颜色码 / 任务书 delta 无重复键）')

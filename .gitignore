@@ -1,4 +1,6 @@
-/.idea/
+*.pyc
 .DS_Store
+/.idea/
 /.tmp/
 /dist/
+__pycache__/

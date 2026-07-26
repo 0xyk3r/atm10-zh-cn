@@ -3,32 +3,35 @@
 # Copyright (C) 2026 星野夢華 (Hoshino Yumeka)
 # SPDX-License-Identifier: GPL-3.0-or-later
 # 打分发包：客户端包 + 服务端包 分开构建（一团浆糊是不行的）
-#   dist/ATM10-7.2-汉化补丁-绿油油版-星野夢華-客户端-v<版本>.zip
-#   dist/ATM10-7.2-汉化补丁-绿油油版-星野夢華-服务端-v<版本>.zip
+#   dist/atm10-zh_cn-client-v<版本>.zip
+#   dist/atm10-zh_cn-server-v<版本>.zip
+# 包名与解压出的文件夹名一律用 ASCII —— Windows 上中文压缩包名/目录名在不同解压软件
+# 之间编码不一致，用户拿到手就是乱码，安装器再去找路径会找不到。
 # 资源包 zip 与服务端 jar 均不入 git，由本脚本从源码目录现场压缩。
-# 用法: ./scripts/build_dist.sh 7.2-release1
+# 用法: ./scripts/build_dist.sh 7.2-release5
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 VERSION="${1:?用法: build_dist.sh <版本号, 如 7.2-release1>}"
 PACK_NAME="ATM10汉化包-7.2"
-BASE="ATM10-7.2-汉化补丁-绿油油版-星野夢華"
+CBASE="atm10-zh_cn-client"
+SBASE="atm10-zh_cn-server"
 
 python3 scripts/check.py
 
 # ---------- 客户端包 ----------
-CSTAGE="dist/${BASE}-客户端"
+CSTAGE="dist/${CBASE}"
 rm -rf "$CSTAGE"
 mkdir -p "$CSTAGE/resourcepacks"
 (cd "resourcepacks/${PACK_NAME}" && zip -X -q -r "../../${CSTAGE}/resourcepacks/${PACK_NAME}.zip" . -x '*.DS_Store')
 cp -R config kubejs mods vaultpatcher 可选mods-拼音搜索 "$CSTAGE/"
 cp installer/install.sh installer/install.ps1 "installer/双击安装-Windows.bat" "$CSTAGE/"
-cp README.md CHANGELOG.md LICENSE "关于内置汉化Mod的说明(BBSMC).txt" "原版说明与致谢(BBSMC).txt" "$CSTAGE/"
+cp README.md CHANGELOG.md LICENSE 致谢与技术说明.md "$CSTAGE/"
 printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' > "$CSTAGE/项目主页与反馈.url"
 chmod +x "$CSTAGE/install.sh"
 
 # ---------- 服务端包 ----------
-SSTAGE="dist/${BASE}-服务端"
+SSTAGE="dist/${SBASE}"
 rm -rf "$SSTAGE"
 mkdir -p "$SSTAGE/mods" "$SSTAGE/vaultpatcher/modules"
 cp mods/vaultpatcher.jar "$SSTAGE/mods/"
@@ -52,10 +55,10 @@ printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' >
 
 # ---------- 压缩 ----------
 find dist -name '.DS_Store' -delete
-rm -f "dist/${BASE}-客户端-v${VERSION}.zip" "dist/${BASE}-服务端-v${VERSION}.zip"
-(cd dist && zip -X -q -r "${BASE}-客户端-v${VERSION}.zip" "${BASE}-客户端")
-(cd dist && zip -X -q -r "${BASE}-服务端-v${VERSION}.zip" "${BASE}-服务端")
+rm -f "dist/${CBASE}-v${VERSION}.zip" "dist/${SBASE}-v${VERSION}.zip"
+(cd dist && zip -X -q -r "${CBASE}-v${VERSION}.zip" "${CBASE}")
+(cd dist && zip -X -q -r "${SBASE}-v${VERSION}.zip" "${SBASE}")
 
-for f in "dist/${BASE}-客户端-v${VERSION}.zip" "dist/${BASE}-服务端-v${VERSION}.zip"; do
+for f in "dist/${CBASE}-v${VERSION}.zip" "dist/${SBASE}-v${VERSION}.zip"; do
   echo "已生成: $f ($(du -h "$f" | cut -f1))"
 done
