@@ -130,6 +130,8 @@ def face_file(name):
 # 按「模组/目录」分组指定字面。原图每套标题图共用一种字体，所以按组指定即可，
 # 不必逐张点名。pixel = 用 Minecraft 自带的 Unifont 点阵渲染。
 FACE_BY_PREFIX = [
+    # ---- 逐图点名（与同目录其余图不是一套字，必须排在目录规则前面）
+    ('mystical_agriculture/title.png', 'bold'),   # 同目录别的是像素字，这张是模组官方 logo 的无衬线
     # ---- 方块像素字（MC 风的硬边字）
     ('mek/',                     'pixel'), ('cataclysm/',            'pixel'),
     ('powah/',                   'pixel'), ('twilight_forest_title', 'pixel'),
@@ -149,8 +151,15 @@ FACE_BY_PREFIX = [
     ('undergarden/undergarden_tools',     'pixel'),
     ('undergarden/undergarden_vegetation','pixel'),
     ('chap2/atmstar_title2',     'pixel'), ('chap3/creative_creative', 'pixel'),
+    ('ae2.png',                  'pixel'), ('allthemodium/all_allthemodium', 'pixel'),
+    ('apothic/other_spawners',   'pixel'), ('apothic/spawn_eggs',    'pixel'),
+    ('building_tips/',           'pixel'), ('eternal/starlight_',    'pixel'),
+    ('furnaces/',                'pixel'), ('generator/',            'pixel'),
+    ('gettingstarted/titleimage','pixel'), ('logistics/',            'pixel'),
+    ('xycraft/',                 'pixel'),
     # ---- 粗衬线 / 装饰
     ('aether/',                  'serif'), ('bumblezone/bumble_title.png', 'serif'),
+    ('apothic/apotheosis_gear',  'serif'), ('railcraft/railcraft',   'serif'),
     ('natures_aura/',            'serif'), ('occultism/',            'serif'),
     ('draconic/',                'serif'), ('undergarden/undergarden_title', 'serif'),
     ('relics/',                  'serif'), ('iron_spells/',          'serif'),
@@ -236,15 +245,189 @@ def load_unifont():
 
 UNIFONT = load_unifont()
 
+# 点阵中文字面：优先用 assets-src/fonts/pixel-<设计尺寸>.ttf（缝合像素字体，OFL，
+# 跑 scripts/fetch_fonts.sh 取），没有就退回 Unifont。两者都在**设计尺寸**上光栅化
+# 成纯 0/1 点阵，再交给 render() 做整数倍最近邻放大，边缘始终是硬的，不会糊。
+#
+# 为什么不用 Unifont：它的汉字画在 16px 字框里、笔画只有 1px，放大后笔画相对字高
+# 只占 1/16，配在原图那种粗壮的像素英文旁边显得又细又虚。12px 的汉字实际着墨高
+# 11px，同样 1px 笔画占 1/11，放大倍率大了四成半，笔画跟着粗四成半，才压得住。
+#
+# 为什么要两档：放大倍率 k 只能取整数（取不整就不是硬边像素了），字框越高 k 的
+# 台阶越粗。只用 12px 时有十几张图算出来的 k 比理论值差整整一档，字偏小。备一档
+# 10px 兜着，既保住整数倍放大又不至于太小。
+#
+# 8px 那档下过又撤了：字框只有 7px，笔画多的字（斯、械、塔）笔画会粘在一起糊成
+# 一团，撑得再满也没用。字号大小服从可读性，不为贴近原图英文的尺寸让路。
+#
+# 为什么是缝合像素字体而不是方舟像素字体：方舟的 zh_cn 12px 缺「旋热然聚嗡蟒骏」
+# 这类常用字，10px/16px 更是只做了千把个常用字。缝合字体就是拿方舟 + Cubic 11 +
+# Galmuri 拼起来补全覆盖的，8px/12px 对本包用到的字是零缺字。
+#
+# 缺字必须查字表判定，不能靠「渲染出来像不像豆腐块」反推——「口」这个字本身就长
+# 那样。曾经漏查，「斯库拉」「植被」整个渲成了空框。
+PIXEL_SIZES = (10, 12)
+
+
+def pixel_face(size):
+    p = FONTS_DIR / ('pixel-%d.ttf' % size)
+    return p if p.exists() else None
+
+
+def ttf_charset(path):
+    """读 TTF 的 cmap 表，返回它真正有字形的码点集合"""
+    import struct
+    b = Path(path).read_bytes()
+    n, = struct.unpack_from('>H', b, 4)
+    cmap = next((o for t, _, o, _ in
+                 (struct.unpack_from('>4sIII', b, 12 + 16 * i) for i in range(n))
+                 if t == b'cmap'), None)
+    if cmap is None:
+        return set()
+    out, nt = set(), struct.unpack_from('>H', b, cmap + 2)[0]
+    for i in range(nt):
+        o = cmap + struct.unpack_from('>HHI', b, cmap + 4 + 8 * i)[2]
+        fmt, = struct.unpack_from('>H', b, o)
+        if fmt == 4:
+            segx2, = struct.unpack_from('>H', b, o + 6)
+            seg = segx2 // 2
+            ends = struct.unpack_from('>%dH' % seg, b, o + 14)
+            starts = struct.unpack_from('>%dH' % seg, b, o + 16 + segx2)
+            for s, e in zip(starts, ends):
+                if s <= e < 0xFFFF:
+                    out.update(range(s, e + 1))
+        elif fmt == 12:
+            ng, = struct.unpack_from('>I', b, o + 12)
+            for j in range(ng):
+                s, e, _ = struct.unpack_from('>III', b, o + 16 + 12 * j)
+                out.update(range(s, e + 1))
+    return out
+
+
+PIXEL_CHARSET = {s: ttf_charset(pixel_face(s)) for s in PIXEL_SIZES if pixel_face(s)}
+
+
+def hole_count(mask):
+    """点阵里被笔画围起来的封闭内白个数。
+
+    用来判定「笔画糊在一起了」：字框一小，「械」的两个口、「堆」的三横之间就会
+    粘连，内白随之消失。数内白比数着墨比例灵——好的点阵字在小字框下会**简化**
+    笔画而不是加粗，着墨比例看不出差别，内白却实打实少了。
+    """
+    h, w = len(mask), len(mask[0])
+    seen = [[False] * w for _ in range(h)]
+    stack = [(x, y) for y in range(h) for x in (0, w - 1) if not mask[y][x]]
+    stack += [(x, y) for x in range(w) for y in (0, h - 1) if not mask[y][x]]
+    for x, y in stack:
+        seen[y][x] = True
+    while stack:                                  # 先把与边界连通的背景涂掉
+        x, y = stack.pop()
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            a, b = x + dx, y + dy
+            if 0 <= a < w and 0 <= b < h and not mask[b][a] and not seen[b][a]:
+                seen[b][a] = True
+                stack.append((a, b))
+    n = 0
+    for y in range(h):                            # 剩下的背景连通块就是内白
+        for x in range(w):
+            if mask[y][x] or seen[y][x]:
+                continue
+            n += 1
+            st = [(x, y)]
+            seen[y][x] = True
+            while st:
+                a, b = st.pop()
+                for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    c, d = a + dx, b + dy
+                    if 0 <= c < w and 0 <= d < h and not mask[d][c] and not seen[d][c]:
+                        seen[d][c] = True
+                        st.append((c, d))
+    return n
+
+
+def pixel_candidates(text):
+    """能完整写出这段文字的档位；一档都没有就退回 Unifont（None）"""
+    need = {ord(c) for c in text if c != '\n'}
+    ok = [s for s in PIXEL_SIZES if s in PIXEL_CHARSET and need <= PIXEL_CHARSET[s]]
+    return ok or [None]
+
 # 图 → 中文。取值来自「引用该图那一章的中文标题」，脚本会核验对得上。
 # 少数几条与章节标题不同，原因写在行尾。
 # 带装饰的图：(左, 上, 右, 下) 百分比 —— 只有英文字的那个框；框外原样保留。
 # inpaint=True 表示框内是有底纹的（不能直接抹成透明），从 patch_from 那几行取纹理平铺。
 BOXES = {
-    'occultism/occultism_title.png': dict(box=(16, 27, 73, 67)),                 # 左右两只怪要留
-    'pneumaticcraft/pnc_title.png':  dict(box=(0, 0, 92, 100)),                  # 右侧小图标要留
+    # 两只怪的爪子和字的阴影连成一块，连通域切不开，硬校验只能豁免；成图逐张看过
+    'occultism/occultism_title.png': dict(box=(16, 27, 73, 67), touching=True),   # 左右两只怪要留
+    # 末尾的 T / D 和右边那个压力管图标在横向上挨着（字止于 91%，图标起于 90%），
+    # 切不干净：框收到 82.7% 会把 T、D 两个英文字母留在图上，只能取 91.4% 让图标
+    # 最左侧一小块跟着被擦掉。硬校验对它豁免。
+    'pneumaticcraft/pnc_title.png':  dict(box=(0, 0, 91.4, 100), touching=True),
     'twilight_forest_title.png':     dict(box=(5, 18, 95, 72), patch_from=(86, 96)),  # 字压在石砖带上
+    # 下面这些两端挂着装饰（方块、蜜蜂、剑、钻石、模组图标），只换中间那条文字。
+    # 边界值不是目测拍的，是按连通域算出来的：先取不透明遮罩的 8 邻接连通域，
+    # 文字是一组、两端装饰各是一组，框取文字那组的包围盒。目测过一版，
+    # 结果把「悬赏板」左边那对剑和「食物与耕种」左边的装饰各啃掉一块，
+    # 所以下面加了 check_boxes() 硬校验，边界切断任何连通域就直接报错退出。
+    'ae2.png':                       dict(box=(0, 0, 78, 100)),   # 右边那个「2」是 logo 图案，留着当序号
+    'basic_power/allthepower.png':   dict(box=(20, 0, 79, 100)),
+    'bounty.png':                    dict(box=(31, 0, 68, 100)),
+    'food_and_farming.png':          dict(box=(14, 0, 85, 100)),
+    'tips_and_tricks.png':           dict(box=(16, 0, 82, 100)),
+    # 这两张的装饰和文字在像素上是**连着**的（蜜蜂触角搭在字上、神秘农业整条黑底是
+    # 一块），连通域切不开，硬校验对它们只能豁免。边界改从「有墨但没有字色」的
+    # 列区间取（蜜蜂 19~24% 与 76~81% 两段只有触角没有字），并逐张看过成图。
+    'bees/productive_bees.png':      dict(box=(24, 0, 76, 100), touching=True),
+    'mystical_agriculture/title.png': dict(box=(21, 0, 81, 100), patch_from=(4, 14),
+                                          touching=True),        # 底是不透明黑条
 }
+
+
+def check_boxes():
+    """硬校验：擦除框的边界不许切断任何连通域。
+
+    框写偏一点，两端的装饰就会被啃掉半个而人眼未必立刻发现（「悬赏板」左边那对剑
+    就这么少了一把）。这里逐张核：凡是同时有像素在框内又有像素在框外的连通域，
+    就说明边界从它身上穿过去了，直接报错。
+    """
+    for rel, cfg in sorted(BOXES.items()):
+        # patch_from 的图底是整块不透明背景，框必然横切它——但框内会拿干净的
+        # 背景条补回去，不算啃掉装饰，所以跳过。
+        if cfg.get('touching') or 'patch_from' in cfg:
+            continue
+        im = Image.open(SRC / rel).convert('RGBA')
+        w, h = im.size
+        a = im.getchannel('A').load()
+        x0, y0 = round(w * cfg['box'][0] / 100), round(h * cfg['box'][1] / 100)
+        x1, y1 = round(w * cfg['box'][2] / 100), round(h * cfg['box'][3] / 100)
+        seen = [[False] * w for _ in range(h)]
+        for sy in range(h):
+            for sx in range(w):
+                if seen[sy][sx] or a[sx, sy] <= 40:
+                    continue
+                st, npx, ins, out = [(sx, sy)], 0, 0, 0
+                seen[sy][sx] = True
+                while st:
+                    x, y = st.pop()
+                    npx += 1
+                    if x0 <= x < x1 and y0 <= y < y1:
+                        ins += 1
+                    else:
+                        out += 1
+                    for dy in (-1, 0, 1):
+                        for dx in (-1, 0, 1):
+                            p, q = x + dx, y + dy
+                            if 0 <= p < w and 0 <= q < h and not seen[q][p] and a[p, q] > 40:
+                                seen[q][p] = True
+                                st.append((p, q))
+                # 被切掉的是小的那半：装饰被啃 or 英文没擦干净，两种都不能要。
+                # 留一点容差——有的图装饰的尖端和文字在像素上就是挨着的（悬赏板的剑尖
+                # 压进文字第一列），差几个像素切不开，也确实看不出来。
+                loss = min(ins, out)
+                if npx >= 20 and loss:
+                    if loss > max(64, npx * 0.01):
+                        sys.exit('❌ %s 的擦除框切断了一个连通域（框内 %d / 框外 %d）'
+                                 '——边界会把装饰啃掉半个，改 BOXES' % (rel, ins, out))
+                    print('  ⚠ %s 擦除框边界擦掉了 %d 像素（在容差内）' % (rel, loss))
 
 # 少数图自动采样会采到底纹/装饰而不是字本身，颜色发灰看不清，这里直接给定
 # （描边色, 填充色）。数值取自原图英文字的实际颜色。
@@ -259,6 +442,16 @@ STYLE = {
     # 原字是浅灰石纹配深描边，但框里两行字之间的暗底会把采样拉黑，采出来正好反过来
     'pneumaticcraft/pnc_title.png': ((26, 26, 28), (176, 176, 178)),
     'immersive/immersive_title.png': ((28, 28, 30), (168, 168, 172)),  # 原字是深灰压深灰，采样出来看不清
+    # 原图上下两行反色（APPLIED 深蓝底浅边 / ENERGISTICS 浅底深边），
+    # 一起采会采成深蓝字，贴上去几乎看不见。取下面那行的配色
+    'ae2.png':                       ((44, 44, 68), (232, 238, 250)),
+    # 金描边 + 紫字身，但金边只占外圈一薄层，中位色会被黑影拉黑
+    'eternal/starlight_armor.png':   ((248, 176, 0), (100, 76, 160)),
+    'eternal/starlight_bosses.png':  ((248, 176, 0), (100, 76, 160)),
+    'eternal/starlight_items.png':   ((248, 176, 0), (100, 76, 160)),
+    'eternal/starlight_tools.png':   ((248, 176, 0), (100, 76, 160)),
+    # 金描边 + 浅灰字身，自动采样把描边采成了浅灰，整块糊在一起看不出字
+    'forbidden/forbidden_automatic.png': ((188, 140, 12), (178, 178, 178)),
 }
 
 # 只有这几张确实是「文字当遮罩、底下压材质图」，值得抠；其余一律取本色干净地画。
@@ -271,29 +464,76 @@ TEXTURED = {
     'iceandfire/iaf_title_icedragon.png',
     'relics/relics_title.png',
     'aether/aether_title.png',               # 金色云纹
+    'building_tips/building.png',            # 裂纹石砖，砍成纯灰就认不出是「建造」那套字了
+    'building_tips/building_building.png',
+    'building_tips/building_tips.png',
+    'building_tips/tips.png',
+    'xycraft/xycraft.png',                   # 碎石纹
 }
 
 BANNERS = {
+    'ae2.png':                                              '应用能源',    # 右边留着的「2」补成「应用能源2」
+    'aether/aether_mobs.png':                               '生物',
+    'aether/aether_queen.png':                              '武神女王',
+    'aether/aether_slider.png':                             '滑行魔石',
+    'aether/aether_spirit.png':                             '烈阳巨灵',
     'aether/aether_title.png':                              '天境',
+    'aether/aether_tools.png':                              '工具',
+    'allthemodium/all_allthemodium.png':                    'ATM',  # 该图是材料名，章节序号在 all_title
     'allthemodium/all_title.png':                           '第二章',      # 该图是章节序号，不是章名
+    'apothic/apotheosis_gear.png':                          '神化装备',
     'apothic/logo.png':                                     '神化附魔',
+    'apothic/other_spawners.png':                           '其他刷怪笼',
+    'apothic/spawn_eggs.png':                               '刷怪蛋',
     'apothic/spawners_title.png':                           '神化刷怪笼',
     'ars/ars_nouveau_title.png':                            '新生魔艺',
+    'artifacts/artifacts_belt.png':                         '腰带',
+    'artifacts/artifacts_hands.png':                        '手饰',
+    'artifacts/artifacts_head.png':                         '首饰',
+    'artifacts/artifacts_necklace.png':                     '项链',
     'artifacts/artifacts_title.png':                        '奇异饰品',
+    'artifacts/feet_olyfans.png':                           '足部',  # 饰品槽位名取 curios 的官方译法
+    'basic_power/allthepower.png':                          '基础能量',
     'basicarmor/armor_title.png':                           '基础护甲',
+    'bees/productive_bees.png':                             '资源蜜蜂',
+    'bounty.png':                                           '悬赏板',
+    'building_tips/building.png':                           '建造',
+    'building_tips/building_building.png':                  '建造',
+    'building_tips/building_tips.png':                      '技巧',
+    'building_tips/tips.png':                               '技巧',
     'bumblezone/bumble_title.png':                          '嗡嗡领域',
     'cataclysm/cataclysm_title.png':                        '灾变',
     'create/create_title.png':                              '机械动力',
     'deepndark/dnd_title.png':                              '更深更暗',
     'draconic/draconic_title.png':                          '龙之进化',
+    'eternal/starlight_armor.png':                          '护甲',
+    'eternal/starlight_bosses.png':                         '首领',
+    'eternal/starlight_items.png':                          '独特物品',
+    'eternal/starlight_tools.png':                          '工具',
+    'food_and_farming.png':                                 '食物与耕种',
+    'forbidden/forbidden_automatic.png':                    '自动化锻炉',
     'forbidden/forbidden_title.png':                        '禁忌与奥秘',
+    'forbidden/forbidden_title_clibano.png':                '炽炉',
+    'forbidden/forbidden_title_relics.png':                 '遗物',
+    'furnaces/iron_furnaces.png':                           '更多熔炉',
+    'generator/generator_galore.png':                       '发电机盛会',
+    'gettingstarted/titleimage1.png':                       '第一章',  # 该图是章节序号，不是章名
     'id_title.png':                                         '动态\n联合',   # 原图两行，画布 400x400，单行会缩得很小
     'immersive/immersive_title.png':                        '沉浸工程',
     'industrialforegoing/industrial_foregoing_title.png':   '工业先锋',
     'iron_spells/spells_title.png':                         '铁魔法',      # 章节标题仍夹英文，横幅用社区通用名
+    'logistics/basic.png':                                  '基础',
+    'logistics/integrated-.png':                            '动态联合',
+    'logistics/logistics.png':                              '物流',
+    'logistics/mekanism.png':                               '通用机械',
+    'logistics/pipez.png':                                  '管道',
     'mek/mek_title.png':                                    '通用机械',
+    'mystical_agriculture/title.png':                       '神秘农业',
     'natures_aura/natures_aura_title.png':                  '自然灵气',
     'occultism/occultism_title.png':                        '神秘学',
+    'oritech/ori-addons.png':                               '附属',
+    'oritech/ori-energy.png':                               '能源',
+    'oritech/ori-logistics.png':                            '物流',
     'oritech/oritech-logo.png':                             '奥瑞科技',
     'pneumaticcraft/pnc_title.png':                         '气动工艺',
     'powah/text/generation_text.png':                       '发电',        # 章节内的分区标签
@@ -301,8 +541,11 @@ BANNERS = {
     'powah/text/transfer_text.png':                         '传输',
     'powah/text/useful_items_text.png':                     '实用物品',
     'pylons/pylon_title.png':                               '实用塔',
+    'railcraft/railcraft.png':                              '铁路工艺',
     'relics/relics_title.png':                              '遗物',
     'router/router_title.png':                              '模块化\n路由器',   # 原图就是两行，画布近正方，单行会缩得很小
+    'theurgy/theurgy.png':                                  '神通术',
+    'tips_and_tricks.png':                                  '技巧与窍门',
     'twilight_forest_title.png':                            '暮色森林',
     'undergarden/undergarden_title.png':                    '深暗之园',
     # ↓ 第二批：章节内的分区标签 / 生物名 / 阶级图等。生物与 Boss 名一律取模组 lang 的官方译名。
@@ -432,7 +675,8 @@ BANNERS = {
     'undergarden/undergarden_neutral.png': '中立',
     'undergarden/undergarden_tools.png': '工具与护甲',
     'undergarden/undergarden_vegetation.png': '植被',
-}
+
+    'xycraft/xycraft.png':                                  '晶工艺',}
 
 
 def crop_box(im, rel):
@@ -613,6 +857,35 @@ def render_vector(text, w, h, outline, plate, sw, face):
     return place(glyph, w, h)
 
 
+def lum(c):
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+
+
+MIN_CONTRAST = 96      # 描边与字身的明度差下限（0~255）
+
+
+def boost_contrast(outline, plate):
+    """保证描边与字身的明度差够大，不够就把描边推开。
+
+    原图英文笔画粗、字内面积大，描边和字身接近一点也还看得清；中文笔画又细又密，
+    同一套配色贴上去就糊成一坨（自动化锻炉的浅灰字配浅金描边、应用能源的深蓝配深蓝
+    都是这么糊掉的）。所以不逐张调色，统一在这里加一道保底：明度差不到
+    MIN_CONTRAST 就沿原描边色的方向把它压暗或提亮，色相不变，只动明暗。
+    """
+    sm = plate.resize((8, 8), Image.LANCZOS)
+    px = list(sm.getdata())
+    body = tuple(round(sum(c[i] for c in px) / len(px)) for i in range(3))
+    lb, lo = lum(body), lum(outline)
+    if abs(lb - lo) >= MIN_CONTRAST:
+        return outline
+    target = lb - MIN_CONTRAST if lb >= 128 else lb + MIN_CONTRAST
+    target = min(255.0, max(0.0, target))
+    if lo < 1:                                  # 原描边已经是纯黑，只能往亮里提
+        return tuple(round(target) for _ in range(3))
+    k = target / lo
+    return tuple(min(255, max(0, round(v * k))) for v in outline)
+
+
 def place(glyph, w, h):
     """硬性收口：字号迭代未必收敛，超出可用框就直接等比缩回去，绝不让画布裁掉笔画。"""
     aw, ah = w - 2 * MARGIN, h - 2 * MARGIN
@@ -626,8 +899,28 @@ def place(glyph, w, h):
     return canvas, gw, gh
 
 
-def render(text, w, h, outline, plate, sw):
-    """用 Unifont 位图排字，整数倍最近邻放大后按材质板上色"""
+def pixel_mask(text, size=None):
+    """把文字排成 1 倍尺度的 0/1 点阵（无抗锯齿），供整数倍放大用。
+
+    size 给定就用那一档方舟像素字体，整行交给 PIL 排（顺带拿到字距和比例宽度），
+    在设计尺寸上出来的就是纯黑白；size=None 退回 Unifont 自己拼字。
+    """
+    if size is not None:
+        f = ImageFont.truetype(str(pixel_face(size)), size)
+        gap = max(1, round(size / 6))
+        d0 = ImageDraw.Draw(Image.new('L', (1, 1)))
+        tb = d0.multiline_textbbox((0, 0), text, font=f, align='center', spacing=gap)
+        pad = size
+        im = Image.new('L', (int(tb[2] - tb[0]) + 2 * pad, int(tb[3] - tb[1]) + 2 * pad), 0)
+        ImageDraw.Draw(im).text((pad - tb[0], pad - tb[1]), text, font=f, fill=255,
+                                align='center', spacing=gap)
+        bb = im.getbbox()
+        if bb:
+            im = im.crop(bb)
+        px = im.load()
+        return [[1 if px[x, y] > 127 else 0 for x in range(im.width)]
+                for y in range(im.height)]
+
     lines = text.split('\n')
     rows = []
     for ln in lines:
@@ -635,8 +928,6 @@ def render(text, w, h, outline, plate, sw):
         rows.append((sum(g[0] for g in gs), gs))
     W1 = max(r[0] for r in rows)
     H1 = len(rows) * 16 + (len(rows) - 1) * LINE_GAP
-
-    # 1 倍尺度的字形遮罩
     core1 = [[0] * W1 for _ in range(H1)]
     for li, (lw, gs) in enumerate(rows):
         x0 = (W1 - lw) // 2
@@ -648,14 +939,32 @@ def render(text, w, h, outline, plate, sw):
                     if bits >> (gw - 1 - c) & 1:
                         core1[y0 + r][x0 + c] = 1
             x0 += gw
+    return core1
 
+
+def render(text, w, h, outline, plate, sw):
+    """点阵排字，整数倍最近邻放大后按材质板上色"""
     # 描边：1 倍尺度上按切比雪夫距离膨胀 ow 圈，放大后就是方块状的粗描边
     aw, ah = w - 2 * MARGIN, h - 2 * MARGIN
-    # 描边固定 1 圈（1 倍尺度）。放大 k 倍后描边就是 k 像素，与 Unifont 的 1px 笔画
+    # 描边固定 1 圈（1 倍尺度）。放大 k 倍后描边就是 k 像素，与点阵字的 1px 笔画
     # 放大后同宽——早先按 sw 取 2 圈，k=8 时描边 16px 而笔画才 8px，字被描边吃掉，
     # 中间的本色几乎看不见（气动工艺就是这么糊掉的）。
     ow = 1
-    k = max(1, min((aw) // (W1 + 2 * ow), (ah) // (H1 + 2 * ow)))
+    # 逐档试字框，挑放大后填得最满的那档（见 PIXEL_SIZES 处的说明）
+    best, holes0 = None, None
+    for size in sorted(pixel_candidates(text), key=lambda s: -(s or 0)):
+        c1 = pixel_mask(text, size)
+        h1, w1 = len(c1), len(c1[0])
+        kk = max(1, min(aw // (w1 + 2 * ow), ah // (h1 + 2 * ow)))
+        fill = min(kk * (w1 + 2 * ow) / aw, kk * (h1 + 2 * ow) / ah)
+        # 从大字框往小试。填充率差不多就用大的；小字框只有在**既明显撑得更满
+        # （多 8 个百分点以上）又没把笔画糊到一起**时才换——可读性不给尺寸让路。
+        if best is None:
+            best, holes0 = (fill, c1, kk), hole_count(c1)
+        elif fill > best[0] + 0.08 and hole_count(c1) >= holes0:
+            best = (fill, c1, kk)
+    _, core1, k = best
+    H1, W1 = len(core1), len(core1[0])
     pad = ow
     AW, AH = W1 + 2 * pad, H1 + 2 * pad
     all1 = [[0] * AW for _ in range(AH)]
@@ -702,6 +1011,7 @@ def chapter_titles():
 
 
 def main(check_only=False):
+    check_boxes()
     titles = chapter_titles()
     n = 0
     for rel, text in sorted(BANNERS.items()):
@@ -718,6 +1028,9 @@ def main(check_only=False):
             outline = STYLE[rel][0]
             plate = Image.new('RGB', plate.size, STYLE[rel][1])
             how = '指定色'
+        boosted = boost_contrast(outline, plate)
+        if boosted != outline:
+            outline, how = boosted, how + '+提对比'
         face = pick_face(rel)
         if face == 'pixel':
             img, gw, gh = render(text, sub.width, sub.height, outline, plate, sw)
@@ -730,8 +1043,12 @@ def main(check_only=False):
                 a, b = cfg['patch_from']
                 ya, yb = round(im.height * a / 100), round(im.height * b / 100)
                 strip = im.crop((at[0], ya, at[0] + sub.width, yb))
-                for y in range(0, sub.height, max(1, strip.height)):
-                    canvas.paste(strip, (at[0], at[1] + y))
+                sh = max(1, strip.height)
+                for y in range(0, sub.height, sh):
+                    # 最后一条要裁掉超出部分——原先整条贴，会溢出文字框下沿，
+                    # 把框外本该原样保留的像素一起盖掉（暮色森林被盖掉了 5 万多个）
+                    canvas.paste(strip.crop((0, 0, strip.width, min(sh, sub.height - y))),
+                                 (at[0], at[1] + y))
             else:
                 canvas.paste(Image.new('RGBA', sub.size, (0, 0, 0, 0)), at)
             canvas.alpha_composite(img, at)

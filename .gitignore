@@ -4,3 +4,10 @@
 /.tmp/
 /dist/
 __pycache__/
+
+# 横幅生成用的点阵字体：十几 MB，跑 scripts/fetch_fonts.sh 现取，不入库
+/assets-src/fonts/*.ttf
+/assets-src/fonts/*.otf
+/assets-src/fonts/*.ttc
+/assets-src/fonts/pixel-OFL.txt
+/assets-src/fonts/pixel-LICENSES/
