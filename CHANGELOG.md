@@ -285,6 +285,22 @@
   填充色取自原图最多的实心像素、描边照原图配对、字号等比放到最大居中，风格与原图一致。
   生成器 `scripts/gen_quest_banners.py`，参数常量化，可重跑。**需完整重启游戏**才生效。
 
+- **按键绑定界面：补齐 4 个显示原始键名的按键**。用 `options.txt` 里的 `key_*` 反查出
+  全部 **494 个已注册按键**逐一比对，找出 5 个连**英文都没有**的（模组注册了按键却忘了写
+  语言条目，属上游漏写），其中 4 个本包也没补：
+  `key.ae2.wireless_exp_encoding_terminal`（→ 打开无线拓充样板编码终端）、
+  `key.ponder.ponder`（→ 思索）、`key.kubejs.kubedex`（→ 打开 Kubedex）、
+  `key.industrialization_overdrive.terminal_mode_switch`（→ 切换终端模式）。现已全覆盖。
+- **修 ExpandedAE 与 ExtendedAE 两个模组的中文撞名**：本包给 ExpandedAE 补的译名用了
+  「扩展」，而「扩展」是**另一个模组 ExtendedAE** 的译名——`ME扩展驱动器`、`ME扩展IO端口`
+  两边一字不差，JEI 里根本分不出是哪个模组的东西。ExpandedAE 自带的中文本来就用「拓充」
+  （拓充样板供应器），本包补的部分统一改回「拓充」：拓充合成单元 / ME拓充驱动器 /
+  ME拓充IO端口 / 拓充样板编码终端 / 无线拓充样板编码终端。
+- **统一 ExpandedAE 并行处理单元一族的命名**：本包补的 19 条里混了三套说法
+  （并行处理单元 / 合成协处理器 / 合成并行处理单元），还有一条多了个空格。
+  AE2 原版 `block.ae2.crafting_accelerator`（Crafting Co-Processing Unit）就叫
+  「并行处理单元」，全部照它统一为 `<N>x并行处理单元` / `<N>K并行处理单元`。
+
 **已知限制**
 
 - **Sodium「粒子效果」里的原版粒子名无法汉化**：sodium-extra 0.9.3 自身问题

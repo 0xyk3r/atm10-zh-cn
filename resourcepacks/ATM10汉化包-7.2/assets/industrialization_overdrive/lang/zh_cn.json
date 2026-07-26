@@ -1,4 +1,5 @@
 {
+  "key.industrialization_overdrive.terminal_mode_switch": "切换终端模式",
  "block.industrialization_overdrive.multi_processing_array": "多方块处理阵列",
  "block.industrialization_overdrive.pyrolyse_oven": "热解炉",
  "item.industrialization_overdrive.terminal": "多方块建造器",
