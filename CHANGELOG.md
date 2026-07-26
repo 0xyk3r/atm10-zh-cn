@@ -275,6 +275,16 @@
   改掉（`item.minecraft.potion.effect.` → `vphanhua.dropped.potion.` 等 7 条），
   让那 154 条英文落进废键，资源包的中文得以保留。仅客户端，未列入服务端模块清单。
 
+- **任务书章节横幅的中文化（6 张）**：ATM 的章节顶上挂的是图片，文字直接画在 PNG 里，
+  语言文件够不着。原图是整合包自带的散装文件（`kubejs/assets/atm/textures/questpics/`），
+  而资源包的加载顺序排在 KubeJS 之后，所以本包放同路径的图即可覆盖。
+  带文字的横幅共 35 张，其中 **25 张是模组自己的品牌 logo**（Mekanism / Create /
+  Twilight Forest / Occultism…），按「品牌名不硬翻」保持英文；4 张压根不是文字。
+  真正该翻的 6 张已重绘：`CHAPTER 2`→第二章、`Basic Armor`→基础护甲、
+  Powah 的 `Generation`/`Storage`/`Transfer`/`Useful Items`→发电/储能/传输/实用物品。
+  填充色取自原图最多的实心像素、描边照原图配对、字号等比放到最大居中，风格与原图一致。
+  生成器 `scripts/gen_quest_banners.py`，参数常量化，可重跑。**需完整重启游戏**才生效。
+
 **已知限制**
 
 - **Sodium「粒子效果」里的原版粒子名无法汉化**：sodium-extra 0.9.3 自身问题
