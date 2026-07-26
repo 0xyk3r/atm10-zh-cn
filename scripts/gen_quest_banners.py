@@ -570,7 +570,10 @@ def render_vector(text, w, h, outline, plate, sw, face):
         sp = int(round(size * SS * 0.12))
         tb = ImageDraw.Draw(Image.new('L', (1, 1))).multiline_textbbox(
             (0, 0), text, font=f, stroke_width=sw * SS, align='center', spacing=sp)
-        pad = int(sw * SS) + 8
+        # 画布留足余量再裁：textbbox 对多行的下伸部估得不准，余量小了第二行的
+        # core（字身）会被画布底裁掉，而 allm（含描边）没被裁——渲染出来就是
+        # 「下半行只剩一坨描边、字身没了」。余量给到半个字高，之后按 bbox 裁掉多余。
+        pad = int(sw * SS) + int(size * SS * 0.5) + 8
         big = (int(tb[2] - tb[0]) + 2 * pad, int(tb[3] - tb[1]) + 2 * pad)
         allm = Image.new('L', big, 0)
         org = (pad - int(tb[0]), pad - int(tb[1]))
@@ -602,6 +605,17 @@ def render_vector(text, w, h, outline, plate, sw, face):
             gp[x, y] = (round(outline[0] + (col[0] - outline[0]) * t),
                         round(outline[1] + (col[1] - outline[1]) * t),
                         round(outline[2] + (col[2] - outline[2]) * t), a)
+    return place(glyph, w, h)
+
+
+def place(glyph, w, h):
+    """硬性收口：字号迭代未必收敛，超出可用框就直接等比缩回去，绝不让画布裁掉笔画。"""
+    aw, ah = w - 2 * MARGIN, h - 2 * MARGIN
+    gw, gh = glyph.size
+    if gw > aw or gh > ah:
+        k = min(aw / gw, ah / gh)
+        gw, gh = max(1, int(gw * k)), max(1, int(gh * k))
+        glyph = glyph.resize((gw, gh), Image.LANCZOS)
     canvas = Image.new('RGBA', (w, h), (0, 0, 0, 0))
     canvas.alpha_composite(glyph, ((w - gw) // 2, (h - gh) // 2))
     return canvas, gw, gh
@@ -659,9 +673,7 @@ def render(text, w, h, outline, plate, sw):
                 continue
             inside = 0 <= y1 - pad < H1 and 0 <= x1 - pad < W1 and core1[y1 - pad][x1 - pad]
             gp[X, Y] = (tex[X, Y] + (255,)) if inside else (outline + (255,))
-    canvas = Image.new('RGBA', (w, h), (0, 0, 0, 0))
-    canvas.alpha_composite(glyph, ((w - gw) // 2, (h - gh) // 2))
-    return canvas, gw, gh
+    return place(glyph, w, h)
 
 
 def chapter_titles():
