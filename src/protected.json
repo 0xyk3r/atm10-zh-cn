@@ -1029,6 +1029,9 @@
     "src/kubejs/data/silentgear/patchouli_books/gears_guide/zh_cn/templates/compounding_recipe.json",
     "src/kubejs/server_scripts/pb_hanhua_tooltip_actions.js",
     "src/mods.lock.json",
+    "src/optional-mods-pinyin/LICENSE-just-enough-characters.txt",
+    "src/optional-mods-pinyin/jecharacters-1.21.1-neoforge-4.5.26.jar",
+    "src/optional-mods-pinyin/来源与许可.md",
     "src/pack/assets/abnormals_delight/lang/zh_cn.json",
     "src/pack/assets/abundant_atmosphere/lang/zh_cn.json",
     "src/pack/assets/abundantdelight/lang/zh_cn.json",
@@ -3030,10 +3033,29 @@
     "src/vaultpatcher/modules/xycraft_core.json",
     "src/vaultpatcher/modules/xycraft_machines.json",
     "src/vaultpatcher/modules/yet_another_config_lib_v3.json",
-    "src/vaultpatcher/modules/yungsapi.json",
-    "src/可选mods-拼音搜索/LICENSE-just-enough-characters.txt",
-    "src/可选mods-拼音搜索/jecharacters-1.21.1-neoforge-4.5.26.jar",
-    "src/可选mods-拼音搜索/来源与许可.md"
+    "src/vaultpatcher/modules/yungsapi.json"
   ],
-  "released": []
+  "released": [
+    {
+      "path": "src/可选mods-拼音搜索/LICENSE-just-enough-characters.txt",
+      "approved": "用户",
+      "date": "2026-07-27",
+      "why": "改名为 ASCII 路径：源码侧的中文目录名在 Windows 的 git / 解压 / shell 通配上会翻车（出货侧一直是 ASCII，源码侧这是全仓库唯一一个）",
+      "renamed_to": "src/optional-mods-pinyin/LICENSE-just-enough-characters.txt"
+    },
+    {
+      "path": "src/可选mods-拼音搜索/jecharacters-1.21.1-neoforge-4.5.26.jar",
+      "approved": "用户",
+      "date": "2026-07-27",
+      "why": "改名为 ASCII 路径：源码侧的中文目录名在 Windows 的 git / 解压 / shell 通配上会翻车（出货侧一直是 ASCII，源码侧这是全仓库唯一一个）",
+      "renamed_to": "src/optional-mods-pinyin/jecharacters-1.21.1-neoforge-4.5.26.jar"
+    },
+    {
+      "path": "src/可选mods-拼音搜索/来源与许可.md",
+      "approved": "用户",
+      "date": "2026-07-27",
+      "why": "改名为 ASCII 路径：源码侧的中文目录名在 Windows 的 git / 解压 / shell 通配上会翻车（出货侧一直是 ASCII，源码侧这是全仓库唯一一个）",
+      "renamed_to": "src/optional-mods-pinyin/来源与许可.md"
+    }
+  ]
 }

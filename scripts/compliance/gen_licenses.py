@@ -29,7 +29,9 @@ import sys
 import zipfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ 下的公共模块
+
+ROOT = Path(__file__).resolve().parent.parent.parent
 OUT = ROOT / 'versions' / 'licenses.json'
 # jar 里带的许可全文长这些名字
 LIC_NAMES = re.compile(r'(^|/)(LICENSE|LICENCE|COPYING|NOTICE)(\.(txt|md))?$', re.I)

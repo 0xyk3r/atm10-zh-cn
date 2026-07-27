@@ -8,13 +8,13 @@ title: （可选）自动Gradle Wiki同步
 tasks.named('processResources') {
     from("$rootDir/wiki") {
         into "assets/oracle_index/books/oritech"
-        exclude 'assets/item/**'   // items are rendered ingame as actual item components, no need to include them here
+        exclude 'assets/item/**'   // 物品在游戏里是按真实物品组件渲染的，不必收进来
     }
     doLast {
-        println "processResources executed: wiki folder copied into assets/oracle_index"
+        println "processResources 已执行：wiki 目录已拷入 assets/oracle_index"
     }
 }
 ```
 
 这些文件将被添加至"common/build/resources"文件夹。
-请注意，本示例针对Architectury多平台项目编写，并添加至"common"项目的build.gradle文件中。根据你的模组配置，你可能需要对此进行调整。
+请注意，本示例针对Architectury多平台项目编写，并添加至"common"项目的build.gradle文件中。根据你的模组配置，你可能需要对此进行调整。

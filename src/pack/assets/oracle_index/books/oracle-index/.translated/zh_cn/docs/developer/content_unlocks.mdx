@@ -6,19 +6,19 @@ Oracle索引还具备一项功能：内容需先解锁，玩家方可访问。�
 若某文件夹下所有条目均被锁定，则整个文件夹将被隐藏。
 
 <Callout variant="warning">
-    This feature is obviously only available in the in-game wiki, not the online wiki. The main target audience here are modpack makers that don't want to reveal everything at once.
+    这项功能显然只在游戏内 wiki 里可用，线上 wiki 没有。主要面向的是不想一次性把内容全部揭晓的整合包作者。
 </Callout>
 
 要控制解锁条件，页面的前置元数据需包含*unlock*部分。其格式如下所示：
 
 ```
 ---
-title: Ingame Mod View Setup
+title: 游戏内模组视图配置
 unlock: advancement:minecraft:oritech/pulverizer
 ---
-"unlock" is always the same
-"advancement" is the name of the progress validator
-anything after the "advancement:" part is passed to the validator
+"unlock" 恒定不变
+"advancement" 是进度校验器的名字
+"advancement:" 之后的内容会原样传给校验器
 ```
 
 # 验证器

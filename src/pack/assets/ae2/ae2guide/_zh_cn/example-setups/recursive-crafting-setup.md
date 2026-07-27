@@ -51,7 +51,7 @@ navigation:
 
         ![Pattern](../assets/diagrams/smithing_template_pattern_small.png)
 
-        It also has one smithing template already inserted into it manually when you first build this.
+        第一次搭建时，还要手动往里放一个锻造模板。
   </BoxAnnotation>
 
   <BoxAnnotation color="#dddddd" min="2.7 0 1" max="3 1 2">

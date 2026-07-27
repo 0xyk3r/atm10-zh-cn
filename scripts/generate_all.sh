@@ -76,9 +76,9 @@ if [ "$HAVE_JARS" = 1 ]; then
   # 第三方许可清单：抄各家 jar 里 mods.toml 自己的 license 声明，
   # 随带许可全文的一并抽出来放进 licenses/。不靠我复述，也不靠第三方网站。
   echo "▶ 第三方许可清单"
-  python3 scripts/gen_licenses.py "$ATM_PACK_ROOT/mods" build/common
+  python3 scripts/compliance/gen_licenses.py "$ATM_PACK_ROOT/mods" build/common
 
   echo "▶ 版权闸：剔除与已装模组逐字节相同的文件"
   PACK_DIR=$(python3 -c "import sys;sys.path.insert(0,'scripts');from paths import PACK;print(PACK)")
-  python3 scripts/audit_upstream.py --mods "$ATM_PACK_ROOT/mods" --tree "$PACK_DIR" --drop
+  python3 scripts/compliance/audit_upstream.py --mods "$ATM_PACK_ROOT/mods" --tree "$PACK_DIR" --drop
 fi

@@ -128,7 +128,9 @@ done
 # 说明文档在包里改名叫「请安装前务必看我.md」：大部分人是从别处拿到 zip 的，
 # 根本不会去 GitHub 看 README，文件名就得自己把话说完。
 cp README.md "$CSTAGE/请安装前务必看我.md"
-cp CHANGELOG.md LICENSE LICENSE-GPL-3.0 致谢与技术说明.md "$CSTAGE/"
+cp CHANGELOG.md LICENSE LICENSE-GPL-3.0 "$CSTAGE/"
+# 仓库里叫 CREDITS.md（源码侧一律 ASCII），包里给玩家的是中文名
+cp CREDITS.md "$CSTAGE/致谢与技术说明.md"
 printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' > "$CSTAGE/项目主页与反馈.url"
 chmod +x "$CSTAGE/install.sh"
 
@@ -183,7 +185,7 @@ echo
 # 最后一道闸：拆开每个 zip 逐项核内容。开头那道守卫只查文件在不在，
 # 而「在」不等于「对」——0 字节的 lang、纯透明的横幅、只剩几条键的资源包
 # 都能骗过存在性检查。这里查的是量，少一大块就说明某个生成环节悄悄失败了。
-python3 scripts/verify_dist.py dist/*-${VERSION}-atm*.zip
+python3 scripts/compliance/verify_dist.py dist/*-${VERSION}-atm*.zip
 echo
 echo "全部完成：$(ls dist/*-${VERSION}-atm*.zip | wc -l | tr -d " ") 个包"
 ls -1 dist/*-${VERSION}-atm*.zip

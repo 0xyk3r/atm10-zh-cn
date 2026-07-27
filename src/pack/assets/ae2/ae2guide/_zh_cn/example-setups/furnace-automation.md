@@ -61,10 +61,10 @@ navigation:
 
 ## 工作原理
 
-1. The <ItemLink id="pattern_provider" /> pushes the ingredients into the <ItemLink id="interface" />.
-   (Actually, as an optimization, it pushes directly through the storage busses as if they were extensions of the provider's faces. The items never actually enter the interface.)
-2. The interface is set to store nothing, so it tries to push the ingredients into [network storage](../ae2-mechanics/import-export-storage.md).
-3. The only storage on the green subnet is the <ItemLink id="storage_bus" />ses. The bus filtered to coal places the coal in the furnace's fuel slot through the side face.
-    The bus filtered to NOT coal places the items to be smelted in the top slot, through the top face.
-4. The furnace does its furnacey thing
-5. The hopper pulls the results out the furnace's bottom, and places them in the provider's return slots, returning them to the main network.
+1. <ItemLink id="pattern_provider" />把材料推进<ItemLink id="interface" />。
+   （实际上出于优化，它是直接穿过存储总线推的，就好像那些总线是供应器自己的面一样——材料从来没真正进过接口。）
+2. 接口被设为不存放任何东西，于是它试着把材料推进[网络存储](../ae2-mechanics/import-export-storage.md)。
+3. 绿色子网上唯一的存储就是那两个<ItemLink id="storage_bus" />。过滤为煤炭的那个从侧面把煤炭放进熔炉的燃料槽；
+    过滤为「非煤炭」的那个从顶面把待冶炼的物品放进上方槽位。
+4. 熔炉干它该干的活
+5. 漏斗从熔炉底部把产物抽出来，放进供应器的返回槽，产物就回到主网络了。

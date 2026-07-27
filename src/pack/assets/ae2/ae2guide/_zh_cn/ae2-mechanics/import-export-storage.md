@@ -37,7 +37,7 @@ navigation:
   </BoxAnnotation>
 
   <BoxAnnotation color="#dddddd" min="6 0 1" max="7 1 2">
-        Pattern Providers will import from their internal return slot inventory, so things can be pushed into them to insert into the network
+        样板供应器会从自己内部的返回槽导入，所以可以把东西推进它、再由它插入网络
   </BoxAnnotation>
 
   <BoxAnnotation color="#dddddd" min="4 1 1" max="5 2 2">

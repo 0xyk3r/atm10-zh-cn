@@ -31,7 +31,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ 下的公共模块
+
+ROOT = Path(__file__).resolve().parent.parent.parent
 MANIFEST = ROOT / 'src' / 'protected.json'
 # 保护范围就是整个 src/：这里放的全是汉化源，没有一个是生成物
 # （出货树 kubejs/ config/ resourcepacks/ mods/ 都是构建时现摊的）。

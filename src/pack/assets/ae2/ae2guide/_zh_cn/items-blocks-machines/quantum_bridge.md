@@ -13,7 +13,7 @@ item_ids:
 
 # 量子网络桥
 
-![A formed Quantum Network Bridge](../assets/diagrams/quantum_bridge_demonstration.png)
+![已成形的量子网络桥](../assets/diagrams/quantum_bridge_demonstration.png)
 
 量子环可以将 [网络](../ae2-mechanics/me-network-connections.md) 延伸到无限远的距离，甚至跨维度。
 它们总共可以承载 32 个频道（无论线缆如何连接到各个面），本质上

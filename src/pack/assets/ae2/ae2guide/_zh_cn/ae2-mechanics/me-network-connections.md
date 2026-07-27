@@ -107,7 +107,7 @@ navigation:
   <BoxAnnotation color="#5CA7CD" min="0 0 0" max="3 1 1">
         网络 2，像另一个管道子网一样工作，限制 ME破坏面板可访问的内容，使它们将
         时运处理后的矿石碎块存入木桶，而不是你的主网络中。同时也意味着它们不会占用
-        主网络上的任何信道。
+        主网络上的任何频道。
   </BoxAnnotation>
 
   <BoxAnnotation color="#82CD5C" min="2 0 1" max="4 1 2">
@@ -120,7 +120,7 @@ navigation:
 
 ## P2P 语境下的连接
 
-[P2P通道](../items-blocks-machines/p2p_tunnels.md) 的一种变体传输的是[信道](channels.md)，而不是物品、流体
+[P2P通道](../items-blocks-machines/p2p_tunnels.md) 的一种变体传输的是[频道](channels.md)，而不是物品、流体
 或红石信号，而这不知为何总会让人困惑。通道所安装的那个网络与它所传输的
 网络毫无关系。它们*可以*是同一个网络，但并不必须，而且通常也不是。
 

@@ -30,7 +30,7 @@ navigation:
     </DiamondAnnotation>
 
 <DiamondAnnotation pos="1.5 1.5 0.5" color="#00ff00">
-        Another item pipe subnet, to return the charged items to the Pattern Provider
+        另一个物品管道子网，负责把充好能的物品送回样板供应器
     </DiamondAnnotation>
 
 <IsometricCamera yaw="195" pitch="30" />
@@ -41,8 +41,8 @@ navigation:
 
 * 用于限制[设备](../ae2-mechanics/devices.md)可以访问哪些存储（你肯定不希望“管道”子网上的导入总线能访问主网
     存储，否则它会把物品放进你的存储元件，而不是目标容器中）。
-* 用于节省主网络上的信道，例如让一个样板供应器输出到一个接口，而这个接口连接着若干台机器上的多个存储总线，
-    这样只占用 1 个信道；而不是在每台机器上各放一个样板供应器，占用多个信道。
+* 用于节省主网络上的频道，例如让一个样板供应器输出到一个接口，而这个接口连接着若干台机器上的多个存储总线，
+    这样只占用 1 个频道；而不是在每台机器上各放一个样板供应器，占用多个频道。
 
 制作子网时，非常重要的一点是要理清[网络连接](../ae2-mechanics/me-network-connections.md)。
 很多时候，人们把一堆接口、总线之类的东西胡乱拼在一起，就以为那是一个子网，

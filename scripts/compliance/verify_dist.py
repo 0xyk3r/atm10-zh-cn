@@ -30,6 +30,8 @@ import sys
 import zipfile
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ 下的公共模块
+
 import toolchain
 
 # 客户端包的下限（实测值见注释）

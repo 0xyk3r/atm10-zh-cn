@@ -23,7 +23,7 @@ item_ids:
 
 <Recipe id="modern_industrialization:electric_age/machine/electric_quarry_asbl" />
 
-## Advanced Large Steam Boiler
+## 进阶大型蒸汽锅炉
 
 <GameScene zoom="2" interactive={true} fullWidth={true}>
     <MultiblockShape controller="advanced_large_steam_boiler" />

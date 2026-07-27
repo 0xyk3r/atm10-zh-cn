@@ -20,6 +20,8 @@ import sys
 import tempfile
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # scripts/ 下的公共模块
+
 SELF = Path(__file__).resolve().parent / 'protect.py'
 
 
@@ -39,16 +41,16 @@ def run(repo, *args, base=None, break_git=False):
         (shim / 'git').write_text('#!/bin/sh\nexit 128\n')
         (shim / 'git').chmod(0o755)
         env['PATH'] = '%s:%s' % (shim, env.get('PATH', ''))
-    return subprocess.run([sys.executable, 'scripts/protect.py', *args],
+    return subprocess.run([sys.executable, 'scripts/compliance/protect.py', *args],
                           cwd=repo, capture_output=True, text=True, env=env)
 
 
 def setup(tmp):
     """玩具仓库：src/ 下三个汉化文件，已收进保护清单并提交。"""
     repo = Path(tmp) / 'toy'
-    (repo / 'scripts').mkdir(parents=True)
+    (repo / 'scripts' / 'compliance').mkdir(parents=True)
     (repo / 'src' / 'pack').mkdir(parents=True)
-    shutil.copy(SELF, repo / 'scripts' / 'protect.py')
+    shutil.copy(SELF, repo / 'scripts' / 'compliance' / 'protect.py')
     for n in ('a', 'b', 'c'):
         (repo / 'src' / 'pack' / ('%s.json' % n)).write_text('{"k":"译文"}\n',
                                                              encoding='utf-8')
