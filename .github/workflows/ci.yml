@@ -34,12 +34,28 @@ jobs:
       # 对着**每个版本各自的**官方文件套映射。找不到原文就退出——
       # 上游改了文案而我们没跟，构建当场失败，而不是发出一个
       # 「旧上游 + 我们的改动」把人家的修复整个覆盖掉的包。
+
+      # ATM10 的某个已发布版本，overrides 内容是不会变的，所以缓存键就用仓库里记的
+      # 那三个指纹——只有我们**有意**改了目标版本时才会失效。
+      # 这一步是为了把 CurseForge（全链唯一不可控的外部依赖）从最高频的那道闸上挪开：
+      # 命中缓存就完全不联网；未命中才下，且下完必须与 versions/<版本>/overrides.sha256
+      # 对得上，否则构建当场红。
+      - uses: actions/cache@v4
+        with:
+          path: build/packsrc
+          key: packsrc-${{ hashFiles('versions/*/overrides.sha256') }}
+
       - name: 上游文件漂移检测（各版本）
         run: |
           set -euo pipefail
           for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
             echo "───── ATM10 $v ─────"
-            python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
+            if [ ! -d "build/packsrc/$v/kubejs" ]; then
+              python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
+            else
+              echo "  命中缓存，核对指纹"
+              python3 scripts/fetch_pack.py --verify "$v" "build/packsrc/$v"
+            fi
             rm -rf "build/v/$v"; mkdir -p build/v; cp -R build/common "build/v/$v"
             python3 scripts/gen_upstream_patches.py "build/packsrc/$v" "build/v/$v"
             python3 scripts/gen_vaultpatcher.py "$v" "build/v/$v"

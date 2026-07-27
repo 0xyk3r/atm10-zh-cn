@@ -193,6 +193,14 @@ def main(ver, out, jars=True):
 
 
 if __name__ == '__main__':
+    # --verify：目录已经在（多半来自 CI 缓存），只核对指纹，一个字节都不下。
+    # 缓存命中也必须核——缓存里的东西同样可能是坏的。
+    if '--verify' in sys.argv:
+        a = [x for x in sys.argv[1:] if x != '--verify']
+        if len(a) != 2:
+            sys.exit(__doc__)
+        check_digest(a[0], tree_digest(a[1]))
+        sys.exit(0)
     if len(sys.argv) < 3:
         sys.exit(__doc__)
     main(sys.argv[1], sys.argv[2], '--no-jars' not in sys.argv)

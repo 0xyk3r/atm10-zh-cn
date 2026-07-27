@@ -55,6 +55,17 @@ jobs:
           echo "list=$IN" >> "$GITHUB_OUTPUT"
           echo "将构建: $IN"
 
+
+      # ATM10 的某个已发布版本，overrides 内容是不会变的，所以缓存键就用仓库里记的
+      # 那三个指纹——只有我们**有意**改了目标版本时才会失效。
+      # 这一步是为了把 CurseForge（全链唯一不可控的外部依赖）从最高频的那道闸上挪开：
+      # 命中缓存就完全不联网；未命中才下，且下完必须与 versions/<版本>/overrides.sha256
+      # 对得上，否则构建当场红。
+      - uses: actions/cache@v4
+        with:
+          path: build/packsrc
+          key: packsrc-${{ hashFiles('versions/*/overrides.sha256') }}
+
       - name: 下整合包（overrides + 全部 mod jar）
         run: |
           set -euo pipefail
@@ -67,7 +78,7 @@ jobs:
           # 每个要构建的版本再取一份 overrides（只要官方文件，不下 jar）——
           # 打上游补丁必须对着**该版**的官方文件，否则等于把旧上游发给新版本用户。
           for v in ${{ steps.t.outputs.list }}; do
-            python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
+            [ -d "build/packsrc/$v/kubejs" ] || python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
           done
 
       - name: 生成全部汉化产物
