@@ -4,54 +4,48 @@
    {
     "classes": {
      "dev.ftb.mods.ftbchunks.FTBChunksCommands": {
-      "actual": "dev.ftb.mods.ftbchunks.FTBChunksCommands",
-      "how": "declared",
-      "jar": "ftb-chunks-neoforge-2101.1.20.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "ftb-chunks-neoforge-2101.1.20.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Not on a dedicted server!": "exact"
+     "Not on a dedicted server!": "missing"
     }
    },
    {
     "classes": {
      "dev.ftb.mods.ftbchunks.client.gui.AddWaypointOverlay": {
-      "actual": "dev.ftb.mods.ftbchunks.client.gui.AddWaypointOverlay",
-      "how": "declared",
-      "jar": "ftb-chunks-neoforge-2101.1.20.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 2,
-    "jars": [
-     "ftb-chunks-neoforge-2101.1.20.jar"
-    ],
+    "jars": [],
     "keys": {
-     "⇧ + Enter": "exact"
+     "⇧ + Enter": "missing"
     }
    },
    {
     "classes": {
      "dev.ftb.mods.ftbchunks.client.gui.SliceCreationGUI": {
-      "actual": "dev.ftb.mods.ftbchunks.client.gui.SliceCreationGUI",
-      "how": "declared",
-      "jar": "ftb-chunks-neoforge-2101.1.20.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 3,
-    "jars": [
-     "ftb-chunks-neoforge-2101.1.20.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Add Slice": "exact",
-     "Export": "exact",
-     "Next Slice": "exact",
-     "Previous Slice": "exact",
-     "Remove Slice": "exact",
-     "Saved File": "exact"
+     "Add Slice": "missing",
+     "Export": "missing",
+     "Next Slice": "missing",
+     "Previous Slice": "missing",
+     "Remove Slice": "missing",
+     "Saved File": "missing"
     }
    }
   ]
@@ -61,177 +55,157 @@
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.config.values.ConfigStringListValues": {
-      "actual": "de.ellpeck.actuallyadditions.mod.config.values.ConfigStringListValues",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "AIOT Extra Whitelist": "exact",
-     "Crusher Output Blacklist": "exact",
-     "Crusher Recipe Exceptions": "exact",
-     "Item Repairer Extra Whitelist": "exact",
-     "Mashed Food Crafting Exceptions": "exact",
-     "Mining Lens Blacklist": "exact",
-     "Mining lens Extra Whitelist": "exact",
-     "Repair Blacklist": "exact",
-     "Spawner Changer Blacklist": "exact"
+     "AIOT Extra Whitelist": "missing",
+     "Crusher Output Blacklist": "missing",
+     "Crusher Recipe Exceptions": "missing",
+     "Item Repairer Extra Whitelist": "missing",
+     "Mashed Food Crafting Exceptions": "missing",
+     "Mining Lens Blacklist": "missing",
+     "Mining lens Extra Whitelist": "missing",
+     "Repair Blacklist": "missing",
+     "Spawner Changer Blacklist": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.GuiMiner": {
-      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.GuiMiner",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 2,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Mining Everything": "exact",
-     "Mode": "exact",
-     "Only Mining Ores": "exact",
-     "Reset": "exact"
+     "Mining Everything": "missing",
+     "Mode": "missing",
+     "Only Mining Ores": "missing",
+     "Reset": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.ItemTagScreen": {
-      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.ItemTagScreen",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 3,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Invalid Tag": "exact",
-     "Valid Tag": "exact"
+     "Invalid Tag": "missing",
+     "Valid Tag": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.SackGui": {
-      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.SackGui",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 4,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Auto-Insert ": "substring",
-     "Note that this WON'T work when you are holding the sack in your hand.": "exact",
-     "Turn this on to make items that get picked up automatically go into the sack.": "exact"
+     "Auto-Insert ": "missing",
+     "Note that this WON'T work when you are holding the sack in your hand.": "missing",
+     "Turn this on to make items that get picked up automatically go into the sack.": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.VoidSackGui": {
-      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.VoidSackGui",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 5,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Auto-Insert ": "substring",
-     "Note that this WON'T work when you are holding the bag in your hand.": "exact",
-     "Turn this on to make items that get picked up automatically go into the bag.": "exact"
+     "Auto-Insert ": "missing",
+     "Note that this WON'T work when you are holding the bag in your hand.": "missing",
+     "Turn this on to make items that get picked up automatically go into the bag.": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.items.ItemBooklet": {
-      "actual": "de.ellpeck.actuallyadditions.mod.items.ItemBooklet",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 6,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Patchouli is not installed! Please install Patchouli to view the booklet.": "exact"
+     "Patchouli is not installed! Please install Patchouli to view the booklet.": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.items.ItemDrillUpgrade": {
-      "actual": "de.ellpeck.actuallyadditions.mod.items.ItemDrillUpgrade",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 7,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Set the slot to place from to ": "substring"
+     "Set the slot to place from to ": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.items.ItemTag": {
-      "actual": "de.ellpeck.actuallyadditions.mod.items.ItemTag",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 8,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Tag: ": "substring"
+     "Tag: ": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.jei.fermenting.FermentingCategory": {
-      "actual": "de.ellpeck.actuallyadditions.mod.jei.fermenting.FermentingCategory",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 9,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Fermenting Recipe": "exact"
+     "Fermenting Recipe": "missing"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.jei.pressing.PressingCategory": {
-      "actual": "de.ellpeck.actuallyadditions.mod.jei.pressing.PressingCategory",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 10,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Pressing Recipe": "exact"
+     "Pressing Recipe": "missing"
     }
    }
   ]
@@ -241,28 +215,26 @@
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.GuiFireworkBox": {
-      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.GuiFireworkBox",
-      "how": "declared",
-      "jar": "actuallyadditions-1.3.26+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "actuallyadditions-1.3.26+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Area of Effect": "exact",
-     "Average Charge Amount": "exact",
-     "Average Flight Time": "exact",
-     "Burst": "exact",
-     "Color Amount": "exact",
-     "Creeper Shape": "exact",
-     "Effect Chance": "exact",
-     "Flicker/Trail Ratio": "exact",
-     "Large Ball": "exact",
-     "Small Ball": "exact",
-     "Star Shape": "exact",
-     "Value Play": "exact"
+     "Area of Effect": "missing",
+     "Average Charge Amount": "missing",
+     "Average Flight Time": "missing",
+     "Burst": "missing",
+     "Color Amount": "missing",
+     "Creeper Shape": "missing",
+     "Effect Chance": "missing",
+     "Flicker/Trail Ratio": "missing",
+     "Large Ball": "missing",
+     "Small Ball": "missing",
+     "Star Shape": "missing",
+     "Value Play": "missing"
     }
    }
   ]
@@ -299,12 +271,12 @@
      "de.srendi.advancedperipherals.common.commands.APCommands": {
       "actual": "de.srendi.advancedperipherals.common.commands.APCommands",
       "how": "declared",
-      "jar": "AdvancedPeripherals-1.21.1-0.7.62b.jar"
+      "jar": "AdvancedPeripherals-1.21.1-0.7.61b.jar"
      }
     },
     "i": 1,
     "jars": [
-     "AdvancedPeripherals-1.21.1-0.7.62b.jar"
+     "AdvancedPeripherals-1.21.1-0.7.61b.jar"
     ],
     "keys": {
      "Fingerprint of the item: ": "exact",
@@ -316,12 +288,12 @@
      "de.srendi.advancedperipherals.common.items.WeakAutomataCore": {
       "actual": "de.srendi.advancedperipherals.common.items.WeakAutomataCore",
       "how": "declared",
-      "jar": "AdvancedPeripherals-1.21.1-0.7.62b.jar"
+      "jar": "AdvancedPeripherals-1.21.1-0.7.61b.jar"
      }
     },
     "i": 2,
     "jars": [
-     "AdvancedPeripherals-1.21.1-0.7.62b.jar"
+     "AdvancedPeripherals-1.21.1-0.7.61b.jar"
     ],
     "keys": {
      "Consumed: %d/%d %s": "exact"
@@ -611,12 +583,12 @@
      "com.aetherteam.aether.entity.passive.Aerwhale": {
       "actual": "com.aetherteam.aether.entity.passive.Aerwhale",
       "how": "declared",
-      "jar": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+      "jar": "aether-1.21.1-1.5.10-neoforge.jar"
      }
     },
     "i": 1,
     "jars": [
-     "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+     "aether-1.21.1-1.5.10-neoforge.jar"
     ],
     "keys": {
      "Serenity is the queen of W(h)ales!!": "exact"
@@ -631,12 +603,12 @@
      "com.thevortex.allthetweaks.DRP$EnumState": {
       "actual": "com.thevortex.allthetweaks.DRP$EnumState",
       "how": "declared",
-      "jar": "allthetweaks-1.21.1-2.9.4.jar"
+      "jar": "allthetweaks-1.21.1-2.9.3.jar"
      }
     },
     "i": 1,
     "jars": [
-     "allthetweaks-1.21.1-2.9.4.jar"
+     "allthetweaks-1.21.1-2.9.3.jar"
     ],
     "keys": {
      "Dimension: Mining": "exact",
@@ -655,20 +627,18 @@
    {
     "classes": {
      "com.almostreliable.unified.core.AlmostUnifiedCommands": {
-      "actual": "com.almostreliable.unified.core.AlmostUnifiedCommands",
-      "how": "declared",
-      "jar": "almostunified-neoforge-1.21.1-1.4.2.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "almostunified-neoforge-1.21.1-1.4.2.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Almost Unified Commands": "exact",
-     "Please provide a valid radius!": "exact",
-     "This command can only be used in-game!": "exact",
-     "strip <radius> - strips everything in the specified radius except for Bedrock and ores": "exact"
+     "Almost Unified Commands": "missing",
+     "Please provide a valid radius!": "missing",
+     "This command can only be used in-game!": "missing",
+     "strip <radius> - strips everything in the specified radius except for Bedrock and ores": "missing"
     }
    }
   ]
@@ -680,12 +650,12 @@
      "net.mehvahdjukaar.supplementaries.client.renderers.platform.PicklePlayer": {
       "actual": "net.mehvahdjukaar.supplementaries.client.renderers.platform.PicklePlayer",
       "how": "declared",
-      "jar": "supplementaries-neoforge-1.21.1-3.7.4.jar"
+      "jar": "supplementaries-neoforge-1.21.1-3.6.4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "supplementaries-neoforge-1.21.1-3.7.4.jar"
+     "supplementaries-neoforge-1.21.1-3.6.4.jar"
     ],
     "keys": {
      "I am Jarman": "exact",
@@ -697,12 +667,12 @@
      "net.mehvahdjukaar.supplementaries.common.utils.VibeChecker": {
       "actual": "net.mehvahdjukaar.supplementaries.common.utils.VibeChecker",
       "how": "declared",
-      "jar": "supplementaries-neoforge-1.21.1-3.7.4.jar"
+      "jar": "supplementaries-neoforge-1.21.1-3.6.4.jar"
      }
     },
     "i": 2,
     "jars": [
-     "supplementaries-neoforge-1.21.1-3.7.4.jar"
+     "supplementaries-neoforge-1.21.1-3.6.4.jar"
     ],
     "keys": {
      "Supplementaries detected a possible crash caused by another mod. Check the logs.": "exact"
@@ -711,127 +681,143 @@
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.Bumblezone": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.Bumblezone",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Anti Trypophobia": "missing",
-     "Bumblezone - Shader Emissive": "missing"
+     "Bumblezone - Anti Trypophobia": "exact",
+     "Bumblezone - Shader Emissive": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.ForestryCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.ForestryCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Forestry Compat": "missing"
+     "Bumblezone - Forestry Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.JeedCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.JeedCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 5,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - JEED Compat": "missing"
+     "Bumblezone - JEED Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.ResourcefulBeesCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.ResourcefulBeesCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 6,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Resourceful Bees Compat": "missing"
+     "Bumblezone - Resourceful Bees Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.BuzzierBeesCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.BuzzierBeesCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 7,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Buzzier Bees Compat": "missing"
+     "Bumblezone - Buzzier Bees Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.ProductiveBeesCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.ProductiveBeesCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 8,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Productive Bees Compat": "missing"
+     "Bumblezone - Productive Bees Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.TokenEnchanterCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.TokenEnchanterCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 9,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Token Enchanter Compat": "missing"
+     "Bumblezone - Token Enchanter Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.worldgen.dimension.BzChunkGenerator": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.worldgen.dimension.BzChunkGenerator",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 10,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "NoiseRouter T: ": "missing"
+     "NoiseRouter T: ": "substring"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.items.recipes.ContainerCraftingRecipe$Serializer": {
-      "actual": "com.blakebr0.cucumber.crafting.recipe.ShapelessTagRecipe$Serializer",
-      "how": "moved",
-      "jar": "Cucumber-1.21.1-8.0.16.jar"
+      "actual": "com.telepathicgrunt.the_bumblezone.items.recipes.ContainerCraftingRecipe$Serializer",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 11,
     "jars": [
-     "Cucumber-1.21.1-8.0.16.jar"
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "No ingredients for shapeless recipe": "exact"
@@ -840,14 +826,14 @@
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.items.recipes.NbtKeepingShapelessRecipe$Serializer": {
-      "actual": "com.blakebr0.cucumber.crafting.recipe.ShapelessTagRecipe$Serializer",
-      "how": "moved",
-      "jar": "Cucumber-1.21.1-8.0.16.jar"
+      "actual": "com.telepathicgrunt.the_bumblezone.items.recipes.NbtKeepingShapelessRecipe$Serializer",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 12,
     "jars": [
-     "Cucumber-1.21.1-8.0.16.jar"
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "No ingredients for shapeless recipe": "exact"
@@ -856,36 +842,40 @@
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.items.recipes.PotionCandleRecipe$Serializer": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.items.recipes.PotionCandleRecipe$Serializer",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 13,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Key defines symbols that aren't used in shapedPattern: ": "missing",
-     "Pattern references symbol '": "missing"
+     "Key defines symbols that aren't used in shapedPattern: ": "substring",
+     "Pattern references symbol '": "substring"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.items.recipes.PotionCandleRecipe$Serializer$RawPotionRecipe": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.items.recipes.PotionCandleRecipe$Serializer$RawPotionRecipe",
+      "how": "declared",
+      "jar": "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
      }
     },
     "i": 14,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.13.2+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Invalid key tag: '": "missing",
-     "Invalid key tag: ' ' is a reserved symbol.": "missing",
-     "Invalid pattern: each row must be the same width": "missing",
-     "Invalid pattern: empty pattern not allowed": "missing",
-     "Invalid pattern: too many columns, 3 is maximum": "missing",
-     "Invalid pattern: too many rows, 3 is maximum": "missing",
-     "No ingredients for shapeless recipe": "missing"
+     "Invalid key tag: '": "substring",
+     "Invalid key tag: ' ' is a reserved symbol.": "exact",
+     "Invalid pattern: each row must be the same width": "exact",
+     "Invalid pattern: empty pattern not allowed": "exact",
+     "Invalid pattern: too many columns, 3 is maximum": "exact",
+     "Invalid pattern: too many rows, 3 is maximum": "exact",
+     "No ingredients for shapeless recipe": "exact"
     }
    }
   ]
@@ -897,19 +887,19 @@
      "net.mehvahdjukaar.supplementaries.client.screens.FunnyScreen": {
       "actual": "net.mehvahdjukaar.supplementaries.client.screens.FunnyScreen",
       "how": "declared",
-      "jar": "supplementaries-neoforge-1.21.1-3.7.4.jar"
+      "jar": "supplementaries-neoforge-1.21.1-3.6.4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "supplementaries-neoforge-1.21.1-3.7.4.jar"
+     "supplementaries-neoforge-1.21.1-3.6.4.jar"
     ],
     "keys": {
      "Open Mods Folder": "exact",
      "Open crash report": "exact",
      "Open log file": "exact",
      "Quit Game": "exact",
-     "Supplementaries (suslementaries) has done messed up :(\n": "substring"
+     "Supplementaries (suslementaries) has done messed up :(\n": "missing"
     }
    }
   ]
@@ -921,12 +911,12 @@
      "dev.shadowsoffire.apotheosis.commands.BossCommand": {
       "actual": "dev.shadowsoffire.apotheosis.commands.BossCommand",
       "how": "declared",
-      "jar": "Apotheosis-1.21.1-8.5.4.jar"
+      "jar": "Apotheosis-1.21.1-8.5.2.jar"
      }
     },
     "i": 1,
     "jars": [
-     "Apotheosis-1.21.1-8.5.4.jar"
+     "Apotheosis-1.21.1-8.5.2.jar"
     ],
     "keys": {
      "No available player context!": "exact",
@@ -940,12 +930,12 @@
      "dev.shadowsoffire.apotheosis.commands.CategoryCheckCommand": {
       "actual": "dev.shadowsoffire.apotheosis.commands.CategoryCheckCommand",
       "how": "declared",
-      "jar": "Apotheosis-1.21.1-8.5.4.jar"
+      "jar": "Apotheosis-1.21.1-8.5.2.jar"
      }
     },
     "i": 2,
     "jars": [
-     "Apotheosis-1.21.1-8.5.4.jar"
+     "Apotheosis-1.21.1-8.5.2.jar"
     ],
     "keys": {
      "Equipment Slot - ": "substring",
@@ -957,12 +947,12 @@
      "dev.shadowsoffire.apotheosis.commands.SocketCommand": {
       "actual": "dev.shadowsoffire.apotheosis.commands.SocketCommand",
       "how": "declared",
-      "jar": "Apotheosis-1.21.1-8.5.4.jar"
+      "jar": "Apotheosis-1.21.1-8.5.2.jar"
      }
     },
     "i": 3,
     "jars": [
-     "Apotheosis-1.21.1-8.5.4.jar"
+     "Apotheosis-1.21.1-8.5.2.jar"
     ],
     "keys": {
      "The target item cannot receive sockets!": "exact"
@@ -973,12 +963,12 @@
      "dev.shadowsoffire.apotheosis.data.GearSetProvider": {
       "actual": "dev.shadowsoffire.apotheosis.data.GearSetProvider",
       "how": "declared",
-      "jar": "Apotheosis-1.21.1-8.5.4.jar"
+      "jar": "Apotheosis-1.21.1-8.5.2.jar"
      }
     },
     "i": 4,
     "jars": [
-     "Apotheosis-1.21.1-8.5.4.jar"
+     "Apotheosis-1.21.1-8.5.2.jar"
     ],
     "keys": {
      "Gear Sets": "exact"
@@ -989,12 +979,12 @@
      "dev.shadowsoffire.apotheosis.socket.gem.GemInstance": {
       "actual": "dev.shadowsoffire.apotheosis.socket.gem.GemInstance",
       "how": "declared",
-      "jar": "Apotheosis-1.21.1-8.5.4.jar"
+      "jar": "Apotheosis-1.21.1-8.5.2.jar"
      }
     },
     "i": 5,
     "jars": [
-     "Apotheosis-1.21.1-8.5.4.jar"
+     "Apotheosis-1.21.1-8.5.2.jar"
     ],
     "keys": {
      "Invalid Gem Category": "exact"
@@ -1005,12 +995,12 @@
      "dev.shadowsoffire.apotheosis.socket.gem.GemItem": {
       "actual": "dev.shadowsoffire.apotheosis.socket.gem.GemItem",
       "how": "declared",
-      "jar": "Apotheosis-1.21.1-8.5.4.jar"
+      "jar": "Apotheosis-1.21.1-8.5.2.jar"
      }
     },
     "i": 6,
     "jars": [
-     "Apotheosis-1.21.1-8.5.4.jar"
+     "Apotheosis-1.21.1-8.5.2.jar"
     ],
     "keys": {
      "Errored gem with no bonus!": "exact"
@@ -1021,12 +1011,12 @@
      "io.redspace.ironsspellbooks.IronsSpellbooks": {
       "actual": "io.redspace.ironsspellbooks.IronsSpellbooks",
       "how": "declared",
-      "jar": "irons_spellbooks-1.21.1-3.16.1.jar"
+      "jar": "irons_spellbooks-1.21.1-3.15.6.jar"
      }
     },
     "i": 7,
     "jars": [
-     "irons_spellbooks-1.21.1-3.16.1.jar"
+     "irons_spellbooks-1.21.1-3.15.6.jar"
     ],
     "keys": {
      "Legacy Dead King": "exact"
@@ -1041,12 +1031,12 @@
      "dev.shadowsoffire.apotheosis.client.WorldTierSelectScreen": {
       "actual": "dev.shadowsoffire.apotheosis.client.WorldTierSelectScreen",
       "how": "declared",
-      "jar": "Apotheosis-1.21.1-8.5.4.jar"
+      "jar": "Apotheosis-1.21.1-8.5.2.jar"
      }
     },
     "i": 1,
     "jars": [
-     "Apotheosis-1.21.1-8.5.4.jar"
+     "Apotheosis-1.21.1-8.5.2.jar"
     ],
     "keys": {
      "Difficulty:": "exact",
@@ -1122,85 +1112,97 @@
    {
     "classes": {
      "alexthw.ars_elemental.common.blocks.prism.ChainingPrismLens": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.blocks.prism.ChainingPrismLens",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.9.3.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.9.3.jar"
+    ],
     "keys": {
-     "Adding glyphs: ": "missing"
+     "Adding glyphs: ": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.items.Debugger": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.items.Debugger",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.9.3.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.9.3.jar"
+    ],
     "keys": {
-     "Dev-only item, spawns the wip mages on right click, shift-use to cycle elements.": "missing"
+     "Dev-only item, spawns the wip mages on right click, shift-use to cycle elements.": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.items.armor.HeavyArmorE": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.items.armor.HeavyArmorE",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.9.3.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.9.3.jar"
+    ],
     "keys": {
-     "Model and Texture still work in progress, currently same as medium variant.": "missing"
+     "Model and Texture still work in progress, currently same as medium variant.": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.items.armor.LightArmorE": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.items.armor.LightArmorE",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.9.3.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.9.3.jar"
+    ],
     "keys": {
-     "Model and Texture still work in progress, currently same as medium variant.": "missing"
+     "Model and Texture still work in progress, currently same as medium variant.": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.rituals.SquirrelRitual": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.rituals.SquirrelRitual",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.9.3.jar"
      }
     },
     "i": 5,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.9.3.jar"
+    ],
     "keys": {
-     "Fast Squirrels": "missing"
+     "Fast Squirrels": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.rituals.forest.ArchwoodForestationRitual": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.rituals.forest.ArchwoodForestationRitual",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.9.3.jar"
      }
     },
     "i": 6,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.9.3.jar"
+    ],
     "keys": {
-     "Forestation - Archwood": "missing"
+     "Forestation - Archwood": "exact"
     }
    }
   ]
@@ -1278,12 +1280,12 @@
      "alexthw.starbunclemania.common.item.DirectionScroll": {
       "actual": "alexthw.starbunclemania.common.item.DirectionScroll",
       "how": "declared",
-      "jar": "starbunclemania-1.21.1-1.5.7.jar"
+      "jar": "starbunclemania-1.21.1-1.5.6.jar"
      }
     },
     "i": 5,
     "jars": [
-     "starbunclemania-1.21.1-1.5.7.jar"
+     "starbunclemania-1.21.1-1.5.6.jar"
     ],
     "keys": {
      "Direction set to ": "substring"
@@ -1298,12 +1300,12 @@
      "alexthw.not_enough_glyphs.common.glyphs.forms.MethodTrail": {
       "actual": "alexthw.not_enough_glyphs.common.glyphs.forms.MethodTrail",
       "how": "declared",
-      "jar": "not_enough_glyphs-1.21.1-4.6.1.jar"
+      "jar": "not_enough_glyphs-1.21.1-4.4.0.jar"
      }
     },
     "i": 1,
     "jars": [
-     "not_enough_glyphs-1.21.1-4.6.1.jar"
+     "not_enough_glyphs-1.21.1-4.4.0.jar"
     ],
     "keys": {
      "Echoing Trail": "exact"
@@ -1314,12 +1316,12 @@
      "alexthw.not_enough_glyphs.common.glyphs.effects.EffectChaining$1": {
       "actual": "alexthw.not_enough_glyphs.common.glyphs.effects.EffectChaining$1",
       "how": "declared",
-      "jar": "not_enough_glyphs-1.21.1-4.6.1.jar"
+      "jar": "not_enough_glyphs-1.21.1-4.4.0.jar"
      }
     },
     "i": 2,
     "jars": [
-     "not_enough_glyphs-1.21.1-4.6.1.jar"
+     "not_enough_glyphs-1.21.1-4.4.0.jar"
     ],
     "keys": {
      "Not Enough Glyphs": "exact"
@@ -1330,12 +1332,12 @@
      "alexthw.not_enough_glyphs.common.glyphs.forms.MethodArc$2": {
       "actual": "alexthw.not_enough_glyphs.common.glyphs.forms.MethodArc$2",
       "how": "declared",
-      "jar": "not_enough_glyphs-1.21.1-4.6.1.jar"
+      "jar": "not_enough_glyphs-1.21.1-4.4.0.jar"
      }
     },
     "i": 3,
     "jars": [
-     "not_enough_glyphs-1.21.1-4.6.1.jar"
+     "not_enough_glyphs-1.21.1-4.4.0.jar"
     ],
     "keys": {
      "Not Enough Glyphs": "exact"
@@ -1346,12 +1348,12 @@
      "alexthw.not_enough_glyphs.common.glyphs.forms.MethodHoming$1": {
       "actual": "alexthw.not_enough_glyphs.common.glyphs.forms.MethodHoming$1",
       "how": "declared",
-      "jar": "not_enough_glyphs-1.21.1-4.6.1.jar"
+      "jar": "not_enough_glyphs-1.21.1-4.4.0.jar"
      }
     },
     "i": 4,
     "jars": [
-     "not_enough_glyphs-1.21.1-4.6.1.jar"
+     "not_enough_glyphs-1.21.1-4.4.0.jar"
     ],
     "keys": {
      "Not Enough Glyphs": "exact"
@@ -1362,12 +1364,12 @@
      "alexthw.not_enough_glyphs.common.glyphs.forms.MethodMissile$1": {
       "actual": "alexthw.not_enough_glyphs.common.glyphs.forms.MethodMissile$1",
       "how": "declared",
-      "jar": "not_enough_glyphs-1.21.1-4.6.1.jar"
+      "jar": "not_enough_glyphs-1.21.1-4.4.0.jar"
      }
     },
     "i": 5,
     "jars": [
-     "not_enough_glyphs-1.21.1-4.6.1.jar"
+     "not_enough_glyphs-1.21.1-4.4.0.jar"
     ],
     "keys": {
      "Not Enough Glyphs": "exact"
@@ -1378,12 +1380,12 @@
      "alexthw.not_enough_glyphs.common.glyphs.propagators.PropagateArc$3": {
       "actual": "alexthw.not_enough_glyphs.common.glyphs.propagators.PropagateArc$3",
       "how": "declared",
-      "jar": "not_enough_glyphs-1.21.1-4.6.1.jar"
+      "jar": "not_enough_glyphs-1.21.1-4.4.0.jar"
      }
     },
     "i": 6,
     "jars": [
-     "not_enough_glyphs-1.21.1-4.6.1.jar"
+     "not_enough_glyphs-1.21.1-4.4.0.jar"
     ],
     "keys": {
      "Not Enough Glyphs": "exact"
@@ -1394,12 +1396,12 @@
      "alexthw.not_enough_glyphs.common.glyphs.propagators.PropagateHoming$1": {
       "actual": "alexthw.not_enough_glyphs.common.glyphs.propagators.PropagateHoming$1",
       "how": "declared",
-      "jar": "not_enough_glyphs-1.21.1-4.6.1.jar"
+      "jar": "not_enough_glyphs-1.21.1-4.4.0.jar"
      }
     },
     "i": 7,
     "jars": [
-     "not_enough_glyphs-1.21.1-4.6.1.jar"
+     "not_enough_glyphs-1.21.1-4.4.0.jar"
     ],
     "keys": {
      "Not Enough Glyphs": "exact"
@@ -1410,12 +1412,12 @@
      "alexthw.not_enough_glyphs.common.glyphs.propagators.PropagateMissile$1": {
       "actual": "alexthw.not_enough_glyphs.common.glyphs.propagators.PropagateMissile$1",
       "how": "declared",
-      "jar": "not_enough_glyphs-1.21.1-4.6.1.jar"
+      "jar": "not_enough_glyphs-1.21.1-4.4.0.jar"
      }
     },
     "i": 8,
     "jars": [
-     "not_enough_glyphs-1.21.1-4.6.1.jar"
+     "not_enough_glyphs-1.21.1-4.4.0.jar"
     ],
     "keys": {
      "Not Enough Glyphs": "exact"
@@ -1472,12 +1474,12 @@
      "com.traverse.bhc.common.recipes.HeartAmuletRecipe$Serializer": {
       "actual": "com.traverse.bhc.common.recipes.HeartAmuletRecipe$Serializer",
       "how": "declared",
-      "jar": "baubley-heart-canisters-1.21.1-1.4.1.jar"
+      "jar": "baubley-heart-canisters-1.21.1-1.4.0.jar"
      }
     },
     "i": 1,
     "jars": [
-     "baubley-heart-canisters-1.21.1-1.4.1.jar"
+     "baubley-heart-canisters-1.21.1-1.4.0.jar"
     ],
     "keys": {
      "No ingredients for heart amulet recipe": "exact",
@@ -1650,12 +1652,12 @@
      "com.github.L_Ender.cataclysm.world.structures.terrainadaptation.EnhancedTerrainAdaptationType": {
       "actual": "com.github.L_Ender.cataclysm.world.structures.terrainadaptation.EnhancedTerrainAdaptationType",
       "how": "declared",
-      "jar": "L_Ender's Cataclysm 1.21.1-3.31.jar"
+      "jar": "Oh-The-Biomes-Weve-Gone-NeoForge-2.5.5.jar"
      }
     },
     "i": 1,
     "jars": [
-     "L_Ender's Cataclysm 1.21.1-3.31.jar"
+     "Oh-The-Biomes-Weve-Gone-NeoForge-2.5.5.jar"
     ],
     "keys": {
      "No ID found for enhanced terrain adaptation type ": "substring",
@@ -1778,12 +1780,12 @@
      "org.cyclops.commoncapabilities.modcompat.vanilla.VanillaModCompat": {
       "actual": "org.cyclops.commoncapabilities.modcompat.vanilla.VanillaModCompat",
       "how": "declared",
-      "jar": "commoncapabilities-1.21.1-neoforge-2.11.5.jar"
+      "jar": "commoncapabilities-1.21.1-neoforge-2.11.4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "commoncapabilities-1.21.1-neoforge-2.11.5.jar"
+     "commoncapabilities-1.21.1-neoforge-2.11.4.jar"
     ],
     "keys": {
      "Furnace and Brewing stand capabilities.": "exact"
@@ -1992,12 +1994,12 @@
      "com.connectivity.command.IMCOPCommand": {
       "actual": "com.connectivity.command.IMCOPCommand",
       "how": "declared",
-      "jar": "connectivity-1.21.1-7.6.jar"
+      "jar": "almostunified-neoforge-1.21.1-1.4.1.jar"
      }
     },
     "i": 1,
     "jars": [
-     "connectivity-1.21.1-7.6.jar"
+     "almostunified-neoforge-1.21.1-1.4.1.jar"
     ],
     "keys": {
      "You need to be OP for this command.": "exact"
@@ -2008,12 +2010,12 @@
      "com.connectivity.networkstats.NetworkStatGatherer": {
       "actual": "com.connectivity.networkstats.NetworkStatGatherer",
       "how": "declared",
-      "jar": "connectivity-1.21.1-7.6.jar"
+      "jar": "almostunified-neoforge-1.21.1-1.4.1.jar"
      }
     },
     "i": 2,
     "jars": [
-     "connectivity-1.21.1-7.6.jar"
+     "almostunified-neoforge-1.21.1-1.4.1.jar"
     ],
     "keys": {
      "Invalid name": "exact",
@@ -2549,12 +2551,12 @@
      "de.cristelknight.cristellib.api.BuiltInAPI": {
       "actual": "de.cristelknight.cristellib.api.BuiltInAPI",
       "how": "declared",
-      "jar": "cristellib-neoforge-1.21.1-3.1.7.jar"
+      "jar": "xnet-1.21-7.0.6.jar"
      }
     },
     "i": 1,
     "jars": [
-     "cristellib-neoforge-1.21.1-3.1.7.jar"
+     "xnet-1.21-7.0.6.jar"
     ],
     "keys": {
      "Cristel Lib Config Pack": "exact"
@@ -3160,12 +3162,12 @@
      "com.enderio.enderio.AlphaWarning": {
       "actual": "com.enderio.enderio.AlphaWarning",
       "how": "declared",
-      "jar": "enderio-8.2.11-beta.jar"
+      "jar": "enderio-8.2.9-beta.jar"
      }
     },
     "i": 1,
     "jars": [
-     "enderio-8.2.11-beta.jar"
+     "enderio-8.2.9-beta.jar"
     ],
     "keys": {
      "[Warning] Ender IO is in alpha - expect bugs and take backups often!": "exact"
@@ -3176,12 +3178,12 @@
      "com.enderio.enderio.api.soul.Soul": {
       "actual": "com.enderio.enderio.api.soul.Soul",
       "how": "declared",
-      "jar": "enderio-8.2.11-beta.jar"
+      "jar": "enderio-8.2.9-beta.jar"
      }
     },
     "i": 2,
     "jars": [
-     "enderio-8.2.11-beta.jar"
+     "enderio-8.2.9-beta.jar"
     ],
     "keys": {
      "Entity type cannot be null": "exact"
@@ -3192,12 +3194,12 @@
      "com.enderio.enderio.content.armory.DarkSteelSwordItem": {
       "actual": "com.enderio.enderio.content.armory.DarkSteelSwordItem",
       "how": "declared",
-      "jar": "enderio-8.2.11-beta.jar"
+      "jar": "enderio-8.2.9-beta.jar"
      }
     },
     "i": 3,
     "jars": [
-     "enderio-8.2.11-beta.jar"
+     "enderio-8.2.9-beta.jar"
     ],
     "keys": {
      "This item is currently only used to get mob heads": "exact"
@@ -3208,12 +3210,12 @@
      "com.enderio.enderio.content.cold_fire.ColdFireIgniter": {
       "actual": "com.enderio.enderio.content.cold_fire.ColdFireIgniter",
       "how": "declared",
-      "jar": "enderio-8.2.11-beta.jar"
+      "jar": "enderio-8.2.9-beta.jar"
      }
     },
     "i": 4,
     "jars": [
-     "enderio-8.2.11-beta.jar"
+     "enderio-8.2.9-beta.jar"
     ],
     "keys": {
      "Fluids:": "exact"
@@ -3224,12 +3226,12 @@
      "com.enderio.enderio.content.conduits.probe.ConduitProbeItem": {
       "actual": "com.enderio.enderio.content.conduits.probe.ConduitProbeItem",
       "how": "declared",
-      "jar": "enderio-8.2.11-beta.jar"
+      "jar": "enderio-8.2.9-beta.jar"
      }
     },
     "i": 5,
     "jars": [
-     "enderio-8.2.11-beta.jar"
+     "enderio-8.2.9-beta.jar"
     ],
     "keys": {
      "This feature isn't implemented yet.": "exact"
@@ -3244,12 +3246,12 @@
      "com.almostreliable.energymeter.block.MonitorBlock": {
       "actual": "com.almostreliable.energymeter.block.MonitorBlock",
       "how": "declared",
-      "jar": "energymeter-neoforge-1.21.1-0.4.1.jar"
+      "jar": "ftb-library-neoforge-2101.1.31.jar"
      }
     },
     "i": 1,
     "jars": [
-     "energymeter-neoforge-1.21.1-0.4.1.jar"
+     "ftb-library-neoforge-2101.1.31.jar"
     ],
     "keys": {
      "Work in progress!": "exact",
@@ -3265,12 +3267,12 @@
      "com.almostreliable.energymeter.client.screen.MeterScreen": {
       "actual": "com.almostreliable.energymeter.client.screen.MeterScreen",
       "how": "declared",
-      "jar": "energymeter-neoforge-1.21.1-0.4.1.jar"
+      "jar": "ftb-library-neoforge-2101.1.31.jar"
      }
     },
     "i": 2,
     "jars": [
-     "energymeter-neoforge-1.21.1-0.4.1.jar"
+     "ftb-library-neoforge-2101.1.31.jar"
     ],
     "keys": {
      "Work in progress!": "exact"
@@ -3283,36 +3285,32 @@
    {
     "classes": {
      "cn.leolezury.eternalstarlight.common.entity.living.boss.gatekeeper.TheGatekeeper": {
-      "actual": "cn.leolezury.eternalstarlight.common.entity.living.boss.gatekeeper.TheGatekeeper",
-      "how": "declared",
-      "jar": "eternalstarlight-0.8.1+1.21.1+neoforge.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "eternalstarlight-0.8.1+1.21.1+neoforge.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Failed to load offers: ": "exact"
+     "Failed to load offers: ": "missing"
     }
    },
    {
     "classes": {
      "cn.leolezury.eternalstarlight.common.item.recipe.AlloyRecipe$Serializer": {
-      "actual": "cn.leolezury.eternalstarlight.common.item.recipe.AlloyRecipe$Serializer",
-      "how": "declared",
-      "jar": "eternalstarlight-0.8.1+1.21.1+neoforge.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 2,
-    "jars": [
-     "eternalstarlight-0.8.1+1.21.1+neoforge.jar"
-    ],
+    "jars": [],
     "keys": {
-     "No ingredient for alloy recipe": "exact",
-     "No result for alloy recipe": "exact",
-     "Too many ingredients for alloy recipe": "exact",
-     "Too many results for alloy recipe": "exact"
+     "No ingredient for alloy recipe": "missing",
+     "No result for alloy recipe": "missing",
+     "Too many ingredients for alloy recipe": "missing",
+     "Too many results for alloy recipe": "missing"
     }
    }
   ]
@@ -3324,12 +3322,12 @@
      "org.cyclops.evilcraft.blockentity.tickaction.spiritfurnace.BoxCookTickAction": {
       "actual": "org.cyclops.evilcraft.blockentity.tickaction.spiritfurnace.BoxCookTickAction",
       "how": "declared",
-      "jar": "evilcraft-1.21.1-neoforge-1.2.89.jar"
+      "jar": "journeymap-neoforge-1.21.1-6.0.0-beta.72.jar"
      }
     },
     "i": 1,
     "jars": [
-     "evilcraft-1.21.1-neoforge-1.2.89.jar"
+     "journeymap-neoforge-1.21.1-6.0.0-beta.72.jar"
     ],
     "keys": {
      "Lekkere Stront": "exact"
@@ -3423,12 +3421,12 @@
      "xfacthd.framedblocks.client.util.KeyMappings": {
       "actual": "xfacthd.framedblocks.client.util.KeyMappings",
       "how": "declared",
-      "jar": "FramedBlocks-10.6.0.jar"
+      "jar": "FramedBlocks-10.5.3.jar"
      }
     },
     "i": 1,
     "jars": [
-     "FramedBlocks-10.6.0.jar"
+     "FramedBlocks-10.5.3.jar"
     ],
     "keys": {
      "Culling updated for '": "exact",
@@ -3513,12 +3511,12 @@
      "dev.ftb.mods.ftblibrary.FTBLibrary": {
       "actual": "dev.ftb.mods.ftblibrary.FTBLibrary",
       "how": "declared",
-      "jar": "ftb-library-neoforge-2101.1.32.jar"
+      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
      }
     },
     "i": 1,
     "jars": [
-     "ftb-library-neoforge-2101.1.32.jar"
+     "MysticalAgriculture-1.21.1-8.0.26.jar"
     ],
     "keys": {
      "Hello from FTB Library!": "exact"
@@ -3529,12 +3527,12 @@
      "dev.ftb.mods.ftblibrary.FTBLibraryCommands": {
       "actual": "dev.ftb.mods.ftblibrary.FTBLibraryCommands",
       "how": "declared",
-      "jar": "ftb-library-neoforge-2101.1.32.jar"
+      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
      }
     },
     "i": 2,
     "jars": [
-     "ftb-library-neoforge-2101.1.32.jar"
+     "MysticalAgriculture-1.21.1-8.0.26.jar"
     ],
     "keys": {
      "Can't do this on dedicated server!": "exact",
@@ -3546,12 +3544,12 @@
      "dev.ftb.mods.ftblibrary.nbtedit.NBTEditorScreen$TopLeftPanel": {
       "actual": "dev.ftb.mods.ftblibrary.nbtedit.NBTEditorScreen$TopLeftPanel",
       "how": "declared",
-      "jar": "ftb-library-neoforge-2101.1.32.jar"
+      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
      }
     },
     "i": 3,
     "jars": [
-     "ftb-library-neoforge-2101.1.32.jar"
+     "MysticalAgriculture-1.21.1-8.0.26.jar"
     ],
     "keys": {
      "Byte Array": "exact",
@@ -3567,12 +3565,12 @@
      "dev.ftb.mods.ftblibrary.ui.ColorSelectorPanel": {
       "actual": "dev.ftb.mods.ftblibrary.ui.ColorSelectorPanel",
       "how": "declared",
-      "jar": "ftb-library-neoforge-2101.1.32.jar"
+      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
      }
     },
     "i": 4,
     "jars": [
-     "ftb-library-neoforge-2101.1.32.jar"
+     "MysticalAgriculture-1.21.1-8.0.26.jar"
     ],
     "keys": {
      "⇧ + Enter": "exact"
@@ -3583,12 +3581,12 @@
      "dev.ftb.mods.ftblibrary.ui.misc.AbstractThreePanelScreen$BottomPanel": {
       "actual": "dev.ftb.mods.ftblibrary.ui.misc.AbstractThreePanelScreen$BottomPanel",
       "how": "declared",
-      "jar": "ftb-library-neoforge-2101.1.32.jar"
+      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
      }
     },
     "i": 5,
     "jars": [
-     "ftb-library-neoforge-2101.1.32.jar"
+     "MysticalAgriculture-1.21.1-8.0.26.jar"
     ],
     "keys": {
      "⇧ + Enter": "exact"
@@ -3603,12 +3601,12 @@
      "dev.ftb.mods.ftbquests.client.gui.MultilineTextEditorScreen$ToolbarPanel": {
       "actual": "dev.ftb.mods.ftbquests.client.gui.MultilineTextEditorScreen$ToolbarPanel",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 1,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "Ctrl": "exact"
@@ -3619,12 +3617,12 @@
      "dev.ftb.mods.ftbquests.client.gui.SelectQuestObjectScreen$QuestObjectButton": {
       "actual": "dev.ftb.mods.ftbquests.client.gui.SelectQuestObjectScreen$QuestObjectButton",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 2,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "Type: ": "exact"
@@ -3635,12 +3633,12 @@
      "dev.ftb.mods.ftbquests.client.gui.quests.QuestButton": {
       "actual": "dev.ftb.mods.ftbquests.client.gui.quests.QuestButton",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 3,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "Ctrl+A to select all quests": "exact",
@@ -3653,12 +3651,12 @@
      "dev.ftb.mods.ftbquests.client.gui.quests.QuestPanel": {
       "actual": "dev.ftb.mods.ftbquests.client.gui.quests.QuestPanel",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 4,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "Lang: ": "substring",
@@ -3670,12 +3668,12 @@
      "dev.ftb.mods.ftbquests.client.gui.quests.ViewQuestPanel": {
       "actual": "dev.ftb.mods.ftbquests.client.gui.quests.ViewQuestPanel",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 5,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "[No Subtitle]": "exact"
@@ -3686,12 +3684,12 @@
      "dev.ftb.mods.ftbquests.client.gui.quests.ViewQuestPanel$QuestDescriptionField": {
       "actual": "dev.ftb.mods.ftbquests.client.gui.quests.ViewQuestPanel$QuestDescriptionField",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 6,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "Can't open url for %s (%s)": "exact",
@@ -3704,12 +3702,12 @@
      "dev.ftb.mods.ftbquests.quest.ChapterGroup": {
       "actual": "dev.ftb.mods.ftbquests.quest.ChapterGroup",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 7,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "Unnamed Group": "exact"
@@ -3720,12 +3718,12 @@
      "dev.ftb.mods.ftbquests.quest.loot.RewardTable": {
       "actual": "dev.ftb.mods.ftbquests.quest.loot.RewardTable",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 8,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "Unknown reward type!": "exact"
@@ -3736,12 +3734,12 @@
      "dev.ftb.mods.ftbquests.quest.task.ItemTask": {
       "actual": "dev.ftb.mods.ftbquests.quest.task.ItemTask",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 9,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "No valid items!": "exact",
@@ -3753,12 +3751,12 @@
      "dev.ftb.mods.ftbquests.quest.task.Task": {
       "actual": "dev.ftb.mods.ftbquests.quest.task.Task",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 10,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "Bad resource location: ": "substring"
@@ -3769,12 +3767,12 @@
      "dev.ftb.mods.ftbquests.client.gui.quests.ViewQuestPanel$4": {
       "actual": "dev.ftb.mods.ftbquests.client.gui.quests.ViewQuestPanel$4",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 11,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "[Mousewheel Down]": "exact",
@@ -3786,12 +3784,12 @@
      "dev.ftb.mods.ftbquests.client.gui.quests.ViewQuestPanel$5": {
       "actual": "dev.ftb.mods.ftbquests.client.gui.quests.ViewQuestPanel$5",
       "how": "declared",
-      "jar": "ftb-quests-neoforge-2101.1.27.jar"
+      "jar": "ftb-quests-neoforge-2101.1.24.jar"
      }
     },
     "i": 12,
     "jars": [
-     "ftb-quests-neoforge-2101.1.27.jar"
+     "ftb-quests-neoforge-2101.1.24.jar"
     ],
     "keys": {
      "[Mousewheel Up]": "exact",
@@ -3807,12 +3805,12 @@
      "dev.uncandango.ftbquestslangsplitter.command.LangSplitterCommands": {
       "actual": "dev.uncandango.ftbquestslangsplitter.command.LangSplitterCommands",
       "how": "declared",
-      "jar": "ftbquestslangsplitter-1.0.5.jar"
+      "jar": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
      }
     },
     "i": 1,
     "jars": [
-     "ftbquestslangsplitter-1.0.5.jar"
+     "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
     ],
     "keys": {
      "Can't scan lang folder ": "substring",
@@ -3920,15 +3918,17 @@
    {
     "classes": {
      "com.github.bigenergy.glassential.client.gui.ColorPickerScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.github.bigenergy.glassential.client.gui.ColorPickerScreen",
+      "how": "declared",
+      "jar": "Glassential-renewed-1.21.1-3.4.2.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "Glassential-renewed-1.21.1-3.4.2.jar"
+    ],
     "keys": {
-     "Color Picker": "missing"
+     "Color Picker": "exact"
     }
    }
   ]
@@ -3938,50 +3938,44 @@
    {
     "classes": {
      "com.mamailes.herbsandharvest.item.CheeseItem": {
-      "actual": "com.mamailes.herbsandharvest.item.CheeseItem",
-      "how": "declared",
-      "jar": "herbsandharvest-1.21.1-15.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "herbsandharvest-1.21.1-15.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Saturation: ": "substring"
+     "Saturation: ": "missing"
     }
    },
    {
     "classes": {
      "com.mamailes.herbsandharvest.item.CheeseWheelBlockItem": {
-      "actual": "com.mamailes.herbsandharvest.item.CheeseWheelBlockItem",
-      "how": "declared",
-      "jar": "herbsandharvest-1.21.1-15.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 2,
-    "jars": [
-     "herbsandharvest-1.21.1-15.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Nutrition: ": "substring",
-     "Saturation: ": "substring"
+     "Nutrition: ": "missing",
+     "Saturation: ": "missing"
     }
    },
    {
     "classes": {
      "com.mamailes.herbsandharvest.item.CropItem": {
-      "actual": "com.mamailes.herbsandharvest.item.CropItem",
-      "how": "declared",
-      "jar": "herbsandharvest-1.21.1-15.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 3,
-    "jars": [
-     "herbsandharvest-1.21.1-15.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Saturation: ": "substring"
+     "Saturation: ": "missing"
     }
    }
   ]
@@ -3991,23 +3985,21 @@
    {
     "classes": {
      "com.mamailes.herbsandharvest.book.HHGuideBookScreen": {
-      "actual": "com.mamailes.herbsandharvest.book.HHGuideBookScreen",
-      "how": "declared",
-      "jar": "herbsandharvest-1.21.1-15.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "herbsandharvest-1.21.1-15.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Contents": "exact",
-     "Empty chapters": "exact",
-     "Null bookData": "exact",
-     "Page": "exact",
-     "Page ": "substring",
-     "Table of": "exact",
-     "Table of Contents": "exact"
+     "Contents": "missing",
+     "Empty chapters": "missing",
+     "Null bookData": "missing",
+     "Page": "missing",
+     "Page ": "missing",
+     "Table of": "missing",
+     "Table of Contents": "missing"
     }
    }
   ]
@@ -4126,12 +4118,12 @@
      "mcjty.incontrol.commands.CmdArea": {
       "actual": "mcjty.incontrol.commands.CmdArea",
       "how": "declared",
-      "jar": "incontrol-1.21-10.2.6.jar"
+      "jar": "formationsnether-1.0.5-mc1.21+.jar"
      }
     },
     "i": 1,
     "jars": [
-     "incontrol-1.21-10.2.6.jar"
+     "formationsnether-1.0.5-mc1.21+.jar"
     ],
     "keys": {
      "Current area: ": "substring",
@@ -4143,12 +4135,12 @@
      "mcjty.incontrol.commands.CmdDays": {
       "actual": "mcjty.incontrol.commands.CmdDays",
       "how": "declared",
-      "jar": "incontrol-1.21-10.2.6.jar"
+      "jar": "formationsnether-1.0.5-mc1.21+.jar"
      }
     },
     "i": 2,
     "jars": [
-     "incontrol-1.21-10.2.6.jar"
+     "formationsnether-1.0.5-mc1.21+.jar"
     ],
     "keys": {
      "Current day is ": "substring"
@@ -4159,12 +4151,12 @@
      "mcjty.incontrol.commands.CmdInfo": {
       "actual": "mcjty.incontrol.commands.CmdInfo",
       "how": "declared",
-      "jar": "incontrol-1.21-10.2.6.jar"
+      "jar": "formationsnether-1.0.5-mc1.21+.jar"
      }
     },
     "i": 3,
     "jars": [
-     "incontrol-1.21-10.2.6.jar"
+     "formationsnether-1.0.5-mc1.21+.jar"
     ],
     "keys": {
      "Current day is ": "substring",
@@ -4177,12 +4169,12 @@
      "mcjty.incontrol.commands.CmdNumbers": {
       "actual": "mcjty.incontrol.commands.CmdNumbers",
       "how": "declared",
-      "jar": "incontrol-1.21-10.2.6.jar"
+      "jar": "formationsnether-1.0.5-mc1.21+.jar"
      }
     },
     "i": 4,
     "jars": [
-     "incontrol-1.21-10.2.6.jar"
+     "formationsnether-1.0.5-mc1.21+.jar"
     ],
     "keys": {
      "Current numbers: ": "substring"
@@ -4193,12 +4185,12 @@
      "mcjty.incontrol.commands.CmdPhases": {
       "actual": "mcjty.incontrol.commands.CmdPhases",
       "how": "declared",
-      "jar": "incontrol-1.21-10.2.6.jar"
+      "jar": "formationsnether-1.0.5-mc1.21+.jar"
      }
     },
     "i": 5,
     "jars": [
-     "incontrol-1.21-10.2.6.jar"
+     "formationsnether-1.0.5-mc1.21+.jar"
     ],
     "keys": {
      "Current phases: ": "substring"
@@ -4209,12 +4201,12 @@
      "mcjty.incontrol.commands.CmdReload": {
       "actual": "mcjty.incontrol.commands.CmdReload",
       "how": "declared",
-      "jar": "incontrol-1.21-10.2.6.jar"
+      "jar": "formationsnether-1.0.5-mc1.21+.jar"
      }
     },
     "i": 6,
     "jars": [
-     "incontrol-1.21-10.2.6.jar"
+     "formationsnether-1.0.5-mc1.21+.jar"
     ],
     "keys": {
      "Reloaded InControl rules": "exact"
@@ -4225,12 +4217,12 @@
      "mcjty.incontrol.tools.rules.RuleBase": {
       "actual": "mcjty.incontrol.tools.rules.RuleBase",
       "how": "declared",
-      "jar": "incontrol-1.21-10.2.6.jar"
+      "jar": "formationsnether-1.0.5-mc1.21+.jar"
      }
     },
     "i": 7,
     "jars": [
-     "incontrol-1.21-10.2.6.jar"
+     "formationsnether-1.0.5-mc1.21+.jar"
     ],
     "keys": {
      "Bad NBT for mob!": "exact",
@@ -4245,21 +4237,19 @@
    {
     "classes": {
      "dev.wp.industrialization_overdrive.item.Terminal": {
-      "actual": "dev.wp.industrialization_overdrive.item.Terminal",
-      "how": "declared",
-      "jar": "industrialization_overdrive-1.11.2+1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "industrialization_overdrive-1.11.2+1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Block at %s is not part of the multiblock": "exact",
+     "Block at %s is not part of the multiblock": "missing",
      "Block at %s is not part of the multiblock and cannot be replaced.": "missing",
      "Multiblock must be formed to copy it.": "missing",
-     "Required items:": "exact",
-     "Unable to get shape matcher for this multiblock.": "exact"
+     "Required items:": "missing",
+     "Unable to get shape matcher for this multiblock.": "missing"
     }
    }
   ]
@@ -4271,12 +4261,12 @@
      "org.cyclops.integrateddynamicscompat.modcompat.rei.mechanicalsqueezer.ReiMechanicalSqueezerCategory": {
       "actual": "org.cyclops.integrateddynamicscompat.modcompat.rei.mechanicalsqueezer.ReiMechanicalSqueezerCategory",
       "how": "declared",
-      "jar": "integrateddynamics-1.21.1-neoforge-1.33.3.jar"
+      "jar": "integrateddynamics-1.21.1-neoforge-1.33.0-1832.jar"
      }
     },
     "i": 1,
     "jars": [
-     "integrateddynamics-1.21.1-neoforge-1.33.3.jar"
+     "integrateddynamics-1.21.1-neoforge-1.33.0-1832.jar"
     ],
     "keys": {
      "Chance: ": "substring"
@@ -4287,12 +4277,12 @@
      "org.cyclops.integrateddynamicscompat.modcompat.rei.squeezer.ReiSqueezerCategory": {
       "actual": "org.cyclops.integrateddynamicscompat.modcompat.rei.squeezer.ReiSqueezerCategory",
       "how": "declared",
-      "jar": "integrateddynamics-1.21.1-neoforge-1.33.3.jar"
+      "jar": "integrateddynamics-1.21.1-neoforge-1.33.0-1832.jar"
      }
     },
     "i": 2,
     "jars": [
-     "integrateddynamics-1.21.1-neoforge-1.33.3.jar"
+     "integrateddynamics-1.21.1-neoforge-1.33.0-1832.jar"
     ],
     "keys": {
      "Chance: ": "substring"
@@ -4305,36 +4295,32 @@
    {
     "classes": {
      "net.irisshaders.iris.Iris": {
-      "actual": "net.irisshaders.iris.Iris",
-      "how": "declared",
-      "jar": "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Copy Info": "exact",
-     "Failed to compile shaders": "exact",
-     "No cheating; wireframe only in singleplayer!": "exact",
-     "enabled, logging will be more verbose!": "exact"
+     "Copy Info": "missing",
+     "Failed to compile shaders": "missing",
+     "No cheating; wireframe only in singleplayer!": "missing",
+     "enabled, logging will be more verbose!": "missing"
     }
    },
    {
     "classes": {
      "net.irisshaders.iris.UpdateChecker": {
-      "actual": "net.irisshaders.iris.UpdateChecker",
-      "how": "declared",
-      "jar": "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 2,
-    "jars": [
-     "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "the Iris Installer": "exact"
+     "the Iris Installer": "missing"
     }
    }
   ]
@@ -4344,40 +4330,36 @@
    {
     "classes": {
      "net.irisshaders.iris.gui.debug.DebugLoadFailedGridScreen": {
-      "actual": "net.irisshaders.iris.gui.debug.DebugLoadFailedGridScreen",
-      "how": "declared",
-      "jar": "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Copy error": "exact",
-     "Reload pack": "exact"
+     "Copy error": "missing",
+     "Reload pack": "missing"
     }
    },
    {
     "classes": {
      "net.irisshaders.iris.gui.screen.ShaderPackScreen": {
-      "actual": "net.irisshaders.iris.gui.screen.ShaderPackScreen",
-      "how": "declared",
-      "jar": "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 2,
-    "jars": [
-     "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Debug mode helps investigate problems and shows shader errors. Would you like to enable it?": "exact",
-     "Disable": "exact",
-     "Enable": "exact",
-     "New update available!": "exact",
-     "Shader debug mode toggle": "exact",
-     "This allows unknown shaders to load in.": "exact",
-     "Unknown shader toggle": "exact"
+     "Debug mode helps investigate problems and shows shader errors. Would you like to enable it?": "missing",
+     "Disable": "missing",
+     "Enable": "missing",
+     "New update available!": "missing",
+     "Shader debug mode toggle": "missing",
+     "This allows unknown shaders to load in.": "missing",
+     "Unknown shader toggle": "missing"
     }
    }
   ]
@@ -4389,12 +4371,12 @@
      "ironfurnaces.blocks.furnaces.BlockIronFurnaceBase": {
       "actual": "ironfurnaces.blocks.furnaces.BlockIronFurnaceBase",
       "how": "declared",
-      "jar": "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 1,
     "jars": [
-     "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
     ],
     "keys": {
      "Settings copied": "exact"
@@ -4405,12 +4387,12 @@
      "ironfurnaces.gui.furnaces.BlockIronFurnaceScreenBase": {
       "actual": "ironfurnaces.gui.furnaces.BlockIronFurnaceScreenBase",
       "how": "declared",
-      "jar": "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 2,
     "jars": [
-     "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
     ],
     "keys": {
      "Auto Split": "exact"
@@ -4421,12 +4403,12 @@
      "ironfurnaces.items.ItemFurnaceCopy": {
       "actual": "ironfurnaces.items.ItemFurnaceCopy",
       "how": "declared",
-      "jar": "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 3,
     "jars": [
-     "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
     ],
     "keys": {
      "Auto Input: ": "substring",
@@ -4473,12 +4455,12 @@
      "net.swedz.little_big_redstone.LBR": {
       "actual": "net.swedz.little_big_redstone.LBR",
       "how": "declared",
-      "jar": "little-big-redstone-1.9.0-1.21.1.jar"
+      "jar": "variantsandventures-neoforge-1.0.24+mc1.21.1.jar"
      }
     },
     "i": 1,
     "jars": [
-     "little-big-redstone-1.9.0-1.21.1.jar"
+     "variantsandventures-neoforge-1.0.24+mc1.21.1.jar"
     ],
     "keys": {
      "Text not yet loaded": "exact"
@@ -4489,16 +4471,16 @@
      "net.swedz.little_big_redstone.microchip.object.logic.LogicTypes": {
       "actual": "net.swedz.little_big_redstone.microchip.object.logic.LogicTypes",
       "how": "declared",
-      "jar": "little-big-redstone-1.9.0-1.21.1.jar"
+      "jar": "variantsandventures-neoforge-1.0.24+mc1.21.1.jar"
      }
     },
     "i": 2,
     "jars": [
-     "little-big-redstone-1.9.0-1.21.1.jar"
+     "variantsandventures-neoforge-1.0.24+mc1.21.1.jar"
     ],
     "keys": {
-     "Unknown registry key in ": "substring",
-     "Unregistered holder in ": "substring"
+     "Unknown registry key in ": "missing",
+     "Unregistered holder in ": "missing"
     }
    }
   ]
@@ -4568,12 +4550,12 @@
      "noobanidus.mods.lootr.common.command.CustomConvertJob": {
       "actual": "noobanidus.mods.lootr.common.command.CustomConvertJob",
       "how": "declared",
-      "jar": "lootr-neoforge-1.21.1-1.11.37.120.jar"
+      "jar": "cupboard-1.21-3.5.jar"
      }
     },
     "i": 1,
     "jars": [
-     "lootr-neoforge-1.21.1-1.11.37.120.jar"
+     "cupboard-1.21-3.5.jar"
     ],
     "keys": {
      "A conversion job is already running.": "exact",
@@ -4592,12 +4574,12 @@
      "mcjty.lib.gui.GuiSideWindow": {
       "actual": "mcjty.lib.gui.GuiSideWindow",
       "how": "declared",
-      "jar": "mcjtylib-1.21-9.0.21.jar"
+      "jar": "mcjtylib-1.21-9.0.20.jar"
      }
     },
     "i": 1,
     "jars": [
-     "mcjtylib-1.21-9.0.21.jar"
+     "mcjtylib-1.21-9.0.20.jar"
     ],
     "keys": {
      "Gui style:": "exact"
@@ -4608,12 +4590,12 @@
      "mcjty.lib.gui.GuiStyle": {
       "actual": "mcjty.lib.gui.GuiStyle",
       "how": "declared",
-      "jar": "mcjtylib-1.21-9.0.21.jar"
+      "jar": "mcjtylib-1.21-9.0.20.jar"
      }
     },
     "i": 2,
     "jars": [
-     "mcjtylib-1.21-9.0.21.jar"
+     "mcjtylib-1.21-9.0.20.jar"
     ],
     "keys": {
      "bevel gradient": "exact",
@@ -4625,12 +4607,12 @@
      "mcjty.lib.gui.Window": {
       "actual": "mcjty.lib.gui.Window",
       "how": "declared",
-      "jar": "mcjtylib-1.21-9.0.21.jar"
+      "jar": "mcjtylib-1.21-9.0.20.jar"
      }
     },
     "i": 3,
     "jars": [
-     "mcjtylib-1.21-9.0.21.jar"
+     "mcjtylib-1.21-9.0.20.jar"
     ],
     "keys": {
      "Could not find action '": "substring",
@@ -4649,12 +4631,12 @@
      "mcjty.lib.gui.GuiSideWindow": {
       "actual": "mcjty.lib.gui.GuiSideWindow",
       "how": "declared",
-      "jar": "mcjtylib-1.21-9.0.21.jar"
+      "jar": "mcjtylib-1.21-9.0.20.jar"
      }
     },
     "i": 1,
     "jars": [
-     "mcjtylib-1.21-9.0.21.jar"
+     "mcjtylib-1.21-9.0.20.jar"
     ],
     "keys": {
      "Open manual": "exact"
@@ -4669,12 +4651,12 @@
      "com.mamailes.merrymaking.block.deco.kwanzaa.KinaraBlock": {
       "actual": "com.mamailes.merrymaking.block.deco.kwanzaa.KinaraBlock",
       "how": "declared",
-      "jar": "merrymaking-1.21.1-16.jar"
+      "jar": "merrymaking-1.21.1-14.jar"
      }
     },
     "i": 1,
     "jars": [
-     "merrymaking-1.21.1-16.jar"
+     "merrymaking-1.21.1-14.jar"
     ],
     "keys": {
      "The Imani Candle has been lit.": "exact",
@@ -4691,12 +4673,12 @@
      "com.mamailes.merrymaking.init.MMSmithingTemplateItem": {
       "actual": "com.mamailes.merrymaking.init.MMSmithingTemplateItem",
       "how": "declared",
-      "jar": "merrymaking-1.21.1-16.jar"
+      "jar": "merrymaking-1.21.1-14.jar"
      }
     },
     "i": 2,
     "jars": [
-     "merrymaking-1.21.1-16.jar"
+     "merrymaking-1.21.1-14.jar"
     ],
     "keys": {
      "Applies to:": "exact",
@@ -4716,261 +4698,297 @@
    {
     "classes": {
      "com.minecolonies.api.entity.ai.statemachine.basestatemachine.BasicStateMachine": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.api.entity.ai.statemachine.basestatemachine.BasicStateMachine",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Current state:": "missing"
+     "Current state:": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.gui.WindowBannerPicker": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.gui.WindowBannerPicker",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Flag": "missing"
+     "Flag": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.gui.WindowRequestDetail": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.gui.WindowRequestDetail",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Resolver: ": "missing"
+     "Resolver: ": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.gui.map.WindowColonyMap": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.gui.map.WindowColonyMap",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Citizens: ": "missing",
-     "Coordinates: ": "missing",
-     "Owner:": "missing"
+     "Citizens: ": "substring",
+     "Coordinates: ": "substring",
+     "Owner:": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.render.CitizenArmorLayer": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.render.CitizenArmorLayer",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 5,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "This armor is causing errors when rendering on citizens, check your latest.log and report to the respective armor mod.": "missing"
+     "This armor is causing errors when rendering on citizens, check your latest.log and report to the respective armor mod.": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.colony.requestsystem.resolvers.core.AbstractRequestResolver": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.colony.requestsystem.resolvers.core.AbstractRequestResolver",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 6,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Request System": "missing"
+     "Request System": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.citizencommands.CommandCitizenInfo": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.citizencommands.CommandCitizenInfo",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 7,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Stuck level: ": "missing"
+     "Stuck level: ": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.citizencommands.CommandTrackType": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.citizencommands.CommandTrackType",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 8,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Removed tracking for player": "missing",
-     "Tracking enabled for pathjobs containing: ": "missing"
+     "Removed tracking for player": "exact",
+     "Tracking enabled for pathjobs containing: ": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.colonycommands.CommandColonyChunks": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.colonycommands.CommandColonyChunks",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 9,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Loaded chunks:": "missing",
-     "Ticket types: ": "missing"
+     "Loaded chunks:": "exact",
+     "Ticket types: ": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.colonycommands.CommandColonyPrintStats": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.colonycommands.CommandColonyPrintStats",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 10,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Buildings:": "missing",
-     "Reasearches completed count:": "missing"
+     "Buildings:": "substring",
+     "Reasearches completed count:": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.colonycommands.CommandListColonies": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.colonycommands.CommandListColonies",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 11,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Citizens:": "missing"
+     "Citizens:": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.colonycommands.CommandSetRank": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.colonycommands.CommandSetRank",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 12,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Rank does not exist": "missing",
-     "Set player: ": "missing"
+     "Rank does not exist": "exact",
+     "Set player: ": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.generalcommands.CommandUnloadForcedChunks": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.generalcommands.CommandUnloadForcedChunks",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 13,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Successfully removed forceload flag!": "missing"
+     "Successfully removed forceload flag!": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.entity.pathfinding.pathresults.PathResult": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.entity.pathfinding.pathresults.PathResult",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 14,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     " Finished pathjob:": "missing",
-     " path target:": "missing"
+     " Finished pathjob:": "exact",
+     " path target:": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.gui.modules.building.GraveyardManagementWindow$1": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.gui.modules.building.GraveyardManagementWindow$1",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 15,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Grave of ": "missing",
-     "Unknown Citizen": "missing"
+     "Grave of ": "substring",
+     "Unknown Citizen": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$1": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$1",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 16,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Furnace Crafting GUI": "missing"
+     "Furnace Crafting GUI": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$2": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$2",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 17,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Brewing Crafting GUI": "missing"
+     "Brewing Crafting GUI": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$3": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$3",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1307-1.21.1-snapshot.jar"
      }
     },
     "i": 18,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1307-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Crafting GUI": "missing"
+     "Crafting GUI": "exact"
     }
    }
   ]
@@ -4980,17 +4998,15 @@
    {
     "classes": {
      "com.direwolf20.mininggadgets.client.screens.widget.ToggleButton": {
-      "actual": "com.direwolf20.mininggadgets.client.screens.widget.ToggleButton",
-      "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "mininggadgets-1.18.6.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Enabled: ": "substring"
+     "Enabled: ": "missing"
     }
    }
   ]
@@ -5206,12 +5222,12 @@
      "com.klikli_dev.modonomicon.datagen.book.demo.features.SpotlightEntry": {
       "actual": "com.klikli_dev.modonomicon.datagen.book.demo.features.SpotlightEntry",
       "how": "declared",
-      "jar": "modonomicon-1.21.1-neoforge-1.120.1.jar"
+      "jar": "geckolib-neoforge-1.21.1-4.8.4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "modonomicon-1.21.1-neoforge-1.120.1.jar"
+     "geckolib-neoforge-1.21.1-4.8.4.jar"
     ],
     "keys": {
      "An entry showcasing spotlight pages.": "exact",
@@ -5223,12 +5239,12 @@
      "com.klikli_dev.modonomicon.item.ModonomiconItem": {
       "actual": "com.klikli_dev.modonomicon.item.ModonomiconItem",
       "how": "declared",
-      "jar": "modonomicon-1.21.1-neoforge-1.120.1.jar"
+      "jar": "geckolib-neoforge-1.21.1-4.8.4.jar"
      }
     },
     "i": 2,
     "jars": [
-     "modonomicon-1.21.1-neoforge-1.120.1.jar"
+     "geckolib-neoforge-1.21.1-4.8.4.jar"
     ],
     "keys": {
      "Book ID: ": "exact"
@@ -5413,12 +5429,12 @@
      "com.klikli_dev.occultism.common.item.debug.SummonDjinniManageMachineItem": {
       "actual": "com.klikli_dev.occultism.common.item.debug.SummonDjinniManageMachineItem",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 1,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Testspirit Manage Machine": "exact"
@@ -5429,12 +5445,12 @@
      "com.klikli_dev.occultism.common.item.debug.SummonDjinniTest": {
       "actual": "com.klikli_dev.occultism.common.item.debug.SummonDjinniTest",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 2,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Djinni Test": "exact"
@@ -5445,12 +5461,12 @@
      "com.klikli_dev.occultism.common.item.debug.SummonFoliotCleanerItem": {
       "actual": "com.klikli_dev.occultism.common.item.debug.SummonFoliotCleanerItem",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 3,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Testspirit Cleaner": "exact"
@@ -5461,12 +5477,12 @@
      "com.klikli_dev.occultism.common.item.debug.SummonFoliotFarmerItem": {
       "actual": "com.klikli_dev.occultism.common.item.debug.SummonFoliotFarmerItem",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 4,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Testspirit Farmer": "exact"
@@ -5477,12 +5493,12 @@
      "com.klikli_dev.occultism.common.item.debug.SummonFoliotLumberjackItem": {
       "actual": "com.klikli_dev.occultism.common.item.debug.SummonFoliotLumberjackItem",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 5,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Testspirit Lumberjack": "exact"
@@ -5493,12 +5509,12 @@
      "com.klikli_dev.occultism.common.item.debug.SummonFoliotTraderItem": {
       "actual": "com.klikli_dev.occultism.common.item.debug.SummonFoliotTraderItem",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 6,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Testspirit Trader": "exact"
@@ -5509,12 +5525,12 @@
      "com.klikli_dev.occultism.common.item.debug.SummonFoliotTransportItemsItem": {
       "actual": "com.klikli_dev.occultism.common.item.debug.SummonFoliotTransportItemsItem",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 7,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Testspirit Transporter": "exact"
@@ -5525,12 +5541,12 @@
      "com.klikli_dev.occultism.common.item.tool.GuideBookItem": {
       "actual": "com.klikli_dev.occultism.common.item.tool.GuideBookItem",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 8,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Book ID: ": "exact"
@@ -5541,12 +5557,12 @@
      "com.klikli_dev.occultism.common.ritual.CommandRitual": {
       "actual": "com.klikli_dev.occultism.common.ritual.CommandRitual",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 9,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Executing command block": "exact"
@@ -5557,12 +5573,12 @@
      "com.klikli_dev.occultism.common.ritual.Ritual": {
       "actual": "com.klikli_dev.occultism.common.ritual.Ritual",
       "how": "declared",
-      "jar": "occultism-1.21.1-neoforge-1.223.0.jar"
+      "jar": "occultism-1.21.1-neoforge-1.215.0.jar"
      }
     },
     "i": 10,
     "jars": [
-     "occultism-1.21.1-neoforge-1.223.0.jar"
+     "occultism-1.21.1-neoforge-1.215.0.jar"
     ],
     "keys": {
      "Unknown condition": "exact"
@@ -5602,12 +5618,12 @@
      "rearth.oracle.ui.OracleScreen": {
       "actual": "rearth.oracle.ui.OracleScreen",
       "how": "declared",
-      "jar": "oracle_index-neoforge-1.3.0.jar"
+      "jar": "oracle_index-neoforge-1.2.0.jar"
      }
     },
     "i": 1,
     "jars": [
-     "oracle_index-neoforge-1.3.0.jar"
+     "oracle_index-neoforge-1.2.0.jar"
     ],
     "keys": {
      "Unknown Name": "exact"
@@ -5618,12 +5634,12 @@
      "rearth.oracle.ui.SearchScreen": {
       "actual": "rearth.oracle.ui.SearchScreen",
       "how": "declared",
-      "jar": "oracle_index-neoforge-1.3.0.jar"
+      "jar": "oracle_index-neoforge-1.2.0.jar"
      }
     },
     "i": 2,
     "jars": [
-     "oracle_index-neoforge-1.3.0.jar"
+     "oracle_index-neoforge-1.2.0.jar"
     ],
     "keys": {
      "If you want this search feature, you can use the xplat jar available on the mods github.": "exact",
@@ -5636,12 +5652,12 @@
      "rearth.oracle.util.MarkdownParser": {
       "actual": "rearth.oracle.util.MarkdownParser",
       "how": "declared",
-      "jar": "oracle_index-neoforge-1.3.0.jar"
+      "jar": "oracle_index-neoforge-1.2.0.jar"
      }
     },
     "i": 3,
     "jars": [
-     "oracle_index-neoforge-1.3.0.jar"
+     "oracle_index-neoforge-1.2.0.jar"
     ],
     "keys": {
      "<invalid link>": "exact",
@@ -5659,12 +5675,12 @@
      "io.wispforest.owo.renderdoc.RenderdocScreen": {
       "actual": "io.wispforest.owo.renderdoc.RenderdocScreen",
       "how": "declared",
-      "jar": "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
+      "jar": "merequester-neoforge-1.21.1-1.4.2.jar"
      }
     },
     "i": 1,
     "jars": [
-     "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
+     "merequester-neoforge-1.21.1-1.4.2.jar"
     ],
     "keys": {
      "Capture Frame": "exact",
@@ -5685,12 +5701,12 @@
      "io.wispforest.owo.ui.util.UIErrorToast": {
       "actual": "io.wispforest.owo.ui.util.UIErrorToast",
       "how": "declared",
-      "jar": "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
+      "jar": "merequester-neoforge-1.21.1-1.4.2.jar"
      }
     },
     "i": 2,
     "jars": [
-     "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
+     "merequester-neoforge-1.21.1-1.4.2.jar"
     ],
     "keys": {
      "Check your log for details": "exact",
@@ -6234,12 +6250,12 @@
      "com.refinedmods.refinedstorage.neoforge.debug.DebugStickItem": {
       "actual": "com.refinedmods.refinedstorage.neoforge.debug.DebugStickItem",
       "how": "declared",
-      "jar": "refinedstorage-neoforge-2.0.9.jar"
+      "jar": "refinedstorage-neoforge-2.0.6.jar"
      }
     },
     "i": 1,
     "jars": [
-     "refinedstorage-neoforge-2.0.9.jar"
+     "refinedstorage-neoforge-2.0.6.jar"
     ],
     "keys": {
      "Gave a storage disk with ": "substring"
@@ -6293,15 +6309,17 @@
    {
     "classes": {
      "reliquary.client.gui.AlkahestryTomeScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "reliquary.client.gui.AlkahestryTomeScreen",
+      "how": "declared",
+      "jar": "darkmodeeverywhere-1.21-1.3.5.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "darkmodeeverywhere-1.21-1.3.5.jar"
+    ],
     "keys": {
-     "Perform basic,\nintermediate or\nadvanced Alkahestry.": "missing"
+     "Perform basic,\nintermediate or\nadvanced Alkahestry.": "exact"
     }
    }
   ]
@@ -6418,12 +6436,12 @@
      "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardType": {
       "actual": "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardType",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "\u0001Max area: \u0001x\u0001x\u0001": "exact",
@@ -6441,12 +6459,12 @@
      "mcjty.rftoolsbase.modules.filter.client.GuiFilterModule": {
       "actual": "mcjty.rftoolsbase.modules.filter.client.GuiFilterModule",
       "how": "declared",
-      "jar": "rftoolsbase-1.21-6.0.11.jar"
+      "jar": "rftoolsbase-1.21-6.0.10.jar"
      }
     },
     "i": 2,
     "jars": [
-     "rftoolsbase-1.21-6.0.11.jar"
+     "rftoolsbase-1.21-6.0.10.jar"
     ],
     "keys": {
      "\u0001Click to add to filter": "exact",
@@ -6463,12 +6481,12 @@
      "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardItem": {
       "actual": "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardItem",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 3,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "\u0001Cleared area selection mode!": "exact",
@@ -6488,12 +6506,12 @@
      "mcjty.rftoolsstorage.modules.scanner.client.GuiStorageScanner": {
       "actual": "mcjty.rftoolsstorage.modules.scanner.client.GuiStorageScanner",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 4,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "\u0001All routable inventories": "exact",
@@ -6508,12 +6526,12 @@
      "mcjty.rftoolsstorage.modules.modularstorage.client.GuiModularStorage": {
       "actual": "mcjty.rftoolsstorage.modules.modularstorage.client.GuiModularStorage",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 5,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "Don't show groups": "exact",
@@ -6528,12 +6546,12 @@
      "mcjty.rftoolsstorage.modules.scanner.tools.SortingMode": {
       "actual": "mcjty.rftoolsstorage.modules.scanner.tools.SortingMode",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 6,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "Sort by mod": "exact",
@@ -6546,12 +6564,12 @@
      "mcjty.rftoolsbuilder.modules.mover.client.GuiMoverController": {
       "actual": "mcjty.rftoolsbuilder.modules.mover.client.GuiMoverController",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 7,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Please select a node!": "exact",
@@ -6563,12 +6581,12 @@
      "mcjty.rftoolsbuilder.modules.builder.client.GuiChamberDetails": {
       "actual": "mcjty.rftoolsbuilder.modules.builder.client.GuiChamberDetails",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 8,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Move Cost \u0001 RF": "exact",
@@ -6582,12 +6600,12 @@
      "mcjty.rftoolsbuilder.modules.shield.client.GuiShield": {
       "actual": "mcjty.rftoolsbuilder.modules.shield.client.GuiShield",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 9,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Redstone mode:\nIgnored": "exact",
@@ -6600,12 +6618,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiDialingDevice": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiDialingDevice",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 10,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Distance: \u0001": "exact",
@@ -6620,12 +6638,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterReceiver": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterReceiver",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 11,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Name:": "exact"
@@ -6636,12 +6654,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterTransmitter": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterTransmitter",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 12,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Name:": "exact"
@@ -6652,12 +6670,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiAdvancedPorter": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiAdvancedPorter",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 13,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "No target set": "exact"
@@ -6668,12 +6686,12 @@
      "mcjty.rftoolsutility.modules.logic.client.GuiRedstoneInformation": {
       "actual": "mcjty.rftoolsutility.modules.logic.client.GuiRedstoneInformation",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 14,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Redstone off": "exact",
@@ -6685,12 +6703,12 @@
      "mcjty.lib.client.GuiTools": {
       "actual": "mcjty.lib.client.GuiTools",
       "how": "declared",
-      "jar": "mcjtylib-1.21-9.0.21.jar"
+      "jar": "mcjtylib-1.21-9.0.20.jar"
      }
     },
     "i": 15,
     "jars": [
-     "mcjtylib-1.21-9.0.21.jar"
+     "mcjtylib-1.21-9.0.20.jar"
     ],
     "keys": {
      "\u0001Position is not loaded!": "exact",
@@ -6700,17 +6718,15 @@
    {
     "classes": {
      "mcjty.rftoolsbuilder.modules.scanner.client.GuiScanner": {
-      "actual": "mcjty.rftoolsbuilder.modules.scanner.client.GuiScanner",
-      "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 16,
-    "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Dim: \u0001": "exact"
+     "Dim: \u0001": "missing"
     }
    },
    {
@@ -6718,12 +6734,12 @@
      "mcjty.rftoolspower.modules.dimensionalcell.client.GuiDimensionalCell": {
       "actual": "mcjty.rftoolspower.modules.dimensionalcell.client.GuiDimensionalCell",
       "how": "declared",
-      "jar": "rftoolspower-1.21-7.0.6.jar"
+      "jar": "rftoolspower-1.21-7.0.5.jar"
      }
     },
     "i": 17,
     "jars": [
-     "rftoolspower-1.21-7.0.6.jar"
+     "rftoolspower-1.21-7.0.5.jar"
     ],
     "keys": {
      "Extracted: \u0001": "exact",
@@ -6739,12 +6755,12 @@
      "mcjty.lib.gui.GuiParser": {
       "actual": "mcjty.lib.gui.GuiParser",
       "how": "declared",
-      "jar": "mcjtylib-1.21-9.0.21.jar"
+      "jar": "mcjtylib-1.21-9.0.20.jar"
      }
     },
     "i": 1,
     "jars": [
-     "mcjtylib-1.21-9.0.21.jar"
+     "mcjtylib-1.21-9.0.20.jar"
     ],
     "keys": {
      "Error parsing!": "exact"
@@ -6787,12 +6803,12 @@
      "mcjty.rftoolsutility.modules.screen.client.GuiScreen": {
       "actual": "mcjty.rftoolsutility.modules.screen.client.GuiScreen",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 4,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Bright": "exact"
@@ -6803,12 +6819,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiAdvancedPorter": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiAdvancedPorter",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 5,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Clear": "exact",
@@ -6820,12 +6836,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterTransmitter": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterTransmitter",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 6,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Add": "exact",
@@ -6840,12 +6856,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiTeleportProbe": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiTeleportProbe",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 7,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Teleport Probe": "exact"
@@ -6856,12 +6872,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiDialingDevice": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiDialingDevice",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 8,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Yes": "exact"
@@ -6872,12 +6888,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterReceiver": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterReceiver",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 9,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Add": "exact",
@@ -6891,12 +6907,12 @@
      "mcjty.rftoolsutility.modules.environmental.client.GuiEnvironmentalController": {
       "actual": "mcjty.rftoolsutility.modules.environmental.client.GuiEnvironmentalController",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 10,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "All": "exact",
@@ -6908,12 +6924,12 @@
      "mcjty.rftoolsstorage.craftinggrid.GuiCraftingGrid": {
       "actual": "mcjty.rftoolsstorage.craftinggrid.GuiCraftingGrid",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 11,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "Positioned": "exact"
@@ -6924,12 +6940,12 @@
      "mcjty.rftoolsstorage.modules.scanner.client.GuiStorageScanner": {
       "actual": "mcjty.rftoolsstorage.modules.scanner.client.GuiStorageScanner",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 12,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "Shift + click: ": "exact",
@@ -6941,12 +6957,12 @@
      "mcjty.rftoolsstorage.modules.modularstorage.client.GuiModularStorage": {
       "actual": "mcjty.rftoolsstorage.modules.modularstorage.client.GuiModularStorage",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 13,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "Should not happen!": "exact"
@@ -6957,12 +6973,12 @@
      "mcjty.rftoolsbuilder.modules.shield.client.GuiShield": {
       "actual": "mcjty.rftoolsbuilder.modules.shield.client.GuiShield",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 14,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Add": "exact",
@@ -6977,12 +6993,12 @@
      "mcjty.rftoolsbuilder.modules.mover.client.GuiMoverController": {
       "actual": "mcjty.rftoolsbuilder.modules.mover.client.GuiMoverController",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 15,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "This is not a gui for the mover controller!": "exact"
@@ -6991,34 +7007,30 @@
    {
     "classes": {
      "mcjty.rftoolsbuilder.modules.scanner.client.GuiComposer": {
-      "actual": "mcjty.rftoolsbuilder.modules.scanner.client.GuiComposer",
-      "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 16,
-    "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Flip": "exact"
+     "Flip": "missing"
     }
    },
    {
     "classes": {
      "mcjty.rftoolsbuilder.modules.scanner.client.GuiProjector": {
-      "actual": "mcjty.rftoolsbuilder.modules.scanner.client.GuiProjector",
-      "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 17,
-    "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Auto": "exact",
-     "Gray": "exact"
+     "Auto": "missing",
+     "Gray": "missing"
     }
    },
    {
@@ -7026,12 +7038,12 @@
      "mcjty.rftoolspower.modules.dimensionalcell.client.GuiDimensionalCell": {
       "actual": "mcjty.rftoolspower.modules.dimensionalcell.client.GuiDimensionalCell",
       "how": "declared",
-      "jar": "rftoolspower-1.21-7.0.6.jar"
+      "jar": "rftoolspower-1.21-7.0.5.jar"
      }
     },
     "i": 18,
     "jars": [
-     "rftoolspower-1.21-7.0.6.jar"
+     "rftoolspower-1.21-7.0.5.jar"
     ],
     "keys": {
      "Link:": "exact",
@@ -7047,12 +7059,12 @@
      "mcjty.rftoolsbuilder.modules.builder.client.GuiShapeCard": {
       "actual": "mcjty.rftoolsbuilder.modules.builder.client.GuiShapeCard",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Dim:": "exact",
@@ -7076,12 +7088,12 @@
      "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardType": {
       "actual": "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardType",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 2,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "(final cost depends on infusion level and block hardness)": "exact",
@@ -7111,12 +7123,12 @@
      "mcjty.rftoolsbuilder.modules.mover.items.VehicleControlModuleItem": {
       "actual": "mcjty.rftoolsbuilder.modules.mover.items.VehicleControlModuleItem",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 3,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Button color": "exact",
@@ -7133,12 +7145,12 @@
      "mcjty.rftoolsbuilder.modules.mover.items.VehicleStatusModuleItem": {
       "actual": "mcjty.rftoolsbuilder.modules.mover.items.VehicleStatusModuleItem",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 4,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Label color": "exact",
@@ -7151,63 +7163,57 @@
    {
     "classes": {
      "mcjty.rftoolsbuilder.modules.scanner.client.GuiComposer": {
-      "actual": "mcjty.rftoolsbuilder.modules.scanner.client.GuiComposer",
-      "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 5,
-    "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Composer": "exact",
-     "Drag left mouse button to rotate": "exact",
-     "Open the shape card editor": "exact",
-     "Shift drag left mouse to pan": "exact",
-     "Use middle click to reset rotation": "exact",
-     "Use mouse wheel to zoom in/out": "exact"
+     "Composer": "missing",
+     "Drag left mouse button to rotate": "missing",
+     "Open the shape card editor": "missing",
+     "Shift drag left mouse to pan": "missing",
+     "Use middle click to reset rotation": "missing",
+     "Use mouse wheel to zoom in/out": "missing"
     }
    },
    {
     "classes": {
      "mcjty.rftoolsbuilder.modules.scanner.client.GuiProjector": {
-      "actual": "mcjty.rftoolsbuilder.modules.scanner.client.GuiProjector",
-      "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 6,
-    "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Angle": "exact",
-     "Automatic client-side rotation": "exact",
-     "Enable grayscale mode": "exact",
-     "Enable sound during visual scan": "exact",
-     "Enable visual scanlines when the scan refreshes": "exact",
-     "Offset": "exact",
-     "Projector": "exact",
-     "Render baked block models in the world": "exact",
-     "Scale": "exact",
-     "instead of solid projected cubes": "exact"
+     "Angle": "missing",
+     "Automatic client-side rotation": "missing",
+     "Enable grayscale mode": "missing",
+     "Enable sound during visual scan": "missing",
+     "Enable visual scanlines when the scan refreshes": "missing",
+     "Offset": "missing",
+     "Projector": "missing",
+     "Render baked block models in the world": "missing",
+     "Scale": "missing",
+     "instead of solid projected cubes": "missing"
     }
    },
    {
     "classes": {
      "mcjty.rftoolsbuilder.modules.scanner.client.GuiScanner": {
-      "actual": "mcjty.rftoolsbuilder.modules.scanner.client.GuiScanner",
-      "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 7,
-    "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Scanner": "exact"
+     "Scanner": "missing"
     }
    },
    {
@@ -7215,12 +7221,12 @@
      "mcjty.rftoolsbuilder.modules.shield.client.GuiShield": {
       "actual": "mcjty.rftoolsbuilder.modules.shield.client.GuiShield",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 8,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "(optionally named)": "exact",
@@ -7264,12 +7270,12 @@
      "mcjty.rftoolsbuilder.shapes.Shape": {
       "actual": "mcjty.rftoolsbuilder.shapes.Shape",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 9,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Bottom Dome": "exact",
@@ -7282,12 +7288,12 @@
      "mcjty.rftoolsbuilder.shapes.ShapeGuiTools": {
       "actual": "mcjty.rftoolsbuilder.shapes.ShapeGuiTools",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 10,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "Enable axis rendering": "exact",
@@ -7304,12 +7310,12 @@
      "mcjty.rftoolsbase.modules.crafting.client.GuiCraftingCard": {
       "actual": "mcjty.rftoolsbase.modules.crafting.client.GuiCraftingCard",
       "how": "declared",
-      "jar": "rftoolsbase-1.21-6.0.11.jar"
+      "jar": "rftoolsbase-1.21-6.0.10.jar"
      }
     },
     "i": 11,
     "jars": [
-     "rftoolsbase-1.21-6.0.11.jar"
+     "rftoolsbase-1.21-6.0.10.jar"
     ],
     "keys": {
      "3x3 grid": "exact",
@@ -7325,12 +7331,12 @@
      "mcjty.rftoolsbase.modules.filter.client.GuiFilterModule": {
       "actual": "mcjty.rftoolsbase.modules.filter.client.GuiFilterModule",
       "how": "declared",
-      "jar": "rftoolsbase-1.21-6.0.11.jar"
+      "jar": "rftoolsbase-1.21-6.0.10.jar"
      }
     },
     "i": 12,
     "jars": [
-     "rftoolsbase-1.21-6.0.11.jar"
+     "rftoolsbase-1.21-6.0.10.jar"
     ],
     "keys": {
      "Add tags": "exact",
@@ -7351,12 +7357,12 @@
      "mcjty.rftoolsbase.api.control.parameters.Parameter$1": {
       "actual": "mcjty.rftoolsbase.api.control.parameters.Parameter$1",
       "how": "declared",
-      "jar": "rftoolsbase-1.21-6.0.11.jar"
+      "jar": "rftoolsbase-1.21-6.0.10.jar"
      }
     },
     "i": 13,
     "jars": [
-     "rftoolsbase-1.21-6.0.11.jar"
+     "rftoolsbase-1.21-6.0.10.jar"
     ],
     "keys": {
      "Missing parameter type": "exact",
@@ -7369,12 +7375,12 @@
      "mcjty.rftoolsbase.modules.crafting.items.CraftingCardItem$1": {
       "actual": "mcjty.rftoolsbase.modules.crafting.items.CraftingCardItem$1",
       "how": "declared",
-      "jar": "rftoolsbase-1.21-6.0.11.jar"
+      "jar": "rftoolsbase-1.21-6.0.10.jar"
      }
     },
     "i": 14,
     "jars": [
-     "rftoolsbase-1.21-6.0.11.jar"
+     "rftoolsbase-1.21-6.0.10.jar"
     ],
     "keys": {
      "Crafting Card": "exact"
@@ -7385,12 +7391,12 @@
      "mcjty.rftoolsbase.modules.filter.items.FilterModuleItem$1": {
       "actual": "mcjty.rftoolsbase.modules.filter.items.FilterModuleItem$1",
       "how": "declared",
-      "jar": "rftoolsbase-1.21-6.0.11.jar"
+      "jar": "rftoolsbase-1.21-6.0.10.jar"
      }
     },
     "i": 15,
     "jars": [
-     "rftoolsbase-1.21-6.0.11.jar"
+     "rftoolsbase-1.21-6.0.10.jar"
     ],
     "keys": {
      "Filter Module": "exact"
@@ -7405,12 +7411,12 @@
      "mcjty.rftoolsbase.modules.filter.client.GuiFilterModule": {
       "actual": "mcjty.rftoolsbase.modules.filter.client.GuiFilterModule",
       "how": "declared",
-      "jar": "rftoolsbase-1.21-6.0.11.jar"
+      "jar": "rftoolsbase-1.21-6.0.10.jar"
      }
     },
     "i": 1,
     "jars": [
-     "rftoolsbase-1.21-6.0.11.jar"
+     "rftoolsbase-1.21-6.0.10.jar"
     ],
     "keys": {
      "Click to add to filter": "substring",
@@ -7432,12 +7438,12 @@
      "mcjty.rftoolsbuilder.modules.builder.blocks.BuilderTileEntity": {
       "actual": "mcjty.rftoolsbuilder.modules.builder.blocks.BuilderTileEntity",
       "how": "declared",
-      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+      "jar": "rftoolsbuilder-1.21-7.0.4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "rftoolsbuilder-1.21-7.0.5.jar"
+     "rftoolsbuilder-1.21-7.0.4.jar"
     ],
     "keys": {
      "\u0001Progress:": "exact",
@@ -7460,12 +7466,12 @@
      "mcjty.rftoolspower.modules.dimensionalcell.client.GuiDimensionalCell": {
       "actual": "mcjty.rftoolspower.modules.dimensionalcell.client.GuiDimensionalCell",
       "how": "declared",
-      "jar": "rftoolspower-1.21-7.0.6.jar"
+      "jar": "rftoolspower-1.21-7.0.5.jar"
      }
     },
     "i": 1,
     "jars": [
-     "rftoolspower-1.21-7.0.6.jar"
+     "rftoolspower-1.21-7.0.5.jar"
     ],
     "keys": {
      "Extracted: ": "substring",
@@ -7486,12 +7492,12 @@
      "mcjty.rftoolspower.modules.endergenic.data.EnderMonitorMode": {
       "actual": "mcjty.rftoolspower.modules.endergenic.data.EnderMonitorMode",
       "how": "declared",
-      "jar": "rftoolspower-1.21-7.0.6.jar"
+      "jar": "rftoolspower-1.21-7.0.5.jar"
      }
     },
     "i": 2,
     "jars": [
-     "rftoolspower-1.21-7.0.6.jar"
+     "rftoolspower-1.21-7.0.5.jar"
     ],
     "keys": {
      "Lost Pearl": "exact",
@@ -7504,12 +7510,12 @@
      "mcjty.rftoolspower.modules.monitor.client.GuiPowerMonitor": {
       "actual": "mcjty.rftoolspower.modules.monitor.client.GuiPowerMonitor",
       "how": "declared",
-      "jar": "rftoolspower-1.21-7.0.6.jar"
+      "jar": "rftoolspower-1.21-7.0.5.jar"
      }
     },
     "i": 3,
     "jars": [
-     "rftoolspower-1.21-7.0.6.jar"
+     "rftoolspower-1.21-7.0.5.jar"
     ],
     "keys": {
      "Max:": "exact",
@@ -7527,12 +7533,12 @@
      "mcjty.rftoolsstorage.craftinggrid.GuiCraftingGrid": {
       "actual": "mcjty.rftoolsstorage.craftinggrid.GuiCraftingGrid",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "Craft a stack": "exact",
@@ -7548,12 +7554,12 @@
      "mcjty.rftoolsstorage.modules.modularstorage.client.GuiModularStorage": {
       "actual": "mcjty.rftoolsstorage.modules.modularstorage.client.GuiModularStorage",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 2,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "Amount of stacks / maximum amount": "exact",
@@ -7575,12 +7581,12 @@
      "mcjty.rftoolsstorage.modules.scanner.client.GuiStorageScanner": {
       "actual": "mcjty.rftoolsstorage.modules.scanner.client.GuiStorageScanner",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 3,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "(doubleclick to highlight)": "exact",
@@ -7611,12 +7617,12 @@
      "mcjty.rftoolsstorage.modules.scanner.items.DumpModuleItem": {
       "actual": "mcjty.rftoolsstorage.modules.scanner.items.DumpModuleItem",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 4,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "If enabled use common tags": "exact",
@@ -7631,12 +7637,12 @@
      "mcjty.rftoolsstorage.modules.scanner.items.StorageControlModuleItem": {
       "actual": "mcjty.rftoolsstorage.modules.scanner.items.StorageControlModuleItem",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 5,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "(mark inventories in storage scanner)": "exact",
@@ -7650,12 +7656,12 @@
      "mcjty.rftoolsstorage.modules.scanner.items.StorageControlModuleItem$1": {
       "actual": "mcjty.rftoolsstorage.modules.scanner.items.StorageControlModuleItem$1",
       "how": "declared",
-      "jar": "rftoolsstorage-1.21-6.0.5.jar"
+      "jar": "rftoolsstorage-1.21-6.0.4.jar"
      }
     },
     "i": 6,
     "jars": [
-     "rftoolsstorage-1.21-6.0.5.jar"
+     "rftoolsstorage-1.21-6.0.4.jar"
     ],
     "keys": {
      "Remote Storage Scanner": "exact"
@@ -7670,12 +7676,12 @@
      "mcjty.rftoolsutility.modules.crafter.client.GuiCrafter": {
       "actual": "mcjty.rftoolsutility.modules.crafter.client.GuiCrafter",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 1,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Double click to edit this recipe": "exact"
@@ -7686,12 +7692,12 @@
      "mcjty.rftoolsutility.modules.logic.tools.AreaType": {
       "actual": "mcjty.rftoolsutility.modules.logic.tools.AreaType",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 2,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Area 1": "exact",
@@ -7707,12 +7713,12 @@
      "mcjty.rftoolsutility.modules.screen.client.GuiScreen": {
       "actual": "mcjty.rftoolsutility.modules.screen.client.GuiScreen",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 3,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Default": "exact",
@@ -7730,12 +7736,12 @@
      "mcjty.rftoolsutility.modules.screen.client.GuiScreenController": {
       "actual": "mcjty.rftoolsutility.modules.screen.client.GuiScreenController",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 4,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Detach": "exact",
@@ -7750,12 +7756,12 @@
      "mcjty.rftoolsutility.modules.screen.client.GuiTabletScreen": {
       "actual": "mcjty.rftoolsutility.modules.screen.client.GuiTabletScreen",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 5,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Invalid tile entity!": "exact",
@@ -7767,12 +7773,12 @@
      "mcjty.rftoolsutility.modules.screen.items.ScreenLinkItem": {
       "actual": "mcjty.rftoolsutility.modules.screen.items.ScreenLinkItem",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 6,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Screen link is cleared": "exact"
@@ -7783,12 +7789,12 @@
      "mcjty.rftoolsutility.modules.screen.items.modules.CounterModuleItem": {
       "actual": "mcjty.rftoolsutility.modules.screen.items.modules.CounterModuleItem",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 7,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Color for the counter": "exact",
@@ -7802,12 +7808,12 @@
      "mcjty.rftoolsutility.modules.screen.items.modules.EnergyModuleItem": {
       "actual": "mcjty.rftoolsutility.modules.screen.items.modules.EnergyModuleItem",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 8,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Color for the RF text": "exact",
@@ -7825,12 +7831,12 @@
      "mcjty.rftoolsutility.modules.screen.items.modules.FluidModuleItem": {
       "actual": "mcjty.rftoolsutility.modules.screen.items.modules.FluidModuleItem",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 9,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Color for the label": "exact",
@@ -7848,12 +7854,12 @@
      "mcjty.rftoolsutility.modules.screen.items.modules.InventoryModuleItem": {
       "actual": "mcjty.rftoolsutility.modules.screen.items.modules.InventoryModuleItem",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 10,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Inventory module is cleared": "exact",
@@ -7865,12 +7871,12 @@
      "mcjty.rftoolsutility.modules.screen.items.modules.MachineInformationModuleItem": {
       "actual": "mcjty.rftoolsutility.modules.screen.items.modules.MachineInformationModuleItem",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 11,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Color for the label": "exact",
@@ -7883,12 +7889,12 @@
      "mcjty.rftoolsutility.modules.screen.items.modules.RedstoneModuleItem": {
       "actual": "mcjty.rftoolsutility.modules.screen.items.modules.RedstoneModuleItem",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 12,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Color for the label": "exact",
@@ -7906,12 +7912,12 @@
      "mcjty.rftoolsutility.modules.screen.modulesclient.helper.ScreenModuleGuiBuilder": {
       "actual": "mcjty.rftoolsutility.modules.screen.modulesclient.helper.ScreenModuleGuiBuilder",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 13,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Comma format: 3,123,555": "exact",
@@ -7930,12 +7936,12 @@
      "mcjty.rftoolsutility.modules.teleporter.TeleportationTools": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.TeleportationTools",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 14,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Something went wrong with the destination!": "exact",
@@ -7953,12 +7959,12 @@
      "mcjty.rftoolsutility.modules.teleporter.blocks.SimpleDialerBlock": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.blocks.SimpleDialerBlock",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 15,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Disabled 'dial once' mode": "exact",
@@ -7971,12 +7977,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiDialingDevice": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiDialingDevice",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 16,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "(needs an adjacent analyzer!)": "exact",
@@ -8020,12 +8026,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterReceiver": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterReceiver",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 17,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Access:": "exact",
@@ -8045,12 +8051,12 @@
      "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterTransmitter": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.client.GuiMatterTransmitter",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 18,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Access:": "exact",
@@ -8072,12 +8078,12 @@
      "mcjty.rftoolsutility.modules.teleporter.items.porter.ChargedPorterItem": {
       "actual": "mcjty.rftoolsutility.modules.teleporter.items.porter.ChargedPorterItem",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 19,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Charged porter is cleared.": "exact"
@@ -8088,12 +8094,12 @@
      "mcjty.rftoolsutility.modules.logic.items.RedstoneInformationItem$1": {
       "actual": "mcjty.rftoolsutility.modules.logic.items.RedstoneInformationItem$1",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 20,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Redstone Module": "exact"
@@ -8104,12 +8110,12 @@
      "mcjty.rftoolsutility.modules.screen.items.ScreenLinkItem$1": {
       "actual": "mcjty.rftoolsutility.modules.screen.items.ScreenLinkItem$1",
       "how": "declared",
-      "jar": "rftoolsutility-1.21-7.0.12.jar"
+      "jar": "rftoolsutility-1.21-7.0.11.jar"
      }
     },
     "i": 21,
     "jars": [
-     "rftoolsutility-1.21-7.0.12.jar"
+     "rftoolsutility-1.21-7.0.11.jar"
     ],
     "keys": {
      "Remote Screen": "exact"
@@ -8222,393 +8228,347 @@
    {
     "classes": {
      "net.silentchaos512.gear.SideProxy": {
-      "actual": "net.silentchaos512.gear.SideProxy",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Materials, parts, and/or traits have not loaded! This may be caused by a broken mod, even those not related to Silent Gear. Search your log for \"Failed to reload data packs\" to find the error.": "exact"
+     "Materials, parts, and/or traits have not loaded! This may be caused by a broken mod, even those not related to Silent Gear. Search your log for \"Failed to reload data packs\" to find the error.": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.item.GearType": {
-      "actual": "net.silentchaos512.gear.api.item.GearType",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 2,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Unknown Gear Type": "exact"
+     "Unknown Gear Type": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.part.PartType": {
-      "actual": "net.silentchaos512.gear.api.part.PartType",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 3,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Unknown Part Type": "exact"
+     "Unknown Part Type": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.traits.TraitInstance": {
-      "actual": "net.silentchaos512.gear.api.traits.TraitInstance",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 4,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "INVALID (": "substring"
+     "INVALID (": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.util.PropertyKey": {
-      "actual": "net.silentchaos512.gear.api.util.PropertyKey",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 5,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Invalid key: ": "substring",
-     "Unknown gear property: \"": "substring",
-     "Unknown gear type: \"": "substring"
+     "Invalid key: ": "missing",
+     "Unknown gear property: \"": "missing",
+     "Unknown gear type: \"": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.client.event.TooltipHandler": {
-      "actual": "net.silentchaos512.gear.client.event.TooltipHandler",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 6,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     " (Silent Gear)": "exact",
-     "* Part ID: ": "substring",
-     "* Part data pack: ": "substring"
+     " (Silent Gear)": "missing",
+     "* Part ID: ": "missing",
+     "* Part data pack: ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.client.gui.book.MaterialBookScreen": {
-      "actual": "net.silentchaos512.gear.client.gui.book.MaterialBookScreen",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 7,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "This book is a work in progress. Some elements may change.": "exact"
+     "This book is a work in progress. Some elements may change.": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.client.tooltip.MaterialTooltips": {
-      "actual": "net.silentchaos512.gear.client.tooltip.MaterialTooltips",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 8,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Material ID: ": "substring",
-     "Material data pack: ": "substring"
+     "Material ID: ": "missing",
+     "Material data pack: ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.command.MaterialsCommand": {
-      "actual": "net.silentchaos512.gear.command.MaterialsCommand",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 9,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Could not create directory: ": "substring",
-     "Wrote materials info to ": "exact"
+     "Could not create directory: ": "missing",
+     "Wrote materials info to ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.command.PartsCommand": {
-      "actual": "net.silentchaos512.gear.command.PartsCommand",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 10,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Could not create directory: ": "substring",
-     "Wrote to ": "substring"
+     "Could not create directory: ": "missing",
+     "Wrote to ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.command.TraitsCommand": {
-      "actual": "net.silentchaos512.gear.command.TraitsCommand",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 11,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Could not create directory: ": "substring",
-     "Wrote to ": "exact"
+     "Could not create directory: ": "missing",
+     "Wrote to ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.BlockFillerTraitEffect": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.BlockFillerTraitEffect",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 12,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "    - Block: ": "substring",
-     "    - Fills facing plane only": "exact",
-     "    - On sneak: ": "substring",
-     "    - Tag: ": "substring",
-     "  - Cooldown: ": "substring",
-     "  - Durability Cost: ": "substring",
-     "  - Fill Area": "exact",
-     "  - Fills with: ": "substring",
-     "  - Replaces": "exact"
+     "    - Block: ": "missing",
+     "    - Fills facing plane only": "missing",
+     "    - On sneak: ": "missing",
+     "    - Tag: ": "missing",
+     "  - Cooldown: ": "missing",
+     "  - Durability Cost: ": "missing",
+     "  - Fill Area": "missing",
+     "  - Fills with: ": "missing",
+     "  - Replaces": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.BlockPlacerTraitEffect": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.BlockPlacerTraitEffect",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 13,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "  - Cooldown: ": "substring",
-     "  - Durability Cost: ": "substring",
-     "  - Places: ": "substring"
+     "  - Cooldown: ": "missing",
+     "  - Durability Cost: ": "missing",
+     "  - Places: ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.CancelEffectsTraitEffect": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.CancelEffectsTraitEffect",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 14,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "  - Cancels these effects: ": "substring"
+     "  - Cancels these effects: ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.FireproofTraitEffect": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.FireproofTraitEffect",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 15,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "  - The item cannot be destroyed by fire or lava": "exact"
+     "  - The item cannot be destroyed by fire or lava": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.NumberPropertyModifierTraitEffect": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.NumberPropertyModifierTraitEffect",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 16,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Not a NumberProperty: ": "substring"
+     "Not a NumberProperty: ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.SelfRepairTraitEffect": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.SelfRepairTraitEffect",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 17,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "  - Only works if equipped or in a player's inventory": "exact"
+     "  - Only works if equipped or in a player's inventory": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.WindBlastTraitEffect": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.WindBlastTraitEffect",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 18,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Creates an explosion similar to a wind charge on attack": "exact"
+     "Creates an explosion similar to a wind charge on attack": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.util.GearHelper": {
-      "actual": "net.silentchaos512.gear.util.GearHelper",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 19,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     " & Knuckles": "exact"
+     " & Knuckles": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.property.NumberProperty$Operation": {
-      "actual": "net.silentchaos512.gear.api.property.NumberProperty$Operation",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 20,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Unknown operation: ": "substring"
+     "Unknown operation: ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.AttributeTraitEffect$Key": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.AttributeTraitEffect$Key",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 21,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Invalid key: ": "substring",
-     "Unknown gear type: ": "substring"
+     "Invalid key: ": "missing",
+     "Unknown gear type: ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.TargetEffectTraitEffect$EffectMap": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.TargetEffectTraitEffect$EffectMap",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 22,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "    - Level ": "substring",
-     "Level key must be positive: ": "substring",
-     "Not a number: ": "substring"
+     "    - Level ": "missing",
+     "Level key must be positive: ": "missing",
+     "Not a number: ": "missing"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.WielderEffectTraitEffect$LevelType": {
-      "actual": "net.silentchaos512.gear.gear.trait.effect.WielderEffectTraitEffect$LevelType",
-      "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 23,
-    "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Unknown WielderEffectTraitEffect.LevelType: ": "substring",
-     "by armor piece count": "exact",
-     "by trait level": "exact",
-     "requires full set of armor": "exact"
+     "Unknown WielderEffectTraitEffect.LevelType: ": "missing",
+     "by armor piece count": "missing",
+     "by trait level": "missing",
+     "requires full set of armor": "missing"
     }
    }
   ]
@@ -8662,12 +8622,12 @@
      "com.flanks255.simplylight.blocks.LampPost": {
       "actual": "com.flanks255.simplylight.blocks.LampPost",
       "how": "declared",
-      "jar": "simplylight-1.5.3+1.21.1-b4.jar"
+      "jar": "EuphoriaPatcher-1.8.6-r5.7.1-neoforge.jar"
      }
     },
     "i": 1,
     "jars": [
-     "simplylight-1.5.3+1.21.1-b4.jar"
+     "EuphoriaPatcher-1.8.6-r5.7.1-neoforge.jar"
     ],
     "keys": {
      "Light Blue": "exact",
@@ -8683,12 +8643,12 @@
      "com.flanks255.simplylight.gui.EdgeEditorGUI": {
       "actual": "com.flanks255.simplylight.gui.EdgeEditorGUI",
       "how": "declared",
-      "jar": "simplylight-1.5.3+1.21.1-b4.jar"
+      "jar": "EuphoriaPatcher-1.8.6-r5.7.1-neoforge.jar"
      }
     },
     "i": 1,
     "jars": [
-     "simplylight-1.5.3+1.21.1-b4.jar"
+     "EuphoriaPatcher-1.8.6-r5.7.1-neoforge.jar"
     ],
     "keys": {
      "Edge Editor": "exact"
@@ -8703,12 +8663,12 @@
      "net.p3pp3rf1y.sophisticatedcore.client.gui.controls.LargeResultSelector": {
       "actual": "net.p3pp3rf1y.sophisticatedcore.client.gui.controls.LargeResultSelector",
       "how": "declared",
-      "jar": "sophisticatedcore-1.21.1-1.4.60.2057.jar"
+      "jar": "sophisticatedcore-1.21.1-1.4.39.1852.jar"
      }
     },
     "i": 1,
     "jars": [
-     "sophisticatedcore-1.21.1-1.4.60.2057.jar"
+     "sophisticatedcore-1.21.1-1.4.39.1852.jar"
     ],
     "keys": {
      "Filter outputs by name": "exact"
@@ -8719,12 +8679,12 @@
      "net.p3pp3rf1y.sophisticatedcore.client.gui.controls.LargeResultSelector$ResultSearchBox": {
       "actual": "net.p3pp3rf1y.sophisticatedcore.client.gui.controls.LargeResultSelector$ResultSearchBox",
       "how": "declared",
-      "jar": "sophisticatedcore-1.21.1-1.4.60.2057.jar"
+      "jar": "sophisticatedcore-1.21.1-1.4.39.1852.jar"
      }
     },
     "i": 2,
     "jars": [
-     "sophisticatedcore-1.21.1-1.4.60.2057.jar"
+     "sophisticatedcore-1.21.1-1.4.39.1852.jar"
     ],
     "keys": {
      "Search": "exact"
@@ -8813,70 +8773,62 @@
    {
     "classes": {
      "com.ldtteam.structurize.client.gui.WindowScan": {
-      "actual": "com.ldtteam.structurize.client.gui.WindowScan",
-      "how": "declared",
-      "jar": "structurize-1.0.831-1.21.1-snapshot.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 1,
-    "jars": [
-     "structurize-1.0.831-1.21.1-snapshot.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Invalid Number": "exact"
+     "Invalid Number": "missing"
     }
    },
    {
     "classes": {
      "com.ldtteam.structurize.client.gui.WindowShapeTool": {
-      "actual": "com.ldtteam.structurize.client.gui.WindowShapeTool",
-      "how": "declared",
-      "jar": "structurize-1.0.831-1.21.1-snapshot.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 2,
-    "jars": [
-     "structurize-1.0.831-1.21.1-snapshot.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Select the main block": "exact"
+     "Select the main block": "missing"
     }
    },
    {
     "classes": {
      "com.ldtteam.structurize.commands.UpdateSchematicPackCommand": {
-      "actual": "com.ldtteam.structurize.commands.UpdateSchematicPackCommand",
-      "how": "declared",
-      "jar": "structurize-1.0.831-1.21.1-snapshot.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 3,
-    "jars": [
-     "structurize-1.0.831-1.21.1-snapshot.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Error loading blueprint: ": "substring",
-     "Error loading folder: ": "substring",
-     "Error saving blueprint:  ": "substring",
-     "Failed to find pack: ": "substring",
-     "Finished updating schematics in pack: ": "substring",
-     "Updated blueprint: ": "substring"
+     "Error loading blueprint: ": "missing",
+     "Error loading folder: ": "missing",
+     "Error saving blueprint:  ": "missing",
+     "Failed to find pack: ": "missing",
+     "Finished updating schematics in pack: ": "missing",
+     "Updated blueprint: ": "missing"
     }
    },
    {
     "classes": {
      "com.ldtteam.structurize.client.gui.WindowExtendedBuildTool$4": {
-      "actual": "com.ldtteam.structurize.client.gui.WindowExtendedBuildTool$4",
-      "how": "declared",
-      "jar": "structurize-1.0.831-1.21.1-snapshot.jar"
+      "actual": null,
+      "how": "not_found",
+      "jar": null
      }
     },
     "i": 4,
-    "jars": [
-     "structurize-1.0.831-1.21.1-snapshot.jar"
-    ],
+    "jars": [],
     "keys": {
-     "Level: ": "substring"
+     "Level: ": "missing"
     }
    }
   ]
@@ -8928,12 +8880,12 @@
      "net.swedz.tesseract.neoforge.lang.parser.parser.DecimalParser": {
       "actual": "net.swedz.tesseract.neoforge.lang.parser.parser.DecimalParser",
       "how": "declared",
-      "jar": "tesseract-api-neoforge-1.12.3-1.21.1.jar"
+      "jar": "tesseract-api-neoforge-1.11.12-1.21.1.jar"
      }
     },
     "i": 1,
     "jars": [
-     "tesseract-api-neoforge-1.12.3-1.21.1.jar"
+     "tesseract-api-neoforge-1.11.12-1.21.1.jar"
     ],
     "keys": {
      "ParsedDecimal value must be >= 0": "exact"
@@ -8988,57 +8940,65 @@
    {
     "classes": {
      "ovh.corail.tombstone.gui.ScreenConfig": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "ovh.corail.tombstone.gui.ScreenConfig",
+      "how": "declared",
+      "jar": "tombstone-neoforge-1.21.1-9.4.9.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "tombstone-neoforge-1.21.1-9.4.9.jar"
+    ],
     "keys": {
-     "Save": "missing"
+     "Save": "exact"
     }
    },
    {
     "classes": {
      "ovh.corail.tombstone.gui.ScreenReadableScroll": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "ovh.corail.tombstone.gui.ScreenReadableScroll",
+      "how": "declared",
+      "jar": "tombstone-neoforge-1.21.1-9.4.9.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "tombstone-neoforge-1.21.1-9.4.9.jar"
+    ],
     "keys": {
-     "Readable Scroll": "missing"
+     "Readable Scroll": "exact"
     }
    },
    {
     "classes": {
      "ovh.corail.tombstone.item.ItemMagicScroll": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "ovh.corail.tombstone.item.ItemMagicScroll",
+      "how": "declared",
+      "jar": "tombstone-neoforge-1.21.1-9.4.9.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "tombstone-neoforge-1.21.1-9.4.9.jar"
+    ],
     "keys": {
-     "[effect added by %s]": "missing"
+     "[effect added by %s]": "exact"
     }
    },
    {
     "classes": {
      "ovh.corail.tombstone.registry.ModTabs": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "ovh.corail.tombstone.registry.ModTabs",
+      "how": "declared",
+      "jar": "tombstone-neoforge-1.21.1-9.4.9.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "tombstone-neoforge-1.21.1-9.4.9.jar"
+    ],
     "keys": {
-     "Corail Tombstone": "missing"
+     "Corail Tombstone": "exact"
     }
    }
   ]
@@ -9050,12 +9010,12 @@
      "net.xalcon.torchmaster.commands.CommandTorchmaster$SubCommands$3": {
       "actual": "net.xalcon.torchmaster.commands.CommandTorchmaster$SubCommands$3",
       "how": "declared",
-      "jar": "torchmaster-neoforge-1.21.1-21.1.9.jar"
+      "jar": "ToolBelt-1.21.1-2.2.9.jar"
      }
     },
     "i": 1,
     "jars": [
-     "torchmaster-neoforge-1.21.1-21.1.9.jar"
+     "ToolBelt-1.21.1-2.2.9.jar"
     ],
     "keys": {
      "Attempting village siege": "exact",
@@ -9167,12 +9127,12 @@
      "dev.satherov.utilityvest.client.screen.RadialMenuScreen": {
       "actual": "dev.satherov.utilityvest.client.screen.RadialMenuScreen",
       "how": "declared",
-      "jar": "utilityvest-1.3.0.jar"
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 1,
     "jars": [
-     "utilityvest-1.3.0.jar"
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
     ],
     "keys": {
      "Radial Menu": "exact"
@@ -9187,12 +9147,12 @@
      "net.blay09.mods.waystones.command.ModCommands": {
       "actual": "net.blay09.mods.waystones.command.ModCommands",
       "how": "declared",
-      "jar": "crafting_on_a_stick-1.21.0.4.jar"
+      "jar": "waystones-neoforge-1.21.1-21.1.32.jar"
      }
     },
     "i": 1,
     "jars": [
-     "crafting_on_a_stick-1.21.0.4.jar"
+     "waystones-neoforge-1.21.1-21.1.32.jar"
     ],
     "keys": {
      "Unknown waystone style: ": "substring"
@@ -9374,12 +9334,12 @@
      "dev.isxander.yacl3.gui.YACLScreen$CategoryTab": {
       "actual": "dev.isxander.yacl3.gui.YACLScreen$CategoryTab",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 1,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "Cancel": "exact",
@@ -9391,12 +9351,12 @@
      "dev.isxander.yacl3.gui.controllers.slider.DoubleSliderController": {
       "actual": "dev.isxander.yacl3.gui.controllers.slider.DoubleSliderController",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 2,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "`interval` must be more than 0": "exact",
@@ -9409,12 +9369,12 @@
      "dev.isxander.yacl3.gui.controllers.slider.FloatSliderController": {
       "actual": "dev.isxander.yacl3.gui.controllers.slider.FloatSliderController",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 3,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "`interval` must be more than 0": "exact",
@@ -9427,12 +9387,12 @@
      "dev.isxander.yacl3.gui.controllers.slider.IntegerSliderController": {
       "actual": "dev.isxander.yacl3.gui.controllers.slider.IntegerSliderController",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 4,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "`interval` must be more than 0": "exact",
@@ -9445,12 +9405,12 @@
      "dev.isxander.yacl3.gui.controllers.slider.LongSliderController": {
       "actual": "dev.isxander.yacl3.gui.controllers.slider.LongSliderController",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 5,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "`interval` must be more than 0": "exact",
@@ -9463,12 +9423,12 @@
      "dev.isxander.yacl3.gui.controllers.string.StringControllerElement": {
       "actual": "dev.isxander.yacl3.gui.controllers.string.StringControllerElement",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 6,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "Click to type...": "exact"
@@ -9479,12 +9439,12 @@
      "dev.isxander.yacl3.impl.LabelOptionImpl": {
       "actual": "dev.isxander.yacl3.impl.LabelOptionImpl",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 7,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "Label Option": "exact"
@@ -9495,12 +9455,12 @@
      "dev.isxander.yacl3.impl.LabelOptionImpl$BuilderImpl": {
       "actual": "dev.isxander.yacl3.impl.LabelOptionImpl$BuilderImpl",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 8,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "Cannot build label option without a state manager or lines": "exact",
@@ -9514,12 +9474,12 @@
      "dev.isxander.yacl3.impl.OptionImpl$BuilderImpl": {
       "actual": "dev.isxander.yacl3.impl.OptionImpl$BuilderImpl",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 9,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "Always synced state managers do not support option flags.": "exact",
@@ -9551,12 +9511,12 @@
      "dev.isxander.yacl3.impl.OptionImpl": {
       "actual": "dev.isxander.yacl3.impl.OptionImpl",
       "how": "declared",
-      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 10,
     "jars": [
-     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+     "mininggadgets-1.18.6.jar"
     ],
     "keys": {
      "Listener depth exceeded 10! Possible cyclic listener pattern: a listener triggered an event that triggered the initial event etc etc.": "exact",

@@ -56,7 +56,12 @@ def build_index(mods_dir):
             continue
         for n in names:
             by_path.setdefault(n, j)
-            by_simple[n.rsplit('/', 1)[-1][:-6]].append(n)
+            last = n.rsplit('/', 1)[-1][:-6]
+            by_simple[last].append(n)
+            # 内部类要同时按最内层名建索引：声明写的是 `….item.Builder`，
+            # 而它在新版里是 `….item.ItemDescription$Builder`，只按整段名查会漏。
+            if '$' in last:
+                by_simple[last.rsplit('$', 1)[-1]].append(n)
     return by_path, by_simple
 
 
@@ -87,9 +92,11 @@ def resolve(declared, keys, by_path, by_simple, cache):
     if p in by_path:
         jar, pool = pool_of(by_path, p, cache)
         return declared, jar, pool, 'declared'
-    simple = declared.split('.')[-1].split('$')[-1]
+    tail = declared.split('.')[-1]
+    cands = list(dict.fromkeys(by_simple.get(tail, []) +
+                               by_simple.get(tail.rsplit('$', 1)[-1], [])))
     best = None
-    for cand in by_simple.get(simple, []):
+    for cand in cands:
         jar, pool = pool_of(by_path, cand, cache)
         blob = '\n'.join(pool)
         hit = sum(1 for k in keys if k in blob)
