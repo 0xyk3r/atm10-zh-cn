@@ -1520,7 +1520,7 @@
   "securitycraft.configuration.vanilla_tool_block_breaking": "原版工具破坏方块",
   "securitycraft.configuration.vanilla_tool_block_breaking.tooltip": "是否应允许使用原版工具（斧、铲、锄等）来破坏安全工艺的方块，而不是使用通用方块移除器。若启用，此选项将禁用通用方块移除器。",
   "tooltip.securitycraft.component.success_chance": "成功率：%s",
-  "tooltip.securitycraft.component.success_chance.disabled": "禁用",
+  "tooltip.securitycraft.component.success_chance.disabled": "已禁用",
   "block.securitycraft.secure_trading_station": "安全交易站",
   "gui.securitycraft:blockPocketManager.cancel": "取消",
   "gui.securitycraft:blockPocketManager.confirm": "确认",

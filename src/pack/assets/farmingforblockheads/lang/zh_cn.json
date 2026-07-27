@@ -68,10 +68,10 @@
   "farmingforblockheads.configuration.treatMerchantsLikeBabies.tooltip": "若设为true，商人将在技术层面上被视为“幼年个体”。这可以修复一些利用商人死亡掉落物（例如：血液）来刷取资源的漏洞。",
   "farmingforblockheads.configuration.enabledOptionalPresets": "已启用的可选预设",
   "farmingforblockheads.configuration.enabledOptionalPresets.tooltip": "要启用的可选预设列表。",
-  "farmingforblockheads.configuration.disabledDefaultPresets": "禁用默认预设",
+  "farmingforblockheads.configuration.disabledDefaultPresets": "已禁用的默认预设",
   "farmingforblockheads.configuration.disabledDefaultPresets.tooltip": "要禁用的默认预设列表。",
-  "farmingforblockheads.configuration.excludedGroups": "黑名单模式组",
+  "farmingforblockheads.configuration.excludedGroups": "排除组",
   "farmingforblockheads.configuration.excludedGroups.tooltip": "要禁用的组列表。其优先级高于 includedGroups。例如，'selling.seeds' 将禁用市场中的所有种子。",
-  "farmingforblockheads.configuration.includedGroups": "白名单匹配组",
+  "farmingforblockheads.configuration.includedGroups": "包含组",
   "farmingforblockheads.configuration.includedGroups.tooltip": "要启用的组列表。'default' 是内置默认值的别名（selling.seeds、selling.saplings 和 selling.fertilizers.minecraft）。"
 }

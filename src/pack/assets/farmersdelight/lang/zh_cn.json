@@ -478,6 +478,6 @@
   "farmersdelight.configuration.enableComfortHealthOverlay.tooltip": "若启用，当玩家拥有舒适状态效果时，生命值条上方将叠加显示一层滚动效果。",
   "farmersdelight.configuration.enableFoodEffectTooltip": "食物状态效果提示框",
   "farmersdelight.configuration.enableFoodEffectTooltip.tooltip": "若启用，食物物品将在提示框中显示它们食用后授予的状态效果（若有）。此项同时应用于Minecraft与本模组中的食物。",
-  "tag.block.farmersdelight.cabinets.wooden": "木橱柜",
+  "tag.block.farmersdelight.cabinets.wooden": "木制柜子",
   "tag.block.farmersdelight.mineable.knife": "可用刀具挖掘"
 }

@@ -323,7 +323,7 @@
   "text.extended_industrialization.voltage_value_for_cost": "  - %s：%s，能耗%s",
   "text.extended_industrialization.waste_collector_help": "放置在动物下方时，会收集粪肥。",
   "text.extended_industrialization.windings_tesla_tower_tier": "使特斯拉塔以%3$s被动损耗在%2$s格范围内传输最多%1$s。",
-  "rei_categories.extended_industrialization.electric_brewery": "电动酿造机",
+  "rei_categories.extended_industrialization.electric_brewery": "电力酿造室",
   "rei_categories.extended_industrialization.steel_brewery": "发酵机",
   "text.extended_industrialization.tesla_lethal_coil_damages_players_no": "伤害玩家：否",
   "text.extended_industrialization.tesla_lethal_coil_damages_players_yes": "伤害玩家：是"

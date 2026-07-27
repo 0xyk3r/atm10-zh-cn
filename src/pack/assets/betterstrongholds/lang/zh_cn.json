@@ -3,7 +3,7 @@
   "Use /locate structure betterstrongholds:stronghold instead!": "请改用指令 /locate structure betterstrongholds:stronghold 来定位！",
   "text.autoconfig.betterstrongholds-fabric-1_21.title": "YUNG的更好的要塞",
   "text.autoconfig.betterstrongholds-fabric-1_21.option.betterStrongholds": "YUNG的更好的要塞",
-  "text.autoconfig.betterstrongholds-fabric-1_21.option.betterStrongholds.general": "通用设置",
+  "text.autoconfig.betterstrongholds-fabric-1_21.option.betterStrongholds.general": "常规设置",
   "text.autoconfig.betterstrongholds-fabric-1_21.option.betterStrongholds.general.@Tooltip": "常规设置。",
   "text.autoconfig.betterstrongholds-fabric-1_21.option.betterStrongholds.general.enableStructureRuin": "启用结构遗迹",
   "text.autoconfig.betterstrongholds-fabric-1_21.option.betterStrongholds.general.enableStructureRuin.@Tooltip[0]": "允许要塞被小型面条洞穴轻微破坏。",

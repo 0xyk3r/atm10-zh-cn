@@ -10,9 +10,9 @@
   "tooltip.oracle_index.back": "返回上一页。",
   "tooltip.oracle_index.close_screen": "关闭 Wiki。",
   "oracle_index.button.docs": "文档",
-  "oracle_index.button.content": "满意",
+  "oracle_index.button.content": "内容",
   "oracle_index.tooltip.docs": "按住 [ALT] 键以查看文档",
-  "oracle_index.callout.default": "音符",
+  "oracle_index.callout.default": "便条",
   "oracle_index.callout.info": "信息",
   "oracle_index.callout.warning": "警告",
   "oracle_index.callout.danger": "危险"

@@ -1,5 +1,5 @@
 {
-  "gui.neo_auth.button.auth": "认证类型",
+  "gui.neo_auth.button.auth": "身份验证",
   "gui.neo_auth.button.auth.tooltip": "你好，%s！",
   "gui.neo_auth.button.relogin": "重新登录",
   "gui.neo_auth.error.generic": "出了点问题！请返回并重试。",
@@ -40,7 +40,7 @@
   "neo_auth.configuration.clientId": "OAuth2 客户端标识",
   "neo_auth.configuration.tokenUrl": "OAuth2 访问令牌地址",
   "neo_auth.configuration.xboxAuthUrl": "Xbox 身份验证地址",
-  "neo_auth.configuration.prompt": "交互提示启用",
+  "neo_auth.configuration.prompt": "交互提示",
   "neo_auth.configuration.mcAuthUrl": "Minecraft 身份验证地址",
   "neo_auth.configuration.port": "OAuth2 回调地址端口",
   "neo_auth.configuration.mcProfileUrl": "Minecraft 个人资料地址"

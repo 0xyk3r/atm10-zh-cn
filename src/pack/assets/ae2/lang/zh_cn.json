@@ -1016,8 +1016,8 @@
   "waila.ae2.Stored": "已存储：%s / %s",
   "waila.ae2.Suppressed": "已停止",
   "waila.ae2.Unlocked": "未锁定  ",
-  "dimension.ae2.spatial_storage": "封闭空间",
-  "gui.ae2.Resume": "播放",
+  "dimension.ae2.spatial_storage": "空间存储",
+  "gui.ae2.Resume": "继续",
   "gui.ae2.SearchTooltipToolTips": "使用 $ 在工具提示中搜索 ($looting)",
   "gui.ae2.Suspend": "暂停"
 }

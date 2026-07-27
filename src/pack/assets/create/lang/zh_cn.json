@@ -3628,7 +3628,7 @@
   "create.gui.stock_keeper.jei_sync.sync_from_stock_keeper": "从库存守护者同步",
   "create.gui.stock_keeper.jei_sync.sync_from_stock_keeper.description": "库存守护者中的搜索内容会同步给配方查看器",
   "create.keyinfo.alt_modifier": "Alt修饰符",
-  "create.keyinfo.ctrl_modifier": "Ctrl + 强化",
+  "create.keyinfo.ctrl_modifier": "Ctrl修饰符",
   "create.keyinfo.shift_modifier": "Shift修饰符",
   "tag.item.c.foods.dough.wheat": "小麦面团",
   "create.schematic.tool.flip.description.2": "",

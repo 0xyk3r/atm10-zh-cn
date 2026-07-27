@@ -23,7 +23,7 @@
   "tooltip.utilityvest.vest.hotbar": "通过%s+数字键来设置过滤项。通过%s+数字键来加载过滤项",
   "tooltip.utilityvest.vest.inventory": "按下%s来打开物品栏菜单",
   "tooltip.utilityvest.vest.restock": "按下%s把匹配过滤项的物品放入胸挂物品栏",
-  "container.utilityvest.tool_vest": "工具实用胸挂",
+  "container.utilityvest.tool_vest": "工具背心",
   "input.utilityvest.wheel.down": "向下滚动",
   "input.utilityvest.wheel.up": "向上滚动",
   "itemGroup.utilityvest": "实用胸挂",

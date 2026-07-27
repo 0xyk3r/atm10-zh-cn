@@ -13,6 +13,6 @@
   "tooltip.cucumber.not_yet_implemented": "尚未实现",
   "message.cucumber.filled_energy": "这个 %s 已经取走了你的能量！",
   "message.cucumber.filled_energy_error": "这个 %s 无法取走你的能量.",
-  "subtitle.cucumber.watering_can": "级精华洒水壶",
+  "subtitle.cucumber.watering_can": "洒水壶",
   "tooltip.cucumber.data_components": "数据组件："
 }

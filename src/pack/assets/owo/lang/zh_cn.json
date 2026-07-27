@@ -16,7 +16,7 @@
     "text": "Shift点击以选择多个",
     "color": "gray"
   },
-  "text.owo.configure_hot_reload.title": "配置高热值重",
+  "text.owo.configure_hot_reload.title": "配置热重载",
   "text.owo.configure_hot_reload.choose_file": "选择文件",
   "text.owo.configure_hot_reload.save": "保存",
   "text.owo.configure_hot_reload.model": [
@@ -41,10 +41,10 @@
     }
   ],
   "text.owo.config.search": "搜索…",
-  "text.owo.config.search.matches": "%d / %d",
+  "text.owo.config.search.matches": "%d of %d",
   "text.owo.config.search.no_matches": "无匹配项",
   "text.owo.config.must_restart": "你所做的部分更改需要重启后才能应用",
-  "text.owo.config.button.exit_minecraft": "退出Minecraft",
+  "text.owo.config.button.exit_minecraft": "退出 Minecraft",
   "text.owo.config.button.ignore_restart": "稍后重启",
   "text.owo.config.button.range.edit_as_text": "以文本编辑",
   "text.owo.config.button.range.edit_with_slider": "使用滑动条编辑",
@@ -68,7 +68,7 @@
       "color": "gray"
     }
   ],
-  "text.owo.config.button.reload": "装弹声",
+  "text.owo.config.button.reload": "重载",
   "text.owo.config.button.done": "完成",
   "text.owo.config.sections_tooltip": "分区",
   "text.owo.config.sections": {

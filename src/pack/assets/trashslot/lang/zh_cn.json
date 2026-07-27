@@ -8,7 +8,7 @@
   "trashslot.configuration.title": "垃圾桶",
   "trashslot.configuration.instantDeletion": "立刻删除",
   "key.trashslot.toggle_lock": "锁定/解锁垃圾槽",
-  "key.trashslot.delete_all": "删除所有物品/类型",
+  "key.trashslot.delete_all": "删除所有同类型的物品",
   "trashslot.configuration.instantDeletion.tooltip": "这会使删除槽立即删除物品，类似于创造模式。",
   "trashslot.configuration.enableDeleteKeysInCreative": "创造模式下启用删除快捷键",
   "trashslot.configuration.enableDeleteKeysInCreative.tooltip": "如果你希望删除快捷键在创造模式中也能生效，请设为 true。注意：在创造模式中，物品将被永久删除，无论 instantDeletion 设置为何！",

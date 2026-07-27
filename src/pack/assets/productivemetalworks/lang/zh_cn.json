@@ -375,7 +375,7 @@
   "death.attack.productivemetalworks.foundry_damage.player.6": "%2$s眼睁睁看着%1$s在熔铸炉中被嫩煎",
   "death.attack.productivemetalworks.foundry_damage.player.7": "%2$s 和 %1$s 了结了一桩恩怨",
   "death.attack.productivemetalworks.foundry_damage.player.8": "%2$s把%1$s送进了烤备件深渊",
-  "productivemetalworks.devices.foundry_controller": "铸造器",
+  "productivemetalworks.devices.foundry_controller": "铸造台",
   "productivemetalworks.information.upgrade.upgrade_stability.foundry_controller": "禁用熔铸炉中的流体合金。",
   "productivemetalworks.information.upgrade.upgrade_time.foundry_controller": "加快熔炼和合金化速度。\n   可安装多个升级卡。",
   "productivemetalworks.information.upgrade.upgrade_time_2.foundry_controller": "它比另一个好两倍。"

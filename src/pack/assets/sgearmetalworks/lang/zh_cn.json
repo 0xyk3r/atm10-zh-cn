@@ -116,8 +116,8 @@
   "tooltip.sgearmetalworks.blueprint": "所有金属和宝石的工具部件需要使用Productive Metalworks模组的熔铸炉进行铸造。",
   "trait.silentgear.sting_resist": "刺蛰抗性",
   "trait.silentgear.sting_resist.desc": "不会被蜜蜂蛰伤",
-  "block.sgearmetalworks.molten_aquamarine": "熔融海蓝色",
-  "fluid_type.sgearmetalworks.molten_aquamarine": "熔融海蓝色",
+  "block.sgearmetalworks.molten_aquamarine": "熔融海蓝宝石",
+  "fluid_type.sgearmetalworks.molten_aquamarine": "熔融海蓝宝石",
   "block.sgearmetalworks.molten_garnet": "熔融石榴石",
   "fluid_type.sgearmetalworks.molten_garnet": "熔融石榴石",
   "block.sgearmetalworks.molten_opal": "熔融蛋白石",
@@ -126,9 +126,9 @@
   "fluid_type.sgearmetalworks.molten_pearl": "熔融珍珠",
   "block.sgearmetalworks.molten_tanzanite": "熔融坦桑石",
   "fluid_type.sgearmetalworks.molten_tanzanite": "熔融坦桑石",
-  "item.sgearmetalworks.molten_aquamarine_bucket": "熔融海蓝色",
-  "item.sgearmetalworks.molten_garnet_bucket": "熔融石榴石",
-  "item.sgearmetalworks.molten_opal_bucket": "熔融蛋白石",
-  "item.sgearmetalworks.molten_pearl_bucket": "熔融珍珠",
-  "item.sgearmetalworks.molten_tanzanite_bucket": "熔融坦桑石"
+  "item.sgearmetalworks.molten_aquamarine_bucket": "熔融海蓝宝石桶",
+  "item.sgearmetalworks.molten_garnet_bucket": "熔融石榴石桶",
+  "item.sgearmetalworks.molten_opal_bucket": "熔融蛋白石桶",
+  "item.sgearmetalworks.molten_pearl_bucket": "熔融珍珠桶",
+  "item.sgearmetalworks.molten_tanzanite_bucket": "熔融坦桑石桶"
 }

@@ -293,8 +293,8 @@
   "hostilenetworks.gui.mode.inference.desc2": "但模型不会获得数据",
   "hostilenetworks.gui.mode.training.desc": "模拟会增加模型数据，",
   "hostilenetworks.gui.mode.training.desc2": "但不会有任何产出",
-  "hostilenetworks.gui.mode.power": "能量消耗：%s：%s%%",
-  "hostilenetworks.gui.mode.speed": "模拟速度：%：%s%%",
+  "hostilenetworks.gui.mode.power": "能量消耗：%s%%",
+  "hostilenetworks.gui.mode.speed": "模拟速度：%s%%",
   "hostilenetworks.fail.cannot_train": "无法开始模拟\n模型已无法继续训练",
   "hostilenetworks.fail.buffering": "模型产出正在缓冲"
 }

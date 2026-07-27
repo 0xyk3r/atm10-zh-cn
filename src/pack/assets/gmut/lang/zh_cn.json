@@ -7,7 +7,7 @@
   "module.gmut.stop_immediately": "无重力惯性",
   "module.gmut.vertical_speed": "垂直速度修改",
   "constants.gmut.key_category": "通用机械 - 重力调节附加单元",
-  "constants.gmut.mod_name": "微重力操纵",
-  "module.gmut.enabled": "启用",
+  "constants.gmut.mod_name": "重力调节附加单元",
+  "module.gmut.enabled": "已启用",
   "module.gmut.mute_modulating_sound": "屏蔽调制音效"
 }

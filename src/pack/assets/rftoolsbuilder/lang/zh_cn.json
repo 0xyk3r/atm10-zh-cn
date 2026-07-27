@@ -93,7 +93,7 @@
   "message.rftoolsbuilder.shape_card.scan": "扫描ID：",
   "block.rftoolsbuilder.composer": "构建器",
   "block.rftoolsbuilder.projector": "投影仪",
-  "block.rftoolsbuilder.scanner": "扫描",
+  "block.rftoolsbuilder.scanner": "模式扫描机",
   "message.rftoolsbuilder.composer.header": "这台机器能将多张塑形卡片合成为一张组合卡片，并支持对每个子形状执行旋转、翻转及布尔运算",
   "message.rftoolsbuilder.composer.gold": "灌注加成：降低能量消耗"
 }

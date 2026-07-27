@@ -85,11 +85,11 @@
   "tooltip.pylons.potency_capped": "等级上限：%s",
   "block.pylons.protection_pylon": "保护塔",
   "gui.pylons.protectedMobsAndBlocks": "添加要保护的生物或方块：",
-  "item.pylons.block_filter": "块过滤器",
+  "item.pylons.block_filter": "方块过滤器",
   "pylons.int.jei.category.protection_pylon": "防止晶塔所有者在所选区块范围（1x1 到 5x5 区块）内破坏方块或击杀生物。\n可添加生物过滤器和方块过滤器，以指定要保护的生物和方块。\n\n可通过红石自动切换。",
   "tooltip.pylons.effect_banned": "效果已被标签禁用。",
   "tooltip.pylons.no_block": "右击一个方块以选中它。",
-  "tooltip.pylons.protection": "在保护塔中使用。",
+  "tooltip.pylons.protection": "用于保护塔。",
   "tooltip.pylons.protection1": "防止你意外地",
   "tooltip.pylons.protection2": "破坏方块或击杀生物",
   "tooltip.pylons.protection3": "基于已配置的筛选器。"

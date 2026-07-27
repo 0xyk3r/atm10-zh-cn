@@ -1,7 +1,7 @@
 {
   "block.treetap.tap": "水龙头",
-  "block.treetap.sap_collector": "树汁收集",
-  "block.treetap.wooden_sap_collector": "树汁收集",
+  "block.treetap.sap_collector": "树液收集器",
+  "block.treetap.wooden_sap_collector": "树液收集器",
   "item.treetap.tap.modifier": "速度修正：%s",
   "jei.treetap.tap_extract": "树脂采集",
   "jei.treetap.life_cycle.months": "%s",

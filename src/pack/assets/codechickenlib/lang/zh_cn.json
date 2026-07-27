@@ -9,7 +9,7 @@
   "ccl.commands.killall.success": "已杀死 %s 个实体。",
   "ccl.commands.killall.success.line": "已杀死 %s",
   "ccl.energy_bar.capacity": "容量:",
-  "ccl.energy_bar.energy_storage": "能量储量",
+  "ccl.energy_bar.energy_storage": "能量存储",
   "ccl.energy_bar.rf": "RF",
   "ccl.energy_bar.stored": "已储存：",
   "ccl.fluid_tank.capacity": "容量:",

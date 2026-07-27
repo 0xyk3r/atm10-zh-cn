@@ -88,7 +88,7 @@
   "patchouli.gui.lexicon.button.history": "浏览历史",
   "patchouli.gui.lexicon.button.mark_all_read": "全部标记为已读",
   "patchouli.gui.lexicon.button.mark_category_read": "将此类别标记为已读",
-  "item.patchouli.guide_book": "指南书",
+  "item.patchouli.guide_book": "指南",
   "patchouli.gui.lexicon.button.toggle_mock_header": "切换模拟页头",
   "patchouli.networking.open_book.failed": "打开书 %s 失败",
   "patchouli.networking.reload_contents.failed": "重新加载内容 %S 失败"
