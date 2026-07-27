@@ -131,7 +131,7 @@ def scan_class(b):
     for start, ln in members():                 # methods
         clen = struct.unpack_from('>I', b, start + 4)[0]
         code = b[start + 8:start + 8 + clen]
-        last_str = None
+        pending = []          # 自上一个 `new KeyMapping` 之后入栈的字符串
         i = 0
         while i < len(code):
             op = code[i]
@@ -141,11 +141,25 @@ def scan_class(b):
                 if e and e[0] == 8:              # CONSTANT_String
                     s = utf(pool, e[1])
                     if s is not None:
-                        last_str = s
+                        pending.append(s)
+            elif op == 0xbb:                     # new
+                idx = struct.unpack_from('>H', code, i + 1)[0]
+                e = pool[idx] if idx < len(pool) else None
+                if e and e[0] == 7 and (utf(pool, e[1]) or '').endswith('KeyMapping'):
+                    pending = []                 # 新的构造开始，之前的串与本次无关
             elif op == 0xb7:                     # invokespecial
                 idx = struct.unpack_from('>H', code, i + 1)[0]
-                if idx in targets and last_str is not None:
-                    out.append(last_str)
+                if idx in targets and pending:
+                    # 构造器形态都是 (name, …, category)：第一个串是**注册名**，
+                    # 最后一个是**分类**。名字被改会让 options.txt 里存的
+                    # `key_<name>` 对不上 → 该键位静默回默认值。
+                    #
+                    # 但只有收到 **≥2 个**常量时 pending[0] 才真是 name：很多模组的
+                    # name 来自枚举字段或方法返回值，根本不是 ldc 常量，这时 pending
+                    # 里只有分类那一个串——若不判长度就会把分类误报成注册名
+                    # （实测 Create 的 AllKeys、Tombstone 的 ClientModEvents 都是这样）。
+                    out.append((pending[0] if len(pending) >= 2 else None, pending[-1]))
+                    pending = []
             elif op == 0xc4:                     # wide
                 i += 4 if code[i + 1] != 0x84 else 6
                 continue
@@ -166,6 +180,7 @@ def scan_class(b):
 
 def main(mods_dir, out_path=None):
     cats = {}
+    names = {}
     fails = []
     for jar in sorted(Path(mods_dir).glob('*.jar')):
         try:
@@ -176,22 +191,25 @@ def main(mods_dir, out_path=None):
             if not n.endswith('.class'):
                 continue
             try:
-                for c in scan_class(z.read(n)):
-                    cats.setdefault(c, set()).add(jar.name)
+                for name, cat in scan_class(z.read(n)):
+                    cats.setdefault(cat, set()).add(jar.name)
+                    if name is not None:
+                        names.setdefault(name, set()).add(jar.name)
             except Exception as e:
                 # 吞掉解析异常的话，「一个都没扫到」和「全都解析失败」长得一模一样
                 fails.append('%s!%s: %r' % (jar.name, n, e))
     keys = sorted(c for c in cats if c.startswith('key.'))
     lits = sorted(c for c in cats if not c.startswith('key.'))
-    print('按键分类共 %d 个：翻译键 %d、硬编码字面量 %d'
-          % (len(cats), len(keys), len(lits)))
+    print('按键分类共 %d 个（翻译键 %d、硬编码字面量 %d）；按键**注册名** %d 个'
+          % (len(cats), len(keys), len(lits), len(names)))
     if fails:
         print('⚠️ %d 个 class 解析失败（前 3 条）:' % len(fails))
         for f in fails[:3]:
             print('   ', f)
     if out_path:
         Path(out_path).write_text(json.dumps(
-            {'keys': keys, 'literals': {c: sorted(cats[c]) for c in lits}},
+            {'keys': keys, 'literals': {c: sorted(cats[c]) for c in lits},
+             'names': {n: sorted(v) for n, v in names.items()}},
             ensure_ascii=False, indent=1), encoding='utf-8')
         print('已写出 %s' % out_path)
     return keys, lits
