@@ -27,17 +27,29 @@ MC_VERSIONS="${2:-$(ls -d versions/[0-9]* 2>/dev/null | xargs -n1 basename | tr 
 CBASE="atm10-zh_cn-client"
 SBASE="atm10-zh_cn-server"
 
-python3 scripts/check.py
-
 # 图片产物不入 git（见 .gitignore），构建前必须已经生成过，否则会打出一个
 # 缺 200 张横幅的空壳包而毫无提示。
 BANNERS=$(find "resourcepacks/ATM10汉化包/assets/atm/textures/questpics" -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
 BUTTONS=$(find config/fancymenu/assets -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
-if [ "${BANNERS:-0}" -lt 200 ] || [ "${BUTTONS:-0}" -lt 14 ]; then
-  echo "❌ 生成物不全（横幅 ${BANNERS}/200，按钮 ${BUTTONS}/14）"
+MISSING=""
+[ "${BANNERS:-0}" -ge 200 ] || MISSING="$MISSING 横幅(${BANNERS}/200)"
+[ "${BUTTONS:-0}" -ge 14 ]  || MISSING="$MISSING 按钮(${BUTTONS}/14)"
+for f in \
+  "resourcepacks/ATM10汉化包/assets/hanhua_trophies/lang/zh_cn.json" \
+  "resourcepacks/ATM10汉化包/assets/hanhua_wood_names/lang/zh_cn.json" \
+  "kubejs/client_scripts/pb_hanhua_tooltip.js" \
+  "kubejs/server_scripts/pb_hanhua_cage_migrate.js" \
+  "scripts/upstream_format_en_us.json"; do
+  [ -f "$f" ] || MISSING="$MISSING $(basename "$f")"
+done
+if [ -n "$MISSING" ]; then
+  echo "❌ 生成物不全：$MISSING"
   echo "   先跑: ./scripts/fetch_fonts.sh && ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh"
   exit 1
 fi
+
+
+python3 scripts/check.py
 
 build_one() {
 MC="$1"

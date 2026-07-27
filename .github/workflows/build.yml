@@ -52,27 +52,18 @@ jobs:
           echo "list=$IN" >> "$GITHUB_OUTPUT"
           echo "将构建: $IN"
 
-      - name: 下整合包并生成图片
+      - name: 下整合包（overrides + 全部 mod jar）
         run: |
           set -euo pipefail
-          # 图片对三个版本是同一套（资源包内容跨版本通用），用最新那版的源图生成一次即可。
+          # 产物对三个版本是同一套（资源包 lang 按命名空间索引，跨版本通用），
+          # 用最新那版的源生成一次即可；版本差异全在 versions/<版本>/ 覆盖层里。
           NEWEST=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
-          FID=$(python3 - "$NEWEST" <<'PY'
-          import json, sys, urllib.request
-          want = sys.argv[1]
-          d = json.load(urllib.request.urlopen(
-              'https://www.curseforge.com/api/v1/mods/925200/files?pageSize=50'))
-          for f in d['data']:
-              if f['displayName'].endswith('-' + want):
-                  print(f['id']); break
-          else:
-              sys.exit('❌ CurseForge 上找不到 ATM10 %s' % want)
-          PY
-          )
-          curl -fsSL -o pack.zip "https://www.curseforge.com/api/v1/mods/925200/files/$FID/download"
-          unzip -q pack.zip 'overrides/*' -d pack
-          export ATM_PACK_ROOT="$PWD/pack/overrides"
-          ./scripts/generate_all.sh
+          echo "以 ATM10 $NEWEST 为生成基准"
+          python3 scripts/fetch_pack.py "$NEWEST" pack
+          echo "ATM_PACK_ROOT=$PWD/pack" >> "$GITHUB_ENV"
+
+      - name: 生成全部汉化产物
+        run: ./scripts/generate_all.sh
 
       - name: 打包全部版本
         run: ./scripts/build_dist.sh "${{ github.event.inputs.patch_version || 'dev' }}" "${{ steps.t.outputs.list }}"
