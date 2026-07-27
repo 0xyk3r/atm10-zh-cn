@@ -282,6 +282,7 @@ ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh   # 摊 src/ + 重建�
 | `gen_upstream_patches.py` | 整合包自带文件被改动过没有——原文找不到就构建失败 |
 | `gen_books.py` | 导览书译文能否落到上游那份 JSON 上——命中率跌破 90% 就构建失败 |
 | `gen_vaultpatcher.py` | 模块头部写的 jar 名是否是**该版**真实存在的那个 |
+| `gen_vanilla_assets.py` | 原版字体 provider 列表与 `pack_format` 跟不跟得上原版 |
 | `check_vaultpatcher_strings.py` | 硬编码文本的 key 是否还在目标模组的字节码里（失配是**静默**的） |
 | `check_en_drift.py` | 英文底本变了而译文没跟着变——上游改文案必然被发现 |
 | `verify_dist.py` | 打好的 zip 里每一类内容够不够量——空壳包发不出去 |

@@ -75,7 +75,21 @@ def main(ver, out_dir):
             json.dumps([ordered] + doc[1:], ensure_ascii=False, indent=2) + '\n',
             encoding='utf-8')
         n += 1
-    print('VaultPatcher 模块：%d 个（ATM10 %s 的 jar 名现填）' % (n, ver))
+    # VaultPatcher 主配置里的 modules / mods 就是模块清单本身，可推导 → 现填。
+    # 手维护的那份此刻已经漏了 6 个（我们自己加的 *_zh 模块全没进去）：
+    # `load_all_modules` 为真时无害，一旦有人关掉它，这 6 个模块就静默失效。
+    cfg_src = SRC / 'config' / 'vaultpatcher_asm' / 'config.json'
+    cfg = json.loads(cfg_src.read_text(encoding='utf-8'))
+    names = sorted(p.stem for p in MODULES.glob('*.json'))
+    cfg_out = {'modules': names, 'mods': names}
+    cfg_out.update(cfg)
+    cfg_path = Path(out_dir) / 'config' / 'vaultpatcher_asm' / 'config.json'
+    cfg_path.parent.mkdir(parents=True, exist_ok=True)
+    cfg_path.write_text(json.dumps(cfg_out, ensure_ascii=False, indent=2) + '\n',
+                        encoding='utf-8')
+
+    print('VaultPatcher 模块：%d 个（ATM10 %s 的 jar 名现填），主配置清单 %d 条'
+          % (n, ver, len(names)))
     if nojar:
         print('  该版本里找不到目标类的 %d 个：%s' % (len(nojar), '、'.join(nojar)))
 

@@ -38,6 +38,9 @@ FORBIDDEN_IN_SRC = [
     'kubejs/client_scripts/pb_hanhua_tooltip.js',
     'kubejs/server_scripts/pb_hanhua_cage_migrate.js',
     'config/fancymenu/assets',
+    'pack/assets/minecraft/font/default.json',
+    'pack/assets/minecraft/font/uniform.json',
+    'pack/pack.mcmeta',
 ]
 
 
