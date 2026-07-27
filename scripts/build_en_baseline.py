@@ -32,6 +32,7 @@ VaultPatcher 不在这里——它的底本是字节码里的字符串，由
     python3 scripts/build_en_baseline.py 7.2 <该版本mods目录> <该版本overrides目录>
 """
 import hashlib
+import io
 import json
 import re
 import sys
@@ -45,25 +46,51 @@ PACK = SRC / 'pack'
 QDELTA = SRC / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
 
 
+def lang_in(z, out):
+    """把一个 zip 里的全部 assets/<ns>/lang/en_us.json 并进 out。"""
+    for n in z.namelist():
+        m = re.fullmatch(r'assets/([^/]+)/lang/en_us\.json', n)
+        if not m:
+            continue
+        try:
+            d = json.loads(z.read(n).decode('utf-8-sig'))
+        except Exception:
+            continue
+        if isinstance(d, dict):
+            out.setdefault(m.group(1), {}).update(
+                {k: v for k, v in d.items() if isinstance(v, str)})
+
+
 def mod_en(mods_dir):
-    """该版本全部模组的 en_us：{命名空间: {键: 英文}}"""
-    out = {}
+    """该版本全部模组的 en_us：{命名空间: {键: 英文}}
+
+    **必须下钻 `META-INF/jarjar/`**。库模组多半是 jar-in-jar 塞在别人肚子里发的，
+    `mods/` 下没有它们自己的文件，但游戏照样加载、照样注册翻译键。只扫顶层 jar
+    会把这些命名空间判成「整合包里没有」——曾经据此裁掉过 6 个真实存在的命名空间
+    共 104 条译文（additionalentityattributes / cumulus_menus / nitrogen_internals /
+    nuggets / olympus / spectrelib，分别住在 allthearcanistgear、aether、ars_nouveau、
+    tempad、comforts 里）。底本是一堆判断的依据，它瞎一块，下游就跟着错一片。
+
+    顶层先扫、JiJ 后补：同名命名空间以顶层那份为准（顶层 jar 一定被加载，
+    嵌套的那份可能因版本去重被换掉）。
+    """
+    out, jij = {}, {}
     for j in sorted(Path(mods_dir).glob('*.jar')):
         try:
             z = zipfile.ZipFile(j)
         except Exception:
             continue
+        lang_in(z, out)
         for n in z.namelist():
-            m = re.fullmatch(r'assets/([^/]+)/lang/en_us\.json', n)
-            if not m:
+            if not (n.startswith('META-INF/jarjar/') and n.endswith('.jar')):
                 continue
             try:
-                d = json.loads(z.read(n).decode('utf-8-sig'))
+                lang_in(zipfile.ZipFile(io.BytesIO(z.read(n))), jij)
             except Exception:
                 continue
-            if isinstance(d, dict):
-                out.setdefault(m.group(1), {}).update(
-                    {k: v for k, v in d.items() if isinstance(v, str)})
+    for ns, d in jij.items():
+        for k, v in d.items():
+            out.setdefault(ns, {}).setdefault(k, v)
     return out
 
 

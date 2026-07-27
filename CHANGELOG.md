@@ -7,6 +7,38 @@
 > 该版真实 jar 的 **sha256 与不可变的 CurseForge fileID**、VaultPatcher 每条 key 在该版
 > 的存在状态、任务书英文底本，逐版核验，不共用近似值。
 
+### 捞回 104 条被误删的译文：英文底本看不见 jar-in-jar
+
+上一次「清掉底本带来的死重」裁掉 238 个命名空间，判据是扫三版 jar 的
+`assets/<ns>/` 与 modId。这个判据有个盲区：**库模组多半是 jar-in-jar 塞在别人
+肚子里发的**，`mods/` 下没有自己的文件，但游戏照样加载、照样注册翻译键。
+
+结果是 6 个真实存在的命名空间被当成「整合包里没有」删掉，共 104 条：
+
+| 命名空间 | 条数 | 住在哪 |
+|---|---|---|
+| `additionalentityattributes` | 38 | `allthearcanistgear` |
+| `nuggets` | 25 | `ars_nouveau` |
+| `cumulus_menus` | 23 | `aether` |
+| `olympus` | 11 | `tempad` |
+| `nitrogen_internals` | 6 | `aether` |
+| `spectrelib` | 1 | `comforts` |
+
+宿主 jar 逐个按 sha256 命中 `versions/db/7.2/jars.json`，确认是官方 7.2 自带。
+丢的是玩家看得见的东西：属性名（`高度`、`碰撞箱缩放`）、Ars Nouveau 管理工具
+整套界面、以太主菜单配置项、Tempad 的 `返回` / `取消`。
+
+顺带订正判据本身。裁剪当时问的是「这个命名空间在不在」，但 **Minecraft 把全部
+`assets/*/lang/zh_cn.json` 合并成一张全局表，文件搁在哪个命名空间并不限制它能
+定义哪些键**。该问的是「这条键会不会被查到」。按键重核：删掉的 34,842 条里，
+7.2 真会查的正好 104 条，其余 34,738 条确实永远加载不到——那部分裁得对。
+
+**病因修在 `build_en_baseline.py`**：`mod_en()` 现在下钻 `META-INF/jarjar/`，
+顶层先扫、嵌套后补（同名以顶层为准，顶层 jar 一定被加载）。抽出的命名空间从
+323 个增至 402 个，这 6 个的 en_us 条数与译文条数逐个吻合。底本是一堆判断的
+依据，它瞎一块，下游就跟着错一片。已生成的 `versions/db/*/lang_baseline_local.json`
+要重跑才会带上这 78 个此前看不见的命名空间。
+
 ### 常见问题增补：模组是中文、唯独原版是英文
 
 有玩家报「原版方块全变成英文了，整合包的都是中文」。日志里是这一句：
