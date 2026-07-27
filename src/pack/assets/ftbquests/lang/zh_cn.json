@@ -129,7 +129,7 @@
   "ftbquests.loot.entitydrops": "实体掉落",
   "ftbquests.loot.entitytype.passive": "被动",
   "ftbquests.loot.entitytype.monster": "敌对",
-  "ftbquests.loot.entitytype.boss": "首领",
+  "ftbquests.loot.entitytype.boss": "Boss",
   "ftbquests.chapter": "章节",
   "ftbquests.chapters": "章节",
   "ftbquests.chapter.completed": "章节已完成！",

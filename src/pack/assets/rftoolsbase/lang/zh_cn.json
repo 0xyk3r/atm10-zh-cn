@@ -23,7 +23,7 @@
   "block.rftoolsbase.dimensionalshard_nether": "维度碎片矿石",
   "block.rftoolsbase.dimensionalshard_end": "维度碎片矿石",
   "block.rftoolsbase.information_screen": "信息屏幕",
-  "_comment": "消息",
+  "_comment": "Messages",
   "itemGroup.rftoolsbase": "RF工具丨基础",
   "key.categories.rftools": "RF工具",
   "key.debugDumpNBTItem": "导出手持物品的NBT",
