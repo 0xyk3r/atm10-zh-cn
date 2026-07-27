@@ -7,18 +7,8 @@
     "sha256": "034b53b79aecabf7635f16937a3216e16a01eb97700919330189a5a35524d67f",
     "size": 200922,
     "license": "GPL-3.0",
-    "note": "字节码文本替换框架。替换表全在 vaultpatcher/modules/ 里，明文可查。"
-  },
-  "可选mods-拼音搜索/jecharacters.jar": {
-    "project": "just-enough-characters",
-    "version": "4.5.25",
-    "source": "curseforge",
-    "url": "https://www.curseforge.com/api/v1/mods/250702/files/8413478/download",
-    "sha256": "f0c26048284b53ff744e0158805493a8c44b2598e501e5e93befe0e15d1bd92d",
-    "size": 248440,
-    "license": "MIT",
-    "license_url": "https://raw.githubusercontent.com/Towdium/JustEnoughCharacters/master/LICENSE",
-    "license_sha256": "ffecc6412970742d137497aafeacf9241b3a394a839218e064c03cd3b3611186",
-    "note": "JEI 拼音搜索，可选装。MIT 要求再分发时附许可全文，所以许可正文也一并取下来随包放。"
+    "note": "字节码文本替换框架。替换表全在 vaultpatcher/modules/ 里，明文可查。",
+    "license_url": "https://www.gnu.org/licenses/gpl-3.0.txt",
+    "license_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
   }
 }

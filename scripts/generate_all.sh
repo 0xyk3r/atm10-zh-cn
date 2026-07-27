@@ -73,6 +73,11 @@ if [ "$HAVE_JARS" = 1 ]; then
   # 会撞上的有两种：模组自带的中文被原样带进包里；以及别的模组为同一本书提供的
   # zh_cn 恰好与我们的产物一致。两种都没有分发的必要——Patchouli 与 AE2 导览
   # 按文件回落到 en_us，缺那一页玩家看到的东西一模一样。列出来并剔除。
+  # 第三方许可清单：抄各家 jar 里 mods.toml 自己的 license 声明，
+  # 随带许可全文的一并抽出来放进 licenses/。不靠我复述，也不靠第三方网站。
+  echo "▶ 第三方许可清单"
+  python3 scripts/gen_licenses.py "$ATM_PACK_ROOT/mods" build/common
+
   echo "▶ 版权闸：剔除与已装模组逐字节相同的文件"
   PACK_DIR=$(python3 -c "import sys;sys.path.insert(0,'scripts');from paths import PACK;print(PACK)")
   python3 scripts/audit_upstream.py --mods "$ATM_PACK_ROOT/mods" --tree "$PACK_DIR" --drop

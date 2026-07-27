@@ -26,13 +26,15 @@ from paths import COMMON, PACK, PACK_NAME, ROOT, SRC
 # src 下的目录 → 出货树里的位置。
 # vaultpatcher/ 不在这里：模块头部要写该版本真实的 jar 文件名，
 # 由 gen_vaultpatcher.py 按 versions/db/<版本>/ 现填（见那个脚本的说明）。
-# mods/ 与 可选mods-拼音搜索/ 也不在：随包分发的 jar 一律不入库，
-# 由 fetch_mods.py 按 src/mods.lock.json 的 sha256 现取，
-# 许可证正文（MIT 要求随附）也由它一并取下来放在 jar 旁边。
+# mods/ 不在：VaultPatcher 那个 jar 由 fetch_mods.py 按 src/mods.lock.json
+# 的 sha256 现取，许可证正文也由它一并取下放在 jar 旁边。
 LAYOUT = [
     ('pack', 'resourcepacks/' + PACK_NAME),
     ('config', 'config'),
     ('kubejs', 'kubejs'),
+    # jar 与它的许可证正文放在一起进仓库、一起进包：MIT 的义务就是
+    # 再分发时附版权声明与许可全文，放在同一个目录里最不会散
+    ('可选mods-拼音搜索', '可选mods-拼音搜索'),
 ]
 
 # 这些路径是生成器的产物，绝不该出现在 src/ 里。出现了就说明有人把产物提交了。
