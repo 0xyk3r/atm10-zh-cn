@@ -1,0 +1,7 @@
+# 尚未实测。ATM10 7.0 的内置资源包顺序必须**真起一次实例**才知道
+# （ModularBees / Moonlight / Modern Industrialization 在各版之间都升过版，
+#  不能拿 7.2 的列表凑合）。
+#
+# 这个文件为空时，安装器在全新实例上**不会**伪造 resourcePacks 行，
+# 只写 lang:zh_cn，并提示玩家：先启动一次游戏让 Minecraft 自己生成完整列表，
+# 退出后再运行一次安装器——那一次会把汉化包挪到列表最后一位，一定正确。

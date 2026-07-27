@@ -148,7 +148,8 @@ clean_legacy_quest_lang() {
 # 游戏首次启动会把这 15 个内置包**全部插到我们后面**（实测汉化包落到第 3 位，
 # 被 mod_resources 和五百多个模组包压在底下，汉化基本不生效）。
 # 资源包是**后面的覆盖前面的**，我们必须排在最后一个。
-DEFAULT_PACKS='"modularbees:dynamic_assets","vanilla","mod_resources","add_xycraft_overrides_stone","add_xycraft_overrides_metal","add_xycraft_overrides_glass","moonlight:merged_pack","mod/towntalk:respack","mod/dyenamicsandfriends:compat_packs/productivemetalworks/","mod/dyenamicsandfriends:compat_packs/connectedglass/","mod/dyenamicsandfriends:compat_packs/luminax/","mod/dyenamicsandfriends:compat_packs/cookingforblockheads/","mod/dyenamicsandfriends:compat_packs/botanypots/","mod/dyenamicsandfriends:compat_packs/chromacarvings/","modern_industrialization/generated"'
+DEFAULT_PACKS='@@DEFAULT_PACKS@@'
+DEFAULT_PACKS_UNUSED='"modularbees:dynamic_assets","vanilla","mod_resources","add_xycraft_overrides_stone","add_xycraft_overrides_metal","add_xycraft_overrides_glass","moonlight:merged_pack","mod/towntalk:respack","mod/dyenamicsandfriends:compat_packs/productivemetalworks/","mod/dyenamicsandfriends:compat_packs/connectedglass/","mod/dyenamicsandfriends:compat_packs/luminax/","mod/dyenamicsandfriends:compat_packs/cookingforblockheads/","mod/dyenamicsandfriends:compat_packs/botanypots/","mod/dyenamicsandfriends:compat_packs/chromacarvings/","modern_industrialization/generated"'
 
 patch_options() {
   OPT="$TARGET/options.txt"
@@ -158,11 +159,19 @@ patch_options() {
   # （不要指望 config/defaultoptions —— ATM10 7.2 并没有装 DefaultOptions 模组，
   #   那个目录是历史遗留，写进去没有任何东西会读它。）
   if [ ! -f "$OPT" ]; then
-    printf 'lang:zh_cn\nresourcePacks:[%s,"%s"]\n' "$DEFAULT_PACKS" "$PACK_ENTRY" > "$OPT"
-    say "ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。"
-    say "   首次启动游戏时 Minecraft 会自动补齐其余设置。"
-    say "   💡 若首次进游戏后发现翻译没生效，退出游戏再跑一次本安装器即可——"
-    say "      那说明你的整合包比预期多了几个内置资源包，重跑会把汉化包重新挪到最后一位。"
+    if [ -n "$DEFAULT_PACKS" ]; then
+      printf 'lang:zh_cn\nresourcePacks:[%s,"%s"]\n' "$DEFAULT_PACKS" "$PACK_ENTRY" > "$OPT"
+      say "ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。"
+      say "   💡 若首次进游戏后发现翻译没生效，退出游戏再跑一次本安装器即可——"
+      say "      那说明你的整合包比预期多了几个内置资源包，重跑会把汉化包重新挪到最后一位。"
+    else
+      # 这一版的内置资源包顺序没实测过。**绝不伪造**——只写我们一个包的话，
+      # 游戏首次启动会把内置包全插到它后面，汉化包等于没启用（实测会掉到第 10/546 位）。
+      printf 'lang:zh_cn\n' > "$OPT"
+      say "ℹ️ 这个实例还没启动过（没有 options.txt），已写入中文语言。"
+      say "   ⚠️ 资源包顺序需要两步：**先启动一次游戏**让 Minecraft 生成完整的资源包列表，"
+      say "      退出游戏后**再运行一次本安装器**，它会把汉化包挪到列表最后一位（必须在最后才生效）。"
+    fi
     return
   fi
   cur="$(grep '^resourcePacks:' "$OPT" | head -1)"

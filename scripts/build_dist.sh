@@ -8,26 +8,66 @@
 # 包名与解压出的文件夹名一律用 ASCII —— Windows 上中文压缩包名/目录名在不同解压软件
 # 之间编码不一致，用户拿到手就是乱码，安装器再去找路径会找不到。
 # 资源包 zip 与服务端 jar 均不入 git，由本脚本从源码目录现场压缩。
-# 用法: ./scripts/build_dist.sh 7.2-release5
+#
+# 本包按**整合包版本族**发布：公共内容 + versions/<整合包版本>/ 的专属覆盖层，
+# 一个补丁版本可以同时产出 7.0 / 7.1 / 7.2 三个包。补丁自己的版本号与整合包版本解耦。
+#
+# 用法:
+#   ./scripts/build_dist.sh r12            # 出 versions/ 下声明过的全部整合包版本
+#   ./scripts/build_dist.sh r12 7.2        # 只出 7.2
+#   ./scripts/build_dist.sh r12 "7.1 7.2"  # 出指定几个
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-VERSION="${1:?用法: build_dist.sh <版本号, 如 7.2-release1>}"
-PACK_NAME="ATM10汉化包-7.2"
+VERSION="${1:?用法: build_dist.sh <补丁版本号，如 r12> [整合包版本，默认全部]}"
+# 目标整合包版本：没给就取 versions/ 下所有声明过的（**只认仓库里有的**，
+# 绝不去 CurseForge 现查——那样 ATM 一发新版 CI 就会自动构建一个没验证过的包）
+MC_VERSIONS="${2:-$(ls -d versions/[0-9]* 2>/dev/null | xargs -n1 basename | tr '\n' ' ')}"
+[ -n "${MC_VERSIONS// /}" ] || { echo "❌ versions/ 下没有任何整合包版本目录"; exit 1; }
 CBASE="atm10-zh_cn-client"
 SBASE="atm10-zh_cn-server"
 
 python3 scripts/check.py
 
+build_one() {
+MC="$1"
+# 资源包**内容**跨版本通用（lang 按命名空间索引，多余键不生效、缺的回退），
+# 所以源目录只有一份；只有产出的 zip 文件名带版本号，方便用户认。
+PACK_SRC="resourcepacks/ATM10汉化包-7.2"
+PACK_NAME="ATM10汉化包-${MC}"
+echo "───── 构建 整合包 ${MC} ─────"
+
 # ---------- 客户端包 ----------
 CSTAGE="dist/${CBASE}"
 rm -rf "$CSTAGE"
 mkdir -p "$CSTAGE/resourcepacks"
-python3 scripts/mkzip.py "${CSTAGE}/resourcepacks/${PACK_NAME}.zip" "resourcepacks/${PACK_NAME}"
+python3 scripts/mkzip.py "${CSTAGE}/resourcepacks/${PACK_NAME}.zip" "$PACK_SRC"
 cp -R config kubejs mods vaultpatcher 可选mods-拼音搜索 "$CSTAGE/"
+# 该版专属的任务书中文：文件名必须排在本包其余 zz_hanhua_* 之后才能覆盖它们
+# （ftbquestslangsplitter 按文件名字母序合并，后合并的覆盖先合并的）
+QOV="versions/${MC}/quest_overrides.snbt"
+if [ -f "$QOV" ]; then
+  cp "$QOV" "$CSTAGE/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_zzz_version_override.snbt"
+  echo "  已叠加 ${MC} 专属任务书覆盖（$(grep -c ': ' "$QOV") 条）"
+fi
 cp installer/install.sh installer/install.ps1 "installer/双击安装-Windows.bat" "$CSTAGE/"
 # ASCII 别名：万一中文名在用户的解压软件下还是乱码，起码还有一个认得出的入口
 cp "installer/双击安装-Windows.bat" "$CSTAGE/install-windows.bat"
+# 该版实测的默认资源包顺序（versions/<版本>/default_resource_packs.txt）。
+# 没实测过就注入空串，安装器会走两步流程而不是伪造一个列表。
+DP="$(grep -v '^#' "versions/${MC}/default_resource_packs.txt" 2>/dev/null | sed '/^[[:space:]]*$/d' \
+     | sed 's/.*/"&"/' | paste -sd, - || true)"
+# 安装器里写死的资源包文件名要跟着该版走
+for f in "$CSTAGE/install.sh" "$CSTAGE/install.ps1"; do
+  [ -f "$f" ] || continue
+  sed -i.bak "s/ATM10汉化包-7\.2\.zip/ATM10汉化包-${MC}.zip/g" "$f"
+  rm -f "$f.bak"
+  DP="$DP" python3 -c "
+import os, pathlib, sys
+p = pathlib.Path(sys.argv[1])
+p.write_text(p.read_text(encoding='utf-8').replace('@@DEFAULT_PACKS@@', os.environ['DP']), encoding='utf-8')
+" "$f"
+done
 cp README.md CHANGELOG.md LICENSE 致谢与技术说明.md "$CSTAGE/"
 printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' > "$CSTAGE/项目主页与反馈.url"
 chmod +x "$CSTAGE/install.sh"
@@ -51,6 +91,8 @@ done
 # 作物名汉化是纯客户端的。
 mkdir -p "$SSTAGE/config"
 cp -R config/ftbquests config/vaultpatcher_asm "$SSTAGE/config/"
+[ -f "versions/${MC}/quest_overrides.snbt" ] && cp "versions/${MC}/quest_overrides.snbt" \
+  "$SSTAGE/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_zzz_version_override.snbt"
 cp SERVER.md "$SSTAGE/README-服务端.md"
 cp LICENSE "$SSTAGE/"
 printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' > "$SSTAGE/项目主页与反馈.url"
@@ -59,10 +101,17 @@ printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' >
 find dist -name '.DS_Store' -delete
 # 用 mkzip.py 而不是系统 zip：Info-ZIP 不置 UTF-8 标志位，
 # Windows 自带解压会把中文名按 GBK 解成乱码（详见 scripts/mkzip.py）
-rm -f "dist/${CBASE}-v${VERSION}.zip" "dist/${SBASE}-v${VERSION}.zip"
-python3 scripts/mkzip.py "dist/${CBASE}-v${VERSION}.zip" "$CSTAGE" "${CBASE}"
-python3 scripts/mkzip.py "dist/${SBASE}-v${VERSION}.zip" "$SSTAGE" "${SBASE}"
-
-for f in "dist/${CBASE}-v${VERSION}.zip" "dist/${SBASE}-v${VERSION}.zip"; do
-  echo "已生成: $f ($(du -h "$f" | cut -f1))"
+CZIP="dist/${CBASE}-${VERSION}-atm${MC}.zip"
+SZIP="dist/${SBASE}-${VERSION}-atm${MC}.zip"
+rm -f "$CZIP" "$SZIP"
+python3 scripts/mkzip.py "$CZIP" "$CSTAGE" "${CBASE}"
+python3 scripts/mkzip.py "$SZIP" "$SSTAGE" "${SBASE}"
+for f in "$CZIP" "$SZIP"; do
+  echo "  已生成: $f ($(du -h "$f" | cut -f1))"
 done
+}
+
+for mc in $MC_VERSIONS; do build_one "$mc"; done
+echo
+echo "全部完成：$(ls dist/*-${VERSION}-atm*.zip | wc -l | tr -d " ") 个包"
+ls -1 dist/*-${VERSION}-atm*.zip
