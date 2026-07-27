@@ -243,10 +243,9 @@ All the Mods 10\          ← 实例根目录
 | 代码（`scripts/`、`installer/`、CI） | GPL-3.0-or-later · © 2026 星野夢華 |
 | 译文内容（`src/pack`、`src/config`、`src/kubejs`、`src/vaultpatcher`） | CC BY-NC-SA 4.0（署名—非商业—相同方式共享） |
 | 随包第三方 jar | 各自许可，按 sha256 现取、许可正文随包 |
-| **原始底本**（[BBSMC 汉化组](https://bbsmc.net/language/all-the-mods-10-cn)） | 项目页标注**保留所有权益 / 无许可证**；**尚未取得授权** —— 见 [LICENSE](LICENSE) 第三节 |
 
 以前这里写的是「整个仓库 GPL-3.0」外加一句「禁止商用」，那两句是打架的：
 GPL-3.0 第 7 条禁止分发时附加额外限制。
 
-致谢：**BBSMC 汉化**（原始底本，本包在其基础上大幅重译）· **All the Mods 团队**（整合包与任务书官方中文）·
+致谢：**BBSMC 汉化组**（早期参考）· **All the Mods 团队**（整合包与任务书官方中文）·
 各模组原作者与 CFPA 社区 · **Claude Fable 5**（fable5 老师，我还记得你）。
