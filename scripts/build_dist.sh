@@ -109,15 +109,17 @@ cp "installer/双击安装-Windows.bat" "$CSTAGE/install-windows.bat"
 # 没实测过就注入空串，安装器会走两步流程而不是伪造一个列表。
 DP="$(grep -v '^#' "versions/${MC}/default_resource_packs.txt" 2>/dev/null | sed '/^[[:space:]]*$/d' \
      | sed 's/.*/"&"/' | paste -sd, - || true)"
-# 安装器里写死的资源包文件名要跟着该版走
+# 安装器里凡是跟整合包版本有关的字样，一律占位符现填：资源包文件名、界面标题、注释。
+# 以前只用 sed 换资源包文件名，界面上那句「ATM10 7.2 汉化补丁」原样留在 7.0/7.1 的包里。
+# 漏填会被 verify_dist.py 的 @@ 残留检查拦下。
 for f in "$CSTAGE/install.sh" "$CSTAGE/install.ps1"; do
   [ -f "$f" ] || continue
-  sed -i.bak "s/ATM10汉化包-7\.2\.zip/ATM10汉化包-${MC}.zip/g" "$f"
-  rm -f "$f.bak"
-  DP="$DP" python3 -c "
+  DP="$DP" MC="$MC" python3 -c "
 import os, pathlib, sys
 p = pathlib.Path(sys.argv[1])
-p.write_text(p.read_text(encoding='utf-8').replace('@@DEFAULT_PACKS@@', os.environ['DP']), encoding='utf-8')
+t = p.read_text(encoding='utf-8')
+t = t.replace('@@MCVER@@', os.environ['MC']).replace('@@DEFAULT_PACKS@@', os.environ['DP'])
+p.write_text(t, encoding='utf-8')
 " "$f"
 done
 cp README.md CHANGELOG.md LICENSE 致谢与技术说明.md "$CSTAGE/"

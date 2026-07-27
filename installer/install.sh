@@ -2,7 +2,9 @@
 # atm10-zh-cn — All the Mods 10 简体中文汉化补丁「绿油油版」
 # Copyright (C) 2026 星野夢華 (Hoshino Yumeka)
 # SPDX-License-Identifier: GPL-3.0-or-later
-# ATM10 7.2 汉化补丁「绿油油版」安装器 (macOS / Linux)
+# ATM10 @@MCVER@@ 汉化补丁「绿油油版」安装器 (macOS / Linux)
+# 版本号一律用 @@MCVER@@ 占位，由 scripts/build_dist.sh 按目标整合包版本填。
+# 写死一个版本号的话，7.0 / 7.1 的包里会印着「ATM10 7.2」——三个包里两个是错的。
 # 用法：把整个汉化文件夹放进 ATM10 实例根目录后运行：
 #   bash install.sh                    # 交互菜单
 #   bash install.sh apply              # 应用汉化（自动先备份，不含可选mods）
@@ -14,7 +16,7 @@ cd "$(dirname "$0")"
 SCRIPT_DIR="$(pwd)"
 TARGET="$(cd .. && pwd)"
 PACK_DIRS="config kubejs mods resourcepacks vaultpatcher"
-PACK_ENTRY='file/ATM10汉化包-7.2.zip'
+PACK_ENTRY='file/ATM10汉化包-@@MCVER@@.zip'
 PINYIN_DIR="可选mods-拼音搜索"
 TS=""
 BK=""
@@ -112,7 +114,7 @@ do_backup() {
 }
 
 ##
-# 清理 7.2 release8 之前的遗留文件。
+# 清理本补丁旧版本（v7.2-release8 之前）遗留的文件。
 #
 # 那之前本包的任务书 delta 用的是 `<章节名>.snbt`，与整合包自带的同名文件**撞名**，
 # 安装时直接覆盖 —— 整合包那一章上百条翻译当场没了，任务书变英文。
@@ -143,7 +145,7 @@ clean_legacy_quest_lang() {
   fi
 }
 
-# ATM10 7.2 默认启用的资源包，顺序照抄游戏自己写出来的 options.txt。
+# ATM10 @@MCVER@@ 默认启用的资源包，顺序照抄游戏自己写出来的 options.txt。
 # 为什么要写死这一串：全新实例没有 options.txt，如果只写我们一个包，
 # 游戏首次启动会把这 15 个内置包**全部插到我们后面**（实测汉化包落到第 3 位，
 # 被 mod_resources 和五百多个模组包压在底下，汉化基本不生效）。
@@ -156,7 +158,7 @@ patch_options() {
   # 全新实例还没启动过，options.txt 尚不存在（Minecraft 退出时才写）。
   # 建一份含默认包列表 + 汉化包（放最后）的：Minecraft 启动时会把其余选项
   # 按默认值补齐再回写，部分 options.txt 是合法的。
-  # （不要指望 config/defaultoptions —— ATM10 7.2 并没有装 DefaultOptions 模组，
+  # （不要指望 config/defaultoptions —— ATM10 并没有装 DefaultOptions 模组，
   #   那个目录是历史遗留，写进去没有任何东西会读它。）
   if [ ! -f "$OPT" ]; then
     if [ -n "$DEFAULT_PACKS" ]; then
@@ -287,7 +289,7 @@ case "${1:-}" in
   restore)           do_restore "${2:-}" ;;
   *)
     say "══════════════════════════════════════════"
-    say " ATM10 7.2 汉化补丁 · 绿油油版 — 安装器"
+    say " ATM10 @@MCVER@@ 汉化补丁 · 绿油油版 — 安装器"
     say " 目标实例: $TARGET"
     say "══════════════════════════════════════════"
     say " [1] 应用汉化（自动先备份被覆盖文件）"

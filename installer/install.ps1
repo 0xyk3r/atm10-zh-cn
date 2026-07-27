@@ -1,7 +1,8 @@
 ﻿# atm10-zh-cn — All the Mods 10 简体中文汉化补丁「绿油油版」
 # Copyright (C) 2026 星野夢華 (Hoshino Yumeka)
 # SPDX-License-Identifier: GPL-3.0-or-later
-# ATM10 7.2 汉化补丁「绿油油版」安装器 (Windows)
+# ATM10 @@MCVER@@ 汉化补丁「绿油油版」安装器 (Windows)
+# 版本号一律用 @@MCVER@@ 占位，由 scripts/build_dist.sh 按目标整合包版本填。
 # 用法：把整个汉化文件夹放进 ATM10 实例根目录后，双击「双击安装-Windows.bat」，
 # 或在 PowerShell 中运行：
 #   .\install.ps1                    # 交互菜单
@@ -20,7 +21,7 @@ Set-Location -LiteralPath $ScriptDir
 try { [Console]::OutputEncoding = [Text.UTF8Encoding]::new($false) } catch {}
 $script:Target = Split-Path -Parent $ScriptDir
 $PackDirs = @('config', 'kubejs', 'mods', 'resourcepacks', 'vaultpatcher')
-$PackEntry = 'file/ATM10汉化包-7.2.zip'
+$PackEntry = 'file/ATM10汉化包-@@MCVER@@.zip'
 $PinyinDir = '可选mods-拼音搜索'
 $script:TS = ''
 $script:BK = ''
@@ -123,7 +124,7 @@ function Do-Backup {
     Write-Host "✅ 已备份 $n 个将被覆盖的文件到 backups/$script:TS/"
 }
 
-# ATM10 7.2 默认启用的资源包，顺序照抄游戏自己写出来的 options.txt。
+# ATM10 @@MCVER@@ 默认启用的资源包，顺序照抄游戏自己写出来的 options.txt。
 # 为什么要写死这一串：全新实例没有 options.txt，如果只写我们一个包，
 # 游戏首次启动会把这 15 个内置包**全部插到我们后面**（实测汉化包落到第 3 位，
 # 被 mod_resources 和五百多个模组包压在底下，汉化基本不生效）。
@@ -170,7 +171,7 @@ function Patch-Options {
 }
 
 ##
-# 清理 7.2 release8 之前的遗留文件。
+# 清理本补丁旧版本（v7.2-release8 之前）遗留的文件。
 #
 # 那之前本包的任务书 delta 用的是 `<章节名>.snbt`，与整合包自带的同名文件**撞名**，
 # 安装时直接覆盖 —— 整合包那一章上百条翻译当场没了，任务书变英文。
@@ -296,7 +297,7 @@ switch ($Action) {
     'restore'           { Do-Restore $BackupName }
     default {
         Write-Host '══════════════════════════════════════════'
-        Write-Host ' ATM10 7.2 汉化补丁 · 绿油油版 — 安装器'
+        Write-Host ' ATM10 @@MCVER@@ 汉化补丁 · 绿油油版 — 安装器'
         Write-Host " 目标实例: $script:Target"
         Write-Host '══════════════════════════════════════════'
         Write-Host ' [1] 应用汉化（自动先备份被覆盖文件）'

@@ -27,12 +27,42 @@ TREE = Path(sys.argv[1]) if len(sys.argv) > 1 else COMMON
 if not TREE.is_dir():
     sys.exit('❌ 出货树不存在: %s\n'
              '   先跑: python3 scripts/assemble.py && ./scripts/generate_all.sh' % TREE)
-# 资源包**源目录**是版本中立的（src/pack/），但**产物**带整合包版本号，
-# 由 build_dist.sh 在打包时注入。这里直接从安装器脚本里读它认的那个名字，
+# 安装器源码里跟整合包版本有关的字样全是 @@MCVER@@ 占位，由 build_dist.sh 现填。
+# 测试也照同一条路径填一遍——测的必须是玩家真正拿到的那份脚本，不是模板。
+MCVER = sorted((d.name for d in (ROOT / 'versions').iterdir()
+                if d.is_dir() and d.name[0].isdigit()),
+               key=lambda s: [int(x) for x in s.split('.')])[-1]
+
+
+def default_packs(ver):
+    """该版实测的默认资源包顺序，格式与 build_dist.sh 注入的完全一致"""
+    f = ROOT / 'versions' / ver / 'default_resource_packs.txt'
+    if not f.is_file():
+        return ''
+    names = [l.strip() for l in f.read_text(encoding='utf-8').splitlines()
+             if l.strip() and not l.startswith('#')]
+    return ','.join('"%s"' % n for n in names)
+
+
+DEFAULT_PACKS = default_packs(MCVER)
+
+
+def materialize(src, dst):
+    """把安装器模板里的占位符填掉，写到 dst（与 build_dist.sh 同一套替换）。
+    测的必须是玩家真正拿到的那份脚本——以前测试里 @@DEFAULT_PACKS@@ 压根没被替换，
+    安装器把这串占位符当成一个资源包名写进了 options.txt，测试还照样通过。"""
+    t = src.read_text(encoding='utf-8')
+    t = t.replace('@@MCVER@@', MCVER).replace('@@DEFAULT_PACKS@@', DEFAULT_PACKS)
+    dst.write_text(t, encoding='utf-8')
+    return dst
+
+
+# 资源包**产物**带整合包版本号。这里直接从安装器脚本里读它认的那个名字，
 # 免得两边各写一份、日后再对不上（曾因批量改名把这里误改成版本中立名而挂掉 CI）。
 import re as _re
 ENTRY = _re.search(r"PACK_ENTRY='([^']+)'",
-                   (ROOT / 'installer' / 'install.sh').read_text(encoding='utf-8')).group(1)
+                   (ROOT / 'installer' / 'install.sh').read_text(encoding='utf-8')
+                   ).group(1).replace('@@MCVER@@', MCVER)
 PACK = ENTRY.split('/', 1)[1][:-4]
 
 tmp = Path(tempfile.mkdtemp(prefix='hanhua-test-'))
@@ -62,7 +92,7 @@ with zipfile.ZipFile(rel / 'resourcepacks' / f'{PACK}.zip', 'w', zipfile.ZIP_DEF
         if p.is_file() and p.name != '.DS_Store':
             z.write(p, p.relative_to(src).as_posix())
 for s in ('install.sh', 'install.ps1'):
-    shutil.copy2(ROOT / 'installer' / s, rel / s)
+    materialize(ROOT / 'installer' / s, rel / s)
 if (TREE / '可选mods-拼音搜索').is_dir():
     shutil.copytree(TREE / '可选mods-拼音搜索', rel / '可选mods-拼音搜索')
 
@@ -135,7 +165,7 @@ loose.mkdir(parents=True)
 (loose / 'config').mkdir()
 (loose / 'config' / 'placeholder.txt').write_text('x', encoding='utf-8')
 for s in ('install.sh', 'install.ps1'):
-    shutil.copy2(ROOT / 'installer' / s, loose / s)
+    materialize(ROOT / 'installer' / s, loose / s)
 
 
 def run_prompt(script_dir, mode, answer):
@@ -189,7 +219,7 @@ for d in ('config', 'kubejs', 'vaultpatcher'):          # 模拟解压覆盖
 (inplace / 'resourcepacks').mkdir(exist_ok=True)
 shutil.copy2(rel / 'resourcepacks' / f'{PACK}.zip', inplace / 'resourcepacks' / f'{PACK}.zip')
 for s_ in ('install.sh', 'install.ps1'):
-    shutil.copy2(ROOT / 'installer' / s_, inplace / s_)
+    materialize(ROOT / 'installer' / s_, inplace / s_)
 
 if IS_WIN:
     cmd = ['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass',
@@ -220,7 +250,7 @@ for d in ('config', 'kubejs', 'mods', 'vaultpatcher'):
 (frel / 'resourcepacks').mkdir()
 shutil.copy2(rel / 'resourcepacks' / f'{PACK}.zip', frel / 'resourcepacks' / f'{PACK}.zip')
 for s_ in ('install.sh', 'install.ps1'):
-    shutil.copy2(ROOT / 'installer' / s_, frel / s_)
+    materialize(ROOT / 'installer' / s_, frel / s_)
 
 if IS_WIN:
     cmd = ['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass',
