@@ -3,7 +3,7 @@
   "name": "rftools_all_modules_zh",
   "desc": "RFTools 全模块界面硬编码文本汉化(建造机/过滤器/存储/传送/护盾/移动仓等)",
   "authors": "星野夢華",
-  "mods": "rftoolsbase,rftoolsbuilder,rftoolsstorage,rftoolsutility",
+  "mods": "rftoolsbuilder-1.21-7.0.5.jar,rftoolsbase-1.21-6.0.11.jar,rftoolsstorage-1.21-6.0.5.jar,rftoolsutility-1.21-7.0.12.jar,mcjtylib-1.21-9.0.21.jar,rftoolspower-1.21-7.0.6.jar",
   "dynamic": false,
   "i18n": false
  },
@@ -184,7 +184,7 @@
  },
  {
   "target_class": [
-   "mcjty.rftoolsstorage.modules.scanner.SortingMode"
+   "mcjty.rftoolsstorage.modules.scanner.tools.SortingMode"
   ],
   "pairs": [
    {
@@ -218,7 +218,7 @@
  },
  {
   "target_class": [
-   "mcjty.rftoolsbuilder.modules.mover.client.GuiChamberDetails"
+   "mcjty.rftoolsbuilder.modules.builder.client.GuiChamberDetails"
   ],
   "pairs": [
    {
@@ -335,7 +335,7 @@
  },
  {
   "target_class": [
-   "mcjty.rftoolsbase.modules.various.client.GuiTools"
+   "mcjty.lib.client.GuiTools"
   ],
   "pairs": [
    {
@@ -361,7 +361,7 @@
  },
  {
   "target_class": [
-   "mcjty.rftoolsutility.modules.spawner.client.GuiDimensionalCell"
+   "mcjty.rftoolspower.modules.dimensionalcell.client.GuiDimensionalCell"
   ],
   "pairs": [
    {

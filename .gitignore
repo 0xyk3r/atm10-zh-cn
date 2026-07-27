@@ -11,3 +11,6 @@ __pycache__/
 /assets-src/fonts/*.ttc
 /assets-src/fonts/pixel-OFL.txt
 /assets-src/fonts/pixel-LICENSES/
+
+# 底本全文快照：只用于本地看差异，检测靠同目录的指纹文件，不入库（每版 13MB）
+/versions/db/*/lang_baseline_local.json

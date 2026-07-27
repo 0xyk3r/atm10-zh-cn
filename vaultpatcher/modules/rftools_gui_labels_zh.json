@@ -3,7 +3,7 @@
   "name": "rftools_gui_labels_zh",
   "desc": "RFTools 各GUI 安全显示型短标签汉化(第二轮, 排除所有枚举协议值)",
   "authors": "星野夢華",
-  "mods": "rftoolsbase,rftoolsbuilder,rftoolsstorage,rftoolsutility",
+  "mods": "mcjtylib-1.21-9.0.21.jar,FluxNetworks-1.21.1-8.0.0.jar,rftoolsutility-1.21-7.0.12.jar,rftoolsstorage-1.21-6.0.5.jar,rftoolsbuilder-1.21-7.0.5.jar,rftoolspower-1.21-7.0.6.jar",
   "dynamic": false,
   "i18n": false
  },

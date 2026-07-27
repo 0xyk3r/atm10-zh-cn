@@ -9,7 +9,7 @@
   },
   {
     "target_class": [
-      "dev.ftb.mods.ftbquests.client.gui.ToolbarPanel"
+      "dev.ftb.mods.ftbquests.client.gui.MultilineTextEditorScreen$ToolbarPanel"
     ],
     "pairs": [
       {

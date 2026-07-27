@@ -9,7 +9,7 @@
   },
   {
     "target_class": [
-      "com.simibubi.create.foundation.item.Builder"
+      "com.simibubi.create.foundation.item.ItemDescription$Builder"
     ],
     "pairs": [
       {
