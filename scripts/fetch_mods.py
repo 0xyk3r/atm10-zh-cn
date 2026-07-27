@@ -27,7 +27,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-from paths import BUILD, SRC
+from paths import BUILD, ROOT, SRC
 
 LOCK = SRC / 'mods.lock.json'
 CACHE = BUILD / 'modcache'
@@ -70,7 +70,14 @@ def main(out_dir):
         t.parent.mkdir(parents=True, exist_ok=True)
         t.write_bytes(cached.read_bytes())
         # MIT / Apache 这类许可要求再分发时附许可全文，jar 里没带就由我们放
-        if info.get('license_url'):
+        if info.get('license_file'):
+            # 仓库里已经有这份许可证正文（GPL-3.0 就是本项目代码用的那份），
+            # 没有理由再去网上取——出货构建跑在锁定容器里，少一个网络依赖少一个
+            # 挂点。gnu.org 在容器里就取不到，Build 一直红在这儿。
+            src = ROOT / info['license_file']
+            (t.parent / ('LICENSE-%s.txt' % info.get('project', 'third-party'))
+             ).write_bytes(src.read_bytes())
+        elif info.get('license_url'):
             lic = CACHE / (info['license_sha256'] + '.txt')
             if not lic.exists():
                 data = get(info['license_url'])
