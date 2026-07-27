@@ -56,10 +56,11 @@ jobs:
             tag="$GITHUB_REF_NAME"
             # 补丁版本号已与整合包版本解耦（产物名是 -<补丁版本>-atm<整合包版本>.zip），
             # 所以 tag 认两种：
-            #   新：vr13 / v13 / v13.1 / vr13-beta2
+            #   新：vR12 / vr12 / v12 / v12.1 / vR12-beta2
             #   旧：v7.2-release11 / v7.2-beta6（历史 tag，继续认，别把老流程弄挂）
-            if [[ ! "$tag" =~ ^vr?[0-9]+(\.[0-9]+)*(-(release|beta|rc)[0-9]+)?$ ]]; then
-              echo "Tag '$tag' 不是认得的形态。新版号写 vr13 / vr13-beta1，旧式 v7.2-release11 也行。" >&2
+            # r 大小写都认：CHANGELOG 的段名写作 `## R12`，人自然会跟着写大写。
+            if [[ ! "$tag" =~ ^[vV][rR]?[0-9]+(\.[0-9]+)*(-(release|beta|rc)[0-9]+)?$ ]]; then
+              echo "❌ Tag '$tag' 不是认得的形态。写 vR12 / vR12-beta1，旧式 v7.2-release11 也行。" >&2
               exit 1
             fi
             version="${tag#v}"
@@ -85,10 +86,10 @@ jobs:
             echo "A version is required when publishing a release." >&2
             exit 1
           fi
-          # 与上面 tag 那条**同一个形态**，别两边各写一套然后对不上：
-          # 新 r13 / 13 / 13.1 / r13-beta2；旧 7.2-release11 / 7.2-beta6
-          if [[ ! "$version" =~ ^r?[0-9]+(\.[0-9]+)*(-(release|beta|rc)[0-9]+)?$ ]]; then
-            echo "版本号写 r13 / r13-beta1，旧式 7.2-release11 也行。" >&2
+          # 与上面 tag 那条**同一个形态**（少个前导 v），别两边各写一套然后对不上：
+          # 新 R12 / r12 / 12 / 12.1 / R12-beta2；旧 7.2-release11 / 7.2-beta6
+          if [[ ! "$version" =~ ^[rR]?[0-9]+(\.[0-9]+)*(-(release|beta|rc)[0-9]+)?$ ]]; then
+            echo "❌ 版本号 '$version' 不是认得的形态。写 R12 / R12-beta1，旧式 7.2-release11 也行。" >&2
             exit 1
           fi
           beta=false
