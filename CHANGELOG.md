@@ -19,6 +19,30 @@
 JEI 拼音搜索（jecharacters）暂时仍入库——它只在 CurseForge 上有，而 CurseForge
 的搜索与项目页接口挡机器人，拿不到能钉死的地址。哪天它上了 Modrinth 再挪过去。
 
+### 按键绑定界面的分类标题：逐个扫出来补齐
+
+「按键绑定」界面里，每组键位上方那行分类标题一直有一批是英文（`Create`、
+`Auroras`、`Corail Tombstone`…），还有几个直接把翻译键裸露给玩家看
+（`key.categories.industrialization_overdrive`）。
+
+以前没修是因为**数不准**：在 lang 里按 `key.categor*` 匹配，既漏掉「没人定义所以
+显示原始键」的，也完全看不见「压根不是翻译键、而是硬编码字面量」的那一类。
+新增 `scripts/scan_keybind_categories.py` 直接读字节码——在每个 `KeyMapping(…)`
+构造点取最后一个入栈的字符串常量，那就是分类。
+
+扫出来**全整合包共 81 个分类**，其中 65 个本来就已是中文，剩下 16 个：
+
+- **5 个补 lang**：晶工艺（XyCraft）、指南（GuideME）、工业化超载、KubeJS
+  （后两个原先无人定义，界面上露的是原始键）
+- **11 个走 VaultPatcher 定向替换**（硬编码在 class 里，lang 碰不到）：
+  机械动力（Create）、极光（Auroras）、墓碑（Corail Tombstone）、龙之进化
+  （Draconic Evolution）、铁喷气背包（Iron Jetpacks）、彩虹（Rainbows）、遗物（Relics）、
+  压缩空间、建筑棒、建造小工具、可怖之物
+- 2 个跳过：`key.kubejs.%s` 是运行时拼的模板，`key.jei.internal.*` 是 JEI 内部隐藏项
+
+译名一律取本包已有的口径（`itemGroup.relics` = 遗物、任务书里的机械动力 / 龙之进化 /
+晶工艺），不自造。三个版本的数据库重建后，11 个定向替换的目标类**三版全部命中**。
+
 ### 修复：装完汉化后键位 / 视频 / 声音设置被清空（玩家反馈）
 
 已有 `options.txt` 的情况是安全的——安装器只改 `resourcePacks:` 那一行，实测其余
@@ -36,6 +60,13 @@ JEI 拼音搜索（jecharacters）暂时仍入库——它只在 CurseForge 上�
 
 顺带删掉了 `config/defaultoptions/options.txt`——三版整合包里没有任何模组读它，
 官方 overrides 里也没有这个目录，纯属历史遗留，但它确实会覆盖玩家同名文件。
+
+**「设置只在 options.txt 里」是个错误前提**，所以这次是拿整个实例做前后对照，
+不是只看一个文件：安装器一共覆盖 239 个文件，而实例里 122 个「设置类」文件
+（`options.txt`、`config/sodium-options.json` 画质、`config/iris.properties` 光影、
+`config/jei/*.ini`、`config/fancymenu/customization/`、120 个 `*-client.toml`）
+里只有 2 个被碰——`options.txt`（只改 `resourcePacks:` 一行）
+和上面那个已删掉的 `defaultoptions/options.txt`。
 
 ### 清掉底本带来的死重：238 个模组根本不在整合包里
 
