@@ -49,3 +49,5 @@ __pycache__/
 
 # 底本残留清单里逐条抄着底本的原文与译文——这东西本身就不能进公开仓库
 versions/base_residue.json
+# 合成器的中间产物：里面带着底本旧译文，不入库
+versions/composed_names.json
