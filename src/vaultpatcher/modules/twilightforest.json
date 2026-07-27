@@ -1,9 +1,7 @@
 [
   {
     "name": "twilightforest_zh_cn",
-    "desc": "twilightforest-1.21.1-4.8.3345-universal.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "twilightforest-1.21.1-4.8.3345-universal.jar",
     "dynamic": false,
     "i18n": false
   },

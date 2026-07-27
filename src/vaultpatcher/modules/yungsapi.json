@@ -1,9 +1,7 @@
 [
   {
     "name": "yungsapi_zh_cn",
-    "desc": "YungsApi-1.21.1-NeoForge-5.1.6.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "YungsApi-1.21.1-NeoForge-5.1.6.jar",
     "dynamic": false,
     "i18n": false
   },

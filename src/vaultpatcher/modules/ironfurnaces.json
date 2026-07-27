@@ -1,9 +1,7 @@
 [
   {
     "name": "ironfurnaces_zh_cn",
-    "desc": "ironfurnaces-neoforge-1.21.1-4.3.2.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ironfurnaces-neoforge-1.21.1-4.3.2.jar",
     "dynamic": false,
     "i18n": false
   },

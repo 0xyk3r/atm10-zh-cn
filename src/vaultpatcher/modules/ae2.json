@@ -1,9 +1,7 @@
 [
   {
     "name": "ae2_zh_cn",
-    "desc": "ae2ct-1.21.1-1.1.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ae2ct-1.21.1-1.1.1.jar,appliedenergistics2-19.2.17.jar,megacells-4.11.0.jar,expandedae-2.1.1.jar",
     "dynamic": false,
     "i18n": false
   },

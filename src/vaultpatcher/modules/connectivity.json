@@ -1,9 +1,7 @@
 [
   {
     "name": "connectivity_zh_cn",
-    "desc": "connectivity-1.21.1-7.6.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "connectivity-1.21.1-7.6.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "mob_grinding_utils_zh_cn",
-    "desc": "mob_grinding_utils-1.1.10+mc1.21.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "mob_grinding_utils-1.1.10+mc1.21.1.jar",
     "dynamic": false,
     "i18n": false
   },

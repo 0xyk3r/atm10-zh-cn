@@ -1,9 +1,7 @@
 [
   {
     "name": "spark_zh_cn",
-    "desc": "spark-1.10.124-neoforge.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "spark-1.10.124-neoforge.jar",
     "dynamic": false,
     "i18n": false
   },

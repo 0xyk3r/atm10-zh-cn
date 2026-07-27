@@ -1,9 +1,7 @@
 [
   {
     "name": "aether_zh_cn",
-    "desc": "aether-1.21.1-1.5.10-neoforge.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "aether-1.21.1-1.5.10-neoforge.jar",
     "dynamic": false,
     "i18n": false
   },

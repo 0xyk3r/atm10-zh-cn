@@ -1,9 +1,7 @@
 [
   {
     "name": "immersiveengineering_zh_cn",
-    "desc": "ImmersiveEngineering-1.21.1-12.4.2-194.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ImmersiveEngineering-1.21.1-12.4.2-194.jar",
     "dynamic": false,
     "i18n": false
   },

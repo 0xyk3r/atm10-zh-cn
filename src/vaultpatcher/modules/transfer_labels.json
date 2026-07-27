@@ -1,9 +1,7 @@
 [
   {
     "name": "transfer_labels_zh_cn",
-    "desc": "transfer_labels-0.1.7.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "transfer_labels-0.1.8.jar",
     "dynamic": false,
     "i18n": false
   },

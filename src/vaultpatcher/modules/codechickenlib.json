@@ -1,9 +1,7 @@
 [
   {
     "name": "codechickenlib_zh_cn",
-    "desc": "CodeChickenLib-1.21.1-4.6.1.526.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "CodeChickenLib-1.21.1-4.6.1.526.jar",
     "dynamic": false,
     "i18n": false
   },

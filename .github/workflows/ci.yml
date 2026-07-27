@@ -42,6 +42,7 @@ jobs:
             python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
             rm -rf "build/v/$v"; mkdir -p build/v; cp -R build/common "build/v/$v"
             python3 scripts/gen_upstream_patches.py "build/packsrc/$v" "build/v/$v"
+            python3 scripts/gen_vaultpatcher.py "$v" "build/v/$v"
           done
 
       # 把踩过的雷全部变成硬检查：

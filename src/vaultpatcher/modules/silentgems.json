@@ -1,9 +1,7 @@
 [
   {
     "name": "silentgems_zh_cn",
-    "desc": "silentgems-1.21.1-neoforge-5.1.3.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "silentgems-1.21.1-neoforge-5.1.3.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "arsomega_zh_cn",
-    "desc": "not_enough_glyphs-1.21.1-4.6.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "not_enough_glyphs-1.21.1-4.6.1.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "lootr_zh_cn",
-    "desc": "lootr-neoforge-1.21.1-1.11.37.120.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "lootr-neoforge-1.21.1-1.11.37.122.jar",
     "dynamic": false,
     "i18n": false
   },

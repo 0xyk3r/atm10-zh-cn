@@ -1,9 +1,7 @@
 [
   {
     "name": "bhc_zh_cn",
-    "desc": "baubley-heart-canisters-1.21.1-1.4.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "baubley-heart-canisters-1.21.1-1.4.1.jar",
     "dynamic": false,
     "i18n": false
   },

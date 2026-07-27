@@ -1,9 +1,7 @@
 [
   {
     "name": "advancedperipherals_zh_cn",
-    "desc": "AdvancedPeripherals-1.21.1-0.7.62b.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "AdvancedPeripherals-1.21.1-0.7.62b.jar",
     "dynamic": false,
     "i18n": false
   },

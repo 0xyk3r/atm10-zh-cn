@@ -40,6 +40,12 @@ HAVE_JARS=0
 echo "▶ 从 src/ 摊出货树"
 python3 scripts/assemble.py
 
+# VaultPatcher 模块的 jar 名按版本不同，这里先按最新那版生成一份进 build/common；
+# build_dist.sh 打每个版本时会用该版的数据库重新生成一遍。
+NEWEST=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
+echo "▶ VaultPatcher 模块（按 ATM10 $NEWEST 的 jar 名）"
+python3 scripts/gen_vaultpatcher.py "$NEWEST" build/common
+
 echo "▶ 任务书横幅艺术字（200 张）"
 python3 scripts/gen_quest_banners.py
 echo "▶ 主菜单按钮（14 张）"

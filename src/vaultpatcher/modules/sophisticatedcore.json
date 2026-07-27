@@ -1,9 +1,7 @@
 [
   {
     "name": "sophisticatedcore_zh_cn",
-    "desc": "sophisticatedcore-1.21.1-1.4.60.2057.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "sophisticatedcore-1.21.1-1.4.77.2173.jar",
     "dynamic": false,
     "i18n": false
   },

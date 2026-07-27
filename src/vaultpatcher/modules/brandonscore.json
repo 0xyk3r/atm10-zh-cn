@@ -1,9 +1,7 @@
 [
   {
     "name": "brandonscore_zh_cn",
-    "desc": "BrandonsCore-1.21.1-3.2.1.309.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "BrandonsCore-1.21.1-3.2.1.309.jar",
     "dynamic": false,
     "i18n": false
   },

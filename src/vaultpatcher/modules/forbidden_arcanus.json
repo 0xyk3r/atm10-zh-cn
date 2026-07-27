@@ -1,9 +1,7 @@
 [
   {
     "name": "forbidden_arcanus_zh_cn",
-    "desc": "forbidden_arcanus-2.6.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "forbidden_arcanus-2.6.1.jar",
     "dynamic": false,
     "i18n": false
   },

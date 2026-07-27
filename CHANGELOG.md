@@ -7,6 +7,26 @@
 > 该版真实 jar 的精确文件名、VaultPatcher 每条 key 在该版的存在状态、任务书英文底本，
 > 逐版核验，不共用近似值。
 
+### VaultPatcher 模块的 jar 名改由脚本按版本现填
+
+模块头部的 `mods` / `desc` 写的是**带版本号的 jar 文件名**（`OctoLib-NEOFORGE-0.6.2+1.21.jar`
+这种）。整合包换个版本，一大半模组的 jar 版本号就变了，所以这两个字段不可能有一份通用的
+——原先手写死在仓库里，等于三个包里有两个是错的。拿 7.2 那份比对：**7.1 只有 116/152
+对得上，7.0 只有 83/152**。
+
+现在仓库里只留人写的部分（`name` / `authors` / `dynamic` / `i18n` + `target_class` + `pairs`），
+`mods` 与 `desc` 由 `gen_vaultpatcher.py` 按 `versions/db/<版本>/vaultpatcher.json` 现填——
+那份数据库是拿该版真实字节码逐块解出来的，记着每个目标类实际由哪个 jar 提供。
+152 个模块里有 **70 个**三版各不相同。
+
+### 原版语言文件与点阵字体改从 Mojang 官方取
+
+奖杯名、木头名、格式串快照、任务书横幅这四个生成器都要读**原版**的 en_us / zh_cn
+与 Unifont 点阵，原先只会从本机 HMCL 实例的目录布局里找（`<实例>/<版本>.jar` 加
+`.minecraft/assets/objects/`）。CI 上的整合包目录只有 `mods/`，于是必然
+`StopIteration`——Build 工作流从来就没跑通过。现在优先用本机实例（不联网、
+结果不变），没有就按 Mojang 官方版本清单现取并缓存。
+
 ### 导览书改由模组 jar 现生成，顺手捞回两处被吞掉的上游内容
 
 Patchouli / AE2 Guide / Oracle Index 这些导览书，我们的译文原本是**上游 JSON 的整份

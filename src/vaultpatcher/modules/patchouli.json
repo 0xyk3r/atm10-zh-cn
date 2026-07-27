@@ -1,9 +1,7 @@
 [
   {
     "name": "patchouli_zh_cn",
-    "desc": "Patchouli-1.21.1-93-NEOFORGE.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "Patchouli-1.21.1-93-NEOFORGE.jar",
     "dynamic": false,
     "i18n": false
   },

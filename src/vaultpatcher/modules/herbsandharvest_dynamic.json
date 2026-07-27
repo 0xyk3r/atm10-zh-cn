@@ -1,9 +1,7 @@
 [
   {
     "name": "herbsandharvest_dynamic_zh_cn",
-    "desc": "herbsandharvest-1.21.1-15.jar 硬编码文本汉化（动态替换）",
     "authors": "Auto-Translation-Tool",
-    "mods": "herbsandharvest-1.21.1-17.jar",
     "dynamic": true,
     "i18n": false
   },

@@ -70,6 +70,8 @@ if [ ! -d "$UPROOT/kubejs" ]; then
   python3 scripts/fetch_pack.py "$MC" "$UPROOT" --no-jars
 fi
 python3 scripts/gen_upstream_patches.py "$UPROOT" "$TREE"
+# VaultPatcher 模块头部要写该版真实的 jar 文件名（7.2 那份拿到 7.0 只有 83/152 对得上）
+python3 scripts/gen_vaultpatcher.py "$MC" "$TREE"
 python3 scripts/check.py "$TREE"
 # 资源包**内容**跨版本通用（lang 按命名空间索引，多余键不生效、缺的回退），
 # 所以源目录只有一份；只有产出的 zip 文件名带版本号，方便用户认。

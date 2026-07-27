@@ -1,9 +1,7 @@
 [
   {
     "name": "naturesaura_zh_cn",
-    "desc": "NaturesAura-41.9.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "NaturesAura-41.9.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -57,6 +57,7 @@ import sys
 import zipfile
 from pathlib import Path
 
+import vanilla
 from paths import COMMON, PACK, snapshot
 ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT = snapshot('trophy_entity_names.json')
@@ -123,15 +124,8 @@ def scan(instance):
                     take(load(zf.read(n)), jar_zh)
 
     # 原版：en_us 在客户端 jar 里，zh_cn 在 assets objects 里
-    client_jar = next(inst.glob('*.jar'))
-    with zipfile.ZipFile(client_jar) as zf:
-        take(load(zf.read('assets/minecraft/lang/en_us.json')), jar_en)
-    ver = json.loads((inst / (client_jar.stem + '.json')).read_text(encoding='utf-8'))
-    idx = json.loads((mcroot / 'assets' / 'indexes'
-                      / (ver['assetIndex']['id'] + '.json')).read_text(encoding='utf-8'))
-    h = idx['objects']['minecraft/lang/zh_cn.json']['hash']
-    take(json.loads((mcroot / 'assets' / 'objects' / h[:2] / h).read_text(encoding='utf-8')),
-         jar_zh)
+    take(vanilla.client_en(inst), jar_en)
+    take(vanilla.client_zh(inst), jar_zh)
 
     # 本包（资源包 + kubejs 覆盖）优先级最高
     for base in (PACK, COMMON / 'kubejs' / 'assets'):

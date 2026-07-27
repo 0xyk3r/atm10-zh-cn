@@ -1,9 +1,7 @@
 [
   {
     "name": "commoncapabilities_zh_cn",
-    "desc": "commoncapabilities-1.21.1-neoforge-2.11.5.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "commoncapabilities-1.21.1-neoforge-2.11.5.jar",
     "dynamic": false,
     "i18n": false
   },

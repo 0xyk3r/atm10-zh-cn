@@ -1,9 +1,7 @@
 [
   {
     "name": "advanced_ae_zh_cn",
-    "desc": "AdvancedAE-1.6.11-1.21.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "AdvancedAE-1.6.11-1.21.1.jar",
     "dynamic": false,
     "i18n": false
   },

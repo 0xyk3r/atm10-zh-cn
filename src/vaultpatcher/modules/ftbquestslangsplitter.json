@@ -1,9 +1,7 @@
 [
   {
     "name": "ftbquestslangsplitter_zh_cn",
-    "desc": "ftbquestslangsplitter-1.0.5.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ftbquestslangsplitter-1.0.5.jar",
     "dynamic": false,
     "i18n": false
   },

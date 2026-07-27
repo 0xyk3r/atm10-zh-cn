@@ -1,9 +1,7 @@
 [
   {
     "name": "actuallyadditions_zh_cn",
-    "desc": "actuallyadditions-1.3.26+mc1.21.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "actuallyadditions-1.3.26+mc1.21.1.jar",
     "dynamic": false,
     "i18n": false
   },

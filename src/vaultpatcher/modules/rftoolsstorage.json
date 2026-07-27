@@ -1,9 +1,7 @@
 [
   {
     "name": "rftoolsstorage_zh_cn",
-    "desc": "rftoolsstorage-1.21-6.0.5.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "rftoolsstorage-1.21-6.0.5.jar",
     "dynamic": false,
     "i18n": false
   },

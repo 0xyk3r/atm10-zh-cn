@@ -1,9 +1,7 @@
 [
   {
     "name": "almostunified_zh_cn",
-    "desc": "almostunified-neoforge-1.21.1-1.4.2.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "almostunified-neoforge-1.21.1-1.4.2.jar",
     "dynamic": false,
     "i18n": false
   },

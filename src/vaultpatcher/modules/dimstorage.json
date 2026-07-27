@@ -1,9 +1,7 @@
 [
   {
     "name": "dimstorage_zh_cn",
-    "desc": "DimStorage-1.21.1-9.1.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "DimStorage-1.21.1-9.1.1.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "pocketstorage_zh_cn",
-    "desc": "pocketstorage-1.2.5+1.21.1-b3.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "pocketstorage-1.2.5+1.21.1-b3.jar",
     "dynamic": false,
     "i18n": false
   },

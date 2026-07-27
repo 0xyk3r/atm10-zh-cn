@@ -1,9 +1,7 @@
 [
   {
     "name": "kubejs_fluid_bucket_zh_cn",
-    "desc": "KubeJS 流体桶名称后缀汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "kubejs-neoforge-2101.7.2-build.368.jar",
     "dynamic": false,
     "i18n": false
   },

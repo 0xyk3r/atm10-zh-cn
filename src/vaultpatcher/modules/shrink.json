@@ -1,9 +1,7 @@
 [
   {
     "name": "shrink_zh_cn",
-    "desc": "shrink-2.0.1.47-neoforge.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "shrink-2.0.1.47-neoforge.jar",
     "dynamic": false,
     "i18n": false
   },

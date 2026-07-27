@@ -1,9 +1,7 @@
 [
   {
     "name": "eternal_starlight_zh_cn",
-    "desc": "eternalstarlight-0.8.1+1.21.1+neoforge.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "eternalstarlight-0.8.1+1.21.1+neoforge.jar",
     "dynamic": false,
     "i18n": false
   },

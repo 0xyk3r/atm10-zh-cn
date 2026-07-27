@@ -1,9 +1,7 @@
 [
   {
     "name": "disenchanting_table_zh_cn",
-    "desc": "disenchanting_table-merged-1.21.1-5.0.2.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "disenchanting_table-merged-1.21.1-5.0.2.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "modonomicon_zh_cn",
-    "desc": "modonomicon-1.21.1-neoforge-1.120.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "modonomicon-1.21.1-neoforge-1.120.3.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "betterendisland_zh_cn",
-    "desc": "YungsBetterEndIsland-1.21.1-NeoForge-3.1.2.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "YungsBetterEndIsland-1.21.1-NeoForge-3.1.2.jar",
     "dynamic": false,
     "i18n": false
   },

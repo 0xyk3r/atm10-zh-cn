@@ -1,9 +1,7 @@
 [
   {
     "name": "create_dynamic_zh_cn",
-    "desc": "create-1.21.1-6.0.10.jar 硬编码文本汉化（动态替换）",
     "authors": "Auto-Translation-Tool",
-    "mods": "create-1.21.1-6.0.10.jar",
     "dynamic": true,
     "i18n": false
   },

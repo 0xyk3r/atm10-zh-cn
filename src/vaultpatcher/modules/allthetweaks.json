@@ -1,9 +1,7 @@
 [
   {
     "name": "allthetweaks_zh_cn",
-    "desc": "allthetweaks-1.21.1-2.9.4.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "allthetweaks-1.21.1-2.9.4.jar",
     "dynamic": false,
     "i18n": false
   },

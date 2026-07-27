@@ -1,9 +1,7 @@
 [
   {
     "name": "dysoncubeproject_zh_cn",
-    "desc": "dysoncubeproject-1.0.5.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "dysoncubeproject-1.0.5.jar",
     "dynamic": false,
     "i18n": false
   },

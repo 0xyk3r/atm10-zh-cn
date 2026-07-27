@@ -1,9 +1,7 @@
 [
   {
     "name": "gateways_zh_cn",
-    "desc": "GatewaysToEternity-1.21.1-5.1.0.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "GatewaysToEternity-1.21.1-5.1.0.jar",
     "dynamic": false,
     "i18n": false
   },

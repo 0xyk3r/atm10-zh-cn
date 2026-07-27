@@ -1,9 +1,7 @@
 [
   {
     "name": "redstonepen_zh_cn",
-    "desc": "redstonepen-1.21-neoforge-1.11.42.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "redstonepen-1.21-neoforge-1.11.42.jar",
     "dynamic": false,
     "i18n": false
   },

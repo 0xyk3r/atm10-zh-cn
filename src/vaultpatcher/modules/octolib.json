@@ -1,9 +1,7 @@
 [
   {
     "name": "octolib_zh_cn",
-    "desc": "OctoLib-NEOFORGE-0.6.2+1.21.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "OctoLib-NEOFORGE-0.6.2+1.21.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "draconicevolution_zh_cn",
-    "desc": "Draconic-Evolution-1.21.1-3.1.4.632.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "Draconic-Evolution-1.21.1-3.1.4.632.jar",
     "dynamic": false,
     "i18n": false
   },

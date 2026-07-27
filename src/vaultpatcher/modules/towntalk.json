@@ -1,9 +1,7 @@
 [
   {
     "name": "towntalk_zh_cn",
-    "desc": "towntalk-1.2.0.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "towntalk-1.2.0.jar",
     "dynamic": false,
     "i18n": false
   },

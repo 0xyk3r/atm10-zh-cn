@@ -1,9 +1,7 @@
 [
   {
     "name": "titanium_zh_cn",
-    "desc": "titanium-1.21-4.0.43.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "titanium-1.21-4.0.45.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "merrymaking_zh_cn",
-    "desc": "merrymaking-1.21.1-16.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "merrymaking-1.21.1-16.jar",
     "dynamic": false,
     "i18n": false
   },

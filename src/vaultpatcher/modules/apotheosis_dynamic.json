@@ -1,9 +1,7 @@
 [
   {
     "name": "apotheosis_dynamic_zh_cn",
-    "desc": "Apotheosis-1.21.1-8.5.4.jar 硬编码文本汉化（动态替换）",
     "authors": "Auto-Translation-Tool",
-    "mods": "Apotheosis-1.21.1-8.5.4.jar",
     "dynamic": true,
     "i18n": false
   },

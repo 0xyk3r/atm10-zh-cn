@@ -1,9 +1,7 @@
 [
   {
     "name": "tesseract_api_zh_cn",
-    "desc": "tesseract-api-neoforge-1.12.3-1.21.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "tesseract-api-neoforge-1.12.9-1.21.1.jar",
     "dynamic": false,
     "i18n": false
   },

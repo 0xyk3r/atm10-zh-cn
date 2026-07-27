@@ -1,9 +1,7 @@
 [
   {
     "name": "industrialization_overdrive_zh_cn",
-    "desc": "industrialization_overdrive 硬编码文本汉化。「Unable to get shape matcher…」只存在于 1.11.2（ATM10 7.1）；1.12.1（7.2）起换成了下面三条。两代都留着，按版本数据库分发。",
     "authors": "Auto-Translation-Tool",
-    "mods": "industrialization_overdrive-1.12.1+1.21.1.jar",
     "dynamic": false,
     "i18n": false
   },

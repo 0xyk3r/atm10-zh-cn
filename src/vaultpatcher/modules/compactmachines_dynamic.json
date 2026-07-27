@@ -1,9 +1,7 @@
 [
   {
     "name": "compactmachines_dynamic_zh_cn",
-    "desc": "compactmachines-neoforge-7.0.81.jar 硬编码文本汉化（动态替换）",
     "authors": "Auto-Translation-Tool",
-    "mods": "compactmachines-neoforge-7.0.81.jar",
     "dynamic": true,
     "i18n": false
   },

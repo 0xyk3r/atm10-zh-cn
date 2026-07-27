@@ -1,9 +1,7 @@
 [
   {
     "name": "evilcraft_zh_cn",
-    "desc": "evilcraft-1.21.1-neoforge-1.2.89.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "evilcraft-1.21.1-neoforge-1.2.89.jar",
     "dynamic": false,
     "i18n": false
   },

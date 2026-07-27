@@ -1,9 +1,7 @@
 [
   {
     "name": "ars_nouveau_zh_cn",
-    "desc": "ars_technica-1.21.1-2.7.6.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ars_technica-1.21.1-2.7.6.jar,starbunclemania-1.21.1-1.5.7.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "little_big_redstone_zh_cn",
-    "desc": "little-big-redstone-1.9.0-1.21.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "little-big-redstone-1.9.4-1.21.1.jar",
     "dynamic": false,
     "i18n": false
   },

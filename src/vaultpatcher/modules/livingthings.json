@@ -1,9 +1,7 @@
 [
   {
     "name": "livingthings_zh_cn",
-    "desc": "livingthings-neoforge-1.21.1-2.3.0.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "livingthings-neoforge-1.21.1-2.3.0.jar",
     "dynamic": false,
     "i18n": false
   },

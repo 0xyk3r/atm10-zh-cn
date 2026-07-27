@@ -1,9 +1,7 @@
 [
   {
     "name": "ftbquests_zh_cn",
-    "desc": "ftb-quests-neoforge-2101.1.27.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ftb-quests-neoforge-2101.1.27.jar",
     "dynamic": false,
     "i18n": false
   },

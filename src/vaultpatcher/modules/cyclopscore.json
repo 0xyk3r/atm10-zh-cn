@@ -1,9 +1,7 @@
 [
   {
     "name": "cyclopscore_zh_cn",
-    "desc": "cyclopscore-1.21.1-neoforge-1.29.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "cyclopscore-1.21.1-neoforge-1.29.1.jar",
     "dynamic": false,
     "i18n": false
   },

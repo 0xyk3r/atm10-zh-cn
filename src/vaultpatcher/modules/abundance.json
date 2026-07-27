@@ -1,9 +1,7 @@
 [
   {
     "name": "abundance_zh_cn",
-    "desc": "ftb-chunks-neoforge-2101.1.20.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ftb-chunks-neoforge-2101.1.20.jar",
     "dynamic": false,
     "i18n": false
   },

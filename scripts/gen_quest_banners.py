@@ -99,6 +99,7 @@ try:
 except ImportError:
     sys.exit('需要 Pillow：python3 -m pip install Pillow')
 
+import vanilla
 from paths import PACK, SRC
 ROOT = Path(__file__).resolve().parent.parent
 OUT = PACK / 'assets' / 'atm' / 'textures' / 'questpics'
@@ -232,15 +233,7 @@ def ink_density(im):
 
 def load_unifont():
     """Minecraft 自己用来渲染中文的 GNU Unifont（16×16 点阵），从游戏 assets 里取"""
-    import json as _json, zipfile as _zip
-    mc = INST.parent.parent
-    ver = _json.loads((INST / (next(INST.glob('*.jar')).stem + '.json')).read_text(encoding='utf-8'))
-    idx = _json.loads((mc / 'assets' / 'indexes' / (ver['assetIndex']['id'] + '.json'))
-                      .read_text(encoding='utf-8'))['objects']
-    h = idx['minecraft/font/unifont.zip']['hash']
-    with _zip.ZipFile(mc / 'assets' / 'objects' / h[:2] / h) as z:
-        name = next(n for n in z.namelist() if n.endswith('.hex'))
-        raw = z.read(name).decode('ascii')
+    raw = vanilla.unifont_hex(INST)
     g = {}
     for line in raw.splitlines():
         cp, bits = line.split(':')

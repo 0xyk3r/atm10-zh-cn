@@ -1,9 +1,7 @@
 [
   {
     "name": "enderdrives_zh_cn",
-    "desc": "enderdrives-neoforge-1.21.1-1.4.4.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "enderdrives-neoforge-1.21.1-1.4.4.jar",
     "dynamic": false,
     "i18n": false
   },

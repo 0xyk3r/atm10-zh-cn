@@ -1,9 +1,7 @@
 [
   {
     "name": "resourcefulconfig_zh_cn",
-    "desc": "resourcefulconfig-neoforge-1.21-3.0.11.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "resourcefulconfig-neoforge-1.21-3.0.11.jar",
     "dynamic": false,
     "i18n": false
   },

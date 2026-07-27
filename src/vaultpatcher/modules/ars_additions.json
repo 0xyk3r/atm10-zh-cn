@@ -1,9 +1,7 @@
 [
   {
     "name": "ars_additions_zh_cn",
-    "desc": "ars_additions-1.21.1-21.3.0.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ars_additions-1.21.1-21.3.0.jar",
     "dynamic": false,
     "i18n": false
   },

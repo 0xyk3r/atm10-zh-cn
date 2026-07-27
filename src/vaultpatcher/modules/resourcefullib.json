@@ -1,9 +1,7 @@
 [
   {
     "name": "resourcefullib_zh_cn",
-    "desc": "resourcefullib-neoforge-1.21-3.0.12.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "resourcefullib-neoforge-1.21-3.0.12.jar",
     "dynamic": false,
     "i18n": false
   },

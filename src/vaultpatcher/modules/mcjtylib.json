@@ -1,9 +1,7 @@
 [
   {
     "name": "mcjtylib_zh_cn",
-    "desc": "mcjtylib-1.21-9.0.21.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "mcjtylib-1.21-9.0.21.jar",
     "dynamic": false,
     "i18n": false
   },

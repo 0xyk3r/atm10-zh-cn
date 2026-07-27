@@ -1,9 +1,7 @@
 [
   {
     "name": "fzzy_config_zh_cn",
-    "desc": "fzzy_config-0.7.6+1.21+neoforge.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "fzzy_config-0.7.6+1.21+neoforge.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "refurbished_furniture_zh_cn",
-    "desc": "refurbished_furniture-neoforge-1.21.1-1.0.22.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "refurbished_furniture-neoforge-1.21.1-1.0.22.jar",
     "dynamic": false,
     "i18n": false
   },

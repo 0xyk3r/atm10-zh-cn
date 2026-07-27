@@ -14,6 +14,7 @@ import sys
 import zipfile
 from pathlib import Path
 
+import vanilla
 from paths import COMMON, PACK, snapshot
 ROOT = Path(__file__).resolve().parent.parent
 OUT = snapshot('upstream_format_en_us.json')
@@ -41,11 +42,9 @@ def main(instance):
                     for k, v in (loadb(zf.read(n)) or {}).items():
                         if isinstance(v, str):
                             jar_en.setdefault(k, v)
-    client_jar = next(inst.glob('*.jar'))
-    with zipfile.ZipFile(client_jar) as zf:
-        for k, v in loadb(zf.read('assets/minecraft/lang/en_us.json')).items():
-            if isinstance(v, str):
-                jar_en.setdefault(k, v)
+    for k, v in vanilla.client_en(inst).items():
+        if isinstance(v, str):
+            jar_en.setdefault(k, v)
 
     pack_keys = set()
     for base in (PACK, COMMON / 'kubejs' / 'assets'):

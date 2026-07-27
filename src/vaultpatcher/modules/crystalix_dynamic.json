@@ -1,9 +1,7 @@
 [
   {
     "name": "crystalix_dynamic_zh_cn",
-    "desc": "crystalix-3.0.0.jar 硬编码文本汉化（动态替换）",
     "authors": "Auto-Translation-Tool",
-    "mods": "crystalix-3.0.0.jar",
     "dynamic": true,
     "i18n": false
   },

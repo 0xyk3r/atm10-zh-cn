@@ -1,9 +1,7 @@
 [
   {
     "name": "artifacts_zh_cn",
-    "desc": "artifacts-neoforge-13.2.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "artifacts-neoforge-13.2.1.jar",
     "dynamic": false,
     "i18n": false
   },

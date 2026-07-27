@@ -1,9 +1,7 @@
 [
   {
     "name": "integrateddynamics_zh_cn",
-    "desc": "integrateddynamics-1.21.1-neoforge-1.33.3.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "integrateddynamics-1.21.1-neoforge-1.33.3.jar",
     "dynamic": false,
     "i18n": false
   },

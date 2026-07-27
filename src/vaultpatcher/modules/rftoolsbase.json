@@ -1,9 +1,7 @@
 [
   {
     "name": "rftoolsbase_zh_cn",
-    "desc": "rftoolsbuilder-1.21-7.0.5.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "rftoolsbuilder-1.21-7.0.5.jar,rftoolsbase-1.21-6.0.11.jar",
     "dynamic": false,
     "i18n": false
   },

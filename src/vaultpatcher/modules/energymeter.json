@@ -1,9 +1,7 @@
 [
   {
     "name": "energymeter_zh_cn",
-    "desc": "energymeter-neoforge-1.21.1-0.4.1.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "energymeter-neoforge-1.21.1-0.4.1.jar",
     "dynamic": false,
     "i18n": false
   },

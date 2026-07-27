@@ -1,9 +1,7 @@
 [
   {
     "name": "appmek_zh_cn",
-    "desc": "Applied-Mekanistics-1.6.3.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "Applied-Mekanistics-1.6.3.jar",
     "dynamic": false,
     "i18n": false
   },

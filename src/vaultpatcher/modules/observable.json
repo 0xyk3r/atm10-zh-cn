@@ -1,9 +1,7 @@
 [
   {
     "name": "observable_zh_cn",
-    "desc": "observable-5.4.4.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "observable-5.4.4.jar",
     "dynamic": false,
     "i18n": false
   },

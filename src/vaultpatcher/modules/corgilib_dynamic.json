@@ -1,9 +1,7 @@
 [
   {
     "name": "corgilib_dynamic_zh_cn",
-    "desc": "Corgilib-NeoForge-1.21.1-5.0.0.9.jar 硬编码文本汉化（动态替换）",
     "authors": "Auto-Translation-Tool",
-    "mods": "Corgilib-NeoForge-1.21.1-5.0.0.9.jar",
     "dynamic": true,
     "i18n": false
   },

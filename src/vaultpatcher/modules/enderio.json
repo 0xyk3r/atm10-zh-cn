@@ -1,9 +1,7 @@
 [
   {
     "name": "enderio_zh_cn",
-    "desc": "enderio-8.2.11-beta.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "enderio-8.2.11-beta.jar",
     "dynamic": false,
     "i18n": false
   },

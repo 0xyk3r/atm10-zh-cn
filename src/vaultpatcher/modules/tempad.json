@@ -1,9 +1,7 @@
 [
   {
     "name": "tempad_zh_cn",
-    "desc": "tempad-1.21.1-3.0.4-all.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "tempad-1.21.1-3.0.4-all.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "crashutilities_zh_cn",
-    "desc": "crashutilities-9.0.4.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "crashutilities-9.0.4.jar",
     "dynamic": false,
     "i18n": false
   },

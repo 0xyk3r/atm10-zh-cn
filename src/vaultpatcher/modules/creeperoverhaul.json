@@ -1,9 +1,7 @@
 [
   {
     "name": "creeperoverhaul_zh_cn",
-    "desc": "CreeperOverhaul-neoforge-1.21.1-4.0.6.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "CreeperOverhaul-neoforge-1.21.1-4.0.6.jar",
     "dynamic": false,
     "i18n": false
   },

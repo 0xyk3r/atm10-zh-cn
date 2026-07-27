@@ -1,9 +1,7 @@
 [
   {
     "name": "xycraft_core_zh_cn",
-    "desc": "xycraft_core-0.7.53-all.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "xycraft_core-0.7.53-all.jar",
     "dynamic": false,
     "i18n": false
   },

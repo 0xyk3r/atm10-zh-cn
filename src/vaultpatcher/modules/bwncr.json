@@ -1,9 +1,7 @@
 [
   {
     "name": "bwncr_zh_cn",
-    "desc": "bwncr-neoforge-1.21.1-3.20.4.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "bwncr-neoforge-1.21.1-3.20.4.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "cataclysm_zh_cn",
-    "desc": "L_Ender's Cataclysm 1.21.1-3.31.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "L_Ender's Cataclysm 1.21.1-3.32.jar",
     "dynamic": false,
     "i18n": false
   },

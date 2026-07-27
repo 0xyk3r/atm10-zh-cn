@@ -1,9 +1,7 @@
 [
   {
     "name": "ftbteams_zh_cn",
-    "desc": "ftb-teams-neoforge-2101.1.10.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ftb-teams-neoforge-2101.1.10.jar",
     "dynamic": false,
     "i18n": false
   },

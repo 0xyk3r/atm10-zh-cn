@@ -1,9 +1,7 @@
 [
   {
     "name": "crashutilities_dynamic_zh_cn",
-    "desc": "crashutilities-9.0.4.jar 硬编码文本汉化（动态替换）",
     "authors": "Auto-Translation-Tool",
-    "mods": "crashutilities-9.0.4.jar",
     "dynamic": true,
     "i18n": false
   },

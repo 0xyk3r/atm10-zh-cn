@@ -1,9 +1,7 @@
 [
   {
     "name": "monolib_zh_cn",
-    "desc": "monolib-neoforge-1.21.1-4.0.2.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "monolib-neoforge-1.21.1-4.0.2.jar",
     "dynamic": false,
     "i18n": false
   },

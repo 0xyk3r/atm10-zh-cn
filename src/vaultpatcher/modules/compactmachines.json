@@ -1,9 +1,7 @@
 [
   {
     "name": "compactmachines_zh_cn",
-    "desc": "compactmachines-neoforge-7.0.81.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "compactmachines-neoforge-7.0.81.jar",
     "dynamic": false,
     "i18n": false
   },

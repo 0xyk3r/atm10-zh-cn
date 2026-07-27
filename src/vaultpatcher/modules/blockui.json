@@ -1,9 +1,7 @@
 [
   {
     "name": "blockui_zh_cn",
-    "desc": "blockui-1.0.211-1.21.1-snapshot.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "blockui-1.0.211-1.21.1-snapshot.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "iris_dynamic_zh_cn",
-    "desc": "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar 硬编码文本汉化（动态替换）",
     "authors": "Auto-Translation-Tool",
-    "mods": "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar",
     "dynamic": true,
     "i18n": false
   },

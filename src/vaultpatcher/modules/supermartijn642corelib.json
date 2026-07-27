@@ -1,9 +1,7 @@
 [
   {
     "name": "supermartijn642corelib_zh_cn",
-    "desc": "supermartijn642corelib-1.1.21-neoforge-mc1.21.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "supermartijn642corelib-1.1.21-neoforge-mc1.21.jar",
     "dynamic": false,
     "i18n": false
   },

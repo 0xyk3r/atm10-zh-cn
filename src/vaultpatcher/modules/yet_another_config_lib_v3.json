@@ -1,9 +1,7 @@
 [
   {
     "name": "yet_another_config_lib_v3_zh_cn",
-    "desc": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar",
     "dynamic": false,
     "i18n": false
   },

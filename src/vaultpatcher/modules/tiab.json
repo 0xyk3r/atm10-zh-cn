@@ -1,9 +1,7 @@
 [
   {
     "name": "tiab_zh_cn",
-    "desc": "tiab-neoforge-6.5.4.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "tiab-neoforge-6.5.4.jar",
     "dynamic": false,
     "i18n": false
   },

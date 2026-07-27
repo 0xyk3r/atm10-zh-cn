@@ -19,12 +19,13 @@ import sys
 
 from paths import COMMON, PACK, PACK_NAME, SRC
 
-# src 下的目录 → 出货树里的位置
+# src 下的目录 → 出货树里的位置。
+# vaultpatcher/ 不在这里：模块头部要写该版本真实的 jar 文件名，
+# 由 gen_vaultpatcher.py 按 versions/db/<版本>/ 现填（见那个脚本的说明）。
 LAYOUT = [
     ('pack', 'resourcepacks/' + PACK_NAME),
     ('config', 'config'),
     ('kubejs', 'kubejs'),
-    ('vaultpatcher', 'vaultpatcher'),
     ('mods', 'mods'),
     ('可选mods-拼音搜索', '可选mods-拼音搜索'),
 ]

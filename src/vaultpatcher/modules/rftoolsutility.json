@@ -1,9 +1,7 @@
 [
   {
     "name": "rftoolsutility_zh_cn",
-    "desc": "rftoolsutility-1.21-7.0.12.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "rftoolsutility-1.21-7.0.12.jar",
     "dynamic": false,
     "i18n": false
   },

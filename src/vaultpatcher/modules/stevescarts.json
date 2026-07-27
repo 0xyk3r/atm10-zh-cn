@@ -1,9 +1,7 @@
 [
   {
     "name": "stevescarts_zh_cn",
-    "desc": "stevescarts-1.21-1.2.18-neoforge.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "stevescarts-1.21-1.2.18-neoforge.jar",
     "dynamic": false,
     "i18n": false
   },

@@ -1,9 +1,7 @@
 [
   {
     "name": "bigreactors_zh_cn",
-    "desc": "ExtremeReactors2-1.21.1-2.4.28.jar 硬编码文本汉化",
     "authors": "Auto-Translation-Tool",
-    "mods": "ExtremeReactors2-1.21.1-2.4.28.jar",
     "dynamic": false,
     "i18n": false
   },
