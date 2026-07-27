@@ -16,8 +16,11 @@
 #     其中读取 mod jar 的那几步还需要 mods/ 里有真实的 jar；官方包的 overrides 里没有，
 #     所以在 CI 上要么指向装好的实例，要么按 manifest 把 jar 备齐（见 build.yml）。
 #
-# 两者都不依赖 macOS：字体是下载来的，源图与 jar 来自整合包，所以 Linux 上产出与
-# 本机**逐字节相同**（横幅 200 张已实测全等）。
+# 两者都不依赖 macOS：字体是下载来的，源图与 jar 来自整合包。
+# Linux 与 macOS 的产物**像素级基本一致**：2026-07-27 拿 CI 产物与本机产物逐张比，
+# 200 张横幅里 197 张像素完全相同，3 张（ATM / ATM之星 / ATM之星自动化）因两边
+# freetype 版本不同、字形栅格化有细微差别——目视等价，位置字号都对。
+# PNG 字节则普遍不同（zlib 版本差异），所以**别拿 sha1 当回归判据**，要比就比像素。
 #
 # 用法:
 #   ATM_PACK_ROOT=/path/to/instance ./scripts/generate_all.sh

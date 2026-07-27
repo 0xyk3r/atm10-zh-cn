@@ -5,7 +5,7 @@
 [![Security](https://img.shields.io/badge/Security-policy-red.svg)](./SECURITY.md)
 [![License](https://img.shields.io/badge/License-GPL--3.0-green.svg)](./LICENSE)
 
-> 适用于 ATM10 7.2 **专用服务器**（dedicated server）。**单机玩家不需要本包**——
+> 适用于 ATM10 @@MCVER@@ **专用服务器**（dedicated server）。**单机玩家不需要本包**——
 > 单机时你自己的客户端就兼任逻辑服务端，蜂名迁移脚本已包含在客户端包里。
 
 ## 目录
@@ -22,7 +22,7 @@
 
 | 项 | 版本 |
 |---|---|
-| 整合包 | All the Mods 10 **v7.2** 专用服务器 |
+| 整合包 | All the Mods 10 **v@@MCVER@@** 专用服务器 |
 | Minecraft | 1.21.1 |
 | 加载器 | NeoForge 21.1.241 |
 

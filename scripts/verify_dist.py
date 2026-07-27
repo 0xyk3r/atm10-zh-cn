@@ -98,11 +98,21 @@ def check(path):
         if mc and ('汉化包-%s.zip' % mc.group(1)) not in pname:
             bad.append('资源包文件名 %r 与 atm%s 对不上' % (pname, mc.group(1)))
 
-    # 安装器里的占位符必须已被打包脚本填掉
+    # 占位符必须已被打包脚本填掉。查**包里全部文本文件**，不只是安装器——
+    # 曾经只查 install.sh/ps1，结果 SERVER.md 里那句「适用于 ATM10 7.2 专用服务器」
+    # 是写死的，7.0 / 7.1 的包里也印着 7.2，玩家报上来才发现。
+    TEXT = ('.sh', '.ps1', '.bat', '.md', '.txt', '.json', '.snbt', '.js', '.mcmeta', '.url')
+    # 这几份项目文档是**原样**分发的，不是模板；它们正文里会提到占位符本身
+    # （CHANGELOG 就在讲这套机制），不能拿它们当漏填。
+    VERBATIM = ('README.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE',
+                '致谢与技术说明.md')
     for n in names:
-        if n.endswith(('install.sh', 'install.ps1')):
-            if '@@' in z.read(n).decode('utf-8', 'replace'):
-                bad.append('%s 里还有未替换的 @@占位符@@' % n)
+        if not n.endswith(TEXT) or n.rsplit('/', 1)[-1] in VERBATIM:
+            continue
+        body = z.read(n).decode('utf-8', 'replace')
+        m = re.search(r'@@[A-Z_]+@@', body)
+        if m:
+            bad.append('%s 里还有未替换的占位符 %s' % (n, m.group(0)))
 
     for k, lo in (CLIENT_MIN if is_client else SERVER_MIN).items():
         v = got.get(k, 0)

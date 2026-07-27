@@ -147,7 +147,14 @@ mkdir -p "$SSTAGE/config"
 cp -R "$TREE/config/ftbquests" "$TREE/config/vaultpatcher_asm" "$SSTAGE/config/"
 [ -f "versions/${MC}/quest_overrides.snbt" ] && cp "versions/${MC}/quest_overrides.snbt" \
   "$SSTAGE/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_zzz_version_override.snbt"
-cp SERVER.md "$SSTAGE/README-服务端.md"
+# 服务端说明里写着「适用于 ATM10 x.y 专用服务器」，那是**本包**的适用版本，
+# 必须跟着走；写死一个的话 7.0 / 7.1 的包里都印着 7.2（玩家实际报过这个）。
+MC="$MC" python3 -c "
+import os, pathlib, sys
+src, dst = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
+dst.write_text(src.read_text(encoding='utf-8').replace('@@MCVER@@', os.environ['MC']),
+               encoding='utf-8')
+" SERVER.md "$SSTAGE/README-服务端.md"
 cp LICENSE "$SSTAGE/"
 printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' > "$SSTAGE/项目主页与反馈.url"
 

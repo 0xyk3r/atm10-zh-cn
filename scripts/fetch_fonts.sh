@@ -36,7 +36,8 @@ cp -R "$TMP/x12/LICENSES" "$DIR/pixel-LICENSES"
 
 # ---- 矢量三档：思源黑体 / 思源宋体（Noto CJK，OFL-1.1）
 # 原先这三档直接用 macOS 自带的冬青黑与宋体，结果只有 Mac 能生成图，
-# CI 跑不了。换成 OFL 的近似字体后 Linux 也能产出**逐字节相同**的结果。
+# CI 跑不了。换成 OFL 的近似字体后 Linux 上的产出与本机像素级基本一致
+# （200 张横幅 197 张完全相同，3 张因 freetype 版本差异有细微栅格化区别，目视等价）。
 #   bold  ← 思源黑体 Bold   （原冬青黑 W6）
 #   thin  ← 思源黑体 Light  （原冬青黑 W3）
 #   serif ← 思源宋体 Black  （原宋体 SC Black）

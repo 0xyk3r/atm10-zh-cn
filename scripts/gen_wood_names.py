@@ -166,6 +166,29 @@ def build(snap):
         print('  歧义 %-52s %s' % (k.split('storage.')[1], ' / '.join(vals)))
 
 
+def refresh_zh(snap):
+    """快照里的译文一律以当前资源包为准重取（键就是 lang key）。"""
+    pack_zh = {}
+    for base in (PACK, COMMON / 'kubejs' / 'assets'):
+        for q in base.rglob('lang/zh_cn.json'):
+            try:
+                d = json.loads(q.read_text(encoding='utf-8'))
+            except Exception:
+                continue
+            for k, v in d.items():
+                if isinstance(v, str):
+                    pack_zh.setdefault(k, v)
+    n = 0
+    for k in list(snap):
+        zh = pack_zh.get(k)
+        if zh and zh != snap[k]:
+            snap[k] = zh
+            n += 1
+    if n:
+        print('  译文以资源包为准刷新了 %d 条' % n)
+    return snap
+
+
 if __name__ == '__main__':
     if len(sys.argv) > 2 and sys.argv[1] == '--scan':
         data = scan(sys.argv[2])
@@ -178,4 +201,7 @@ if __name__ == '__main__':
             data = scan(root)
         else:
             data = json.loads(SNAPSHOT.read_text(encoding='utf-8'))
+            # 快照缓存的是「扫 jar 才知道有哪些木板」，**译文不缓存**：
+            # 缓存住的话，改了资源包却没删快照，产物纹丝不动。
+            data = refresh_zh(data)
     build(data)

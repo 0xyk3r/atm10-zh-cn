@@ -163,5 +163,5 @@
   "upgrade.tempad.knowledge_repository": "查看知识库",
   "upgrade.tempad.new_location": "创建已保存位置",
   "upgrade.tempad.player_teleport": "传送至玩家",
-  "entity.tempad.timedoor": "时空门"
+  "entity.tempad.timedoor": "时门"
 }

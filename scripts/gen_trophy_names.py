@@ -227,6 +227,41 @@ def build(snap):
             print('  %-42s %s' % (name, ' / '.join(vals)))
 
 
+def refresh_zh(snap):
+    """拿当前资源包里的译文，覆盖快照里缓存的那份。
+
+    快照缓存的是**扫 jar 很慢**的那部分（有哪些实体、英文名叫什么）。译文不能跟着
+    缓存住：缓存住的话，改了资源包却没删快照，产物纹丝不动——2026-07-27 实测被坑过
+    （tempad 的「时空门」统一成「时门」后，本机重跑六次产物都没变）。
+    """
+    pack_zh = {}
+    for base in (PACK, COMMON / 'kubejs' / 'assets'):
+        for q in base.rglob('lang/zh_cn.json'):
+            try:
+                d = json.loads(q.read_text(encoding='utf-8'))
+            except Exception:
+                continue
+            for k, v in d.items():
+                if isinstance(v, str):
+                    pack_zh.setdefault(k, v)
+    n = 0
+    for rec in snap.values():
+        zh = pack_zh.get(rec.get('key'))
+        if zh and zh != rec.get('zh'):
+            rec['zh'] = zh
+            n += 1
+        tm = rec.get('tmpl')
+        if tm:
+            m = re.match(r'^entity\.([a-z0-9_-]+)\.', rec.get('key', ''))
+            tz = pack_zh.get('entity.%s.name' % m.group(1)) if m else None
+            if tz and tz != tm.get('zh'):
+                tm['zh'] = tz
+                n += 1
+    if n:
+        print('  译文以资源包为准刷新了 %d 条' % n)
+    return snap
+
+
 if __name__ == '__main__':
     if len(sys.argv) > 2 and sys.argv[1] == '--scan':
         data = scan(sys.argv[2])
@@ -239,4 +274,8 @@ if __name__ == '__main__':
             data = scan(root)
         else:
             data = json.loads(SNAPSHOT.read_text(encoding='utf-8'))
+            # 快照缓存的是**扫 jar 很慢**的那部分（哪些实体、英文名叫什么）。
+            # 译文不能跟着缓存：缓存住的话，改了资源包却不删快照，产物纹丝不动
+            # ——2026-07-27 实测就这么被坑过（tempad 的「时空门」改成「时门」不生效）。
+            refresh_zh(data)
     build(data)
