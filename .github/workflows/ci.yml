@@ -22,11 +22,26 @@ jobs:
     name: 上游漂移 + 汉化校验
     runs-on: ubuntu-latest
     steps:
+      # 保护清单要跟**上一版**比（清单自己也不许变短），所以多要一个提交。
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      # 排在所有事情最前面：src/ 下少一个汉化文件，这里当场红，不用等
+      # 十几分钟的完整构建。这个仓库被删过 1033 个文件，分四笔，全是
+      # 「我觉得这批没用」删的，逐笔回滚过——原委见 scripts/protect.py。
+      # 先验闸自己会不会红——一道从没被触发过的闸等于没有闸。
+      - name: 保护闸自检
+        run: python3 scripts/test_protect.py
+
+      - name: 保护清单（汉化只许加不许删）
+        env:
+          PROTECT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: python3 scripts/protect.py --check
 
       - name: 从 src/ 摊出货树
         run: python3 scripts/assemble.py

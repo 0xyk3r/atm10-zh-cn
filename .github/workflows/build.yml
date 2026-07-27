@@ -54,6 +54,11 @@ jobs:
       - name: 核对工具链
         run: python3 scripts/toolchain.py --strict
 
+      # 出货前再验一遍保护清单。快闸（ci.yml）已经查过，这里是第二道：
+      # 发出去的包不许少汉化，而「少汉化」最常见的成因就是有人（我）把源删了。
+      - name: 保护清单（汉化只许加不许删）
+        run: python3 scripts/protect.py --check
+
       - name: 取字体（全部 OFL）
         run: ./scripts/fetch_fonts.sh
 

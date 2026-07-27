@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# atm10-zh-cn — All the Mods 10 简体中文汉化补丁「绿油油版」
+# Copyright (C) 2026 星野夢華 (Hoshino Yumeka)
+# SPDX-License-Identifier: GPL-3.0-or-later
+"""验保护闸自己会不会红。
+
+一道从来没被触发过的闸，和没有这道闸是一回事。这里在临时目录里建一个
+玩具 git 仓库，把 protect.py 拿过去，逐个造出它**应该拦下**的局面，
+再确认它确实退出 1。哪一条拦不住，这个脚本就红。
+
+用法:
+    python3 scripts/test_protect.py
+"""
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+SELF = Path(__file__).resolve().parent / 'protect.py'
+
+
+def sh(*a, **kw):
+    return subprocess.run(a, capture_output=True, text=True, **kw)
+
+
+def run(repo, *args, base=None):
+    env = dict(os.environ)
+    if base:
+        env['PROTECT_BASE'] = base
+    return subprocess.run([sys.executable, 'scripts/protect.py', *args],
+                          cwd=repo, capture_output=True, text=True, env=env)
+
+
+def setup(tmp):
+    """玩具仓库：src/ 下三个汉化文件，已收进保护清单并提交。"""
+    repo = Path(tmp) / 'toy'
+    (repo / 'scripts').mkdir(parents=True)
+    (repo / 'src' / 'pack').mkdir(parents=True)
+    shutil.copy(SELF, repo / 'scripts' / 'protect.py')
+    for n in ('a', 'b', 'c'):
+        (repo / 'src' / 'pack' / ('%s.json' % n)).write_text('{"k":"译文"}\n',
+                                                             encoding='utf-8')
+    sh('git', 'init', '-q', '-b', 'main', cwd=repo)
+    sh('git', 'config', 'user.email', 't@t', cwd=repo)
+    sh('git', 'config', 'user.name', 't', cwd=repo)
+    sh('git', 'add', '-A', cwd=repo)
+    sh('git', 'commit', '-q', '--no-gpg-sign', '-m', 'init', cwd=repo)
+    run(repo, '--update')
+    sh('git', 'add', '-A', cwd=repo)
+    sh('git', 'commit', '-q', '--no-gpg-sign', '-m', 'manifest', cwd=repo)
+    return repo
+
+
+CASES = []
+
+
+def case(name):
+    def deco(fn):
+        CASES.append((name, fn))
+        return fn
+    return deco
+
+
+@case('干净状态应当通过')
+def t_clean(repo):
+    return run(repo, '--check').returncode == 0
+
+
+@case('删掉一个受保护的汉化文件 → 必须红')
+def t_delete(repo):
+    (repo / 'src' / 'pack' / 'b.json').unlink()
+    r = run(repo, '--check')
+    return r.returncode == 1 and 'src/pack/b.json' in r.stdout
+
+
+@case('把文件清空（留个空壳）→ 必须红')
+def t_empty(repo):
+    (repo / 'src' / 'pack' / 'b.json').write_text('', encoding='utf-8')
+    r = run(repo, '--check')
+    return r.returncode == 1 and '是空的' in r.stdout
+
+
+@case('新增汉化没收进清单 → 必须红')
+def t_uncovered(repo):
+    (repo / 'src' / 'pack' / 'd.json').write_text('{"k":"新"}\n', encoding='utf-8')
+    sh('git', 'add', '-A', cwd=repo)
+    r = run(repo, '--check')
+    return r.returncode == 1 and 'src/pack/d.json' in r.stdout
+
+
+@case('删文件的同时把它从清单里抹掉（洗白）→ 必须红')
+def t_launder(repo):
+    (repo / 'src' / 'pack' / 'b.json').unlink()
+    m = repo / 'src' / 'protected.json'
+    d = json.loads(m.read_text(encoding='utf-8'))
+    d['protected'] = [p for p in d['protected'] if p != 'src/pack/b.json']
+    m.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    sh('git', 'add', '-A', cwd=repo)
+    r = run(repo, '--check', base='HEAD')
+    return r.returncode == 1 and '被改短' in r.stdout
+
+
+@case('放行但不写理由 → 必须红')
+def t_released_no_why(repo):
+    (repo / 'src' / 'pack' / 'b.json').unlink()
+    m = repo / 'src' / 'protected.json'
+    d = json.loads(m.read_text(encoding='utf-8'))
+    d['protected'] = [p for p in d['protected'] if p != 'src/pack/b.json']
+    d['released'] = [{'path': 'src/pack/b.json'}]
+    m.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    sh('git', 'add', '-A', cwd=repo)
+    r = run(repo, '--check', base='HEAD')
+    return r.returncode == 1 and 'approved' in r.stdout
+
+
+@case('放行且写明谁批的、为什么 → 放过')
+def t_released_ok(repo):
+    (repo / 'src' / 'pack' / 'b.json').unlink()
+    m = repo / 'src' / 'protected.json'
+    d = json.loads(m.read_text(encoding='utf-8'))
+    d['protected'] = [p for p in d['protected'] if p != 'src/pack/b.json']
+    d['released'] = [{'path': 'src/pack/b.json', 'approved': '用户',
+                      'date': '2026-07-27', 'why': '用户在对话里点名要删'}]
+    m.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    sh('git', 'add', '-A', cwd=repo)
+    return run(repo, '--check', base='HEAD').returncode == 0
+
+
+@case('--update 只会加，不会把消失的文件从清单里抹掉')
+def t_update_never_removes(repo):
+    (repo / 'src' / 'pack' / 'b.json').unlink()
+    sh('git', 'add', '-A', cwd=repo)
+    run(repo, '--update')
+    d = json.loads((repo / 'src' / 'protected.json').read_text(encoding='utf-8'))
+    return 'src/pack/b.json' in d['protected'] and run(repo, '--check').returncode == 1
+
+
+def main():
+    fail = 0
+    for name, fn in CASES:
+        tmp = tempfile.mkdtemp()
+        try:
+            ok = fn(setup(tmp))
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        print('%s %s' % ('✅' if ok else '❌', name))
+        fail += 0 if ok else 1
+    print('\n%d/%d 条通过' % (len(CASES) - fail, len(CASES)))
+    return 1 if fail else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())
