@@ -14,10 +14,13 @@
 用法:
     python3 scripts/assemble.py
 """
+import os
 import shutil
 import sys
 
-from paths import COMMON, PACK, PACK_NAME, SRC
+import gen_vaultpatcher
+import gen_vanilla_assets
+from paths import COMMON, PACK, PACK_NAME, ROOT, SRC
 
 # src 下的目录 → 出货树里的位置。
 # vaultpatcher/ 不在这里：模块头部要写该版本真实的 jar 文件名，
@@ -61,6 +64,16 @@ def main():
         d.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(s, d, ignore=shutil.ignore_patterns('.DS_Store'))
         n += sum(1 for _ in d.rglob('*') if _.is_file())
+    # 不依赖 mod jar 的那两个生成器就地跑掉，保证「摊完就是一棵自洽的树」。
+    # 否则只跑 assemble 的调用方（安装器测试、CI 快闸）会拿到一棵缺
+    # vaultpatcher/ 和 pack.mcmeta 的树，报出来的错还完全看不出根因。
+    newest = sorted((d.name for d in (ROOT / 'versions').iterdir()
+                     if d.is_dir() and d.name[0].isdigit()),
+                    key=lambda s: [int(x) for x in s.split('.')])[-1]
+    gen_vaultpatcher.main(newest, COMMON)
+    gen_vanilla_assets.main(os.environ.get('ATM_PACK_ROOT', ''), PACK)
+
+    n = sum(1 for _ in COMMON.rglob('*') if _.is_file())
     print('已摊出货树: %s（%d 个文件）' % (COMMON, n))
     print('  资源包源目录: %s' % PACK)
 

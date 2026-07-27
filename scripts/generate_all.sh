@@ -37,17 +37,8 @@ done
 HAVE_JARS=0
 [ -d "$ATM_PACK_ROOT/mods" ] && [ "$(ls "$ATM_PACK_ROOT"/mods/*.jar 2>/dev/null | wc -l)" -ge 20 ] && HAVE_JARS=1
 
-echo "▶ 从 src/ 摊出货树"
+echo "▶ 从 src/ 摊出货树（含 VaultPatcher 模块与跟随原版的文件）"
 python3 scripts/assemble.py
-
-# VaultPatcher 模块的 jar 名按版本不同，这里先按最新那版生成一份进 build/common；
-# build_dist.sh 打每个版本时会用该版的数据库重新生成一遍。
-NEWEST=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
-echo "▶ VaultPatcher 模块（按 ATM10 $NEWEST 的 jar 名）"
-python3 scripts/gen_vaultpatcher.py "$NEWEST" build/common
-
-echo "▶ 跟随原版的文件（pack.mcmeta + 中文标点字体）"
-python3 scripts/gen_vanilla_assets.py "$ATM_PACK_ROOT" "build/common/resourcepacks/ATM10汉化包"
 
 echo "▶ 任务书横幅艺术字（200 张）"
 python3 scripts/gen_quest_banners.py
