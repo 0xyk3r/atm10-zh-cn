@@ -4,48 +4,54 @@
    {
     "classes": {
      "dev.ftb.mods.ftbchunks.FTBChunksCommands": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "dev.ftb.mods.ftbchunks.FTBChunksCommands",
+      "how": "declared",
+      "jar": "ftb-chunks-neoforge-2101.1.14.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "ftb-chunks-neoforge-2101.1.14.jar"
+    ],
     "keys": {
-     "Not on a dedicted server!": "missing"
+     "Not on a dedicted server!": "exact"
     }
    },
    {
     "classes": {
      "dev.ftb.mods.ftbchunks.client.gui.AddWaypointOverlay": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "dev.ftb.mods.ftbchunks.client.gui.AddWaypointOverlay",
+      "how": "declared",
+      "jar": "ftb-chunks-neoforge-2101.1.14.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "ftb-chunks-neoforge-2101.1.14.jar"
+    ],
     "keys": {
-     "⇧ + Enter": "missing"
+     "⇧ + Enter": "exact"
     }
    },
    {
     "classes": {
      "dev.ftb.mods.ftbchunks.client.gui.SliceCreationGUI": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "dev.ftb.mods.ftbchunks.client.gui.SliceCreationGUI",
+      "how": "declared",
+      "jar": "ftb-chunks-neoforge-2101.1.14.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "ftb-chunks-neoforge-2101.1.14.jar"
+    ],
     "keys": {
-     "Add Slice": "missing",
-     "Export": "missing",
-     "Next Slice": "missing",
-     "Previous Slice": "missing",
-     "Remove Slice": "missing",
-     "Saved File": "missing"
+     "Add Slice": "exact",
+     "Export": "exact",
+     "Next Slice": "exact",
+     "Previous Slice": "exact",
+     "Remove Slice": "exact",
+     "Saved File": "exact"
     }
    }
   ]
@@ -55,99 +61,111 @@
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.config.values.ConfigStringListValues": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.config.values.ConfigStringListValues",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "AIOT Extra Whitelist": "missing",
-     "Crusher Output Blacklist": "missing",
-     "Crusher Recipe Exceptions": "missing",
-     "Item Repairer Extra Whitelist": "missing",
-     "Mashed Food Crafting Exceptions": "missing",
-     "Mining Lens Blacklist": "missing",
-     "Mining lens Extra Whitelist": "missing",
-     "Repair Blacklist": "missing",
-     "Spawner Changer Blacklist": "missing"
+     "AIOT Extra Whitelist": "exact",
+     "Crusher Output Blacklist": "exact",
+     "Crusher Recipe Exceptions": "exact",
+     "Item Repairer Extra Whitelist": "exact",
+     "Mashed Food Crafting Exceptions": "exact",
+     "Mining Lens Blacklist": "exact",
+     "Mining lens Extra Whitelist": "exact",
+     "Repair Blacklist": "exact",
+     "Spawner Changer Blacklist": "exact"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.GuiMiner": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.GuiMiner",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Mining Everything": "missing",
-     "Mode": "missing",
-     "Only Mining Ores": "missing",
-     "Reset": "missing"
+     "Mining Everything": "exact",
+     "Mode": "exact",
+     "Only Mining Ores": "exact",
+     "Reset": "exact"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.ItemTagScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.ItemTagScreen",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Invalid Tag": "missing",
-     "Valid Tag": "missing"
+     "Invalid Tag": "exact",
+     "Valid Tag": "exact"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.SackGui": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.SackGui",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Auto-Insert ": "missing",
-     "Note that this WON'T work when you are holding the sack in your hand.": "missing",
-     "Turn this on to make items that get picked up automatically go into the sack.": "missing"
+     "Auto-Insert ": "substring",
+     "Note that this WON'T work when you are holding the sack in your hand.": "exact",
+     "Turn this on to make items that get picked up automatically go into the sack.": "exact"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.VoidSackGui": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.VoidSackGui",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 5,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Auto-Insert ": "missing",
-     "Note that this WON'T work when you are holding the bag in your hand.": "missing",
-     "Turn this on to make items that get picked up automatically go into the bag.": "missing"
+     "Auto-Insert ": "substring",
+     "Note that this WON'T work when you are holding the bag in your hand.": "exact",
+     "Turn this on to make items that get picked up automatically go into the bag.": "exact"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.items.ItemBooklet": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.items.ItemBooklet",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 6,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
      "Patchouli is not installed! Please install Patchouli to view the booklet.": "missing"
     }
@@ -155,57 +173,65 @@
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.items.ItemDrillUpgrade": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.items.ItemDrillUpgrade",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 7,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Set the slot to place from to ": "missing"
+     "Set the slot to place from to ": "substring"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.items.ItemTag": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.items.ItemTag",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 8,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Tag: ": "missing"
+     "Tag: ": "substring"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.jei.fermenting.FermentingCategory": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.jei.fermenting.FermentingCategory",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 9,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Fermenting Recipe": "missing"
+     "Fermenting Recipe": "exact"
     }
    },
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.jei.pressing.PressingCategory": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.jei.pressing.PressingCategory",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 10,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Pressing Recipe": "missing"
+     "Pressing Recipe": "exact"
     }
    }
   ]
@@ -215,26 +241,28 @@
    {
     "classes": {
      "de.ellpeck.actuallyadditions.mod.inventory.gui.GuiFireworkBox": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "de.ellpeck.actuallyadditions.mod.inventory.gui.GuiFireworkBox",
+      "how": "declared",
+      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "actuallyadditions-1.3.25+mc1.21.1.jar"
+    ],
     "keys": {
-     "Area of Effect": "missing",
-     "Average Charge Amount": "missing",
-     "Average Flight Time": "missing",
-     "Burst": "missing",
-     "Color Amount": "missing",
-     "Creeper Shape": "missing",
-     "Effect Chance": "missing",
-     "Flicker/Trail Ratio": "missing",
-     "Large Ball": "missing",
-     "Small Ball": "missing",
-     "Star Shape": "missing",
-     "Value Play": "missing"
+     "Area of Effect": "exact",
+     "Average Charge Amount": "exact",
+     "Average Flight Time": "exact",
+     "Burst": "exact",
+     "Color Amount": "exact",
+     "Creeper Shape": "exact",
+     "Effect Chance": "exact",
+     "Flicker/Trail Ratio": "exact",
+     "Large Ball": "exact",
+     "Small Ball": "exact",
+     "Star Shape": "exact",
+     "Value Play": "exact"
     }
    }
   ]
@@ -627,18 +655,20 @@
    {
     "classes": {
      "com.almostreliable.unified.core.AlmostUnifiedCommands": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.almostreliable.unified.core.AlmostUnifiedCommands",
+      "how": "declared",
+      "jar": "almostunified-neoforge-1.21.1-1.4.1.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "almostunified-neoforge-1.21.1-1.4.1.jar"
+    ],
     "keys": {
-     "Almost Unified Commands": "missing",
-     "Please provide a valid radius!": "missing",
-     "This command can only be used in-game!": "missing",
-     "strip <radius> - strips everything in the specified radius except for Bedrock and ores": "missing"
+     "Almost Unified Commands": "exact",
+     "Please provide a valid radius!": "exact",
+     "This command can only be used in-game!": "exact",
+     "strip <radius> - strips everything in the specified radius except for Bedrock and ores": "exact"
     }
    }
   ]
@@ -1652,12 +1682,12 @@
      "com.github.L_Ender.cataclysm.world.structures.terrainadaptation.EnhancedTerrainAdaptationType": {
       "actual": "com.github.L_Ender.cataclysm.world.structures.terrainadaptation.EnhancedTerrainAdaptationType",
       "how": "declared",
-      "jar": "Oh-The-Biomes-Weve-Gone-NeoForge-2.5.5.jar"
+      "jar": "L_Ender's Cataclysm 1.21.1-3.27.jar"
      }
     },
     "i": 1,
     "jars": [
-     "Oh-The-Biomes-Weve-Gone-NeoForge-2.5.5.jar"
+     "L_Ender's Cataclysm 1.21.1-3.27.jar"
     ],
     "keys": {
      "No ID found for enhanced terrain adaptation type ": "substring",
@@ -1994,12 +2024,12 @@
      "com.connectivity.command.IMCOPCommand": {
       "actual": "com.connectivity.command.IMCOPCommand",
       "how": "declared",
-      "jar": "almostunified-neoforge-1.21.1-1.4.1.jar"
+      "jar": "connectivity-1.21.1-7.6.jar"
      }
     },
     "i": 1,
     "jars": [
-     "almostunified-neoforge-1.21.1-1.4.1.jar"
+     "connectivity-1.21.1-7.6.jar"
     ],
     "keys": {
      "You need to be OP for this command.": "exact"
@@ -2010,12 +2040,12 @@
      "com.connectivity.networkstats.NetworkStatGatherer": {
       "actual": "com.connectivity.networkstats.NetworkStatGatherer",
       "how": "declared",
-      "jar": "almostunified-neoforge-1.21.1-1.4.1.jar"
+      "jar": "connectivity-1.21.1-7.6.jar"
      }
     },
     "i": 2,
     "jars": [
-     "almostunified-neoforge-1.21.1-1.4.1.jar"
+     "connectivity-1.21.1-7.6.jar"
     ],
     "keys": {
      "Invalid name": "exact",
@@ -2551,12 +2581,12 @@
      "de.cristelknight.cristellib.api.BuiltInAPI": {
       "actual": "de.cristelknight.cristellib.api.BuiltInAPI",
       "how": "declared",
-      "jar": "xnet-1.21-7.0.6.jar"
+      "jar": "cristellib-neoforge-1.21.1-3.0.3.jar"
      }
     },
     "i": 1,
     "jars": [
-     "xnet-1.21-7.0.6.jar"
+     "cristellib-neoforge-1.21.1-3.0.3.jar"
     ],
     "keys": {
      "Cristel Lib Config Pack": "exact"
@@ -3246,12 +3276,12 @@
      "com.almostreliable.energymeter.block.MonitorBlock": {
       "actual": "com.almostreliable.energymeter.block.MonitorBlock",
       "how": "declared",
-      "jar": "ftb-library-neoforge-2101.1.31.jar"
+      "jar": "energymeter-neoforge-1.21.1-0.4.0.jar"
      }
     },
     "i": 1,
     "jars": [
-     "ftb-library-neoforge-2101.1.31.jar"
+     "energymeter-neoforge-1.21.1-0.4.0.jar"
     ],
     "keys": {
      "Work in progress!": "exact",
@@ -3267,12 +3297,12 @@
      "com.almostreliable.energymeter.client.screen.MeterScreen": {
       "actual": "com.almostreliable.energymeter.client.screen.MeterScreen",
       "how": "declared",
-      "jar": "ftb-library-neoforge-2101.1.31.jar"
+      "jar": "energymeter-neoforge-1.21.1-0.4.0.jar"
      }
     },
     "i": 2,
     "jars": [
-     "ftb-library-neoforge-2101.1.31.jar"
+     "energymeter-neoforge-1.21.1-0.4.0.jar"
     ],
     "keys": {
      "Work in progress!": "exact"
@@ -3285,32 +3315,36 @@
    {
     "classes": {
      "cn.leolezury.eternalstarlight.common.entity.living.boss.gatekeeper.TheGatekeeper": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "cn.leolezury.eternalstarlight.common.entity.living.boss.gatekeeper.TheGatekeeper",
+      "how": "declared",
+      "jar": "eternalstarlight-0.6.4+1.21.1+neoforge.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "eternalstarlight-0.6.4+1.21.1+neoforge.jar"
+    ],
     "keys": {
-     "Failed to load offers: ": "missing"
+     "Failed to load offers: ": "exact"
     }
    },
    {
     "classes": {
      "cn.leolezury.eternalstarlight.common.item.recipe.AlloyRecipe$Serializer": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "cn.leolezury.eternalstarlight.common.item.recipe.AlloyRecipe$Serializer",
+      "how": "declared",
+      "jar": "eternalstarlight-0.6.4+1.21.1+neoforge.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "eternalstarlight-0.6.4+1.21.1+neoforge.jar"
+    ],
     "keys": {
-     "No ingredient for alloy recipe": "missing",
-     "No result for alloy recipe": "missing",
-     "Too many ingredients for alloy recipe": "missing",
-     "Too many results for alloy recipe": "missing"
+     "No ingredient for alloy recipe": "exact",
+     "No result for alloy recipe": "exact",
+     "Too many ingredients for alloy recipe": "exact",
+     "Too many results for alloy recipe": "exact"
     }
    }
   ]
@@ -3322,12 +3356,12 @@
      "org.cyclops.evilcraft.blockentity.tickaction.spiritfurnace.BoxCookTickAction": {
       "actual": "org.cyclops.evilcraft.blockentity.tickaction.spiritfurnace.BoxCookTickAction",
       "how": "declared",
-      "jar": "journeymap-neoforge-1.21.1-6.0.0-beta.72.jar"
+      "jar": "evilcraft-1.21.1-neoforge-1.2.86.jar"
      }
     },
     "i": 1,
     "jars": [
-     "journeymap-neoforge-1.21.1-6.0.0-beta.72.jar"
+     "evilcraft-1.21.1-neoforge-1.2.86.jar"
     ],
     "keys": {
      "Lekkere Stront": "exact"
@@ -3511,12 +3545,12 @@
      "dev.ftb.mods.ftblibrary.FTBLibrary": {
       "actual": "dev.ftb.mods.ftblibrary.FTBLibrary",
       "how": "declared",
-      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
+      "jar": "ftb-library-neoforge-2101.1.31.jar"
      }
     },
     "i": 1,
     "jars": [
-     "MysticalAgriculture-1.21.1-8.0.26.jar"
+     "ftb-library-neoforge-2101.1.31.jar"
     ],
     "keys": {
      "Hello from FTB Library!": "exact"
@@ -3527,12 +3561,12 @@
      "dev.ftb.mods.ftblibrary.FTBLibraryCommands": {
       "actual": "dev.ftb.mods.ftblibrary.FTBLibraryCommands",
       "how": "declared",
-      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
+      "jar": "ftb-library-neoforge-2101.1.31.jar"
      }
     },
     "i": 2,
     "jars": [
-     "MysticalAgriculture-1.21.1-8.0.26.jar"
+     "ftb-library-neoforge-2101.1.31.jar"
     ],
     "keys": {
      "Can't do this on dedicated server!": "exact",
@@ -3544,12 +3578,12 @@
      "dev.ftb.mods.ftblibrary.nbtedit.NBTEditorScreen$TopLeftPanel": {
       "actual": "dev.ftb.mods.ftblibrary.nbtedit.NBTEditorScreen$TopLeftPanel",
       "how": "declared",
-      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
+      "jar": "ftb-library-neoforge-2101.1.31.jar"
      }
     },
     "i": 3,
     "jars": [
-     "MysticalAgriculture-1.21.1-8.0.26.jar"
+     "ftb-library-neoforge-2101.1.31.jar"
     ],
     "keys": {
      "Byte Array": "exact",
@@ -3565,12 +3599,12 @@
      "dev.ftb.mods.ftblibrary.ui.ColorSelectorPanel": {
       "actual": "dev.ftb.mods.ftblibrary.ui.ColorSelectorPanel",
       "how": "declared",
-      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
+      "jar": "ftb-library-neoforge-2101.1.31.jar"
      }
     },
     "i": 4,
     "jars": [
-     "MysticalAgriculture-1.21.1-8.0.26.jar"
+     "ftb-library-neoforge-2101.1.31.jar"
     ],
     "keys": {
      "⇧ + Enter": "exact"
@@ -3581,12 +3615,12 @@
      "dev.ftb.mods.ftblibrary.ui.misc.AbstractThreePanelScreen$BottomPanel": {
       "actual": "dev.ftb.mods.ftblibrary.ui.misc.AbstractThreePanelScreen$BottomPanel",
       "how": "declared",
-      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
+      "jar": "ftb-library-neoforge-2101.1.31.jar"
      }
     },
     "i": 5,
     "jars": [
-     "MysticalAgriculture-1.21.1-8.0.26.jar"
+     "ftb-library-neoforge-2101.1.31.jar"
     ],
     "keys": {
      "⇧ + Enter": "exact"
@@ -3805,12 +3839,12 @@
      "dev.uncandango.ftbquestslangsplitter.command.LangSplitterCommands": {
       "actual": "dev.uncandango.ftbquestslangsplitter.command.LangSplitterCommands",
       "how": "declared",
-      "jar": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+      "jar": "ftbquestslangsplitter-1.0.5.jar"
      }
     },
     "i": 1,
     "jars": [
-     "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+     "ftbquestslangsplitter-1.0.5.jar"
     ],
     "keys": {
      "Can't scan lang folder ": "substring",
@@ -3938,44 +3972,50 @@
    {
     "classes": {
      "com.mamailes.herbsandharvest.item.CheeseItem": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.mamailes.herbsandharvest.item.CheeseItem",
+      "how": "declared",
+      "jar": "herbsandharvest-1.21.1-12.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "herbsandharvest-1.21.1-12.jar"
+    ],
     "keys": {
-     "Saturation: ": "missing"
+     "Saturation: ": "substring"
     }
    },
    {
     "classes": {
      "com.mamailes.herbsandharvest.item.CheeseWheelBlockItem": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.mamailes.herbsandharvest.item.CheeseWheelBlockItem",
+      "how": "declared",
+      "jar": "herbsandharvest-1.21.1-12.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "herbsandharvest-1.21.1-12.jar"
+    ],
     "keys": {
-     "Nutrition: ": "missing",
-     "Saturation: ": "missing"
+     "Nutrition: ": "substring",
+     "Saturation: ": "substring"
     }
    },
    {
     "classes": {
      "com.mamailes.herbsandharvest.item.CropItem": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.mamailes.herbsandharvest.item.CropItem",
+      "how": "declared",
+      "jar": "herbsandharvest-1.21.1-12.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "herbsandharvest-1.21.1-12.jar"
+    ],
     "keys": {
-     "Saturation: ": "missing"
+     "Saturation: ": "substring"
     }
    }
   ]
@@ -4118,12 +4158,12 @@
      "mcjty.incontrol.commands.CmdArea": {
       "actual": "mcjty.incontrol.commands.CmdArea",
       "how": "declared",
-      "jar": "formationsnether-1.0.5-mc1.21+.jar"
+      "jar": "incontrol-1.21-10.2.6.jar"
      }
     },
     "i": 1,
     "jars": [
-     "formationsnether-1.0.5-mc1.21+.jar"
+     "incontrol-1.21-10.2.6.jar"
     ],
     "keys": {
      "Current area: ": "substring",
@@ -4135,12 +4175,12 @@
      "mcjty.incontrol.commands.CmdDays": {
       "actual": "mcjty.incontrol.commands.CmdDays",
       "how": "declared",
-      "jar": "formationsnether-1.0.5-mc1.21+.jar"
+      "jar": "incontrol-1.21-10.2.6.jar"
      }
     },
     "i": 2,
     "jars": [
-     "formationsnether-1.0.5-mc1.21+.jar"
+     "incontrol-1.21-10.2.6.jar"
     ],
     "keys": {
      "Current day is ": "substring"
@@ -4151,12 +4191,12 @@
      "mcjty.incontrol.commands.CmdInfo": {
       "actual": "mcjty.incontrol.commands.CmdInfo",
       "how": "declared",
-      "jar": "formationsnether-1.0.5-mc1.21+.jar"
+      "jar": "incontrol-1.21-10.2.6.jar"
      }
     },
     "i": 3,
     "jars": [
-     "formationsnether-1.0.5-mc1.21+.jar"
+     "incontrol-1.21-10.2.6.jar"
     ],
     "keys": {
      "Current day is ": "substring",
@@ -4169,12 +4209,12 @@
      "mcjty.incontrol.commands.CmdNumbers": {
       "actual": "mcjty.incontrol.commands.CmdNumbers",
       "how": "declared",
-      "jar": "formationsnether-1.0.5-mc1.21+.jar"
+      "jar": "incontrol-1.21-10.2.6.jar"
      }
     },
     "i": 4,
     "jars": [
-     "formationsnether-1.0.5-mc1.21+.jar"
+     "incontrol-1.21-10.2.6.jar"
     ],
     "keys": {
      "Current numbers: ": "substring"
@@ -4185,12 +4225,12 @@
      "mcjty.incontrol.commands.CmdPhases": {
       "actual": "mcjty.incontrol.commands.CmdPhases",
       "how": "declared",
-      "jar": "formationsnether-1.0.5-mc1.21+.jar"
+      "jar": "incontrol-1.21-10.2.6.jar"
      }
     },
     "i": 5,
     "jars": [
-     "formationsnether-1.0.5-mc1.21+.jar"
+     "incontrol-1.21-10.2.6.jar"
     ],
     "keys": {
      "Current phases: ": "substring"
@@ -4201,12 +4241,12 @@
      "mcjty.incontrol.commands.CmdReload": {
       "actual": "mcjty.incontrol.commands.CmdReload",
       "how": "declared",
-      "jar": "formationsnether-1.0.5-mc1.21+.jar"
+      "jar": "incontrol-1.21-10.2.6.jar"
      }
     },
     "i": 6,
     "jars": [
-     "formationsnether-1.0.5-mc1.21+.jar"
+     "incontrol-1.21-10.2.6.jar"
     ],
     "keys": {
      "Reloaded InControl rules": "exact"
@@ -4217,12 +4257,12 @@
      "mcjty.incontrol.tools.rules.RuleBase": {
       "actual": "mcjty.incontrol.tools.rules.RuleBase",
       "how": "declared",
-      "jar": "formationsnether-1.0.5-mc1.21+.jar"
+      "jar": "incontrol-1.21-10.2.6.jar"
      }
     },
     "i": 7,
     "jars": [
-     "formationsnether-1.0.5-mc1.21+.jar"
+     "incontrol-1.21-10.2.6.jar"
     ],
     "keys": {
      "Bad NBT for mob!": "exact",
@@ -4237,19 +4277,21 @@
    {
     "classes": {
      "dev.wp.industrialization_overdrive.item.Terminal": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "dev.wp.industrialization_overdrive.item.Terminal",
+      "how": "declared",
+      "jar": "industrialization_overdrive-1.11.1+1.21.1.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "industrialization_overdrive-1.11.1+1.21.1.jar"
+    ],
     "keys": {
-     "Block at %s is not part of the multiblock": "missing",
+     "Block at %s is not part of the multiblock": "exact",
      "Block at %s is not part of the multiblock and cannot be replaced.": "missing",
      "Multiblock must be formed to copy it.": "missing",
-     "Required items:": "missing",
-     "Unable to get shape matcher for this multiblock.": "missing"
+     "Required items:": "exact",
+     "Unable to get shape matcher for this multiblock.": "exact"
     }
    }
   ]
@@ -4295,32 +4337,36 @@
    {
     "classes": {
      "net.irisshaders.iris.Iris": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.irisshaders.iris.Iris",
+      "how": "declared",
+      "jar": "iris-neoforge-1.8.12+mc1.21.1.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "iris-neoforge-1.8.12+mc1.21.1.jar"
+    ],
     "keys": {
-     "Copy Info": "missing",
-     "Failed to compile shaders": "missing",
-     "No cheating; wireframe only in singleplayer!": "missing",
-     "enabled, logging will be more verbose!": "missing"
+     "Copy Info": "exact",
+     "Failed to compile shaders": "exact",
+     "No cheating; wireframe only in singleplayer!": "exact",
+     "enabled, logging will be more verbose!": "exact"
     }
    },
    {
     "classes": {
      "net.irisshaders.iris.UpdateChecker": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.irisshaders.iris.UpdateChecker",
+      "how": "declared",
+      "jar": "iris-neoforge-1.8.12+mc1.21.1.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "iris-neoforge-1.8.12+mc1.21.1.jar"
+    ],
     "keys": {
-     "the Iris Installer": "missing"
+     "the Iris Installer": "exact"
     }
    }
   ]
@@ -4330,36 +4376,40 @@
    {
     "classes": {
      "net.irisshaders.iris.gui.debug.DebugLoadFailedGridScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.irisshaders.iris.gui.debug.DebugLoadFailedGridScreen",
+      "how": "declared",
+      "jar": "iris-neoforge-1.8.12+mc1.21.1.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "iris-neoforge-1.8.12+mc1.21.1.jar"
+    ],
     "keys": {
-     "Copy error": "missing",
-     "Reload pack": "missing"
+     "Copy error": "exact",
+     "Reload pack": "exact"
     }
    },
    {
     "classes": {
      "net.irisshaders.iris.gui.screen.ShaderPackScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.irisshaders.iris.gui.screen.ShaderPackScreen",
+      "how": "declared",
+      "jar": "iris-neoforge-1.8.12+mc1.21.1.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "iris-neoforge-1.8.12+mc1.21.1.jar"
+    ],
     "keys": {
-     "Debug mode helps investigate problems and shows shader errors. Would you like to enable it?": "missing",
-     "Disable": "missing",
-     "Enable": "missing",
-     "New update available!": "missing",
-     "Shader debug mode toggle": "missing",
-     "This allows unknown shaders to load in.": "missing",
-     "Unknown shader toggle": "missing"
+     "Debug mode helps investigate problems and shows shader errors. Would you like to enable it?": "exact",
+     "Disable": "exact",
+     "Enable": "exact",
+     "New update available!": "exact",
+     "Shader debug mode toggle": "exact",
+     "This allows unknown shaders to load in.": "exact",
+     "Unknown shader toggle": "exact"
     }
    }
   ]
@@ -4371,12 +4421,12 @@
      "ironfurnaces.blocks.furnaces.BlockIronFurnaceBase": {
       "actual": "ironfurnaces.blocks.furnaces.BlockIronFurnaceBase",
       "how": "declared",
-      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
+      "jar": "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
      }
     },
     "i": 1,
     "jars": [
-     "actuallyadditions-1.3.25+mc1.21.1.jar"
+     "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
     ],
     "keys": {
      "Settings copied": "exact"
@@ -4387,12 +4437,12 @@
      "ironfurnaces.gui.furnaces.BlockIronFurnaceScreenBase": {
       "actual": "ironfurnaces.gui.furnaces.BlockIronFurnaceScreenBase",
       "how": "declared",
-      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
+      "jar": "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
      }
     },
     "i": 2,
     "jars": [
-     "actuallyadditions-1.3.25+mc1.21.1.jar"
+     "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
     ],
     "keys": {
      "Auto Split": "exact"
@@ -4403,12 +4453,12 @@
      "ironfurnaces.items.ItemFurnaceCopy": {
       "actual": "ironfurnaces.items.ItemFurnaceCopy",
       "how": "declared",
-      "jar": "actuallyadditions-1.3.25+mc1.21.1.jar"
+      "jar": "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
      }
     },
     "i": 3,
     "jars": [
-     "actuallyadditions-1.3.25+mc1.21.1.jar"
+     "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
     ],
     "keys": {
      "Auto Input: ": "substring",
@@ -4455,12 +4505,12 @@
      "net.swedz.little_big_redstone.LBR": {
       "actual": "net.swedz.little_big_redstone.LBR",
       "how": "declared",
-      "jar": "variantsandventures-neoforge-1.0.24+mc1.21.1.jar"
+      "jar": "little-big-redstone-1.6.3-beta-1.21.1.jar"
      }
     },
     "i": 1,
     "jars": [
-     "variantsandventures-neoforge-1.0.24+mc1.21.1.jar"
+     "little-big-redstone-1.6.3-beta-1.21.1.jar"
     ],
     "keys": {
      "Text not yet loaded": "exact"
@@ -4471,12 +4521,12 @@
      "net.swedz.little_big_redstone.microchip.object.logic.LogicTypes": {
       "actual": "net.swedz.little_big_redstone.microchip.object.logic.LogicTypes",
       "how": "declared",
-      "jar": "variantsandventures-neoforge-1.0.24+mc1.21.1.jar"
+      "jar": "little-big-redstone-1.6.3-beta-1.21.1.jar"
      }
     },
     "i": 2,
     "jars": [
-     "variantsandventures-neoforge-1.0.24+mc1.21.1.jar"
+     "little-big-redstone-1.6.3-beta-1.21.1.jar"
     ],
     "keys": {
      "Unknown registry key in ": "missing",
@@ -4550,12 +4600,12 @@
      "noobanidus.mods.lootr.common.command.CustomConvertJob": {
       "actual": "noobanidus.mods.lootr.common.command.CustomConvertJob",
       "how": "declared",
-      "jar": "cupboard-1.21-3.5.jar"
+      "jar": "lootr-neoforge-1.21.1-1.11.37.120.jar"
      }
     },
     "i": 1,
     "jars": [
-     "cupboard-1.21-3.5.jar"
+     "lootr-neoforge-1.21.1-1.11.37.120.jar"
     ],
     "keys": {
      "A conversion job is already running.": "exact",
@@ -4998,15 +5048,17 @@
    {
     "classes": {
      "com.direwolf20.mininggadgets.client.screens.widget.ToggleButton": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.direwolf20.mininggadgets.client.screens.widget.ToggleButton",
+      "how": "declared",
+      "jar": "mininggadgets-1.18.6.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "mininggadgets-1.18.6.jar"
+    ],
     "keys": {
-     "Enabled: ": "missing"
+     "Enabled: ": "substring"
     }
    }
   ]
@@ -5222,12 +5274,12 @@
      "com.klikli_dev.modonomicon.datagen.book.demo.features.SpotlightEntry": {
       "actual": "com.klikli_dev.modonomicon.datagen.book.demo.features.SpotlightEntry",
       "how": "declared",
-      "jar": "geckolib-neoforge-1.21.1-4.8.4.jar"
+      "jar": "modonomicon-1.21.1-neoforge-1.120.1.jar"
      }
     },
     "i": 1,
     "jars": [
-     "geckolib-neoforge-1.21.1-4.8.4.jar"
+     "modonomicon-1.21.1-neoforge-1.120.1.jar"
     ],
     "keys": {
      "An entry showcasing spotlight pages.": "exact",
@@ -5239,12 +5291,12 @@
      "com.klikli_dev.modonomicon.item.ModonomiconItem": {
       "actual": "com.klikli_dev.modonomicon.item.ModonomiconItem",
       "how": "declared",
-      "jar": "geckolib-neoforge-1.21.1-4.8.4.jar"
+      "jar": "modonomicon-1.21.1-neoforge-1.120.1.jar"
      }
     },
     "i": 2,
     "jars": [
-     "geckolib-neoforge-1.21.1-4.8.4.jar"
+     "modonomicon-1.21.1-neoforge-1.120.1.jar"
     ],
     "keys": {
      "Book ID: ": "exact"
@@ -5257,15 +5309,17 @@
    {
     "classes": {
      "com.glodblock.github.modularbees.dynamic.DyResourcePack": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.glodblock.github.modularbees.dynamic.DyResourcePack",
+      "how": "declared",
+      "jar": "ModularBees-1.21.1-3.0-neoforge.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "ModularBees-1.21.1-3.0-neoforge.jar"
+    ],
     "keys": {
-     "Modular Bees assets": "missing"
+     "Modular Bees assets": "exact"
     }
    }
   ]
@@ -5329,15 +5383,17 @@
    {
     "classes": {
      "com.blakebr0.mysticalagriculture.compat.crafttweaker.AwakeningCrafting$SetEssenceVesselColorAction": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.blakebr0.mysticalagriculture.compat.crafttweaker.AwakeningCrafting$SetEssenceVesselColorAction",
+      "how": "declared",
+      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "MysticalAgriculture-1.21.1-8.0.26.jar"
+    ],
     "keys": {
-     "Mystical Agriculture": "missing"
+     "Mystical Agriculture": "exact"
     }
    }
   ]
@@ -5675,12 +5731,12 @@
      "io.wispforest.owo.renderdoc.RenderdocScreen": {
       "actual": "io.wispforest.owo.renderdoc.RenderdocScreen",
       "how": "declared",
-      "jar": "merequester-neoforge-1.21.1-1.4.2.jar"
+      "jar": "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
      }
     },
     "i": 1,
     "jars": [
-     "merequester-neoforge-1.21.1-1.4.2.jar"
+     "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
     ],
     "keys": {
      "Capture Frame": "exact",
@@ -5701,12 +5757,12 @@
      "io.wispforest.owo.ui.util.UIErrorToast": {
       "actual": "io.wispforest.owo.ui.util.UIErrorToast",
       "how": "declared",
-      "jar": "merequester-neoforge-1.21.1-1.4.2.jar"
+      "jar": "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
      }
     },
     "i": 2,
     "jars": [
-     "merequester-neoforge-1.21.1-1.4.2.jar"
+     "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
     ],
     "keys": {
      "Check your log for details": "exact",
@@ -6187,15 +6243,17 @@
    {
     "classes": {
      "com.yogpc.qp.machine.misc.GeneratorBlock": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.yogpc.qp.machine.misc.GeneratorBlock",
+      "how": "declared",
+      "jar": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+    ],
     "keys": {
-     "Change generator mode to %d(%d FE)": "missing"
+     "Change generator mode to %d(%d FE)": "exact"
     }
    }
   ]
@@ -6205,19 +6263,21 @@
    {
     "classes": {
      "com.yogpc.qp.machine.marker.ChunkMarkerScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.yogpc.qp.machine.marker.ChunkMarkerScreen",
+      "how": "declared",
+      "jar": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+    ],
     "keys": {
-     "Bottom+": "missing",
-     "Bottom-": "missing",
-     "Size": "missing",
-     "Top+": "missing",
-     "Top-": "missing"
+     "Bottom+": "exact",
+     "Bottom-": "exact",
+     "Size": "exact",
+     "Top+": "exact",
+     "Top-": "exact"
     }
    }
   ]
@@ -6311,12 +6371,12 @@
      "reliquary.client.gui.AlkahestryTomeScreen": {
       "actual": "reliquary.client.gui.AlkahestryTomeScreen",
       "how": "declared",
-      "jar": "darkmodeeverywhere-1.21-1.3.5.jar"
+      "jar": "reliquary-1.21.1-2.0.70.1464.jar"
      }
     },
     "i": 1,
     "jars": [
-     "darkmodeeverywhere-1.21-1.3.5.jar"
+     "reliquary-1.21.1-2.0.70.1464.jar"
     ],
     "keys": {
      "Perform basic,\nintermediate or\nadvanced Alkahestry.": "exact"
@@ -8228,347 +8288,393 @@
    {
     "classes": {
      "net.silentchaos512.gear.SideProxy": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.SideProxy",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Materials, parts, and/or traits have not loaded! This may be caused by a broken mod, even those not related to Silent Gear. Search your log for \"Failed to reload data packs\" to find the error.": "missing"
+     "Materials, parts, and/or traits have not loaded! This may be caused by a broken mod, even those not related to Silent Gear. Search your log for \"Failed to reload data packs\" to find the error.": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.item.GearType": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.api.item.GearType",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Unknown Gear Type": "missing"
+     "Unknown Gear Type": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.part.PartType": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.api.part.PartType",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Unknown Part Type": "missing"
+     "Unknown Part Type": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.traits.TraitInstance": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.api.traits.TraitInstance",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "INVALID (": "missing"
+     "INVALID (": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.util.PropertyKey": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.api.util.PropertyKey",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 5,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Invalid key: ": "missing",
-     "Unknown gear property: \"": "missing",
-     "Unknown gear type: \"": "missing"
+     "Invalid key: ": "substring",
+     "Unknown gear property: \"": "substring",
+     "Unknown gear type: \"": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.client.event.TooltipHandler": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.client.event.TooltipHandler",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 6,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     " (Silent Gear)": "missing",
-     "* Part ID: ": "missing",
-     "* Part data pack: ": "missing"
+     " (Silent Gear)": "exact",
+     "* Part ID: ": "substring",
+     "* Part data pack: ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.client.gui.book.MaterialBookScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.client.gui.book.MaterialBookScreen",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 7,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "This book is a work in progress. Some elements may change.": "missing"
+     "This book is a work in progress. Some elements may change.": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.client.tooltip.MaterialTooltips": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.client.tooltip.MaterialTooltips",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 8,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Material ID: ": "missing",
-     "Material data pack: ": "missing"
+     "Material ID: ": "substring",
+     "Material data pack: ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.command.MaterialsCommand": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.command.MaterialsCommand",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 9,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Could not create directory: ": "missing",
-     "Wrote materials info to ": "missing"
+     "Could not create directory: ": "substring",
+     "Wrote materials info to ": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.command.PartsCommand": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.command.PartsCommand",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 10,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Could not create directory: ": "missing",
-     "Wrote to ": "missing"
+     "Could not create directory: ": "substring",
+     "Wrote to ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.command.TraitsCommand": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.command.TraitsCommand",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 11,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Could not create directory: ": "missing",
-     "Wrote to ": "missing"
+     "Could not create directory: ": "substring",
+     "Wrote to ": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.BlockFillerTraitEffect": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.BlockFillerTraitEffect",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 12,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "    - Block: ": "missing",
-     "    - Fills facing plane only": "missing",
-     "    - On sneak: ": "missing",
-     "    - Tag: ": "missing",
-     "  - Cooldown: ": "missing",
-     "  - Durability Cost: ": "missing",
-     "  - Fill Area": "missing",
-     "  - Fills with: ": "missing",
-     "  - Replaces": "missing"
+     "    - Block: ": "substring",
+     "    - Fills facing plane only": "exact",
+     "    - On sneak: ": "substring",
+     "    - Tag: ": "substring",
+     "  - Cooldown: ": "substring",
+     "  - Durability Cost: ": "substring",
+     "  - Fill Area": "exact",
+     "  - Fills with: ": "substring",
+     "  - Replaces": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.BlockPlacerTraitEffect": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.BlockPlacerTraitEffect",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 13,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "  - Cooldown: ": "missing",
-     "  - Durability Cost: ": "missing",
-     "  - Places: ": "missing"
+     "  - Cooldown: ": "substring",
+     "  - Durability Cost: ": "substring",
+     "  - Places: ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.CancelEffectsTraitEffect": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.CancelEffectsTraitEffect",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 14,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "  - Cancels these effects: ": "missing"
+     "  - Cancels these effects: ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.FireproofTraitEffect": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.FireproofTraitEffect",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 15,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "  - The item cannot be destroyed by fire or lava": "missing"
+     "  - The item cannot be destroyed by fire or lava": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.NumberPropertyModifierTraitEffect": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.NumberPropertyModifierTraitEffect",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 16,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Not a NumberProperty: ": "missing"
+     "Not a NumberProperty: ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.SelfRepairTraitEffect": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.SelfRepairTraitEffect",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 17,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "  - Only works if equipped or in a player's inventory": "missing"
+     "  - Only works if equipped or in a player's inventory": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.WindBlastTraitEffect": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.WindBlastTraitEffect",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 18,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Creates an explosion similar to a wind charge on attack": "missing"
+     "Creates an explosion similar to a wind charge on attack": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.util.GearHelper": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.util.GearHelper",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 19,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     " & Knuckles": "missing"
+     " & Knuckles": "exact"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.api.property.NumberProperty$Operation": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.api.property.NumberProperty$Operation",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 20,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Unknown operation: ": "missing"
+     "Unknown operation: ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.AttributeTraitEffect$Key": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.AttributeTraitEffect$Key",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 21,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Invalid key: ": "missing",
-     "Unknown gear type: ": "missing"
+     "Invalid key: ": "substring",
+     "Unknown gear type: ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.TargetEffectTraitEffect$EffectMap": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.TargetEffectTraitEffect$EffectMap",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 22,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "    - Level ": "missing",
-     "Level key must be positive: ": "missing",
-     "Not a number: ": "missing"
+     "    - Level ": "substring",
+     "Level key must be positive: ": "substring",
+     "Not a number: ": "substring"
     }
    },
    {
     "classes": {
      "net.silentchaos512.gear.gear.trait.effect.WielderEffectTraitEffect$LevelType": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "net.silentchaos512.gear.gear.trait.effect.WielderEffectTraitEffect$LevelType",
+      "how": "declared",
+      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
      }
     },
     "i": 23,
-    "jars": [],
+    "jars": [
+     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+    ],
     "keys": {
-     "Unknown WielderEffectTraitEffect.LevelType: ": "missing",
-     "by armor piece count": "missing",
-     "by trait level": "missing",
-     "requires full set of armor": "missing"
+     "Unknown WielderEffectTraitEffect.LevelType: ": "substring",
+     "by armor piece count": "exact",
+     "by trait level": "exact",
+     "requires full set of armor": "exact"
     }
    }
   ]
@@ -8622,12 +8728,12 @@
      "com.flanks255.simplylight.blocks.LampPost": {
       "actual": "com.flanks255.simplylight.blocks.LampPost",
       "how": "declared",
-      "jar": "EuphoriaPatcher-1.8.6-r5.7.1-neoforge.jar"
+      "jar": "simplylight-1.5.3+1.21.1-b4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "EuphoriaPatcher-1.8.6-r5.7.1-neoforge.jar"
+     "simplylight-1.5.3+1.21.1-b4.jar"
     ],
     "keys": {
      "Light Blue": "exact",
@@ -8643,12 +8749,12 @@
      "com.flanks255.simplylight.gui.EdgeEditorGUI": {
       "actual": "com.flanks255.simplylight.gui.EdgeEditorGUI",
       "how": "declared",
-      "jar": "EuphoriaPatcher-1.8.6-r5.7.1-neoforge.jar"
+      "jar": "simplylight-1.5.3+1.21.1-b4.jar"
      }
     },
     "i": 1,
     "jars": [
-     "EuphoriaPatcher-1.8.6-r5.7.1-neoforge.jar"
+     "simplylight-1.5.3+1.21.1-b4.jar"
     ],
     "keys": {
      "Edge Editor": "exact"
@@ -8773,62 +8879,70 @@
    {
     "classes": {
      "com.ldtteam.structurize.client.gui.WindowScan": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.ldtteam.structurize.client.gui.WindowScan",
+      "how": "declared",
+      "jar": "structurize-1.0.823-1.21.1-snapshot.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "structurize-1.0.823-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Invalid Number": "missing"
+     "Invalid Number": "exact"
     }
    },
    {
     "classes": {
      "com.ldtteam.structurize.client.gui.WindowShapeTool": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.ldtteam.structurize.client.gui.WindowShapeTool",
+      "how": "declared",
+      "jar": "structurize-1.0.823-1.21.1-snapshot.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "structurize-1.0.823-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Select the main block": "missing"
+     "Select the main block": "exact"
     }
    },
    {
     "classes": {
      "com.ldtteam.structurize.commands.UpdateSchematicPackCommand": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.ldtteam.structurize.commands.UpdateSchematicPackCommand",
+      "how": "declared",
+      "jar": "structurize-1.0.823-1.21.1-snapshot.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "structurize-1.0.823-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Error loading blueprint: ": "missing",
-     "Error loading folder: ": "missing",
-     "Error saving blueprint:  ": "missing",
-     "Failed to find pack: ": "missing",
-     "Finished updating schematics in pack: ": "missing",
-     "Updated blueprint: ": "missing"
+     "Error loading blueprint: ": "substring",
+     "Error loading folder: ": "substring",
+     "Error saving blueprint:  ": "substring",
+     "Failed to find pack: ": "substring",
+     "Finished updating schematics in pack: ": "substring",
+     "Updated blueprint: ": "substring"
     }
    },
    {
     "classes": {
      "com.ldtteam.structurize.client.gui.WindowExtendedBuildTool$4": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.ldtteam.structurize.client.gui.WindowExtendedBuildTool$4",
+      "how": "declared",
+      "jar": "structurize-1.0.823-1.21.1-snapshot.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "structurize-1.0.823-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Level: ": "missing"
+     "Level: ": "substring"
     }
    }
   ]
@@ -9010,12 +9124,12 @@
      "net.xalcon.torchmaster.commands.CommandTorchmaster$SubCommands$3": {
       "actual": "net.xalcon.torchmaster.commands.CommandTorchmaster$SubCommands$3",
       "how": "declared",
-      "jar": "ToolBelt-1.21.1-2.2.9.jar"
+      "jar": "torchmaster-neoforge-1.21.1-21.1.9.jar"
      }
     },
     "i": 1,
     "jars": [
-     "ToolBelt-1.21.1-2.2.9.jar"
+     "torchmaster-neoforge-1.21.1-21.1.9.jar"
     ],
     "keys": {
      "Attempting village siege": "exact",
@@ -9127,12 +9241,12 @@
      "dev.satherov.utilityvest.client.screen.RadialMenuScreen": {
       "actual": "dev.satherov.utilityvest.client.screen.RadialMenuScreen",
       "how": "declared",
-      "jar": "silent-gear-1.21.1-neoforge-4.2.1.jar"
+      "jar": "utilityvest-1.3.0.jar"
      }
     },
     "i": 1,
     "jars": [
-     "silent-gear-1.21.1-neoforge-4.2.1.jar"
+     "utilityvest-1.3.0.jar"
     ],
     "keys": {
      "Radial Menu": "exact"
@@ -9334,12 +9448,12 @@
      "dev.isxander.yacl3.gui.YACLScreen$CategoryTab": {
       "actual": "dev.isxander.yacl3.gui.YACLScreen$CategoryTab",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 1,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "Cancel": "exact",
@@ -9351,12 +9465,12 @@
      "dev.isxander.yacl3.gui.controllers.slider.DoubleSliderController": {
       "actual": "dev.isxander.yacl3.gui.controllers.slider.DoubleSliderController",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 2,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "`interval` must be more than 0": "exact",
@@ -9369,12 +9483,12 @@
      "dev.isxander.yacl3.gui.controllers.slider.FloatSliderController": {
       "actual": "dev.isxander.yacl3.gui.controllers.slider.FloatSliderController",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 3,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "`interval` must be more than 0": "exact",
@@ -9387,12 +9501,12 @@
      "dev.isxander.yacl3.gui.controllers.slider.IntegerSliderController": {
       "actual": "dev.isxander.yacl3.gui.controllers.slider.IntegerSliderController",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 4,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "`interval` must be more than 0": "exact",
@@ -9405,12 +9519,12 @@
      "dev.isxander.yacl3.gui.controllers.slider.LongSliderController": {
       "actual": "dev.isxander.yacl3.gui.controllers.slider.LongSliderController",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 5,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "`interval` must be more than 0": "exact",
@@ -9423,12 +9537,12 @@
      "dev.isxander.yacl3.gui.controllers.string.StringControllerElement": {
       "actual": "dev.isxander.yacl3.gui.controllers.string.StringControllerElement",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 6,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "Click to type...": "exact"
@@ -9439,12 +9553,12 @@
      "dev.isxander.yacl3.impl.LabelOptionImpl": {
       "actual": "dev.isxander.yacl3.impl.LabelOptionImpl",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 7,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "Label Option": "exact"
@@ -9455,12 +9569,12 @@
      "dev.isxander.yacl3.impl.LabelOptionImpl$BuilderImpl": {
       "actual": "dev.isxander.yacl3.impl.LabelOptionImpl$BuilderImpl",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 8,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "Cannot build label option without a state manager or lines": "exact",
@@ -9474,12 +9588,12 @@
      "dev.isxander.yacl3.impl.OptionImpl$BuilderImpl": {
       "actual": "dev.isxander.yacl3.impl.OptionImpl$BuilderImpl",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 9,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "Always synced state managers do not support option flags.": "exact",
@@ -9511,12 +9625,12 @@
      "dev.isxander.yacl3.impl.OptionImpl": {
       "actual": "dev.isxander.yacl3.impl.OptionImpl",
       "how": "declared",
-      "jar": "mininggadgets-1.18.6.jar"
+      "jar": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
      }
     },
     "i": 10,
     "jars": [
-     "mininggadgets-1.18.6.jar"
+     "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
     ],
     "keys": {
      "Listener depth exceeded 10! Possible cyclic listener pattern: a listener triggered an event that triggered the initial event etc etc.": "exact",

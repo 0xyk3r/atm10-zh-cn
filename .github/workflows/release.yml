@@ -18,7 +18,7 @@ on:
         required: true
         default: false
       version:
-        description: Release version, for example 7.2-release1 (required if publishing)
+        description: 补丁版本号，如 r12（与整合包版本无关；产物名里的 atm7.x 才是整合包版本）
         type: string
         required: false
   push:
@@ -82,7 +82,9 @@ jobs:
             echo "A version is required when publishing a release." >&2
             exit 1
           fi
-          if [[ ! "$version" =~ ^[0-9]+(\.[0-9]+){1,2}-(release|beta|rc)[0-9]+$ ]]; then
+          # 补丁版本号与整合包版本解耦（见 CHANGELOG 的 7.* 段）：
+          # r12 / 12 / 12.1 / 12-beta1 都可以，不再要求写成 7.2-releaseN。
+          if [[ ! "$version" =~ ^r?[0-9]+(\.[0-9]+)*(-(beta|rc)[0-9]+)?$ ]]; then
             echo "Version must look like 7.2-release1 or 7.2-beta1." >&2
             exit 1
           fi
@@ -92,7 +94,24 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "beta=$beta" >> "$GITHUB_OUTPUT"
 
-      - name: Build distribution zip
+      - name: 取字体（全部 OFL）
+        run: ./scripts/fetch_fonts.sh
+
+      - name: 下整合包（overrides + 全部 mod jar）
+        run: |
+          set -euo pipefail
+          # 产物不入 git，必须现场重建。以 versions/ 里最新那版为生成基准，
+          # 版本差异全在 versions/<版本>/ 覆盖层里。
+          NEWEST=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
+          python3 scripts/fetch_pack.py "$NEWEST" pack
+          echo "ATM_PACK_ROOT=$PWD/pack" >> "$GITHUB_ENV"
+
+      - name: 生成全部汉化产物
+        run: ./scripts/generate_all.sh
+
+      - name: 打包全部整合包版本
+        # 不给第二个参数 = 出 versions/ 下声明过的全部版本。
+        # 通配只在仓库声明过的版本里展开，ATM 发新版不会自动混进来。
         run: ./scripts/build_dist.sh "${{ steps.release.outputs.version }}"
 
       - name: Upload artifact
@@ -127,7 +146,7 @@ jobs:
             NOTES=$(awk '/^## /{if(f)exit; f=1; next} f{buf=buf $0 "\n"} END{sub(/^\n+/,"",buf);sub(/\n+$/,"",buf);print buf}' CHANGELOG.md)
           fi
           if [ -z "$NOTES" ]; then
-            NOTES="ATM10 7.2 汉化补丁 绿油油版 $RELEASE_VERSION"
+            NOTES="All the Mods 10 汉化补丁 绿油油版 $RELEASE_VERSION"
           fi
 
           PRERELEASE_FLAG=""

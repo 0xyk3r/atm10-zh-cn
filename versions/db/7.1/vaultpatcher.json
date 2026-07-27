@@ -611,12 +611,12 @@
      "com.aetherteam.aether.entity.passive.Aerwhale": {
       "actual": "com.aetherteam.aether.entity.passive.Aerwhale",
       "how": "declared",
-      "jar": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+      "jar": "aether-1.21.1-1.5.10-neoforge.jar"
      }
     },
     "i": 1,
     "jars": [
-     "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+     "aether-1.21.1-1.5.10-neoforge.jar"
     ],
     "keys": {
      "Serenity is the queen of W(h)ales!!": "exact"
@@ -711,127 +711,143 @@
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.Bumblezone": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.Bumblezone",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Anti Trypophobia": "missing",
-     "Bumblezone - Shader Emissive": "missing"
+     "Bumblezone - Anti Trypophobia": "exact",
+     "Bumblezone - Shader Emissive": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.ForestryCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.ForestryCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Forestry Compat": "missing"
+     "Bumblezone - Forestry Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.JeedCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.JeedCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 5,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - JEED Compat": "missing"
+     "Bumblezone - JEED Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.ResourcefulBeesCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.ResourcefulBeesCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 6,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Resourceful Bees Compat": "missing"
+     "Bumblezone - Resourceful Bees Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.BuzzierBeesCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.BuzzierBeesCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 7,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Buzzier Bees Compat": "missing"
+     "Bumblezone - Buzzier Bees Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.ProductiveBeesCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.ProductiveBeesCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 8,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Productive Bees Compat": "missing"
+     "Bumblezone - Productive Bees Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.TokenEnchanterCompat": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.modcompat.neoforge.TokenEnchanterCompat",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 9,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Bumblezone - Token Enchanter Compat": "missing"
+     "Bumblezone - Token Enchanter Compat": "exact"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.worldgen.dimension.BzChunkGenerator": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.worldgen.dimension.BzChunkGenerator",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 10,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "NoiseRouter T: ": "missing"
+     "NoiseRouter T: ": "substring"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.items.recipes.ContainerCraftingRecipe$Serializer": {
-      "actual": "com.blakebr0.cucumber.crafting.recipe.ShapelessTagRecipe$Serializer",
-      "how": "moved",
-      "jar": "Cucumber-1.21.1-8.0.16.jar"
+      "actual": "com.telepathicgrunt.the_bumblezone.items.recipes.ContainerCraftingRecipe$Serializer",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 11,
     "jars": [
-     "Cucumber-1.21.1-8.0.16.jar"
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
     ],
     "keys": {
      "No ingredients for shapeless recipe": "exact"
@@ -840,14 +856,14 @@
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.items.recipes.NbtKeepingShapelessRecipe$Serializer": {
-      "actual": "com.blakebr0.cucumber.crafting.recipe.ShapelessTagRecipe$Serializer",
-      "how": "moved",
-      "jar": "Cucumber-1.21.1-8.0.16.jar"
+      "actual": "com.telepathicgrunt.the_bumblezone.items.recipes.NbtKeepingShapelessRecipe$Serializer",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 12,
     "jars": [
-     "Cucumber-1.21.1-8.0.16.jar"
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
     ],
     "keys": {
      "No ingredients for shapeless recipe": "exact"
@@ -856,36 +872,40 @@
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.items.recipes.PotionCandleRecipe$Serializer": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.items.recipes.PotionCandleRecipe$Serializer",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 13,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Key defines symbols that aren't used in shapedPattern: ": "missing",
-     "Pattern references symbol '": "missing"
+     "Key defines symbols that aren't used in shapedPattern: ": "substring",
+     "Pattern references symbol '": "substring"
     }
    },
    {
     "classes": {
      "com.telepathicgrunt.the_bumblezone.items.recipes.PotionCandleRecipe$Serializer$RawPotionRecipe": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.telepathicgrunt.the_bumblezone.items.recipes.PotionCandleRecipe$Serializer$RawPotionRecipe",
+      "how": "declared",
+      "jar": "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
      }
     },
     "i": 14,
-    "jars": [],
+    "jars": [
+     "the_bumblezone-7.15.0+1.21.1-neoforge.jar"
+    ],
     "keys": {
-     "Invalid key tag: '": "missing",
-     "Invalid key tag: ' ' is a reserved symbol.": "missing",
-     "Invalid pattern: each row must be the same width": "missing",
-     "Invalid pattern: empty pattern not allowed": "missing",
-     "Invalid pattern: too many columns, 3 is maximum": "missing",
-     "Invalid pattern: too many rows, 3 is maximum": "missing",
-     "No ingredients for shapeless recipe": "missing"
+     "Invalid key tag: '": "substring",
+     "Invalid key tag: ' ' is a reserved symbol.": "exact",
+     "Invalid pattern: each row must be the same width": "exact",
+     "Invalid pattern: empty pattern not allowed": "exact",
+     "Invalid pattern: too many columns, 3 is maximum": "exact",
+     "Invalid pattern: too many rows, 3 is maximum": "exact",
+     "No ingredients for shapeless recipe": "exact"
     }
    }
   ]
@@ -1122,85 +1142,97 @@
    {
     "classes": {
      "alexthw.ars_elemental.common.blocks.prism.ChainingPrismLens": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.blocks.prism.ChainingPrismLens",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.10.0.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.10.0.jar"
+    ],
     "keys": {
-     "Adding glyphs: ": "missing"
+     "Adding glyphs: ": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.items.Debugger": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.items.Debugger",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.10.0.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.10.0.jar"
+    ],
     "keys": {
-     "Dev-only item, spawns the wip mages on right click, shift-use to cycle elements.": "missing"
+     "Dev-only item, spawns the wip mages on right click, shift-use to cycle elements.": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.items.armor.HeavyArmorE": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.items.armor.HeavyArmorE",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.10.0.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.10.0.jar"
+    ],
     "keys": {
-     "Model and Texture still work in progress, currently same as medium variant.": "missing"
+     "Model and Texture still work in progress, currently same as medium variant.": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.items.armor.LightArmorE": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.items.armor.LightArmorE",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.10.0.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.10.0.jar"
+    ],
     "keys": {
-     "Model and Texture still work in progress, currently same as medium variant.": "missing"
+     "Model and Texture still work in progress, currently same as medium variant.": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.rituals.SquirrelRitual": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.rituals.SquirrelRitual",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.10.0.jar"
      }
     },
     "i": 5,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.10.0.jar"
+    ],
     "keys": {
-     "Fast Squirrels": "missing"
+     "Fast Squirrels": "exact"
     }
    },
    {
     "classes": {
      "alexthw.ars_elemental.common.rituals.forest.ArchwoodForestationRitual": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "alexthw.ars_elemental.common.rituals.forest.ArchwoodForestationRitual",
+      "how": "declared",
+      "jar": "ars_elemental-1.21.1-0.7.10.0.jar"
      }
     },
     "i": 6,
-    "jars": [],
+    "jars": [
+     "ars_elemental-1.21.1-0.7.10.0.jar"
+    ],
     "keys": {
-     "Forestation - Archwood": "missing"
+     "Forestation - Archwood": "exact"
     }
    }
   ]
@@ -3920,15 +3952,17 @@
    {
     "classes": {
      "com.github.bigenergy.glassential.client.gui.ColorPickerScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.github.bigenergy.glassential.client.gui.ColorPickerScreen",
+      "how": "declared",
+      "jar": "Glassential-renewed-1.21.1-3.4.4.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "Glassential-renewed-1.21.1-3.4.4.jar"
+    ],
     "keys": {
-     "Color Picker": "missing"
+     "Color Picker": "exact"
     }
    }
   ]
@@ -4716,261 +4750,297 @@
    {
     "classes": {
      "com.minecolonies.api.entity.ai.statemachine.basestatemachine.BasicStateMachine": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.api.entity.ai.statemachine.basestatemachine.BasicStateMachine",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Current state:": "missing"
+     "Current state:": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.gui.WindowBannerPicker": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.gui.WindowBannerPicker",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Flag": "missing"
+     "Flag": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.gui.WindowRequestDetail": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.gui.WindowRequestDetail",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Resolver: ": "missing"
+     "Resolver: ": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.gui.map.WindowColonyMap": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.gui.map.WindowColonyMap",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Citizens: ": "missing",
-     "Coordinates: ": "missing",
-     "Owner:": "missing"
+     "Citizens: ": "substring",
+     "Coordinates: ": "substring",
+     "Owner:": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.render.CitizenArmorLayer": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.render.CitizenArmorLayer",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 5,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "This armor is causing errors when rendering on citizens, check your latest.log and report to the respective armor mod.": "missing"
+     "This armor is causing errors when rendering on citizens, check your latest.log and report to the respective armor mod.": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.colony.requestsystem.resolvers.core.AbstractRequestResolver": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.colony.requestsystem.resolvers.core.AbstractRequestResolver",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 6,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Request System": "missing"
+     "Request System": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.citizencommands.CommandCitizenInfo": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.citizencommands.CommandCitizenInfo",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 7,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Stuck level: ": "missing"
+     "Stuck level: ": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.citizencommands.CommandTrackType": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.citizencommands.CommandTrackType",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 8,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Removed tracking for player": "missing",
-     "Tracking enabled for pathjobs containing: ": "missing"
+     "Removed tracking for player": "exact",
+     "Tracking enabled for pathjobs containing: ": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.colonycommands.CommandColonyChunks": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.colonycommands.CommandColonyChunks",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 9,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Loaded chunks:": "missing",
-     "Ticket types: ": "missing"
+     "Loaded chunks:": "exact",
+     "Ticket types: ": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.colonycommands.CommandColonyPrintStats": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.colonycommands.CommandColonyPrintStats",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 10,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Buildings:": "missing",
-     "Reasearches completed count:": "missing"
+     "Buildings:": "substring",
+     "Reasearches completed count:": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.colonycommands.CommandListColonies": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.colonycommands.CommandListColonies",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 11,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Citizens:": "missing"
+     "Citizens:": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.colonycommands.CommandSetRank": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.colonycommands.CommandSetRank",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 12,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Rank does not exist": "missing",
-     "Set player: ": "missing"
+     "Rank does not exist": "exact",
+     "Set player: ": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.commands.generalcommands.CommandUnloadForcedChunks": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.commands.generalcommands.CommandUnloadForcedChunks",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 13,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Successfully removed forceload flag!": "missing"
+     "Successfully removed forceload flag!": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.entity.pathfinding.pathresults.PathResult": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.entity.pathfinding.pathresults.PathResult",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 14,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     " Finished pathjob:": "missing",
-     " path target:": "missing"
+     " Finished pathjob:": "exact",
+     " path target:": "substring"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.client.gui.modules.building.GraveyardManagementWindow$1": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.client.gui.modules.building.GraveyardManagementWindow$1",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 15,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Grave of ": "missing",
-     "Unknown Citizen": "missing"
+     "Grave of ": "substring",
+     "Unknown Citizen": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$1": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$1",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 16,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Furnace Crafting GUI": "missing"
+     "Furnace Crafting GUI": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$2": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$2",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 17,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Brewing Crafting GUI": "missing"
+     "Brewing Crafting GUI": "exact"
     }
    },
    {
     "classes": {
      "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$3": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.minecolonies.core.network.messages.server.colony.building.OpenCraftingGUIMessage$3",
+      "how": "declared",
+      "jar": "minecolonies-1.1.1339-1.21.1-snapshot.jar"
      }
     },
     "i": 18,
-    "jars": [],
+    "jars": [
+     "minecolonies-1.1.1339-1.21.1-snapshot.jar"
+    ],
     "keys": {
-     "Crafting GUI": "missing"
+     "Crafting GUI": "exact"
     }
    }
   ]
@@ -5241,15 +5311,17 @@
    {
     "classes": {
      "com.glodblock.github.modularbees.dynamic.DyResourcePack": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.glodblock.github.modularbees.dynamic.DyResourcePack",
+      "how": "declared",
+      "jar": "ModularBees-1.21.1-3.2-neoforge.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "ModularBees-1.21.1-3.2-neoforge.jar"
+    ],
     "keys": {
-     "Modular Bees assets": "missing"
+     "Modular Bees assets": "exact"
     }
    }
   ]
@@ -5313,15 +5385,17 @@
    {
     "classes": {
      "com.blakebr0.mysticalagriculture.compat.crafttweaker.AwakeningCrafting$SetEssenceVesselColorAction": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.blakebr0.mysticalagriculture.compat.crafttweaker.AwakeningCrafting$SetEssenceVesselColorAction",
+      "how": "declared",
+      "jar": "MysticalAgriculture-1.21.1-8.0.26.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "MysticalAgriculture-1.21.1-8.0.26.jar"
+    ],
     "keys": {
-     "Mystical Agriculture": "missing"
+     "Mystical Agriculture": "exact"
     }
    }
   ]
@@ -6171,15 +6245,17 @@
    {
     "classes": {
      "com.yogpc.qp.machine.misc.GeneratorBlock": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.yogpc.qp.machine.misc.GeneratorBlock",
+      "how": "declared",
+      "jar": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+    ],
     "keys": {
-     "Change generator mode to %d(%d FE)": "missing"
+     "Change generator mode to %d(%d FE)": "exact"
     }
    }
   ]
@@ -6189,19 +6265,21 @@
    {
     "classes": {
      "com.yogpc.qp.machine.marker.ChunkMarkerScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "com.yogpc.qp.machine.marker.ChunkMarkerScreen",
+      "how": "declared",
+      "jar": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.153.jar"
+    ],
     "keys": {
-     "Bottom+": "missing",
-     "Bottom-": "missing",
-     "Size": "missing",
-     "Top+": "missing",
-     "Top-": "missing"
+     "Bottom+": "exact",
+     "Bottom-": "exact",
+     "Size": "exact",
+     "Top+": "exact",
+     "Top-": "exact"
     }
    }
   ]
@@ -6293,15 +6371,17 @@
    {
     "classes": {
      "reliquary.client.gui.AlkahestryTomeScreen": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "reliquary.client.gui.AlkahestryTomeScreen",
+      "how": "declared",
+      "jar": "reliquary-1.21.1-2.0.74.1509.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "reliquary-1.21.1-2.0.74.1509.jar"
+    ],
     "keys": {
-     "Perform basic,\nintermediate or\nadvanced Alkahestry.": "missing"
+     "Perform basic,\nintermediate or\nadvanced Alkahestry.": "exact"
     }
    }
   ]
@@ -8988,57 +9068,65 @@
    {
     "classes": {
      "ovh.corail.tombstone.gui.ScreenConfig": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "ovh.corail.tombstone.gui.ScreenConfig",
+      "how": "declared",
+      "jar": "tombstone-neoforge-1.21.1-9.5.1.jar"
      }
     },
     "i": 1,
-    "jars": [],
+    "jars": [
+     "tombstone-neoforge-1.21.1-9.5.1.jar"
+    ],
     "keys": {
-     "Save": "missing"
+     "Save": "exact"
     }
    },
    {
     "classes": {
      "ovh.corail.tombstone.gui.ScreenReadableScroll": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "ovh.corail.tombstone.gui.ScreenReadableScroll",
+      "how": "declared",
+      "jar": "tombstone-neoforge-1.21.1-9.5.1.jar"
      }
     },
     "i": 2,
-    "jars": [],
+    "jars": [
+     "tombstone-neoforge-1.21.1-9.5.1.jar"
+    ],
     "keys": {
-     "Readable Scroll": "missing"
+     "Readable Scroll": "exact"
     }
    },
    {
     "classes": {
      "ovh.corail.tombstone.item.ItemMagicScroll": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "ovh.corail.tombstone.item.ItemMagicScroll",
+      "how": "declared",
+      "jar": "tombstone-neoforge-1.21.1-9.5.1.jar"
      }
     },
     "i": 3,
-    "jars": [],
+    "jars": [
+     "tombstone-neoforge-1.21.1-9.5.1.jar"
+    ],
     "keys": {
-     "[effect added by %s]": "missing"
+     "[effect added by %s]": "exact"
     }
    },
    {
     "classes": {
      "ovh.corail.tombstone.registry.ModTabs": {
-      "actual": null,
-      "how": "not_found",
-      "jar": null
+      "actual": "ovh.corail.tombstone.registry.ModTabs",
+      "how": "declared",
+      "jar": "tombstone-neoforge-1.21.1-9.5.1.jar"
      }
     },
     "i": 4,
-    "jars": [],
+    "jars": [
+     "tombstone-neoforge-1.21.1-9.5.1.jar"
+    ],
     "keys": {
-     "Corail Tombstone": "missing"
+     "Corail Tombstone": "exact"
     }
    }
   ]
@@ -9187,12 +9275,12 @@
      "net.blay09.mods.waystones.command.ModCommands": {
       "actual": "net.blay09.mods.waystones.command.ModCommands",
       "how": "declared",
-      "jar": "crafting_on_a_stick-1.21.0.4.jar"
+      "jar": "waystones-neoforge-1.21.1-21.1.34.jar"
      }
     },
     "i": 1,
     "jars": [
-     "crafting_on_a_stick-1.21.0.4.jar"
+     "waystones-neoforge-1.21.1-21.1.34.jar"
     ],
     "keys": {
      "Unknown waystone style: ": "substring"
