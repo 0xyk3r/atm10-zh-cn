@@ -145,5 +145,10 @@ done
 
 for mc in $MC_VERSIONS; do build_one "$mc"; done
 echo
+# 最后一道闸：拆开每个 zip 逐项核内容。开头那道守卫只查文件在不在，
+# 而「在」不等于「对」——0 字节的 lang、纯透明的横幅、只剩几条键的资源包
+# 都能骗过存在性检查。这里查的是量，少一大块就说明某个生成环节悄悄失败了。
+python3 scripts/verify_dist.py dist/*-${VERSION}-atm*.zip
+echo
 echo "全部完成：$(ls dist/*-${VERSION}-atm*.zip | wc -l | tr -d " ") 个包"
 ls -1 dist/*-${VERSION}-atm*.zip

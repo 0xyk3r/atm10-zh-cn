@@ -18,8 +18,13 @@ sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
 ROOT = Path(__file__).resolve().parent.parent
 IS_WIN = platform.system() == 'Windows'
-PACK = 'ATM10汉化包'
-ENTRY = f'file/{PACK}.zip'
+# 资源包**源目录**是版本中立的（resourcepacks/ATM10汉化包/），但**产物**带整合包版本号，
+# 由 build_dist.sh 在打包时注入。这里直接从安装器脚本里读它认的那个名字，
+# 免得两边各写一份、日后再对不上（曾因批量改名把这里误改成版本中立名而挂掉 CI）。
+import re as _re
+ENTRY = _re.search(r"PACK_ENTRY='([^']+)'",
+                   (ROOT / 'installer' / 'install.sh').read_text(encoding='utf-8')).group(1)
+PACK = ENTRY.split('/', 1)[1][:-4]
 
 tmp = Path(tempfile.mkdtemp(prefix='hanhua-test-'))
 inst = tmp / 'instance'

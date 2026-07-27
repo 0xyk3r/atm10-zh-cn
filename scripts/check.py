@@ -78,8 +78,14 @@ for name in server_list:
 # 2.7: 资源蜜蜂译名单一真源：脚本表必须与资源包 zh_cn 一致（由 gen_pb_hanhua.py 生成）
 pb_pack = json.loads((PACK_DIR / 'assets/productivebees/lang/zh_cn.json').read_text(encoding='utf-8'))
 club = ROOT / 'kubejs' / 'client_scripts' / 'pb_hanhua_tooltip.js'
-mm = re.search(r'const PB_ID2ZH = (\{.*?\});', club.read_text(encoding='utf-8'), re.S)
-if not mm:
+# 这个脚本是**生成物**，不入 git（见 .gitignore）。干净 clone 里它不存在，
+# 跳过本节即可——不是错误。构建流程会先跑 generate_all.sh 再跑本校验，
+# 那时它一定在，漂移仍然拦得住。
+mm = (re.search(r'const PB_ID2ZH = (\{.*?\});', club.read_text(encoding='utf-8'), re.S)
+      if club.exists() else None)
+if not club.exists():
+    print('ℹ️ 跳过蜂名漂移检查：pb_hanhua_tooltip.js 是生成物，尚未生成')
+elif not mm:
     errors.append('pb_hanhua_tooltip.js: 缺 PB_ID2ZH（必须由 gen_pb_hanhua.py 生成）')
 else:
     for base, zh in json.loads(mm.group(1)).items():
