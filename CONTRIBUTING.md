@@ -38,9 +38,16 @@ src/upstream/<路径>.json        整合包自带文件的行级改写映射
 src/books/<路径>.json           导览书的「位置 + 原文 + 译文」映射
 src/vaultpatcher/modules/       152 个硬编码文本模块（只留译文与目标类）
 src/mods.lock.json              随包分发的第三方 jar：项目 / 版本 / 地址 / sha256
+src/rules/*.json                发版校验的**规则**（check.py 只是它们的解释器）
+src/standalone/<模组>.json      把单个模组的汉化摘出来单独发的清单
+src/toolchain.lock.json         构建工具链：容器 digest / Pillow / 字体哈希
+requirements.lock               Pillow 的全平台 wheel 哈希（装的时候必须 --require-hashes）
 versions/<版本>/                手写的版本专属层（任务书覆盖、默认资源包顺序）
 versions/<版本>/overrides.sha256 该版官方 overrides 的整棵树指纹（CI 缓存键 + 门控）
+versions/<版本>/unobtainable.json 该版 manifest 里已从 CurseForge 消失的 jar（必须逐个登记）
 versions/db/<版本>/             该版的核验数据库与英文底本
+versions/db/<版本>/jars.json    该版每个 jar 的 sha256 + 不可变的 CurseForge fileID
+versions/db/<版本>/keybinds.json 该版全部按键分类与注册名（含拼名字用的字符串原子）
 scripts/                        生成器 + 校验器
 
 build/common/                   摊好的出货树（版本中立部分）
@@ -125,19 +132,26 @@ python3 scripts/test_installer.py                       # 安装器端到端测�
 
 | 脚本 | 查什么 |
 |---|---|
-| `check.py` | 会崩游戏的东西：枚举协议值、占位符、非法颜色码、delta 重复键… |
+| `check.py` | 规则解释器；规则在 `src/rules/*.json`。加同类规则只改 JSON，不动脚本 |
+| `toolchain.py` | 这次构建是不是标准工具链——不是就明说产物哈希不作数，绝不假装能比 |
+| `scan_keybinds.py` | 扫出全部按键分类与注册名，喂给 `vp-keybind-registration-names` 规则 |
 | `gen_upstream_patches.py` | 整合包自带文件被改动过没有——原文找不到就构建失败 |
 | `gen_books.py` | 导览书译文能否落到上游那份 JSON 上——命中率跌破 90% 就构建失败 |
 | `gen_vaultpatcher.py` | 模块头部写的 jar 名是否是**该版**真实存在的那个 |
 | `gen_vanilla_assets.py` | 原版字体 provider 列表与 `pack_format` 跟不跟得上原版 |
 | `check_vaultpatcher_strings.py` | 硬编码文本的 key 是否还在目标模组的字节码里（失配是**静默**的） |
 | `check_en_drift.py` | 英文底本变了而译文没跟着变——上游改文案必然被发现 |
-| `verify_dist.py` | 打好的 zip 里每一类内容够不够量——空壳包发不出去 |
+| `verify_dist.py` | 打好的 zip 里每一类内容够不够量——空壳包发不出去；标准工具链下还比内容指纹 |
+| `build_version_db.py --verify` | 一个 mods 目录是不是**逐字节**就是那一版官方的那批 jar |
+| `gen_standalone.py` | 单模组独立包的 lang 与导览书覆盖率——不到 100% 不出包 |
 
 ### CI
 
 - **ci.yml**：逐版本套映射做上游漂移检测 + 汉化校验，每个 PR / push 必跑（不下 jar，快）
-- **build.yml**：完整构建全部版本，下整合包与 480 个 mod jar
+- **build.yml**：完整构建全部版本，下整合包与 480 个 mod jar。
+  跑在 `src/toolchain.lock.json` 里**按 digest 钉死**的容器里，Pillow 按
+  `requirements.lock` 的哈希装——产物 PNG 的字节由 Pillow 自带的 freetype/zlib 决定，
+  工具链不进依赖图，产物哈希就没有意义
 - **installer-test.yml**：`installer/` 一动就在 macOS / Windows / Linux 三系统跑端到端
 - **release.yml**：推 tag 自动构建并发布全部整合包版本的包。
   tag 形态：新式 `vR12` / `vR12-beta1`（补丁版本号与整合包版本解耦，`r` 大小写都认），

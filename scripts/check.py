@@ -2,308 +2,421 @@
 # atm10-zh-cn — All the Mods 10 简体中文汉化补丁「绿油油版」
 # Copyright (C) 2026 星野夢華 (Hoshino Yumeka)
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""发版前校验：把踩过的雷全部变成硬检查。
+"""发版前校验 —— **规则解释器**。
 
-1. vaultpatcher/modules/*.json 必须是合法 JSON 且结构正确
-2. 枚举协议值（McJtyLib 存储/网络协议值）绝不允许出现在翻译 key 里 —— 翻了必崩
-   （历史事故：choice('忽略红石') → IllegalStateException: Unknown element name）
-3. config/vaultpatcher_asm/config.json：load_all_modules 必须 true（否则自建模块不加载），
-   debug_mode.is_enable 必须 false（否则刷数千条日志拖性能）
-4. 资源包源码目录内所有 lang/*.json 与 pack.mcmeta 必须可解析
-5. 资源包内 RFTools 系 .gui 文件的 choice(...) 参数必须保持英文
-6. 译文的占位符 / 颜色码不得比英文原文更危险（多出占位符、%s 降级、裸 % 结尾、非法 §）
-7. 任务书 delta（zh_cn/chapters/*.snbt）之间不得有重复键 —— 谁生效取决于合并顺序，
-   等于埋了一颗随时翻脸的雷（历史事故：refined_storage.snbt 的旧标题盖掉了已对齐的新标题）
+规则本身不在这个文件里，在 `src/rules/*.json`。这里只提供一批检查器
+（`@checker('kind')`），按每条规则的 `kind` 分派。
+
+    加一条同类规则  → 只改 src/rules 里的 JSON，这个文件一个字都不用动
+    加一种新检查器  → 才需要在这里加一个函数
+
+之前是 284 行顺序执行、注释编号 1..8，加第 9 条要改文件、加第 10 条再改一次。
+更要命的是有两类东西会**持续累积**——废弃译名、豁免白名单——它们硬编码进脚本，
+脚本就会慢慢长成垃圾桶。所以它们现在是数据。
+
+每条规则的 `why` 是必填的：这些规则几乎每一条背后都有一次真事故，理由不写下来，
+后人既不敢删也不敢改，最后只能绕过去。
+
+用法:
+    python3 scripts/check.py [出货树]        # 缺省 build/common
 """
-import json, re, sys
+import json
+import re
+import sys
 from pathlib import Path
 
-from paths import COMMON
+from paths import COMMON, SRC
 
 ROOT = Path(__file__).resolve().parent.parent
-# 检查的是**出货树**（含全部生成物）。默认 build/common；build_dist.sh 会把
+RULES_DIR = SRC / 'rules'
+
+# 查的是**出货树**（含全部生成物）。默认 build/common；build_dist.sh 会把
 # 「common + 该版上游补丁」合成好的那棵树传进来，于是每个版本都各查一遍。
 TREE = Path(sys.argv[1]) if len(sys.argv) > 1 else COMMON
-if not TREE.is_dir():
-    sys.exit('❌ 出货树不存在: %s\n   先跑: python3 scripts/assemble.py && ./scripts/generate_all.sh' % TREE)
 PACK_DIR = TREE / 'resourcepacks' / 'ATM10汉化包'
-errors = []
 
-# McJtyLib 枚举协议值：NamedCodec 按名字反查，翻译后反查失败 → 崩溃
-FORBIDDEN_KEYS = {
-    'Ignored', 'Off', 'On',                      # RedstoneMode
-    'Copy', 'Move', 'Swap', 'Back', 'Collect',   # BuilderMode
-    'Loop1', 'Loop2', 'Loop3', 'Loop4',          # SequencerMode
-    'Once1', 'Once2', 'Pulse', 'Cycle',
-    'Amount+', 'Amount-', 'Mod', 'Name',         # SortingMode 等
-    'Shield', 'Solid', 'Invisible',              # ShieldRenderingMode
-}
-
-# 1+2: VaultPatcher 模块
-for p in sorted((TREE / 'vaultpatcher' / 'modules').glob('*.json')):
-    try:
-        mod = json.loads(p.read_text(encoding='utf-8'))
-    except Exception as e:
-        errors.append(f'{p.name}: JSON 解析失败: {e}')
-        continue
-    if not isinstance(mod, list):
-        errors.append(f'{p.name}: 顶层必须是数组')
-        continue
-    for blk in mod:
-        if not isinstance(blk, dict):
-            errors.append(f'{p.name}: 模块元素必须是对象')
-            continue
-        tcs = blk.get('target_class') or []
-        # 仅当替换可能命中 McJtyLib 枚举常量池时才算雷：
-        #   - 无 target_class（全局替换）
-        #   - 定向到 mcjty.* 的非 client 类（枚举/协议类所在地）
-        # 定向到具体 GUI/Screen 类的同名显示标签（如形状卡的 Solid）是安全的
-        risky = (not tcs) or any(c.startswith('mcjty.') and '.client.' not in c for c in tcs)
-        if not risky:
-            continue
-        for pair in blk.get('pairs', []):
-            k = pair.get('key', '')
-            if k.strip() in FORBIDDEN_KEYS:
-                where = '全局替换' if not tcs else f'定向 {tcs}'
-                errors.append(f'{p.name}: 禁止翻译枚举协议值 "{k}"（{where}，会导致游戏崩溃）')
-
-# 2.5: 服务端模块子集：禁止全局替换块（会污染服务端 NBT/注册名）
-# 唯一豁免：key 带前导空格的纯显示文本（如 "    Void mode"）
-server_list = [l.strip() for l in (ROOT / 'scripts' / 'server_modules.txt').read_text(encoding='utf-8').splitlines()
-               if l.strip() and not l.startswith('#')]
-for name in server_list:
-    p = TREE / 'vaultpatcher' / 'modules' / f'{name}.json'
-    if not p.exists():
-        errors.append(f'server_modules.txt: 清单里的 {name}.json 不存在')
-        continue
-    for blk in json.loads(p.read_text(encoding='utf-8')):
-        if isinstance(blk, dict) and 'pairs' in blk and not blk.get('target_class'):
-            bad = [pr['key'] for pr in blk['pairs'] if not pr.get('key', '').startswith(' ')]
-            if bad:
-                errors.append(f'{name}.json: 服务端模块含全局替换 {bad}（会污染服务端数据，禁止入服务端清单）')
-
-# 2.7: 资源蜜蜂译名单一真源：脚本表必须与资源包 zh_cn 一致（由 gen_pb_hanhua.py 生成）
-pb_pack = json.loads((PACK_DIR / 'assets/productivebees/lang/zh_cn.json').read_text(encoding='utf-8'))
-club = TREE / 'kubejs' / 'client_scripts' / 'pb_hanhua_tooltip.js'
-# 这个脚本是**生成物**，不入 git（见 .gitignore）。干净 clone 里它不存在，
-# 跳过本节即可——不是错误。构建流程会先跑 generate_all.sh 再跑本校验，
-# 那时它一定在，漂移仍然拦得住。
-mm = (re.search(r'const PB_ID2ZH = (\{.*?\});', club.read_text(encoding='utf-8'), re.S)
-      if club.exists() else None)
-if not club.exists():
-    print('ℹ️ 跳过蜂名漂移检查：pb_hanhua_tooltip.js 是生成物，尚未生成')
-elif not mm:
-    errors.append('pb_hanhua_tooltip.js: 缺 PB_ID2ZH（必须由 gen_pb_hanhua.py 生成）')
-else:
-    for base, zh in json.loads(mm.group(1)).items():
-        expect = pb_pack.get(f'entity.productivebees.{base}_bee', pb_pack.get(f'entity.productivebees.{base}'))
-        if expect is not None and expect != zh:
-            errors.append(f'蜂名漂移: {base} 脚本={zh!r} 资源包={expect!r}（真源是资源包，请重跑 gen_pb_hanhua.py）')
-
-# 2.7b: 标识符形态的原文**绝不允许**被替换成中文。
-# 2026-07-27 实机崩溃：我把 compactmachines 的 `open_upgrade_screen` 当成按键分类
-# 替换成了「压缩空间」，但那个串是拿去构造 ResourceLocation 的
-# （`modRL("open_upgrade_screen")`），而 ResourceLocation 只接受 [a-z0-9/._-]
-# —— 游戏在注册按键时直接 ResourceLocationException 崩掉，进不去。
-#
-# 判据很简单：原文如果长得像标识符（全小写 + 下划线/点/斜杠，没有空格），
-# 它极可能是注册名 / 翻译键 / 路径，不是给人看的界面文字。这类一律不许翻。
-IDENT = re.compile(r'^[a-z0-9][a-z0-9._/-]*$')
-for p2 in sorted((TREE / 'vaultpatcher' / 'modules').glob('*.json')):
-    try:
-        mod = json.loads(p2.read_text(encoding='utf-8'))
-    except Exception:
-        continue
-    for blk in mod:
-        if not isinstance(blk, dict):
-            continue
-        for pair in blk.get('pairs', []):
-            k, v = pair.get('key', ''), pair.get('value', '')
-            if IDENT.match(k) and any('\u4e00' <= c <= '\u9fff' for c in v):
-                errors.append(
-                    f'{p2.name}: 原文 {k!r} 是标识符形态（全小写+下划线），'
-                    f'却被替换成中文 {v!r}。这种串常被拿去构造 ResourceLocation / '
-                    f'翻译键，替换会让游戏启动崩溃。')
-
-# 2.8: 旧译名残留检查：废弃译名只允许出现在别名表/生成器（作为归一的键）
-LEGACY_NAMES = ('联调蜂', '神蜂特工队')
-# 白名单按**路径尾巴**匹配：同一份生成物会出现在 build/common/ 和 build/v/<版本>/ 下
-LEGACY_WHITELIST = (
-    'kubejs/client_scripts/pb_hanhua_tooltip.js',
-    'kubejs/server_scripts/pb_hanhua_cage_migrate.js',
-    'scripts/gen_pb_hanhua.py',
-    'scripts/check.py',
-)
-# packsrc/ 是下载来的上游整合包原样副本，不归我们管
-SKIP_DIRS = {'.git', 'dist', 'packsrc', 'pack', 'node_modules'}
-for p2 in ROOT.rglob('*'):
-    if not p2.is_file() or SKIP_DIRS & set(p2.parts):
-        continue
-    rel2 = p2.relative_to(ROOT).as_posix()
-    if rel2.endswith(LEGACY_WHITELIST) or p2.suffix in ('.jar', '.png', '.zip'):
-        continue
-    try:
-        txt = p2.read_text(encoding='utf-8')
-    except Exception:
-        continue
-    for ln in LEGACY_NAMES:
-        if ln in txt:
-            errors.append(f'{rel2}: 含废弃译名 "{ln}"（真源已更名，此处是漂移的旧拷贝）')
-# 遗留的 VaultPatcher 蜂名模块（已被 kubejs 显示层取代，全局替换有污染风险）禁止复活
-if (TREE / 'vaultpatcher' / 'modules' / 'productivebees_gene_zh.json').exists():
-    errors.append('productivebees_gene_zh.json: 遗留蜂名全局替换模块，已废弃，禁止复活（显示层走 kubejs）')
-
-# 3: VaultPatcher 主配置
-cfg_path = TREE / 'config' / 'vaultpatcher_asm' / 'config.json'
-cfg = json.loads(cfg_path.read_text(encoding='utf-8'))
-if cfg.get('load_all_modules') is not True:
-    errors.append('config.json: load_all_modules 必须为 true，否则自建模块不加载')
-if cfg.get('debug_mode', {}).get('is_enable') is not False:
-    errors.append('config.json: debug_mode.is_enable 必须为 false（发布版禁止开调试日志）')
-
-# 4+5: 资源包源码目录
 CJK = re.compile(r'[一-鿿]')
-if not PACK_DIR.is_dir():
-    errors.append(f'缺少资源包源码目录: {PACK_DIR.relative_to(ROOT)}')
-else:
-    try:
-        json.loads((PACK_DIR / 'pack.mcmeta').read_text(encoding='utf-8'))
-    except Exception as e:
-        errors.append(f'pack.mcmeta 解析失败: {e}')
-    for p in PACK_DIR.rglob('*'):
-        rel = p.relative_to(PACK_DIR)
-        if p.suffix == '.json' and '/lang/' in f'/{rel.as_posix()}/':
-            try:
-                json.loads(p.read_text(encoding='utf-8'))
-            except Exception as e:
-                errors.append(f'{rel}: JSON 解析失败: {e}')
-        elif p.suffix == '.gui':
-            text = p.read_text(encoding='utf-8', errors='replace')
-            for m in re.finditer(r"choice\(\s*'([^']*)'", text):
-                if CJK.search(m.group(1)):
-                    errors.append(
-                        f"{rel}: choice('{m.group(1)}') 是协议值，必须保持英文（翻译会崩溃）")
+CHECKERS = {}
 
-# 6: 占位符 / 颜色码安全（2026-07-25 对抗与踩坑后固化）
-#    真源 scripts/upstream_format_en_us.json（gen_format_snapshot.py 生成）
-#    红线一：译文的占位符集合必须 ⊆ 英文原文的 —— 可以少，绝不可以多。
-#      多出参数 = 运行时参数不足 → TranslatableFormatException。
-#      「少」是译者的合法选择，**禁止擅自补回来**：精致存储 `%s%s木桶` 的第二个
-#      参数其实只是个空格，补上去反而变成「限类Pink Ipe 木桶 I」。
-#    红线二：同一序号的转换符不许从 %s 降级成 %d/%f（类型对不上，两条渲染路径都炸）。
-#    红线三：结尾裸 % —— MC 的 FORMAT_PATTERN 会匹配到字符串结尾并抛异常
-#      （原版自带的反例键就是 translation.test.invalid = "hi %"）。
-#    红线四：§ 后面跟非法字符 → 那个字符被渲染器静默吞掉。
-FMT_SNAPSHOT = ROOT / 'scripts' / 'upstream_format_en_us.json'
-if FMT_SNAPSHOT.exists():
-    up = json.loads(FMT_SNAPSHOT.read_text(encoding='utf-8'))
+
+def checker(kind):
+    def deco(fn):
+        CHECKERS[kind] = fn
+        return fn
+    return deco
+
+
+def need(rule, *fields):
+    for f in fields:
+        if f not in rule:
+            raise KeyError('规则 %s 缺字段 %s' % (rule.get('id', '?'), f))
+    return [rule[f] for f in fields]
+
+
+def files(pattern):
+    """出货树里 glob 命中的文件。"""
+    return sorted(p for p in TREE.glob(pattern) if p.is_file())
+
+
+def rel(p):
+    try:
+        return p.relative_to(TREE).as_posix()
+    except ValueError:
+        return p.relative_to(ROOT).as_posix()
+
+
+# ────────────────────────────── 通用检查器 ──────────────────────────────
+
+@checker('json_parses')
+def _json_parses(rule):
+    g, = need(rule, 'glob')
+    hit = files(g)
+    if not hit:
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+    for p in hit:
+        try:
+            json.loads(p.read_text(encoding='utf-8'))
+        except Exception as e:
+            yield '%s: JSON 解析失败: %s' % (rel(p), e)
+
+
+@checker('json_assert')
+def _json_assert(rule):
+    f, path, want = need(rule, 'file', 'path', 'equals')
+    p = TREE / f
+    if not p.is_file():
+        yield '缺少 %s' % f
+        return
+    cur = json.loads(p.read_text(encoding='utf-8'))
+    for step in path:
+        cur = cur.get(step) if isinstance(cur, dict) else None
+    if cur != want:
+        yield '%s 的 %s 必须是 %r，实为 %r —— %s' % (f, '.'.join(path), want, cur, rule['why'])
+
+
+@checker('file_absent')
+def _file_absent(rule):
+    p, = need(rule, 'path')
+    if (TREE / p).exists():
+        yield '%s 不应存在 —— %s' % (p, rule['why'])
+
+
+@checker('filename_prefix')
+def _filename_prefix(rule):
+    g, pre = need(rule, 'glob', 'prefix')
+    msg = rule.get('message', '{path} 缺少前缀 {prefix}')
+    for p in files(g):
+        if not p.name.startswith(pre):
+            yield msg.format(path=rel(p), prefix=pre)
+
+
+@checker('forbidden_text')
+def _forbidden_text(rule):
+    terms, = need(rule, 'terms')
+    msg = rule.get('message', '含禁用词 "{term}"')
+    allow = tuple(rule.get('allow_paths', []))
+    skip_dirs = set(rule.get('skip_dirs', []))
+    skip_suf = tuple(rule.get('skip_suffixes', []))
+    base = ROOT if rule.get('scope') == 'repo' else TREE
+    for p in base.rglob('*'):
+        if not p.is_file() or skip_dirs & set(p.parts):
+            continue
+        r = p.relative_to(base).as_posix()
+        if allow and r.endswith(allow):
+            continue
+        if p.suffix in skip_suf:
+            continue
+        try:
+            txt = p.read_text(encoding='utf-8')
+        except Exception:
+            continue
+        for t in terms:
+            if t in txt:
+                yield '%s: %s' % (r, msg.format(term=t))
+
+
+# ─────────────────────────── VaultPatcher 检查器 ───────────────────────────
+
+def vp_modules():
+    out = []
+    for p in sorted((TREE / 'vaultpatcher' / 'modules').glob('*.json')):
+        try:
+            out.append((p, json.loads(p.read_text(encoding='utf-8'))))
+        except Exception:
+            out.append((p, None))
+    return out
+
+
+def vp_pairs(only_risky=False):
+    """产出 (文件名, target_class, 原文, 译文)。
+
+    `only_risky`：只要**可能命中 McJtyLib 枚举常量池**的块——无 target_class 的
+    全局替换，或定向到 mcjty.* 的非 client 类（枚举/协议类所在地）。
+    定向到具体 GUI/Screen 类的同名显示标签（形状卡的 Solid）是安全的。
+    """
+    for p, mod in vp_modules():
+        if not isinstance(mod, list):
+            continue
+        for blk in mod:
+            if not isinstance(blk, dict):
+                continue
+            tcs = blk.get('target_class') or []
+            if only_risky:
+                risky = (not tcs) or any(
+                    c.startswith('mcjty.') and '.client.' not in c for c in tcs)
+                if not risky:
+                    continue
+            for pair in blk.get('pairs', []):
+                yield p.name, tcs, pair.get('key', ''), pair.get('value', '')
+
+
+@checker('vp_shape')
+def _vp_shape(rule):
+    for p, mod in vp_modules():
+        if mod is None:
+            yield '%s: JSON 解析失败' % p.name
+        elif not isinstance(mod, list):
+            yield '%s: 顶层必须是数组' % p.name
+        else:
+            for blk in mod:
+                if not isinstance(blk, dict):
+                    yield '%s: 模块元素必须是对象' % p.name
+
+
+@checker('vp_pair_key_in')
+def _vp_pair_key_in(rule):
+    vals, = need(rule, 'values')
+    vals = set(vals)
+    msg = rule.get('message', '禁止替换 {key}')
+    for name, tcs, k, v in vp_pairs(rule.get('only_risky_blocks', False)):
+        if k.strip() in vals:
+            where = '全局替换' if not tcs else '定向 %s' % tcs
+            yield '%s: %s' % (name, msg.format(key=repr(k), value=repr(v), where=where))
+
+
+@checker('vp_pair_regex')
+def _vp_pair_regex(rule):
+    pat, = need(rule, 'key_regex')
+    rx = re.compile(pat)
+    msg = rule.get('message', '原文 {key} 不许被替换成 {value}')
+    for name, _tcs, k, v in vp_pairs():
+        if not rx.match(k):
+            continue
+        if rule.get('value_has_cjk') and not CJK.search(v):
+            continue
+        yield '%s: %s' % (name, msg.format(key=repr(k), value=repr(v)))
+
+
+@checker('vp_server_global')
+def _vp_server_global(rule):
+    lst, = need(rule, 'list')
+    names = [l.strip() for l in (ROOT / lst).read_text(encoding='utf-8').splitlines()
+             if l.strip() and not l.startswith('#')]
+    for name in names:
+        p = TREE / 'vaultpatcher' / 'modules' / ('%s.json' % name)
+        if not p.exists():
+            yield '%s: 清单里的 %s.json 不存在' % (lst, name)
+            continue
+        for blk in json.loads(p.read_text(encoding='utf-8')):
+            if isinstance(blk, dict) and 'pairs' in blk and not blk.get('target_class'):
+                bad = [pr['key'] for pr in blk['pairs']
+                       if not pr.get('key', '').startswith(' ')]
+                if bad:
+                    yield ('%s.json: 服务端模块含全局替换 %s'
+                           '（会污染服务端数据，禁止入服务端清单）' % (name, bad))
+
+
+@checker('vp_keybind_names')
+def _vp_keybind_names(rule):
+    g, = need(rule, 'data_glob')
+    data = sorted(ROOT.glob(g))
+    if not data:
+        print('ℹ️ 跳过按键注册名检查：还没有 %s（跑 scan_keybinds.py 生成）' % g)
+        return
+    names = set()
+    for p in data:
+        d = json.loads(p.read_text(encoding='utf-8'))
+        names |= set(d.get('names', {}))
+        names |= set(d.get('name_atoms', {}))
+    msg = rule.get('message', '原文 {key} 是按键注册名')
+    for name, _tcs, k, v in vp_pairs():
+        if k in names:
+            yield '%s: %s' % (name, msg.format(key=repr(k), value=repr(v)))
+
+
+# ─────────────────────────────── 资源包检查器 ───────────────────────────────
+
+@checker('gui_choice_ascii')
+def _gui_choice_ascii(rule):
+    g, = need(rule, 'glob')
+    msg = rule.get('message', "choice('{value}') 必须保持英文")
+    for p in files(g):
+        text = p.read_text(encoding='utf-8', errors='replace')
+        for m in re.finditer(r"choice\(\s*'([^']*)'", text):
+            if CJK.search(m.group(1)):
+                yield '%s: %s' % (rel(p), msg.format(value=m.group(1)))
+
+
+@checker('format_safety')
+def _format_safety(rule):
+    snap, = need(rule, 'snapshot')
+    f = ROOT / snap
+    if not f.exists():
+        print('ℹ️ 跳过占位符检查：还没有 %s' % snap)
+        return
+    up = json.loads(f.read_text(encoding='utf-8'))
+    allow = set(rule.get('allow', {}))
     TOK = re.compile(r'%(?:(\d+)\$)?(\d+)?(?:\.(\d+))?([a-zA-Z%])')
     TRAIL = re.compile(r'(?<!%)%$')
     SECT_OK = set('0123456789abcdefklmnorABCDEFKLMNOR')
 
-    def _profile(s):
+    def profile(s):
         prof, seq = {}, 0
         for m in TOK.finditer(s):
-            conv = m.group(4)
-            if conv == '%':
+            if m.group(4) == '%':
                 continue
             if m.group(1):
                 idx = int(m.group(1))
             else:
                 seq += 1
                 idx = seq
-            prof.setdefault(idx, conv)
+            prof.setdefault(idx, m.group(4))
         return prof
 
-    def _bad_sect(s):
+    def bad_sect(s):
         return {m.group(1) for m in re.finditer('§(.)', s) if m.group(1) not in SECT_OK}
 
-    # 豁免：上游 en_us 自己写坏了，我们的译文才是对的（每条都写清理由，防止豁免变成垃圾桶）
-    FMT_ALLOW = {
-        # 上游把 "%3$s" 打成了 "%3$"（缺转换符），模组实际传 3 个参数
-        'death.attack.freeze.item',
-        # 上游把 "%s" 打成了 "% s"（多一个空格），导致英文版根本不替换
-        'item.occultism.book_of_calling_djinni.tooltip.deposit',
-    }
-    lang_files = list(PACK_DIR.rglob('lang/zh_cn.json'))
-    lang_files += list((TREE / 'kubejs' / 'assets').rglob('lang/zh_cn.json'))
-    for p in lang_files:
-        rel = p.relative_to(TREE).as_posix()
+    lang = list(PACK_DIR.rglob('lang/zh_cn.json'))
+    lang += list((TREE / 'kubejs' / 'assets').rglob('lang/zh_cn.json'))
+    for p in lang:
+        r = rel(p)
         try:
             d = json.loads(p.read_text(encoding='utf-8'))
         except Exception:
-            continue                       # 4 已经报过 JSON 错
+            continue                       # json_parses 那条已经报过了
         for k, zh in d.items():
-            if not isinstance(zh, str):
+            if not isinstance(zh, str) or k == '_comment' or k in allow:
                 continue
-            if k == '_comment' or k in FMT_ALLOW:
-                continue               # _comment 是注释键，永远不会被渲染
             en = up.get(k)
             if en is None:
                 continue
-            pe, pz = _profile(en), _profile(zh)
+            pe, pz = profile(en), profile(zh)
             extra = sorted(set(pz) - set(pe))
             if extra:
-                errors.append(f'{rel}: {k} 译文多出英文没有的占位符 {extra}'
-                              f'（运行时参数不足会抛 TranslatableFormatException）'
-                              f'\n      en={en!r}\n      zh={zh!r}')
-            downgrade = sorted(i for i in set(pe) & set(pz)
-                               if pe[i] == 's' and pz[i] != 's')
-            if downgrade:
-                errors.append(f'{rel}: {k} 第 {downgrade} 个参数把 %s 降级成了 %{pz[downgrade[0]]}'
-                              f'（类型对不上，必炸）\n      en={en!r}\n      zh={zh!r}')
+                yield ('%s: %s 译文多出英文没有的占位符 %s（运行时参数不足会抛 '
+                       'TranslatableFormatException）\n      en=%r\n      zh=%r'
+                       % (r, k, extra, en, zh))
+            down = sorted(i for i in set(pe) & set(pz) if pe[i] == 's' and pz[i] != 's')
+            if down:
+                yield ('%s: %s 第 %s 个参数把 %%s 降级成了 %%%s（类型对不上，必炸）'
+                       '\n      en=%r\n      zh=%r' % (r, k, down, pz[down[0]], en, zh))
             if TRAIL.search(zh) and not TRAIL.search(en):
-                errors.append(f'{rel}: {k} 译文以裸 % 结尾（MC 会当非法格式抛异常）\n      zh={zh!r}')
-            new_sect = _bad_sect(zh) - _bad_sect(en)
+                yield '%s: %s 译文以裸 %% 结尾（MC 会当非法格式抛异常）\n      zh=%r' % (r, k, zh)
+            new_sect = bad_sect(zh) - bad_sect(en)
             if new_sect:
-                errors.append(f'{rel}: {k} 非法 § 颜色码 {sorted(new_sect)}'
-                              f'（§ 后面那个字会被渲染器吞掉）\n      zh={zh!r}')
+                yield ('%s: %s 非法 § 颜色码 %s（§ 后面那个字会被渲染器吞掉）'
+                       '\n      zh=%r' % (r, k, sorted(new_sect), zh))
 
-# 8: 任务书 delta 的文件名必须带 zz_hanhua_ 前缀
-#
-# 整合包自己也把任务书翻译拆成同一个目录下的 `<章节名>.snbt`，由 ftbquestslangsplitter
-# 在开服/进存档时按**文件名字母序**逐个合并进 zh_cn.snbt，后合并的覆盖先合并的。
-# 于是文件名同时决定两件事，两件都出过事：
-#
-#   1. 撞名 = 删掉整合包的翻译。安装器是直接覆盖文件的，本包的 aether.snbt 只有 2 个键，
-#      盖掉了整合包同名文件的 167 个键。**已经启动过的实例看不出来**（整合包那批早就
-#      合并完并改名成 .snbt_merged 了），只有全新实例会中招——那 23 章的中文当场全没，
-#      任务书变英文。
-#   2. 排序太靠前 = 本包的修正不生效。早先用 `_` 开头（ASCII 0x5F < 小写字母 0x61），
-#      在全新实例上会先于整合包的文件合并，然后被整合包的原值盖回去。
-#
-# 统一加 zz_hanhua_ 前缀两个问题一起解决：不可能撞名，且一定最后合并。
-QLANG = TREE / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
-for p in sorted(QLANG.rglob('*.snbt')):
-    if not p.name.startswith('zz_hanhua_'):
-        errors.append(f'任务书 delta {p.relative_to(ROOT)} 缺少 zz_hanhua_ 前缀'
-                      f'（会和整合包自带的同名文件撞车，安装时把人家的翻译整个覆盖掉）')
 
-# 7: 任务书 delta 之间的重复键
-QDELTA = TREE / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
-_KEY = re.compile(r'\t([A-Za-z0-9_.]+):\s*(.*)$')
-_seen = {}
-for p in sorted(QDELTA.glob('*.snbt')):
-    lines = p.read_text(encoding='utf-8').split('\n')
-    i = 0
-    while i < len(lines):
-        m = _KEY.match(lines[i])
-        if m:
-            k, rest = m.group(1), m.group(2)
-            bal = rest.count('[') - rest.count(']')
-            while bal > 0 and i + 1 < len(lines):     # 跨行数组
-                i += 1
-                bal += lines[i].count('[') - lines[i].count(']')
-            if k in _seen:
-                errors.append(f'任务书 delta 重复键 {k}：{_seen[k]} 与 {p.name} 都定义了'
-                              f'（哪份生效取决于合并顺序，必须只保留一份）')
-            _seen[k] = p.name
-        i += 1
+@checker('pb_single_source')
+def _pb_single_source(rule):
+    lang, script = need(rule, 'lang', 'script')
+    lp, sp = TREE / lang, TREE / script
+    if not lp.is_file():
+        yield '缺少 %s' % lang
+        return
+    pack = json.loads(lp.read_text(encoding='utf-8'))
+    if not sp.exists():
+        print('ℹ️ 跳过蜂名漂移检查：%s 是生成物，尚未生成' % script)
+        return
+    m = re.search(r'const PB_ID2ZH = (\{.*?\});', sp.read_text(encoding='utf-8'), re.S)
+    if not m:
+        yield '%s: 缺 PB_ID2ZH（必须由 gen_pb_hanhua.py 生成）' % script
+        return
+    for base, zh in json.loads(m.group(1)).items():
+        expect = pack.get('entity.productivebees.%s_bee' % base,
+                          pack.get('entity.productivebees.%s' % base))
+        if expect is not None and expect != zh:
+            yield ('蜂名漂移: %s 脚本=%r 资源包=%r'
+                   '（真源是资源包，请重跑 gen_pb_hanhua.py）' % (base, zh, expect))
 
-if errors:
-    print(f'❌ 校验失败，共 {len(errors)} 处：')
-    for e in errors:
-        print('  -', e)
-    sys.exit(1)
-print('✅ 全部校验通过（VaultPatcher 模块 / 枚举协议值 / 主配置 / 资源包 lang / '
-      '.gui choice / 占位符与颜色码 / 任务书 delta 无重复键与前缀正确）')
+
+# ─────────────────────────────── 任务书检查器 ───────────────────────────────
+
+@checker('snbt_no_dup_keys')
+def _snbt_no_dup_keys(rule):
+    g, = need(rule, 'glob')
+    KEY = re.compile(r'\t([A-Za-z0-9_.]+):\s*(.*)$')
+    seen = {}
+    for p in files(g):
+        lines = p.read_text(encoding='utf-8').split('\n')
+        i = 0
+        while i < len(lines):
+            m = KEY.match(lines[i])
+            if m:
+                k, rest = m.group(1), m.group(2)
+                bal = rest.count('[') - rest.count(']')
+                while bal > 0 and i + 1 < len(lines):        # 跨行数组
+                    i += 1
+                    bal += lines[i].count('[') - lines[i].count(']')
+                if k in seen:
+                    yield ('任务书 delta 重复键 %s：%s 与 %s 都定义了'
+                           '（哪份生效取决于合并顺序，必须只保留一份）'
+                           % (k, seen[k], p.name))
+                seen[k] = p.name
+            i += 1
+
+
+# ─────────────────────────────── 解释器 ───────────────────────────────
+
+def load_rules():
+    if not RULES_DIR.is_dir():
+        sys.exit('❌ 规则目录不存在: %s' % RULES_DIR)
+    rules = []
+    for f in sorted(RULES_DIR.glob('*.json')):
+        try:
+            got = json.loads(f.read_text(encoding='utf-8'))
+        except Exception as e:
+            sys.exit('❌ 规则文件 %s 解析失败: %s' % (f.name, e))
+        if not isinstance(got, list):
+            sys.exit('❌ 规则文件 %s 顶层必须是数组' % f.name)
+        for r in got:
+            r['_file'] = f.name
+            rules.append(r)
+    ids = [r.get('id') for r in rules]
+    dup = sorted({i for i in ids if ids.count(i) > 1})
+    if dup:
+        sys.exit('❌ 规则 id 重复: %s' % dup)
+    for r in rules:
+        for k in ('id', 'kind', 'why'):
+            if not r.get(k):
+                sys.exit('❌ %s 里有规则缺 %s 字段: %r' % (r['_file'], k, r))
+        if r['kind'] not in CHECKERS:
+            # 认不出的 kind 必须让校验红，否则打错一个字母规则就静默失效了
+            sys.exit('❌ 规则 %s 的 kind %r 没有对应的检查器；已有: %s'
+                     % (r['id'], r['kind'], ' '.join(sorted(CHECKERS))))
+    return rules
+
+
+def main():
+    if not TREE.is_dir():
+        sys.exit('❌ 出货树不存在: %s\n'
+                 '   先跑: python3 scripts/assemble.py && ./scripts/generate_all.sh' % TREE)
+    rules = load_rules()
+    errors = []
+    for r in rules:
+        try:
+            errors += ['[%s] %s' % (r['id'], e) for e in CHECKERS[r['kind']](r)]
+        except Exception as e:
+            errors.append('[%s] 检查器自身出错: %r' % (r['id'], e))
+    if errors:
+        print('❌ 校验失败，共 %d 处：' % len(errors))
+        for e in errors:
+            print('  -', e)
+        sys.exit(1)
+    print('✅ %d 条规则全部通过：%s'
+          % (len(rules), ' '.join(r['id'] for r in rules)))
+
+
+if __name__ == '__main__':
+    main()

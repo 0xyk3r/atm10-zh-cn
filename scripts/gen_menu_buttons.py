@@ -54,6 +54,17 @@ PACK = Path(os.environ.get(
     '/Users/yumeka/Documents/minecraft/.minecraft/versions/All the Mods 10'))
 
 
+
+def save_png(im, path):
+    """确定性写 PNG：参数一律显式给。
+
+    Pillow 的默认压缩级别/optimize 策略换个版本就可能变，写出来的字节跟着变，
+    于是产物哈希对不上而图其实一模一样——这种噪声会让「比 sha256」这件事失去意义。
+    显式钉死之后，字节只剩下**栅格化**这一个变量，而它由 toolchain.lock.json
+    里钉的 Pillow wheel（自带 freetype）决定。
+    """
+    im.save(path, format='PNG', optimize=False, compress_level=9)
+
 def ensure_sources():
     src = PACK / 'config' / 'fancymenu' / 'assets'
     if not src.is_dir():
@@ -154,7 +165,7 @@ def main(check_only=False):
             if not check_only:
                 ImageDraw.Draw(im).rectangle(BOX, fill=bg)
                 im.alpha_composite(glyph, (x, y))
-                im.save(p)
+                save_png(im, p)
             print('  %-24s %s  字高=%d 宽=%d  x[%d..%d] y[%d..%d] 色=%s'
                   % (p.name, word, glyph.height, glyph.width,
                      x, x + glyph.width, y, y + glyph.height, col[:3]))

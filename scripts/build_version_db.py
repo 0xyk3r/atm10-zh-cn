@@ -30,9 +30,17 @@ VaultPatcher 靠字符串精确匹配替换硬编码文本，而且失配是**�
 取常量池里命中本块 key 最多的那个。命中 0 条的不算数——宁可报「找不到」，
 也不要张冠李戴把补丁打到别的类上。
 
+## 证据必须锚到字节
+
+这份库的全部合法性来自「对着该版本真实的 jar 逐条核验」。所以 `jars.json` 记的是
+每个 jar 的 **sha256**，能拿到 `mods.provenance.json` 时还会一并记下 CurseForge 的
+`fileID`（不可变，重传会换新 ID）。目录里出现 manifest 之外的 jar 就直接拒绝建库。
+
 用法:
     python3 scripts/build_version_db.py 7.1 <该版本的mods目录>
+    python3 scripts/build_version_db.py 7.1 <mods目录> --verify   # 只核字节
 """
+import hashlib
 import json
 import sys
 import zipfile
@@ -109,7 +117,109 @@ def resolve(declared, keys, by_path, by_simple, cache):
     return None, None, [], 'not_found'
 
 
+def jar_records(mods_dir):
+    """这一版**实际被核验的那批 jar** 的字节指纹。
+
+    只记文件名是记了个寂寞：CurseForge 同名重传、本机换过的 jar、下坏的文件，
+    记录都长得一模一样，而整套 vaultpatcher.json 的合法性全建立在
+    「对着该版真实的 jar 逐条核验」这句话上。没有哈希，这句话没有证据。
+
+    （这不是假想：7.2 的库原本就是拿本机实例建的，里面躺着自制的 ysm 桩 mod
+    和换过版本的 cc-tweaked，只看文件名完全看不出来。）
+    """
+    out = {}
+    for j in sorted(Path(mods_dir).glob('*.jar')):
+        b = j.read_bytes()
+        out[j.name] = {'sha256': hashlib.sha256(b).hexdigest(), 'size': len(b)}
+    return out
+
+
+def load_provenance(mods_dir):
+    """fetch_pack 下载时留下的 fileID ↔ sha256 对照表，有就用。"""
+    d = Path(mods_dir)
+    for cand in (d / 'mods.provenance.json', d.parent / 'mods.provenance.json'):
+        if cand.is_file():
+            try:
+                return json.loads(cand.read_text(encoding='utf-8'))
+            except Exception:
+                return {}
+    return {}
+
+
+def write_jars(ver, mods_dir):
+    recs = jar_records(mods_dir)
+    meta = load_provenance(mods_dir)
+    prov = meta.get('jars') or {}
+    # 少下的 jar 必须**逐个被显式登记**才放行。放宽门控是不行的：残缺的集合会让
+    # vaultpatcher.json 里的 "missing" 变成假判定——不是这一版没有这个 key，
+    # 只是我们没看到那个 jar。登记之后这条边界摆在明面上。
+    known = {}
+    kf = ROOT / 'versions' / ver / 'unobtainable.json'
+    if kf.is_file():
+        known = json.loads(kf.read_text(encoding='utf-8')).get('files') or {}
+    undeclared = [i for i in (meta.get('missing_file_ids') or [])
+                  if str(i) not in known]
+    if undeclared:
+        sys.exit('❌ 这份 %s 的 jar 没下全（%s/%s），且以下 fileID 没有登记原因：%s\n'
+                 '   限速就重跑 fetch_pack.py 补齐；真的 404 了就写进 '
+                 'versions/%s/unobtainable.json 说明情况。\n'
+                 '   拿残缺集合建库会得出「这一版没有这个 key」的假结论。'
+                 % (ver, meta.get('got'), meta.get('expected'), undeclared[:8], ver))
+    if meta.get('missing_file_ids'):
+        print('  ⚠️ 这一版有 %d 个 jar 已在 CurseForge 上取不到（已登记）：%s'
+              % (len(meta['missing_file_ids']), meta['missing_file_ids']))
+    stray = sorted(set(recs) - set(prov)) if prov else []
+    for name, r in recs.items():
+        pr = prov.get(name)
+        if not pr:
+            continue
+        if pr.get('sha256') != r['sha256']:
+            sys.exit('❌ %s 的字节与下载时记的对不上——这份 jar 被动过' % name)
+        r['projectID'], r['fileID'] = pr.get('projectID'), pr.get('fileID')
+    if stray:
+        sys.exit('❌ %d 个 jar 不在这一版的官方 manifest 里，这不是一份干净的 %s：\n   %s\n'
+                 '   拿本机实例建库会把自制/替换过的 jar 当成官方的记进去。'
+                 % (len(stray), ver, '\n   '.join(stray[:10])))
+    out = ROOT / 'versions' / 'db' / ver
+    out.mkdir(parents=True, exist_ok=True)
+    (out / 'jars.json').write_text(json.dumps(
+        {'version': ver, 'count': len(recs),
+         'provenance': 'curseforge' if prov else 'unverified',
+         'manifest_expected': meta.get('expected'),
+         'unobtainable': meta.get('missing_file_ids') or [],
+         'jars': recs}, ensure_ascii=False, indent=1, sort_keys=True) + '\n',
+        encoding='utf-8')
+    print('  jars.json: %d 个 jar 的 sha256%s'
+          % (len(recs), '（含 CurseForge fileID）' if prov else '（**出处未核**）'))
+    return recs
+
+
+def verify(ver, mods_dir):
+    """拿仓库里记的哈希核对一个 mods 目录。缓存命中也要核——缓存同样可能是坏的。"""
+    f = ROOT / 'versions' / 'db' / ver / 'jars.json'
+    if not f.is_file():
+        sys.exit('❌ versions/db/%s/jars.json 不存在' % ver)
+    want = json.loads(f.read_text(encoding='utf-8'))
+    if isinstance(want, list):
+        sys.exit('❌ versions/db/%s/jars.json 还是旧的「只有文件名」格式，没有字节可核。'
+                 '\n   重跑 build_version_db.py 生成带 sha256 的版本。' % ver)
+    have = jar_records(mods_dir)
+    bad = [n for n in sorted(set(have) & set(want['jars']))
+           if have[n]['sha256'] != want['jars'][n]['sha256']]
+    miss = sorted(set(want['jars']) - set(have))
+    extra = sorted(set(have) - set(want['jars']))
+    for label, lst in (('内容对不上', bad), ('缺少', miss), ('多出', extra)):
+        for x in lst[:8]:
+            print('  ❌ %s: %s' % (label, x))
+        if len(lst) > 8:
+            print('  ❌ %s: …还有 %d 个' % (label, len(lst) - 8))
+    if bad or miss or extra:
+        sys.exit('❌ %s 的 mods 目录与 versions/db/%s/jars.json 不一致' % (ver, ver))
+    print('✅ %d 个 jar 逐字节与 versions/db/%s/jars.json 一致' % (len(have), ver))
+
+
 def main(ver, mods_dir):
+    write_jars(ver, mods_dir)
     by_path, by_simple = build_index(mods_dir)
     cache = {}
     print('%s: 索引 %d 个 class' % (ver, len(by_path)))
@@ -150,9 +260,6 @@ def main(ver, mods_dir):
     out.mkdir(parents=True, exist_ok=True)
     (out / 'vaultpatcher.json').write_text(
         json.dumps(db, ensure_ascii=False, indent=1, sort_keys=True) + '\n', encoding='utf-8')
-    (out / 'jars.json').write_text(
-        json.dumps(sorted(p.name for p in Path(mods_dir).glob('*.jar')),
-                   ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     tot = stat['key_exact'] + stat['key_substring'] + stat['key_missing']
     print('  target_class: 原位 %d / 搬家已找回 %d / 找不到 %d'
           % (stat['class_declared'], stat['class_moved'], stat['class_not_found']))
@@ -166,4 +273,8 @@ def main(ver, mods_dir):
 if __name__ == '__main__':
     if len(sys.argv) < 3:
         sys.exit(__doc__)
-    main(sys.argv[1], sys.argv[2])
+    if '--verify' in sys.argv:
+        a = [x for x in sys.argv[1:] if x != '--verify']
+        verify(a[0], a[1])
+    else:
+        main(sys.argv[1], sys.argv[2])

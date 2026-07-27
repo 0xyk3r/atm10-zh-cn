@@ -71,17 +71,51 @@ def get(url, timeout=180, required=True):
     return fetch(url, timeout, required)[0]
 
 
-def tree_digest(root):
-    """整棵 overrides 的确定性指纹：路径 + 内容，排序后逐个吃进去。
+class _Head(urllib.request.Request):
+    def get_method(self):
+        return 'HEAD'
+
+
+def head_name(url, timeout=60, tries=3):
+    """只问跳转后的文件名，不取正文。
+
+    要重试：探不到名字就等于没有交叉验证，而 GET 的跳转**确实会偶发指到别的文件**
+    （实测 cc-tweaked 1.113.1 的 ID 拿回来一个 1.120.0）。探不到就返回 None，
+    调用方照常下载，但那一份会被当成「来路不明」记下来。
+    """
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(_Head(url, headers={'User-Agent': UA}),
+                                        timeout=timeout) as r:
+                n = urllib.parse.unquote(str(r.url).rsplit('/', 1)[-1].split('?')[0])
+                return n if n.endswith('.jar') else None
+        except urllib.error.HTTPError as e:
+            if e.code not in (403, 408, 425, 429, 500, 502, 503, 504):
+                return None
+        except Exception:
+            pass
+        time.sleep(2 ** i)
+    return None
+
+
+def tree_digest(root, only=None):
+    """overrides 的确定性指纹：路径 + 内容，排序后逐个吃进去。
+
+    `only` 给一份相对路径清单，就只算这些文件。**必须给**：解出来的 overrides
+    和后面下载的 480 个 jar 落在同一个目录下，整目录扫会把 jar 也算进指纹，
+    于是「第一次跑过、第二次跑就报指纹不符」。
 
     ATM10 的某个已发布版本，它的 overrides 内容是**不会变**的。把指纹记进仓库，
     CI 上无论是从缓存拿的还是现下的，都要跟它对得上——CurseForge 哪天换了内容
     （或者下载被人动了手脚），构建当场红，而不是悄悄拿另一份东西去打补丁。
     """
+    root = Path(root)
+    if only is None:
+        files = [p for p in root.rglob('*') if p.is_file()]
+    else:
+        files = [root / r for r in only]
     h = hashlib.sha256()
-    for p in sorted(Path(root).rglob('*')):
-        if not p.is_file():
-            continue
+    for p in sorted(files):
         h.update(p.relative_to(root).as_posix().encode())
         h.update(b'\0')
         h.update(hashlib.sha256(p.read_bytes()).digest())
@@ -124,16 +158,18 @@ def main(ver, out, jars=True):
     if not z.exists():
         z.parent.mkdir(parents=True, exist_ok=True)
         z.write_bytes(get('%s/files/%s/download' % (API, fid)))
+    rels = []
     with zipfile.ZipFile(z) as zf:
         manifest = json.loads(zf.read('manifest.json'))
         for n in zf.namelist():
             if n.startswith('overrides/') and not n.endswith('/'):
-                t = out / n[len('overrides/'):]
+                rel = n[len('overrides/'):]
+                t = out / rel
                 t.parent.mkdir(parents=True, exist_ok=True)
                 t.write_bytes(zf.read(n))
-    n = sum(1 for _ in out.rglob('*') if _.is_file())
-    digest = tree_digest(out)
-    print('  overrides 解出 %d 个文件，指纹 %s' % (n, digest[:16]))
+                rels.append(rel)
+    digest = tree_digest(out, rels)
+    print('  overrides 解出 %d 个文件，指纹 %s' % (len(rels), digest[:16]))
     check_digest(ver, digest)
     if not jars:
         return
@@ -142,25 +178,51 @@ def main(ver, out, jars=True):
 
     errors = []
 
+    prov = {}
+
     def one(f):
         """下一个 jar。**不查元数据**——下载接口会跳转到带文件名的 CDN 地址，
         文件名直接从最终 URL 取。少一半请求，也少一个会 404 的接口。
+
+        顺手把 (projectID, fileID, sha256, size) 记进 prov：CurseForge 的 fileID
+        是不可变的（重传会得到新 ID），把它和实际字节的哈希绑在一起，才谈得上
+        「这份 jar 就是那一版官方用的那一份」。只记文件名等于什么都没记。
 
         任何异常都不许抛：一个文件下不来只该少一个 jar，由外层整轮重试兜住；
         抛出去会顺着 ex.map 把整个构建炸掉。"""
         try:
             url = ('https://www.curseforge.com/api/v1/mods/%d/files/%d/download'
                    % (f['projectID'], f['fileID']))
+            # 先用 HEAD 把跳转后的文件名问出来：本地已经有了就不必再拉一遍正文。
+            # 少了这一步，补记出处就得把四百多个 jar 整包重下。
+            name = head_name(url)
+            p = mods / name if name else None
+            if p is not None and p.exists():
+                prov[name] = {'projectID': f['projectID'], 'fileID': f['fileID'],
+                              'sha256': hashlib.sha256(p.read_bytes()).hexdigest(),
+                              'size': p.stat().st_size}
+                return name
             d, final = fetch(url, required=False)
             if not d or len(d) < 500:
                 errors.append('fileID %d: %s' % (f['fileID'], final))
                 return None
-            name = urllib.parse.unquote(str(final).rsplit('/', 1)[-1].split('?')[0])
+            got = urllib.parse.unquote(str(final).rsplit('/', 1)[-1].split('?')[0])
+            if name and got != name:
+                # 实测踩到过：同一个 fileID，GET 的跳转偶发指到另一个文件
+                # （cc-tweaked 1.113.1 的 ID 拿回来一个 1.120.0）。
+                # 名字对不上就当这次失败，交给外层整轮重试，别把错文件收下。
+                errors.append('fileID %d: 跳转文件名不一致 HEAD=%s GET=%s'
+                              % (f['fileID'], name, got))
+                return None
+            name = got
             if not name.endswith('.jar'):
                 name = '%d.jar' % f['fileID']
             p = mods / name
             if not p.exists():
                 p.write_bytes(d)
+            prov[name] = {'projectID': f['projectID'], 'fileID': f['fileID'],
+                          'sha256': hashlib.sha256(p.read_bytes()).hexdigest(),
+                          'size': p.stat().st_size}
             return name
         except Exception as e:
             errors.append('fileID %d: %r' % (f['fileID'], e))
@@ -183,6 +245,23 @@ def main(ver, out, jars=True):
                     print('  jar %d/%d' % (i, len(left)), flush=True)
     print('  mod jar %d/%d，目录共 %d 个'
           % (len(got), len(todo), len(list(mods.glob('*.jar')))))
+    # manifest 里应有多少个必须一起记下来。少下了几个而不留痕，
+    # 后面建出来的版本库会拿一个残缺的 jar 集合去下「这一版没有这个 key」的结论。
+    missing = sorted(f['fileID'] for f in todo if f['fileID'] not in got)
+    (out / 'mods.provenance.json').write_text(
+        json.dumps({'version': ver, 'expected': len(todo), 'got': len(prov),
+                    'missing_file_ids': missing,
+                    'jars': dict(sorted(prov.items()))},
+                   ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    print('  出处已记入 mods.provenance.json（fileID ↔ sha256，%d/%d）'
+          % (len(prov), len(todo)))
+    # 目录里出现了对不上任何 fileID 的 jar，就是来路不明的（多半是某次
+    # 跳转指错文件留下的）。留着它会污染整个集合，必须点名。
+    stray = sorted(p.name for p in mods.glob('*.jar') if p.name not in prov)
+    if stray:
+        print('  ⚠️ %d 个 jar 对不上任何 fileID，来路不明，建库前必须处理：' % len(stray))
+        for x in stray:
+            print('       %s' % x)
     if len(got) < len(todo) * 0.98:
         for e in errors[:8]:
             print('   %s' % e)
@@ -199,7 +278,11 @@ if __name__ == '__main__':
         a = [x for x in sys.argv[1:] if x != '--verify']
         if len(a) != 2:
             sys.exit(__doc__)
-        check_digest(a[0], tree_digest(a[1]))
+        d = Path(a[1])
+        rels = [p.relative_to(d).as_posix() for p in d.rglob('*')
+                if p.is_file() and not p.relative_to(d).as_posix().startswith('mods/')
+                and p.name != 'mods.provenance.json']
+        check_digest(a[0], tree_digest(d, rels))
         sys.exit(0)
     if len(sys.argv) < 3:
         sys.exit(__doc__)

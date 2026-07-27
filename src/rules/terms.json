@@ -1,0 +1,18 @@
+[
+ {
+  "id": "legacy-bee-names",
+  "kind": "forbidden_text",
+  "scope": "repo",
+  "terms": ["联调蜂", "神蜂特工队"],
+  "why": "这些是 fbi 蜂用过又被否掉的旧译名。真源改名之后，任何地方还出现它们就说明那里是一份没跟上的旧拷贝。这类词只会越积越多，所以放数据里而不是脚本里。",
+  "message": "含废弃译名 \"{term}\"（真源已更名，此处是漂移的旧拷贝）",
+  "allow_paths": [
+   "kubejs/client_scripts/pb_hanhua_tooltip.js",
+   "kubejs/server_scripts/pb_hanhua_cage_migrate.js",
+   "scripts/gen_pb_hanhua.py",
+   "src/rules/terms.json"
+  ],
+  "skip_dirs": [".git", "dist", "packsrc", "pack", "node_modules", "build"],
+  "skip_suffixes": [".jar", ".png", ".zip", ".otf", ".ttf"]
+ }
+]

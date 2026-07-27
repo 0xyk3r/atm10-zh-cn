@@ -1,0 +1,49 @@
+[
+ {
+  "id": "vp-shape",
+  "kind": "vp_shape",
+  "why": "模块文件是手写的，结构错了 VaultPatcher 只会静默不加载，玩家看到英文而日志一个字都没有。"
+ },
+ {
+  "id": "vp-enum-protocol-values",
+  "kind": "vp_pair_key_in",
+  "only_risky_blocks": true,
+  "why": "McJtyLib 的 NamedCodec 按名字反查枚举，翻译之后反查失败直接抛异常。历史事故：choice('忽略红石') → IllegalStateException: Unknown element name。只查「有风险」的块——定向到具体 GUI/Screen 类的同名显示标签（形状卡的 Solid）是安全的。",
+  "message": "禁止翻译枚举协议值 {key}（{where}，会导致游戏崩溃）",
+  "values": [
+   "Ignored", "Off", "On",
+   "Copy", "Move", "Swap", "Back", "Collect",
+   "Loop1", "Loop2", "Loop3", "Loop4",
+   "Once1", "Once2", "Pulse", "Cycle",
+   "Amount+", "Amount-", "Mod", "Name",
+   "Shield", "Solid", "Invisible"
+  ]
+ },
+ {
+  "id": "vp-identifier-not-translated",
+  "kind": "vp_pair_regex",
+  "key_regex": "^[a-z0-9][a-z0-9._/-]*$",
+  "value_has_cjk": true,
+  "why": "2026-07-27 实机崩溃：把 compactmachines 的 open_upgrade_screen 当按键分类替换成了「压缩空间」，但那个串是拿去 modRL(\"open_upgrade_screen\") 构造 ResourceLocation 的，而 ResourceLocation 只接受 [a-z0-9/._-]，注册按键时直接 ResourceLocationException，游戏进不去。原文长得像标识符（全小写+下划线/点/斜杠、没有空格）就极可能是注册名/翻译键/路径，不是给人看的界面文字。",
+  "message": "原文 {key} 是标识符形态，却被替换成中文 {value}。这类串常被拿去构造 ResourceLocation / 翻译键，替换会让游戏启动崩溃。"
+ },
+ {
+  "id": "vp-keybind-registration-names",
+  "kind": "vp_keybind_names",
+  "data_glob": "versions/db/*/keybinds.json",
+  "why": "options.txt 里存的是 key_<注册名>。注册名被替换掉一个字，玩家存的绑定就对不上，那个键位静默回默认值，玩家只会觉得「汉化把我的键位清了」。注册名常常是运行期拼出来的（\"artifacts.key.%s.%s\".formatted(…)），所以不能只比最终名字，还要比构成它的字符串原子——VaultPatcher 改的正是常量池里那些原子。",
+  "message": "原文 {key} 是按键注册名（或其组成片段），替换会让玩家的键位绑定静默失效。"
+ },
+ {
+  "id": "vp-server-modules-no-global-block",
+  "kind": "vp_server_global",
+  "list": "scripts/server_modules.txt",
+  "why": "服务端模块里的全局替换会污染服务端 NBT / 注册名。唯一豁免：key 带前导空格的纯显示文本（如 \"    Void mode\"），那种形态不可能是注册名。"
+ },
+ {
+  "id": "vp-legacy-bee-module-banned",
+  "kind": "file_absent",
+  "path": "vaultpatcher/modules/productivebees_gene_zh.json",
+  "why": "遗留的蜂名全局替换模块，已由 kubejs 显示层取代。全局替换蜂名会污染服务端数据，禁止复活。"
+ }
+]

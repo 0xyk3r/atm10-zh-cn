@@ -22,11 +22,15 @@
     python3 scripts/verify_dist.py dist/atm10-zh_cn-client-r12-atm7.2.zip
     python3 scripts/verify_dist.py dist/*.zip
 """
+import hashlib
 import io
 import json
 import re
 import sys
 import zipfile
+from pathlib import Path
+
+import toolchain
 
 # 客户端包的下限（实测值见注释）
 # 下限一律取实测值的九成上下：留出上游增删的正常波动，但拦得住「整块没了」。
@@ -125,6 +129,52 @@ def check(path):
     return bad, got, is_client
 
 
+def zip_digest(path):
+    """zip 内容的确定性指纹：只吃「路径 + 文件内容」。
+
+    不能直接 sha256 整个 zip 文件——zip 头里有时间戳和压缩器版本，同样的内容
+    换个时刻打包就是另一个哈希。要比的是内容，不是容器。
+    """
+    h = hashlib.sha256()
+    with zipfile.ZipFile(path) as z:
+        for n in sorted(x.filename for x in z.infolist() if not x.is_dir()):
+            h.update(n.encode())
+            h.update(b'\0')
+            h.update(hashlib.sha256(z.read(n)).digest())
+    return h.hexdigest()
+
+
+def check_reproducible(paths):
+    """标准工具链下，产物内容指纹必须与仓库记录的一致。
+
+    以前这里只能「比像素不能比 sha256」——因为工具链没钉住，换台机器 PNG 字节就变。
+    现在 src/toolchain.lock.json 把镜像、Pillow、字体都钉住了，字节重新可比。
+    **但只在标准环境里比**：别的环境照样能构建，只是这一节跳过并明说跳过了，
+    绝不假装比过了。
+    """
+    ok, _env, diff, _missing = toolchain.status()
+    print('\n工具链: %s' % toolchain.stamp())
+    if not ok:
+        print('ℹ️ 不是标准构建环境，跳过产物字节比对（%s）' % '；'.join(diff[:2]))
+        return []
+    rec = Path(__file__).resolve().parent.parent / 'versions' / 'dist.sha256'
+    have = json.loads(rec.read_text(encoding='utf-8')) if rec.is_file() else {}
+    bad, news = [], {}
+    for p in paths:
+        name = re.sub(r'-[rvR][^-]*-', '-<版本>-', Path(p).name)
+        d = zip_digest(p)
+        if name not in have:
+            news[name] = d
+        elif have[name] != d:
+            bad.append('%s 的内容指纹与 versions/dist.sha256 不符\n'
+                       '       记录 %s\n       实得 %s' % (name, have[name], d))
+    if news:
+        print('ℹ️ versions/dist.sha256 里还没记这几项，核对无误后写进去：')
+        for k, v in sorted(news.items()):
+            print('     %s  %s' % (v, k))
+    return bad
+
+
 def main(paths):
     fail = 0
     for p in paths:
@@ -138,8 +188,11 @@ def main(paths):
         else:
             print('✅ %s [%s]  %s' % (p, tag,
                   '  '.join('%s=%s' % (k, v) for k, v in sorted(got.items()))))
-    if fail:
-        sys.exit('\n❌ %d 个包没通过内容核验——**不要发布**' % fail)
+    repro = check_reproducible(paths)
+    for b in repro:
+        print('  ❌ ', b)
+    if fail or repro:
+        sys.exit('\n❌ %d 个包没通过内容核验——**不要发布**' % (fail + len(repro)))
     print('\n全部通过内容核验')
 
 

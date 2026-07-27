@@ -126,6 +126,17 @@ SYSTEM_FALLBACK = {
 }
 
 
+
+def save_png(im, path):
+    """确定性写 PNG：参数一律显式给。
+
+    Pillow 的默认压缩级别/optimize 策略换个版本就可能变，写出来的字节跟着变，
+    于是产物哈希对不上而图其实一模一样——这种噪声会让「比 sha256」这件事失去意义。
+    显式钉死之后，字节只剩下**栅格化**这一个变量，而它由 toolchain.lock.json
+    里钉的 Pillow wheel（自带 freetype）决定。
+    """
+    im.save(path, format='PNG', optimize=False, compress_level=9)
+
 def face_file(name):
     for ext in ('.ttf', '.otf', '.ttc'):
         p = FONTS_DIR / (name + ext)
@@ -1074,7 +1085,7 @@ def main(check_only=False):
         if not check_only:
             dst = OUT / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
-            img.save(dst)
+            save_png(img, dst)
         note = '' if (not used or used[0] == text) else '  ← 与章节标题「%s」不同' % used[0]
         print('  %-48s %-7s %-5s %-10s %dx%d%s'
               % (rel, text, face, how, im.width, im.height, note))

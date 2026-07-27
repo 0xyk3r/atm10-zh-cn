@@ -55,5 +55,10 @@ curl -fsSL -o "$TMP/serif.zip" \
 unzip -o -q -j "$TMP/serif.zip" 'SubsetOTF/SC/NotoSerifSC-Black.otf' -d "$TMP"
 cp "$TMP/NotoSerifSC-Black.otf" "$DIR/serif.otf"
 
+# 下完必须核哈希：字形栅格化直接决定 PNG 的每一个像素，
+# 上游哪天重传一版字体，图会**悄悄**变，而产物哈希对不上时根本看不出是这里出的问题。
+echo "核对字体哈希 ..."
+python3 "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/toolchain.py" --fonts
+
 echo "完成："
 ls -1 "$DIR"
