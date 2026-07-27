@@ -4,17 +4,10 @@
  "t": [
   [
    [
-    "gather_resources.mdx"
+    "alloys.mdx"
    ],
-   "Rassembler des Ressources",
-   "收集资源"
-  ],
-  [
-   [
-    "first_generator.mdx"
-   ],
-   "Génération d'électricité de base",
-   "基础发电"
+   "Fabrication d'Acier (et autres alliages)",
+   "钢（及其他合金）冶炼"
   ],
   [
    [
@@ -25,10 +18,10 @@
   ],
   [
    [
-    "alloys.mdx"
+    "first_generator.mdx"
    ],
-   "Fabrication d'Acier (et autres alliages)",
-   "钢（及其他合金）冶炼"
+   "Génération d'électricité de base",
+   "基础发电"
   ],
   [
    [
@@ -39,10 +32,10 @@
   ],
   [
    [
-    "lasers.mdx"
+    "gather_resources.mdx"
    ],
-   "Lasers! Et Fluxite",
-   "镭射器！与通量水晶"
+   "Rassembler des Ressources",
+   "收集资源"
   ],
   [
    [
@@ -50,6 +43,13 @@
    ],
    "Amusez-vous",
    "尽情享受吧"
+  ],
+  [
+   [
+    "lasers.mdx"
+   ],
+   "Lasers! Et Fluxite",
+   "镭射器！与通量水晶"
   ]
  ]
 }

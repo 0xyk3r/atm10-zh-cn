@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Flow Control Widgets",
-   "流程控制组件"
-  ],
-  [
-   [
     "description"
    ],
    "Widgets that affect the program flow.",
    "影响程序流程的控件。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Flow Control Widgets",
+   "流程控制组件"
   ]
  ]
 }

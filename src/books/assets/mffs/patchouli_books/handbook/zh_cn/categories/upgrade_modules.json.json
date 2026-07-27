@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Upgrade Modules",
-   "升级模块"
-  ],
-  [
-   [
     "description"
    ],
    "Universally available upgrade modules for your Force Field machines.",
    "适用于所有力场机器的通用升级模块。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Upgrade Modules",
+   "升级模块"
   ]
  ]
 }

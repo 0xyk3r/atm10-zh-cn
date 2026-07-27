@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Collector Bee",
-   "收集者蜜蜂"
+   "Collects items on the ground and puts them in its hive.$(br)Combine with the farmer bee for an automated farm.",
+   "会收集地上的物品并放入自己的蜂巢中。$(br)与农夫蜜蜂搭配即可实现农场自动化。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Collects items on the ground and puts them in its hive.$(br)Combine with the farmer bee for an automated farm.",
-   "会收集地上的物品并放入自己的蜂巢中。$(br)与农夫蜜蜂搭配即可实现农场自动化。"
+   "Collector Bee",
+   "收集者蜜蜂"
   ]
  ]
 }

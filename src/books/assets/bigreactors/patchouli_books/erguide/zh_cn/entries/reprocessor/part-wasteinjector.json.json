@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Waste Injector",
-   "废料注入口"
+   "The Waste Injector allows you to insert waste material from the Reactor into the Reprocessor.$(br2)The graphical interface can be used to insert materials manually, or you can connect a pipe of some sort to insert waste into the injector.",
+   "废料注入器允许你将反应堆中的废料插入再处理器。$(br2)你可以通过图形界面手动插入材料，也可以连接某种管道，将废料自动输入到注入器中。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Waste Injector allows you to insert waste material from the Reactor into the Reprocessor.$(br2)The graphical interface can be used to insert materials manually, or you can connect a pipe of some sort to insert waste into the injector.",
-   "废料注入器允许你将反应堆中的废料插入再处理器。$(br2)你可以通过图形界面手动插入材料，也可以连接某种管道，将废料自动输入到注入器中。"
+   "Waste Injector",
+   "废料注入口"
   ],
   [
    [

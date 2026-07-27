@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Automation",
-   "自动化"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "You can pipe $(thing)Empty PCB's/$ in on any side. Successfully-etched $(thing)Unassembled PCB's/$ are moved into the top right output slot, while $(thing)Failed PCB's/$ go into the bottom-right slot. For automated extraction, extract Unassembled PCB's from the side of the machine, and Failed PCB's from the top or bottom. You could automate this by piping Failed PCB's into a $(thing)Blast Furnace/$ to get unexposed Empty PCB's back, and restart the process.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Heating",
-   "加热"
+   "Automation",
+   "自动化"
   ],
   [
    [
@@ -53,6 +44,15 @@
    ],
    "Without $(l:base_concepts/heat)Heat/$, the Etching Tank takes 150 seconds to fully etch a PCB (although of course it can etch up to 25 in parallel). If you apply heat to the tank, you can further reduce the processing time, down to a minimum of 30 seconds; the hotter the tank gets, the faster the processing time. However, be warned that when heated, a small amount of Etching Acid will be used up while PCB's are being etched.",
    "如果没有 $(l:base_concepts/heat)热量/$，蚀刻器将一块电路板完全蚀刻需要 150 秒（当然，它也可以同时并行蚀刻最多 25 块）。如果你对蚀刻器加热，还可以进一步缩短处理时间，最短可降至 30 秒；蚀刻器越热，处理速度就越快。不过要注意，在加热状态下，蚀刻电路板时会消耗少量蚀刻酸。"
+  ],
+  [
+   [
+    "pages",
+    2,
+    "title"
+   ],
+   "Heating",
+   "加热"
   ],
   [
    [

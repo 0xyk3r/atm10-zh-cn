@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Casing",
-   "外壳"
+   "Casing blocks are the building blocks of the Fluidizer.$(br2)They are required to build its frame and are also used to craft the other parts. Casing blocks can also be used to fill the faces of the Fluidizer if you don't like glass very much.",
+   "机壳方块是构成流化器的基础方块。$(br2)它们是建造其框架的必需部分，也用于合成其他部件。如果你不太喜欢玻璃，也可以用机壳方块填充流化器的各个面。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Casing blocks are the building blocks of the Fluidizer.$(br2)They are required to build its frame and are also used to craft the other parts. Casing blocks can also be used to fill the faces of the Fluidizer if you don't like glass very much.",
-   "机壳方块是构成流化器的基础方块。$(br2)它们是建造其框架的必需部分，也用于合成其他部件。如果你不太喜欢玻璃，也可以用机壳方块填充流化器的各个面。"
+   "Casing",
+   "外壳"
   ],
   [
    [

@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Steam Generator",
-   "蒸汽发电机"
+   "The Steam Generator is a creative-only part that acts as a constant source of steam for a Turbine.$(br2)This part automatically supplies steam up to the maximum amount allowed by the part variant to the Vapor Fluid Tank, but only when the Turbine is active.\n\n",
+   "蒸汽发电机是一个仅限创造模式使用的部件，它会为涡轮机持续提供蒸汽。$(br2)该部件会自动向蒸汽流体储罐补充蒸汽，数量上限取决于该部件变种所允许的最大值，但只有在涡轮机处于运行状态时才会生效。\n\n"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Steam Generator is a creative-only part that acts as a constant source of steam for a Turbine.$(br2)This part automatically supplies steam up to the maximum amount allowed by the part variant to the Vapor Fluid Tank, but only when the Turbine is active.\n\n",
-   "蒸汽发电机是一个仅限创造模式使用的部件，它会为涡轮机持续提供蒸汽。$(br2)该部件会自动向蒸汽流体储罐补充蒸汽，数量上限取决于该部件变种所允许的最大值，但只有在涡轮机处于运行状态时才会生效。\n\n"
+   "Steam Generator",
+   "蒸汽发电机"
   ],
   [
    [

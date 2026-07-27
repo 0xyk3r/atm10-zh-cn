@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Vanilla Heat Sources",
-   "原版热源"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "The following vanilla blocks & fluids act as static heat sources: $(li)Air$(li)Ice/Packed Ice/Blue Ice$(li)Snow$(li)Torch$(li)Fire (will go out)$(li)Magma (cools to Netherrack)$(li)Water (may freeze or evaporate)$(li)Lava (cools to Obsidian)$(li)Campfire (will go out)",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Modded Heat Sources",
-   "模组热源"
+   "Vanilla Heat Sources",
+   "原版热源"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Adding Custom Sources",
-   "添加自定义来源"
+   "Modded Heat Sources",
+   "模组热源"
   ],
   [
    [
@@ -71,6 +62,15 @@
    ],
    "(For modpack makers) All block heat properties are defined in datapacks. You can add your own definitions or override/remove default definitions by adding JSON files to $(thing)data/<mod-id>/pneumaticcraft/block_heat_properties/$.",
    "（供整合包制作者参考）所有方块热属性都在数据包中定义。你可以通过将 JSON 文件添加到 $(thing)data/<mod-id>/pneumaticcraft/block_heat_properties/$，来添加你自己的定义，或覆盖/移除默认定义。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Adding Custom Sources",
+   "添加自定义来源"
   ],
   [
    [
@@ -121,19 +121,19 @@
    [
     "pages",
     9,
-    "title"
+    "text"
    ],
-   "Furnace (cont)",
-   "熔炉 (续)"
+   "This furnace \"fueling\" will start to work at 100°C, and will go faster with higher temperatures. Placing multiple heat sources around the Furnace will increase the heating effect.$(p)This heating effect also works for the vanilla $(item)Blast Furnace/$ and $(item)Smoker/$.",
+   "这种熔炉“供热”会在达到 100°C 时开始运作，并且温度越高，运作速度就越快。在熔炉周围放置多个热源会增强加热效果。$(p)这种加热效果同样适用于原版的 $(item)高炉/$ 和 $(item)发烟器/$。"
   ],
   [
    [
     "pages",
     9,
-    "text"
+    "title"
    ],
-   "This furnace \"fueling\" will start to work at 100°C, and will go faster with higher temperatures. Placing multiple heat sources around the Furnace will increase the heating effect.$(p)This heating effect also works for the vanilla $(item)Blast Furnace/$ and $(item)Smoker/$.",
-   "这种熔炉“供热”会在达到 100°C 时开始运作，并且温度越高，运作速度就越快。在熔炉周围放置多个热源会增强加热效果。$(p)这种加热效果同样适用于原版的 $(item)高炉/$ 和 $(item)发烟器/$。"
+   "Furnace (cont)",
+   "熔炉 (续)"
   ]
  ]
 }

@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Laser Node",
-   "激光节点"
+   "Node interacting with Chest",
+   "与箱子交互的节点"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "Node interacting with Chest",
-   "与箱子交互的节点"
+   "Laser Node",
+   "激光节点"
   ],
   [
    [
@@ -49,19 +49,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "Laser Node UI",
-   "激光节点界面"
+   "Node UI with Card",
+   "装有物流卡的节点界面"
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "Node UI with Card",
-   "装有物流卡的节点界面"
+   "Laser Node UI",
+   "激光节点界面"
   ],
   [
    [
@@ -76,19 +76,19 @@
    [
     "pages",
     5,
-    "title"
+    "text"
    ],
-   "Laser Node Working",
-   "正在运作的激光节点"
+   "Node between 2 chests",
+   "在两个箱子之间的节点"
   ],
   [
    [
     "pages",
     5,
-    "text"
+    "title"
    ],
-   "Node between 2 chests",
-   "在两个箱子之间的节点"
+   "Laser Node Working",
+   "正在运作的激光节点"
   ],
   [
    [
@@ -103,19 +103,19 @@
    [
     "pages",
     7,
-    "title"
+    "text"
    ],
-   "Laser Nodes Connected",
-   "相连的激光节点"
+   "Two Nodes Connected",
+   "相连的两个激光节点"
   ],
   [
    [
     "pages",
     7,
-    "text"
+    "title"
    ],
-   "Two Nodes Connected",
-   "相连的两个激光节点"
+   "Laser Nodes Connected",
+   "相连的激光节点"
   ],
   [
    [

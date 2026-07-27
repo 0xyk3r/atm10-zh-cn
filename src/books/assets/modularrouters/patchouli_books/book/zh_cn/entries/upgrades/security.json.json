@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Protection",
-   "保护"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "A Router with a Security Upgrade installed can $(italic)only/$ be opened by players whitelisted by that upgrade. The upgrade doesn't prevent a router being broken; but since upgrades and modules remain in a broken router, players can't break a router to steal modules/upgrades or reconfigure the router. If you want to prevent a router being broken, you may wish to explore other mods' block protection capabilities.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Fake Players",
-   "假玩家"
+   "Protection",
+   "保护"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Activator Attack Mode",
-   "激活：攻击模式"
+   "Fake Players",
+   "假玩家"
   ],
   [
    [
@@ -71,6 +62,15 @@
    ],
    "When the $(l:modules/activator)Activator Module/$ is in $(thing)Attack Mode/$, it will ignore any players whitelisted by a Security Upgrade installed in the Router. This is generally a good idea to avoid pain & suffering if you have a high-damage weapon in your Router...",
    "当$(l:modules/activator)执行模块/$处于$(thing)攻击模式/$时，将无视路由器中安装的安全升级所设定的白名单玩家。若你的路由器中配备了高伤害武器，此举通常十分明智，可避免不必要的痛苦与损失……"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Activator Attack Mode",
+   "激活：攻击模式"
   ],
   [
    [

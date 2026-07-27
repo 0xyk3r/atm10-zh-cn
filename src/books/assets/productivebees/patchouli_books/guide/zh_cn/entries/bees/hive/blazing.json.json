@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Blazing Bee",
-   "烈焰蜜蜂"
+   "Bred from a $(l:bees/wild/magmatic)Magmatic Bee$(/l) and a $(l:bees/solitary/nomad)Nomad Bee$(/l).",
+   "由一只$(l:bees/wild/magmatic)熔岩蜜蜂$(/l)和一只$(l:bees/solitary/nomad)游牧蜜蜂$(/l)繁殖而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Bred from a $(l:bees/wild/magmatic)Magmatic Bee$(/l) and a $(l:bees/solitary/nomad)Nomad Bee$(/l).",
-   "由一只$(l:bees/wild/magmatic)熔岩蜜蜂$(/l)和一只$(l:bees/solitary/nomad)游牧蜜蜂$(/l)繁殖而来。"
+   "Blazing Bee",
+   "烈焰蜜蜂"
   ]
  ]
 }

@@ -86,7 +86,7 @@ python3 scripts/extract_upstream_patch.py \
 ```bash
 ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh    # 先把书生成到 build/common
 $EDITOR build/common/resourcepacks/ATM10汉化包/assets/<模组>/patchouli_books/…/x.json
-python3 scripts/extract_books.py <整合包目录>/mods       # 反解回 src/books/
+python3 scripts/extract_books.py <整合包目录>/mods       # 从**构建树**反解回 src/books/
 ```
 
 `gen_books.py` 会告诉你哪些位置套不上（上游改了那一段），以及哪些散文页的英文原稿变了。

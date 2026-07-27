@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Drill & Laser",
-   "钻孔机与镭射器"
+   "The $(item)Assembly Program: Drill & Laser/$ is a little special. It doesn't handle both drill and laser recipes; instead, it provides a single-program method for two-step recipes which involve drilling $(italic)and/$ lasering steps, e.g. $(l:tubes/pressure_tubes#advanced)Advanced Pressure Tubes/$.",
+   "$(item)装配程序：钻孔与镭射/$有点特殊。它并不能同时处理钻孔和镭射配方；相反，它为包含钻孔$(italic)和/$镭射两个步骤的两步配方提供了单程序处理方式，例如 $(l:tubes/pressure_tubes#advanced)高级压力管道/$。"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "The $(item)Assembly Program: Drill & Laser/$ is a little special. It doesn't handle both drill and laser recipes; instead, it provides a single-program method for two-step recipes which involve drilling $(italic)and/$ lasering steps, e.g. $(l:tubes/pressure_tubes#advanced)Advanced Pressure Tubes/$.",
-   "$(item)装配程序：钻孔与镭射/$有点特殊。它并不能同时处理钻孔和镭射配方；相反，它为包含钻孔$(italic)和/$镭射两个步骤的两步配方提供了单程序处理方式，例如 $(l:tubes/pressure_tubes#advanced)高级压力管道/$。"
+   "Drill & Laser",
+   "钻孔机与镭射器"
   ]
  ]
 }

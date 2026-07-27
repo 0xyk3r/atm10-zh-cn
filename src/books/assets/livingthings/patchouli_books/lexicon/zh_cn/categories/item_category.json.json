@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Items",
-   "物品"
-  ],
-  [
-   [
     "description"
    ],
    "All the items",
    "所有物品"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Items",
+   "物品"
   ]
  ]
 }

@@ -40,15 +40,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "1. Filter Slots",
-   "过滤槽"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "There are nine filter slots, where you can insert ghost copies of any item or block. The module will only operate if the item in the router's $(thing)buffer/$ matches an item in the module's filter (if whitelisting; the opposite if blacklisting).",
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "2. Direction Selector",
-   "2. 方向选择器"
+   "1. Filter Slots",
+   "过滤槽"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "3. Filter Control",
-   "3. 过滤器控制"
+   "2. Direction Selector",
+   "2. 方向选择器"
   ],
   [
    [
@@ -93,11 +84,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "4. Augments",
-   "4. 升级"
+   "3. Filter Control",
+   "3. 过滤器控制"
   ],
   [
    [
@@ -111,11 +102,11 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
-   "5. Extra Settings",
-   "额外设置"
+   "4. Augments",
+   "4. 升级"
   ],
   [
    [
@@ -125,6 +116,15 @@
    ],
    "Some modules have some extra configuration options. For example, the $(l:modules/detector)Detector Module/$ shown earlier has options to set the redstone output level, and whether the output signal should be a weak or strong redstone signal.$(p)Where modules have such options, they're shown on the right-hand side of the GUI.",
    "某些模块具有额外的配置选项。例如，前面展示的$(l:modules/detector)检测模块/$可以设置红石输出等级，以及输出信号是弱红石信号还是强红石信号。$(p)如果模块具有此类选项，它们会显示在 GUI 的右侧。"
+  ],
+  [
+   [
+    "pages",
+    7,
+    "title"
+   ],
+   "5. Extra Settings",
+   "额外设置"
   ]
  ]
 }

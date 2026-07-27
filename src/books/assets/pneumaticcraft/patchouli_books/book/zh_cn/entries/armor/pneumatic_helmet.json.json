@@ -49,19 +49,19 @@
    [
     "pages",
     4,
-    "title"
+    "text"
    ],
-   "Block Tracker (cont.)",
-   "方块追踪器（续）"
+   "As some of these blocks are rather common (inventories in a player's house, Silverfish Blocks in a Fortress), the HUD will automatically stop displaying the label if a certain number of blocks of a certain type is reached. You can still get information about a tracked block though, by hovering over it with your crosshair. You can also specify which blocks you want to track by unchecking them in the configuration GUI.",
+   "由于其中一些方块相当常见（例如玩家家中的容器、要塞中的蠹虫方块），当某种类型的方块数量达到一定程度时，HUD 会自动停止显示其标签。不过，你仍然可以通过用准星对准已追踪的方块来获取其信息。你也可以在配置GUI中取消勾选某些方块，以指定你想要追踪的方块。"
   ],
   [
    [
     "pages",
     4,
-    "text"
+    "title"
    ],
-   "As some of these blocks are rather common (inventories in a player's house, Silverfish Blocks in a Fortress), the HUD will automatically stop displaying the label if a certain number of blocks of a certain type is reached. You can still get information about a tracked block though, by hovering over it with your crosshair. You can also specify which blocks you want to track by unchecking them in the configuration GUI.",
-   "由于其中一些方块相当常见（例如玩家家中的容器、要塞中的蠹虫方块），当某种类型的方块数量达到一定程度时，HUD 会自动停止显示其标签。不过，你仍然可以通过用准星对准已追踪的方块来获取其信息。你也可以在配置GUI中取消勾选某些方块，以指定你想要追踪的方块。"
+   "Block Tracker (cont.)",
+   "方块追踪器（续）"
   ],
   [
    [
@@ -85,19 +85,19 @@
    [
     "pages",
     7,
-    "title"
+    "text"
    ],
-   "Item Searcher (cont.)",
-   "物品搜寻器（续）"
+   "Now, any of the selected item lying on the ground or in any inventory in a range of 16 blocks will get a $(thing)green glow/$. The size of the glow is dependent on the ratio of the item at the location to the total found items.$(p)Note you also require $(l:base_concepts/upgrades#entity_tracker)Entity Tracker/$ (for items on ground) and/or $(l:base_concepts/upgrades#block_tracker)Block Tracker/$ (for items in inventories) upgrades in your helmet.",
+   "现在，位于 16 格范围内、掉落在地上或存在于任意容器中的任何选定物品，都会获得 $(thing)绿色光晕/$。光晕的大小取决于该位置的物品数量与找到的物品总数之间的比例。$(p)请注意，你还需要在头盔中安装 $(l:base_concepts/upgrades#entity_tracker)实体追踪器/$（用于地上的物品）和/或 $(l:base_concepts/upgrades#block_tracker)方块追踪器/$（用于容器中的物品）。"
   ],
   [
    [
     "pages",
     7,
-    "text"
+    "title"
    ],
-   "Now, any of the selected item lying on the ground or in any inventory in a range of 16 blocks will get a $(thing)green glow/$. The size of the glow is dependent on the ratio of the item at the location to the total found items.$(p)Note you also require $(l:base_concepts/upgrades#entity_tracker)Entity Tracker/$ (for items on ground) and/or $(l:base_concepts/upgrades#block_tracker)Block Tracker/$ (for items in inventories) upgrades in your helmet.",
-   "现在，位于 16 格范围内、掉落在地上或存在于任意容器中的任何选定物品，都会获得 $(thing)绿色光晕/$。光晕的大小取决于该位置的物品数量与找到的物品总数之间的比例。$(p)请注意，你还需要在头盔中安装 $(l:base_concepts/upgrades#entity_tracker)实体追踪器/$（用于地上的物品）和/或 $(l:base_concepts/upgrades#block_tracker)方块追踪器/$（用于容器中的物品）。"
+   "Item Searcher (cont.)",
+   "物品搜寻器（续）"
   ],
   [
    [

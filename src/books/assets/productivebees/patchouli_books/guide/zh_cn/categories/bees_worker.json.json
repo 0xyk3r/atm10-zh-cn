@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Professional Bees",
-   "专业蜜蜂"
-  ],
-  [
-   [
     "description"
    ],
    "Besides the bees producing resources there are a few bees with special tasks.",
    "除了会产出资源的蜜蜂外，还有少数蜜蜂承担着特殊任务。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Professional Bees",
+   "专业蜜蜂"
   ]
  ]
 }

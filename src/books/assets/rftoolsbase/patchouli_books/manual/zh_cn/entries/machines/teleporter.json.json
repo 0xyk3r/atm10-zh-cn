@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Targets",
-   "声望目标"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "Right-click a porter on a Matter Receiver to store that destination. The basic porter stores one target; the advanced porter can store multiple targets and cycle between them.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Use",
-   "使用"
+   "Targets",
+   "声望目标"
   ],
   [
    [
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Teleport Probe",
-   "传送探针"
+   "Use",
+   "使用"
   ],
   [
    [
@@ -80,6 +71,15 @@
    ],
    "The Teleport Probe helps inspect receiver information and porter targets, which is useful when debugging a larger teleporter network.",
    "传送探测器有助于检查接收器信息与传送者目标，对调试大型传送网络极为有用。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Teleport Probe",
+   "传送探针"
   ]
  ]
 }

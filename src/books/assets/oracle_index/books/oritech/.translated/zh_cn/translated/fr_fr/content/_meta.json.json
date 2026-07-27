@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "resources"
+    "arcane"
    ],
-   "🪨 Ressources",
-   "🪨 资源"
+   "🪄 Arcane",
+   "🪄 奥术"
   ],
   [
    [
-    "tools"
+    "interaction"
    ],
-   "🔨 Outils",
-   "🔨 工具"
+   "🫳 interaction avec le monde",
+   "🫳 与世界交互"
   ],
   [
    [
@@ -32,17 +32,17 @@
   ],
   [
    [
-    "interaction"
+    "resources"
    ],
-   "🫳 interaction avec le monde",
-   "🫳 与世界交互"
+   "🪨 Ressources",
+   "🪨 资源"
   ],
   [
    [
-    "arcane"
+    "tools"
    ],
-   "🪄 Arcane",
-   "🪄 奥术"
+   "🔨 Outils",
+   "🔨 工具"
   ]
  ]
 }

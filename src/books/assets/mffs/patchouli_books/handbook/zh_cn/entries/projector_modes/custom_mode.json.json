@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Usage",
-   "使用"
+   "Hold the $(2)Custom Mode$() item and use it on two blocks in the world. These two (primary and secondary) blocks will define a 3D space that the $(2)Custom Mode$() can analyse. As each block is clicked on, their coordinates in the world will be stored as 'Primary pos' and 'Secondary pos'. Use while sneaking to instruct the $(2)Custom Mode$() item to analyze and save all the blocks that exist between the selected points.",
+   "手持$(2)自定义模式$()物品，在世界中对两个方块使用该物品。这两个方块（主坐标点与次坐标点）将共同定义一个三维空间，供$(2)自定义模式$()进行分析。每次点击方块时，其在世界中的坐标将分别被记录为“主坐标”与“次坐标”。按住潜行键（Shift）再使用该物品，可指示$(2)自定义模式$()物品分析并保存所选两点之间存在的全部方块。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "Hold the $(2)Custom Mode$() item and use it on two blocks in the world. These two (primary and secondary) blocks will define a 3D space that the $(2)Custom Mode$() can analyse. As each block is clicked on, their coordinates in the world will be stored as 'Primary pos' and 'Secondary pos'. Use while sneaking to instruct the $(2)Custom Mode$() item to analyze and save all the blocks that exist between the selected points.",
-   "手持$(2)自定义模式$()物品，在世界中对两个方块使用该物品。这两个方块（主坐标点与次坐标点）将共同定义一个三维空间，供$(2)自定义模式$()进行分析。每次点击方块时，其在世界中的坐标将分别被记录为“主坐标”与“次坐标”。按住潜行键（Shift）再使用该物品，可指示$(2)自定义模式$()物品分析并保存所选两点之间存在的全部方块。"
+   "Usage",
+   "使用"
   ],
   [
    [
@@ -58,15 +58,6 @@
    [
     "pages",
     4,
-    "title"
-   ],
-   "Field Adjustment",
-   "场调整"
-  ],
-  [
-   [
-    "pages",
-    4,
     "text"
    ],
    "As with the other projector modes, $(2)Custom Mode$() force fields can be rotated and scaled using the $(l:mffs:projector_modules/rotation_module)$(5)Rotation$() and $(l:mffs:upgrade_modules/scale_module)$(5)Scale Modules$() respectively.",
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Projection",
-   "投射"
+   "Field Adjustment",
+   "场调整"
   ],
   [
    [
@@ -93,7 +84,7 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
    "Projection",
@@ -107,6 +98,15 @@
    ],
    "A $(2)Custom Mode$() field being projected with a $(l:mffs:projector_modules/camouflage_module)$(5)Camouflage Module$() applied.",
    "一个正在投射的$(2)自定义模式$()力场，已安装$(l:mffs:projector_modules/camouflage_module)$(5)伪装模块$()。"
+  ],
+  [
+   [
+    "pages",
+    6,
+    "title"
+   ],
+   "Projection",
+   "投射"
   ]
  ]
 }

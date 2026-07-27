@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Garlands",
-   "花环"
-  ],
-  [
-   [
     "description"
    ],
    "Garlands add greenery and a lovely aesthetic to your build.",
    "花环为你的建筑增添绿意，营造出迷人的视觉效果。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Garlands",
+   "花环"
   ]
  ]
 }

@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Usage",
-   "使用"
+   "To configure the $(9)Biometric Identifier$() to recognise a player, open its GUI screen and place an $(l:mffs:tools/id_card)Identification Card$() into the top-left item slot labeled $(2)Rights$(). If the Identification Card is blank and hasn't already been assigned, you can either shift-right-click while holding it in your hand to assign it to yourself, or shift-right-click another player to assign it to them.",
+   "要配置$(9)生物识别器$()以识别某位玩家，请打开其GUI界面，并将一张$(l:mffs:tools/id_card)身份卡$()放入左上角标注为$(2)权限$()的物品栏中。若该身份卡为空白且尚未分配，你可手持该卡并按住Shift键右击以将其分配给自己，或对另一位玩家按住Shift键右击以将其分配给对方。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "To configure the $(9)Biometric Identifier$() to recognise a player, open its GUI screen and place an $(l:mffs:tools/id_card)Identification Card$() into the top-left item slot labeled $(2)Rights$(). If the Identification Card is blank and hasn't already been assigned, you can either shift-right-click while holding it in your hand to assign it to yourself, or shift-right-click another player to assign it to them.",
-   "要配置$(9)生物识别器$()以识别某位玩家，请打开其GUI界面，并将一张$(l:mffs:tools/id_card)身份卡$()放入左上角标注为$(2)权限$()的物品栏中。若该身份卡为空白且尚未分配，你可手持该卡并按住Shift键右击以将其分配给自己，或对另一位玩家按住Shift键右击以将其分配给对方。"
+   "Usage",
+   "使用"
   ],
   [
    [
@@ -85,15 +85,6 @@
    [
     "pages",
     7,
-    "title"
-   ],
-   "Display",
-   "显示屏"
-  ],
-  [
-   [
-    "pages",
-    7,
     "text"
    ],
    "An active $(9)Biometric Identifier$().",
@@ -102,11 +93,11 @@
   [
    [
     "pages",
-    8,
+    7,
     "title"
    ],
-   "Notes",
-   "笔记"
+   "Display",
+   "显示屏"
   ],
   [
    [
@@ -116,6 +107,15 @@
    ],
    "$(li)While warping through a force field, a player must keep sneaking until they have fully exited the field barrier, otherwise they'll be killed.$(li)$(l:mffs:tools/id_card)Identification Card$()s can't be removed from the Identifier while it's active.$(li)Passing through a force field can cause temporary Nausea IV.$(li)A player in creative mode can always warp through a force field.$()",
    "$(li)玩家在力场中传送时，必须持续潜行直至完全离开力场屏障，否则将被击杀。$(li)$(l:mffs:tools/id_card)身份卡$()在生物识别器激活状态下无法被取出。$(li)穿过力场可能导致短暂的恶心IV效果。$(li)创造模式下的玩家始终可自由传送穿过力场。$()"
+  ],
+  [
+   [
+    "pages",
+    8,
+    "title"
+   ],
+   "Notes",
+   "笔记"
   ]
  ]
 }

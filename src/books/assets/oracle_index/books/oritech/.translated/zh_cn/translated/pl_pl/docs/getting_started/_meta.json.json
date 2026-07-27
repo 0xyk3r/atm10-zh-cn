@@ -4,17 +4,10 @@
  "t": [
   [
    [
-    "gather_resources.mdx"
+    "alloys.mdx"
    ],
-   "Zbieranie zasobów",
-   "资源采集"
-  ],
-  [
-   [
-    "first_generator.mdx"
-   ],
-   "Podstawowe Generowanie Energii",
-   "基础能量生成"
+   "Wytwarzanie Stali (i innych Stopów)",
+   "钢铁（及其他合金）制造"
   ],
   [
    [
@@ -25,10 +18,10 @@
   ],
   [
    [
-    "alloys.mdx"
+    "first_generator.mdx"
    ],
-   "Wytwarzanie Stali (i innych Stopów)",
-   "钢铁（及其他合金）制造"
+   "Podstawowe Generowanie Energii",
+   "基础能量生成"
   ],
   [
    [
@@ -39,10 +32,10 @@
   ],
   [
    [
-    "lasers.mdx"
+    "gather_resources.mdx"
    ],
-   "Lasery! I Fluxit",
-   "镭射器！与通量水晶"
+   "Zbieranie zasobów",
+   "资源采集"
   ],
   [
    [
@@ -50,6 +43,13 @@
    ],
    "Baw się dobrze",
    "玩得开心"
+  ],
+  [
+   [
+    "lasers.mdx"
+   ],
+   "Lasery! I Fluxit",
+   "镭射器！与通量水晶"
   ]
  ]
 }

@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "It's a guide",
-   "这是一本指南"
-  ],
-  [
-   [
     "description"
    ],
    "One two tree!",
    "一棵两棵树！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "It's a guide",
+   "这是一本指南"
   ]
  ]
 }

@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Augments",
-   "升级"
-  ],
-  [
-   [
     "description"
    ],
    "Module Augments can be installed in Modules to enhance or extend their functionality",
    "模块拓展可安装至模块中，以增强或扩展其功能。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Augments",
+   "升级"
   ]
  ]
 }

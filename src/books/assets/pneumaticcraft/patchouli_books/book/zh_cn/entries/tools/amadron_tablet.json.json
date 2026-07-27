@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Player-Player Trading",
-   "玩家间交易"
+   "By clicking the $(bold)Custom Player Trade/$ button (on the $(bold)Custom Trades/$ side tab) you can offer your own resources to be traded for other players' resources. In the trading GUI you can select an resource to sell on the left-hand side, and a resource you want to buy on the right-hand side. You can set the trade amounts with the text fields.",
+   "点击 $(bold)自定义交易/$侧边标签上的 $(bold)添加自定义玩家交易/$ 按钮后，你就可以拿出自己的资源，与其他玩家的资源进行交易。在自定义商店界面中，你可以在左侧选择要出售的资源，在右侧选择想要购买的资源。你可以通过文本框设置交易数量。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "By clicking the $(bold)Custom Player Trade/$ button (on the $(bold)Custom Trades/$ side tab) you can offer your own resources to be traded for other players' resources. In the trading GUI you can select an resource to sell on the left-hand side, and a resource you want to buy on the right-hand side. You can set the trade amounts with the text fields.",
-   "点击 $(bold)自定义交易/$侧边标签上的 $(bold)添加自定义玩家交易/$ 按钮后，你就可以拿出自己的资源，与其他玩家的资源进行交易。在自定义商店界面中，你可以在左侧选择要出售的资源，在右侧选择想要购买的资源。你可以通过文本框设置交易数量。"
+   "Player-Player Trading",
+   "玩家间交易"
   ],
   [
    [

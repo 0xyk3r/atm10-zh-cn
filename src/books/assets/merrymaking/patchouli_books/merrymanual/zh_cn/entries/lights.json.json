@@ -40,15 +40,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Horizontal Lights",
-   "水平串灯"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "Horizontal lights will connect in and around corners. They are placed similarly to vines.",
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Diagonal Lights",
-   "对角串灯"
+   "Horizontal Lights",
+   "水平串灯"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Vertical Lights",
-   "竖直串灯"
+   "Diagonal Lights",
+   "对角串灯"
   ],
   [
    [
@@ -93,11 +84,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "Vertical Corner Lights",
-   "竖直角灯火"
+   "Vertical Lights",
+   "竖直串灯"
   ],
   [
    [
@@ -111,11 +102,11 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
-   "Cap Lights",
-   "伞盖灯"
+   "Vertical Corner Lights",
+   "竖直角灯火"
   ],
   [
    [
@@ -125,6 +116,15 @@
    ],
    "Cap lights can be used to fill in a gap that is left when a roof peak has an odd number of blocks. $(br2) Read on for the recipes...",
    "封顶型灯具可用于填补屋顶峰顶因方块数量为奇数而留下的空缺。$(br2)更多配方请继续阅读……"
+  ],
+  [
+   [
+    "pages",
+    7,
+    "title"
+   ],
+   "Cap Lights",
+   "伞盖灯"
   ],
   [
    [

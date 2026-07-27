@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Using Tools",
-   "使用工具"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "You can make the $(item)Drone/$ $(l:programming/inventory_import)import/$ a pickaxe/shovel/etc. to make it use that tool. When the $(item)Drone/$ carries around multiple tools, the most suitable tool is automatically used for the block being dug.$(p)You can prevent the Drone from trying to dig without a tool (which is really slow) by checking the $(thing)Requires digging tool/$ checkbox.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Limiting the Dig Count",
-   "限制挖掘次数"
+   "Using Tools",
+   "使用工具"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Filtering Blocks",
-   "过滤挖掘方块"
+   "Limiting the Dig Count",
+   "限制挖掘次数"
   ],
   [
    [
@@ -71,6 +62,15 @@
    ],
    "Lastly you can specify which blocks may be mined by using an $(l:programming/item_filter)Item Filter/$.$(p)When used with blocks like crops, filter by the item that you would get when you break the crop (so $(item)Seeds/$ for a $(item)Wheat/$ crop). The exception would be blocks that $(italic)never/$ drop an item (even with Silk Touch), for which there is specific $(thing)Match by block/$ option in the filter setup GUI.",
    "最后，你还可以使用 $(l:programming/item_filter)物品过滤器/$ 来指定哪些方块可以被挖掘。$(p)如果是用于作物这类方块，请按你破坏该作物时会获得的物品进行过滤（例如 $(item)小麦/$ 作物就用 $(item)Seeds/$）。例外情况是那些 $(italic)永远不会/$ 掉落物品的方块（即使使用精准采集也是如此），对于这类方块，可以在过滤器设置 GUI 中使用专门的 $(thing)匹配方块/$ 选项。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Filtering Blocks",
+   "过滤挖掘方块"
   ],
   [
    [

@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Janitor Spirits",
-   "清洁工魔灵"
+   "Janitor Spirits inside jars have a special property. They automatically try to pickup items nearby and push to inventory next to it. This makes automation super easy!",
+   "罐中的清洁工魔灵有一独特的性质。它们会尝试捡起周围的物品，并放入与收容罐相邻的容器。自动化也因此变得非常简单了！"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "Janitor Spirits inside jars have a special property. They automatically try to pickup items nearby and push to inventory next to it. This makes automation super easy!",
-   "罐中的清洁工魔灵有一独特的性质。它们会尝试捡起周围的物品，并放入与收容罐相邻的容器。自动化也因此变得非常简单了！"
+   "Janitor Spirits",
+   "清洁工魔灵"
   ]
  ]
 }

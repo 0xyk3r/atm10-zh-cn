@@ -7,6 +7,23 @@
 > 该版真实 jar 的精确文件名、VaultPatcher 每条 key 在该版的存在状态、任务书英文底本，
 > 逐版核验，不共用近似值。
 
+### 清掉底本带来的死重：238 个模组根本不在整合包里
+
+原始底本覆盖的模组集比 ATM10 大。资源包里有 **518 个文件**属于 238 个命名空间，
+而这些命名空间在 7.0 / 7.1 / 7.2 三版的全部 jar 里都不存在——游戏里永远加载不到。
+其中 236 个 lang（`abnormals_delight`、`abundantdelight`、`accessorify`…）、
+122 个 Modopedia 条目（`enchanted`）、83 个 justdynathings 指南页、
+34 个 woot_revived 指南页等。
+
+判定方式是机械的：扫三版全部 jar 的 `assets/<ns>/` 与 `data/<ns>/`，再核一遍
+每个 jar 声明的 modId。**有 modId 但不出资源的 10 个库/API 模组保留**
+（`flywheel`、`ponder`、`witchery`、`xaeroworldmap` 等）——它们的翻译键仍可能被引用。
+
+连带效果：奖杯名少 1472 条、木头名少 108 条，全部属于同一批不存在的模组
+（`entity.minecraft.villager.armorplus.*` 这种是别的模组加的村民职业）。
+资源包从 3496 个文件降到 2978 个，lang 从 598 个 / 21.2 万键降到 362 个 / 17.7 万键。
+`verify_dist.py` 的下限已按新实测值重新校准——它这次正是**先拦下了这次改动**才让我发现要重定。
+
 ### 修复：服务端说明书在 7.0 / 7.1 的包里也印着「适用于 ATM10 7.2」
 
 `SERVER.md` 里那句「适用于 ATM10 7.2 专用服务器」是写死的，三个版本的服务端包

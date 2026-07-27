@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Tubes!",
-   "导管！"
+   "$(italic)Two Pressure Tubes with a $(l:tubes/pressure_gauge_module)Pressure Gauge/$ $(italic)connecting an $(l:compressors/air_compressor)Air Compressor/$ $(italic)and $(l:machines/air_cannon)Air Cannon/$",
+   "$(italic)两根带有$(l:tubes/pressure_gauge_module)压力表/$的压力管道，$(italic)连接着$(l:compressors/air_compressor)空气压缩机/$ $(italic)和$(l:machines/air_cannon)空气炮/$"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "$(italic)Two Pressure Tubes with a $(l:tubes/pressure_gauge_module)Pressure Gauge/$ $(italic)connecting an $(l:compressors/air_compressor)Air Compressor/$ $(italic)and $(l:machines/air_cannon)Air Cannon/$",
-   "$(italic)两根带有$(l:tubes/pressure_gauge_module)压力表/$的压力管道，$(italic)连接着$(l:compressors/air_compressor)空气压缩机/$ $(italic)和$(l:machines/air_cannon)空气炮/$"
+   "Tubes!",
+   "导管！"
   ],
   [
    [

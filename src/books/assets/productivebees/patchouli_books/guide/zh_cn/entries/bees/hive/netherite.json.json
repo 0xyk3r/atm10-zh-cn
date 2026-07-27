@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Ancient Bee",
-   "远古蜜蜂"
+   "Converted from a $(l:bees/hive/diamond)Diamond Bee$(/l) be feeding it a block of netherite.",
+   "给一只$(l:bees/hive/diamond)钻石蜜蜂$(/l)喂食一整块下界合金块即可转化而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Converted from a $(l:bees/hive/diamond)Diamond Bee$(/l) be feeding it a block of netherite.",
-   "给一只$(l:bees/hive/diamond)钻石蜜蜂$(/l)喂食一整块下界合金块即可转化而来。"
+   "Ancient Bee",
+   "远古蜜蜂"
   ]
  ]
 }

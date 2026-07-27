@@ -4,17 +4,10 @@
  "t": [
   [
    [
-    "gather_resources.mdx"
+    "alloys.mdx"
    ],
-   "Gather Resources",
-   "收集资源"
-  ],
-  [
-   [
-    "first_generator.mdx"
-   ],
-   "Basic Power Generation",
-   "基础发电"
+   "Making Steel And Other Alloys",
+   "炼钢及其他合金冶炼"
   ],
   [
    [
@@ -25,10 +18,10 @@
   ],
   [
    [
-    "alloys.mdx"
+    "first_generator.mdx"
    ],
-   "Making Steel And Other Alloys",
-   "炼钢及其他合金冶炼"
+   "Basic Power Generation",
+   "基础发电"
   ],
   [
    [
@@ -39,10 +32,10 @@
   ],
   [
    [
-    "lasers.mdx"
+    "gather_resources.mdx"
    ],
-   "Lasers And Fluxite",
-   "镭射器与通量水晶"
+   "Gather Resources",
+   "收集资源"
   ],
   [
    [
@@ -50,6 +43,13 @@
    ],
    "Where To Go Next",
    "下一步前往何处"
+  ],
+  [
+   [
+    "lasers.mdx"
+   ],
+   "Lasers And Fluxite",
+   "镭射器与通量水晶"
   ]
  ]
 }

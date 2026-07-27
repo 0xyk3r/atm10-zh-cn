@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Horizontal Garlands",
-   "水平花环"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "Horizontal garlands will connect in and around corners, just like the lights.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Diagonal Garlands",
-   "对角花环"
+   "Horizontal Garlands",
+   "水平花环"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Vertical Garlands",
-   "竖直花环"
+   "Diagonal Garlands",
+   "对角花环"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Vertical Corner Garlands",
-   "竖直角花环"
+   "Vertical Garlands",
+   "竖直花环"
   ],
   [
    [
@@ -89,6 +80,15 @@
    ],
    "Vertical Corner Garland will create two sections of garland at a 90 degree angle, lining up with the left side or right side of a block.",
    "竖直转角花环将在90度夹角处形成两段花环，分别与方块的左侧或右侧对齐。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Vertical Corner Garlands",
+   "竖直角花环"
   ],
   [
    [

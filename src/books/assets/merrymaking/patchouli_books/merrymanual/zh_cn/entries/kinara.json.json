@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Kinara",
-   "金纳拉烛台"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "The Kinara has a directional facing and can be placed upon an Mkeka if desired.$(br2)It is fully functional and is designed to emulate the lighting of the Kwanzaa candles in order.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Lighting the Kinara",
-   "点亮金纳拉烛台"
+   "Kinara",
+   "金纳拉烛台"
   ],
   [
    [
@@ -57,7 +48,7 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
    "Lighting the Kinara",
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Troubleshooting",
-   "排障"
+   "Lighting the Kinara",
+   "点亮金纳拉烛台"
   ],
   [
    [
@@ -89,6 +80,15 @@
    ],
    "If you use the wrong color candle, it will give the most recently placed candle back to you and you can try again.$(br2)If your Kinara does not light up, remove all of the candles (just click with an empty hand) and place them/light them again in the proper order.",
    "若误用错误颜色的蜡烛，系统将返还你最新放置的那支蜡烛，供你重试。$(br2)若金纳拉未能点亮，请先全部移除蜡烛（空手点击即可），再按正确顺序重新放置并点燃。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Troubleshooting",
+   "排障"
   ],
   [
    [

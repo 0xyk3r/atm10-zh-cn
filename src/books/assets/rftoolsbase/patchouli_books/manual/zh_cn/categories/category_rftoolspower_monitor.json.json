@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Power Monitoring",
-   "能量监控"
-  ],
-  [
-   [
     "description"
    ],
    "Solutions for monitoring power",
    "监控能量的解决方案"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Power Monitoring",
+   "能量监控"
   ]
  ]
 }

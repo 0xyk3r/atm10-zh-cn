@@ -40,15 +40,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Multiblock Elevators",
-   "多方块电梯"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "You can create bigger $(thing)Elevators/$ by placing more $(item)Elevator Bases/$ next to each other horizontally. When the top $(item)Elevator Base/$ of every connected $(thing)Elevator/$ is at the same height, the $(thing)Elevators/$ will share the floors (defined by $(l:machines/elevators#caller)Elevator Callers/$), redstone input, and therefore act as a single multiblock.",
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Saving Air",
-   "回收空气"
+   "Multiblock Elevators",
+   "多方块电梯"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Elevator Caller",
-   "电梯呼叫器"
+   "Saving Air",
+   "回收空气"
   ],
   [
    [
@@ -93,11 +84,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "Elevator Caller (cont.)",
-   "电梯呼叫器 (续)"
+   "Elevator Caller",
+   "电梯呼叫器"
   ],
   [
    [
@@ -107,6 +98,15 @@
    ],
    "In addition, an $(item)Elevator Caller/$ will emit a $(#f00)redstone signal/$ when the $(thing)Elevator/$ is at its floor, and providing a Caller with a $(#f00)redstone pulse/$ will call the $(thing)Elevator/$ to its floor.$(p)Finally, the $(item)Elevator Caller/$ can be camouflaged to look like other blocks with the $(l:tools/camo_applicator)Camouflage Applicator/$ tool.",
    "此外，当$(thing)升降机/$位于其所在楼层时，$(item)电梯呼叫器/$会发出$(#f00)红石信号/$；而向呼叫器提供一个$(#f00)红石脉冲/$，则会将$(thing)升降机/$呼叫到该楼层。$(p)最后，可以使用$(l:tools/camo_applicator)伪装涂覆器/$工具将$(item)电梯呼叫器/$伪装成其他方块的外观。"
+  ],
+  [
+   [
+    "pages",
+    6,
+    "title"
+   ],
+   "Elevator Caller (cont.)",
+   "电梯呼叫器 (续)"
   ],
   [
    [

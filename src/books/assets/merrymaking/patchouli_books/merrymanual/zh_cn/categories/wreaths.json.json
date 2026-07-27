@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Wreaths",
-   "花环"
-  ],
-  [
-   [
     "description"
    ],
    "Nothing says \"Home for the Holidays\" like a pretty wreath.",
    "还有什么比一顶精致的花环，更能诠释‘节日归家’的温馨意境呢？"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Wreaths",
+   "花环"
   ]
  ]
 }

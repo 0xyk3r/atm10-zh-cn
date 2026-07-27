@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Mkeka",
-   "姆凯卡垫"
+   "The Mkeka has a directional facing and can interact with the Kinara, Chalice, and Corn.$(br2)An Mkeka has the capacity to hold a single Kinara, or: $(li)A Chalice by itself $(li)Up to 3 Corn $(li)A combination of a Chalice and up to 3 Corn.",
+   "Mkeka具有方向性，可与基纳拉、圣餐杯和玉米互动。$(br2)一个Mkeka最多可放置一件基纳拉，或：$(li)单独放置一个圣餐杯；$(li)最多放置3个玉米；$(li)同时放置一个圣餐杯及最多3个玉米。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Mkeka has a directional facing and can interact with the Kinara, Chalice, and Corn.$(br2)An Mkeka has the capacity to hold a single Kinara, or: $(li)A Chalice by itself $(li)Up to 3 Corn $(li)A combination of a Chalice and up to 3 Corn.",
-   "Mkeka具有方向性，可与基纳拉、圣餐杯和玉米互动。$(br2)一个Mkeka最多可放置一件基纳拉，或：$(li)单独放置一个圣餐杯；$(li)最多放置3个玉米；$(li)同时放置一个圣餐杯及最多3个玉米。"
+   "Mkeka",
+   "姆凯卡垫"
   ],
   [
    [

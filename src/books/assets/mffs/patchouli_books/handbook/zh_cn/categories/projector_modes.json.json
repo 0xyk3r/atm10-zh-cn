@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Projector Modes",
-   "投影模式"
-  ],
-  [
-   [
     "description"
    ],
    "Various available field shapes for your Force Field Projector.",
    "力场投射器支持的多种力场形状。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Projector Modes",
+   "投影模式"
   ]
  ]
 }

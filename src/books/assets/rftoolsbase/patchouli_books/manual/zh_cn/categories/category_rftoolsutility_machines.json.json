@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Machines",
-   "机器"
-  ],
-  [
-   [
     "description"
    ],
    "All the machines in this mod",
    "这个模组中的所有机器"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Machines",
+   "机器"
   ]
  ]
 }

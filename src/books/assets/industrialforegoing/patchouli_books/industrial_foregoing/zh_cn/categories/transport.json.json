@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Transport",
-   "运输"
-  ],
-  [
-   [
     "description"
    ],
    "Moving stuff around!",
    "移动东西！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Transport",
+   "运输"
   ]
  ]
 }

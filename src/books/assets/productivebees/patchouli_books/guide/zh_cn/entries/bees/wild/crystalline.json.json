@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Crystalline Bee",
-   "石英蜜蜂"
+   "Found living in nether quartz nests in the nether. Crystalline Bees prefer pollinating something containing or made from nether quartz..",
+   "栖息在下界的下界石英蜂巢中。石英蜜蜂更喜欢为含有下界石英或由下界石英制成的东西授粉。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Found living in nether quartz nests in the nether. Crystalline Bees prefer pollinating something containing or made from nether quartz..",
-   "栖息在下界的下界石英蜂巢中。石英蜜蜂更喜欢为含有下界石英或由下界石英制成的东西授粉。"
+   "Crystalline Bee",
+   "石英蜜蜂"
   ]
  ]
 }

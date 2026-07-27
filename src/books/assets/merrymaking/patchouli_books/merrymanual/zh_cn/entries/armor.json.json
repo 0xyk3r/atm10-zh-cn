@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Ugly Sweater Armor",
-   "丑毛衣盔甲"
+   "This delightfully tacky Holiday-themed armor comes in 2 colors but can be mixed and matched. $(br2)Hats and Sweaters (Helmets and Chestplates) have a chance to drop from Mobs that are wearing it. ",
+   "这套风格浮夸、主题鲜明的节日盔甲提供两种配色，且可自由混搭。$(br2)帽子与毛衣（头盔与胸甲）有一定几率由穿戴该盔甲的怪物掉落。"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "This delightfully tacky Holiday-themed armor comes in 2 colors but can be mixed and matched. $(br2)Hats and Sweaters (Helmets and Chestplates) have a chance to drop from Mobs that are wearing it. ",
-   "这套风格浮夸、主题鲜明的节日盔甲提供两种配色，且可自由混搭。$(br2)帽子与毛衣（头盔与胸甲）有一定几率由穿戴该盔甲的怪物掉落。"
+   "Ugly Sweater Armor",
+   "丑毛衣盔甲"
   ],
   [
    [
@@ -49,19 +49,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "Smithing Templates",
-   "锻造模板"
+   "To upgrade your armor to Tier 2 or above, you will need a special Smithing Template. These are found in chests throughout the Overworld and can be replicated with the following recipes:",
+   "若要将盔甲升级至阶段2及以上，你需要一种特殊的锻造模板。这些模板散落在主世界各处的宝箱中，亦可通过以下配方复制："
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "To upgrade your armor to Tier 2 or above, you will need a special Smithing Template. These are found in chests throughout the Overworld and can be replicated with the following recipes:",
-   "若要将盔甲升级至阶段2及以上，你需要一种特殊的锻造模板。这些模板散落在主世界各处的宝箱中，亦可通过以下配方复制："
+   "Smithing Templates",
+   "锻造模板"
   ],
   [
    [
@@ -121,15 +121,6 @@
    [
     "pages",
     10,
-    "title"
-   ],
-   "Tier 2 Upgrade Examples",
-   "2级升级示例"
-  ],
-  [
-   [
-    "pages",
-    10,
     "text"
    ],
    "Smithing recipes for Tier 2 use the Iron Upgrade Smithing Template.",
@@ -138,11 +129,11 @@
   [
    [
     "pages",
-    11,
+    10,
     "title"
    ],
-   "Tier 3 Upgrade Examples",
-   "3级升级示例"
+   "Tier 2 Upgrade Examples",
+   "2级升级示例"
   ],
   [
    [
@@ -152,6 +143,15 @@
    ],
    "Smithing recipes for Tier 3 use the Diamond Upgrade Smithing Template.",
    "阶段3的锻造配方需使用钻石升级锻造模板。"
+  ],
+  [
+   [
+    "pages",
+    11,
+    "title"
+   ],
+   "Tier 3 Upgrade Examples",
+   "3级升级示例"
   ]
  ]
 }

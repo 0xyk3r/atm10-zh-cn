@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Mob Spawning",
-   "怪物生成"
-  ],
-  [
-   [
     "description"
    ],
    "Some machines and gadgets for controlled spawning of mobs.",
    "一些可用于受控生成生物的机器和小装置。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Mob Spawning",
+   "怪物生成"
   ]
  ]
 }

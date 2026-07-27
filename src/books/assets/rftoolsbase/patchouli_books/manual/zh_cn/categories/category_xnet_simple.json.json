@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Simple Network",
-   "简易网络"
-  ],
-  [
-   [
     "description"
    ],
    "A simple network",
    "一个简易网络"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Simple Network",
+   "简易网络"
   ]
  ]
 }

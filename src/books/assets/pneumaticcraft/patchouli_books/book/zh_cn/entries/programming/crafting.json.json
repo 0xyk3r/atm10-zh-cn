@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "JEI Integration",
-   "JEI扩展"
+   "It is possible to quickly and easily set up Item Filters for the Crafting widget using JEI; see $(l:programming/programmer#jei)this page/$ for more information.",
+   "可以使用 JEI 为合成组件快速轻松地设置物品过滤器；更多信息请参见$(l:programming/programmer#jei)此页面/$。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "It is possible to quickly and easily set up Item Filters for the Crafting widget using JEI; see $(l:programming/programmer#jei)this page/$ for more information.",
-   "可以使用 JEI 为合成组件快速轻松地设置物品过滤器；更多信息请参见$(l:programming/programmer#jei)此页面/$。"
+   "JEI Integration",
+   "JEI扩展"
   ],
   [
    [

@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Redstone Port",
-   "红石端口"
+   "The Redstone Port allows you to automate your Reactor using Redstone.$(br2)Open the Port graphical interface to configure it. You can then choose between three input settings (that listen for a Redstone signal) and six output ones (that emit a Redstone signal).",
+   "红石端口允许你使用红石来自动化你的反应堆。$(br2)打开端口的图形界面即可进行配置。之后，你可以在三种输入设置（侦听红石信号）和六种输出设置（发出红石信号）之间进行选择。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Redstone Port allows you to automate your Reactor using Redstone.$(br2)Open the Port graphical interface to configure it. You can then choose between three input settings (that listen for a Redstone signal) and six output ones (that emit a Redstone signal).",
-   "红石端口允许你使用红石来自动化你的反应堆。$(br2)打开端口的图形界面即可进行配置。之后，你可以在三种输入设置（侦听红石信号）和六种输出设置（发出红石信号）之间进行选择。"
+   "Redstone Port",
+   "红石端口"
   ],
   [
    [

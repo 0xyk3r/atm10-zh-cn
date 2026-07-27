@@ -148,15 +148,6 @@
    [
     "pages",
     12,
-    "title"
-   ],
-   "Reinforced Valve",
-   "强化阀门"
-  ],
-  [
-   [
-    "pages",
-    12,
     "text"
    ],
    "The $(item)Reinforced Pressure Chamber Valve/$ is an advanced block which can be used to upgrade the maximum air pressure in the Pressure Chamber from the default 5 bar to 20 bar, allowing the Pressure Chamber to store 4 times the air, and possibly unlocking $(ttcolor)$(t:By default all Pressure Chamber recipes require a max of 5 bar, but modpacks may change this)new recipes/$.",
@@ -165,11 +156,11 @@
   [
    [
     "pages",
-    13,
+    12,
     "title"
    ],
-   "Unassembled Reinf. Valve",
-   "未组装的强化阀门"
+   "Reinforced Valve",
+   "强化阀门"
   ],
   [
    [
@@ -179,6 +170,15 @@
    ],
    "Note that you don't need to upgrade any $(item)interfaces/$, $(item)walls/$, or $(item)glass/$.",
    "注意，你不需要升级任何$(item)接口/$、$(item)墙体/$或$(item)玻璃/$。"
+  ],
+  [
+   [
+    "pages",
+    13,
+    "title"
+   ],
+   "Unassembled Reinf. Valve",
+   "未组装的强化阀门"
   ],
   [
    [

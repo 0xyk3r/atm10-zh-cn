@@ -13,15 +13,6 @@
    [
     "pages",
     0,
-    "title"
-   ],
-   "Extraction",
-   "精炼"
-  ],
-  [
-   [
-    "pages",
-    0,
     "text"
    ],
    "Extracts items and fluids from inventories. It can extract items from player inventories too. $(br2)Items and fluids that need to be extracted can be filtered in the gui.",
@@ -30,11 +21,11 @@
   [
    [
     "pages",
-    1,
+    0,
     "title"
    ],
-   "Insertion",
-   "注入"
+   "Extraction",
+   "精炼"
   ],
   [
    [
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Detection",
-   "侦测"
+   "Insertion",
+   "注入"
   ],
   [
    [
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Bouncing",
-   "弹性"
+   "Detection",
+   "侦测"
   ],
   [
    [
@@ -84,11 +75,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Dropping",
-   "投下"
+   "Bouncing",
+   "弹性"
   ],
   [
    [
@@ -102,11 +93,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Blinking",
-   "闪现"
+   "Dropping",
+   "投下"
   ],
   [
    [
@@ -120,11 +111,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "Splitting",
-   "拆分"
+   "Blinking",
+   "闪现"
   ],
   [
    [
@@ -134,6 +125,15 @@
    ],
    "Splits items and entites that are on top of the conveyor with the ratio defined in the GUI. It needs upgrades in all the sides that need be distributed.",
    "按GUI中设定的比例，将位于传送带上方的物品与实体进行拆分。所有需要分配的方向均需安装对应的升级卡。"
+  ],
+  [
+   [
+    "pages",
+    6,
+    "title"
+   ],
+   "Splitting",
+   "拆分"
   ]
  ]
 }

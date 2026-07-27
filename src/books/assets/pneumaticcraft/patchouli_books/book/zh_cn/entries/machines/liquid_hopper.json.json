@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Dispenser Upgrade",
-   "发射器升级"
+   "If a $(l:base_concepts/upgrades#dispenser)Dispenser Upgrade/$ is inserted into the $(item)Liquid Hopper/$, it can absorb any liquid block (1000mB) at the $(9)input/$ side, and dispense 1000mB of any stored liquid at the $(6)output/$ side. This can be used for example as a water pump.$(p)It can also absorb any $(item)Experience Orbs/$ at the input side, converting them to $(l:base_concepts/memory_essence)Memory Essence/$.",
+   "如果将 $(l:base_concepts/upgrades#dispenser)发射器升级/$ 插入 $(item)液体漏斗/$，它会吸取 $(9)输入/$ 侧的任意液体方块（1000mB），并在 $(6)输出/$ 侧放出 1000mB 的任意已储存液体。例如，它可以用作水泵。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "If a $(l:base_concepts/upgrades#dispenser)Dispenser Upgrade/$ is inserted into the $(item)Liquid Hopper/$, it can absorb any liquid block (1000mB) at the $(9)input/$ side, and dispense 1000mB of any stored liquid at the $(6)output/$ side. This can be used for example as a water pump.$(p)It can also absorb any $(item)Experience Orbs/$ at the input side, converting them to $(l:base_concepts/memory_essence)Memory Essence/$.",
-   "如果将 $(l:base_concepts/upgrades#dispenser)发射器升级/$ 插入 $(item)液体漏斗/$，它会吸取 $(9)输入/$ 侧的任意液体方块（1000mB），并在 $(6)输出/$ 侧放出 1000mB 的任意已储存液体。例如，它可以用作水泵。"
+   "Dispenser Upgrade",
+   "发射器升级"
   ],
   [
    [

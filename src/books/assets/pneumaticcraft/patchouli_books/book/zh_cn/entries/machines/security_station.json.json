@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Setup",
-   "安装"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "To set up a $(thing)Security Station/$, you must place $(l:components/network_components)Network Components/$ in the network grid to form a $(thing)network/$. In every network there must be one $(l:components/network_components#diagnostic)Diagnostic Subroutine/$, one $(l:components/network_components#io_port)Network IO Port/$, and one $(l:components/network_components#registry)Network Registry/$.$(p)These three special nodes must all be connected with each other, which is done with $(l:components/network_components#node)Network Nodes/$.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Hacking Disabled",
-   "黑客攻击已禁用"
+   "Setup",
+   "安装"
   ],
   [
    [
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Rules",
-   "规则"
+   "Hacking Disabled",
+   "黑客攻击已禁用"
   ],
   [
    [
@@ -80,6 +71,15 @@
    ],
    "The $(l:machines/security_station#hacking)hacker/$ starts at the $(thing)Network IO Port/$, and has the goal of capturing either the $(thing)Diagnostic Subroutine/$ or the $(thing)Network Registry/$.$(p)The $(thing)Diagnostic Subroutine/$ has the goal of tracing back to the hacker's entry point at the $(thing)Network IO Port/$.",
    "$(l:machines/security_station#hacking)骇客/$从 $(thing)网络交互端口/$ 开始，其目标是夺取 $(thing)诊断子程序/$ 或 $(thing)网络注册表/$。$(p)$(thing)诊断子程序/$ 的目标则是追踪回骇客在 $(thing)网络交互端口/$ 的入口点。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Rules",
+   "规则"
   ],
   [
    [
@@ -94,15 +94,6 @@
    [
     "pages",
     6,
-    "title"
-   ],
-   "Hacker Tools",
-   "黑客工具"
-  ],
-  [
-   [
-    "pages",
-    6,
     "text"
    ],
    "There are a couple of useful items that hackers should try to obtain; neither are craftable and must be found in-world (villager trades or dungeon loot):$(li)The $(l:components/nuke_virus)Nuke Virus/$, which can be used to insta-capture one node$(li)The $(l:components/stop_worm)STOP! Worm/$, which can temporarily freeze a Diagnostic's trace progress.",
@@ -111,11 +102,11 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
-   "Upgrades",
-   "升级"
+   "Hacker Tools",
+   "黑客工具"
   ],
   [
    [
@@ -129,11 +120,11 @@
   [
    [
     "pages",
-    8,
+    7,
     "title"
    ],
-   "Upgrades (cont.)",
-   "升级 (续)"
+   "Upgrades",
+   "升级"
   ],
   [
    [
@@ -147,11 +138,11 @@
   [
    [
     "pages",
-    9,
+    8,
     "title"
    ],
-   "Allowing Friends",
-   "信任他人"
+   "Upgrades (cont.)",
+   "升级 (续)"
   ],
   [
    [
@@ -165,11 +156,11 @@
   [
    [
     "pages",
-    10,
+    9,
     "title"
    ],
-   "Getting Hacked",
-   "被入侵"
+   "Allowing Friends",
+   "信任他人"
   ],
   [
    [
@@ -183,11 +174,11 @@
   [
    [
     "pages",
-    11,
+    10,
     "title"
    ],
-   "Hacking",
-   "入侵"
+   "Getting Hacked",
+   "被入侵"
   ],
   [
    [
@@ -201,11 +192,11 @@
   [
    [
     "pages",
-    13,
+    11,
     "title"
    ],
-   "Tips",
-   "提示"
+   "Hacking",
+   "入侵"
   ],
   [
    [
@@ -215,6 +206,15 @@
    ],
    "$(li)Keep your $(thing)Security Station/$ well-concealed and well-protected.$(li)You can protect an area with multiple $(thing)Security Stations/$; all of them must be hacked.$(li)Consider active defences, such as $(l:tools/drone)Drones/$ with combat programs, or $(l:machines/sentry_turret)Sentry Turrets/$$(li)A hacked $(thing)Security Station/$ can be made to emit a $(#f00)redstone signal/$, which could trigger additional measures (TNT under the station, perhaps?)",
    "$(li)请务必将你的 $(thing)安全站/$ 隐藏好并严加防护。$(li)你可以用多个 $(thing)安全站/$ 来保护一个区域；必须将它们全部破解。$(li)可以考虑主动防御措施，例如装载战斗程序的 $(l:tools/drone)雄蜂/$，或 $(l:machines/sentry_turret)机枪塔/$$(li)被破解的 $(thing)安全站/$ 可以设置为发出 $(#f00)红石信号/$，从而触发额外的防御措施（比如在安全站下方放置 TNT？）"
+  ],
+  [
+   [
+    "pages",
+    13,
+    "title"
+   ],
+   "Tips",
+   "提示"
   ],
   [
    [

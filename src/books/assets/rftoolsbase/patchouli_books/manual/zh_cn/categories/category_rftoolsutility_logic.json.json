@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Logic Blocks",
-   "逻辑方块"
-  ],
-  [
-   [
     "description"
    ],
    "Logic Blocks are all about producing redstone signals and reacting to them",
    "逻辑方块主要用于产生红石信号并对其作出反应"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Logic Blocks",
+   "逻辑方块"
   ]
  ]
 }

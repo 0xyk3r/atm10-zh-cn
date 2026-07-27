@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Bees",
-   "蜜蜂"
-  ],
-  [
-   [
     "description"
    ],
    "All the bees",
    "所有蜜蜂"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Bees",
+   "蜜蜂"
   ]
  ]
 }

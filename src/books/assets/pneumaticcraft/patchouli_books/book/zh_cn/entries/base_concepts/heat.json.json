@@ -40,15 +40,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Insulation",
-   "绝缘材料"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "Machines will lose heat to the air if left exposed; this is particularly noticeable with the $(l:manufacturing/refinery)Refinery/$, which has many exposed faces, but is also true of any heat-conducting block, including $(l:base_concepts/basic_materials#compressed_iron_block)Compressed Iron Blocks/$.$(p)To avoid this heat loss, ensure that no faces are exposed to air blocks; any non-conducting block will do. It doesn't have to be a full block, either - $(item)Trapdoors/$ and $(item)slabs/$ will work fine.",
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Heat Sources",
-   "热源"
+   "Insulation",
+   "绝缘材料"
   ],
   [
    [
@@ -71,6 +62,15 @@
    ],
    "Some machines in $(pncr) produce Heat that needs to be dissipated, and some require Heat to run.$(p)Therefore, you will need to $(l:base_concepts/heat_sources)find ways/$ to manipulate the temperature of these machines...",
    "在 $(pncr) 中，有些机器会产生需要散去的热量，而有些则需要热量才能运行。$(p)因此，你需要$(l:base_concepts/heat_sources)想办法/$来调节这些机器的温度……"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Heat Sources",
+   "热源"
   ]
  ]
 }

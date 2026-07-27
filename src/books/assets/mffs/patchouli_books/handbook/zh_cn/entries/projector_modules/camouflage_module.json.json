@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Usage",
-   "使用"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "This feature of the Projector can help players to hide things from other people or camouflage the entrance to a secret base. Select a block you wish to use as camouflage and place it in another empty slot of the Projector's left-hand item matrix (the same matrix as the $(5)Camouflage Module$()). Activate the Projector in the usual way.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Projection",
-   "投射"
+   "Usage",
+   "使用"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "A Pyramid force field camouflaged as Stripped Oak Wood.",
    "一个伪装成去皮橡木原木的锥体力场。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Projection",
+   "投射"
   ]
  ]
 }

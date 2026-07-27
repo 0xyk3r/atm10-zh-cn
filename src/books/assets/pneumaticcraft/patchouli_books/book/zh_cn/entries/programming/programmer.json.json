@@ -94,15 +94,6 @@
    [
     "pages",
     9,
-    "title"
-   ],
-   "Progwidget IDs",
-   "程序部件ID"
-  ],
-  [
-   [
-    "pages",
-    9,
     "text"
    ],
    "If you toggle on extended tooltip information with $(thing)F3+H/$, you will notice that the tooltip for each programming widget also includes the internal widget ID at the end. This is primarily of benefit if you intend to do any drone programming with the $(l:machines/drone_interface)Drone Interface/$ - the $(thing)setAction()/$ Lua method in the Drone Interface takes these IDs (the $(thing)pneumaticcraft:/$ prefix is optional) as a parameter.",
@@ -111,11 +102,11 @@
   [
    [
     "pages",
-    10,
+    9,
     "title"
    ],
-   "Sharing Programs",
-   "共享程序"
+   "Progwidget IDs",
+   "程序部件ID"
   ],
   [
    [
@@ -129,11 +120,11 @@
   [
    [
     "pages",
-    11,
+    10,
     "title"
    ],
-   "Convert to Relative",
-   "转换为相对坐标"
+   "Sharing Programs",
+   "共享程序"
   ],
   [
    [
@@ -147,11 +138,11 @@
   [
    [
     "pages",
-    12,
+    11,
     "title"
    ],
-   "Convert to Relative (cont.)",
-   "转换为相对（续）"
+   "Convert to Relative",
+   "转换为相对坐标"
   ],
   [
    [
@@ -165,11 +156,11 @@
   [
    [
     "pages",
-    13,
+    12,
     "title"
    ],
-   "JEI Integration",
-   "JEI扩展"
+   "Convert to Relative (cont.)",
+   "转换为相对（续）"
   ],
   [
    [
@@ -183,11 +174,11 @@
   [
    [
     "pages",
-    14,
+    13,
     "title"
    ],
-   "JEI Integration (cont)",
-   "JEI扩展（续）"
+   "JEI Integration",
+   "JEI扩展"
   ],
   [
    [
@@ -197,6 +188,15 @@
    ],
    "By default, only one Item Filter is added for each unique item type (e.g. for a $(item)Stone Slab/$ recipe, only one $(item)Stone/$ filter will be created, not three). Remember that widgets can be copied by middle-clicking and dragging. If you want to add an Item Filter for every item in the recipe, including duplicates, hold Shift when clicking the '+' button in JEI.",
    "默认情况下，每种唯一的物品类型只会添加一个物品过滤器（例如，对于一个 $(item)石台阶/$ 配方，只会创建一个 $(item)石头/$ 过滤器，而不是三个）。请记住，组件可以通过鼠标中键点击并拖动来复制。如果你想为配方中的每个物品都添加一个物品过滤器，包括重复项，请在 JEI 中点击“+”按钮时按住 Shift。"
+  ],
+  [
+   [
+    "pages",
+    14,
+    "title"
+   ],
+   "JEI Integration (cont)",
+   "JEI扩展（续）"
   ]
  ]
 }

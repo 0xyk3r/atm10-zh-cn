@@ -40,15 +40,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Interfacing Items/Fluids",
-   "物品/流体接入"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "Any items or fluids that the $(thing)minidrone/$ collects can be interfaced via the sides of the $(item)Programmable Controller/$ block.$(p)By default, the 'drone' has a single inventory slot, and a 16000mB tank. The inventory size can be increased by adding $(l:base_concepts/upgrades#inventory)Inventory Upgrades/$ (max 35), which also increases the tank size by 1000mB per upgrade.",
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Interfacing (cont.)",
-   "接入（续）"
+   "Interfacing Items/Fluids",
+   "物品/流体接入"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Charging Items",
-   "充能目标"
+   "Interfacing (cont.)",
+   "接入（续）"
   ],
   [
    [
@@ -89,6 +80,15 @@
    ],
    "The Programmable Controller is capable of $(thing)charging/$ the minidrone's held item, i.e. the item in slot 0 of the drone's inventory. This includes both pressurizable items such as the $(l:tools/jackhammer)Jackhammer/$, and items using $(thing)Forge Energy/$. Air and/or FE from the Programmable Controller's own buffers is used to do this. Charging is disabled by default; enable it via the controller's GUI ($(thing)Held Item Charging/$ side tab).",
    "可编程控制器能够为小型无人机手持的物品$(thing)充能/$，也就是无人机容器中 0 号槽位里的物品。这既包括像 $(l:tools/jackhammer)手提钻/$ 这样的可充气物品，也包括使用 $(thing)Forge能量/$ 的物品。进行充能时会消耗可编程控制器自身缓冲区中的空气和/或 FE。默认情况下充能功能是禁用的；可通过控制器的 GUI（侧边标签页中的 $(thing)充能手持物品/$）启用。"
+  ],
+  [
+   [
+    "pages",
+    5,
+    "title"
+   ],
+   "Charging Items",
+   "充能目标"
   ],
   [
    [

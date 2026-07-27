@@ -40,15 +40,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Jet Boots (cont.)",
-   "喷射鞋（续）"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "When the upgrade is active, simply hold the $(k:pneumaticcraft.boots.jet_boots) key to thrust in the direction you're looking.$(p)$(thing)Jet Boots/$ are a $(bold)heavy/$ user of air; it's strongly recommended to add multiple $(l:base_concepts/upgrades#volume)Volume Upgrades/$ to your boots (and $(l:armor/pneumatic_chestplate)chestplate/$, with $(l:base_concepts/upgrades#charging)Charging Upgrades/$).$(p)Use of an $(l:machines/aerial_interface)Aerial Interface/$ is also advised when possible, along with a good charging infrastructure at your base.",
@@ -57,7 +48,7 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
    "Jet Boots (cont.)",
@@ -75,7 +66,7 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
    "Jet Boots (cont.)",
@@ -89,6 +80,15 @@
    ],
    "With $(l:base_concepts/upgrades#jet_boots_4)Jet Boots Upgrades: Tier IV/$ or better, you also get access to $(thing)Flight Stabilizers/$, which will bring you to an immediate halt when you release the thrust key (at an air cost proportional to the speed you were travelling at).$(p)Like Builder Mode, this too can be toggled on & off via the armor GUI (and bound to a toggle key).",
    "拥有 $(l:base_concepts/upgrades#jet_boots_4)喷气靴升级：IV级/$ 或更高等级后，你还可以使用 $(thing)飞行稳定/$；当你松开推进键时，它会让你立即停下（会消耗空气，消耗量与你当时的飞行速度成正比）。$(p)和建筑模式一样，这项功能也可以通过护甲 GUI 开启或关闭（并可绑定到一个切换按键）。"
+  ],
+  [
+   [
+    "pages",
+    5,
+    "title"
+   ],
+   "Jet Boots (cont.)",
+   "喷射鞋（续）"
   ],
   [
    [

@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Tools & Utilities",
-   "工具与实用工具"
-  ],
-  [
-   [
     "description"
    ],
    "Tools and Utility items.",
    "工具与实用物品。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Tools & Utilities",
+   "工具与实用工具"
   ]
  ]
 }

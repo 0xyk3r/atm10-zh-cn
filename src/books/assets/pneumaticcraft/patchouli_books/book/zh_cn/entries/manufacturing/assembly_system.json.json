@@ -40,19 +40,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "Assembly IO Unit (cont.)",
-   "装配台交互设备 (续)"
+   "An $(thing)Assembly System/$ must include $(italic)two/$ $(item)IO Units/$; one import unit, and one export unit: $(6)orange/$ means it's an export unit, $(9)blue/$ means it's an import unit. For an $(item)IO Unit/$ to work it needs to be able to reach an $(item)Assembly Platform/$, as well as an inventory to extract or store items (depending on its mode).",
+   "一个 $(thing)装配系统/$ 必须包含 $(italic)两个/$ $(item)IO 单元/$：一个输入单元和一个输出单元。$(6)橙色/$ 表示它是输出单元，$(9)蓝色/$ 表示它是输入单元。要让 $(item)IO 单元/$ 正常工作，它必须能够连接到一个 $(item)装配平台/$，并且还需要能够接触到一个用于提取或存储物品的容器（取决于其模式）。"
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "An $(thing)Assembly System/$ must include $(italic)two/$ $(item)IO Units/$; one import unit, and one export unit: $(6)orange/$ means it's an export unit, $(9)blue/$ means it's an import unit. For an $(item)IO Unit/$ to work it needs to be able to reach an $(item)Assembly Platform/$, as well as an inventory to extract or store items (depending on its mode).",
-   "一个 $(thing)装配系统/$ 必须包含 $(italic)两个/$ $(item)IO 单元/$：一个输入单元和一个输出单元。$(6)橙色/$ 表示它是输出单元，$(9)蓝色/$ 表示它是输入单元。要让 $(item)IO 单元/$ 正常工作，它必须能够连接到一个 $(item)装配平台/$，并且还需要能够接触到一个用于提取或存储物品的容器（取决于其模式）。"
+   "Assembly IO Unit (cont.)",
+   "装配台交互设备 (续)"
   ],
   [
    [
@@ -85,15 +85,6 @@
    [
     "pages",
     7,
-    "title"
-   ],
-   "Using",
-   "使用中"
-  ],
-  [
-   [
-    "pages",
-    7,
     "text"
    ],
    "To craft items with the $(thing)Assembly System/$, put an $(l:manufacturing/assembly_programs)Assembly Program/$ in the $(item)Assembly Controller/$, and put the required items in the input inventory.$(p)Any items which match a recipe known to the controller and inserted program will be automatically processed.",
@@ -102,11 +93,20 @@
   [
    [
     "pages",
-    8,
+    7,
     "title"
    ],
-   "CraftTweaker",
-   "矿石工艺"
+   "Using",
+   "使用中"
+  ],
+  [
+   [
+    "pages",
+    8,
+    "link_text"
+   ],
+   "CraftTweaker Docs",
+   "矿石工艺文档"
   ],
   [
    [
@@ -121,10 +121,10 @@
    [
     "pages",
     8,
-    "link_text"
+    "title"
    ],
-   "CraftTweaker Docs",
-   "矿石工艺文档"
+   "CraftTweaker",
+   "矿石工艺"
   ]
  ]
 }

@@ -11,17 +11,10 @@
   ],
   [
    [
-    "machine_extender.mdx"
+    "crop_filter_addon.mdx"
    ],
-   "Machine Addon Extender",
-   "机器扩展坞"
-  ],
-  [
-   [
-    "machine_capacitor_addon.mdx"
-   ],
-   "Capacitor Addon",
-   "机器容量插件"
+   "Crop Filter Addon",
+   "作物过滤器插件"
   ],
   [
    [
@@ -32,10 +25,24 @@
   ],
   [
    [
-    "machine_speed_addon.mdx"
+    "machine_burst_addon.mdx"
    ],
-   "Speed Addon",
-   "速度升级插件"
+   "Burst Addon",
+   "脉冲超频插件"
+  ],
+  [
+   [
+    "machine_capacitor_addon.mdx"
+   ],
+   "Capacitor Addon",
+   "机器容量插件"
+  ],
+  [
+   [
+    "machine_combi_addon.mdx"
+   ],
+   "Heart of the Machine",
+   "机器之心"
   ],
   [
    [
@@ -46,24 +53,10 @@
   ],
   [
    [
-    "machine_ultimate_addon.mdx"
+    "machine_extender.mdx"
    ],
-   "Synergy Matrix Addon",
-   "协同矩阵插件"
-  ],
-  [
-   [
-    "machine_burst_addon.mdx"
-   ],
-   "Burst Addon",
-   "脉冲超频插件"
-  ],
-  [
-   [
-    "machine_processing_addon.mdx"
-   ],
-   "Auxiliary Processing Chamber Addon",
-   "辅助加工室插件"
+   "Machine Addon Extender",
+   "机器扩展坞"
   ],
   [
    [
@@ -74,10 +67,24 @@
   ],
   [
    [
+    "machine_hunter_addon.mdx"
+   ],
+   "Hunter Addon",
+   "生物校位插件"
+  ],
+  [
+   [
     "machine_inventory_proxy_addon.mdx"
    ],
    "Inventory Proxy Addon",
    "物品栏代理插件"
+  ],
+  [
+   [
+    "machine_processing_addon.mdx"
+   ],
+   "Auxiliary Processing Chamber Addon",
+   "辅助加工室插件"
   ],
   [
    [
@@ -88,31 +95,24 @@
   ],
   [
    [
-    "steam_boiler_addon.mdx"
+    "machine_silk_touch_addon.mdx"
    ],
-   "Steam Boiler Addon",
-   "蒸汽锅炉插件"
+   "Silk Touch Addon",
+   "精准采集插件"
   ],
   [
    [
-    "machine_hunter_addon.mdx"
+    "machine_speed_addon.mdx"
    ],
-   "Hunter Addon",
-   "生物校位插件"
+   "Speed Addon",
+   "速度升级插件"
   ],
   [
    [
-    "quarry_addon.mdx"
+    "machine_ultimate_addon.mdx"
    ],
-   "Quarry Addon",
-   "矿场插件"
-  ],
-  [
-   [
-    "crop_filter_addon.mdx"
-   ],
-   "Crop Filter Addon",
-   "作物过滤器插件"
+   "Synergy Matrix Addon",
+   "协同矩阵插件"
   ],
   [
    [
@@ -123,17 +123,17 @@
   ],
   [
    [
-    "machine_silk_touch_addon.mdx"
+    "quarry_addon.mdx"
    ],
-   "Silk Touch Addon",
-   "精准采集插件"
+   "Quarry Addon",
+   "矿场插件"
   ],
   [
    [
-    "machine_combi_addon.mdx"
+    "steam_boiler_addon.mdx"
    ],
-   "Heart of the Machine",
-   "机器之心"
+   "Steam Boiler Addon",
+   "蒸汽锅炉插件"
   ]
  ]
 }

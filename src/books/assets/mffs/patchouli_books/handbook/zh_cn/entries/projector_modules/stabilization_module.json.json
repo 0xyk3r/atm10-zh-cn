@@ -49,15 +49,6 @@
    [
     "pages",
     4,
-    "title"
-   ],
-   "Usage",
-   "使用"
-  ],
-  [
-   [
-    "pages",
-    4,
     "text"
    ],
    "$(li)Place a chest next to the $(l:mffs:machines/projector)Force Field Projector$() (any side) and make sure it contains the required blocks to build the field up.$(li)Insert a Field Stabilization Module into the Projector's matrix slots. Setup the field as your wish and then activate the Projector.$(li)The Projector will consume blocks from adjacent chests in the order that they appear. If a chest contains a mixture of different blocks, the target structure will also be composed of a block mixture.$()",
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Projection",
-   "投射"
+   "Usage",
+   "使用"
   ],
   [
    [
@@ -84,11 +75,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "Custom Mode Usage",
-   "自定义模式使用"
+   "Projection",
+   "投射"
   ],
   [
    [
@@ -98,6 +89,15 @@
    ],
    "Unlike the other modes available for the $(l:mffs:machines/projector)Force Field Projector$(), the $(l:mffs:projector_modes/custom_mode)$(2)Custom Mode$() item stores the precise position and type of each block it analyses. As a result, the stabilization process for the $(l:mffs:projector_modes/custom_mode)$(2)Custom Mode$() does not work in the same way. Instead of consuming blocks in their order of appearance and transposing them to arbitrary locations; the Projector will take only the block types that match the original pattern.",
    "与其他适用于$(l:mffs:machines/projector)力场投射器$()的模式不同，$(l:mffs:projector_modes/custom_mode)$(2)自定义模式$()物品会精确记录其所分析的每个方块的位置与类型。因此，$(l:mffs:projector_modes/custom_mode)$(2)自定义模式$()的固化过程运作方式亦不相同：投射器不会按方块出现顺序消耗方块并将其位移到任意位置，而是仅提取与原始图案相匹配的方块类型。"
+  ],
+  [
+   [
+    "pages",
+    6,
+    "title"
+   ],
+   "Custom Mode Usage",
+   "自定义模式使用"
   ],
   [
    [

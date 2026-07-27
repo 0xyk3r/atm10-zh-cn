@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "RFTools Power",
-   "RF工具：能量"
-  ],
-  [
-   [
     "description"
    ],
    "$(thing)RFTools Power$() is a mod about power generation and power storage.",
    "$(thing)RF工具：能量$()是一个关于发电和能量存储的模组。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "RFTools Power",
+   "RF工具：能量"
   ]
  ]
 }

@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Automatic Charging",
-   "自动充气"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "As with all types of Drone, these drones require $(l:base_concepts/pressure)pressure/$ to operate, and will automatically seek out $(l:tools/drone#charging)a Charging Station with a Dispenser Upgrade/$ if low on air.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Range",
-   "范围"
+   "Automatic Charging",
+   "自动充气"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Weapon",
-   "武器"
+   "Range",
+   "范围"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Ranged Combat",
-   "远程战斗"
+   "Weapon",
+   "武器"
   ],
   [
    [
@@ -89,6 +80,15 @@
    ],
    "The drone may alternatively be equipped with a $(l:base_concepts/upgrades#minigun)Minigun Upgrade/$, in which case you should instead add $(l:tools/minigun_ammo)Minigun Ammo/$ to the inventory.",
    "无人机也可以选择安装 $(l:base_concepts/upgrades#minigun)机枪升级/$，在这种情况下，你应该改为在容器中加入 $(l:tools/minigun_ammo)加特林机枪弹药/$。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Ranged Combat",
+   "远程战斗"
   ],
   [
    [

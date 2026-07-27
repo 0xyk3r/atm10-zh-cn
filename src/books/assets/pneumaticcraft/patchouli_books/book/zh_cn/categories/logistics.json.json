@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Logistics",
-   "物流"
-  ],
-  [
-   [
     "description"
    ],
    "The Logistics System is a powerful way to move items and fluids around and keep inventories and tanks stocked.",
    "物流系统是一种强大的物品与流体运输方式，还能让容器和储罐始终保持存量充足。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Logistics",
+   "物流"
   ]
  ]
 }

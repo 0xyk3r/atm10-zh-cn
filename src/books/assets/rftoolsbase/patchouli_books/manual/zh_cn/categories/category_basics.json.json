@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Basics",
-   "基础"
-  ],
-  [
-   [
     "description"
    ],
    "Basic information about RFTools, including worldgen details.",
    "关于 RFTools 的基础信息，包括世界生成的细节。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Basics",
+   "基础"
   ]
  ]
 }

@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Ghostly Bee",
-   "恶魂蜜蜂"
+   "Found living in soul sand nests in the nether. Ghostly Bees prefer pollinating nearby soul sand.",
+   "栖息在下界的灵魂沙蜂巢中。恶魂蜜蜂更喜欢为附近的灵魂沙授粉。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Found living in soul sand nests in the nether. Ghostly Bees prefer pollinating nearby soul sand.",
-   "栖息在下界的灵魂沙蜂巢中。恶魂蜜蜂更喜欢为附近的灵魂沙授粉。"
+   "Ghostly Bee",
+   "恶魂蜜蜂"
   ]
  ]
 }

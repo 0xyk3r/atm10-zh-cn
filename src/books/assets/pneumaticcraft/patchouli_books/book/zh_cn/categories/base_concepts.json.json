@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Base Concepts",
-   "基础概念"
-  ],
-  [
-   [
     "description"
    ],
    "Some base concepts for the $(pncr) mod.",
    "关于 $(pncr) 模组的一些基础概念。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Base Concepts",
+   "基础概念"
   ]
  ]
 }

@@ -22,7 +22,7 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
    "NBT UI",
    "NBT 过滤器界面"
@@ -31,7 +31,7 @@
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
    "NBT UI",
    "NBT 过滤器界面"

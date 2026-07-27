@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "1. Routing Energy",
-   "路由能量"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "The $(l:modules/energy_output)Energy Output/$ and $(l:modules/energy_distributor)Energy Distributor/$ modules are both capable of actively pushing energy from the router's buffer to adjacent or nearby blocks.$(p)With these modules, you can effectively build an energy cell with limited wireless energy transfer capabilities.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "2. Powering Modules",
-   "2. 为模块供能"
+   "1. Routing Energy",
+   "路由能量"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "3. Charging Items",
-   "3. 物品充能"
+   "2. Powering Modules",
+   "2. 为模块供能"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Transfer Rates",
-   "传输速率"
+   "3. Charging Items",
+   "3. 物品充能"
   ],
   [
    [
@@ -89,6 +80,15 @@
    ],
    "It is important to note that stated transfer rates on tooltips are in FE per $(italic)router tick/$, which is not the same as FE/t. A Router's tick rate depends on its $(l:upgrades/speed)Speed Upgrades/$; with no Speed Upgrades, a router tick is every 20 server ticks. Therefore, the overall transfer rate may be lower than you might expect.",
    "需特别注意：提示信息中标注的传输速率单位为FE/$(italic)路由器运行周期/$，而非FE/t。路由器的运行频率取决于其$(l:upgrades/speed)速度升级/$数量；未安装任何速度升级时，路由器每20个服务端刻运行一次。因此，整体传输速率可能低于你的预期。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Transfer Rates",
+   "传输速率"
   ]
  ]
 }

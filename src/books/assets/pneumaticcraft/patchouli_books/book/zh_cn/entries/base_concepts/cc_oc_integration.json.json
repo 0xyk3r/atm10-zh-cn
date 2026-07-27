@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "ComputerCraft",
-   "电脑外设"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "In Lua, you can run $(thing)m = peripheral.wrap(<side>)/$, where $(thing)<side>/$ is the side of the computer the peripheral is connected to (top, bottom, left, right, back, front). Then you can use any of the following functions with $(thing)m.<functionName>/$.$(p)Anywhere in the following functions where a '<side>' appears as one of the arguments, 'up', 'down', 'north', 'south', 'east', 'west' are valid.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Open Computers",
-   "开放式电脑"
+   "ComputerCraft",
+   "电脑外设"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Common Methods",
-   "常用方法"
+   "Open Computers",
+   "开放式电脑"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Heat-Related Methods",
-   "热相关方法"
+   "Common Methods",
+   "常用方法"
   ],
   [
    [
@@ -89,6 +80,15 @@
    ],
    "The following methods are common to $(italic)all/$ $(pncr) machines which support the concept of $(l:base_concepts/heat)Heat/$:$(li)$(#800)getTemperature(), getTemperature(<side>)/$: gets the machine's temperature. <side> is optional, only useful for the $(l:machines/vortex_tube)Vortex Tube/$, which has different temperatures depending on the side.",
    "以下方法是$(italic)所有/$支持$(l:base_concepts/heat)热量/$概念的$(pncr)机器都通用的：$(li)$(#800)getTemperature(), getTemperature(<side>)/$：获取机器的温度。<side>为可选参数，仅对$(l:machines/vortex_tube)涡流管/$有用，因为它在不同侧面的温度不同。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Heat-Related Methods",
+   "热相关方法"
   ],
   [
    [
@@ -103,15 +103,6 @@
    [
     "pages",
     6,
-    "title"
-   ],
-   "Air Cannon (cont.)",
-   "空气炮 (续)"
-  ],
-  [
-   [
-    "pages",
-    6,
     "text"
    ],
    "$(li)$(#800)setRotationAngle(<angle>)/$: Rotate the cannon yaw to the angle specified.$(li)$(#800)setHeightAngle(<angle>)/$: Rotate the cannon pitch to the angle specified.$(li)$(#800)isDoneRotating()/$: Returns true when the cannon is done turning.$(li)$(#800)getMinWorkingPressure()/$: Returns the minimal pressure needed to fire the cannon (the yellow to green threshold in the GUI).",
@@ -120,7 +111,7 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
    "Air Cannon (cont.)",
@@ -138,11 +129,11 @@
   [
    [
     "pages",
-    8,
+    7,
     "title"
    ],
-   "Elevator",
-   "电梯"
+   "Air Cannon (cont.)",
+   "空气炮 (续)"
   ],
   [
    [
@@ -156,11 +147,11 @@
   [
    [
     "pages",
-    9,
+    8,
     "title"
    ],
-   "Elevator (cont.)",
-   "升降机（续）"
+   "Elevator",
+   "电梯"
   ],
   [
    [
@@ -174,7 +165,7 @@
   [
    [
     "pages",
-    10,
+    9,
     "title"
    ],
    "Elevator (cont.)",
@@ -192,20 +183,20 @@
   [
    [
     "pages",
+    10,
+    "title"
+   ],
+   "Elevator (cont.)",
+   "升降机（续）"
+  ],
+  [
+   [
+    "pages",
     11,
     "text"
    ],
    "$(li)$(#800)getSensorNames()/$: Returns a table of all known sensor names.$(li)$(#800)getSensor()/$: Returns the name of the currently-selected sensor.",
    "$(li)$(#800)getSensorNames()/$：返回包含所有已知传感器名称的表。$(li)$(#800)getSensor()/$：返回当前所选传感器的名称。"
-  ],
-  [
-   [
-    "pages",
-    12,
-    "title"
-   ],
-   "Universal Sensor (cont.)",
-   "万能传感器 (续)"
   ],
   [
    [
@@ -219,7 +210,7 @@
   [
    [
     "pages",
-    13,
+    12,
     "title"
    ],
    "Universal Sensor (cont.)",
@@ -237,7 +228,7 @@
   [
    [
     "pages",
-    14,
+    13,
     "title"
    ],
    "Universal Sensor (cont.)",
@@ -255,7 +246,7 @@
   [
    [
     "pages",
-    15,
+    14,
     "title"
    ],
    "Universal Sensor (cont.)",
@@ -273,7 +264,7 @@
   [
    [
     "pages",
-    16,
+    15,
     "title"
    ],
    "Universal Sensor (cont.)",
@@ -291,7 +282,7 @@
   [
    [
     "pages",
-    17,
+    16,
     "title"
    ],
    "Universal Sensor (cont.)",
@@ -305,6 +296,15 @@
    ],
    "For event based sensors (e.g. the player right click sensor), getting the sensor value is event-based. You get the event by doing a $(#800)<arguments> = os.pullEvent(\"universalSensor\")/$. Usually the arguments consist of <eventName, redstoneStrength>. The player right click sensor is an exception, as <eventName, redstoneStrength, interactedX, interactedY, interactedZ> is returned. This allows for some interesting uses...",
    "对于基于事件的传感器（例如玩家右键点击传感器），获取传感器值是以事件驱动的方式进行的。你可以通过执行 $(#800)<arguments> = os.pullEvent(\"universalSensor\")/$ 来获取该事件。通常，返回的参数为 <事件名称, 红石信号强度>。玩家右键点击传感器是个例外，它会返回 <事件名称, 红石信号强度, 交互X, 交互Y, 交互Z>。这就带来了一些有趣的用法……"
+  ],
+  [
+   [
+    "pages",
+    17,
+    "title"
+   ],
+   "Universal Sensor (cont.)",
+   "万能传感器 (续)"
   ]
  ]
 }

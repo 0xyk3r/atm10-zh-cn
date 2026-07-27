@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Advanced Beehives",
-   "高级蜂箱"
-  ],
-  [
-   [
     "description"
    ],
    "Info about hive",
    "有关蜂箱的信息"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Advanced Beehives",
+   "高级蜂箱"
   ]
  ]
 }

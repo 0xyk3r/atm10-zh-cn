@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Wireless Networks",
-   "无线网络"
-  ],
-  [
-   [
     "description"
    ],
    "Connecting multiple networks wirelessly",
    "无线连接多个网络"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Wireless Networks",
+   "无线网络"
   ]
  ]
 }

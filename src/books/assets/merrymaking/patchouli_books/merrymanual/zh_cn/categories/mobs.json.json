@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Festive Monsters",
-   "节日敌对生物"
-  ],
-  [
-   [
     "description"
    ],
    "The Monsters have decided to join in with the Holiday festivities!",
    "敌对生物们也决定加入节日庆典啦！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Festive Monsters",
+   "节日敌对生物"
   ]
  ]
 }

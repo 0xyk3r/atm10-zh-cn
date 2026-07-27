@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Genetics",
-   "基因工程"
-  ],
-  [
-   [
     "description"
    ],
    "There should bee some info here about bee genetics and how to mess with them.",
    "这里应该有一些关于蜜蜂基因，以及如何对它们动手脚的信息。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Genetics",
+   "基因工程"
   ]
  ]
 }

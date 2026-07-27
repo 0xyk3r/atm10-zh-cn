@@ -49,15 +49,6 @@
    [
     "pages",
     4,
-    "title"
-   ],
-   "Comparator Support",
-   "比较器支持"
-  ],
-  [
-   [
-    "pages",
-    4,
     "text"
    ],
    "The $(item)Refinery/$ will work with a $(item)Comparator/$: an attached Comparator will output a signal strength of 15 when the $(item)Refinery/$ has work, and 0 if not. It has work when there's $(thing)Oil/$ to refine $(italic)and/$ space in the output tanks for the refined products.$(p)This can be used to automate switching off the air supply to a $(l:machines/vortex_tube)Vortex Tube/$, for example, to save air.",
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Setup Tips",
-   "构建提示"
+   "Comparator Support",
+   "比较器支持"
   ],
   [
    [
@@ -80,6 +71,15 @@
    ],
    "Since the $(item)Refinery/$ is a multiblock with many faces exposed to the air, it can lose $(l:base_concepts/heat)Heat/$ quite rapidly if not well insulated. Therefore, it's strongly recommended to cover all unused faces of the multiblock to maximize efficiency. Note that any non-heat-conducting blocks can be used, including semi-solid blocks like $(item)slabs/$ or $(item)trapdoors/$, but $(l:machines/thermal_lagging)Thermal Lagging/$ is especially recommended.",
    "由于 $(item)精炼厂/$ 是一个有许多面暴露在空气中的多方块结构，如果没有做好隔热，就会相当迅速地损失 $(l:base_concepts/heat)热量/$。因此，强烈建议将这个多方块结构所有未使用的面都覆盖起来，以最大化效率。请注意，任何不导热的方块都可以使用，包括像 $(item)台阶/$ 或 $(item)活板门/$ 这样的半实体方块，但尤其推荐使用 $(l:machines/thermal_lagging)隔热板/$。"
+  ],
+  [
+   [
+    "pages",
+    5,
+    "title"
+   ],
+   "Setup Tips",
+   "构建提示"
   ],
   [
    [
@@ -94,10 +94,10 @@
    [
     "pages",
     7,
-    "title"
+    "link_text"
    ],
-   "CraftTweaker",
-   "矿石工艺"
+   "CraftTweaker Docs",
+   "矿石工艺文档"
   ],
   [
    [
@@ -112,10 +112,10 @@
    [
     "pages",
     7,
-    "link_text"
+    "title"
    ],
-   "CraftTweaker Docs",
-   "矿石工艺文档"
+   "CraftTweaker",
+   "矿石工艺"
   ],
   [
    [

@@ -18,13 +18,6 @@
   ],
   [
    [
-    "tainted_refinery.mdx"
-   ],
-   "Tainted Refinery",
-   "污染精炼厂"
-  ],
-  [
-   [
     "spawner_cage_block.mdx"
    ],
    "Spawner Cage",
@@ -36,6 +29,13 @@
    ],
    "Spawner Controller",
    "刷怪笼控制器"
+  ],
+  [
+   [
+    "tainted_refinery.mdx"
+   ],
+   "Tainted Refinery",
+   "污染精炼厂"
   ],
   [
    [

@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Registry Names",
-   "注册名"
+   "Because item filtering is done purely on the server, it can't know for sure what an item's displayed text is.  Therefore, all filtering matches are made against the item's internal $(thing)registry name/$. You can find this registry name by toggling on advanced tooltip display with $(thing)F3+H/$.$(p)Note that matching is done against only the part of the registry name $(italic)after/$ the colon.",
+   "由于物品过滤完全在服务端执行，系统无法确切获知物品显示文本的内容。因此，所有过滤匹配均基于物品的内部$(thing)注册名/$进行。你可以通过按$(thing)F3+H/$开启高级提示信息，从而查看该注册名。$(p)请注意：匹配仅针对注册名中$(italic)冒号之后/$的部分。"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "Because item filtering is done purely on the server, it can't know for sure what an item's displayed text is.  Therefore, all filtering matches are made against the item's internal $(thing)registry name/$. You can find this registry name by toggling on advanced tooltip display with $(thing)F3+H/$.$(p)Note that matching is done against only the part of the registry name $(italic)after/$ the colon.",
-   "由于物品过滤完全在服务端执行，系统无法确切获知物品显示文本的内容。因此，所有过滤匹配均基于物品的内部$(thing)注册名/$进行。你可以通过按$(thing)F3+H/$开启高级提示信息，从而查看该注册名。$(p)请注意：匹配仅针对注册名中$(italic)冒号之后/$的部分。"
+   "Registry Names",
+   "注册名"
   ],
   [
    [
@@ -49,15 +49,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Example 1",
-   "示例 1"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "A regex of 'ore' will match any items with 'ore' in their registry name (\"iron_ore\", \"gold_ore\", \"redstone_ore\"). Unfortunately, it will also match \"drill_core\", but you can avoid this by using a regex of $(1)_ore/$. To be even more specific, you could use $(1)_ore$/$, which also ensures that the string \"_ore\" is at the end of the item's registry name.",
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Example 2",
-   "示例 2"
+   "Example 1",
+   "示例 1"
   ],
   [
    [
@@ -80,6 +71,15 @@
    ],
    "Configure a $(l:modules/player)Player Module/$ to extract from the player's main inventory, and put a regex filter containing $(1)_ore/$ in the module. This can be used to extract any ores from your inventory, regardless of where you are, into your ore processing system; very handy if you're mining far from your base and you want ores that you've mined to be sent home immediately.",
    "将$(l:modules/player)玩家模块/$配置为从玩家主物品栏提取，并在模块中放入一个包含 $(1)_ore/$ 的正则过滤器。这样就能把你物品栏中的任意矿石提取出来，无论你身处何处，都可送入你的矿物处理系统；如果你在远离基地的地方挖矿，又想让挖到的矿石立刻送回家，这会非常方便。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Example 2",
+   "示例 2"
   ]
  ]
 }

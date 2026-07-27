@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Lights",
-   "灯火"
-  ],
-  [
-   [
     "description"
    ],
    "There are several types of colored lights to illuminate your world with.",
    "多种彩灯可供选择，点亮你的整个世界。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Lights",
+   "灯火"
   ]
  ]
 }

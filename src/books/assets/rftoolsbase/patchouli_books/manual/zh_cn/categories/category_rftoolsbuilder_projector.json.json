@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Scanner and Projector",
-   "扫描仪与投射仪"
-  ],
-  [
-   [
     "description"
    ],
    "Blocks for scanning, composing, and projecting shapes",
    "用于扫描、合成与延展形状的方块"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Scanner and Projector",
+   "扫描仪与投射仪"
   ]
  ]
 }

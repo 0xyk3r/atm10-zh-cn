@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Withered Bee",
-   "凋零蜜蜂"
+   "Obtained by feeding a wither rose to a $(l:bees/hive/skeletal)Skeletal Bee$(/l).",
+   "给一只$(l:bees/hive/skeletal)骷髅蜜蜂$(/l)喂食凋灵玫瑰后获得。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Obtained by feeding a wither rose to a $(l:bees/hive/skeletal)Skeletal Bee$(/l).",
-   "给一只$(l:bees/hive/skeletal)骷髅蜜蜂$(/l)喂食凋灵玫瑰后获得。"
+   "Withered Bee",
+   "凋零蜜蜂"
   ]
  ]
 }

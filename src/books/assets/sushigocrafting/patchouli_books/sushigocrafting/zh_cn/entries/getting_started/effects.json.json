@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Small Bites",
-   "小口品尝"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "Eating when having this potion effect will give you a small chance of not consuming the item.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Acquired Taste",
-   "嗜好"
+   "Small Bites",
+   "小口品尝"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Steady Hands",
-   "坚定的手"
+   "Acquired Taste",
+   "嗜好"
   ],
   [
    [
@@ -71,6 +62,15 @@
    ],
    "Using a cutting board when having this potion effect will give extra weights in your ingredients.",
    "在拥有该药水效果时使用刀砧板，可使你的食材获得额外重量。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Steady Hands",
+   "坚定的手"
   ]
  ]
 }

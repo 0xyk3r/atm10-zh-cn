@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Resource Production",
-   "资源生产"
-  ],
-  [
-   [
     "description"
    ],
    "Getting things done",
    "开始动手"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Resource Production",
+   "资源生产"
   ]
  ]
 }

@@ -40,15 +40,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Item Variables",
-   "物品变量"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "On the previous page, we mentioned that variables can only store coordinates. Well, that was a small lie: there is also such a thing as $(thing)item variables/$, which store (you guessed it) an item value. These are created with the $(l:programming/item_assign)Item Assign/$ and $(l:programming/for_each_item)For Each Item/$ widgets, and used by the $(l:programming/item_filter)Item Filter/$ widget.",
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Types of Variable",
-   "变量类型"
+   "Item Variables",
+   "物品变量"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Global Variables",
-   "全局变量"
+   "Types of Variable",
+   "变量类型"
   ],
   [
    [
@@ -93,11 +84,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "Global Variables (cont.)",
-   "全局变量 (续)"
+   "Global Variables",
+   "全局变量"
   ],
   [
    [
@@ -111,11 +102,11 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
-   "Variable Commands",
-   "可变命令"
+   "Global Variables (cont.)",
+   "全局变量 (续)"
   ],
   [
    [
@@ -129,11 +120,11 @@
   [
    [
     "pages",
-    8,
+    7,
     "title"
    ],
-   "Special Variables",
-   "特殊变量"
+   "Variable Commands",
+   "可变命令"
   ],
   [
    [
@@ -147,11 +138,11 @@
   [
    [
     "pages",
-    9,
+    8,
     "title"
    ],
-   "Special Variables (cont.)",
-   "特殊变量（续）"
+   "Special Variables",
+   "特殊变量"
   ],
   [
    [
@@ -165,7 +156,7 @@
   [
    [
     "pages",
-    10,
+    9,
     "title"
    ],
    "Special Variables (cont.)",
@@ -183,11 +174,11 @@
   [
    [
     "pages",
-    11,
+    10,
     "title"
    ],
-   "Debugging",
-   "调试"
+   "Special Variables (cont.)",
+   "特殊变量（续）"
   ],
   [
    [
@@ -201,11 +192,11 @@
   [
    [
     "pages",
-    12,
+    11,
     "title"
    ],
-   "Debugging (cont.)",
-   "调试 (续)"
+   "Debugging",
+   "调试"
   ],
   [
    [
@@ -219,7 +210,7 @@
   [
    [
     "pages",
-    13,
+    12,
     "title"
    ],
    "Debugging (cont.)",
@@ -233,6 +224,15 @@
    ],
    "You can also display only the X, Y or Z component of the coordinate by suffixing the variable name with $(thing).x/$, $(thing).y/$ or $(thing).z/$ respectively. E.g. to show the drone owner's Y coordinate, use $(thing)${$owner_pos.y}/$.$(p)If the variable is an $(thing)item variable/$, a $(thing).id/$ suffix will get the item's registry ID instead of its display name (which is the default). This is particularly useful for displaying an item on an $(l:machines/aphorism_tile#items)Aphorism Tile/$.",
    "你还可以通过在变量名后加上 $(thing).x/$、$(thing).y/$ 或 $(thing).z/$，来只显示坐标的 X、Y 或 Z 分量。例如，要显示无人机所有者的 Y 坐标，使用 $(thing)${$owner_pos.y}/$.$(p)如果该变量是一个 $(thing)物品变量/$，那么加上 $(thing).id/$ 后缀将得到该物品的注册表 ID，而不是它的显示名称（默认情况下显示的是名称）。这在格言瓷砖 $(l:machines/aphorism_tile#items)Aphorism Tile/$ 上显示物品时尤其有用。"
+  ],
+  [
+   [
+    "pages",
+    13,
+    "title"
+   ],
+   "Debugging (cont.)",
+   "调试 (续)"
   ]
  ]
 }

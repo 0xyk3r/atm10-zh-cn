@@ -4,13 +4,6 @@
  "t": [
   [
    [
-    "introduction.mdx"
-   ],
-   "Nuclear Reactor Introduction",
-   "核反应堆介绍"
-  ],
-  [
-   [
     "components.mdx"
    ],
    "Component Details",
@@ -22,6 +15,13 @@
    ],
    "Design Principles",
    "设计原理"
+  ],
+  [
+   [
+    "introduction.mdx"
+   ],
+   "Nuclear Reactor Introduction",
+   "核反应堆介绍"
   ]
  ]
 }

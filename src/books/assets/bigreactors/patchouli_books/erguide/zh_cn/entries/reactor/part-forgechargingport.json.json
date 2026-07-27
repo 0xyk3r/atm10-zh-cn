@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Forge Charging Port",
-   "Forge充电端口"
+   "The Forge Charging Port allows you to use the energy stored in your $(l:bigreactors/passive)passively cooled$(/l) Reactor to charge items that use the Forge Energy $(l:bigreactors/powersystem)power system$(/l) to function. $(br2) Open the graphical interface of the port and insert the item you want charged into the input slot in the center.",
+   "Forge充能端口可以让你使用储存在$(l:bigreactors/passive)被动冷却$(/l)反应堆中的能量，为依赖 Forge Energy $(l:bigreactors/powersystem)供能系统$(/l)运行的物品充能。$(br2)打开该端口的图形界面，然后将你想充能的物品放入中央的输入槽中。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Forge Charging Port allows you to use the energy stored in your $(l:bigreactors/passive)passively cooled$(/l) Reactor to charge items that use the Forge Energy $(l:bigreactors/powersystem)power system$(/l) to function. $(br2) Open the graphical interface of the port and insert the item you want charged into the input slot in the center.",
-   "Forge充能端口可以让你使用储存在$(l:bigreactors/passive)被动冷却$(/l)反应堆中的能量，为依赖 Forge Energy $(l:bigreactors/powersystem)供能系统$(/l)运行的物品充能。$(br2)打开该端口的图形界面，然后将你想充能的物品放入中央的输入槽中。"
+   "Forge Charging Port",
+   "Forge充电端口"
   ],
   [
    [

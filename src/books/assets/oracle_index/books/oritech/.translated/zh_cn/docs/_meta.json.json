@@ -4,6 +4,13 @@
  "t": [
   [
    [
+    "addons.mdx"
+   ],
+   "Addons",
+   "附加组件"
+  ],
+  [
+   [
     "getting_started",
     "name"
    ],
@@ -16,13 +23,6 @@
    ],
    "Multiblocks",
    "多方块结构"
-  ],
-  [
-   [
-    "addons.mdx"
-   ],
-   "Addons",
-   "附加组件"
   ],
   [
    [

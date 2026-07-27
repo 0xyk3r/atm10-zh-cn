@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Introduction",
-   "简介"
-  ],
-  [
-   [
     "description"
    ],
    "Welcome to $(modr) !",
    "欢迎来到 $(modr)！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Introduction",
+   "简介"
   ]
  ]
 }

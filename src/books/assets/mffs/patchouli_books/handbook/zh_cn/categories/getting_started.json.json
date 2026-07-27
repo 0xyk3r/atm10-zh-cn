@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Getting Started",
-   "开始"
-  ],
-  [
-   [
     "description"
    ],
    "Here you'll get overwiew of the mod and learn to gather resources for your first machine.",
    "此处将为您概览本模组，并指导您收集建造首台机器所需的资源。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Getting Started",
+   "开始"
   ]
  ]
 }

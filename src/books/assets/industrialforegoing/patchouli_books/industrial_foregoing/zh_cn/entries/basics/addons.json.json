@@ -13,15 +13,6 @@
    [
     "pages",
     0,
-    "title"
-   ],
-   "Range",
-   "范围"
-  ],
-  [
-   [
-    "pages",
-    0,
     "text"
    ],
    "Increase the range of machines that have a working area, not all machines accept range addons. Each tier increases the range by 1.",
@@ -30,11 +21,11 @@
   [
    [
     "pages",
-    1,
+    0,
     "title"
    ],
-   "Speed",
-   "速度"
+   "Range",
+   "范围"
   ],
   [
    [
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Efficiency",
-   "效率"
+   "Speed",
+   "速度"
   ],
   [
    [
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Processing",
-   "处理"
+   "Efficiency",
+   "效率"
   ],
   [
    [
@@ -80,6 +71,15 @@
    ],
    "Increased the amount of operations done when a machine finishes processing. $(br2)Tier 1 -> +1 Operation $(br)Tier 2 -> +2 Operations",
    "增加机器完成处理时执行的操作次数。$(br2)1 级 -> +1 次操作 $(br)2 级 -> +2 次操作"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Processing",
+   "处理"
   ]
  ]
 }

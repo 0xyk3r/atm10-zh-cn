@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Coal Bee",
-   "煤炭蜜蜂"
+   "Bred from a $(l:bees/hive/redstone)Blazing Bee$(/l) and a $(l:bees/solitary/leafcutter)Leafcutter Bee$(/l).",
+   "由一只$(l:bees/hive/redstone)烈焰蜜蜂$(/l)和一只$(l:bees/solitary/leafcutter)切叶蜜蜂$(/l)繁殖而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Bred from a $(l:bees/hive/redstone)Blazing Bee$(/l) and a $(l:bees/solitary/leafcutter)Leafcutter Bee$(/l).",
-   "由一只$(l:bees/hive/redstone)烈焰蜜蜂$(/l)和一只$(l:bees/solitary/leafcutter)切叶蜜蜂$(/l)繁殖而来。"
+   "Coal Bee",
+   "煤炭蜜蜂"
   ]
  ]
 }

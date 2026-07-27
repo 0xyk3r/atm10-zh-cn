@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Energy Cell",
-   "储能单元"
+   "Energy Cells are the storage components of the Energizer and must be used to completely fill the interior volume of the machine.",
+   "能量单元是充能器的储能组件，必须用它们将机器内部空间完全填满。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Energy Cells are the storage components of the Energizer and must be used to completely fill the interior volume of the machine.",
-   "能量单元是充能器的储能组件，必须用它们将机器内部空间完全填满。"
+   "Energy Cell",
+   "储能单元"
   ],
   [
    [

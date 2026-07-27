@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Fuel Rod",
-   "燃料棒"
+   "The Fuel Rods are placed inside your Reactor in long horizontal or vertical piles. They serve as a reservoir for reactants—either fuel, waste, or a mix of both—and are irradiated while the Reactor is active, generating heat that can be converted into energy or used to vaporize coolants.",
+   "燃料棒会以横向或纵向的长列形式放置在你的反应堆内部。它们用于储存反应物——燃料、废料，或两者的混合物——并会在反应堆运行时受到辐照，产生的热量可以被转化为能量，或用于将冷却液汽化。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Fuel Rods are placed inside your Reactor in long horizontal or vertical piles. They serve as a reservoir for reactants—either fuel, waste, or a mix of both—and are irradiated while the Reactor is active, generating heat that can be converted into energy or used to vaporize coolants.",
-   "燃料棒会以横向或纵向的长列形式放置在你的反应堆内部。它们用于储存反应物——燃料、废料，或两者的混合物——并会在反应堆运行时受到辐照，产生的热量可以被转化为能量，或用于将冷却液汽化。"
+   "Fuel Rod",
+   "燃料棒"
   ],
   [
    [

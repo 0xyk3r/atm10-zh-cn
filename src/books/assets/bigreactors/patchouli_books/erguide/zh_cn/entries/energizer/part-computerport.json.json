@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Computer Port",
-   "电脑端口"
+   "The Computer Port allows you to connect your Energizer to a computer, enabling you to gather information on the status of the Energizer.$(br2)A standard set of methods is exposed to the connected computer, and you can use them to query the status of the Energizer.",
+   "计算机端口可以让你将充能器连接到计算机上，从而获取有关充能器状态的信息。$(br2)连接的计算机会获得一组标准方法，你可以用它们来查询充能器的状态。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Computer Port allows you to connect your Energizer to a computer, enabling you to gather information on the status of the Energizer.$(br2)A standard set of methods is exposed to the connected computer, and you can use them to query the status of the Energizer.",
-   "计算机端口可以让你将充能器连接到计算机上，从而获取有关充能器状态的信息。$(br2)连接的计算机会获得一组标准方法，你可以用它们来查询充能器的状态。"
+   "Computer Port",
+   "电脑端口"
   ],
   [
    [

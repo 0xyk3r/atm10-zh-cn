@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Skeletal Bee",
-   "骷髅蜜蜂"
+   "Will move in to an advanced hive if the hive is left empty in the dark.",
+   "如果将高级蜂箱空着放在黑暗中，它就会搬进去。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Will move in to an advanced hive if the hive is left empty in the dark.",
-   "如果将高级蜂箱空着放在黑暗中，它就会搬进去。"
+   "Skeletal Bee",
+   "骷髅蜜蜂"
   ]
  ]
 }

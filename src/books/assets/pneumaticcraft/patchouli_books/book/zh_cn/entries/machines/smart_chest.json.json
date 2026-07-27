@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Slot Filtering",
-   "槽位过滤"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "$(li)If you $(thing)Alt+Left-click/$ a slot with an item in it, the Smart Chest will start filtering that slot to only accept that item.$(li)You can $(thing)Alt+Left-click/$ a filtered slot to remove the filtering again.$(li)If you $(thing)Alt+Left-click/$ an empty slot, that slot and all subsequent slots will be closed, effectively reducing the inventory size.$(li)If you $(thing)Alt+Left-click/$ the first closed slot, all closed slots will be reopened.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Pushing Items",
-   "输出物品"
+   "Slot Filtering",
+   "槽位过滤"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Pulling Items",
-   "提取物品"
+   "Pushing Items",
+   "输出物品"
   ],
   [
    [
@@ -71,6 +62,15 @@
    ],
    "Faces configured to pull items will try to pull items from an adjacent inventory on that face.$(p)If you install a $(l:base_concepts/upgrades#magnet)Magnet Upgrade/$, the chest can absorb nearby items on the ground. This only works for faces that have been configured to pull items; the default pickup area is a 3x3x3 cube adjacent to the pulling face, which can be increased with $(l:base_concepts/upgrades#range)Range Upgrades/$.",
    "被配置为拉取物品的面，会尝试从该面相邻的容器中拉取物品。$(p)如果你安装了 $(l:base_concepts/upgrades#magnet)磁力升级/$，箱子就能吸收地面上附近的物品。这只对已配置为拉取物品的面生效；默认拾取范围是拉取面相邻的一个 3x3x3 立方体区域，并且可以通过 $(l:base_concepts/upgrades#range)范围升级/$ 进一步扩大。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Pulling Items",
+   "提取物品"
   ],
   [
    [

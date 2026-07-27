@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Variables",
-   "变量"
+   "You can also insert the value of a $(l:programming/variables)variable/$, by including $(thing)${<var_name>}/$ in the text, e.g.$(p)  $(formula)Counter: ${counter}/$$(p)would expand to $(thing)Counter: 1, 2, 3/$ if the $(thing)counter/$ variable was set to $(thing)x=1,y=2,z=3/$. $(l:programming/variables#special)Special/$ and $(l:programming/variables#global)Global variables/$ can also be used here.",
+   "你也可以插入$(l:programming/variables)变量/$的值，只需在文本中包含 $(thing)${<var_name>}/$，例如：$(p)  $(formula)计数器：${counter}/$$(p)会展开为 $(thing)计数器：1、2、3/$，前提是 $(thing)counter/$ 变量被设置为 $(thing)x=1,y=2,z=3/$。这里也可以使用 $(l:programming/variables#special)特殊/$ 和 $(l:programming/variables#global)全局变量/$。"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "You can also insert the value of a $(l:programming/variables)variable/$, by including $(thing)${<var_name>}/$ in the text, e.g.$(p)  $(formula)Counter: ${counter}/$$(p)would expand to $(thing)Counter: 1, 2, 3/$ if the $(thing)counter/$ variable was set to $(thing)x=1,y=2,z=3/$. $(l:programming/variables#special)Special/$ and $(l:programming/variables#global)Global variables/$ can also be used here.",
-   "你也可以插入$(l:programming/variables)变量/$的值，只需在文本中包含 $(thing)${<var_name>}/$，例如：$(p)  $(formula)计数器：${counter}/$$(p)会展开为 $(thing)计数器：1、2、3/$，前提是 $(thing)counter/$ 变量被设置为 $(thing)x=1,y=2,z=3/$。这里也可以使用 $(l:programming/variables#special)特殊/$ 和 $(l:programming/variables#global)全局变量/$。"
+   "Variables",
+   "变量"
   ],
   [
    [

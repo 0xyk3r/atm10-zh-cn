@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Forge Charging Port",
-   "Forge充电端口"
+   "The Forge Charging Port allows you to use the energy stored in your Turbine to charge items that use the the Forge Energy $(l:bigreactors:misc/powersystem)power system$(/l) to function.$(br2)Open the graphical interface of the port and insert the item you want charged into the input slot in the center.",
+   "Forge 充能端口允许你使用涡轮机中储存的能量，为依靠 Forge Energy $(l:bigreactors:misc/powersystem)供能系统$(/l)运行的物品充能。$(br2)打开端口的图形界面，然后将你想充能的物品放入中央的输入槽位。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Forge Charging Port allows you to use the energy stored in your Turbine to charge items that use the the Forge Energy $(l:bigreactors:misc/powersystem)power system$(/l) to function.$(br2)Open the graphical interface of the port and insert the item you want charged into the input slot in the center.",
-   "Forge 充能端口允许你使用涡轮机中储存的能量，为依靠 Forge Energy $(l:bigreactors:misc/powersystem)供能系统$(/l)运行的物品充能。$(br2)打开端口的图形界面，然后将你想充能的物品放入中央的输入槽位。"
+   "Forge Charging Port",
+   "Forge充电端口"
   ],
   [
    [

@@ -31,10 +31,10 @@
    [
     "pages",
     2,
-    "title"
+    "link_text"
    ],
-   "CraftTweaker",
-   "矿石工艺"
+   "CraftTweaker Docs",
+   "矿石工艺文档"
   ],
   [
    [
@@ -49,10 +49,10 @@
    [
     "pages",
     2,
-    "link_text"
+    "title"
    ],
-   "CraftTweaker Docs",
-   "矿石工艺文档"
+   "CraftTweaker",
+   "矿石工艺"
   ],
   [
    [

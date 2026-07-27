@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Energizer parts",
-   "充能器部件"
-  ],
-  [
-   [
     "description"
    ],
    "An Energizer is constructed using the following parts.",
    "物品充能站由以下部件构成。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Energizer parts",
+   "充能器部件"
   ]
  ]
 }

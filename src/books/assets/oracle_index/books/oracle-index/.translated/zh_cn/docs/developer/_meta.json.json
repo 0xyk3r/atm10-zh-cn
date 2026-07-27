@@ -4,11 +4,11 @@
  "t": [
   [
    [
-    "setup.mdx",
+    "content_unlocks.mdx",
     "name"
    ],
-   "Ingame Mod View Setup",
-   "游戏内模组视图设置"
+   "Content Progression System",
+   "内容进阶系统"
   ],
   [
    [
@@ -20,11 +20,11 @@
   ],
   [
    [
-    "content_unlocks.mdx",
+    "setup.mdx",
     "name"
    ],
-   "Content Progression System",
-   "内容进阶系统"
+   "Ingame Mod View Setup",
+   "游戏内模组视图设置"
   ]
  ]
 }

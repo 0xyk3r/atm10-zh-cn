@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "1. The Buffer",
-   "1. 缓冲器"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "The $(thing)Modular Router/$ has a one-slot buffer, able to hold up to stack of items. This buffer is exposed as a normal inventory, so it can be interacted with via $(item)Hoppers/$ and other mod piping systems.$(p)In addition, a $(item)Comparator/$ placed against the router will measure the slot's fullness as expected.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "2. Module Slots",
-   "2. 模块栏"
+   "1. The Buffer",
+   "1. 缓冲器"
   ],
   [
    [
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "3. Upgrade Slots",
-   "3. 升级槽"
+   "2. Module Slots",
+   "2. 模块栏"
   ],
   [
    [
@@ -84,11 +75,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "4. Redstone Control",
-   "4. 红石控制"
+   "3. Upgrade Slots",
+   "3. 升级槽"
   ],
   [
    [
@@ -102,11 +93,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "5. Eco Mode",
-   "5. 节能模式"
+   "4. Redstone Control",
+   "4. 红石控制"
   ],
   [
    [
@@ -120,11 +111,11 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
-   "Eco Mode (cont)",
-   "节能模式（续）"
+   "5. Eco Mode",
+   "5. 节能模式"
   ],
   [
    [
@@ -134,6 +125,15 @@
    ],
    "This is primarily intended for busy servers, to save on CPU cycles, but it's potentially nice-to-have for any router that only runs rarely and where rapid item transfer isn't that important (e.g. a sheep farm where you might have a $(l:modules/vacuum)Vacuum Module/$ gathering sheared wool periodically).",
    "这项功能主要是为繁忙的服务器设计的，用来节省 CPU 周期，但对于那些很少运行且不太需要快速传输物品的路由器来说也很实用（例如羊毛农场中，使用$(l:modules/vacuum)真空模块/$定期收集剪下的羊毛）。"
+  ],
+  [
+   [
+    "pages",
+    7,
+    "title"
+   ],
+   "Eco Mode (cont)",
+   "节能模式（续）"
   ]
  ]
 }

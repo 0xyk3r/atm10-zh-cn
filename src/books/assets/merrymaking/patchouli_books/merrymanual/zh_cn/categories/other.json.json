@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Other Blocks",
-   "其他方块"
-  ],
-  [
-   [
     "description"
    ],
    "Other Decorative Blocks",
    "其他装饰性方块"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Other Blocks",
+   "其他方块"
   ]
  ]
 }

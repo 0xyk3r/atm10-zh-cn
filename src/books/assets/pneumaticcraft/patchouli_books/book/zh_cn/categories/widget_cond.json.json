@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Condition Widgets",
-   "条件组件"
-  ],
-  [
-   [
     "description"
    ],
    "Widgets that evaluate conditions.",
    "用于判断条件的元件。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Condition Widgets",
+   "条件组件"
   ]
  ]
 }

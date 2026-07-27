@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Unobtainium Ore",
-   "难得素矿石"
+   "Unobtainium ore can be found in the End Highland biome.It spawns under Y 78.",
+   "难得素矿石可在末地高地生物群系中找到，生成于 Y 78 以下。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Unobtainium ore can be found in the End Highland biome.It spawns under Y 78.",
-   "难得素矿石可在末地高地生物群系中找到，生成于 Y 78 以下。"
+   "Unobtainium Ore",
+   "难得素矿石"
   ]
  ]
 }

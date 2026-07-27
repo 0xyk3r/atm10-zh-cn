@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Inline Modules",
-   "内联模块"
+   "$(thing)Inline modules/$ are a little special, in that:$(li)A Pressure Tube may have only one inline module.$(li)A Pressure Tube with an inline module may not have any other modules.$(li)A Pressure Tube with an inline module may only be connected to on two sides: the two ends of the inline module.$(li)Inline modules may $(italic)only/$ be placed on the open end of a Pressure Tube.",
+   "$(thing)内联模块/$有一点特殊，具体来说：$(li)一根压力管道只能安装一个内联模块。$(li)安装了内联模块的压力管道不能再安装其他模块。$(li)安装了内联模块的压力管道只能从两个面进行连接：也就是内联模块两端的两个面。$(li)内联模块$(italic)只能/$放置在压力管道的开放端。"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "$(thing)Inline modules/$ are a little special, in that:$(li)A Pressure Tube may have only one inline module.$(li)A Pressure Tube with an inline module may not have any other modules.$(li)A Pressure Tube with an inline module may only be connected to on two sides: the two ends of the inline module.$(li)Inline modules may $(italic)only/$ be placed on the open end of a Pressure Tube.",
-   "$(thing)内联模块/$有一点特殊，具体来说：$(li)一根压力管道只能安装一个内联模块。$(li)安装了内联模块的压力管道不能再安装其他模块。$(li)安装了内联模块的压力管道只能从两个面进行连接：也就是内联模块两端的两个面。$(li)内联模块$(italic)只能/$放置在压力管道的开放端。"
+   "Inline Modules",
+   "内联模块"
   ]
  ]
 }

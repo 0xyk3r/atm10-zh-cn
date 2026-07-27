@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "World",
-   "世界"
-  ],
-  [
-   [
     "description"
    ],
    "What is out there?",
    "外面都有些什么？"
+  ],
+  [
+   [
+    "name"
+   ],
+   "World",
+   "世界"
   ]
  ]
 }

@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Computer Port",
-   "电脑端口"
+   "The Computer Port allows you to connect your Turbine to a computer for complex automation tasks.$(br2)A standard set of methods is exposed to the connected computer, and you can use them to query the status of the Turbine and control its behavior.",
+   "计算机端口允许你将涡轮机连接到计算机，以执行复杂的自动化任务。$(br2)连接的计算机会获得一组标准方法，你可以用它们查询涡轮机的状态并控制其行为。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Computer Port allows you to connect your Turbine to a computer for complex automation tasks.$(br2)A standard set of methods is exposed to the connected computer, and you can use them to query the status of the Turbine and control its behavior.",
-   "计算机端口允许你将涡轮机连接到计算机，以执行复杂的自动化任务。$(br2)连接的计算机会获得一组标准方法，你可以用它们查询涡轮机的状态并控制其行为。"
+   "Computer Port",
+   "电脑端口"
   ],
   [
    [

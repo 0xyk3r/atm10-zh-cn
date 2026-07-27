@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Controller",
-   "控制器"
+   "The Controller is your main interface to the Reactor.$(br2)Right-click on the Controller to open its graphical user interface, and from there, you can turn the Reactor on or off, check how much reactant is present in the Fuel Rods, how hot the Reactor is, and so on.",
+   "控制器是你操作反应堆的主要界面。$(br2)右键点击控制器即可打开它的图形界面，你可以在其中开启或关闭反应堆、查看燃料棒中有多少反应物、反应堆有多热，等等。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Controller is your main interface to the Reactor.$(br2)Right-click on the Controller to open its graphical user interface, and from there, you can turn the Reactor on or off, check how much reactant is present in the Fuel Rods, how hot the Reactor is, and so on.",
-   "控制器是你操作反应堆的主要界面。$(br2)右键点击控制器即可打开它的图形界面，你可以在其中开启或关闭反应堆、查看燃料棒中有多少反应物、反应堆有多热，等等。"
+   "Controller",
+   "控制器"
   ],
   [
    [

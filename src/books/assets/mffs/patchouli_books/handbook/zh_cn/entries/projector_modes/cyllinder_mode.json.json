@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Field Adjustment",
-   "场调整"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "Placing a $(l:mffs:upgrade_modules/scale_module)$(5)Scale Module$() into an item slot marked by a directional arrow will scale the field by 1 block in only that direction. For example, to increase the height of a force field by 1 block; add a $(l:mffs:upgrade_modules/scale_module)$(5)Scale Module$() into an item slot marked by a directional arrow pointing towards the top-left or top-right of the GUI screen.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Projection",
-   "投射"
+   "Field Adjustment",
+   "场调整"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "A scaled $(2)Cylinder Mode$() field being projected.",
    "一个已缩放的$(2)圆柱模式$()力场正在被投射。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Projection",
+   "投射"
   ]
  ]
 }

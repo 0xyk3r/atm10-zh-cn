@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Scanning",
-   "扫描"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "Place the controller within range, supply FE, and press Scan. Re-scan after adding, removing, or moving screens.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Range",
-   "范围"
+   "Scanning",
+   "扫描"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "The default scan area is 32x32x32 blocks around the controller. $(5)Infusing$() the controller increases this range.",
    "默认扫描区域为控制器周围32×32×32格的空间。$(5)注魔$()控制器可扩大此范围。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Range",
+   "范围"
   ]
  ]
 }

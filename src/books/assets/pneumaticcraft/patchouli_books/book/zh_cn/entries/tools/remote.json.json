@@ -49,15 +49,6 @@
    [
     "pages",
     4,
-    "title"
-   ],
-   "Label Widget",
-   "标签"
-  ],
-  [
-   [
-    "pages",
-    4,
     "text"
    ],
    "This widget simply displays some text, with an optional tooltip, for informational purposes. While the label can't $(italic)change/$ variables, it can $(italic)display/$ a variable, using the syntax $(thing)${#globalvarname}/$, which can be useful for debugging purposes.$(p)The Label widget has no fields other than the default fields.",
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Button Widget",
-   "按钮部件"
+   "Label Widget",
+   "标签"
   ],
   [
    [
@@ -84,11 +75,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "Checkbox Widget",
-   "复选框部件"
+   "Button Widget",
+   "按钮部件"
   ],
   [
    [
@@ -102,11 +93,11 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
-   "Dropdown Widget",
-   "下拉菜单部件"
+   "Checkbox Widget",
+   "复选框部件"
   ],
   [
    [
@@ -120,11 +111,11 @@
   [
    [
     "pages",
-    8,
+    7,
     "title"
    ],
-   "Example",
-   "示例"
+   "Dropdown Widget",
+   "下拉菜单部件"
   ],
   [
    [
@@ -138,11 +129,11 @@
   [
    [
     "pages",
-    9,
+    8,
     "title"
    ],
-   "Example (cont.)",
-   "示例（续）"
+   "Example",
+   "示例"
   ],
   [
    [
@@ -152,6 +143,15 @@
    ],
    "In each $(item)Sensor/$ GUI:$(li)Select the $(thing)Dispenser/$ button$(li)Select $(thing)World/$$(li)Select $(thing)Global Variable/$$(li)In the $(thing)Variable Name/$ textfield, enter 'signal1', 'signal2' & 'signal3' respectively.$(p)Now, $(thing)right-click/$ your $(item)Remote/$, and try selecting/deselecting each checkbox. The corresponding $(item)Sensor/$ will emit a redstone signal as appropriate: wireless redstone!",
    "在每个 $(item)传感器/$ 的 GUI 中：$(li)选择 $(thing)补给器/$ 按钮$(li)选择 $(thing)世界/$$(li)选择 $(thing)全局变量/$$(li)在 $(thing)变量名/$ 文本框中，分别输入“signal1”、“signal2”和“signal3”。$(p)现在，$(thing)右击/$你的 $(item)红石遥控器/$，然后试着选中/取消选中各个复选框。对应的 $(item)传感器/$ 就会根据情况发出红石信号：无线红石！"
+  ],
+  [
+   [
+    "pages",
+    9,
+    "title"
+   ],
+   "Example (cont.)",
+   "示例（续）"
   ],
   [
    [

@@ -18,17 +18,17 @@
   ],
   [
    [
-    "placer_block.mdx"
-   ],
-   "Placer Block",
-   "放置方块"
-  ],
-  [
-   [
     "machine_frame_block.mdx"
    ],
    "Machine Frame",
    "机器框架"
+  ],
+  [
+   [
+    "placer_block.mdx"
+   ],
+   "Placer Block",
+   "放置方块"
   ]
  ]
 }

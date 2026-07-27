@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Lamp Post",
-   "灯柱"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "The Lamp Post block extends upward when placed on top of itself and a has directional facing for decorating purposes. $(br)The top of a Lamp Post will light up if you use a Torch on it. $(br2)Remove the torch and \"turn off\" the Lamp Post by clicking on it with an empty hand.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Decorating the Post",
-   "装饰灯柱"
+   "Lamp Post",
+   "灯柱"
   ],
   [
    [
@@ -53,6 +44,15 @@
    ],
    "When a Lamp Post Block is 3 blocks tall, the thin pole section can be decorated by using either a bow or any type of wreath on it. $(br2)Remove the decoration by clicking on the pole with an empty hand.",
    "当灯柱方块堆叠至3格高时，细长灯杆部分可通过在其上放置弓或任一类型花环进行装饰。$(br2)空手点击灯杆即可移除装饰。"
+  ],
+  [
+   [
+    "pages",
+    2,
+    "title"
+   ],
+   "Decorating the Post",
+   "装饰灯柱"
   ],
   [
    [

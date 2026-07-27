@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Experience Orbs",
-   "经验球"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "Drones are also able to import $(thing)Experience Orbs/$ using this widget; the $(item)@orb/$ entity filter will match XP orbs. Imported orbs are converted to $(l:base_concepts/memory_essence)Memory Essence/$ and stored in the drone's internal tank; you can then use the $(l:programming/liquid_export)Liquid Export/$ widget to transfer that to a fluid tank.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Area Limitations",
-   "区域限制"
+   "Experience Orbs",
+   "经验球"
   ],
   [
    [
@@ -53,6 +44,15 @@
    ],
    "Keep in mind that any $(l:programming/area)Area/$ widgets connected to this widget must have an area type of $(thing)Box/$; this is the only supported shape. It's possible to create different shapes, though, by using whitelisting/blacklisting of areas.",
    "请记住，与此元件连接的任何 $(l:programming/area)区域/$ 元件都必须使用 $(thing)方框/$ 区域类型；这是唯一受支持的形状。不过，仍然可以通过将区域加入白名单/黑名单来创建不同的形状。"
+  ],
+  [
+   [
+    "pages",
+    2,
+    "title"
+   ],
+   "Area Limitations",
+   "区域限制"
   ],
   [
    [

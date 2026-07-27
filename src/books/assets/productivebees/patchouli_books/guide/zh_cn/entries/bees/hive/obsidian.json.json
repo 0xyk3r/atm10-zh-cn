@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Obsidian Bee",
-   "黑曜石蜜蜂"
+   "Bred from a $(l:bees/wild/magmatic)Magmatic Bee$(/l) and a $(l:bees/solitary/sweat)Sweat Bee$(/l).",
+   "由一只$(l:bees/wild/magmatic)熔岩蜜蜂$(/l)和一只$(l:bees/solitary/sweat)汗蜜蜂$(/l)繁殖而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Bred from a $(l:bees/wild/magmatic)Magmatic Bee$(/l) and a $(l:bees/solitary/sweat)Sweat Bee$(/l).",
-   "由一只$(l:bees/wild/magmatic)熔岩蜜蜂$(/l)和一只$(l:bees/solitary/sweat)汗蜜蜂$(/l)繁殖而来。"
+   "Obsidian Bee",
+   "黑曜石蜜蜂"
   ]
  ]
 }

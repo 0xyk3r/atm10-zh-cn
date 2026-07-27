@@ -49,19 +49,19 @@
    [
     "pages",
     4,
-    "title"
+    "text"
    ],
-   "Mod Integration",
-   "模组联动"
+   "$(pncr) is of course not the only mod to add $(thing)Oil/$; several other mods do too (including $(thing)BuildCraft/$ and $(thing)Immersive Petroleum/$).$(p)Depending on your worldgen settings, $(pncr) Oil might not be available; however, the $(l:manufacturing/refinery)Refinery/$ is capable of handling the \"oil\" fluid from other mods.",
+   "$(pncr)当然不是唯一一个添加了 $(thing)石油/$ 的模组；还有其他几个模组也会添加（包括 $(thing)建筑/$ 和 $(thing)沉浸原油/$）。$(p)根据你的世界生成设置，$(pncr) 石油可能不会生成；不过，$(l:manufacturing/refinery)精炼厂/$ 能够处理其他模组中的“oil”流体。"
   ],
   [
    [
     "pages",
     4,
-    "text"
+    "title"
    ],
-   "$(pncr) is of course not the only mod to add $(thing)Oil/$; several other mods do too (including $(thing)BuildCraft/$ and $(thing)Immersive Petroleum/$).$(p)Depending on your worldgen settings, $(pncr) Oil might not be available; however, the $(l:manufacturing/refinery)Refinery/$ is capable of handling the \"oil\" fluid from other mods.",
-   "$(pncr)当然不是唯一一个添加了 $(thing)石油/$ 的模组；还有其他几个模组也会添加（包括 $(thing)建筑/$ 和 $(thing)沉浸原油/$）。$(p)根据你的世界生成设置，$(pncr) 石油可能不会生成；不过，$(l:manufacturing/refinery)精炼厂/$ 能够处理其他模组中的“oil”流体。"
+   "Mod Integration",
+   "模组联动"
   ]
  ]
 }

@@ -40,19 +40,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "Heat Sink Cooling",
-   "散热片主动散热"
+   "An Air Grate Module can also be used to actively cool $(l:machines/heat_sink)Heat Sinks/$. The range in which Heat Sinks is cooled is a 3x3x3 cube in front of the Air Grate. This range is visualized when the module is placed down.$(p)The Air Grate will only cool Heat Sinks when it has a range of 3 blocks or more (so, 0.75 bar).",
+   "空气格栅模块也可用于主动冷却$(l:machines/heat_sink)散热片/$。空气格栅前方会形成一个 3x3x3 的立方体区域，其中的散热片会被冷却。放置该模块时，会显示这一区域。$(p)只有当空气格栅的作用距离达到 3 格或以上时，它才会冷却散热片（即 0.75 bar）。"
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "An Air Grate Module can also be used to actively cool $(l:machines/heat_sink)Heat Sinks/$. The range in which Heat Sinks is cooled is a 3x3x3 cube in front of the Air Grate. This range is visualized when the module is placed down.$(p)The Air Grate will only cool Heat Sinks when it has a range of 3 blocks or more (so, 0.75 bar).",
-   "空气格栅模块也可用于主动冷却$(l:machines/heat_sink)散热片/$。空气格栅前方会形成一个 3x3x3 的立方体区域，其中的散热片会被冷却。放置该模块时，会显示这一区域。$(p)只有当空气格栅的作用距离达到 3 格或以上时，它才会冷却散热片（即 0.75 bar）。"
+   "Heat Sink Cooling",
+   "散热片主动散热"
   ],
   [
    [

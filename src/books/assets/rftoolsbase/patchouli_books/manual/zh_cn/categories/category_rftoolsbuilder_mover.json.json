@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Mover",
-   "传运器"
-  ],
-  [
-   [
     "description"
    ],
    "Blocks for building and controlling moving vehicles",
    "用于建筑及控制移动载具的方块"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Mover",
+   "传运器"
   ]
  ]
 }

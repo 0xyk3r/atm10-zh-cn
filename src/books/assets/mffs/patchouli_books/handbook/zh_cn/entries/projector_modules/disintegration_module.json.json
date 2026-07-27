@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Usage",
-   "使用"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "The $(5)Disintegration Module$() is compatible with all projector modes and can be used to reverse the effect of the $(l:mffs:projector_modules/stabilization_module)$(5)Field Stabilizer Module$(). Adding $(l:mffs:upgrade_modules/speed_module)$(5)Speed Module$()s into a Projector allows multiple blocks to be disintegrated at once. It can also be combined with a $(l:mffs:projector_modules/collection_module)$(5)Collection Module$() to automatically pick up broken blocks.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Projection",
-   "投射"
+   "Usage",
+   "使用"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "A Force Field Projector destroying a wall using the $(5)Disintegration Module$().",
    "一个力场投射器正使用$(5)分解模块$()摧毁一堵墙。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Projection",
+   "投射"
   ]
  ]
 }

@@ -11,13 +11,6 @@
   ],
   [
    [
-    "powergen"
-   ],
-   "Power Generation",
-   "发电"
-  ],
-  [
-   [
     "augmentations"
    ],
    "Augmentations",
@@ -36,6 +29,13 @@
    ],
    "Machine Cores",
    "机器核心"
+  ],
+  [
+   [
+    "powergen"
+   ],
+   "Power Generation",
+   "发电"
   ],
   [
    [

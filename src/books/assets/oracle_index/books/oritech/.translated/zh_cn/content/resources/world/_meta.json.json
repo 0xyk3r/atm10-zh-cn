@@ -4,10 +4,10 @@
  "t": [
   [
    [
-    "resource_node_redstone.mdx"
+    "deepslate_platinum_ore.mdx"
    ],
-   "Resource Nodes",
-   "资源节点"
+   "Ores & Ore Boulders",
+   "矿石与矿石巨石"
   ],
   [
    [
@@ -18,10 +18,10 @@
   ],
   [
    [
-    "deepslate_platinum_ore.mdx"
+    "resource_node_redstone.mdx"
    ],
-   "Ores & Ore Boulders",
-   "矿石与矿石巨石"
+   "Resource Nodes",
+   "资源节点"
   ],
   [
    [

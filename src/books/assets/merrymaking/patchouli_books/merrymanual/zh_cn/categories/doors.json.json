@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Decorated Doors",
-   "装饰门"
-  ],
-  [
-   [
     "description"
    ],
    "Greet your guests with a festive wreath on your door.",
    "在门上挂上喜庆的花环，热情迎接来访的客人。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Decorated Doors",
+   "装饰门"
   ]
  ]
 }

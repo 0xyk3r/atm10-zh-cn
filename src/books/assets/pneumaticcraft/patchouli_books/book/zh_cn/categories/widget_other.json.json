@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Other Widgets",
-   "其他组件"
-  ],
-  [
-   [
     "description"
    ],
    "Any widgets which don't fit into any of the other categories.",
    "任何不适合归入其他类别的小部件。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Other Widgets",
+   "其他组件"
   ]
  ]
 }

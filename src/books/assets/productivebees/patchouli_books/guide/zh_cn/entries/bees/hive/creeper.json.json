@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "CreeBee",
-   "蜜蜂苦力怕"
+   "Obtained by feeding a block of TNT to a vanilla bee.",
+   "给一只原版蜜蜂喂食一整块 TNT 后获得。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Obtained by feeding a block of TNT to a vanilla bee.",
-   "给一只原版蜜蜂喂食一整块 TNT 后获得。"
+   "CreeBee",
+   "蜜蜂苦力怕"
   ]
  ]
 }

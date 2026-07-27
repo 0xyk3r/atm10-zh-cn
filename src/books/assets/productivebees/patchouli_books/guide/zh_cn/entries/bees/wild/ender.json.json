@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Ender Bee",
-   "末影蜜蜂"
+   "Found living in end stone nests on end islands. Ender Bees prefer pollinating the locally flora of chorus plants.",
+   "栖息在末地岛屿上的末地石蜂巢中。末影蜜蜂更喜欢为当地的紫颂植物授粉。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Found living in end stone nests on end islands. Ender Bees prefer pollinating the locally flora of chorus plants.",
-   "栖息在末地岛屿上的末地石蜂巢中。末影蜜蜂更喜欢为当地的紫颂植物授粉。"
+   "Ender Bee",
+   "末影蜜蜂"
   ]
  ]
 }

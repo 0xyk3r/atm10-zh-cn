@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Components",
-   "组件"
-  ],
-  [
-   [
     "description"
    ],
    "Miscellaneous items used as crafting components.",
    "用于制作其他组件的杂项物品。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Components",
+   "组件"
   ]
  ]
 }

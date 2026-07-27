@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "RFTools Base",
-   "RF工具：基础"
-  ],
-  [
-   [
     "description"
    ],
    "RFTools Base is the base mod for all mods in the RFTools family in addition to Deep Resonance and XNet",
    "RF工具：基础是 RFTools 系列所有模组的基础模组，Deep Resonance 和 XNet 也包括在内"
+  ],
+  [
+   [
+    "name"
+   ],
+   "RFTools Base",
+   "RF工具：基础"
   ]
  ]
 }

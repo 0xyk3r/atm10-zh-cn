@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Field Adjustment",
-   "场调整"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "Adding $(l:mffs:upgrade_modules/scale_module)$(5)Scale Module$()s to item slots marked with a directional arrow further increases the radius of the force field by 1 block per module.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Projection",
-   "投射"
+   "Field Adjustment",
+   "场调整"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "A scaled $(2)Sphere Mode$() field being projected.",
    "一个已缩放的$(2)球体模式$()力场正在被投射。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Projection",
+   "投射"
   ]
  ]
 }

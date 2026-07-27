@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Christmas Trees",
-   "圣诞树"
-  ],
-  [
-   [
     "description"
    ],
    "Chop down a tree and decorate it for the Holidays!",
    "砍下一棵树，为它精心装扮，迎接节日的到来！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Christmas Trees",
+   "圣诞树"
   ]
  ]
 }

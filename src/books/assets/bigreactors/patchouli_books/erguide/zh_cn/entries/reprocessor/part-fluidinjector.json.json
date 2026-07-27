@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Fluid Injector",
-   "流体注入器"
+   "The Fluid Injector allows you to insert the fluids needed to reprocess waste materials into the Reprocessor.$(br2) Different waste types may require different fluids.",
+   "流体注入器允许你向再处理器中注入再处理废料所需的流体。$(br2)不同类型的废料可能需要不同的流体。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Fluid Injector allows you to insert the fluids needed to reprocess waste materials into the Reprocessor.$(br2) Different waste types may require different fluids.",
-   "流体注入器允许你向再处理器中注入再处理废料所需的流体。$(br2)不同类型的废料可能需要不同的流体。"
+   "Fluid Injector",
+   "流体注入器"
   ],
   [
    [

@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Controller",
-   "控制器"
+   "The Controller is your main interface to the Reprocessor.$(br2) Right-click on the Controller to open its graphical user interface. From there, you can turn the Reprocessor on or off, check the amounts of fluids and energy present in the machine, and monitor the status of the current reprocessing job.",
+   "控制器是你与再处理器交互的主要界面。$(br2)右键点击控制器即可打开它的图形用户界面。在那里，你可以开关再处理器、查看机器内的流体和能量存量，以及监控当前再处理任务的状态。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Controller is your main interface to the Reprocessor.$(br2) Right-click on the Controller to open its graphical user interface. From there, you can turn the Reprocessor on or off, check the amounts of fluids and energy present in the machine, and monitor the status of the current reprocessing job.",
-   "控制器是你与再处理器交互的主要界面。$(br2)右键点击控制器即可打开它的图形用户界面。在那里，你可以开关再处理器、查看机器内的流体和能量存量，以及监控当前再处理任务的状态。"
+   "Controller",
+   "控制器"
   ],
   [
    [

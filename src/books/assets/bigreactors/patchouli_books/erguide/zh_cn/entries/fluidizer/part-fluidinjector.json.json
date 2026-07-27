@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Fluid Injector",
-   "流体注入器"
+   "The Fluid Injector allows you to insert existing fluid fuels into the Fluidizer to mix them and create a new fuel.",
+   "流体注入器可以让你将已有的流体燃料注入流化器，对其进行混合并制造出新的燃料。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Fluid Injector allows you to insert existing fluid fuels into the Fluidizer to mix them and create a new fuel.",
-   "流体注入器可以让你将已有的流体燃料注入流化器，对其进行混合并制造出新的燃料。"
+   "Fluid Injector",
+   "流体注入器"
   ],
   [
    [

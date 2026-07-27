@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Insert UI",
-   "输入模式界面"
+   "An item card set to Insert Mode",
+   "设置为输入模式的物品卡。"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "An item card set to Insert Mode",
-   "设置为输入模式的物品卡。"
+   "Insert UI",
+   "输入模式界面"
   ],
   [
    [
@@ -49,19 +49,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "Extract UI",
-   "提取模式界面"
+   "An item card set to Extract Mode.",
+   "设置为提取模式的物品卡。"
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "An item card set to Extract Mode.",
-   "设置为提取模式的物品卡。"
+   "Extract UI",
+   "提取模式界面"
   ],
   [
    [
@@ -76,19 +76,19 @@
    [
     "pages",
     5,
-    "title"
+    "text"
    ],
-   "Stock UI",
-   "存储模式界面"
+   "An item card set to Stock Mode.",
+   "设置为存储模式的物品卡。"
   ],
   [
    [
     "pages",
     5,
-    "text"
+    "title"
    ],
-   "An item card set to Stock Mode.",
-   "设置为存储模式的物品卡。"
+   "Stock UI",
+   "存储模式界面"
   ]
  ]
 }

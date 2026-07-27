@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Laser Node",
-   "激光节点"
+   "Connector between 2 nodes",
+   "连接两个节点的连接器"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "Connector between 2 nodes",
-   "连接两个节点的连接器"
+   "Laser Node",
+   "激光节点"
   ],
   [
    [

@@ -22,7 +22,7 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
    "Tag UI",
    "标签过滤器界面"
@@ -31,7 +31,7 @@
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
    "Tag UI",
    "标签过滤器界面"

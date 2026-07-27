@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "RFTools Utility",
-   "RF工具丨实用设备"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "$(li)$(l:rftoolsutility:machines/environmental)Environmental Controller$() $(li)$(l:rftoolsutility:machines/dialing_device)Dialing Device$() $(li)$(l:rftoolsutility:machines/matter_receiver)Matter Receiver$() $(li)$(l:rftoolsutility:machines/matter_transmitter)Matter Transmitter$() (+Speed) $(li)$(l:rftoolsutility:machines/spawner)Spawner$() $(li)$(l:rftoolsutility:machines/matter_beamer)Matter Beamer$() (+Speed, -Items Needed) $(li)$(l:rftoolsutility:machines/screen_controller)Screen Controller$() (+Range) $(li)$(l:rftoolsutility:machines/crafter)Crafter$()",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "RFTools Storage",
-   "RF工具：存储"
+   "RFTools Utility",
+   "RF工具丨实用设备"
   ],
   [
    [
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "RFTools Power",
-   "RF工具：能量"
+   "RFTools Storage",
+   "RF工具：存储"
   ],
   [
    [
@@ -84,11 +75,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "RFTools Dimensions",
-   "RF工具丨维度"
+   "RFTools Power",
+   "RF工具：能量"
   ],
   [
    [
@@ -102,11 +93,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "RFTools Builder",
-   "RF工具丨建筑机"
+   "RFTools Dimensions",
+   "RF工具丨维度"
   ],
   [
    [
@@ -116,6 +107,15 @@
    ],
    "$(li)$(l:rftoolsbuilder:shield/shield_intro)Shield Projector$() (+Damage) $(li)$(l:rftoolsbuilder:builder/builder_intro)Builder$() (+Speed)",
    "$(li)$(l:rftoolsbuilder:shield/shield_intro)护盾投射仪$()（+伤害） $(li)$(l:rftoolsbuilder:builder/builder_intro)建筑机$()（+速度）"
+  ],
+  [
+   [
+    "pages",
+    6,
+    "title"
+   ],
+   "RFTools Builder",
+   "RF工具丨建筑机"
   ]
  ]
 }

@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Prismarine Bee",
-   "海晶蜜蜂"
+   "Obtained by fishing in an ocean biome.",
+   "通过在海洋生物群系中钓鱼获得。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Obtained by fishing in an ocean biome.",
-   "通过在海洋生物群系中钓鱼获得。"
+   "Prismarine Bee",
+   "海晶蜜蜂"
   ]
  ]
 }

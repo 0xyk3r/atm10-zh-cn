@@ -18,10 +18,24 @@
   ],
   [
    [
+    "collect_ids.sh"
+   ],
+   "Collect Ids",
+   "收集ID"
+  ],
+  [
+   [
     "components"
    ],
    "Components",
    "成分"
+  ],
+  [
+   [
+    "create_dirs.sh"
+   ],
+   "Create Dirs",
+   "创建目录"
   ],
   [
    [
@@ -36,6 +50,13 @@
    ],
    "Generate Meta",
    "生成元数据"
+  ],
+  [
+   [
+    "logistics"
+   ],
+   "Logistics",
+   "物流"
   ],
   [
    [
@@ -60,31 +81,10 @@
   ],
   [
    [
-    "logistics"
-   ],
-   "Logistics",
-   "物流"
-  ],
-  [
-   [
     "resources"
    ],
    "Resources",
    "资源"
-  ],
-  [
-   [
-    "collect_ids.sh"
-   ],
-   "Collect Ids",
-   "收集ID"
-  ],
-  [
-   [
-    "create_dirs.sh"
-   ],
-   "Create Dirs",
-   "创建目录"
   ]
  ]
 }

@@ -49,15 +49,6 @@
    [
     "pages",
     4,
-    "title"
-   ],
-   "Repairing",
-   "修复"
-  ],
-  [
-   [
-    "pages",
-    4,
     "text"
    ],
    "There are a few ways to keep your valuable armor in good condition:$(li)It can be repaired in an $(thing)Anvil/$ with Compressed Iron Ingots$(li)Add $(thing)Item Life Upgrades/$ to each piece to have it repair itself$(li)Apply the $(thing)Mending/$ enchantment to each piece",
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Coloring",
-   "着色"
+   "Repairing",
+   "修复"
   ],
   [
    [
@@ -80,6 +71,15 @@
    ],
    "Every armor piece is dynamically re-colorable from the default grey texture; each piece has a $(thing)primary/$ and $(thing)secondary/$ color which can be adjusted independently, and the Helmet $(thing)eyepiece/$ can also have its own color.$(p)To adjust colors, just use the $(bold)Colors.../$ screen from the main armor GUI screen. No special upgrades are needed for this; it's builtin functionality!",
    "每件护甲都可以从默认的灰色纹理动态重新着色；每个部件都有可独立调整的 $(thing)主/$ 色和 $(thing)副/$ 色，而头盔的 $(thing)目镜/$ 也可以拥有自己的颜色。$(p)要调整颜色，只需在主护甲 GUI 界面中打开 $(bold)颜色……/$ 界面即可。为此不需要任何特殊升级；这是内置功能！"
+  ],
+  [
+   [
+    "pages",
+    5,
+    "title"
+   ],
+   "Coloring",
+   "着色"
   ],
   [
    [
@@ -130,15 +130,6 @@
    [
     "pages",
     11,
-    "title"
-   ],
-   "Mekanism Radiation",
-   "Mekanism辐射"
-  ],
-  [
-   [
-    "pages",
-    11,
     "text"
    ],
    "The $(l:base_concepts/upgrades#radiation_shielding)Radiation Shielding Upgrade/$ provides protection against the harmful effects of Mekanism radiation, same as Mekanism's own $(l:https://wiki.aidancbrady.com/wiki/Radiation_Shielding_Unit)Radiation Shielding Unit/$. Note that you must have a Shielding Upgrade in every armor piece to receive full protection.",
@@ -147,11 +138,11 @@
   [
    [
     "pages",
-    12,
+    11,
     "title"
    ],
-   "Thaumcraft",
-   "神秘时代"
+   "Mekanism Radiation",
+   "Mekanism辐射"
   ],
   [
    [
@@ -161,6 +152,15 @@
    ],
    "$(l:base_concepts/upgrades#thaumcraft)Thaumcraft Upgrades/$ provide the armor piece with the equivalent vis discount of the corresponding $(thing)Thaumaturge's armor/$.  In addition, a Thaumcraft Upgrade installed in the $(l:armor/helmet)Helmet/$ acts as a $(item)Goggles of Revealing/$, showing $(thing)aura nodes/$ and displaying $(thing)aspect/$ amounts in containers.",
    "$(l:base_concepts/upgrades#thaumcraft)神秘时代升级/$可使对应的护甲部件获得与相应$(thing)神秘使套装/$等同的 vis 折扣。此外，安装在$(l:armor/helmet)头盔/$中的神秘时代升级还会像$(item)揭示护目镜/$一样发挥作用，显示$(thing)灵气节点/$，并显示容器中的$(thing)要素/$数量。"
+  ],
+  [
+   [
+    "pages",
+    12,
+    "title"
+   ],
+   "Thaumcraft",
+   "神秘时代"
   ]
  ]
 }

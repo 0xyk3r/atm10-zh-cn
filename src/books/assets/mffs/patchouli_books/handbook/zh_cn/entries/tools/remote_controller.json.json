@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Operation",
-   "操作"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "When activated, the Remote establishes a bidirectional matter stream with the machine it has been set to control. In doing so, a player is not only granted access to all the machine's configurable options, but can add and remove its items as well - like they were standing right beside it. A $(5)Remote Controller$() does not need to be charged; it draws energy directly from a nearby MFFS machine using the same frequency. As such, a Remote cannot function if there is insufficient $(l:mffs:getting_started/fortron)Fortron$() available.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Usage",
-   "使用"
+   "Operation",
+   "操作"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "$(li)Open the GUI of the MFFS machine to be controlled and place the Controller into its frequency slot to set the controller's frequency. $(li)Link the remote to the target machine by shift-right-clicking on it. The controller will display the name and coordinates of the machine it has linked with. $(li)Walk away from the machine and right-click with the remote to access the machine's GUI.",
    "$(li)打开待控制MFFS机器的GUI界面，并将控制器置入其频率插槽，以设定控制器的频率。$(li)按住Shift键右击目标机器，将遥控器与其绑定。控制器将显示所绑定机器的名称与坐标。$(li)远离机器后，手持遥控器右击即可访问该机器的GUI界面。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Usage",
+   "使用"
   ]
  ]
 }

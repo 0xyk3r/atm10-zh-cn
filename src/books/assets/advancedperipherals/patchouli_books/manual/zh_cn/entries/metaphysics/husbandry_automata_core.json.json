@@ -13,15 +13,6 @@
    [
     "pages",
     0,
-    "title"
-   ],
-   "Husbandry automata core",
-   "农牧业自动机核心"
-  ],
-  [
-   [
-    "pages",
-    0,
     "text"
    ],
    "After consuming 3 chickens, 3 cows, 3 sheeps, weak automata core will be transformed to husbandry automata core!$(p)In addition to be more powerful weak automata core variant, seems, this soul also provide abilities to interact with animals!",
@@ -30,11 +21,11 @@
   [
    [
     "pages",
-    1,
-    "text"
+    0,
+    "title"
    ],
-   "In additions to weak automata core abilities, this core also allow to interact with animals and even transfer them inside!$(p)But be aware, any stored animal will be lost after turtle is broken.",
-   "除继承虚弱自动机核心的能力外，该核心还可与动物交互，甚至能将动物收入其中！$(p)但请注意：一旦海龟被破坏，所有已收纳的动物都将丢失。"
+   "Husbandry automata core",
+   "农牧业自动机核心"
   ],
   [
    [
@@ -44,6 +35,15 @@
    ],
    "API documentation",
    "API 文档"
+  ],
+  [
+   [
+    "pages",
+    1,
+    "text"
+   ],
+   "In additions to weak automata core abilities, this core also allow to interact with animals and even transfer them inside!$(p)But be aware, any stored animal will be lost after turtle is broken.",
+   "除继承虚弱自动机核心的能力外，该核心还可与动物交互，甚至能将动物收入其中！$(p)但请注意：一旦海龟被破坏，所有已收纳的动物都将丢失。"
   ]
  ]
 }

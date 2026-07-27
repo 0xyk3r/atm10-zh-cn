@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Fuel Injection Port",
-   "燃料注入端口"
+   "The Fuel Injection Port allow you to insert or extract fluid reactants that will fill your $(l:bigreactors:reactor/part-fuelrod)Fuel Rods$(/l) and power your Reactor.$(br2)In the graphical interface you can set the Port mode: in $(bold)inlet mode$() the Port will accept fluid fuel, in $(bold)outlet mode$() it will output fluid wastes.",
+   "燃料注入端口可以让你插入或提取流体反应物，它们会填充你的$(l:bigreactors:reactor/part-fuelrod)燃料棒$(/l)并为反应堆提供燃料。$(br2)在图形界面中你可以设置端口模式：在$(bold)入口模式$()下，端口会接受流体燃料；在$(bold)出口模式$()下，端口会输出流体废料。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Fuel Injection Port allow you to insert or extract fluid reactants that will fill your $(l:bigreactors:reactor/part-fuelrod)Fuel Rods$(/l) and power your Reactor.$(br2)In the graphical interface you can set the Port mode: in $(bold)inlet mode$() the Port will accept fluid fuel, in $(bold)outlet mode$() it will output fluid wastes.",
-   "燃料注入端口可以让你插入或提取流体反应物，它们会填充你的$(l:bigreactors:reactor/part-fuelrod)燃料棒$(/l)并为反应堆提供燃料。$(br2)在图形界面中你可以设置端口模式：在$(bold)入口模式$()下，端口会接受流体燃料；在$(bold)出口模式$()下，端口会输出流体废料。"
+   "Fuel Injection Port",
+   "燃料注入端口"
   ],
   [
    [

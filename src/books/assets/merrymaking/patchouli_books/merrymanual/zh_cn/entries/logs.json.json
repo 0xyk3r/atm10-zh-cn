@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Fireplace Logs",
-   "壁炉木堆"
+   "Fireplace Logs fit perfectly with Merry Mantels. They have a directional facing and can be lit with a Flint and Steel, or doused with a Bucket of Water. $(br2)Fireplace logs can also be connected to Redstone if desired. $(br2)The recipe for the Fireplace Logs follows:",
+   "壁炉木堆与节日壁炉台完美契合。它具备方向朝向，可用打火石点燃，亦可用一桶水浇灭。$(br2)如需，壁炉木堆还可接入红石信号。$(br2)壁炉木堆的合成配方如下："
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Fireplace Logs fit perfectly with Merry Mantels. They have a directional facing and can be lit with a Flint and Steel, or doused with a Bucket of Water. $(br2)Fireplace logs can also be connected to Redstone if desired. $(br2)The recipe for the Fireplace Logs follows:",
-   "壁炉木堆与节日壁炉台完美契合。它具备方向朝向，可用打火石点燃，亦可用一桶水浇灭。$(br2)如需，壁炉木堆还可接入红石信号。$(br2)壁炉木堆的合成配方如下："
+   "Fireplace Logs",
+   "壁炉木堆"
   ]
  ]
 }

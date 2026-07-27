@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Machines",
-   "机器"
-  ],
-  [
-   [
     "description"
    ],
    "All the machines",
    "所有机器"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Machines",
+   "机器"
   ]
  ]
 }

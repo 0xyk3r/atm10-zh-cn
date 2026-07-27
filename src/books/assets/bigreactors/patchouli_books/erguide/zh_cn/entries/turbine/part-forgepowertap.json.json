@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Forge Energy Power Tap",
-   "Forge能量接口"
+   "The Forge Energy Power Tap allows you to extract energy from a Turbine.$(br2)Like its name implies, this Power Tap outputs energy using the Forge Energy $(l:bigreactors:misc/powersystem)power system$(/l) and so it can be connected only to pipes or machines compatible with that system.",
+   "Forge Energy 能量输出端口允许你从涡轮机中提取能量。$(br2)顾名思义，这个能量输出端口使用 Forge Energy $(l:bigreactors:misc/powersystem)供能系统$(/l)输出能量，因此它只能连接到兼容该系统的管道或机器。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Forge Energy Power Tap allows you to extract energy from a Turbine.$(br2)Like its name implies, this Power Tap outputs energy using the Forge Energy $(l:bigreactors:misc/powersystem)power system$(/l) and so it can be connected only to pipes or machines compatible with that system.",
-   "Forge Energy 能量输出端口允许你从涡轮机中提取能量。$(br2)顾名思义，这个能量输出端口使用 Forge Energy $(l:bigreactors:misc/powersystem)供能系统$(/l)输出能量，因此它只能连接到兼容该系统的管道或机器。"
+   "Forge Energy Power Tap",
+   "Forge能量接口"
   ],
   [
    [

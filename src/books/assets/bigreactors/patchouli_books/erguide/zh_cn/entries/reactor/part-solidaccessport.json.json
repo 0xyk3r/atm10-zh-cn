@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Solid Access Port",
-   "固体访问端口"
+   "The Solid Access Port converts solid materials (usually ingots) into fuel reactants that will fill your $(l:bigreactors:reactor/part-fuelrod)Fuel Rods$(/l) and power your Reactor.$(br2)In the graphical interface you can set the Port mode: in $(bold)inlet mode$() the Port will accept fuel source materials, in $(bold)outlet mode$() it will output waste.",
+   "固体访问端口会将固体材料（通常是锭）转换为燃料反应物，用来填充你的$(l:bigreactors:reactor/part-fuelrod)燃料棒$(/l)并为反应堆供能。$(br2)你可以在图形界面中设置端口模式：在$(bold)入口模式$()下，端口会接收燃料源材料；在$(bold)出口模式$()下，它会输出废料。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Solid Access Port converts solid materials (usually ingots) into fuel reactants that will fill your $(l:bigreactors:reactor/part-fuelrod)Fuel Rods$(/l) and power your Reactor.$(br2)In the graphical interface you can set the Port mode: in $(bold)inlet mode$() the Port will accept fuel source materials, in $(bold)outlet mode$() it will output waste.",
-   "固体访问端口会将固体材料（通常是锭）转换为燃料反应物，用来填充你的$(l:bigreactors:reactor/part-fuelrod)燃料棒$(/l)并为反应堆供能。$(br2)你可以在图形界面中设置端口模式：在$(bold)入口模式$()下，端口会接收燃料源材料；在$(bold)出口模式$()下，它会输出废料。"
+   "Solid Access Port",
+   "固体访问端口"
   ],
   [
    [

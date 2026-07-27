@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Forge Energy Power Tap",
-   "Forge能量接口"
+   "The Forge Energy Power Tap allows you to extract energy from a $(l:bigreactors/passive)passively cooled$(/l) Reactor. This Power Tap outputs energy using the Forge Energy $(l:bigreactors/powersystem)power system$(/l), meaning it can only be connected to pipes or machines that are compatible with that system.",
+   "Forge Energy 能量输出端口允许你从$(l:bigreactors/passive)被动冷却$(/l)反应堆中提取能量。该输出端口使用 Forge Energy $(l:bigreactors/powersystem)供能系统$(/l)输出能量，这意味着它只能连接到兼容该系统的管道或机器。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Forge Energy Power Tap allows you to extract energy from a $(l:bigreactors/passive)passively cooled$(/l) Reactor. This Power Tap outputs energy using the Forge Energy $(l:bigreactors/powersystem)power system$(/l), meaning it can only be connected to pipes or machines that are compatible with that system.",
-   "Forge Energy 能量输出端口允许你从$(l:bigreactors/passive)被动冷却$(/l)反应堆中提取能量。该输出端口使用 Forge Energy $(l:bigreactors/powersystem)供能系统$(/l)输出能量，这意味着它只能连接到兼容该系统的管道或机器。"
+   "Forge Energy Power Tap",
+   "Forge能量接口"
   ],
   [
    [

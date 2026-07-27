@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Collector",
-   "采集器"
+   "The Collector acquire material from the Reprocessor interior once a re-processing job is complete.",
+   "再处理作业完成后，采集器会从再处理器内部获取材料。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Collector acquire material from the Reprocessor interior once a re-processing job is complete.",
-   "再处理作业完成后，采集器会从再处理器内部获取材料。"
+   "Collector",
+   "采集器"
   ],
   [
    [

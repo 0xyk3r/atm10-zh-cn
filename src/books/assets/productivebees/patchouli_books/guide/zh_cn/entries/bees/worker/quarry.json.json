@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Quarry Bee",
-   "采石场蜜蜂"
+   "Nibble on nearby stone, sand or gravel and collects stone chips in its hive. Stone chips can be crafted into its counterpart block.",
+   "会啃食附近的石头、沙子或沙砾，并在自己的蜂巢中收集碎石片。碎石片可以合成为对应的方块。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Nibble on nearby stone, sand or gravel and collects stone chips in its hive. Stone chips can be crafted into its counterpart block.",
-   "会啃食附近的石头、沙子或沙砾，并在自己的蜂巢中收集碎石片。碎石片可以合成为对应的方块。"
+   "Quarry Bee",
+   "采石场蜜蜂"
   ]
  ]
 }

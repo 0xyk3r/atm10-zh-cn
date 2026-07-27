@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Redstone Bee",
-   "红石蜜蜂"
+   "Bred from a $(l:bees/wild/glowing)Glowing Bee$(/l) and an $(l:bees/solitary/chocolate_mining)Chocolate Mining Bee$(/l).",
+   "由一只$(l:bees/wild/glowing)发光蜜蜂$(/l)和一只$(l:bees/solitary/chocolate_mining)巧克力开采蜜蜂$(/l)繁殖而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Bred from a $(l:bees/wild/glowing)Glowing Bee$(/l) and an $(l:bees/solitary/chocolate_mining)Chocolate Mining Bee$(/l).",
-   "由一只$(l:bees/wild/glowing)发光蜜蜂$(/l)和一只$(l:bees/solitary/chocolate_mining)巧克力开采蜜蜂$(/l)繁殖而来。"
+   "Redstone Bee",
+   "红石蜜蜂"
   ]
  ]
 }

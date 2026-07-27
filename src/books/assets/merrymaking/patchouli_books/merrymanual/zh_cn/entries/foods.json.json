@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Placeable Drinks",
-   "可放置饮品"
+   "Hot Cocoa, Peppermint Cocoa, and Eggnog are all placeable as a decoration.$(br2)To pick them up, shift-click. To drink them, use as normal. They will return an empty mug when you are finished drinking.",
+   "热可可、薄荷热可可与蛋奶酒均可作为装饰物放置。$(br2)按住Shift键点击可拾取；正常使用即可饮用；饮尽后将返还一只空杯。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Hot Cocoa, Peppermint Cocoa, and Eggnog are all placeable as a decoration.$(br2)To pick them up, shift-click. To drink them, use as normal. They will return an empty mug when you are finished drinking.",
-   "热可可、薄荷热可可与蛋奶酒均可作为装饰物放置。$(br2)按住Shift键点击可拾取；正常使用即可饮用；饮尽后将返还一只空杯。"
+   "Placeable Drinks",
+   "可放置饮品"
   ],
   [
    [
@@ -40,19 +40,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Drinks",
-   "饮品"
+   "Heat a Mug of Cocoa to make Hot Cocoa.",
+   "加热一杯可可，即可制成热可可。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "Heat a Mug of Cocoa to make Hot Cocoa.",
-   "加热一杯可可，即可制成热可可。"
+   "Drinks",
+   "饮品"
   ],
   [
    [
@@ -85,19 +85,19 @@
    [
     "pages",
     6,
-    "title"
+    "text"
    ],
-   "Ingredient Recipes",
-   "材料配方"
+   "To make Peppermint Extract, use a Bottle of Mint on Water.",
+   "制作胡椒薄荷油，需将薄荷瓶投入水中。"
   ],
   [
    [
     "pages",
     6,
-    "text"
+    "title"
    ],
-   "To make Peppermint Extract, use a Bottle of Mint on Water.",
-   "制作胡椒薄荷油，需将薄荷瓶投入水中。"
+   "Ingredient Recipes",
+   "材料配方"
   ],
   [
    [
@@ -148,15 +148,6 @@
    [
     "pages",
     13,
-    "title"
-   ],
-   "Dinners",
-   "正餐"
-  ],
-  [
-   [
-    "pages",
-    13,
     "text"
    ],
    "The Ham Dinner and Stuffed Poultry Dinner are now consumable decorations. $(br2)Eat them the same way you do a Cake, and when there is nothing left, you can take your Platter back to use for the next serving.",
@@ -165,11 +156,11 @@
   [
    [
     "pages",
-    14,
+    13,
     "title"
    ],
-   "Food Trays",
-   "食物托盘"
+   "Dinners",
+   "正餐"
   ],
   [
    [
@@ -179,6 +170,15 @@
    ],
    "The Cookie Tray and Harvest Tray are now interactable decorations. $(br2)Each time you click on the tray, you will receive the topmost item on the tray. When there are no more items left, you can take it back to use for the next serving.",
    "饼干托盘与丰收托盘现已成为可交互装饰品。$(br2)每次点击托盘，你都将获得其最上方的物品；当所有物品取完后，你可取回托盘，用于下一次盛放。"
+  ],
+  [
+   [
+    "pages",
+    14,
+    "title"
+   ],
+   "Food Trays",
+   "食物托盘"
   ],
   [
    [

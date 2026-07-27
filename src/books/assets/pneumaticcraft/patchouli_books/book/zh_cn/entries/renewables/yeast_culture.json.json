@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Method 1",
-   "方法 1"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "This will be the only method available to you initially. Fill a $(l:manufacturing/thermopneumatic_processing_plant)Thermopneumatic Processing Plant/$ with $(thing)Water/$, and add some mushrooms. This method is a little slow (and will require a good supply of mushrooms), but will easily produce an initial stock of Yeast Culture.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Method 1 (cont.)",
-   "方法 1 (续)"
+   "Method 1",
+   "方法 1"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    2,
     "title"
    ],
-   "Important Note",
-   "重要提示"
+   "Method 1 (cont.)",
+   "方法 1 (续)"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Method 2",
-   "方法 2"
+   "Important Note",
+   "重要提示"
   ],
   [
    [
@@ -93,11 +84,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "Method 2 (cont.)",
-   "方法 2 (续)"
+   "Method 2",
+   "方法 2"
   ],
   [
    [
@@ -107,6 +98,15 @@
    ],
    "It's important to note that the culture will spread when water is placed, not when sugar is added.$(p)This method can be automated with a little thought and design, even early in the game (hint: $(l:machines/omnidirectional_hopper)Omnidirectional/$ and $(l:machines/liquid_hopper)Liquid/$ Hoppers with $(l:base_concepts/upgrades#dispenser)Dispenser Upgrades/$ may be very helpful).",
    "需要注意的是，培养物会在放置水时扩散，而不是在加入糖时扩散。$(p)稍加思考并设计一下，这种方法即使在游戏前期也能实现自动化（提示：$(l:machines/omnidirectional_hopper)全向/$和带有$(l:base_concepts/upgrades#dispenser)发射器升级/$的$(l:machines/liquid_hopper)流体/$漏斗会非常有帮助）。"
+  ],
+  [
+   [
+    "pages",
+    6,
+    "title"
+   ],
+   "Method 2 (cont.)",
+   "方法 2 (续)"
   ]
  ]
 }

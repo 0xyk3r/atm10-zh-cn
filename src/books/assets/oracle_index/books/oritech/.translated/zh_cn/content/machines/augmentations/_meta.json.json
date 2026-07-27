@@ -4,20 +4,6 @@
  "t": [
   [
    [
-    "augment_application_block.mdx"
-   ],
-   "Cybernetic Augmentation Center",
-   "赛博改造中心"
-  ],
-  [
-   [
-    "simple_augment_station.mdx"
-   ],
-   "Basic Research Station",
-   "基础研究站"
-  ],
-  [
-   [
     "advanced_augment_station.mdx"
    ],
    "Quantum Research Station",
@@ -29,6 +15,20 @@
    ],
    "Arcane Research Station",
    "奥术研究站"
+  ],
+  [
+   [
+    "augment_application_block.mdx"
+   ],
+   "Cybernetic Augmentation Center",
+   "赛博改造中心"
+  ],
+  [
+   [
+    "simple_augment_station.mdx"
+   ],
+   "Basic Research Station",
+   "基础研究站"
   ]
  ]
 }

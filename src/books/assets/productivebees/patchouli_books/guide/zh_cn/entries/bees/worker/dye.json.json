@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Dye Bee",
-   "染料蜜蜂"
+   "Produces dye based on the flower it has pollinated.",
+   "根据它授粉过的花朵产出对应的染料。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Produces dye based on the flower it has pollinated.",
-   "根据它授粉过的花朵产出对应的染料。"
+   "Dye Bee",
+   "染料蜜蜂"
   ]
  ]
 }

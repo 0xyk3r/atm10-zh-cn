@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Projection",
-   "投射"
+   "A Force Field Projector projecting a field with $(5)Glow Module$()s installed.",
+   "一个力场投射器正在投射力场，且已安装$(5)发光模块$()。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "A Force Field Projector projecting a field with $(5)Glow Module$()s installed.",
-   "一个力场投射器正在投射力场，且已安装$(5)发光模块$()。"
+   "Projection",
+   "投射"
   ]
  ]
 }

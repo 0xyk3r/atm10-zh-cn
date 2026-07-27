@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Signal Boxes",
-   "信号盒"
-  ],
-  [
-   [
     "description"
    ],
    "Boxes are part of Signalling module. They can be used to operate signals.",
    "盒子属于信号模块，可用于操控信号。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Signal Boxes",
+   "信号盒"
   ]
  ]
 }

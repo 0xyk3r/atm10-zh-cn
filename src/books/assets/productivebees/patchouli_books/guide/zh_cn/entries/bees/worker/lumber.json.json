@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Lumber Bee",
-   "木场蜜蜂"
+   "Nibble on nearby wood and collects it in its hive.",
+   "会啃食附近的木头，并将其收集到自己的蜂巢中。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Nibble on nearby wood and collects it in its hive.",
-   "会啃食附近的木头，并将其收集到自己的蜂巢中。"
+   "Lumber Bee",
+   "木场蜜蜂"
   ]
  ]
 }

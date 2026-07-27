@@ -4,13 +4,6 @@
  "t": [
   [
    [
-    "souls.mdx"
-   ],
-   "Dusze",
-   "灵魂"
-  ],
-  [
-   [
     "enchantments.mdx"
    ],
    "Zaklinanie",
@@ -22,6 +15,13 @@
    ],
    "Pojawianie się Mobów",
    "生物生成"
+  ],
+  [
+   [
+    "souls.mdx"
+   ],
+   "Dusze",
+   "灵魂"
   ]
  ]
 }

@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Operation",
-   "操作"
+   "The space around an $(9)Interdiction Matrix$() is split up into two logical regions: $(bold)Action$() and $(bold)Warning$(). The action region radiates out from the Matrix itself by the same number of blocks as there are $(l:mffs:upgrade_modules/scale_module)$(5)Scale Modules$() installed. By default, the warning region continues from the edge of the action region (as a concentric sphere) by an additional 3 blocks.",
+   "$(9)结界矩阵$()周围的区域分为两个逻辑区域：$(bold)作用$()区域与$(bold)警告$()区域。作用区域从结界矩阵本体向外延伸，延伸距离等于已安装的$(l:mffs:upgrade_modules/scale_module)$(5)尺寸模块$()数量。默认情况下，警告区域从作用区域边缘（呈同心球形）再向外延伸3格。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "The space around an $(9)Interdiction Matrix$() is split up into two logical regions: $(bold)Action$() and $(bold)Warning$(). The action region radiates out from the Matrix itself by the same number of blocks as there are $(l:mffs:upgrade_modules/scale_module)$(5)Scale Modules$() installed. By default, the warning region continues from the edge of the action region (as a concentric sphere) by an additional 3 blocks.",
-   "$(9)结界矩阵$()周围的区域分为两个逻辑区域：$(bold)作用$()区域与$(bold)警告$()区域。作用区域从结界矩阵本体向外延伸，延伸距离等于已安装的$(l:mffs:upgrade_modules/scale_module)$(5)尺寸模块$()数量。默认情况下，警告区域从作用区域边缘（呈同心球形）再向外延伸3格。"
+   "Operation",
+   "操作"
   ],
   [
    [

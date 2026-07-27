@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Items",
-   "物品"
-  ],
-  [
-   [
     "description"
    ],
    "Stuff about the items in this mod",
    "关于这个模组中物品的内容"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Items",
+   "物品"
   ]
  ]
 }

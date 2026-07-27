@@ -22,15 +22,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Applications",
-   "应用"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "The following uses exist for negative (vacuum) pressure:$(li)Disenchanting: place an $(item)enchanted item/$ or $(item)Enchanted Book/$ with more than one enchantment and a vanilla $(item)Book/$ in a $(l:manufacturing/pressure_chamber)Pressure Chamber/$ and give the chamber sufficient negative pressure. A random enchantment will transfer from the item to the book.$(li)The $(l:tubes/air_grate_module)Air Grate Module/$, when given negative pressure, will attract entities to itself.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Applications (cont.)",
-   "应用 (续)"
+   "Applications",
+   "应用"
   ],
   [
    [
@@ -53,6 +44,15 @@
    ],
    "$(li)Both the $(l:spawning/vacuum_trap)Vacuum Trap/$ and $(l:spawning/spawner_extractor)Spawner Extractor/$, devices required for making and using $(l:spawning/pressurized_spawner)Pressurized Spawners/$, need negative pressure to operate.",
    "$(li)$(l:spawning/vacuum_trap)真空陷阱/$和$(l:spawning/spawner_extractor)刷怪笼抽取器/$这两种用于制作和使用$(l:spawning/pressurized_spawner)气动刷怪笼/$所必需的设备，都需要负压才能运行。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Applications (cont.)",
+   "应用 (续)"
   ],
   [
    [

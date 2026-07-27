@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Tools",
-   "工具"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "You can make the $(item)Drone/$  $(l:programming/inventory_import)import/$ a $(item)Hoe/$. When equipped with a Hoe, crops will automatically be replanted (this uses durability from the Hoe).$(p)You can force the $(item)Drone/$ to $(italic)only/$ harvest when carrying a Hoe by checking the $(item)Requires Hoe/$ checkbox in the widget setup GUI; then, if/when the Hoe breaks, the drone can get another one before continuing to harvest.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Limiting Blocks Harvested",
-   "限制采收方块数"
+   "Tools",
+   "工具"
   ],
   [
    [
@@ -53,6 +44,15 @@
    ],
    "The amount of harvest actions can be limited to a specified amount by $(thing)right-clicking/$ the $(thing)Harvest/$ widget.$(p)If set to 1 for example, the $(item)Drone/$ will only harvest one block each time the widget is executed, and move on to the next widget after harvesting that one block.",
    "通过$(thing)右击/$$(thing)收割/$组件，便可将收割动作的次数限制为指定数量。$(p)例如将其设为 1 时，$(item)雄蜂/$每次执行该组件时只会收割一个方块，并在收割完这一个方块后继续执行下一个组件。"
+  ],
+  [
+   [
+    "pages",
+    2,
+    "title"
+   ],
+   "Limiting Blocks Harvested",
+   "限制采收方块数"
   ],
   [
    [

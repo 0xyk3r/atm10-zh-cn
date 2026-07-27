@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Chocolate Mining Bee",
-   "巧克力开采蜜蜂"
+   "[Andrena scotica]",
+   "[苏格兰矿蜂]"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "[Andrena scotica]",
-   "[苏格兰矿蜂]"
+   "Chocolate Mining Bee",
+   "巧克力开采蜜蜂"
   ]
  ]
 }

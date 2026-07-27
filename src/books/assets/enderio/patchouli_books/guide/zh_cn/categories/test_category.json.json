@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Test Category",
-   "测试类别"
-  ],
-  [
-   [
     "description"
    ],
    "This is a test category for testing!",
    "这是一个用于测试的测试分类！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Test Category",
+   "测试类别"
   ]
  ]
 }

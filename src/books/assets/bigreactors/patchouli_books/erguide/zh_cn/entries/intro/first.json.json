@@ -85,19 +85,19 @@
    [
     "pages",
     6,
-    "title"
+    "text"
    ],
-   "Forge Power Tap",
-   "Forge能量抽取端口"
+   "Once you have crafted all the required blocks, you are ready to build your first Reactor.$(br2)Place the blocks in your world using the following diagram, placing the Fuel Rod in the center with a Casing below.",
+   "当你合成好所有必需方块后，就可以开始建造你的第一座反应堆了。$(br2)按照下图将这些方块放置到世界中，把燃料棒放在中央，并在其下方放置一个机壳。"
   ],
   [
    [
     "pages",
     6,
-    "text"
+    "title"
    ],
-   "Once you have crafted all the required blocks, you are ready to build your first Reactor.$(br2)Place the blocks in your world using the following diagram, placing the Fuel Rod in the center with a Casing below.",
-   "当你合成好所有必需方块后，就可以开始建造你的第一座反应堆了。$(br2)按照下图将这些方块放置到世界中，把燃料棒放在中央，并在其下方放置一个机壳。"
+   "Forge Power Tap",
+   "Forge能量抽取端口"
   ],
   [
    [

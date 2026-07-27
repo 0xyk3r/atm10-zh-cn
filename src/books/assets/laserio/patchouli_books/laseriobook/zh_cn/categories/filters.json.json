@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Filters",
-   "过滤器"
-  ],
-  [
-   [
     "description"
    ],
    "Filters allow you to control what is, or is not, allowed to be moved around by cards.",
    "过滤器能让你控制什么可经由物流卡传输，或什么不可传输。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Filters",
+   "过滤器"
   ]
  ]
 }

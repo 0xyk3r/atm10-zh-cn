@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Casing",
-   "外壳"
+   "Casing blocks are the building blocks of the Reactor.$(br2)They are required to build its frame and are also used to craft the other parts. Casing blocks can also be used to fill the faces of the Reactor if you don't like glass too much.$(br2)You will craft a ton of them.",
+   "机壳方块是构成反应堆的基础方块。$(br2)它们是建造其框架的必需部分，也用于合成其他部件。如果你不太喜欢玻璃，也可以用机壳方块填充反应堆的各个面。$(br2)你会合成出一大堆它们。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Casing blocks are the building blocks of the Reactor.$(br2)They are required to build its frame and are also used to craft the other parts. Casing blocks can also be used to fill the faces of the Reactor if you don't like glass too much.$(br2)You will craft a ton of them.",
-   "机壳方块是构成反应堆的基础方块。$(br2)它们是建造其框架的必需部分，也用于合成其他部件。如果你不太喜欢玻璃，也可以用机壳方块填充反应堆的各个面。$(br2)你会合成出一大堆它们。"
+   "Casing",
+   "外壳"
   ],
   [
    [

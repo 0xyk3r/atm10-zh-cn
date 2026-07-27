@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Output Port",
-   "输出端口"
+   "The Output Port allows you to extract the fluid fuel from the Fluidizer.$(br2)You can connect a pipe of any sort to extract the fuel automatically.",
+   "输出端口可以让你从流化器中提取流体燃料。$(br2)你可以连接任意类型的管道来自动提取燃料。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Output Port allows you to extract the fluid fuel from the Fluidizer.$(br2)You can connect a pipe of any sort to extract the fuel automatically.",
-   "输出端口可以让你从流化器中提取流体燃料。$(br2)你可以连接任意类型的管道来自动提取燃料。"
+   "Output Port",
+   "输出端口"
   ],
   [
    [

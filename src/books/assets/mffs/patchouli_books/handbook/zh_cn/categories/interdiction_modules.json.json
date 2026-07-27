@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Interdiction Modules",
-   "阻扰模块"
-  ],
-  [
-   [
     "description"
    ],
    "Available upgrade modules for your Interdiction Matrix.",
    "适用于结界矩阵的升级模块。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Interdiction Modules",
+   "阻扰模块"
   ]
  ]
 }

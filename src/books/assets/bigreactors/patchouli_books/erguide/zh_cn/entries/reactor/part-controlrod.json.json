@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Control Rod",
-   "控制杆"
+   "Control Rods can be inserted into their respective $(l:bigreactors/part-fuelrod)Fuel Rods$(/l) pile and are made of a material that can absorb neutron radiation, which would otherwise hit the reactants stored in the $(l:bigreactors/part-fuelrod)Fuel Rods$(/l), thereby slowing down or stopping the consumption of fuel and the generation of heat and waste.",
+   "控制棒可以插入其对应的$(l:bigreactors/part-fuelrod)燃料棒$(/l)柱中，并由一种能够吸收中子辐射的材料制成。否则，这些辐射会击中储存在$(l:bigreactors/part-fuelrod)燃料棒$(/l)中的反应物，从而减缓或阻止燃料消耗、热量产生以及废料生成。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Control Rods can be inserted into their respective $(l:bigreactors/part-fuelrod)Fuel Rods$(/l) pile and are made of a material that can absorb neutron radiation, which would otherwise hit the reactants stored in the $(l:bigreactors/part-fuelrod)Fuel Rods$(/l), thereby slowing down or stopping the consumption of fuel and the generation of heat and waste.",
-   "控制棒可以插入其对应的$(l:bigreactors/part-fuelrod)燃料棒$(/l)柱中，并由一种能够吸收中子辐射的材料制成。否则，这些辐射会击中储存在$(l:bigreactors/part-fuelrod)燃料棒$(/l)中的反应物，从而减缓或阻止燃料消耗、热量产生以及废料生成。"
+   "Control Rod",
+   "控制杆"
   ],
   [
    [

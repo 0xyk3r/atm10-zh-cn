@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Other stuff",
-   "杂项内容"
-  ],
-  [
-   [
     "description"
    ],
    "This section contains topics that don't quite fit into other categories.",
    "本节包含一些不太适合归入其他分类的主题。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Other stuff",
+   "杂项内容"
   ]
  ]
 }

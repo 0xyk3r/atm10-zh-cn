@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Fireplaces",
-   "地炉"
-  ],
-  [
-   [
     "description"
    ],
    "Special Mantels and Fireplace logs create cozy, beautiful fireplaces.",
    "特制壁炉台与地炉木堆，助你打造温馨又美观的地炉。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Fireplaces",
+   "地炉"
   ]
  ]
 }

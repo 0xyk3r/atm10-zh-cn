@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Power Generation",
-   "发电"
-  ],
-  [
-   [
     "description"
    ],
    "Machines that can generate power.",
    "能够产生能量的机器。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Power Generation",
+   "发电"
   ]
  ]
 }

@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Controller",
-   "控制器"
+   "The Controller is your main interface to the Turbine.$(br2)Right-click on the Controller to open its graphical user interface. From there, you can turn the Turbine on or off, check how much vapor and coolant are present in the internal tanks, see how fast the $(l:bigreactors/rotor)Rotor$(/l) is spinning, and monitor how much energy is being generated.",
+   "控制器是你与涡轮机交互的主要界面。$(br2)右键点击控制器即可打开它的图形用户界面。在那里，你可以开关涡轮机、查看内部储罐中蒸汽和冷却液的存量、查看$(l:bigreactors/rotor)转子$(/l)的转速，以及监控当前产生的能量。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Controller is your main interface to the Turbine.$(br2)Right-click on the Controller to open its graphical user interface. From there, you can turn the Turbine on or off, check how much vapor and coolant are present in the internal tanks, see how fast the $(l:bigreactors/rotor)Rotor$(/l) is spinning, and monitor how much energy is being generated.",
-   "控制器是你与涡轮机交互的主要界面。$(br2)右键点击控制器即可打开它的图形用户界面。在那里，你可以开关涡轮机、查看内部储罐中蒸汽和冷却液的存量、查看$(l:bigreactors/rotor)转子$(/l)的转速，以及监控当前产生的能量。"
+   "Controller",
+   "控制器"
   ],
   [
    [

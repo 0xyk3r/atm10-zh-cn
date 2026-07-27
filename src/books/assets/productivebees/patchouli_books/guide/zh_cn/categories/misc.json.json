@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Misc",
-   "杂项"
-  ],
-  [
-   [
     "description"
    ],
    "Items added by this mod",
    "该模组添加的物品"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Misc",
+   "杂项"
   ]
  ]
 }

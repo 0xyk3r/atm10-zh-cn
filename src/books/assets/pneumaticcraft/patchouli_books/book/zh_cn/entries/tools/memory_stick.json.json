@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Curios",
-   "饰品"
+   "With the $(thing)Curios/$ mod installed, you can store the Memory Stick in any Curios slot, to save on inventory space. This is particularly useful with XP auto-absorption switched on.",
+   "安装了 $(thing)饰品/$ 模组后，你可以将 U盘 存放在任意饰品栏槽位中，以节省容器空间。开启 XP 自动吸收后，这会特别有用。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "With the $(thing)Curios/$ mod installed, you can store the Memory Stick in any Curios slot, to save on inventory space. This is particularly useful with XP auto-absorption switched on.",
-   "安装了 $(thing)饰品/$ 模组后，你可以将 U盘 存放在任意饰品栏槽位中，以节省容器空间。开启 XP 自动吸收后，这会特别有用。"
+   "Curios",
+   "饰品"
   ],
   [
    [

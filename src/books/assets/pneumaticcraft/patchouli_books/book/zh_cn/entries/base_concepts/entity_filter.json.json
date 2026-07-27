@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Examples",
-   "示例"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "$(li)$(#800)@player/$ matches all players$(li)$(#800)@mob/$ matches all aggressive creatures$(li)$(#800)@animal/$ matches all passive creatures (animals)$(li)$(#800)@animal(age=adult)/$ matches all adult animals$(li)$(#800)@animal(age=baby)/$ matches all baby animals$(li)$(#800)@animal(breedable=yes)/$ matches all animals that can breed right now$(li)$(#800)sheep(shearable=yes)/$ matches all sheep which can be sheared",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Examples (cont.)",
-   "示例 (续)"
+   "Examples",
+   "示例"
   ],
   [
    [
@@ -66,7 +57,7 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
    "Examples (cont.)",
@@ -80,6 +71,15 @@
    ],
    "$(li)$(#800)@drone/$ matches $(l:tools/drone)Drones/$$(li)$(#800)@mob(mod=minecraft)/$ matches mobs, but only from the $(thing)minecraft/$ namespace$(li)$(#800)Creeper/$ matches creepers$(li)$(#800)'MineMaarten'/$ (or $(#800)\"Minemaarten\"/$) matches an entity named 'MineMaarten'$(li)$(#800)c*/$ matches any entity starting with the letter 'c' (like Creepers, or Cows). $(li)$(#800)*pig*/$ matches any entity that includes 'pig' in the name (like a Pig or Zombie Pigman).",
    "$(li)$(#800)@drone/$ 匹配 $(l:tools/drone)无人机/$$(li)$(#800)@mob(mod=minecraft)/$ 匹配生物，但仅限于 $(thing)minecraft/$ 命名空间中的生物$(li)$(#800)Creeper/$ 匹配苦力怕$(li)$(#800)'MineMaarten'/$（或 $(#800)\"Minemaarten\"/$）匹配名为“MineMaarten”的实体$(li)$(#800)c*/$ 匹配所有名称以字母“c”开头的实体（如苦力怕或牛）。$(li)$(#800)*pig*/$ 匹配所有名称中包含“pig”的实体（如猪或僵尸猪灵）。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Examples (cont.)",
+   "示例 (续)"
   ],
   [
    [

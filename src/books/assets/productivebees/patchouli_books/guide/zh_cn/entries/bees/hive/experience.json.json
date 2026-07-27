@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Experience Bee",
-   "经验蜜蜂"
+   "Bred from an $(l:bees/hive/emerald)Emerald Bee$(/l) and a $(l:bees/hive/lapis)Lapis Bee$(/l).",
+   "由一只$(l:bees/hive/emerald)绿宝石蜜蜂$(/l)和一只$(l:bees/hive/lapis)青金石蜜蜂$(/l)繁殖而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Bred from an $(l:bees/hive/emerald)Emerald Bee$(/l) and a $(l:bees/hive/lapis)Lapis Bee$(/l).",
-   "由一只$(l:bees/hive/emerald)绿宝石蜜蜂$(/l)和一只$(l:bees/hive/lapis)青金石蜜蜂$(/l)繁殖而来。"
+   "Experience Bee",
+   "经验蜜蜂"
   ]
  ]
 }

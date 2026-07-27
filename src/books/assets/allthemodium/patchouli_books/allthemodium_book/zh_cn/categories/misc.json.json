@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Miscellaneous",
-   "杂项"
-  ],
-  [
-   [
     "description"
    ],
    "Miscellaneous items that don't have enough info for one specific category",
    "没有足够信息单独归类的杂项物品"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Miscellaneous",
+   "杂项"
   ]
  ]
 }

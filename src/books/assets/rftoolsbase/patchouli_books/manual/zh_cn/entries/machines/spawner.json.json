@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Syringes",
-   "注射器"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "Use a syringe on the same mob type until it is fully injected, then place it in the spawner. The tooltip shows the stored mob and injection level.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Materials",
-   "材料"
+   "Syringes",
+   "注射器"
   ],
   [
    [
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Efficiency",
-   "效率"
+   "Materials",
+   "材料"
   ],
   [
    [
@@ -80,6 +71,15 @@
    ],
    "Supply enough FE and keep the beamers stocked. $(5)Infusing$() the spawner improves efficiency, while infusing beamers improves how fast and cheaply they deliver items.",
    "确保供应充足FE并维持投影仪库存充足。$(5)注魔$()生物生成器可提升效率；注魔投影仪则可加快投送速度并降低投送成本。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Efficiency",
+   "效率"
   ]
  ]
 }

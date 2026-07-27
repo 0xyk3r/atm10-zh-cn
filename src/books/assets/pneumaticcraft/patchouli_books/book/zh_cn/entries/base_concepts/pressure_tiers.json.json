@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Gauge Pressure",
-   "压力表"
+   "Note that $(thing)bar/$ as used by $(pncr) represents the pressure $(bold)above/$ normal atmospheric pressure, so 0 bar is unpressurized air, and -1 bar is a vacuum. This is also known as $(thing)Gauge Pressure/$.",
+   "请注意，$(pncr) 所使用的 $(thing)bar/$ 表示的是高于正常大气压的 $(bold)压力/$，因此 0 bar 表示未加压空气，-1 bar 表示真空。这也称为 $(thing)表压/$。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "Note that $(thing)bar/$ as used by $(pncr) represents the pressure $(bold)above/$ normal atmospheric pressure, so 0 bar is unpressurized air, and -1 bar is a vacuum. This is also known as $(thing)Gauge Pressure/$.",
-   "请注意，$(pncr) 所使用的 $(thing)bar/$ 表示的是高于正常大气压的 $(bold)压力/$，因此 0 bar 表示未加压空气，-1 bar 表示真空。这也称为 $(thing)表压/$。"
+   "Gauge Pressure",
+   "压力表"
   ]
  ]
 }

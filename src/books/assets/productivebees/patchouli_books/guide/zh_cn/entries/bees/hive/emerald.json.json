@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Emerald Bee",
-   "绿宝石蜜蜂"
+   "Bred from an $(l:bees/wild/slimy)Slimy Bee$(/l) and a $(l:bees/hive/diamond)Diamond Bee$(/l).",
+   "由一只$(l:bees/wild/slimy)史莱姆蜜蜂$(/l)和一只$(l:bees/hive/diamond)钻石蜜蜂$(/l)繁殖而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Bred from an $(l:bees/wild/slimy)Slimy Bee$(/l) and a $(l:bees/hive/diamond)Diamond Bee$(/l).",
-   "由一只$(l:bees/wild/slimy)史莱姆蜜蜂$(/l)和一只$(l:bees/hive/diamond)钻石蜜蜂$(/l)繁殖而来。"
+   "Emerald Bee",
+   "绿宝石蜜蜂"
   ]
  ]
 }

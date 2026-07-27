@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Controller",
-   "控制器"
+   "The Controller is your main interface to the Energizer.$(br2)Right-click on the Controller to open its graphical user interface, and from there, you can turn the Energizer on or off, check how much energy is present in the machine, and see how it flows in and out of it.",
+   "控制器是你操作充能器的主要界面。$(br2)右键点击控制器即可打开它的图形界面，你可以在其中开启或关闭充能器、查看机器中存有多少能量，以及观察能量如何流入和流出。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Controller is your main interface to the Energizer.$(br2)Right-click on the Controller to open its graphical user interface, and from there, you can turn the Energizer on or off, check how much energy is present in the machine, and see how it flows in and out of it.",
-   "控制器是你操作充能器的主要界面。$(br2)右键点击控制器即可打开它的图形界面，你可以在其中开启或关闭充能器、查看机器中存有多少能量，以及观察能量如何流入和流出。"
+   "Controller",
+   "控制器"
   ],
   [
    [

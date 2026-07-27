@@ -133,6 +133,10 @@ def load(rel):
 
 
 def dump(rel, doc):
+    # 条目按 JSON 路径排序：重跑提取必须逐字节幂等，否则每次都出一堆纯顺序的假 diff
+    if 't' in doc:
+        doc['t'] = sorted(doc['t'], key=lambda e: [(1, str(x)) if isinstance(x, str)
+                                                   else (0, '%09d' % x) for x in e[0]])
     p = BOOKS / (rel + '.json')
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')

@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Lamp Post",
-   "灯柱"
-  ],
-  [
-   [
     "description"
    ],
    "What better way to light your path than an old-fashioned lamp post?",
    "还有什么比一盏复古灯柱更能照亮你的前路呢？"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Lamp Post",
+   "灯柱"
   ]
  ]
 }

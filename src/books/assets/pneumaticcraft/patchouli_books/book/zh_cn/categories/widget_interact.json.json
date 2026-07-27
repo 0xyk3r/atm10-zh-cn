@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "World Interaction Widgets",
-   "世界交互组件"
-  ],
-  [
-   [
     "description"
    ],
    "Widgets that interact with the world in some way.",
    "以某种方式与世界交互的小部件。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "World Interaction Widgets",
+   "世界交互组件"
   ]
  ]
 }

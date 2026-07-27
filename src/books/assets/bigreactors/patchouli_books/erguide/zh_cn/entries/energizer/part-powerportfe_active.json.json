@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Active FE Power Port",
-   "FE能量端口（主动）"
+   "The Active FE Power Port allows you to insert and extract energy from the Energizer.$(br2)Any Forge Energy-compatible cable or machine can be connected to the Active FE Power Port. The port will automatically transfer energy to the connected block if it supports it.",
+   "主动 FE 能量端口可以让你向充能器输入和从中提取能量。$(br2)任何兼容 Forge 能量的线缆或机器都可以连接到主动 FE 能量端口。如果连接的方块支持，端口会自动向其传输能量。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Active FE Power Port allows you to insert and extract energy from the Energizer.$(br2)Any Forge Energy-compatible cable or machine can be connected to the Active FE Power Port. The port will automatically transfer energy to the connected block if it supports it.",
-   "主动 FE 能量端口可以让你向充能器输入和从中提取能量。$(br2)任何兼容 Forge 能量的线缆或机器都可以连接到主动 FE 能量端口。如果连接的方块支持，端口会自动向其传输能量。"
+   "Active FE Power Port",
+   "FE能量端口（主动）"
   ],
   [
    [

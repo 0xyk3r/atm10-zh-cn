@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Hostile Mobs",
-   "敌对生物"
-  ],
-  [
-   [
     "description"
    ],
    "Be aware of these mobs, because they might attack you!",
    "请留意这些生物，因为它们可能会主动攻击你！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Hostile Mobs",
+   "敌对生物"
   ]
  ]
 }

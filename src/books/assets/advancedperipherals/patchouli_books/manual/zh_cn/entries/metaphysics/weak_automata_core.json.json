@@ -13,15 +13,6 @@
    [
     "pages",
     0,
-    "title"
-   ],
-   "Weak automata core",
-   "虚弱自动机核心"
-  ],
-  [
-   [
-    "pages",
-    0,
     "text"
    ],
    "The Weak Automata core is turtle upgrade, that allow to transform turtle into powerful automata!",
@@ -30,11 +21,11 @@
   [
    [
     "pages",
-    2,
-    "text"
+    0,
+    "title"
    ],
-   "It provides several ability for turtles.$(li)Digging block with tool;$(li)Click on block with item or empty hand;$(li)Suck item around, all or specific;$(li)Detect items around;$(li)Detect block or turtle in line of view;$(li)Charge turtle with RF item inside inventory",
-   "它为海龟提供多项能力：$(li)使用工具挖掘方块；$(li)手持物品或空手点击方块；$(li)吸取周围物品（全部或特定种类）；$(li)探测周围物品；$(li)探测视线范围内的方块或海龟；$(li)利用物品栏内的RF物品为海龟充能"
+   "Weak automata core",
+   "虚弱自动机核心"
   ],
   [
    [
@@ -44,6 +35,15 @@
    ],
    "API documentation",
    "API 文档"
+  ],
+  [
+   [
+    "pages",
+    2,
+    "text"
+   ],
+   "It provides several ability for turtles.$(li)Digging block with tool;$(li)Click on block with item or empty hand;$(li)Suck item around, all or specific;$(li)Detect items around;$(li)Detect block or turtle in line of view;$(li)Charge turtle with RF item inside inventory",
+   "它为海龟提供多项能力：$(li)使用工具挖掘方块；$(li)手持物品或空手点击方块；$(li)吸取周围物品（全部或特定种类）；$(li)探测周围物品；$(li)探测视线范围内的方块或海龟；$(li)利用物品栏内的RF物品为海龟充能"
   ],
   [
    [

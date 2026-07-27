@@ -4,11 +4,11 @@
  "t": [
   [
    [
-    "user_guide.mdx",
+    "developer",
     "name"
    ],
-   "📗 User Guide",
-   "📗 用户指南"
+   "⌨ Mod Dev Guide",
+   "⌨ 模组开发指南"
   ],
   [
    [
@@ -20,11 +20,11 @@
   ],
   [
    [
-    "developer",
+    "user_guide.mdx",
     "name"
    ],
-   "⌨ Mod Dev Guide",
-   "⌨ 模组开发指南"
+   "📗 User Guide",
+   "📗 用户指南"
   ]
  ]
 }

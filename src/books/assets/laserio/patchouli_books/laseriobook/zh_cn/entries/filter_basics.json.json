@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Filter UI",
-   "过滤器界面"
+   "Basic Filter UI",
+   "基础过滤器界面"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "Basic Filter UI",
-   "基础过滤器界面"
+   "Filter UI",
+   "过滤器界面"
   ],
   [
    [

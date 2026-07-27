@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Placement",
-   "放置"
+   "The Vacuum Module is an $(thing)inline/$ module. Place it on the end of the tube which should be the vacuum side. Providing a minimum of 2 bar pressure to the wide/green end of the tube will cause the module to spin, removing air from any tubes past the narrow/red end.$(p)Applying a $(#f00)redstone signal/$ prevents the module running.",
+   "虚空模块是一种$(thing)内联式/$模块。请将它放在应作为真空侧的那一端管道上。向管道较宽的绿色一端提供至少 2 bar 的压力后，模块就会开始旋转，并从较窄的红色一端之后的所有管道中抽走空气。$(p)施加 $(#f00)红石信号/$ 会阻止该模块运行。"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "The Vacuum Module is an $(thing)inline/$ module. Place it on the end of the tube which should be the vacuum side. Providing a minimum of 2 bar pressure to the wide/green end of the tube will cause the module to spin, removing air from any tubes past the narrow/red end.$(p)Applying a $(#f00)redstone signal/$ prevents the module running.",
-   "虚空模块是一种$(thing)内联式/$模块。请将它放在应作为真空侧的那一端管道上。向管道较宽的绿色一端提供至少 2 bar 的压力后，模块就会开始旋转，并从较窄的红色一端之后的所有管道中抽走空气。$(p)施加 $(#f00)红石信号/$ 会阻止该模块运行。"
+   "Placement",
+   "放置"
   ],
   [
    [

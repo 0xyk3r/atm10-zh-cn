@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Filtering Entities",
-   "实体过滤"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "You can specify which creatures may be attacked by using $(l:programming/text)Text/$ widgets as an $(l:base_concepts/entity_filter)Entity Filter/$. E.g. if you want the $(thing)Drone/$ to attack all players, connect a $(thing)Text/$ widget to the $(italic)right/$ of the $(thing)Entity Attack/$ widget containing $(#600)@player/$.$(p)If you don't want to be attacked yourself, connect up a $(thing)Text/$ widget on the $(italic)left/$ containing your player name.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Melee Attacks",
-   "近身攻击"
+   "Filtering Entities",
+   "实体过滤"
   ],
   [
    [
@@ -53,6 +44,15 @@
    ],
    "$(l:tools/drone)Drones/$ will equip and use any melee weapon in their inventory to attack. If a $(thing)Drone/$ has multiple weapons in its inventory, it will equip the most damaging one. $(p)You can use an $(l:programming/inventory_import)Inventory Import/$ widget to provide the Drone with a weapon, which is strongly recommended - its unarmed melee attack is weak.",
    "$(l:tools/drone)无人机/$ 会装备并使用其物品栏中的任意近战武器进行攻击。如果一台 $(thing)无人机/$ 的物品栏里有多把武器，它会装备伤害最高的那一把。$(p)你可以使用 $(l:programming/inventory_import)物品导入/$ 组件给无人机提供武器，强烈建议这样做——它空手近战时的攻击力很弱。"
+  ],
+  [
+   [
+    "pages",
+    2,
+    "title"
+   ],
+   "Melee Attacks",
+   "近身攻击"
   ],
   [
    [

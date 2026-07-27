@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Upgrading",
-   "升级"
+   "Many features (spin-up speed, range, potion proc chance...) of the $(item)Minigun/$ are upgradable in a $(l:machines/charging_station)Charging Station/$.$(p)Full documentation on each upgrade and its effects is available in the Charging Station's upgrade GUI.",
+   "$(item)速射机枪/$的许多特性（预热速度、射程、药水触发几率等）都可以在$(l:machines/charging_station)充能站/$中升级。$(p)有关每种升级及其效果的完整说明，可在充能站的升级 GUI 中查看。"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "Many features (spin-up speed, range, potion proc chance...) of the $(item)Minigun/$ are upgradable in a $(l:machines/charging_station)Charging Station/$.$(p)Full documentation on each upgrade and its effects is available in the Charging Station's upgrade GUI.",
-   "$(item)速射机枪/$的许多特性（预热速度、射程、药水触发几率等）都可以在$(l:machines/charging_station)充能站/$中升级。$(p)有关每种升级及其效果的完整说明，可在充能站的升级 GUI 中查看。"
+   "Upgrading",
+   "升级"
   ],
   [
    [

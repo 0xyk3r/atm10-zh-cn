@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Neutral Mobs",
-   "中立生物"
-  ],
-  [
-   [
     "description"
    ],
    "These mobs will only defend themselves, if you attack them first!",
    "这些生物仅会在你率先攻击它们时进行自卫！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Neutral Mobs",
+   "中立生物"
   ]
  ]
 }

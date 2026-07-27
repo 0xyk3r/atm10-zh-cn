@@ -22,15 +22,6 @@
    [
     "pages",
     1,
-    "title"
-   ],
-   "Right-click",
-   "右击"
-  ],
-  [
-   [
-    "pages",
-    1,
     "text"
    ],
    "This mode performs a right-click with the item in the router's buffer, just as if a player had done so. The logic used is the same as for player clicks, e.g. right-clicking a $(item)Flint and Steel/$ on a door will open the door, not start a fire.$(p)The targeted block (if any) depends on the router's facing, module direction, and also the Look Above/Below/Level module setting.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    2,
+    1,
     "title"
    ],
-   "Right-click Entity",
-   "右击实体"
+   "Right-click",
+   "右击"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Attack Entity",
-   "攻击实体"
+   "Right-click Entity",
+   "右击实体"
   ],
   [
    [
@@ -71,6 +62,15 @@
    ],
    "This mode performs a left-click with the item in the router's buffer on a nearby $(thing)entity/$, attacking it. This mode costs $(l:upgrades/energy)Forge Energy/$ by default, unlike other modules.$(p)Note: while $(l:upgrades/speed)Speed Upgrades/$ can be useful here, weapon cooldowns do apply, so excessive Speed Upgrades will just end up wasting energy and weapon durability.",
    "该模式会使用路由器缓冲区中的物品，对附近的$(thing)实体/$执行左键攻击。与其他模块不同，这个模式默认会消耗$(l:upgrades/energy)Forge能量/$。$(p)注意：虽然$(l:upgrades/speed)速度升级/$在这里可能有用，但武器冷却依然生效，所以安装过多速度升级只会白白浪费能量和武器耐久。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Attack Entity",
+   "攻击实体"
   ],
   [
    [

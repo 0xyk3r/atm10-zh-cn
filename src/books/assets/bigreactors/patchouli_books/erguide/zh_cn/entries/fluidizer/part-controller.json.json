@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Controller",
-   "控制器"
+   "The Controller is your main interface to the Fluidizer.$(br2)Right-click on the Controller to open its graphical user interface, and from there, you can turn the Fluidizer on or off, check how much fluid and energy are present in the machine, and view the status of the current job.",
+   "控制器是你操作流化器的主要界面。$(br2)右键点击控制器即可打开它的图形界面，你可以在其中开启或关闭流化器、查看机器中存有多少流体和能量，以及当前作业的状态。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Controller is your main interface to the Fluidizer.$(br2)Right-click on the Controller to open its graphical user interface, and from there, you can turn the Fluidizer on or off, check how much fluid and energy are present in the machine, and view the status of the current job.",
-   "控制器是你操作流化器的主要界面。$(br2)右键点击控制器即可打开它的图形界面，你可以在其中开启或关闭流化器、查看机器中存有多少流体和能量，以及当前作业的状态。"
+   "Controller",
+   "控制器"
   ],
   [
    [

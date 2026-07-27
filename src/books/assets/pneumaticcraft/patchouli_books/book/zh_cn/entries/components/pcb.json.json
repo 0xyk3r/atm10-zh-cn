@@ -22,15 +22,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Method #1",
-   "方法 #1"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "This method is the only one available initially, and is somewhat slow without extra automation and heating infrastructure: you can develop a $(item)PCB/$ chemically by putting it in a $(l:manufacturing/uv_light_box)UV Light Box/$ and then putting the exposed $(item)Empty PCB/$ in an $(l:manufacturing/etching_tank)Etching Tank/$ to turn it into an $(item)Unassembled PCB/$.",
@@ -39,11 +30,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Recycling Failed PCB's",
-   "回收失败的电路板"
+   "Method #1",
+   "方法 #1"
   ],
   [
    [
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Method #2",
-   "方法 #2"
+   "Recycling Failed PCB's",
+   "回收失败的电路板"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Method #2 (cont)",
-   "方法 #2 (续)"
+   "Method #2",
+   "方法 #2"
   ],
   [
    [
@@ -89,6 +80,15 @@
    ],
    "$(p)The Assembly System is a very convenient and reasonably quick option for producing $(item)Unassembled PCB's/$; however with sufficient automation and heating infrastructure, the $(thing)UV Light Box/Etching Tank/$ combo can be much quicker, especially if you need to mass-produce PCB's.",
    "$(p)装配系统是生产 $(item)未组装的印刷电路板/$ 的一种非常方便且速度相当不错的选择；不过如果拥有足够的自动化与加热基础设施，$(thing)紫外线灯箱/蚀刻槽/$ 的组合会快得多，尤其是在你需要批量生产印刷电路板时。"
+  ],
+  [
+   [
+    "pages",
+    5,
+    "title"
+   ],
+   "Method #2 (cont)",
+   "方法 #2 (续)"
   ],
   [
    [

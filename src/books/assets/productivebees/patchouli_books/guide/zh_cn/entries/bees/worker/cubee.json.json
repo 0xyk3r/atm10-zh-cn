@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "CuBee",
-   "丘比特蜜蜂"
+   "The pheromones secreted from this bee gets animals in the mood.",
+   "这种蜜蜂分泌的信息素会让动物进入繁殖状态。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The pheromones secreted from this bee gets animals in the mood.",
-   "这种蜜蜂分泌的信息素会让动物进入繁殖状态。"
+   "CuBee",
+   "丘比特蜜蜂"
   ]
  ]
 }

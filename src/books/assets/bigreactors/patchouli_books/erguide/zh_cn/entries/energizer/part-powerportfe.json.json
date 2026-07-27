@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Passive FE Power Port",
-   "FE能量端口（被动）"
+   "The Passive FE Power Port allows you to insert and extract energy from the Energizer.$(br2)Any Forge Energy-compatible cable or machine can be connected to the Passive FE Power Port. The connected block must extract or insert energy on its own.",
+   "被动 FE 能量端口可以让你向充能器输入和从中提取能量。$(br2)任何兼容 Forge 能量的线缆或机器都可以连接到被动 FE 能量端口。连接的方块必须自行提取或输入能量。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Passive FE Power Port allows you to insert and extract energy from the Energizer.$(br2)Any Forge Energy-compatible cable or machine can be connected to the Passive FE Power Port. The connected block must extract or insert energy on its own.",
-   "被动 FE 能量端口可以让你向充能器输入和从中提取能量。$(br2)任何兼容 Forge 能量的线缆或机器都可以连接到被动 FE 能量端口。连接的方块必须自行提取或输入能量。"
+   "Passive FE Power Port",
+   "FE能量端口（被动）"
   ],
   [
    [

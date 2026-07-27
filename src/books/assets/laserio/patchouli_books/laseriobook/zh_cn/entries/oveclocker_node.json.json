@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "No Node Overclockers",
-   "无节点超频器"
+   "There are zero Node Overclockers installed",
+   "未装有节点超频器"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "There are zero Node Overclockers installed",
-   "未装有节点超频器"
+   "No Node Overclockers",
+   "无节点超频器"
   ],
   [
    [
@@ -49,19 +49,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "2 Node Overclockers",
-   "2个节点超频器"
+   "There are two Node Overclockers installed",
+   "装有两个节点超频器"
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "There are two Node Overclockers installed",
-   "装有两个节点超频器"
+   "2 Node Overclockers",
+   "2个节点超频器"
   ],
   [
    [

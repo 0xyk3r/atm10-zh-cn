@@ -40,15 +40,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Active Provider Frame",
-   "主动供应框架"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "The $(item)Active Provider Frame/$ provides items/fluids to $(l:logistics/frames#requester)Requester Frames/$, $(l:logistics/frames#storage)Storage Frames/$ and $(l:logistics/frames#default_storage)Default Storage Frames/$.",
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Passive Provider Frame",
-   "被动供应框架"
+   "Active Provider Frame",
+   "主动供应框架"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Storage Frame",
-   "存储器外壳"
+   "Passive Provider Frame",
+   "被动供应框架"
   ],
   [
    [
@@ -93,11 +84,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "Default Storage Frame",
-   "默认存储器外壳"
+   "Storage Frame",
+   "存储器外壳"
   ],
   [
    [
@@ -111,11 +102,11 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
-   "Requester Frame",
-   "物流请求框架"
+   "Default Storage Frame",
+   "默认存储器外壳"
   ],
   [
    [
@@ -125,6 +116,15 @@
    ],
    "$(item)Requester Frames/$ can request items/fluids from any other framed inventory. For these frames, use the configuration GUI to tell the frame how much of each item or fluid to try to keep $(thing)stocked/$.",
    "$(item)请求框架/$可以从任何其他带框架的容器中请求物品/流体。对于这些框架，使用配置GUI来设置框架应尽量让每种物品或流体保持$(thing)库存充足/$的数量。"
+  ],
+  [
+   [
+    "pages",
+    7,
+    "title"
+   ],
+   "Requester Frame",
+   "物流请求框架"
   ]
  ]
 }

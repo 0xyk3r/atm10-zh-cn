@@ -40,19 +40,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "Operating Modes",
-   "工作模式"
+   "The $(thing)Pneumatic Door/$ operates in one of three modes, selectable via the door base GUI:$(li)$(thing)Player Nearby/$: the door will open when a player is in range.$(li)$(thing)Nearby and Looking/$: the door will open when a player is nearby $(italic)and/$ looking at the door$(li)$(thing)Wooden Door/$: the door behaves like a vanilla $(item)Wooden Door/$.",
+   "$(thing)气动门/$有三种运行模式，可通过门底座的 GUI 进行选择：$(li)$(thing)玩家临近/$：当玩家进入范围内时，门会打开。$(li)$(thing)玩家附近并且看向它/$：当玩家在附近$(italic)并且/$看着这扇门时，门会打开。$(li)$(thing)木门/$：这扇门的行为与原版的 $(item)木门/$ 相同。"
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "The $(thing)Pneumatic Door/$ operates in one of three modes, selectable via the door base GUI:$(li)$(thing)Player Nearby/$: the door will open when a player is in range.$(li)$(thing)Nearby and Looking/$: the door will open when a player is nearby $(italic)and/$ looking at the door$(li)$(thing)Wooden Door/$: the door behaves like a vanilla $(item)Wooden Door/$.",
-   "$(thing)气动门/$有三种运行模式，可通过门底座的 GUI 进行选择：$(li)$(thing)玩家临近/$：当玩家进入范围内时，门会打开。$(li)$(thing)玩家附近并且看向它/$：当玩家在附近$(italic)并且/$看着这扇门时，门会打开。$(li)$(thing)木门/$：这扇门的行为与原版的 $(item)木门/$ 相同。"
+   "Operating Modes",
+   "工作模式"
   ]
  ]
 }

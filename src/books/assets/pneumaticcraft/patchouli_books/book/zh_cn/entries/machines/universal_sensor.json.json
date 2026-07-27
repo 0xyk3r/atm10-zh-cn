@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Upgrades",
-   "升级"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "You will need to insert an $(l:base_concepts/upgrades#entity_tracker)Entity Tracker/$, $(l:base_concepts/upgrades#dispenser)Dispenser/$, or $(l:base_concepts/upgrades#block_tracker)Block Tracker/$ plus $(l:tools/gps_tool)GPS Tool/$ to allow selection of the corresponding category of sensors. E.g. counting the number of entities within range requires an $(item)Entity Tracker Upgrade/$ to be installed.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Example: Entity Counting",
-   "示例：实体计数"
+   "Upgrades",
+   "升级"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "Say you have a pen full of animals and want to kill some, but only if there are enough.$(p)Add an $(l:base_concepts/upgrades#entity_tracker)Entity Tracker Upgrade/$ and enough $(l:base_concepts/upgrades#range)Range Upgrades/$ to cover the pen's size.$(p)Now, in the GUI, select the $(thing)Entity/$ button, followed by $(thing)Within Range/$, and finally enter an $(l:base_concepts/entity_filter)entity filter/$ matching your animal type (e.g. 'cow').",
    "假设你有一个装满动物的围栏，想要杀掉其中一些，但前提是数量必须足够多。$(p)添加一个 $(l:base_concepts/upgrades#entity_tracker)实体追踪升级/$，并加入足够的 $(l:base_concepts/upgrades#range)范围升级/$ 以覆盖整个围栏的大小。$(p)然后在 GUI 中，先选择 $(thing)实体/$ 按钮，再选择 $(thing)范围内/$，最后输入一个与动物类型匹配的 $(l:base_concepts/entity_filter)实体过滤器/$（例如“cow”）。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Example: Entity Counting",
+   "示例：实体计数"
   ],
   [
    [

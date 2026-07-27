@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Casing",
-   "外壳"
+   "Casing blocks are the building blocks of the Energizer.$(br2)They are required to build its frame and faces, and are also used to craft the other parts.",
+   "机壳方块是构成充能器的基础方块。$(br2)它们既是建造其框架和各个面的必需部分，也用于合成其他部件。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Casing blocks are the building blocks of the Energizer.$(br2)They are required to build its frame and faces, and are also used to craft the other parts.",
-   "机壳方块是构成充能器的基础方块。$(br2)它们既是建造其框架和各个面的必需部分，也用于合成其他部件。"
+   "Casing",
+   "外壳"
   ],
   [
    [

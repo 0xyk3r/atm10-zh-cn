@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Solid Injector",
-   "固体注入器"
+   "The Solid Injector allows you to insert existing solid fuel sources (like ingots) into the Fluidizer to convert them to fluid or mix them to create a new fuel.",
+   "固体注入器可以让你将已有的固体燃料来源（如锭）注入流化器，将其转换为流体，或将它们混合以制造出新的燃料。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Solid Injector allows you to insert existing solid fuel sources (like ingots) into the Fluidizer to convert them to fluid or mix them to create a new fuel.",
-   "固体注入器可以让你将已有的固体燃料来源（如锭）注入流化器，将其转换为流体，或将它们混合以制造出新的燃料。"
+   "Solid Injector",
+   "固体注入器"
   ],
   [
    [

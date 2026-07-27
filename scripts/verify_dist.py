@@ -29,15 +29,19 @@ import sys
 import zipfile
 
 # 客户端包的下限（实测值见注释）
+# 下限一律取实测值的九成上下：留出上游增删的正常波动，但拦得住「整块没了」。
+# 2026-07-27 清掉底本带来的死重后重新校准（那 236 个 lang 对应的模组
+# 在 7.0/7.1/7.2 三版 jar 里都不存在，永远加载不到）：
+#   lang 598 → 362 个文件、21.2 万 → 17.7 万键；导览书 1709 → 1683 个
 CLIENT_MIN = {
-    'lang_files':   500,    # 实测 604 个 lang/*.json
-    'lang_keys': 150000,    # 实测 21 万余条
+    'lang_files':   330,    # 实测 362 个 lang/*.json
+    'lang_keys': 160000,    # 实测 17.7 万条
     'banners':      190,    # 实测 200 张
     'buttons':       14,    # 14 张主菜单按钮
-    'vp_modules':   140,    # 151 个 VaultPatcher 模块
+    'vp_modules':   140,    # 152 个 VaultPatcher 模块
     'quest_delta':   30,    # 34 个任务书 delta
     'gui_files':     20,    # 24 个 RFTools .gui
-    'book_files':  1500,    # 实测 1700 余个导览书文件（patchouli / ae2guide / oracle-index）
+    'book_files':  1500,    # 实测 1683 个导览书文件（patchouli / ae2guide / oracle-index）
 }
 SERVER_MIN = {
     'vp_modules':    10,

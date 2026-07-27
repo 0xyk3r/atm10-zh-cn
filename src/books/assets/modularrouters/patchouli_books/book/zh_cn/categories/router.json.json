@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Modular Router",
-   "模块化路由器"
-  ],
-  [
-   [
     "description"
    ],
    "The Modular Router is the only block in the $(modr) mod.",
    "模块化路由器是 $(modr) 模组中唯一的方块。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Modular Router",
+   "模块化路由器"
   ]
  ]
 }

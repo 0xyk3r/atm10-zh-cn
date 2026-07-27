@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Flow Control Widgets",
-   "流程控制组件"
+   "$(li)The $(l:programming/label)Label/$ widget acts a point in the program to be jumped to.$(li)The $(l:programming/jump)Jump/$ widget triggers an immediate, unconditional, jump to a matching $(thing)Label/$ widget.$(li)$(l:programming/conditions)Condition/$ widgets can trigger a jump, based on the condition they're testing.$(li)The advanced $(l:programming/for_each_item)For Each Item/$ and $(l:programming/for_each_coordinate)For Each Coordinate/$ widgets repeatedly jump to a $(thing)Label/$, for their list of inputs.",
+   "$(li)$(l:programming/label)标签/$组件的作用是作为程序中可跳转到的目标点。$(li)$(l:programming/jump)跳跃/$组件会立即无条件地跳转到与之匹配的$(thing)标签/$组件。$(li)$(l:programming/conditions)条件/$组件也可以根据其所测试的条件来触发跳转。$(li)高级的$(l:programming/for_each_item)对于每个物品/$和$(l:programming/for_each_coordinate)对于每个坐标/$组件会针对其输入列表反复跳转到某个$(thing)标签/$。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "$(li)The $(l:programming/label)Label/$ widget acts a point in the program to be jumped to.$(li)The $(l:programming/jump)Jump/$ widget triggers an immediate, unconditional, jump to a matching $(thing)Label/$ widget.$(li)$(l:programming/conditions)Condition/$ widgets can trigger a jump, based on the condition they're testing.$(li)The advanced $(l:programming/for_each_item)For Each Item/$ and $(l:programming/for_each_coordinate)For Each Coordinate/$ widgets repeatedly jump to a $(thing)Label/$, for their list of inputs.",
-   "$(li)$(l:programming/label)标签/$组件的作用是作为程序中可跳转到的目标点。$(li)$(l:programming/jump)跳跃/$组件会立即无条件地跳转到与之匹配的$(thing)标签/$组件。$(li)$(l:programming/conditions)条件/$组件也可以根据其所测试的条件来触发跳转。$(li)高级的$(l:programming/for_each_item)对于每个物品/$和$(l:programming/for_each_coordinate)对于每个坐标/$组件会针对其输入列表反复跳转到某个$(thing)标签/$。"
+   "Flow Control Widgets",
+   "流程控制组件"
   ],
   [
    [

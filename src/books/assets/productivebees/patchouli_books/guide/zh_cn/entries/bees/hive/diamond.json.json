@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Diamond Bee",
-   "钻石蜜蜂"
+   "Bred from an $(l:bees/wild/ender)Ender Bee$(/l) and a $(l:bees/hive/lapis)Lapis Bee$(/l).",
+   "由一只$(l:bees/wild/ender)末影蜜蜂$(/l)和一只$(l:bees/hive/lapis)青金石蜜蜂$(/l)繁殖而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Bred from an $(l:bees/wild/ender)Ender Bee$(/l) and a $(l:bees/hive/lapis)Lapis Bee$(/l).",
-   "由一只$(l:bees/wild/ender)末影蜜蜂$(/l)和一只$(l:bees/hive/lapis)青金石蜜蜂$(/l)繁殖而来。"
+   "Diamond Bee",
+   "钻石蜜蜂"
   ]
  ]
 }

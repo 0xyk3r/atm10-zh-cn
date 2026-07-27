@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Water Generator",
-   "水发电机"
+   "The Water Generator is a creative-only part that acts as a constant source of water for an $(l:bigreactors/active)actively cooled$(/l) Reactor.$(br2)This part automatically supplies one bucket of water to the Coolant Fluid Tank, but only when the Reactor is turned on.",
+   "水发生器是一个仅限创造模式使用的部件，可为$(l:bigreactors/active)主动冷却$(/l)反应堆提供持续不断的水源。$(br2)该部件会自动向冷却液流体储罐补充一桶水，但仅在反应堆开启时生效。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Water Generator is a creative-only part that acts as a constant source of water for an $(l:bigreactors/active)actively cooled$(/l) Reactor.$(br2)This part automatically supplies one bucket of water to the Coolant Fluid Tank, but only when the Reactor is turned on.",
-   "水发生器是一个仅限创造模式使用的部件，可为$(l:bigreactors/active)主动冷却$(/l)反应堆提供持续不断的水源。$(br2)该部件会自动向冷却液流体储罐补充一桶水，但仅在反应堆开启时生效。"
+   "Water Generator",
+   "水发电机"
   ],
   [
    [

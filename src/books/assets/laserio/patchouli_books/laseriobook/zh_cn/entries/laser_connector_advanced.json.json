@@ -22,19 +22,19 @@
    [
     "pages",
     1,
-    "title"
+    "text"
    ],
-   "Adv. Connector",
-   "高级激光连接器"
+   "Two Advanced Connectors linked to each other",
+   "两个互相连接的高级连接器"
   ],
   [
    [
     "pages",
     1,
-    "text"
+    "title"
    ],
-   "Two Advanced Connectors linked to each other",
-   "两个互相连接的高级连接器"
+   "Adv. Connector",
+   "高级激光连接器"
   ],
   [
    [
@@ -49,19 +49,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "Partner Coordindates",
-   "相连坐标"
+   "Showing the coordinates of the partner connector",
+   "显示相连的高级连接器的坐标"
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "Showing the coordinates of the partner connector",
-   "显示相连的高级连接器的坐标"
+   "Partner Coordindates",
+   "相连坐标"
   ],
   [
    [

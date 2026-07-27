@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Chunkloading Methods",
-   "区块加载方法"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "$(li)Vanilla has a $(thing)/forceload/$ command to force one or more chunks to remain always loaded, but this does require op privileges to use$(li)Many mods offer player-usable chunkloading solutions, e.g. $(thing)FTB Chunks/$, $(thing)Chicken Chunks/$, $(thing)Weirding Gadgets/$ and more.$(li)The $(l:programming/programmable_controller)Programmable Controller/$ from this mod offers some limited chunkloading functionality too.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Chunkloading Safety",
-   "区块加载安全性"
+   "Chunkloading Methods",
+   "区块加载方法"
   ],
   [
    [
@@ -66,11 +57,11 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
-   "Chunkloading Safety (cont)",
-   "区块加载安全（续）"
+   "Chunkloading Safety",
+   "区块加载安全性"
   ],
   [
    [
@@ -80,6 +71,15 @@
    ],
    "$(li)$(thing)Keep multiblocks within a single chunk if possible./$ Even when all relevant chunks are chunkloaded, it's not ideal to have multiblocks like the $(l:manufacturing/pressure_chamber)Pressure Chamber/$ span two or more chunks.",
    "$(li)$(thing)如果可以，尽量让多方块结构保持在同一个区块内。/$即使所有相关区块都已被区块加载，像 $(l:manufacturing/pressure_chamber)压力室/$ 这样的多方块结构跨越两个或更多区块也并不理想。"
+  ],
+  [
+   [
+    "pages",
+    4,
+    "title"
+   ],
+   "Chunkloading Safety (cont)",
+   "区块加载安全（续）"
   ]
  ]
 }

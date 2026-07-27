@@ -31,19 +31,19 @@
    [
     "pages",
     2,
-    "title"
+    "text"
    ],
-   "Mode Tab",
-   "模式标签页"
+   "The Gas Lift can be switched to one of 3 modes:$(li)$(#00f)Pump and allow empty tank/$ extrudes Drill Pipes, pumping fluids when it encounters them.$(li)$(#00f)Pump and leave fluid in filter/$ does the same as above, but will always keep 1000mB of fluid in the tank. This is useful when pumping for a certain fluid, to make sure no other fluid will be pumped.",
+   "气举可以切换为以下 3 种模式之一：$(li)$(#00f)抽取并允许储罐为空/$ 会伸出气举钻管，并在遇到流体时进行抽取。$(li)$(#00f)抽取并在过滤器中保留流体/$ 的行为与上面相同，但会始终在储罐中保留 1000mB 的流体。当你想抽取某种特定流体时，这很有用，因为可以确保不会抽到其他流体。"
   ],
   [
    [
     "pages",
     2,
-    "text"
+    "title"
    ],
-   "The Gas Lift can be switched to one of 3 modes:$(li)$(#00f)Pump and allow empty tank/$ extrudes Drill Pipes, pumping fluids when it encounters them.$(li)$(#00f)Pump and leave fluid in filter/$ does the same as above, but will always keep 1000mB of fluid in the tank. This is useful when pumping for a certain fluid, to make sure no other fluid will be pumped.",
-   "气举可以切换为以下 3 种模式之一：$(li)$(#00f)抽取并允许储罐为空/$ 会伸出气举钻管，并在遇到流体时进行抽取。$(li)$(#00f)抽取并在过滤器中保留流体/$ 的行为与上面相同，但会始终在储罐中保留 1000mB 的流体。当你想抽取某种特定流体时，这很有用，因为可以确保不会抽到其他流体。"
+   "Mode Tab",
+   "模式标签页"
   ],
   [
    [

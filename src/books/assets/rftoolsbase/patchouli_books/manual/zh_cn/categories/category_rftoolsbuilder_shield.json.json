@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Shield Projector",
-   "护盾投射仪"
-  ],
-  [
-   [
     "description"
    ],
    "The Shield Projector can protect areas as well as kill mobs",
    "护盾投射仪既能保护区域，也能击杀生物"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Shield Projector",
+   "护盾投射仪"
   ]
  ]
 }

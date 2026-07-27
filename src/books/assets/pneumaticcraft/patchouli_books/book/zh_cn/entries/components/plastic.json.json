@@ -22,15 +22,6 @@
    [
     "pages",
     3,
-    "title"
-   ],
-   "Plastic Sheet",
-   "塑料板"
-  ],
-  [
-   [
-    "pages",
-    3,
     "text"
    ],
    "$(item)Molten Plastic/$ can be solidified simply by pouring it into the world; it will turn into a $(item)Plastic Sheet/$ within half a second or so. This is very easily automated with a $(l:machines/liquid_hopper)Liquid Hopper/$ with a $(l:base_concepts/upgrades#dispenser)Dispenser Upgrade/$, and an $(l:machines/omnidirectional_hopper)Omnidirectional Hopper/$.",
@@ -39,7 +30,7 @@
   [
    [
     "pages",
-    4,
+    3,
     "title"
    ],
    "Plastic Sheet",
@@ -57,11 +48,11 @@
   [
    [
     "pages",
-    5,
+    4,
     "title"
    ],
-   "Improving Yields",
-   "提升产量"
+   "Plastic Sheet",
+   "塑料板"
   ],
   [
    [
@@ -75,11 +66,11 @@
   [
    [
     "pages",
-    6,
+    5,
     "title"
    ],
-   "A Note on Tanks",
-   "关于储罐的说明"
+   "Improving Yields",
+   "提升产量"
   ],
   [
    [
@@ -93,11 +84,11 @@
   [
    [
     "pages",
-    7,
+    6,
     "title"
    ],
-   "Plastic Construction Brick™",
-   "塑料砖块™"
+   "A Note on Tanks",
+   "关于储罐的说明"
   ],
   [
    [
@@ -111,11 +102,11 @@
   [
    [
     "pages",
-    8,
+    7,
     "title"
    ],
-   "Smooth Plastic Construction Brick™",
-   "平整塑料砖块™"
+   "Plastic Construction Brick™",
+   "塑料砖块™"
   ],
   [
    [
@@ -125,6 +116,15 @@
    ],
    "The smooth version of the $(item)Plastic Construction Brick/$ is also suitable for building with.$(p)These bricks also have the advantage of making excellent flooring, since they will increase your walk speed!",
    "$(item)塑料建筑砖/$ 的光滑版本同样适合用于建筑。$(p)这些砖块还有个优点，就是作为地板非常出色，因为它们会提高你的行走速度！"
+  ],
+  [
+   [
+    "pages",
+    8,
+    "title"
+   ],
+   "Smooth Plastic Construction Brick™",
+   "平整塑料砖块™"
   ],
   [
    [

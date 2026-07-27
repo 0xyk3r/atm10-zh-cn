@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Passive Mobs",
-   "被动生物"
-  ],
-  [
-   [
     "description"
    ],
    "These mobs will never hurt anyone!",
    "这些生物永远不会伤害任何人！"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Passive Mobs",
+   "被动生物"
   ]
  ]
 }

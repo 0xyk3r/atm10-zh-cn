@@ -4,10 +4,10 @@
  "t": [
   [
    [
-    "world"
+    "adamant_ingot.mdx"
    ],
-   "World Generation",
-   "世界生成"
+   "Adamant",
+   "精金"
   ],
   [
    [
@@ -18,45 +18,10 @@
   ],
   [
    [
-    "silicon.mdx"
+    "biosteel_ingot.mdx"
    ],
-   "Silicon",
-   "硅"
-  ],
-  [
-   [
-    "plastic_sheet.mdx"
-   ],
-   "Plastic",
-   "塑料"
-  ],
-  [
-   [
-    "steel_ingot.mdx"
-   ],
-   "Steel",
-   "钢铁"
-  ],
-  [
-   [
-    "nickel_ingot.mdx"
-   ],
-   "Nickel",
-   "镍"
-  ],
-  [
-   [
-    "electrum_ingot.mdx"
-   ],
-   "Electrum",
-   "琥珀金"
-  ],
-  [
-   [
-    "platinum_ingot.mdx"
-   ],
-   "Platinum",
-   "铂金矿石"
+   "Biosteel",
+   "有机钢"
   ],
   [
    [
@@ -67,17 +32,10 @@
   ],
   [
    [
-    "adamant_ingot.mdx"
+    "electrum_ingot.mdx"
    ],
-   "Adamant",
-   "精金"
-  ],
-  [
-   [
-    "biosteel_ingot.mdx"
-   ],
-   "Biosteel",
-   "有机钢"
+   "Electrum",
+   "琥珀金"
   ],
   [
    [
@@ -95,10 +53,52 @@
   ],
   [
    [
+    "nickel_ingot.mdx"
+   ],
+   "Nickel",
+   "镍"
+  ],
+  [
+   [
+    "plastic_sheet.mdx"
+   ],
+   "Plastic",
+   "塑料"
+  ],
+  [
+   [
+    "platinum_ingot.mdx"
+   ],
+   "Platinum",
+   "铂金矿石"
+  ],
+  [
+   [
     "prometheum_ingot.mdx"
    ],
    "Prometheum",
    "钷"
+  ],
+  [
+   [
+    "silicon.mdx"
+   ],
+   "Silicon",
+   "硅"
+  ],
+  [
+   [
+    "steel_ingot.mdx"
+   ],
+   "Steel",
+   "钢铁"
+  ],
+  [
+   [
+    "world"
+   ],
+   "World Generation",
+   "世界生成"
   ]
  ]
 }

@@ -4,17 +4,17 @@
  "t": [
   [
    [
-    "name"
-   ],
-   "Drone Programming",
-   "无人机编程"
-  ],
-  [
-   [
     "description"
    ],
    "All about $(l:tools/drone)Drone/$ programming, with some tutorials and a reference guide to the many programming widgets.",
    "关于$(l:tools/drone)无人机/$编程的全部内容，包括一些教程，以及涵盖众多编程组件的参考指南。"
+  ],
+  [
+   [
+    "name"
+   ],
+   "Drone Programming",
+   "无人机编程"
   ]
  ]
 }

@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Iron Bee",
-   "铁蜜蜂"
+   "Bred from a $(l:bees/wild/crystalline)Crystalline Bee$(/l) and an $(l:bees/solitary/ashy_mining)Ashy Mining Bee$(/l).",
+   "由一只$(l:bees/wild/crystalline)石英蜜蜂$(/l)和一只$(l:bees/solitary/ashy_mining)灰烬开采蜜蜂$(/l)繁殖而来。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Bred from a $(l:bees/wild/crystalline)Crystalline Bee$(/l) and an $(l:bees/solitary/ashy_mining)Ashy Mining Bee$(/l).",
-   "由一只$(l:bees/wild/crystalline)石英蜜蜂$(/l)和一只$(l:bees/solitary/ashy_mining)灰烬开采蜜蜂$(/l)繁殖而来。"
+   "Iron Bee",
+   "铁蜜蜂"
   ]
  ]
 }

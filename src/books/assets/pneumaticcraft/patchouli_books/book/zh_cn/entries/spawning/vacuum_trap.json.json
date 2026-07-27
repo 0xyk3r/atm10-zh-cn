@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Restrictions",
-   "限制"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "The Vacuum Trap will never capture:$(li)Players$(li)Drones$(li)Boss mobs (Wither, Ender Dragon...)$(li)Tamed animals$(li)Any mob spawned by a vanilla Spawner$(p)In addition, you can blacklist mobs by adding their entity ID (e.g. $(thing)minecraft:zombie/$) to the $(thing)pneumaticcraft:vacuum_trap_blacklisted/$ entity type tag.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Memory Essence",
-   "记忆源质"
+   "Restrictions",
+   "限制"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "If the Vacuum Trap's tank contains at least 100mB of $(l:base_concepts/memory_essence)Memory Essence/$, mob absorption efficiency will be greatly increased; instead of contributing 1% to the installed $(thing)Spawner Core/$'s essence, a captured mob will contribute 2 - 4%, i.e. instead of needing to capture 100 mobs to fill a core, you will only need to capture 25-50 mobs. 100mB of Memory Essence will be used each time a mob is captured.",
    "如果真空陷阱的储罐中至少含有 100mB 的 $(l:base_concepts/memory_essence)记忆源质/$，吸收生物的效率将大幅提升；被捕获的生物将不再只为已安装的 $(thing)刷怪笼核心/$ 提供 1% 的源质，而是会提供 2 - 4%。也就是说，原本需要捕获 100 只生物才能充满一个核心，现在只需捕获 25-50 只。每次捕获生物时都会消耗 100mB 的记忆源质。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Memory Essence",
+   "记忆源质"
   ],
   [
    [

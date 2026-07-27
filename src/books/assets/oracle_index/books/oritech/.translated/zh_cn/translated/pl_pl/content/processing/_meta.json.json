@@ -4,20 +4,6 @@
  "t": [
   [
    [
-    "machine_basics.mdx"
-   ],
-   "Podstawy Maszyn",
-   "机器基础"
-  ],
-  [
-   [
-    "multiblocks.mdx"
-   ],
-   "Multibloki",
-   "多方块"
-  ],
-  [
-   [
     "addons.mdx"
    ],
    "Dodatki",
@@ -25,17 +11,17 @@
   ],
   [
    [
-    "pulverizer.mdx"
-   ],
-   "Młynek",
-   "研磨机"
-  ],
-  [
-   [
     "assembler.mdx"
    ],
    "Assember",
    "汇编执行器"
+  ],
+  [
+   [
+    "atomic_forge.mdx"
+   ],
+   "Kuźnia Atomowa",
+   "原子锻炉"
   ],
   [
    [
@@ -60,17 +46,31 @@
   ],
   [
    [
-    "atomic_forge.mdx"
-   ],
-   "Kuźnia Atomowa",
-   "原子锻炉"
-  ],
-  [
-   [
     "generators.mdx"
    ],
    "Generatory",
    "发电机"
+  ],
+  [
+   [
+    "machine_basics.mdx"
+   ],
+   "Podstawy Maszyn",
+   "机器基础"
+  ],
+  [
+   [
+    "multiblocks.mdx"
+   ],
+   "Multibloki",
+   "多方块"
+  ],
+  [
+   [
+    "pulverizer.mdx"
+   ],
+   "Młynek",
+   "研磨机"
   ],
   [
    [

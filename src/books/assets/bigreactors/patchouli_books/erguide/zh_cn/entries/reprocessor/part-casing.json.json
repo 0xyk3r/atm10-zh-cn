@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Casing",
-   "外壳"
+   "Casing blocks are the fundamental building blocks of the Reprocessor.$(br2)They are essential for constructing its frame and are also used to craft the other parts. Additionally, casing blocks can be used to fill the faces of the Reprocessor if you prefer not to use glass.",
+   "机壳方块是再处理器最基础的构建方块。$(br2)它们是搭建框架所必需的，也用于合成其他部件。此外，如果你不想使用玻璃，也可以用机壳方块填充再处理器的各个面。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "Casing blocks are the fundamental building blocks of the Reprocessor.$(br2)They are essential for constructing its frame and are also used to craft the other parts. Additionally, casing blocks can be used to fill the faces of the Reprocessor if you prefer not to use glass.",
-   "机壳方块是再处理器最基础的构建方块。$(br2)它们是搭建框架所必需的，也用于合成其他部件。此外，如果你不想使用玻璃，也可以用机壳方块填充再处理器的各个面。"
+   "Casing",
+   "外壳"
   ],
   [
    [

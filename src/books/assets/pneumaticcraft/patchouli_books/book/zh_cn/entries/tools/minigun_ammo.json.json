@@ -85,19 +85,19 @@
    [
     "pages",
     8,
-    "title"
+    "text"
    ],
-   "Potion-Tipped Ammo",
-   "涂有药水的弹药"
+   "You can craft standard minigun ammo with any $(item)Potion/$, and that ammo no longer does physical damage, but has a chance to apply that potion effect to your target.$(p)$(thing)Splash/$ and $(thing)Lingering/$ potions can also be used; they have the expected area effect, but ammo is consumed 3 times as quickly when tipped with splash potions, and 6 times as quickly with lingering potions!",
+   "你可以用任意$(item)药水/$来合成标准加特林机枪弹药，这种弹药将不再造成物理伤害，而是有一定几率对目标施加该药水效果。$(p)$(thing)喷溅型药水/$和$(thing)滞留型药水/$也可以使用；它们会产生预期的范围效果，但使用喷溅型药水作为弹头时，弹药消耗速度会变为 3 倍，而使用滞留型药水时则会变为 6 倍！"
   ],
   [
    [
     "pages",
     8,
-    "text"
+    "title"
    ],
-   "You can craft standard minigun ammo with any $(item)Potion/$, and that ammo no longer does physical damage, but has a chance to apply that potion effect to your target.$(p)$(thing)Splash/$ and $(thing)Lingering/$ potions can also be used; they have the expected area effect, but ammo is consumed 3 times as quickly when tipped with splash potions, and 6 times as quickly with lingering potions!",
-   "你可以用任意$(item)药水/$来合成标准加特林机枪弹药，这种弹药将不再造成物理伤害，而是有一定几率对目标施加该药水效果。$(p)$(thing)喷溅型药水/$和$(thing)滞留型药水/$也可以使用；它们会产生预期的范围效果，但使用喷溅型药水作为弹头时，弹药消耗速度会变为 3 倍，而使用滞留型药水时则会变为 6 倍！"
+   "Potion-Tipped Ammo",
+   "涂有药水的弹药"
   ]
  ]
 }

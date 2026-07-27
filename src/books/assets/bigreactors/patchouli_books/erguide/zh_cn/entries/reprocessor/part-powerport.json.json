@@ -13,19 +13,19 @@
    [
     "pages",
     0,
-    "title"
+    "text"
    ],
-   "Power Port",
-   "能量端口"
+   "The Power Port allows you to provide the energy needed to power the Reprocessor.$(br2)Any Forge Energy-compatible cable or generator can be connected to the Power Port.",
+   "能量端口允许你为再处理器提供运行所需的能量。$(br2)任何兼容 Forge Energy 的电缆或发电机都可以连接到能量端口。"
   ],
   [
    [
     "pages",
     0,
-    "text"
+    "title"
    ],
-   "The Power Port allows you to provide the energy needed to power the Reprocessor.$(br2)Any Forge Energy-compatible cable or generator can be connected to the Power Port.",
-   "能量端口允许你为再处理器提供运行所需的能量。$(br2)任何兼容 Forge Energy 的电缆或发电机都可以连接到能量端口。"
+   "Power Port",
+   "能量端口"
   ],
   [
    [

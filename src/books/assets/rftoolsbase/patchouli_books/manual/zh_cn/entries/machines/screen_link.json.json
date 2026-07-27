@@ -31,15 +31,6 @@
    [
     "pages",
     2,
-    "title"
-   ],
-   "Linking",
-   "连接"
-  ],
-  [
-   [
-    "pages",
-    2,
     "text"
    ],
    "Right-click a Screen with the Screen Link to store it. Right-clicking a non-screen block clears the stored target.",
@@ -48,11 +39,11 @@
   [
    [
     "pages",
-    3,
+    2,
     "title"
    ],
-   "Tablet",
-   "碑"
+   "Linking",
+   "连接"
   ],
   [
    [
@@ -62,6 +53,15 @@
    ],
    "Put the link in a Tablet. Using the tablet opens the remote screen if the screen's chunk is loaded. Sneak-use opens the tablet interface.",
    "将链接存入平板电脑。使用该平板电脑时，若目标屏幕所在区块已加载，则自动打开远程屏幕界面；潜行使用则打开平板电脑自身界面。"
+  ],
+  [
+   [
+    "pages",
+    3,
+    "title"
+   ],
+   "Tablet",
+   "碑"
   ]
  ]
 }

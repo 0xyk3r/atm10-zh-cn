@@ -40,19 +40,19 @@
    [
     "pages",
     3,
-    "title"
+    "text"
    ],
-   "As a Fuel",
-   "作为燃料"
+   "$(thing)Glycerol/$ also makes a decent fuel item, equivalent to 4 $(thing)Planks/$ or half a lump of $(thing)Coal/$.",
+   "$(thing)甘油/$也是一种不错的燃料，相当于 4 个 $(thing)木板/$或半块 $(thing)煤炭/$。"
   ],
   [
    [
     "pages",
     3,
-    "text"
+    "title"
    ],
-   "$(thing)Glycerol/$ also makes a decent fuel item, equivalent to 4 $(thing)Planks/$ or half a lump of $(thing)Coal/$.",
-   "$(thing)甘油/$也是一种不错的燃料，相当于 4 个 $(thing)木板/$或半块 $(thing)煤炭/$。"
+   "As a Fuel",
+   "作为燃料"
   ]
  ]
 }
