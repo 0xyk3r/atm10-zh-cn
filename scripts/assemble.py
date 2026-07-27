@@ -18,6 +18,7 @@ import os
 import shutil
 import sys
 
+import fetch_mods
 import gen_vaultpatcher
 import gen_vanilla_assets
 from paths import COMMON, PACK, PACK_NAME, ROOT, SRC
@@ -25,11 +26,12 @@ from paths import COMMON, PACK, PACK_NAME, ROOT, SRC
 # src 下的目录 → 出货树里的位置。
 # vaultpatcher/ 不在这里：模块头部要写该版本真实的 jar 文件名，
 # 由 gen_vaultpatcher.py 按 versions/db/<版本>/ 现填（见那个脚本的说明）。
+# mods/ 也不在：随包分发的 jar 不入库，由 fetch_mods.py 按 src/mods.lock.json
+# 的 sha256 现取（见那个脚本的说明）。
 LAYOUT = [
     ('pack', 'resourcepacks/' + PACK_NAME),
     ('config', 'config'),
     ('kubejs', 'kubejs'),
-    ('mods', 'mods'),
     ('可选mods-拼音搜索', '可选mods-拼音搜索'),
 ]
 
@@ -71,6 +73,7 @@ def main():
                      if d.is_dir() and d.name[0].isdigit()),
                     key=lambda s: [int(x) for x in s.split('.')])[-1]
     gen_vaultpatcher.main(newest, COMMON)
+    fetch_mods.main(COMMON)
     gen_vanilla_assets.main(os.environ.get('ATM_PACK_ROOT', ''), PACK)
 
     n = sum(1 for _ in COMMON.rglob('*') if _.is_file())

@@ -37,6 +37,7 @@ src/kubejs/                     本包独有的 KubeJS 脚本
 src/upstream/<路径>.json        整合包自带文件的行级改写映射
 src/books/<路径>.json           导览书的「位置 + 原文 + 译文」映射
 src/vaultpatcher/modules/       152 个硬编码文本模块（只留译文与目标类）
+src/mods.lock.json              随包分发的第三方 jar：项目 / 版本 / 地址 / sha256
 versions/<版本>/                手写的版本专属层（任务书覆盖、默认资源包顺序）
 versions/db/<版本>/             该版的核验数据库与英文底本
 scripts/                        生成器 + 校验器
