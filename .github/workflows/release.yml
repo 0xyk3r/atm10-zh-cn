@@ -146,11 +146,12 @@ jobs:
           set -euo pipefail
 
           # 取 CHANGELOG 里对应的段落。标题**按整串精确比对**，不走正则——
-          # 段名里带 `.` 和 `*`（`## 7.*`），当正则用会顺手匹配上 `## 7.2`，
+          # 历史上段名带过 `.` 和 `*`（`## 7.*`），当正则用会顺手匹配上 `## 7.2`，
           # 发出去的说明就是别的版本的。
+          # 大小写不敏感：tag 写 `vr12`，CHANGELOG 里的段名是 `## R12`。
           extract() {
             awk -v ver="## $1" '
-              $0 == ver { found=1; next }
+              tolower($0) == tolower(ver) { found=1; next }
               found && /^## / { exit }
               found { buf = buf $0 "\n" }
               END { sub(/^\n+/, "", buf); sub(/\n+$/, "", buf); print buf }
