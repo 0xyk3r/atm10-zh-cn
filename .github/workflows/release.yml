@@ -162,12 +162,15 @@ jobs:
           path: dist/*.zip
           if-no-files-found: error
 
-      - name: Publish GitHub release
-        if: steps.release.outputs.publish == 'true'
+      # 只准备材料：核对包齐不齐、取出 CHANGELOG 段落。
+      # **不在这里调 gh**——这个 job 跑在锁定容器里（产物字节要可复现），
+      # 容器里没有 gh CLI。真正的发布交给下面那个 action。
+      # **每次都跑**，不看发不发布：包齐不齐、CHANGELOG 有没有对应段落，
+      # 应该在不发版的那次构建里就暴露，而不是等推了 tag 才炸。
+      - name: 备好发版材料
+        id: publish
         env:
-          GH_TOKEN: ${{ github.token }}
           RELEASE_VERSION: ${{ steps.release.outputs.version }}
-          IS_BETA: ${{ steps.release.outputs.beta }}
         run: |
           set -euo pipefail
 
@@ -199,8 +202,11 @@ jobs:
           fi
           echo "发版说明取自 CHANGELOG 的 $FROM"
 
-          PRERELEASE_FLAG=""
-          [[ "$IS_BETA" == "true" ]] && PRERELEASE_FLAG="--prerelease"
+          {
+            echo 'notes<<RELEASE_NOTES_EOF'
+            echo "$NOTES"
+            echo 'RELEASE_NOTES_EOF'
+          } >> "$GITHUB_OUTPUT"
 
           # 一次发版挂上全部整合包版本的包：
           #   atm10-zh_cn-{client,server}-<补丁版本>-atm<整合包版本>.zip
@@ -221,11 +227,19 @@ jobs:
           [ "${#ZIPS[@]}" -ge 2 ] || { echo "❌ versions/ 下一个版本都没有"; exit 1; }
           printf '  挂载: %s\n' "${ZIPS[@]}"
 
-          gh release delete "v$RELEASE_VERSION" --yes 2>/dev/null || true
+          {
+            echo 'files<<RELEASE_FILES_EOF'
+            printf '%s\n' "${ZIPS[@]}"
+            echo 'RELEASE_FILES_EOF'
+          } >> "$GITHUB_OUTPUT"
 
-          gh release create "v$RELEASE_VERSION" \
-            "${ZIPS[@]}" \
-            --title "绿油油版汉化 v$RELEASE_VERSION" \
-            --notes "$NOTES" \
-            --draft=false \
-            $PRERELEASE_FLAG
+      - name: Publish GitHub release
+        if: steps.release.outputs.publish == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.release.outputs.version }}
+          name: 绿油油版汉化 v${{ steps.release.outputs.version }}
+          body: ${{ steps.publish.outputs.notes }}
+          prerelease: ${{ steps.release.outputs.beta }}
+          files: ${{ steps.publish.outputs.files }}
+          fail_on_unmatched_files: true
