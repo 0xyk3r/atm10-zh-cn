@@ -10,7 +10,7 @@ item_ids:
 
 # 末影透镜
 
-安装到太阳能板上时，可使其无视方块遮挡。 
+将末影透镜装配到太阳能板上后，可使其无视方块遮挡进行发电。 
 
 <Row>
 <RecipesFor id="powah:lens_of_ender" />

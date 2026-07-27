@@ -5,7 +5,7 @@ navigation:
   icon: exp_encoding_terminal
   position: 7
 categories:
-- expandedae
+  - expandedae
 item_ids:
 - expandedae:exp_encoding_terminal
 - expandedae:wireless_exp_encoding_terminal
@@ -16,8 +16,8 @@ item_ids:
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-## 拓充样板编码终端是原始终端的升级版，新增以下功能：
- - 编码样板时按住Shift键单击，可将样板移至物品栏
- - 终端内集成乘法按钮
+## 扩展样板编码终端是对原版编码终端的升级，新增了以下功能：
+ - 编码样板时按住Shift键点击，可将样板直接移入玩家物品栏
+ - 终端内置的倍率按钮 
 
 ![pattern_mult_screen.png](assets/pattern_mult_screen.png)
