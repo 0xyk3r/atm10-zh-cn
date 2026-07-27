@@ -94,19 +94,25 @@ def main(ver, out, jars=True):
     mods.mkdir(exist_ok=True)
 
     def one(f):
-        meta = get('%s/files/%d' % (API, f['fileID']), timeout=60, required=False)
-        if not meta:
-            return None
-        name = json.loads(meta)['data'].get('fileName')
-        if not name:
-            return None
-        p = mods / name
-        if p.exists():
-            return name
-        d = get('%s/files/%d/download' % (API, f['fileID']), required=False)
-        if d and len(d) > 500:
-            p.write_bytes(d)
-            return name
+        # 这里**任何异常都不许抛**：一个文件查不到只该少下一个 jar，
+        # 由外层整轮重试兜住；抛出去会顺着 ex.map 把整个构建炸掉
+        # （历史事故：限速时 data 是 null，'NoneType' object has no attribute 'get'）。
+        try:
+            meta = get('%s/files/%d' % (API, f['fileID']), timeout=60, required=False)
+            if not meta:
+                return None
+            name = ((json.loads(meta) or {}).get('data') or {}).get('fileName')
+            if not name:
+                return None
+            p = mods / name
+            if p.exists():
+                return name
+            d = get('%s/files/%d/download' % (API, f['fileID']), required=False)
+            if d and len(d) > 500:
+                p.write_bytes(d)
+                return name
+        except Exception as e:
+            print('  ⚠️ fileID %s 取失败（本轮跳过）: %r' % (f['fileID'], e), flush=True)
         return None
 
     todo = manifest['files']

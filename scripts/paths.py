@@ -21,7 +21,17 @@
     build/snapshots/     生成器之间传递的中间快照
 """
 import os
+import sys
 from pathlib import Path
+
+# Windows runner 的 stdout 默认 cp1252，打不出中文——脚本会在 print 那一行直接崩，
+# 而且崩在「干完活之后」，看起来像是活没干成。所有脚本都 import 这个模块，
+# 所以放在这里一次性解决。
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'src'
