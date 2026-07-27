@@ -159,8 +159,23 @@ patch_options() {
   # 建一份含默认包列表 + 汉化包（放最后）的：Minecraft 启动时会把其余选项
   # 按默认值补齐再回写，部分 options.txt 是合法的。
   # （不要指望 config/defaultoptions —— ATM10 并没有装 DefaultOptions 模组，
-  #   那个目录是历史遗留，写进去没有任何东西会读它。）
+  #   那个目录是历史遗留；本包 R12 起已不再往里写东西。）
   if [ ! -f "$OPT" ]; then
+    # ⚠️ 只有**从没启动过**的实例才允许新建 options.txt。
+    # 一个玩过的实例必然有 logs/ 或 saves/；这时 options.txt 却不见了，只有两种可能：
+    #   a) 选错了目录（启动器没做版本隔离时，设置其实在 .minecraft/options.txt）；
+    #   b) 别的什么东西把它挪走了。
+    # 这两种情况下写一份只有两行的 options.txt，游戏启动会把其余项全部按**默认值**补齐
+    # ——玩家的键位 / 视频 / 音量设置当场全没。有玩家报过这个（R12 修复）。
+    # 宁可不写、让玩家自己启用资源包，也绝不能把人家的设置冲掉。
+    if [ -d "$TARGET/logs" ] || [ -d "$TARGET/saves" ] || [ -f "$TARGET/usercache.json" ]; then
+      say "⚠️ 这个实例明显启动过（有 logs/ 或 saves/），却找不到 options.txt。"
+      say "   为避免把你的键位 / 视频 / 音量设置冲掉，本次**不新建** options.txt。"
+      say "   请确认目标目录是否正确：$TARGET"
+      say "   （启动器没开「版本隔离」时，设置在 .minecraft/options.txt，那一层才是实例根目录）"
+      say "   确认无误后进游戏 → 选项 → 资源包，手动把「汉化包」拖到已启用一侧的**最后一位**。"
+      return
+    fi
     if [ -n "$DEFAULT_PACKS" ]; then
       printf 'lang:zh_cn\nresourcePacks:[%s,"%s"]\n' "$DEFAULT_PACKS" "$PACK_ENTRY" > "$OPT"
       say "ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。"

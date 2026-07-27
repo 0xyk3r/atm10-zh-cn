@@ -270,5 +270,27 @@ assert ENTRY in txt, f'新建的 options.txt 没写入资源包：\n{txt}'
 assert 'lang:zh_cn' in txt, f'新建的 options.txt 没写入中文语言：\n{txt}'
 print('✅ 全新实例（无 options.txt，路径含中文+空格）OK')
 
+# ---- 回归：玩过的实例但 options.txt 不见了 → 绝不新建 ----
+# 玩家报过：装完汉化后键位、视频、声音设置全没了。已有 options.txt 的路径是安全的
+# （只改 resourcePacks 一行，实测其余 598 行逐字节不变），问题出在「文件不存在就新建
+# 一份两行的」——游戏启动会把其余项按默认值补齐，等于把设置清空。
+played = tmp / 'played-instance'
+(played / 'mods').mkdir(parents=True)
+for i in range(25):
+    (played / 'mods' / f'modpack-{i}.jar').write_text('x', encoding='utf-8')
+(played / 'logs').mkdir()                      # 启动过的痕迹
+(played / 'saves').mkdir()
+prel = played / 'ATM10-hanhua'
+prel.mkdir()
+(prel / 'config').mkdir()
+(prel / 'config' / 'placeholder.txt').write_text('x', encoding='utf-8')
+for s_ in ('install.sh', 'install.ps1'):
+    materialize(ROOT / 'installer' / s_, prel / s_)
+rc, out = run_prompt(prel, 'apply', str(played))
+assert not (played / 'options.txt').exists(), \
+    '玩过的实例缺 options.txt 时，安装器不该新建一份（会把玩家设置冲成默认）'
+assert '不新建' in out, f'应提示不新建 options.txt：\n{out}'
+print('✅ 玩过的实例缺 options.txt 时拒绝新建 OK')
+
 shutil.rmtree(tmp, ignore_errors=True)
 print(f'✅ 安装脚本端到端测试通过（{platform.system()}）')

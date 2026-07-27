@@ -134,6 +134,21 @@ $DefaultPacks = '""modularbees:dynamic_assets"",""vanilla"",""mod_resources"",""
 function Patch-Options {
     $opt = Join-Path $script:Target 'options.txt'
     if (!(Test-Path -LiteralPath $opt)) {
+        # ⚠️ 只有**从没启动过**的实例才允许新建 options.txt。玩过的实例必然有 logs/ 或
+        # saves/；这时 options.txt 却不见了，多半是选错了目录（启动器没做版本隔离时，
+        # 设置在 .minecraft\options.txt）。写一份只有两行的进去，游戏会把其余项按默认值
+        # 补齐——玩家的键位 / 视频 / 音量当场全没。有玩家报过这个（R12 修复）。
+        $played = (Test-Path -LiteralPath (Join-Path $script:Target 'logs')) -or
+                  (Test-Path -LiteralPath (Join-Path $script:Target 'saves')) -or
+                  (Test-Path -LiteralPath (Join-Path $script:Target 'usercache.json'))
+        if ($played) {
+            Write-Host '⚠️ 这个实例明显启动过（有 logs/ 或 saves/），却找不到 options.txt。'
+            Write-Host '   为避免把你的键位 / 视频 / 音量设置冲掉，本次**不新建** options.txt。'
+            Write-Host "   请确认目标目录是否正确：$($script:Target)"
+            Write-Host '   （启动器没开「版本隔离」时，设置在 .minecraft\options.txt，那一层才是实例根目录）'
+            Write-Host '   确认无误后进游戏 → 选项 → 资源包，手动把「汉化包」拖到已启用一侧的最后一位。'
+            return
+        }
         $line = 'resourcePacks:[' + $DefaultPacks + ',"' + $PackEntry + '"]'
         [System.IO.File]::WriteAllText($opt, "lang:zh_cn`n$line`n", $Utf8NoBom)
         Write-Host 'ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。'
