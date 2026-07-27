@@ -26,6 +26,7 @@ review 的时候一眼能看见，而不是混在一笔「清理」提交的 500
     python3 scripts/protect.py --update    # 新增汉化后跑一次，把新文件收进清单
 """
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -44,16 +45,32 @@ HEADER = ('src/ 下的文件只许加不许删。要删必须挪进 released 并
 MANIFEST_REL = 'src/protected.json'
 
 
+def git(*args):
+    """跑一条 git，取不到就返回 None——**绝不抛异常**。
+
+    出货构建跑在容器里，仓库的 owner 与容器里的 uid 不同，git 会以
+    `detected dubious ownership` 退 128。第一版没兜这个，闸自己崩成一个
+    traceback：那等于「闸坏了」和「真删了文件」长得一模一样，最坏的结果。
+    所以 safe.directory 先放开，仍失败就降级——最要紧的那条
+    「清单里的文件必须在」是纯文件系统检查，不依赖 git，任何情况下都跑。
+    """
+    r = subprocess.run(['git', '-c', 'safe.directory=*',
+                        '-c', 'core.quotepath=false', *args],
+                       cwd=ROOT, capture_output=True, text=True)
+    return r.stdout if r.returncode == 0 else None
+
+
 def tracked():
-    """git 认得的 src/ 下全部文件。
+    """git 认得的 src/ 下全部文件；git 用不了则返回 None。
 
     清单自己也在 src/ 下，所以它也进清单——把清单删掉同样要红。
     刚跑第一次 --update 时它还没被 git add，得手动补上，否则下一次
     --check 会反过来说「这个文件没收进清单」。
     """
-    out = subprocess.run(['git', '-c', 'core.quotepath=false', 'ls-files', SCOPE],
-                         cwd=ROOT, capture_output=True, text=True, check=True)
-    return sorted(set(p for p in out.stdout.splitlines() if p) | {MANIFEST_REL})
+    out = git('ls-files', SCOPE)
+    if out is None:
+        return None
+    return sorted(set(p for p in out.splitlines() if p) | {MANIFEST_REL})
 
 
 def load(text):
@@ -69,28 +86,27 @@ def read_manifest():
 
 def at(rev):
     """某个提交上的清单；那时还没有这个文件就返回 None。"""
-    r = subprocess.run(['git', 'show', '%s:src/protected.json' % rev],
-                       cwd=ROOT, capture_output=True, text=True)
-    if r.returncode != 0:
+    out = git('show', '%s:%s' % (rev, MANIFEST_REL))
+    if out is None:
         return None
     try:
-        return load(r.stdout)
+        return load(out)
     except Exception:                                          # noqa: BLE001
         return None
 
 
 def base_rev():
     """跟哪一版比。CI 传 PROTECT_BASE，本地默认上一个提交。"""
-    import os
     rev = os.environ.get('PROTECT_BASE') or 'HEAD~1'
-    r = subprocess.run(['git', 'rev-parse', '--verify', '--quiet', rev + '^{commit}'],
-                       cwd=ROOT, capture_output=True, text=True)
-    return rev if r.returncode == 0 else None
+    return rev if git('rev-parse', '--verify', '--quiet', rev + '^{commit}') else None
 
 
 def update():
     d, prot, rel = read_manifest()
     now = tracked()
+    if now is None:
+        print('❌ git 用不了，列不出 src/ 下有哪些文件——清单不能凭空更新')
+        return 1
     add = [p for p in now if p not in prot and p not in rel]
     d['_说明'] = HEADER
     d['protected'] = sorted(prot | set(add))
@@ -122,9 +138,14 @@ def check():
         bad.append(('这些文件还在，但是空的', empty))
 
     # 2. src/ 下新加的文件必须收进清单，否则保护范围会被「新增的不算」蚕食
-    miss = [p for p in tracked() if p not in prot and p not in rel]
-    if miss:
-        bad.append(('这些文件在 src/ 里但不在保护清单里——跑 --update 收进去', miss))
+    now = tracked()
+    if now is None:
+        print('ℹ️ git 用不了（容器里的 ownership 之类），跳过「新增必须登记」'
+              '与「清单不许变短」两条；上面那条「文件必须在」已经查过了')
+    else:
+        miss = [p for p in now if p not in prot and p not in rel]
+        if miss:
+            bad.append(('这些文件在 src/ 里但不在保护清单里——跑 --update 收进去', miss))
 
     # 3. 防洗白：清单本身也不许悄悄变短。
     #    上一版清单里出现过的路径，现在必须仍在 protected 或 released 里。

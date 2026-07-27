@@ -27,10 +27,18 @@ def sh(*a, **kw):
     return subprocess.run(a, capture_output=True, text=True, **kw)
 
 
-def run(repo, *args, base=None):
+def run(repo, *args, base=None, break_git=False):
     env = dict(os.environ)
     if base:
         env['PROTECT_BASE'] = base
+    if break_git:
+        # 造一个必定退 128 的假 git 顶在 PATH 前面，模拟出货容器里那种
+        # `detected dubious ownership`——真出过这个事故。
+        shim = Path(repo) / '.shim'
+        shim.mkdir(exist_ok=True)
+        (shim / 'git').write_text('#!/bin/sh\nexit 128\n')
+        (shim / 'git').chmod(0o755)
+        env['PATH'] = '%s:%s' % (shim, env.get('PATH', ''))
     return subprocess.run([sys.executable, 'scripts/protect.py', *args],
                           cwd=repo, capture_output=True, text=True, env=env)
 
@@ -128,6 +136,20 @@ def t_released_ok(repo):
     m.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     sh('git', 'add', '-A', cwd=repo)
     return run(repo, '--check', base='HEAD').returncode == 0
+
+
+@case('git 用不了时不许崩，干净状态照样放过')
+def t_nogit_clean(repo):
+    r = run(repo, '--check', break_git=True)
+    return r.returncode == 0 and 'Traceback' not in r.stderr
+
+
+@case('git 用不了时**仍然**要拦下删除（那条不依赖 git）')
+def t_nogit_delete(repo):
+    (repo / 'src' / 'pack' / 'b.json').unlink()
+    r = run(repo, '--check', break_git=True)
+    return (r.returncode == 1 and 'src/pack/b.json' in r.stdout
+            and 'Traceback' not in r.stderr)
 
 
 @case('--update 只会加，不会把消失的文件从清单里抹掉')
