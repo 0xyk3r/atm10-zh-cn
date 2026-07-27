@@ -107,12 +107,17 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "beta=$beta" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+      # **不要用 actions/setup-python**：这个 job 跑在锁定容器里（bookworm，glibc 2.36），
+      # 而 runner 下下来的那份 Python 要 GLIBC 2.38，一跑就
+      # 「libm.so.6: version GLIBC_2.38 not found」。容器自带的 python 就是钉好的那个。
+      - name: 装依赖（哈希锁定）
+        run: |
+          python -m pip install --quiet --require-hashes -r requirements.lock
+          apt-get update -qq && apt-get install -y -qq --no-install-recommends \
+            curl unzip zip git ca-certificates >/dev/null
 
-      - name: 装 Pillow
-        run: python -m pip install --quiet Pillow
+      - name: 核对工具链
+        run: python3 scripts/toolchain.py --strict
 
       - name: 取字体（全部 OFL）
         run: ./scripts/fetch_fonts.sh
