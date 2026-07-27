@@ -32,13 +32,23 @@ JEI 拼音搜索（jecharacters）暂时仍入库——它只在 CurseForge 上�
 
 扫出来**全整合包共 81 个分类**，其中 65 个本来就已是中文，剩下 16 个：
 
-- **5 个补 lang**：晶工艺（XyCraft）、指南（GuideME）、工业化超载、KubeJS
+- **4 个补 lang**：晶工艺（XyCraft）、指南（GuideME）、工业化超载、KubeJS
   （后两个原先无人定义，界面上露的是原始键）
-- **11 个走 VaultPatcher 定向替换**（硬编码在 class 里，lang 碰不到）：
+- **7 个走 VaultPatcher 定向替换**（硬编码在 class 里，lang 碰不到）：
   机械动力（Create）、极光（Auroras）、墓碑（Corail Tombstone）、龙之进化
-  （Draconic Evolution）、铁喷气背包（Iron Jetpacks）、彩虹（Rainbows）、遗物（Relics）、
-  压缩空间、建筑棒、建造小工具、可怖之物
-- 2 个跳过：`key.kubejs.%s` 是运行时拼的模板，`key.jei.internal.*` 是 JEI 内部隐藏项
+  （Draconic Evolution）、铁喷气背包（Iron Jetpacks）、彩虹（Rainbows）、遗物（Relics）
+- 其余跳过：`key.kubejs.%s` 是运行时拼的模板、`key.jei.internal.*` 是内部隐藏项，
+  以及下面这条血的教训里剔掉的那几个
+
+**踩了一次崩游戏的坑，已做成硬门控**：我一开始把 `open_upgrade_screen`（压缩机器）
+和三个模组共用的 `category` 也当成分类翻了。前者根本不是分类字符串——它被
+`modRL("open_upgrade_screen")` 拿去构造 ResourceLocation，而 ResourceLocation
+只接受 `[a-z0-9/._-]`，替换成中文后游戏在注册按键时直接
+`ResourceLocationException` 崩溃，进不去主菜单。
+
+`check.py` 新增硬检查：VaultPatcher 的原文如果长得像标识符（全小写 + 下划线/点/斜杠、
+无空格），却被替换成中文，一律报错。这类串多半是注册名 / 翻译键 / 路径，不是界面文字。
+对抗验证：把那条崩溃项塞回去，门控按预期拦下。
 
 译名一律取本包已有的口径（`itemGroup.relics` = 遗物、任务书里的机械动力 / 龙之进化 /
 晶工艺），不自造。三个版本的数据库重建后，11 个定向替换的目标类**三版全部命中**。

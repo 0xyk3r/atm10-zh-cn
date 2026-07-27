@@ -23,6 +23,7 @@ CurseForge 的网页 API 没有配额说明但会限速。踩过的坑都写进�
     python3 scripts/fetch_pack.py 7.2 pack                          # 含 480 个 jar
 """
 import concurrent.futures as cf
+import hashlib
 import json
 import sys
 import time
@@ -70,6 +71,40 @@ def get(url, timeout=180, required=True):
     return fetch(url, timeout, required)[0]
 
 
+def tree_digest(root):
+    """整棵 overrides 的确定性指纹：路径 + 内容，排序后逐个吃进去。
+
+    ATM10 的某个已发布版本，它的 overrides 内容是**不会变**的。把指纹记进仓库，
+    CI 上无论是从缓存拿的还是现下的，都要跟它对得上——CurseForge 哪天换了内容
+    （或者下载被人动了手脚），构建当场红，而不是悄悄拿另一份东西去打补丁。
+    """
+    h = hashlib.sha256()
+    for p in sorted(Path(root).rglob('*')):
+        if not p.is_file():
+            continue
+        h.update(p.relative_to(root).as_posix().encode())
+        h.update(b'\0')
+        h.update(hashlib.sha256(p.read_bytes()).digest())
+    return h.hexdigest()
+
+
+def check_digest(ver, digest):
+    """跟 versions/<版本>/overrides.sha256 对照；没记过就打印出来让人记上。"""
+    f = Path(__file__).resolve().parent.parent / 'versions' / ver / 'overrides.sha256'
+    if not f.is_file():
+        print('  ⚠️ versions/%s/overrides.sha256 还没记。确认这份没问题后写进去：' % ver)
+        print('     echo %s > versions/%s/overrides.sha256' % (digest, ver))
+        return
+    want = f.read_text(encoding='utf-8').split()[0]
+    if want != digest:
+        sys.exit('❌ ATM10 %s 的 overrides 内容与仓库记录的指纹对不上\n'
+                 '   记录 %s\n   实得 %s\n'
+                 '   已发布版本的内容本不该变。要么 CurseForge 换了东西，要么这份下载不干净。\n'
+                 '   人工核对无误后再更新 versions/%s/overrides.sha256。'
+                 % (ver, want, digest, ver))
+    print('  指纹与 versions/%s/overrides.sha256 一致 ✅' % ver)
+
+
 def find_file_id(ver):
     d = json.loads(get('%s/files?pageSize=50' % API))
     for f in d['data']:
@@ -96,7 +131,10 @@ def main(ver, out, jars=True):
                 t = out / n[len('overrides/'):]
                 t.parent.mkdir(parents=True, exist_ok=True)
                 t.write_bytes(zf.read(n))
-    print('  overrides 解出 %d 个文件' % sum(1 for _ in out.rglob('*') if _.is_file()))
+    n = sum(1 for _ in out.rglob('*') if _.is_file())
+    digest = tree_digest(out)
+    print('  overrides 解出 %d 个文件，指纹 %s' % (n, digest[:16]))
+    check_digest(ver, digest)
     if not jars:
         return
     mods = out / 'mods'

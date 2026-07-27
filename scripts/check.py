@@ -100,6 +100,31 @@ else:
         if expect is not None and expect != zh:
             errors.append(f'蜂名漂移: {base} 脚本={zh!r} 资源包={expect!r}（真源是资源包，请重跑 gen_pb_hanhua.py）')
 
+# 2.7b: 标识符形态的原文**绝不允许**被替换成中文。
+# 2026-07-27 实机崩溃：我把 compactmachines 的 `open_upgrade_screen` 当成按键分类
+# 替换成了「压缩空间」，但那个串是拿去构造 ResourceLocation 的
+# （`modRL("open_upgrade_screen")`），而 ResourceLocation 只接受 [a-z0-9/._-]
+# —— 游戏在注册按键时直接 ResourceLocationException 崩掉，进不去。
+#
+# 判据很简单：原文如果长得像标识符（全小写 + 下划线/点/斜杠，没有空格），
+# 它极可能是注册名 / 翻译键 / 路径，不是给人看的界面文字。这类一律不许翻。
+IDENT = re.compile(r'^[a-z0-9][a-z0-9._/-]*$')
+for p2 in sorted((TREE / 'vaultpatcher' / 'modules').glob('*.json')):
+    try:
+        mod = json.loads(p2.read_text(encoding='utf-8'))
+    except Exception:
+        continue
+    for blk in mod:
+        if not isinstance(blk, dict):
+            continue
+        for pair in blk.get('pairs', []):
+            k, v = pair.get('key', ''), pair.get('value', '')
+            if IDENT.match(k) and any('\u4e00' <= c <= '\u9fff' for c in v):
+                errors.append(
+                    f'{p2.name}: 原文 {k!r} 是标识符形态（全小写+下划线），'
+                    f'却被替换成中文 {v!r}。这种串常被拿去构造 ResourceLocation / '
+                    f'翻译键，替换会让游戏启动崩溃。')
+
 # 2.8: 旧译名残留检查：废弃译名只允许出现在别名表/生成器（作为归一的键）
 LEGACY_NAMES = ('联调蜂', '神蜂特工队')
 # 白名单按**路径尾巴**匹配：同一份生成物会出现在 build/common/ 和 build/v/<版本>/ 下

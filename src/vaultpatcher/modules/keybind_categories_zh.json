@@ -81,49 +81,5 @@
         "value": "遗物"
       }
     ]
-  },
-  {
-    "target_class": [
-      "dev.compactmods.machines.client.keybinds.room.RoomUpgradeUIMapping"
-    ],
-    "pairs": [
-      {
-        "key": "open_upgrade_screen",
-        "value": "压缩空间"
-      }
-    ]
-  },
-  {
-    "target_class": [
-      "mrbysco.constructionstick.client.KeybindHandler"
-    ],
-    "pairs": [
-      {
-        "key": "category",
-        "value": "建筑棒"
-      }
-    ]
-  },
-  {
-    "target_class": [
-      "com.direwolf20.buildinggadgets2.client.KeyBindings"
-    ],
-    "pairs": [
-      {
-        "key": "category",
-        "value": "建造小工具"
-      }
-    ]
-  },
-  {
-    "target_class": [
-      "com.direwolf20.justdirethings.client.KeyBindings"
-    ],
-    "pairs": [
-      {
-        "key": "category",
-        "value": "可怖之物"
-      }
-    ]
   }
 ]
