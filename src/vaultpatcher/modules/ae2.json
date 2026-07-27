@@ -16,23 +16,23 @@
       },
       {
         "key": "Output: %s",
-        "value": "输出结果：%s"
+        "value": "输出：%s"
       },
       {
         "key": "need: %s",
-        "value": "所需：%s"
+        "value": "需要：%s"
       },
       {
         "key": "use: %s",
-        "value": "占用：%s"
+        "value": "使用：%s"
       },
       {
         "key": "use compact mode",
-        "value": "启用紧凑模式"
+        "value": "使用紧凑模式"
       },
       {
         "key": "ScreenShot show count",
-        "value": "截图时显示数量"
+        "value": "截图显示计数"
       },
       {
         "key": "Show missing only",
@@ -62,7 +62,7 @@
     "pairs": [
       {
         "key": "Item must not be minecraft:air",
-        "value": "物品不得为 minecraft:air"
+        "value": "物品不能为 minecraft:air"
       }
     ]
   },
@@ -73,7 +73,7 @@
     "pairs": [
       {
         "key": "Export Grid",
-        "value": "导出网络"
+        "value": "导出网格"
       }
     ]
   },
@@ -110,11 +110,11 @@
     "pairs": [
       {
         "key": "Un-suitable Location.",
-        "value": "位置不适合。"
+        "value": "位置不合适。"
       },
       {
         "key": "Spawned at y=",
-        "value": "生成位置 y="
+        "value": "生成于 y="
       }
     ]
   },
@@ -151,23 +151,23 @@
       },
       {
         "key": "A lot.",
-        "value": "非常多。"
+        "value": "很多。"
       },
       {
         "key": "MEGA: Classic Cell Colours",
-        "value": "MEGA：经典元件色彩"
+        "value": "MEGA：经典元件配色"
       },
       {
         "key": "Old red-purple colours for both AE2 and MEGA cell tiers.",
-        "value": "AE2 与 MEGA 元件等级均采用旧版红紫配色方案。"
+        "value": "AE2与MEGA元件等级均采用旧版红紫色配色。"
       },
       {
         "key": "Bulk Compression Cutoff",
-        "value": "批量压缩阈值"
+        "value": "大宗压缩截断"
       },
       {
         "key": "Contains trace units!",
-        "value": "含有微量单位！"
+        "value": "包含痕量单位！"
       },
       {
         "key": "Filter chemical unsupported!",
@@ -175,11 +175,11 @@
       },
       {
         "key": "Mismatched filter! (%s)",
-        "value": "过滤器不符！(%s)"
+        "value": "过滤器不匹配！(%s)"
       },
       {
         "key": "MEGA Cells",
-        "value": "MEGA 元件"
+        "value": "MEGA存储单元"
       },
       {
         "key": "%s not installed.",
@@ -191,7 +191,7 @@
       },
       {
         "key": "Partitioned for: %s",
-        "value": "分区用途：%s"
+        "value": "已分区用于：%s"
       },
       {
         "key": "Supports processing patterns only.",
@@ -203,7 +203,7 @@
       },
       {
         "key": "Trace Units: %s (%s)",
-        "value": "痕量单元：%s (%s)"
+        "value": "痕量单位：%s (%s)"
       },
       {
         "key": "Cell:",
@@ -222,27 +222,27 @@
     "pairs": [
       {
         "key": "Applied Mekanistics",
-        "value": "应用能源·通用机械"
+        "value": "应用能源：通用机械附属"
       },
       {
         "key": "Applied Botanics",
-        "value": "应用能源·植物魔法"
+        "value": "应用能源：植物魔法附属"
       },
       {
         "key": "Ars Énergistique",
-        "value": "奥能之术"
+        "value": "奥术能源学"
       },
       {
         "key": "Applied Experienced",
-        "value": "应用能源·经验"
+        "value": "已应用经验"
       },
       {
         "key": "Applied Flux",
-        "value": "应用能源·通量"
+        "value": "应用通量"
       },
       {
         "key": "Applied Soul",
-        "value": "应用能源·灵魂"
+        "value": "应用之魂"
       }
     ]
   },
@@ -253,7 +253,7 @@
     "pairs": [
       {
         "key": "Modify Patterns",
-        "value": "编辑样板"
+        "value": "修改样板"
       },
       {
         "key": "Left click to multiply, right click to divide \nMultipliers: Shift 2x, Ctrl 8x",
@@ -290,7 +290,7 @@
     "pairs": [
       {
         "key": "an Extended Pattern Provider\n to an Expanded Pattern Provider",
-        "value": "从增容样板供应器\n升级为扩展样板供应器"
+        "value": "从拓充样板供应器\n升级为拓展样板供应器"
       }
     ]
   }

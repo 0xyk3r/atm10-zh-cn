@@ -7,7 +7,7 @@
   "rconfig.server.properties.max-players": "玩家最大数量",
   "rconfig.server.properties.max-players.desc": "服务器可同时游玩的最大玩家数量。",
   "rconfig.server.properties.motd": "每日消息",
-  "rconfig.server.properties.motd.desc": "显示在服务器列表中的消息。",
+  "rconfig.server.properties.motd.desc": "在服务器列表中显示的消息。",
   "rconfig.server.properties.allow-flight": "允许飞行",
   "rconfig.server.properties.allow-flight.desc": "启用后，玩家将被允许在服务器中飞行，通常在模组服务器中需要开启此选项。",
   "rconfig.server.properties.pvp": "玩家对战玩家",

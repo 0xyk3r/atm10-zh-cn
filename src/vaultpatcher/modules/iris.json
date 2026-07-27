@@ -16,11 +16,11 @@
       },
       {
         "key": "Copy Info",
-        "value": "拷贝信息"
+        "value": "复制信息"
       },
       {
         "key": "Failed to compile shaders",
-        "value": "编译着色器失败"
+        "value": "着色器编译失败"
       },
       {
         "key": "enabled, logging will be more verbose!",
@@ -35,7 +35,7 @@
     "pairs": [
       {
         "key": "the Iris Installer",
-        "value": "Iris 安装程序"
+        "value": "Iris 安装器"
       }
     ]
   }

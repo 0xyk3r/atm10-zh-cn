@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Contributor Configuration",
-        "value": "贡献者设置"
+        "value": "贡献者配置"
       },
       {
         "key": "When using creative style flight",
@@ -24,7 +24,7 @@
       },
       {
         "key": " Wing Behavior ",
-        "value": " 翅膀行为 "
+        "value": " 羽翼行为 "
       },
       {
         "key": "Enable rainbow RGB mode.",
@@ -32,7 +32,7 @@
       },
       {
         "key": "Use the colour picker to configure,",
-        "value": "通过取色器进行配置，"
+        "value": "使用取色器进行配置，"
       },
       {
         "key": "Rotate",
@@ -44,11 +44,11 @@
       },
       {
         "key": "Wings Shader B: ",
-        "value": "B组翅膀着色器："
+        "value": "翅膀着色器 B："
       },
       {
         "key": "Wings Shader A: ",
-        "value": "A组翅膀着色器："
+        "value": "翅膀着色器 A："
       },
       {
         "key": "Wings Colour B: ",
@@ -76,11 +76,11 @@
       },
       {
         "key": "Back Badge: ",
-        "value": "背面徽标： "
+        "value": "背面徽章："
       },
       {
         "key": "Front Badge: ",
-        "value": "正面标志："
+        "value": "正面徽章："
       },
       {
         "key": "Welcome Message: ",

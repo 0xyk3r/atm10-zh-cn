@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Extended AE",
-        "value": "扩展 AE2"
+        "value": "AE2扩展"
       },
       {
         "key": "Applied Mekanistics",
@@ -24,15 +24,15 @@
       },
       {
         "key": "Inventory Tweaks",
-        "value": "物品栏微调"
+        "value": "物品栏调整"
       },
       {
         "key": "Dark Mode Everywhere",
-        "value": "全局深色模式"
+        "value": "夜间模式无处不在"
       },
       {
         "key": "Apothic Enchanting",
-        "value": "封神附魔"
+        "value": "神化附魔"
       }
     ]
   }

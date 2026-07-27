@@ -12,19 +12,19 @@
     "pairs": [
       {
         "key": "Linked to chest",
-        "value": "已与箱子连接"
+        "value": "已连接到箱子"
       },
       {
         "key": "Access Denied!",
-        "value": "拒绝访问！"
+        "value": "访问被拒绝！"
       },
       {
         "key": "Enabled autocollect",
-        "value": "自动收集已启用"
+        "value": "已启用自动收集"
       },
       {
         "key": "Disabled autocollect",
-        "value": "自动收集已禁用"
+        "value": "已禁用自动收集"
       },
       {
         "key": "Dimensional Tablet not connected to any DimChest",

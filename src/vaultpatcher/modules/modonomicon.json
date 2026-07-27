@@ -12,11 +12,11 @@
     "pairs": [
       {
         "key": "Spotlight Entry",
-        "value": "焦点条目"
+        "value": "聚光灯条目"
       },
       {
         "key": "An entry showcasing spotlight pages.",
-        "value": "用于展示聚光灯页面的条目。"
+        "value": "一个展示聚光灯页面的条目。"
       }
     ]
   },

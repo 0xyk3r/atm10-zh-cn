@@ -1,7 +1,7 @@
 {
-  "_comment": "NeoForge Config",
+  "_comment": "NeoForge 配置",
   "item.measurements.tape_measure": "卷尺",
-  "text.autoconfig.measurements.title": "Measurements",
+  "text.autoconfig.measurements.title": "测量",
   "text.autoconfig.measurements.option.client": "客户端",
   "text.autoconfig.measurements.option.client.lineColor": "线条颜色",
   "text.autoconfig.measurements.option.client.textColor": "文本颜色",

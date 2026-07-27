@@ -12,31 +12,31 @@
     "pairs": [
       {
         "key": "The Umoja Candle has been lit.",
-        "value": "团结蜡烛已经点燃。"
+        "value": "乌莫贾蜡烛已被点亮。"
       },
       {
         "key": "The Kujichagulia Candle has been lit.",
-        "value": "自决蜡烛已经点燃。"
+        "value": "库吉查古利亚蜡烛已被点亮。"
       },
       {
         "key": "The Ujima Candle has been lit.",
-        "value": "集体协作蜡烛已经点燃。"
+        "value": "乌吉马蜡烛已被点亮。"
       },
       {
         "key": "The Ujamaa Candle has been lit.",
-        "value": "合作经济蜡烛已经点燃。"
+        "value": "乌贾马蜡烛已被点亮。"
       },
       {
         "key": "The Nia Candle has been lit.",
-        "value": "目标蜡烛已经点燃。"
+        "value": "尼亚蜡烛已被点亮。"
       },
       {
         "key": "The Kuumba Candle has been lit.",
-        "value": "创造力蜡烛已经点燃。"
+        "value": "库姆巴蜡烛已被点亮。"
       },
       {
         "key": "The Imani Candle has been lit.",
-        "value": "信念蜡烛已经点燃。"
+        "value": "伊玛尼蜡烛已被点亮。"
       }
     ]
   },
@@ -47,11 +47,11 @@
     "pairs": [
       {
         "key": "Diamond Upgrade",
-        "value": "钻石强化"
+        "value": "钻石升级"
       },
       {
         "key": "Iron Upgrade",
-        "value": "铁强化"
+        "value": "铁升级"
       },
       {
         "key": "Applies to:",
@@ -59,7 +59,7 @@
       },
       {
         "key": "MerryMaking Iron Armors",
-        "value": "欢庆铁质盔甲"
+        "value": "欢庆铁制盔甲"
       },
       {
         "key": "Ingredients:",
@@ -67,15 +67,15 @@
       },
       {
         "key": "Diamond Armor Equivalent",
-        "value": "钻石护甲等值"
+        "value": "钻石护甲等效物"
       },
       {
         "key": "MerryMaking Leather Armors",
-        "value": "欢庆皮质盔甲"
+        "value": "欢庆皮革盔甲"
       },
       {
         "key": "Iron Armor Equivalent",
-        "value": "铁护甲等值"
+        "value": "铁护甲等效物"
       }
     ]
   }

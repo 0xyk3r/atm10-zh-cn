@@ -414,7 +414,7 @@
   "reliquary.configuration.disable.charms": "禁用护符",
   "reliquary.configuration.potions": "药水",
   "reliquary.configuration.potionMap": "药水图鉴",
-  "reliquary.configuration.potionMap.tooltip": "设置哪些材料能赋予哪些药水效果。\n格式：item_id=effect|duration|amplifier;effect|duration|amplifier\n示例：minecraft:sugar=speed|3|0;haste|3|0\n持续时间以15秒为一个单位递增。",
+  "reliquary.configuration.potionMap.tooltip": "配置哪些材料会给予哪些药水效果。\n格式：item_id=effect|duration|amplifier;effect|duration|amplifier\n示例：minecraft:sugar=speed|3|0;haste|3|0\n持续时间以15秒为单位。",
   "reliquary.configuration.maxEffectCount": "最大JEI/创造模式效果",
   "reliquary.configuration.threeIngredients": "在JEI中显示三材料配方",
   "reliquary.configuration.differentDurations": "显示时间变体",

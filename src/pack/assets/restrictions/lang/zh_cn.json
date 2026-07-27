@@ -2,7 +2,7 @@
   "block.restrictions.pusher": "推离方块",
   "block.restrictions.attractor": "吸引方块",
   "block.restrictions.oneway": "单向推动方块",
-  "itemGroup.restrictions": "Restrictions",
+  "itemGroup.restrictions": "限制",
   "block.restrictions.oneway_wall": "单向通行墙",
   "item.restrictions.glassboots": "玻璃靴子",
   "message.restrictions.shiftmessage": "<按下 Shift>",

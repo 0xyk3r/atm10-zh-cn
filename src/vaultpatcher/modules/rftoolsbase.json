@@ -40,15 +40,15 @@
       },
       {
         "key": "Void cobble",
-        "value": "虚空圆石"
+        "value": "虚无圆石"
       },
       {
         "key": "Void dirt",
-        "value": "虚空泥土"
+        "value": "虚无泥土"
       },
       {
         "key": "Void gravel",
-        "value": "虚空沙砾"
+        "value": "虚无沙砾"
       },
       {
         "key": "Void sand",
@@ -60,11 +60,11 @@
       },
       {
         "key": "Void end stone",
-        "value": "虚空末地石"
+        "value": "虚无末地石"
       },
       {
         "key": "Enable tag matching",
-        "value": "开启标签匹配"
+        "value": "启用标签匹配"
       }
     ]
   },
@@ -75,83 +75,83 @@
     "pairs": [
       {
         "key": "(final cost depends on infusion level)",
-        "value": "（最终花费取决于灌注等级）"
+        "value": "（最终成本取决于灌注等级）"
       },
       {
         "key": "(final cost depends on infusion level and block hardness)",
-        "value": "（最终花费取决于灌注等级与方块硬度）"
+        "value": "（最终成本取决于灌注等级和方块硬度）"
       },
       {
         "key": "This item can be configured as a shape. You",
-        "value": "此物品可被配置为某种形状。你"
+        "value": "此物品可配置为形状。你"
       },
       {
         "key": "can then use it in the shield projector to make",
-        "value": "接着可在护盾投射仪中用它制作"
+        "value": "然后可在护盾投影仪中使用它来制作"
       },
       {
         "key": "a shield of that shape or in the builder to",
-        "value": "该形状的护盾，或在建造机中"
+        "value": "该形状的护盾或在建造器中"
       },
       {
         "key": "actually build the shape",
-        "value": "真正构建该形状"
+        "value": "实际构建形状"
       },
       {
         "key": "This item will cause the builder to void",
-        "value": "此物品会使建造机将其清除"
+        "value": "此物品将导致建筑机器人清空物品"
       },
       {
         "key": "all blocks in the configured space.",
-        "value": "配置空间内的所有方块。"
+        "value": "配置区域内的所有方块。"
       },
       {
         "key": "This item will cause the builder to quarry",
-        "value": "此物品会使建造机进行采石"
+        "value": "该物品将使建造者执行采石作业"
       },
       {
         "key": "all blocks in the configured space and replace",
-        "value": "配置空间内的所有方块，并将其替换为"
+        "value": "配置区域内的所有方块并替换为"
       },
       {
         "key": "them with ",
-        "value": "将它们与 "
+        "value": "它们与 "
       },
       {
         "key": "Blocks are harvested with silk touch",
-        "value": "方块将以精准采集附魔进行采集"
+        "value": "方块将使用精准采集进行采收ouch"
       },
       {
         "key": "Blocks are harvested with fortune",
-        "value": "方块将以时运附魔进行采集"
+        "value": "方块将使用附魔‘精准采集’进行收获"
       },
       {
         "key": "all blocks in the configured space",
-        "value": "配置空间内的所有方块"
+        "value": "配置区域内的所有方块"
       },
       {
         "key": "This item will cause the builder to collect",
-        "value": "此物品会使建造机收集"
+        "value": "该物品会使建造者收集"
       },
       {
         "key": "all liquids in the configured space.",
-        "value": "配置空间内的所有液体。"
+        "value": "配置区域内的所有液体。"
       },
       {
         "key": "The liquid will be replaced with ",
-        "value": "该液体将被替换为 "
+        "value": "液体将被替换为"
       },
       {
         "key": "The liquid will be removed from the world",
-        "value": "世界中的该液体将被移除"
+        "value": "液体将从世界中移除"
       },
       {
         "key": "This item will cause the builder to place",
-        "value": "此物品会使建造机放置"
+        "value": "此物品将使建造者放置"
       },
       {
         "key": "liquids from an tank on top/bottom into the world.",
-        "value": "将上方或下方储罐中的流体排入世界。"
+        "value": "来自上方或下方容器中的流体到世界中。"
       }
     ]
   },
@@ -166,19 +166,19 @@
       },
       {
         "key": "Label text",
-        "value": "标牌文字"
+        "value": "标签文本"
       },
       {
         "key": "Label color",
-        "value": "标牌颜色"
+        "value": "标签颜色"
       },
       {
         "key": "Button text",
-        "value": "按钮文字"
+        "value": "按钮文本"
       },
       {
         "key": "Button color",
-        "value": "按钮色彩"
+        "value": "按钮颜色"
       },
       {
         "key": "Name of the mover",
@@ -186,7 +186,7 @@
       },
       {
         "key": "Name of the vehicle",
-        "value": "该载具的名称"
+        "value": "载具名称"
       }
     ]
   },
@@ -201,19 +201,19 @@
       },
       {
         "key": "Label text",
-        "value": "标牌文字"
+        "value": "标签文本"
       },
       {
         "key": "Label color",
-        "value": "标牌颜色"
+        "value": "标签颜色"
       },
       {
         "key": "Name of the vehicle",
-        "value": "该载具的名称"
+        "value": "载具名称"
       },
       {
         "key": "Mover color",
-        "value": "移动器的颜色"
+        "value": "移动器颜色"
       }
     ]
   },
@@ -224,27 +224,27 @@
     "pairs": [
       {
         "key": "Composer",
-        "value": "编排器"
+        "value": "构建器"
       },
       {
         "key": "Open the shape card editor",
-        "value": "开启塑形卡片编辑器"
+        "value": "打开塑形卡片编辑器"
       },
       {
         "key": "Drag left mouse button to rotate",
-        "value": "按住鼠标左键并拖动以旋转"
+        "value": "按住鼠标左键拖动以旋转"
       },
       {
         "key": "Shift drag left mouse to pan",
-        "value": "按住 Shift 并用鼠标左键拖动以平移"
+        "value": "按住Shift键并拖动鼠标左键以平移"
       },
       {
         "key": "Use mouse wheel to zoom in/out",
-        "value": "使用鼠标滚轮可缩放视图"
+        "value": "使用鼠标滚轮放大/缩小"
       },
       {
         "key": "Use middle click to reset rotation",
-        "value": "使用鼠标中键可重置旋转"
+        "value": "使用鼠标中键重置旋转值"
       }
     ]
   },
@@ -271,27 +271,27 @@
       },
       {
         "key": "Automatic client-side rotation",
-        "value": "客户端自动旋转"
+        "value": "自动客户端旋转"
       },
       {
         "key": "Enable visual scanlines when the scan refreshes",
-        "value": "扫描刷新时显示视觉扫描线"
+        "value": "扫描刷新时启用视觉扫描线"
       },
       {
         "key": "Enable sound during visual scan",
-        "value": "视觉扫描时启用音效"
+        "value": "视觉扫描期间启用声音"
       },
       {
         "key": "Enable grayscale mode",
-        "value": "开启灰度模式"
+        "value": "启用灰度模式"
       },
       {
         "key": "Render baked block models in the world",
-        "value": "在世界中渲染已烘焙的方块模型"
+        "value": "在世界中渲染烘焙后的方块模型"
       },
       {
         "key": "instead of solid projected cubes",
-        "value": "而非实心投射方块"
+        "value": "而非实体投射方块"
       }
     ]
   },
@@ -302,7 +302,7 @@
     "pairs": [
       {
         "key": "Scanner",
-        "value": "扫描仪"
+        "value": "模式扫描机"
       }
     ]
   },
@@ -313,7 +313,7 @@
     "pairs": [
       {
         "key": "Down",
-        "value": "向下"
+        "value": "下"
       },
       {
         "key": "Looting:",
@@ -329,11 +329,11 @@
       },
       {
         "key": "by the shield",
-        "value": "由护盾"
+        "value": "被盾牌格挡"
       },
       {
         "key": "Optional player name",
-        "value": "玩家名称（可选）"
+        "value": "可选的玩家名称"
       },
       {
         "key": "Add selected filter",
@@ -345,11 +345,11 @@
       },
       {
         "key": "Move filter up",
-        "value": "将筛选器上移"
+        "value": "向上移动筛选器"
       },
       {
         "key": "Move filter down",
-        "value": "将筛选器下移"
+        "value": "向下移动筛选器"
       },
       {
         "key": "Insert dimensional shards",
@@ -357,7 +357,7 @@
       },
       {
         "key": "for looting bonus",
-        "value": "用于抢夺加成"
+        "value": "用于掠夺加成"
       },
       {
         "key": "Shield is completely invisible",
@@ -373,7 +373,7 @@
       },
       {
         "key": "Solid shield texture",
-        "value": "护盾的实心纹理"
+        "value": "实心护盾纹理"
       },
       {
         "key": "Use the texture from the supplied block",
@@ -385,11 +385,11 @@
       },
       {
         "key": "can pass through",
-        "value": "可以穿过"
+        "value": "可通过"
       },
       {
         "key": "cannot pass",
-        "value": "无法通过"
+        "value": "不可通过"
       },
       {
         "key": "can pass but gets damage",
@@ -401,11 +401,11 @@
       },
       {
         "key": "Passive",
-        "value": "被动"
+        "value": "数码被动"
       },
       {
         "key": "Hostile",
-        "value": "敌对"
+        "value": "（敌方）"
       },
       {
         "key": "Item",
@@ -417,7 +417,7 @@
       },
       {
         "key": "Matches everything",
-        "value": "匹配任何内容"
+        "value": "匹配所有内容"
       },
       {
         "key": "Matches passive mobs",
@@ -441,11 +441,11 @@
       },
       {
         "key": "Generic damage type",
-        "value": "一般伤害类型"
+        "value": "通用伤害类型"
       },
       {
         "key": "Damage as done by a player",
-        "value": "玩家造成的伤害"
+        "value": "由玩家造成的伤害"
       }
     ]
   },
@@ -456,15 +456,15 @@
     "pairs": [
       {
         "key": "Top Dome",
-        "value": "上部穹顶"
+        "value": "顶部穹顶"
       },
       {
         "key": "Bottom Dome",
-        "value": "底部圆顶"
+        "value": "底部穹顶"
       },
       {
         "key": "Capped Cylinder",
-        "value": "带盖圆柱体"
+        "value": "封顶圆柱体"
       }
     ]
   },
@@ -479,15 +479,15 @@
       },
       {
         "key": "in the preview",
-        "value": "于预览中"
+        "value": "在预览中"
       },
       {
         "key": "Enable preview of the",
-        "value": "启用该预览"
+        "value": "启用预览"
       },
       {
         "key": "outer bounds",
-        "value": "外边界"
+        "value": "外部边界"
       },
       {
         "key": "Show a visual scanline",
@@ -499,7 +499,7 @@
       },
       {
         "key": "is updated",
-        "value": "会被更新"
+        "value": "已更新"
       }
     ]
   },
@@ -514,7 +514,7 @@
       },
       {
         "key": "or more complicated recipes",
-        "value": "或更为复杂的配方"
+        "value": "或更复杂的配方"
       },
       {
         "key": "Update",
@@ -522,7 +522,7 @@
       },
       {
         "key": "Update the item in the output",
-        "value": "更新输出槽中的物品"
+        "value": "更新输出中的物品"
       },
       {
         "key": "slot to the recipe in the",
@@ -557,11 +557,11 @@
       },
       {
         "key": "Add tags",
-        "value": "新增标签"
+        "value": "添加标签"
       },
       {
         "key": "Remove current selection",
-        "value": "移除当前的选择"
+        "value": "移除当前选择"
       },
       {
         "key": "Expand item to tags",
@@ -569,7 +569,7 @@
       },
       {
         "key": "Black or whitelist mode",
-        "value": "黑/白名单模式"
+        "value": "黑名单或白名单模式"
       },
       {
         "key": "Filter ignoring damage",
@@ -596,11 +596,11 @@
       },
       {
         "key": "Missing parameter type",
-        "value": "参数类型缺失"
+        "value": "缺少参数类型"
       },
       {
         "key": "Unknown parameter function: ",
-        "value": "未知的参数函数： "
+        "value": "未知参数函数："
       }
     ]
   },
@@ -611,7 +611,7 @@
     "pairs": [
       {
         "key": "Crafting Card",
-        "value": "合成卡"
+        "value": "合成卡片"
       }
     ]
   },
@@ -622,7 +622,7 @@
     "pairs": [
       {
         "key": "Filter Module",
-        "value": "过滤模块"
+        "value": "存储过滤模块"
       }
     ]
   }

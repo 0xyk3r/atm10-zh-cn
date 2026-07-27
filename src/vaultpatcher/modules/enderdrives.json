@@ -281,7 +281,7 @@
     "pairs": [
       {
         "key": "Tape Disk ",
-        "value": "磁带存储盘 "
+        "value": "磁带盘 "
       }
     ]
   },
@@ -296,7 +296,7 @@
       },
       {
         "key": "§cThis EnderDisk is disabled on the server.",
-        "value": "§c此末影磁盘已在服务器端被禁用。"
+        "value": "§c此末影磁盘在服务器上已被禁用。"
       }
     ]
   },

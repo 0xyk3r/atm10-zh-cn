@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "RenderDoc Controls",
-        "value": "RenderDoc 控制项"
+        "value": "RenderDoc控制"
       },
       {
         "key": "Such has been disabled at the request of ATM!",
@@ -24,7 +24,7 @@
       },
       {
         "key": "Capture Hotkey",
-        "value": "捕获快捷键"
+        "value": "捕获热键"
       },
       {
         "key": "Press...",
@@ -36,7 +36,7 @@
       },
       {
         "key": "Capture List",
-        "value": "已捕获列表"
+        "value": "捕获列表"
       },
       {
         "key": "Frame Rate",
@@ -44,15 +44,15 @@
       },
       {
         "key": "Frame Number",
-        "value": "帧编号"
+        "value": "帧数"
       },
       {
         "key": "Launch UI",
-        "value": "打开界面"
+        "value": "启动界面"
       },
       {
         "key": "Capture Frame",
-        "value": "帧捕获"
+        "value": "捕获帧"
       }
     ]
   },
@@ -75,7 +75,7 @@
       },
       {
         "key": "owo-ui error",
-        "value": "owo-ui 发生错误"
+        "value": "owo-ui 错误"
       },
       {
         "key": "Check your log for details",

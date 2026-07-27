@@ -17,7 +17,7 @@
   "_comment": "消息",
   "itemGroup.rftoolsstorage": "RFTools 存储",
   "message.rftoolsstorage.shiftmessage": "<按下 Shift>",
-  "message.rftoolsstorage.crafting_manager.header": "开发中！合成管理器仍处于开发中！",
+  "message.rftoolsstorage.crafting_manager.header": "开发中！合成管理器开发中！",
   "message.rftoolsstorage.crafting_manager.gold": "这暂时还不能使用",
   "message.rftoolsstorage.tablet_scanner.header": "可用于链接远程 GUI 和信息的石碑",
   "message.rftoolsstorage.tablet_scanner.gold": "碑包含存储扫描器的链接：右击打开扫描器 GUI，潜行右击打开碑 GUI",

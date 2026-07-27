@@ -23,7 +23,7 @@
     "pairs": [
       {
         "key": "Auto Split",
-        "value": "自动拆分"
+        "value": "自动分割"
       }
     ]
   },
@@ -34,7 +34,7 @@
     "pairs": [
       {
         "key": "Right-click to copy settings",
-        "value": "右键点击以复制设置"
+        "value": "右键单击以复制设置"
       },
       {
         "key": "Sneak & right-click to apply settings",
@@ -66,7 +66,7 @@
       },
       {
         "key": "Auto Input: ",
-        "value": "自动输入： "
+        "value": "自动输入："
       },
       {
         "key": "Auto Output: ",
@@ -74,7 +74,7 @@
       },
       {
         "key": "Redstone Mode: ",
-        "value": "当前红石模式："
+        "value": "红石模式："
       },
       {
         "key": "Redstone Value: ",

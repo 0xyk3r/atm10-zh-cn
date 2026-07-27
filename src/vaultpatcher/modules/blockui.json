@@ -12,39 +12,39 @@
     "pairs": [
       {
         "key": "top left",
-        "value": "左上"
+        "value": "顶部左侧"
       },
       {
         "key": "top horizontal",
-        "value": "上居中"
+        "value": "顶部水平"
       },
       {
         "key": "top right",
-        "value": "右上"
+        "value": "顶部右侧"
       },
       {
         "key": "vertical left",
-        "value": "左居中"
+        "value": "垂直左侧"
       },
       {
         "key": "vertical horizontal",
-        "value": "居中"
+        "value": "垂直水平"
       },
       {
         "key": "vertical right",
-        "value": "右居中"
+        "value": "垂直右侧"
       },
       {
         "key": "bottom left",
-        "value": "左下"
+        "value": "底部左侧"
       },
       {
         "key": "bottom horizontal",
-        "value": "下居中"
+        "value": "底部水平"
       },
       {
         "key": "bottom right",
-        "value": "右下"
+        "value": "底部右侧"
       }
     ]
   }

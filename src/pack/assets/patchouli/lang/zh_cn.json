@@ -10,7 +10,7 @@
   "item.patchouli:test_book_2.landing": "现在支持$(2)颜色$()和$(4)$(bold)粗体$()了！这就有趣多了。",
   "item.patchouli:test_completion.name": "进度测试书",
   "item.patchouli:test_completion.landing": "随着你解锁条目，书的颜色会跟着变！",
-  "item.patchouli:intro_book.name": "Patchouli",
+  "item.patchouli:intro_book.name": "帕秋莉手册",
   "item.patchouli:intro_book.subtitle": "为所有人的文档",
   "item.patchouli:intro_book.landing": "安装 $(item)Patchouli$() 后，模组和整合包作者可以制作易于阅读、可解锁进度的$(thing)书籍$()了！",
   "item.patchouli:pamphlet.name": "测试手册",

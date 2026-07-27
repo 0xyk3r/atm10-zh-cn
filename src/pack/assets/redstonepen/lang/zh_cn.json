@@ -24,7 +24,7 @@
   "block.redstonepen.control_box.error.missing_closing_function_parenthesis": "应为函数闭合括号 ')'",
   "block.redstonepen.control_box.error.missing_closing_parenthesis": "应为闭合括号 ')'",
   "block.redstonepen.control_box.error.missing_function_arguments": "应为函数参数（包括括号）",
-  "block.redstonepen.control_box.error.parse_error": "Parse error",
+  "block.redstonepen.control_box.error.parse_error": "解析错误",
   "block.redstonepen.control_box.error.symbol_readonly": "符号或变量为只读",
   "block.redstonepen.control_box.error.unexpected_character": "不应出现的字符",
   "block.redstonepen.control_box.error.unknown_function": "未知函数",

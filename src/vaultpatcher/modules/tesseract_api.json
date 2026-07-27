@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "ParsedDecimal value must be >= 0",
-        "value": "ParsedDecimal 的值必须不小于 0"
+        "value": "ParsedDecimal 值必须大于等于 0"
       }
     ]
   }

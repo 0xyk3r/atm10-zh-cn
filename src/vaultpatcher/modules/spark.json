@@ -38,7 +38,7 @@
     "pairs": [
       {
         "key": "A runtime error occurred whilst loading the native library",
-        "value": "在加载原生库时出现了运行时错误"
+        "value": "加载原生库时发生运行时错误"
       }
     ]
   }

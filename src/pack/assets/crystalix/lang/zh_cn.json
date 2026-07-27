@@ -3,7 +3,7 @@
   "config.jade.plugin_crystalix.crystalix_block": "虹晶方块",
   "item.crystalix.crystalix_wand": "虹晶手杖",
   "itemGroup.crystalix": "Crystalix",
-  "key.crystalix.category": "Crystalix",
+  "key.crystalix.category": "水晶科技",
   "key.crystalix.ghost": "循环切换幽灵模式",
   "key.crystalix.invisible": "切换隐身模式",
   "key.crystalix.light": "循环切换发光模式",

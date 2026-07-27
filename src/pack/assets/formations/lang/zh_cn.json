@@ -1,5 +1,5 @@
 {
-  "formations.item_group": "Formations 开发者工具",
+  "formations.item_group": "Formations 开发工具",
   "formations.item.template_editor": "法杖模板",
   "formations.template_editor_item.left_click_block": "%s: 选择第一点位",
   "formations.template_editor_item.right_click_block": "%s: 选择第二位置",
@@ -26,8 +26,8 @@
   "formations.command.export.success_fail": "已导出 %1$s 个模板，%2$s 个模板导出失败。请查看控制台了解错误！",
   "formations.command.export.fail": "%1$s 个模板导出失败。请查看控制台中的错误！",
   "formations.command.export.no_templates": "这个世界中没有模板！",
-  "formations.command.dev_mode.query": "Formations 开发者模式：%s",
-  "formations.command.dev_mode.set": "已将 Formations 开发者模式设置为：%s",
+  "formations.command.dev_mode.query": "Formations 开发模式：%s",
+  "formations.command.dev_mode.set": "Formations 开发模式已设置为：%s",
   "formations.command.dev_mode.true": "已启用",
   "formations.command.dev_mode.false": "已禁用",
   "formations.edit_loot.title": "编辑战利品表",

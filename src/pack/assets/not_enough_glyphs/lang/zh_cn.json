@@ -167,7 +167,7 @@
   "item.not_enough_glyphs.thread_summon_focus": "召唤之核心",
   "item.not_enough_glyphs.thread_water_focus": "水之核心",
   "item.not_enough_glyphs.thread_wild_magic": "命运之轮",
-  "itemGroup.not_enough_glyphs": "Not Enough Glyphs",
+  "itemGroup.not_enough_glyphs": "符文不足",
   "not_enough_glyphs.book_thread": "%s之书皮",
   "not_enough_glyphs.glyph_desc.glyph_contingency_blink": "此应变法术会在目标传送后触发。",
   "not_enough_glyphs.glyph_desc.glyph_contingency_death": "此应变法术会在目标死亡后触发。就算目标使用不死图腾阻止死亡也仍会触发。",

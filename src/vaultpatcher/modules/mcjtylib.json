@@ -23,11 +23,11 @@
     "pairs": [
       {
         "key": "bevel gradient",
-        "value": "斜切渐变"
+        "value": "斜角渐变"
       },
       {
         "key": "flat gradient",
-        "value": "平坦渐变"
+        "value": "平直渐变"
       }
     ]
   },

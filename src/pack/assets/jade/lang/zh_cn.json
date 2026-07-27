@@ -1,5 +1,5 @@
 {
-  "modmenu.nameTranslation.jade": "Jade",
+  "modmenu.nameTranslation.jade": "翡翠",
   "modmenu.descriptionTranslation.jade": "显示你眼前物体的信息。",
   "tooltip.jade.crop_growth": "生长状态：%s",
   "tooltip.jade.crop_mature": "成熟",
@@ -104,7 +104,7 @@
   "config.jade.reach_distance_desc": "设置显示信息框的距离限制。",
   "config.jade.item_mod_name": "显示来源模组",
   "config.jade.item_mod_name_desc": "在信息框上显示来自哪个模组。",
-  "config.jade.item_mod_name_extra_msg": "modid",
+  "config.jade.item_mod_name_extra_msg": "模组ID",
   "config.jade.overlay": "外观",
   "config.jade.overlay_pos": "提示框位置",
   "config.jade.overlay_pos.adjust": "调整…",

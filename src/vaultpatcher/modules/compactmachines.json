@@ -68,7 +68,7 @@
     "pairs": [
       {
         "key": "Compact Machine",
-        "value": "紧凑机器"
+        "value": "压缩空间"
       }
     ]
   },
@@ -79,11 +79,11 @@
     "pairs": [
       {
         "key": "New Machine",
-        "value": "新建机器"
+        "value": "新压缩空间机械"
       },
       {
         "key": "Compact Machine",
-        "value": "紧凑机器"
+        "value": "压缩空间"
       }
     ]
   },
@@ -94,7 +94,7 @@
     "pairs": [
       {
         "key": "Tree Cutter",
-        "value": "伐木机"
+        "value": "伐木器"
       }
     ]
   }

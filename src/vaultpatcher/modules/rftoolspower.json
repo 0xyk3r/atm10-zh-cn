@@ -16,7 +16,7 @@
       },
       {
         "key": "Stats",
-        "value": "统计数据"
+        "value": "统计信息"
       },
       {
         "key": "Set all sides to 'none'",
@@ -28,11 +28,11 @@
       },
       {
         "key": "accept energy",
-        "value": "接受能量"
+        "value": "接收能量"
       },
       {
         "key": "send energy",
-        "value": "输出能量"
+        "value": "发送能量"
       },
       {
         "key": "Power statistics. Press to clear:",
@@ -44,7 +44,7 @@
       },
       {
         "key": "on the left",
-        "value": "位于左侧"
+        "value": "在左侧"
       },
       {
         "key": "Inserted: ",
@@ -63,15 +63,15 @@
     "pairs": [
       {
         "key": "Lost Pearl",
-        "value": "遗失的珍珠"
+        "value": "失落珍珠"
       },
       {
         "key": "Pearl Fired",
-        "value": "珍珠已发射"
+        "value": "宝珠已发射"
       },
       {
         "key": "Pearl Arrived",
-        "value": "珍珠已到达"
+        "value": "宝珠已抵达"
       }
     ]
   },
@@ -90,11 +90,11 @@
       },
       {
         "key": "Minimum level",
-        "value": "等级下限"
+        "value": "最低等级"
       },
       {
         "key": "Maximum level",
-        "value": "最高等级"
+        "value": "等级上限"
       }
     ]
   }

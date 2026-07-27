@@ -70,11 +70,11 @@
       },
       {
         "key": "Truetype",
-        "value": "TrueType"
+        "value": "东方匠魂传"
       },
       {
         "key": "Vanilla",
-        "value": "原版"
+        "value": "香草"
       },
       {
         "key": "Set truetype font mode",
@@ -82,7 +82,7 @@
       },
       {
         "key": "for the screen",
-        "value": "为屏幕所用"
+        "value": "用于屏幕"
       }
     ]
   },
@@ -97,7 +97,7 @@
       },
       {
         "key": "Detach",
-        "value": "断开"
+        "value": "分离"
       },
       {
         "key": "Find all nearby screens",
@@ -109,7 +109,7 @@
       },
       {
         "key": "Detach from all screens",
-        "value": "从所有屏幕上分离"
+        "value": "与所有屏幕断开连接"
       }
     ]
   },
@@ -158,7 +158,7 @@
       },
       {
         "key": "Color for the counter",
-        "value": "计数显示的颜色"
+        "value": "计数器的颜色"
       }
     ]
   },
@@ -181,7 +181,7 @@
       },
       {
         "key": "Color for the RF text",
-        "value": "RF 数值文字的颜色"
+        "value": "RF 文本的颜色"
       },
       {
         "key": "Color for the negative",
@@ -197,7 +197,7 @@
       },
       {
         "key": "energy bar",
-        "value": "能量条"
+        "value": "能量棒"
       }
     ]
   },
@@ -236,7 +236,7 @@
       },
       {
         "key": "fluid bar",
-        "value": "流体条"
+        "value": "流体棒"
       }
     ]
   },
@@ -251,7 +251,7 @@
       },
       {
         "key": "Slot index to show",
-        "value": "需显示的槽位索引"
+        "value": "要显示的槽位索引"
       }
     ]
   },
@@ -293,7 +293,7 @@
       },
       {
         "key": "Positive text",
-        "value": "肯定文本"
+        "value": "正面文本"
       },
       {
         "key": "Color for the positive text",
@@ -301,7 +301,7 @@
       },
       {
         "key": "Negative text",
-        "value": "否定文本"
+        "value": "负面文本"
       },
       {
         "key": "Color for the negative text",
@@ -324,15 +324,15 @@
       },
       {
         "key": "Full format: 3123555",
-        "value": "完整格式为：3123555"
+        "value": "完整格式：3123555"
       },
       {
         "key": "Compact format: 3.1M",
-        "value": "简约格式：3.1M"
+        "value": "紧凑格式：3.1M"
       },
       {
         "key": "Comma format: 3,123,555",
-        "value": "千分位格式：3,123,555"
+        "value": "逗号格式：3,123,555"
       },
       {
         "key": "No text is shown",
@@ -344,15 +344,15 @@
       },
       {
         "key": "Show the average ",
-        "value": "显示均值 "
+        "value": "显示平均值 "
       },
       {
         "key": "gain or loss",
-        "value": "增益或损耗"
+        "value": "增益或损失"
       },
       {
         "key": "as a percentage",
-        "value": "以百分比形式"
+        "value": "以百分比表示"
       }
     ]
   },
@@ -402,7 +402,7 @@
     "pairs": [
       {
         "key": "Once mode enabled",
-        "value": "单次模式已启用"
+        "value": "启用单次模式"
       },
       {
         "key": "Enabled 'dial once' mode",
@@ -425,7 +425,7 @@
       },
       {
         "key": "Dial once",
-        "value": "单次拨号"
+        "value": "拨号一次"
       },
       {
         "key": "Interrupt",
@@ -433,7 +433,7 @@
       },
       {
         "key": "Check",
-        "value": "校验"
+        "value": "检查"
       },
       {
         "key": "Receiver is too far to hilight!",
@@ -441,7 +441,7 @@
       },
       {
         "key": "The receiver is now highlighted",
-        "value": "接收器现已被高亮显示"
+        "value": "接收器现已高亮显示"
       },
       {
         "key": "Dialing device power low!",
@@ -473,15 +473,15 @@
       },
       {
         "key": "Receiver blocked!",
-        "value": "接收器已被阻挡！"
+        "value": "接收器被阻挡！"
       },
       {
         "key": "Transmitter blocked!",
-        "value": "传输器被阻挡！"
+        "value": "发射器被阻挡！"
       },
       {
         "key": "Invalid transmitter!!",
-        "value": "发送器无效！！"
+        "value": "无效的发送器！！"
       },
       {
         "key": "Interrupted!",
@@ -489,7 +489,7 @@
       },
       {
         "key": "Dial ok!",
-        "value": "拨号完成！"
+        "value": "拨号成功！"
       },
       {
         "key": "Start a connection between",
@@ -497,11 +497,11 @@
       },
       {
         "key": "the selected transmitter",
-        "value": "所选传输器"
+        "value": "所选发送器"
       },
       {
         "key": "and the selected receiver",
-        "value": "以及所选的接收器"
+        "value": "以及所选接收器"
       },
       {
         "key": "Dial a connection for a",
@@ -509,11 +509,11 @@
       },
       {
         "key": "single teleport",
-        "value": "一次性传送"
+        "value": "单次传送"
       },
       {
         "key": "Interrupt a connection",
-        "value": "断开连接"
+        "value": "中断连接"
       },
       {
         "key": "for the selected transmitter",
@@ -525,7 +525,7 @@
       },
       {
         "key": "the selected receiver",
-        "value": "所选定的接收器"
+        "value": "所选接收器"
       },
       {
         "key": "(needs an adjacent analyzer!)",
@@ -537,15 +537,15 @@
       },
       {
         "key": "destination receiver:",
-        "value": "目的接收器："
+        "value": "目标接收器："
       },
       {
         "key": "destination dimension:",
-        "value": "目的维度："
+        "value": "目标维度："
       },
       {
         "key": "and the selected receiver.",
-        "value": "以及所选的接收器。"
+        "value": "以及所选接收器。"
       },
       {
         "key": "Distance: ",
@@ -553,7 +553,7 @@
       },
       {
         "key": "single teleport.",
-        "value": "一次性传送。"
+        "value": "单次传送。"
       }
     ]
   },
@@ -568,7 +568,7 @@
       },
       {
         "key": "Use this name to",
-        "value": "使用此名称以"
+        "value": "使用此名称来"
       },
       {
         "key": "identify this receiver",
@@ -576,7 +576,7 @@
       },
       {
         "key": "in the dialer",
-        "value": "在传送控制器中"
+        "value": "在拨号器中"
       },
       {
         "key": "Everyone can dial to this receiver",
@@ -600,7 +600,7 @@
       },
       {
         "key": "from the access list",
-        "value": "自访问列表"
+        "value": "从访问列表中"
       }
     ]
   },
@@ -615,7 +615,7 @@
       },
       {
         "key": "Use this name to",
-        "value": "使用此名称以"
+        "value": "使用此名称来"
       },
       {
         "key": "identify this transmitter",
@@ -623,7 +623,7 @@
       },
       {
         "key": "in the dialer",
-        "value": "在传送控制器中"
+        "value": "在拨号器中"
       },
       {
         "key": "Everyone can access this transmitter",
@@ -643,7 +643,7 @@
       },
       {
         "key": "Hide the teleportation beam",
-        "value": "隐藏传送光柱"
+        "value": "隐藏传送光束"
       },
       {
         "key": "Add a player to the access list",
@@ -655,7 +655,7 @@
       },
       {
         "key": "from the access list",
-        "value": "自访问列表"
+        "value": "从访问列表中"
       }
     ]
   },

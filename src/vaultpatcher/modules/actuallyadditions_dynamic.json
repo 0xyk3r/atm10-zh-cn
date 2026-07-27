@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Value Play",
-        "value": "数值回放"
+        "value": "数值播放"
       },
       {
         "key": "Average Charge Amount",
@@ -20,11 +20,11 @@
       },
       {
         "key": "Average Flight Time",
-        "value": "飞行平均时长"
+        "value": "平均飞行时间"
       },
       {
         "key": "Effect Chance",
-        "value": "效果几率"
+        "value": "效果触发几率"
       },
       {
         "key": "Flicker/Trail Ratio",
@@ -32,15 +32,15 @@
       },
       {
         "key": "Color Amount",
-        "value": "颜色数目"
+        "value": "颜色数量"
       },
       {
         "key": "Small Ball",
-        "value": "小圆球"
+        "value": "小球体"
       },
       {
         "key": "Large Ball",
-        "value": "大圆球"
+        "value": "大球体"
       },
       {
         "key": "Star Shape",
@@ -48,15 +48,15 @@
       },
       {
         "key": "Creeper Shape",
-        "value": "苦力怕造型"
+        "value": "苦力怕形状"
       },
       {
         "key": "Burst",
-        "value": "迸发"
+        "value": "爆发"
       },
       {
         "key": "Area of Effect",
-        "value": "影响范围"
+        "value": "作用范围"
       }
     ]
   }

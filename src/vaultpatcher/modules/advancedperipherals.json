@@ -27,7 +27,7 @@
     "pairs": [
       {
         "key": "Consumed: %d/%d %s",
-        "value": "消耗：%d/%d %s"
+        "value": "已消耗：%d/%d %s"
       }
     ]
   }

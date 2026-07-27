@@ -46,7 +46,7 @@
     "pairs": [
       {
         "key": "macro value",
-        "value": "宏变量值"
+        "value": "宏值"
       },
       {
         "key": "Book %s has use_resource_pack set to false. ",

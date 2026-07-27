@@ -23,7 +23,7 @@
     "pairs": [
       {
         "key": "Unknown Gear Type",
-        "value": "未知的齿轮类型"
+        "value": "未知齿轮类型"
       }
     ]
   },
@@ -34,7 +34,7 @@
     "pairs": [
       {
         "key": "Unknown Part Type",
-        "value": "未知的部件类型"
+        "value": "未知部件类型"
       }
     ]
   },
@@ -173,27 +173,27 @@
       },
       {
         "key": "    - Tag: ",
-        "value": "    - 标签： "
+        "value": "    - 标签："
       },
       {
         "key": "    - Block: ",
-        "value": "    - 方块： "
+        "value": "    - 方块："
       },
       {
         "key": "  - Fill Area",
-        "value": "  - 填充区域"
+        "value": "  - 填充范围"
       },
       {
         "key": "    - Fills facing plane only",
-        "value": "    - 仅在朝向平面填充"
+        "value": "    - 仅填充朝向平面"
       },
       {
         "key": "    - On sneak: ",
-        "value": "    - 潜行时： "
+        "value": "    - 潜行时："
       },
       {
         "key": "  - Durability Cost: ",
-        "value": "  - 耐久消耗： "
+        "value": "  - 耐久消耗："
       },
       {
         "key": "  - Cooldown: ",
@@ -208,11 +208,11 @@
     "pairs": [
       {
         "key": "  - Places: ",
-        "value": "  - 放置： "
+        "value": "  - 放置："
       },
       {
         "key": "  - Durability Cost: ",
-        "value": "  - 耐久消耗： "
+        "value": "  - 耐久消耗："
       },
       {
         "key": "  - Cooldown: ",
@@ -293,7 +293,7 @@
     "pairs": [
       {
         "key": "Unknown operation: ",
-        "value": "未知的操作： "
+        "value": "未知操作："
       }
     ]
   },
@@ -323,7 +323,7 @@
       },
       {
         "key": "Level key must be positive: ",
-        "value": "等级键值必须为正数："
+        "value": "等级键必须为正数："
       },
       {
         "key": "Not a number: ",
@@ -342,11 +342,11 @@
       },
       {
         "key": "by armor piece count",
-        "value": "按盔甲件数"
+        "value": "按盔甲数量"
       },
       {
         "key": "requires full set of armor",
-        "value": "需要整套盔甲"
+        "value": "需要全套盔甲"
       },
       {
         "key": "Unknown WielderEffectTraitEffect.LevelType: ",

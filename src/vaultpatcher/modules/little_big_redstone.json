@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Text not yet loaded",
-        "value": "文本仍在加载中"
+        "value": "文本尚未加载"
       }
     ]
   },
@@ -27,7 +27,7 @@
       },
       {
         "key": "Unregistered holder in ",
-        "value": "存在未注册的持有者，位于 "
+        "value": "未注册的持有者位于 "
       }
     ]
   }

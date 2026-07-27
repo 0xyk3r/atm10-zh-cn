@@ -12,15 +12,15 @@
     "pairs": [
       {
         "key": "Mouse Tweaks Options",
-        "value": "鼠标调整选项"
+        "value": "鼠标微调选项"
       },
       {
         "key": "RMB Tweak",
-        "value": "右键微调"
+        "value": "右键调整"
       },
       {
         "key": "Wheel Tweak",
-        "value": "滚轮微调"
+        "value": "滚轮调整"
       },
       {
         "key": "Wheel Tweak Search Order",
@@ -32,7 +32,7 @@
       },
       {
         "key": "Scroll Scaling",
-        "value": "滚动幅度缩放"
+        "value": "滚动缩放"
       },
       {
         "key": "Debug Mode",
@@ -40,11 +40,11 @@
       },
       {
         "key": "First to Last",
-        "value": "从第一到最后"
+        "value": "从前到后"
       },
       {
         "key": "Last to First",
-        "value": "从最后到第一"
+        "value": "从后到前"
       },
       {
         "key": "Down to Push, Up to Pull",
@@ -56,7 +56,7 @@
       },
       {
         "key": "Inventory Position Aware",
-        "value": "识别物品栏位置"
+        "value": "物品栏位置感知"
       },
       {
         "key": "Inventory Position Aware, Inverted",

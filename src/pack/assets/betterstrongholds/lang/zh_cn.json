@@ -1,6 +1,6 @@
 {
-  "betterstrongholds.commands.locate.stronghold": "请改用命令 /locate structure betterstrongholds:stronghold！",
-  "Use /locate structure betterstrongholds:stronghold instead!": "请改用指令 /locate structure betterstrongholds:stronghold 来定位！",
+  "betterstrongholds.commands.locate.stronghold": "请改用 /locate structure betterstrongholds:stronghold！",
+  "Use /locate structure betterstrongholds:stronghold instead!": "请改用 /locate structure betterstrongholds:stronghold！",
   "text.autoconfig.betterstrongholds-fabric-1_21.title": "YUNG的更好的要塞",
   "text.autoconfig.betterstrongholds-fabric-1_21.option.betterStrongholds": "YUNG的更好的要塞",
   "text.autoconfig.betterstrongholds-fabric-1_21.option.betterStrongholds.general": "常规设置",

@@ -16,15 +16,15 @@
       },
       {
         "key": "Empty chapters",
-        "value": "空白章节"
+        "value": "空章节"
       },
       {
         "key": "Null bookData",
-        "value": "bookData 为空"
+        "value": "空的书本数据"
       },
       {
         "key": "Page ",
-        "value": "第"
+        "value": "第 "
       },
       {
         "key": "Page",
@@ -36,7 +36,7 @@
       },
       {
         "key": "Contents",
-        "value": "目录"
+        "value": "内容"
       }
     ]
   }

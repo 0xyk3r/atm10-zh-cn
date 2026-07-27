@@ -273,7 +273,7 @@
   "block.mcwdoors.mangrove_swamp_door": "红树木沼泽风格门",
   "block.mcwdoors.bamboo_bamboo_door": "竹竹风门",
   "block.mcwdoors.cherry_waffle_door": "樱花木华夫门",
-  "mcwdoors.garage.desc": "只需在天花板上放置一个，开启时会向下卷收",
+  "mcwdoors.garage.desc": "仅在天花板上放置一个，打开时它将向下滚动",
   "block.mcwdoors.pale_oak_japanese_door": "苍白橡木障子门",
   "block.mcwdoors.pale_oak_japanese2_door": "整扇苍白橡木障子门",
   "block.mcwdoors.pale_oak_barn_door": "苍白橡木谷仓门",

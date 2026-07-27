@@ -12,27 +12,27 @@
     "pairs": [
       {
         "key": "controller not found",
-        "value": "找不到控制器"
+        "value": "未找到控制器"
       },
       {
         "key": "single monitor formed",
-        "value": "已形成单台显示器"
+        "value": "单显示器已形成"
       },
       {
         "key": "invalid multiblock",
-        "value": "多方块结构无效"
+        "value": "无效的多方块结构"
       },
       {
         "key": "multiblock formed",
-        "value": "多方块结构已形成"
+        "value": "多方块结构已成型"
       },
       {
         "key": "multiblock destroyed",
-        "value": "多方块结构已被破坏"
+        "value": "多方块结构已损坏"
       },
       {
         "key": "Work in progress!",
-        "value": "开发中！"
+        "value": "正在开发中！"
       }
     ]
   },
@@ -43,7 +43,7 @@
     "pairs": [
       {
         "key": "Work in progress!",
-        "value": "开发中！"
+        "value": "正在开发中！"
       }
     ]
   }

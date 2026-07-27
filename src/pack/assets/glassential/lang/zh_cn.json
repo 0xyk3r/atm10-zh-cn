@@ -147,7 +147,7 @@
   "tooltip.glassential.painter.pass_entity": "◈ 实体穿透",
   "tooltip.glassential.painter.usage": "右键以进行配置",
   "tooltip.glassential.painter.eyedropper": "Shift+右击任意方块以复制其颜色",
-  "message.glassential.brush.copy_success": "颜色 %s 已复制到画笔",
+  "message.glassential.brush.copy_success": "已将颜色 %s 复制到画笔",
   "message.glassential.brush.copy_failed": "无法从此方块复制颜色",
   "tooltip.glassential.painter.color": "颜色：%s"
 }

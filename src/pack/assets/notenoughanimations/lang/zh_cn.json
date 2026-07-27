@@ -99,7 +99,7 @@
   "text.nea.enable.clampCrossbowAnimations": "限制弩动画",
   "text.nea.enable.clampCrossbowAnimations.tooltip": "限制动画效果",
   "text.nea.enable.customBowRotationLock": "自定义弓锁定翻滚角",
-  "text.nea.enable.customBowRotationLock.tooltip": "启用自定义弓箭动画时会让身体呈一定角度倾斜",
+  "text.nea.enable.customBowRotationLock.tooltip": "使用自定义弓动画时使身体倾斜",
   "text.nea.animateLanterns": "灯笼动画",
   "text.nea.animateLanterns.tooltip": "为手持的灯笼添加摆动动画",
   "text.nea.enable.applyRotationLockToEveryone": "对所有人应用旋转锁定",

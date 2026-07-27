@@ -8,7 +8,7 @@
   "simplebackups.backup_errors": "备份期间发生了 %s 个错误",
   "simplebackups.backup_failed_delete": "备份失败（正在删除未完成的文件）- 请检查日志文件以获取更多信息",
   "simplebackups.backup_failed_continue": "备份创建在早期阶段失败，部分文件可能未被备份——请检查日志文件以获取更多信息，防止数据丢失",
-  "simplebackups.not_enough_space": "磁盘剩余空间不足，无法创建备份，操作已中止！",
+  "simplebackups.not_enough_space": "磁盘空间不足，无法创建备份。已中止！",
   "simplebackups.configuration.section.simplebackups.common.experimental.toml": "实验性设置",
   "simplebackups.configuration.backupChainsToKeep": "保留备用连锁",
   "simplebackups.configuration.noPlayerBackups": "无玩家时备份",

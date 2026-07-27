@@ -279,7 +279,7 @@
   "exported_setting.ae2.exported_custom_name": "自定义名称",
   "exported_setting.ae2.exported_level_emitter_value": "等级发件人值",
   "exported_setting.ae2.exported_p2p_frequency": "P2P 频率",
-  "exported_setting.ae2.exported_p2p_type": "P2P Type",
+  "exported_setting.ae2.exported_p2p_type": "P2P 类型",
   "exported_setting.ae2.exported_patterns": "样板",
   "exported_setting.ae2.exported_priority": "优先级",
   "exported_setting.ae2.exported_push_direction": "推送方向",

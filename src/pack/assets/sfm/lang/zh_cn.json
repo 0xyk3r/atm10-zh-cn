@@ -208,7 +208,7 @@
   "log.sfm.program.voided_resources": "%s",
   "log.sfm.resource_type.get_capabilities.begin": "正在收集类型为 %s (%s) 的 Capability，标签为 %s",
   "log.sfm.resource_type.get_capabilities.not_present": "Capability %s %s direction=%s 不存在",
-  "log.sfm.resource_type.get_capabilities.present": "Capability %s %s direction=%s 存在",
+  "log.sfm.resource_type.get_capabilities.present": "能力 %s %s 方向=%s 已存在",
   "log.sfm.statement.tick.forget": "FORGET %s",
   "log.sfm.statement.tick.if.false": "FALSE: %s",
   "log.sfm.statement.tick.if.true": "TRUE: %s",

@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Unlock?",
-        "value": "是否解锁？"
+        "value": "解锁？"
       }
     ]
   },
@@ -23,7 +23,7 @@
     "pairs": [
       {
         "key": "The start of an adventure.",
-        "value": "冒险的起点。"
+        "value": "一场冒险的开始。"
       },
       {
         "key": "The forbidden grimoire.",

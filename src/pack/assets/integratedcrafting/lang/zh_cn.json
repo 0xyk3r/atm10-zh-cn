@@ -107,7 +107,7 @@
   "info_book.integratedcrafting.tutorials.autocrafting_trigger.text2": "首先，让我们先合成一个 &l合成写入器&r。这将使你能够针对给定的配方、物品、流体或能量，自动启动合成任务。获得它后，将该写入器放置在网络中任意连接到你在上一教程中使用的 &l合成接口&r 的位置。",
   "info_book.integratedcrafting.tutorials.autocrafting_trigger.text3": "在让 &l合成写入器&r合成橡木板之前，我们首先需要向网络中放入一些橡原木。为此，使用 &l集成管道&r 的 &l物品界面&r 将某种存储方块（例如箱子）连接到网络，并确保箱子中至少有一根橡原木。",
   "info_book.integratedcrafting.tutorials.autocrafting_trigger.text4": "现在，我们让 &l合成写入器&r 开始合成橡木板。为此，请使用你的 &l逻辑编程器&r 创建一张包含橡木板的 &l变量卡&r，并将其插入 &l合成写入器&r 中。",
-  "info_book.integratedcrafting.tutorials.autocrafting_trigger.text5": "若你已将一切设置正确，就会看到一根橡木原木被转化为4块橡木木板。取走这些木板后，只要仓库中还有其他原木，系统就会立刻再合成出4块新木板。你也可以调整&l合成写入器&r的方面设置来做实验，例如让它无视仓库存量，尽可能多地合成木板。",
+  "info_book.integratedcrafting.tutorials.autocrafting_trigger.text5": "如果你已正确配置所有内容，你将看到一根橡原木已被转化为4块橡木板。一旦移除这些木板，若有其他原木可用，则会立即再合成出4块新木板。你还可以尝试调整&l合成写入器&r的方面设置，例如忽略存储内容，从而尽可能多地合成木板。",
   "info_book.integratedcrafting.tutorials.autocrafting_trigger.text6": "本节末尾的图示展示了一个完成本教程所需配置部件的示例。",
   "block.integratedcrafting.part_crafting_writer": "部件合成写入器",
   "block.integratedcrafting.part_interface_crafting": "部件接口合成",

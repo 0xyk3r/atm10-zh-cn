@@ -12,27 +12,27 @@
     "pairs": [
       {
         "key": "Store",
-        "value": "储存"
+        "value": "存储"
       },
       {
         "key": "Craft one",
-        "value": "合成 1 个"
+        "value": "合成一个"
       },
       {
         "key": "Craft four",
-        "value": "合成 4 个"
+        "value": "合成四个"
       },
       {
         "key": "Craft eight",
-        "value": "合成 8 个"
+        "value": "合成八个"
       },
       {
         "key": "Craft a stack",
-        "value": "合成一组"
+        "value": "合成整个堆叠"
       },
       {
         "key": "Store the current recipe",
-        "value": "储存当前配方"
+        "value": "保存当前配方"
       }
     ]
   },
@@ -47,7 +47,7 @@
       },
       {
         "key": "Unlock to access these slots",
-        "value": "解锁后即可访问这些槽位"
+        "value": "解锁以访问这些槽位"
       },
       {
         "key": "Lock/unlock the module slots",
@@ -59,7 +59,7 @@
       },
       {
         "key": "Name based filter for items",
-        "value": "依据名称筛选物品"
+        "value": "基于名称的物品筛选器"
       },
       {
         "key": "Control how items are shown",
@@ -67,7 +67,7 @@
       },
       {
         "key": "in the view",
-        "value": "于视图中"
+        "value": "在视图中"
       },
       {
         "key": "Control how items are sorted",
@@ -83,7 +83,7 @@
       },
       {
         "key": "Amount of stacks / maximum amount",
-        "value": "物品堆数 / 上限数量"
+        "value": "堆叠数量 / 最大数量"
       },
       {
         "key": "Compact equal stacks",
@@ -98,7 +98,7 @@
     "pairs": [
       {
         "key": "Remote",
-        "value": "存储遥控器"
+        "value": "红石遥控器"
       },
       {
         "key": "Invalid tile entity!",
@@ -118,15 +118,15 @@
       },
       {
         "key": "full stack",
-        "value": "满叠"
+        "value": "整叠"
       },
       {
         "key": "single item",
-        "value": "单个物品"
+        "value": "仅允许提供一个物品"
       },
       {
         "key": "All routable",
-        "value": "全部支持路由"
+        "value": "全部可路由"
       },
       {
         "key": "Toggle wide storage list",
@@ -134,7 +134,7 @@
       },
       {
         "key": "Move inventory up",
-        "value": "将物品栏上移"
+        "value": "向上移动物品栏"
       },
       {
         "key": "Move inventory to the top",
@@ -154,7 +154,7 @@
       },
       {
         "key": "Filter the list of items",
-        "value": "对物品列表进行筛选"
+        "value": "筛选物品列表"
       },
       {
         "key": "The radius that the scanner",
@@ -170,7 +170,7 @@
       },
       {
         "key": "Block at: ",
-        "value": "所在方块： "
+        "value": "方块位置："
       },
       {
         "key": "Name: ",
@@ -178,7 +178,7 @@
       },
       {
         "key": "(doubleclick to highlight)",
-        "value": "（双击可高亮显示）"
+        "value": "（双击以高亮）"
       }
     ]
   },
@@ -205,7 +205,7 @@
       },
       {
         "key": "to match items",
-        "value": "用于匹配物品"
+        "value": "以匹配物品"
       }
     ]
   },
@@ -228,7 +228,7 @@
       },
       {
         "key": "(mark inventories in storage scanner)",
-        "value": "（于存储扫描器中标注容器）"
+        "value": "（在存储扫描器中标记容器）"
       }
     ]
   },
