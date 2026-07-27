@@ -122,7 +122,10 @@ t = t.replace('@@MCVER@@', os.environ['MC']).replace('@@DEFAULT_PACKS@@', os.env
 p.write_text(t, encoding='utf-8')
 " "$f"
 done
-cp README.md CHANGELOG.md LICENSE 致谢与技术说明.md "$CSTAGE/"
+# 说明文档在包里改名叫「请安装前务必看我.md」：大部分人是从别处拿到 zip 的，
+# 根本不会去 GitHub 看 README，文件名就得自己把话说完。
+cp README.md "$CSTAGE/请安装前务必看我.md"
+cp CHANGELOG.md LICENSE 致谢与技术说明.md "$CSTAGE/"
 printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' > "$CSTAGE/项目主页与反馈.url"
 chmod +x "$CSTAGE/install.sh"
 
@@ -154,7 +157,7 @@ import os, pathlib, sys
 src, dst = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
 dst.write_text(src.read_text(encoding='utf-8').replace('@@MCVER@@', os.environ['MC']),
                encoding='utf-8')
-" SERVER.md "$SSTAGE/README-服务端.md"
+" SERVER.md "$SSTAGE/请安装前务必看我.md"
 cp LICENSE "$SSTAGE/"
 printf '[InternetShortcut]\r\nURL=https://github.com/chiba233/atm10-zh-cn\r\n' > "$SSTAGE/项目主页与反馈.url"
 

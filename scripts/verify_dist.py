@@ -106,14 +106,22 @@ def check(path):
         if mc and ('汉化包-%s.zip' % mc.group(1)) not in pname:
             bad.append('资源包文件名 %r 与 atm%s 对不上' % (pname, mc.group(1)))
 
+    # 说明文档必须在包里，而且必须叫这个名字。大部分人是从别处拿到 zip 的，
+    # 不会去 GitHub 看 README——文件名就是唯一能提醒他们的地方。改名要是哪天
+    # 悄悄没了（比如有人把 cp 那行改回去），这里当场红。
+    README = '请安装前务必看我.md'
+    if README not in [n.rsplit('/', 1)[-1] for n in names]:
+        bad.append('包里没有「%s」——从别处拿到 zip 的人就没有任何说明了' % README)
+
     # 占位符必须已被打包脚本填掉。查**包里全部文本文件**，不只是安装器——
     # 曾经只查 install.sh/ps1，结果 SERVER.md 里那句「适用于 ATM10 7.2 专用服务器」
     # 是写死的，7.0 / 7.1 的包里也印着 7.2，玩家报上来才发现。
     TEXT = ('.sh', '.ps1', '.bat', '.md', '.txt', '.json', '.snbt', '.js', '.mcmeta', '.url')
     # 这几份项目文档是**原样**分发的，不是模板；它们正文里会提到占位符本身
     # （CHANGELOG 就在讲这套机制），不能拿它们当漏填。
-    VERBATIM = ('README.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE',
-                '致谢与技术说明.md')
+    # 注意「请安装前务必看我.md」**不在**这个名单里：客户端那份是 README 原样拷的
+    # （里面没有占位符），而服务端那份是 SERVER.md 套上版本号生成的，必须继续查。
+    VERBATIM = ('CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE', '致谢与技术说明.md')
     for n in names:
         if not n.endswith(TEXT) or n.rsplit('/', 1)[-1] in VERBATIM:
             continue

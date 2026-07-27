@@ -51,7 +51,7 @@ vaultpatcher/modules/*.json                    # 仅 10 个 RFTools/mcjty 类定
 kubejs/server_scripts/pb_hanhua_cage_migrate.js # 蜂笼/实体显示名按 NBT ID 迁移
 config/ftbquests/…                             # 任务书中文（服务端也要，否则任务标题/描述回退英文）
 config/vaultpatcher_asm/…                       # VaultPatcher 主配置
-README-服务端.md · LICENSE · 项目主页与反馈.url
+请安装前务必看我.md · LICENSE · 项目主页与反馈.url
 ```
 
 ## 安装
