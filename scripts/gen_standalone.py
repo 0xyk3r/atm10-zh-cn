@@ -27,6 +27,7 @@
 """
 import hashlib
 import json
+import re
 import shutil
 import sys
 import zipfile
@@ -87,6 +88,88 @@ def coverage(jar, ns, pack_root, floor):
                          % (k, got * 100, need * 100, len(bad.get(k, [])),
                             bad.get(k, [])[:5]))
     return rate, fails
+
+
+def sanity(jar, ns, pack_root):
+    """出包前的结构与格式核验，全部对着**模组自己的** en_us 比。
+
+    覆盖率只回答「有没有翻」，这里回答「翻得会不会炸」：
+
+    - 占位符：译文的占位符集合必须 ⊆ 英文的。多出来就是运行时参数不足 →
+      TranslatableFormatException。少是译者的合法选择（有的参数其实只是个空格）。
+    - `%s` 不许降级成 `%d`/`%f`：类型对不上，两条渲染路径都炸。
+    - 结尾裸 `%`：MC 的 FORMAT_PATTERN 会匹配到字符串结尾并抛异常。
+    - 导览书：中文那份的 JSON 结构必须和英文那份**逐键一致**。Patchouli 按结构读，
+      少一个 `type` 或者页数对不上，那一页直接不显示——而且不会报错。
+    """
+    bad = []
+    z = zipfile.ZipFile(jar)
+    TOK = re.compile(r'%(?:(\d+)\$)?(\d+)?(?:\.(\d+))?([a-zA-Z%])')
+    TRAIL = re.compile(r'(?<!%)%$')
+
+    def profile(t):
+        prof, seq = {}, 0
+        for m in TOK.finditer(t):
+            if m.group(4) == '%':
+                continue
+            if m.group(1):
+                idx = int(m.group(1))
+            else:
+                seq += 1
+                idx = seq
+            prof.setdefault(idx, m.group(4))
+        return prof
+
+    en_path = 'assets/%s/lang/en_us.json' % ns
+    if en_path in z.namelist():
+        en = json.loads(z.read(en_path))
+        zh = json.loads((pack_root / 'assets' / ns / 'lang'
+                         / 'zh_cn.json').read_text(encoding='utf-8'))
+        for k, v in zh.items():
+            if not isinstance(v, str):
+                bad.append('lang %s 的值不是字符串' % k)
+                continue
+            e = en.get(k)
+            if e is None:
+                continue
+            pe, pz = profile(e), profile(v)
+            if set(pz) - set(pe):
+                bad.append('lang %s 多出占位符 %s（运行时参数不足会抛异常）\n'
+                           '        en=%r\n        zh=%r'
+                           % (k, sorted(set(pz) - set(pe)), e, v))
+            down = [i for i in set(pe) & set(pz) if pe[i] == 's' and pz[i] != 's']
+            if down:
+                bad.append('lang %s 第 %s 个参数把 %%s 降级了（类型对不上，必炸）'
+                           % (k, sorted(down)))
+            if TRAIL.search(v) and not TRAIL.search(e):
+                bad.append('lang %s 译文以裸 %% 结尾（MC 会当非法格式抛异常）' % k)
+
+    def shape(o):
+        """只看结构，不看文本内容。"""
+        if isinstance(o, dict):
+            return {k: shape(v) for k, v in sorted(o.items())}
+        if isinstance(o, list):
+            return [shape(x) for x in o]
+        return type(o).__name__
+
+    for n in z.namelist():
+        if not (n.startswith('assets/%s/patchouli_books/' % ns)
+                and '/en_us/' in n and n.endswith('.json')):
+            continue
+        t = pack_root / n.replace('/en_us/', '/zh_cn/')
+        if not t.is_file():
+            continue                       # coverage 那边已经报过
+        try:
+            a = shape(json.loads(z.read(n)))
+            b = shape(json.loads(t.read_text(encoding='utf-8')))
+        except Exception as e:
+            bad.append('导览书 %s 解析失败: %r' % (n, e))
+            continue
+        if a != b:
+            bad.append('导览书 %s 的中文版结构与英文版不一致'
+                       '（Patchouli 按结构读，对不上那一页会静默不显示）'
+                       % n.rsplit('/', 1)[-1])
+    return bad
 
 
 def book_name(jar, ns, pack_root):
@@ -157,6 +240,9 @@ modId="{modid}_zh_cn"
 version="{ver}"
 displayName="{zh} 汉化"
 authors="星野夢華 (Hoshino Yumeka)"
+# 纯客户端资源，服务端不会有这个 mod。不写这条，进服时可能被判定「mod 不一致」
+# 而连不上——汉化把人挡在服务器外面是最不能接受的一类故障。
+displayTest="IGNORE_ALL_VERSION"
 description=\'\'\'
 {zh}（{en}）的简体中文汉化：物品、方块、蜜蜂、界面，以及内置导览书全部页面。
 
@@ -227,10 +313,13 @@ def main(mid, mods_dir, ver):
     rate, fails = coverage(jar, man['namespaces'][0], stage, man['coverage_floor'])
     for k, v in sorted(rate.items()):
         print('  %s 覆盖率 %.1f%%' % (k, v * 100))
+    fails += sanity(jar, man['namespaces'][0], stage)
     if fails:
         for f in fails:
             print('  ❌', f)
-        sys.exit('❌ 覆盖率不达标，不出包——「只翻了一半」比没翻还糟')
+        sys.exit('❌ %d 项没过，不出包——「只翻了一半」或者「翻了会炸」都比没翻还糟'
+                 % len(fails))
+    print('  占位符 / 导览书结构核验通过')
 
     (stage / 'pack.mcmeta').write_text(mcmeta(man), encoding='utf-8')
     (stage / 'LICENSE').write_bytes((ROOT / 'LICENSE').read_bytes())
