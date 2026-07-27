@@ -137,8 +137,12 @@ python3 scripts/test_installer.py                       # 安装器端到端测�
 - **ci.yml**：逐版本套映射做上游漂移检测 + 汉化校验，每个 PR / push 必跑（不下 jar，快）
 - **build.yml**：完整构建全部版本，下整合包与 480 个 mod jar
 - **installer-test.yml**：`installer/` 一动就在 macOS / Windows / Linux 三系统跑端到端
-- **release.yml**：推 tag `v<版本>` 自动构建发布，Release 说明取 `CHANGELOG.md`
-  对应版本段落——**发版前记得写 CHANGELOG**
+- **release.yml**：推 tag 自动构建并发布全部整合包版本的包。
+  tag 形态：新式 `vr13` / `vr13-beta1`（补丁版本号与整合包版本解耦），
+  旧式 `v7.2-release11` 继续认。Release 说明按**整串精确比对**取 `CHANGELOG.md`
+  的 `## <版本>` 段，取不到就回落到文件里第一个 `## ` 段（当前在写的那一段）——
+  **不会**回落到 `## 7.2`，那是冻结的历史段。发版前记得写 CHANGELOG。
+  发布前逐个点名检查「每个声明过的版本都有客户端 + 服务端两个包」，缺一个就不发。
 
 ## PR 约定
 

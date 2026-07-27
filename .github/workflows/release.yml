@@ -40,8 +40,8 @@ jobs:
       # 而且每个整合包版本各查一遍（上游文件按版本不同）。
 
       # 三条路径：
-      #   tag push (v7.2.0) ──> publish=true, version=7.2.0
-      #   manual + publish=true + version='X.Y.Z' ──> publish=true
+      #   tag push (vr13 / v7.2-release11) ──> publish=true
+      #   manual + publish=true + version ──> publish=true
       #   manual + publish=false ──> 只构建不发布
       - name: Resolve release options
         id: release
@@ -54,9 +54,12 @@ jobs:
 
           if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
             tag="$GITHUB_REF_NAME"
-            # 版本 = <整合包版本>-<通道><序号>：v7.2-release1 (正式) / v7.2-beta1 / v7.2-rc1
-            if [[ ! "$tag" =~ ^v[0-9]+(\.[0-9]+){1,2}-(release|beta|rc)[0-9]+$ ]]; then
-              echo "Tag '$tag' is not in a recognized form; refusing to publish." >&2
+            # 补丁版本号已与整合包版本解耦（产物名是 -<补丁版本>-atm<整合包版本>.zip），
+            # 所以 tag 认两种：
+            #   新：vr13 / v13 / v13.1 / vr13-beta2
+            #   旧：v7.2-release11 / v7.2-beta6（历史 tag，继续认，别把老流程弄挂）
+            if [[ ! "$tag" =~ ^vr?[0-9]+(\.[0-9]+)*(-(release|beta|rc)[0-9]+)?$ ]]; then
+              echo "Tag '$tag' 不是认得的形态。新版号写 vr13 / vr13-beta1，旧式 v7.2-release11 也行。" >&2
               exit 1
             fi
             version="${tag#v}"
@@ -82,10 +85,10 @@ jobs:
             echo "A version is required when publishing a release." >&2
             exit 1
           fi
-          # 补丁版本号与整合包版本解耦（见 CHANGELOG 的 7.* 段）：
-          # r12 / 12 / 12.1 / 12-beta1 都可以，不再要求写成 7.2-releaseN。
-          if [[ ! "$version" =~ ^r?[0-9]+(\.[0-9]+)*(-(beta|rc)[0-9]+)?$ ]]; then
-            echo "Version must look like 7.2-release1 or 7.2-beta1." >&2
+          # 与上面 tag 那条**同一个形态**，别两边各写一套然后对不上：
+          # 新 r13 / 13 / 13.1 / r13-beta2；旧 7.2-release11 / 7.2-beta6
+          if [[ ! "$version" =~ ^r?[0-9]+(\.[0-9]+)*(-(release|beta|rc)[0-9]+)?$ ]]; then
+            echo "版本号写 r13 / r13-beta1，旧式 7.2-release11 也行。" >&2
             exit 1
           fi
           beta=false
@@ -142,24 +145,32 @@ jobs:
         run: |
           set -euo pipefail
 
-          # 取 CHANGELOG 版本段：精确版本(7.2-beta2) → 基版本(7.2) → 第一个 ## 段
+          # 取 CHANGELOG 里对应的段落。标题**按整串精确比对**，不走正则——
+          # 段名里带 `.` 和 `*`（`## 7.*`），当正则用会顺手匹配上 `## 7.2`，
+          # 发出去的说明就是别的版本的。
           extract() {
-            awk -v ver="$1" '
-              $0 ~ "^## " ver "([ \t]|$)" { found=1; next }
+            awk -v ver="## $1" '
+              $0 == ver { found=1; next }
               found && /^## / { exit }
               found { buf = buf $0 "\n" }
               END { sub(/^\n+/, "", buf); sub(/\n+$/, "", buf); print buf }
             ' CHANGELOG.md
           }
-          BASE_VERSION="${RELEASE_VERSION%%-*}"
+          # 顺序：精确补丁版本 → 文件里第一个 ## 段（当前在写的那一段）。
+          # **不要**再回落到「去掉通道后缀的基版本」：`## 7.2` 现在是冻结的历史段
+          # （431 行），推 v7.2-release12 这种旧式 tag 会把那一整段当成新版说明发出去。
+          FROM="## $RELEASE_VERSION"
           NOTES=$(extract "$RELEASE_VERSION")
-          [ -z "$NOTES" ] && NOTES=$(extract "$BASE_VERSION")
           if [ -z "$NOTES" ]; then
-            NOTES=$(awk '/^## /{if(f)exit; f=1; next} f{buf=buf $0 "\n"} END{sub(/^\n+/,"",buf);sub(/\n+$/,"",buf);print buf}' CHANGELOG.md)
+            FIRST=$(awk '/^## /{sub(/^## /,""); print; exit}' CHANGELOG.md)
+            FROM="## $FIRST（回落）"
+            NOTES=$(extract "$FIRST")
           fi
           if [ -z "$NOTES" ]; then
-            NOTES="All the Mods 10 汉化补丁 绿油油版 $RELEASE_VERSION"
+            echo "❌ CHANGELOG.md 里一个 ## 段都取不到，发版说明会是空的——先写 CHANGELOG" >&2
+            exit 1
           fi
+          echo "发版说明取自 CHANGELOG 的 $FROM"
 
           PRERELEASE_FLAG=""
           [[ "$IS_BETA" == "true" ]] && PRERELEASE_FLAG="--prerelease"
@@ -168,15 +179,19 @@ jobs:
           #   atm10-zh_cn-{client,server}-<补丁版本>-atm<整合包版本>.zip
           # build_dist.sh 直接产出 ASCII 名（连解压出来的文件夹名也是 ASCII）——
           # 中文文件夹名在 Windows 各解压软件下编码不一致，用户拿到手就是乱码。
-          mapfile -t ZIPS < <(ls dist/*-"${RELEASE_VERSION}"-atm*.zip)
-          [ "${#ZIPS[@]}" -ge 2 ] || { echo "dist/ 里没有 ${RELEASE_VERSION} 的包"; exit 1; }
-          # 每个声明过的整合包版本都必须有客户端 + 服务端两个包，缺一个就别发
+          # 每个声明过的整合包版本都必须有客户端 + 服务端两个包，缺一个就别发。
+          # 按清单逐个点名，不是 `ls` 出多少算多少——少打了一个版本必须当场发现。
+          # （不用 mapfile：那是 bash 4+ 的内建，本机 bash 3.2 跑不了，
+          #   本地就验不了这段门控。）
+          ZIPS=()
           for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
             for side in client server; do
               f="dist/atm10-zh_cn-${side}-${RELEASE_VERSION}-atm${v}.zip"
-              [ -f "$f" ] || { echo "缺少 $f"; exit 1; }
+              [ -f "$f" ] || { echo "❌ 缺少 $f"; exit 1; }
+              ZIPS+=("$f")
             done
           done
+          [ "${#ZIPS[@]}" -ge 2 ] || { echo "❌ versions/ 下一个版本都没有"; exit 1; }
           printf '  挂载: %s\n' "${ZIPS[@]}"
 
           gh release delete "v$RELEASE_VERSION" --yes 2>/dev/null || true
