@@ -1,0 +1,28 @@
+{
+ "src": "kubejs/assets/compactmachines/lang/zh_cn.json",
+ "edits": [
+  {
+   "find": [
+    "  \"machine.compactmachines.colossal\": \"空间压缩机械 (超巨型)\",\n"
+   ],
+   "replace": [
+    "  \"machine.compactmachines.colossal\": \"空间压缩机械 (超巨型)\",\n",
+    "  \"machine.compactmachines.farming\": \"空间压缩机械 (农业)\",\n"
+   ]
+  },
+  {
+   "find": [
+    "  \"machine.compactmachines.tiny\": \"空间压缩机械 (微型)\",\n"
+   ],
+   "replace": []
+  },
+  {
+   "find": [
+    "  \"machine.compactmachines.farming\": \"空间压缩机械 (农业)\"\n"
+   ],
+   "replace": [
+    "  \"machine.compactmachines.tiny\": \"空间压缩机械 (微型)\"\n"
+   ]
+  }
+ ]
+}

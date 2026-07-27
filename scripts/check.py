@@ -18,8 +18,15 @@
 import json, re, sys
 from pathlib import Path
 
+from paths import COMMON
+
 ROOT = Path(__file__).resolve().parent.parent
-PACK_DIR = ROOT / 'resourcepacks' / 'ATM10汉化包'
+# 检查的是**出货树**（含全部生成物）。默认 build/common；build_dist.sh 会把
+# 「common + 该版上游补丁」合成好的那棵树传进来，于是每个版本都各查一遍。
+TREE = Path(sys.argv[1]) if len(sys.argv) > 1 else COMMON
+if not TREE.is_dir():
+    sys.exit('❌ 出货树不存在: %s\n   先跑: python3 scripts/assemble.py && ./scripts/generate_all.sh' % TREE)
+PACK_DIR = TREE / 'resourcepacks' / 'ATM10汉化包'
 errors = []
 
 # McJtyLib 枚举协议值：NamedCodec 按名字反查，翻译后反查失败 → 崩溃
@@ -33,7 +40,7 @@ FORBIDDEN_KEYS = {
 }
 
 # 1+2: VaultPatcher 模块
-for p in sorted((ROOT / 'vaultpatcher' / 'modules').glob('*.json')):
+for p in sorted((TREE / 'vaultpatcher' / 'modules').glob('*.json')):
     try:
         mod = json.loads(p.read_text(encoding='utf-8'))
     except Exception as e:
@@ -65,7 +72,7 @@ for p in sorted((ROOT / 'vaultpatcher' / 'modules').glob('*.json')):
 server_list = [l.strip() for l in (ROOT / 'scripts' / 'server_modules.txt').read_text(encoding='utf-8').splitlines()
                if l.strip() and not l.startswith('#')]
 for name in server_list:
-    p = ROOT / 'vaultpatcher' / 'modules' / f'{name}.json'
+    p = TREE / 'vaultpatcher' / 'modules' / f'{name}.json'
     if not p.exists():
         errors.append(f'server_modules.txt: 清单里的 {name}.json 不存在')
         continue
@@ -77,7 +84,7 @@ for name in server_list:
 
 # 2.7: 资源蜜蜂译名单一真源：脚本表必须与资源包 zh_cn 一致（由 gen_pb_hanhua.py 生成）
 pb_pack = json.loads((PACK_DIR / 'assets/productivebees/lang/zh_cn.json').read_text(encoding='utf-8'))
-club = ROOT / 'kubejs' / 'client_scripts' / 'pb_hanhua_tooltip.js'
+club = TREE / 'kubejs' / 'client_scripts' / 'pb_hanhua_tooltip.js'
 # 这个脚本是**生成物**，不入 git（见 .gitignore）。干净 clone 里它不存在，
 # 跳过本节即可——不是错误。构建流程会先跑 generate_all.sh 再跑本校验，
 # 那时它一定在，漂移仍然拦得住。
@@ -95,17 +102,20 @@ else:
 
 # 2.8: 旧译名残留检查：废弃译名只允许出现在别名表/生成器（作为归一的键）
 LEGACY_NAMES = ('联调蜂', '神蜂特工队')
-LEGACY_WHITELIST = {
+# 白名单按**路径尾巴**匹配：同一份生成物会出现在 build/common/ 和 build/v/<版本>/ 下
+LEGACY_WHITELIST = (
     'kubejs/client_scripts/pb_hanhua_tooltip.js',
     'kubejs/server_scripts/pb_hanhua_cage_migrate.js',
     'scripts/gen_pb_hanhua.py',
     'scripts/check.py',
-}
+)
+# packsrc/ 是下载来的上游整合包原样副本，不归我们管
+SKIP_DIRS = {'.git', 'dist', 'packsrc', 'pack', 'node_modules'}
 for p2 in ROOT.rglob('*'):
-    if not p2.is_file() or '.git' in p2.parts or 'dist' in p2.parts:
+    if not p2.is_file() or SKIP_DIRS & set(p2.parts):
         continue
     rel2 = p2.relative_to(ROOT).as_posix()
-    if rel2 in LEGACY_WHITELIST or p2.suffix in ('.jar', '.png', '.zip'):
+    if rel2.endswith(LEGACY_WHITELIST) or p2.suffix in ('.jar', '.png', '.zip'):
         continue
     try:
         txt = p2.read_text(encoding='utf-8')
@@ -115,11 +125,11 @@ for p2 in ROOT.rglob('*'):
         if ln in txt:
             errors.append(f'{rel2}: 含废弃译名 "{ln}"（真源已更名，此处是漂移的旧拷贝）')
 # 遗留的 VaultPatcher 蜂名模块（已被 kubejs 显示层取代，全局替换有污染风险）禁止复活
-if (ROOT / 'vaultpatcher' / 'modules' / 'productivebees_gene_zh.json').exists():
+if (TREE / 'vaultpatcher' / 'modules' / 'productivebees_gene_zh.json').exists():
     errors.append('productivebees_gene_zh.json: 遗留蜂名全局替换模块，已废弃，禁止复活（显示层走 kubejs）')
 
 # 3: VaultPatcher 主配置
-cfg_path = ROOT / 'config' / 'vaultpatcher_asm' / 'config.json'
+cfg_path = TREE / 'config' / 'vaultpatcher_asm' / 'config.json'
 cfg = json.loads(cfg_path.read_text(encoding='utf-8'))
 if cfg.get('load_all_modules') is not True:
     errors.append('config.json: load_all_modules 必须为 true，否则自建模块不加载')
@@ -191,9 +201,9 @@ if FMT_SNAPSHOT.exists():
         'item.occultism.book_of_calling_djinni.tooltip.deposit',
     }
     lang_files = list(PACK_DIR.rglob('lang/zh_cn.json'))
-    lang_files += list((ROOT / 'kubejs' / 'assets').rglob('lang/zh_cn.json'))
+    lang_files += list((TREE / 'kubejs' / 'assets').rglob('lang/zh_cn.json'))
     for p in lang_files:
-        rel = p.relative_to(ROOT).as_posix()
+        rel = p.relative_to(TREE).as_posix()
         try:
             d = json.loads(p.read_text(encoding='utf-8'))
         except Exception:
@@ -238,14 +248,14 @@ if FMT_SNAPSHOT.exists():
 #      在全新实例上会先于整合包的文件合并，然后被整合包的原值盖回去。
 #
 # 统一加 zz_hanhua_ 前缀两个问题一起解决：不可能撞名，且一定最后合并。
-QLANG = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
+QLANG = TREE / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
 for p in sorted(QLANG.rglob('*.snbt')):
     if not p.name.startswith('zz_hanhua_'):
         errors.append(f'任务书 delta {p.relative_to(ROOT)} 缺少 zz_hanhua_ 前缀'
                       f'（会和整合包自带的同名文件撞车，安装时把人家的翻译整个覆盖掉）')
 
 # 7: 任务书 delta 之间的重复键
-QDELTA = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
+QDELTA = TREE / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
 _KEY = re.compile(r'\t([A-Za-z0-9_.]+):\s*(.*)$')
 _seen = {}
 for p in sorted(QDELTA.glob('*.snbt')):

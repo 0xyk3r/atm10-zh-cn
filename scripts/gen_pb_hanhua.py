@@ -4,13 +4,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """资源蜜蜂汉化生成器 —— 单一真源，产出双端脚本。
 
-真源：resourcepacks/ATM10汉化包/.../productivebees/lang/zh_cn.json 的
+真源：src/pack/assets/productivebees/lang/zh_cn.json 的
 entity.productivebees.* 键。禁止在别处手写第二份蜂名表。
 
-产出：
-  kubejs/client_scripts/pb_hanhua_tooltip.js   显示层（tooltip/名牌）
+产出（全部落在出货树 build/common/ 里，不入 git）：
+  kubejs/client_scripts/pb_hanhua_tooltip.js       显示层（tooltip/名牌）
   kubejs/server_scripts/pb_hanhua_cage_migrate.js  数据迁移（按 ID 查权威译名）
-  scripts/pb_upstream_en_us.json               上游 en_us 快照（CI 离线重跑用）
+  build/snapshots/pb_upstream_en_us.json           上游 en_us 快照（离线重跑用）
 
 架构原则（重构 + 对抗测试后固化）：
   - 数据层不注入中文：服务端数据保持上游英文/ID，否则与 JEI/配方分裂
@@ -23,17 +23,18 @@ entity.productivebees.* 键。禁止在别处手写第二份蜂名表。
     （宁显示英文也不张冠李戴；数据迁移按 ID 不受影响）
   - 显示层"类型行"只做整段精确匹配，禁止贪婪替换
 
-用法: python3 scripts/gen_pb_hanhua.py <PB jar 路径 | en_us 快照.json>
-CI:   python3 scripts/gen_pb_hanhua.py scripts/pb_upstream_en_us.json
-      && git diff --exit-code kubejs/client_scripts/... kubejs/server_scripts/...
+用法: python3 scripts/gen_pb_hanhua.py [PB jar 路径 | en_us 快照.json]
+      不给参数就按 ATM_PACK_ROOT/mods/productivebees-*.jar 认
 """
 import json
+import os
 import sys
 from pathlib import Path
 
+from paths import COMMON, PACK, snapshot
 ROOT = Path(__file__).resolve().parent.parent
-PACK_LANG = ROOT / 'resourcepacks/ATM10汉化包/assets/productivebees/lang/zh_cn.json'
-SNAPSHOT = ROOT / 'scripts/pb_upstream_en_us.json'
+PACK_LANG = PACK / 'assets/productivebees/lang/zh_cn.json'
+SNAPSHOT = snapshot('pb_upstream_en_us.json')
 
 # 历史上用过、后被否掉的中文译名 → 归一到权威译名（均为 fbi 蜂旧译）
 LEGACY_ZH = ['联调蜂', '神蜂特工队', 'fbi蜜蜂']
@@ -45,9 +46,17 @@ def title_case(base: str) -> str:
 
 
 def main() -> None:
-    if len(sys.argv) < 2:
-        sys.exit('用法: gen_pb_hanhua.py <productivebees jar 路径 | en_us 快照.json>')
-    src = Path(sys.argv[1])
+    if len(sys.argv) >= 2:
+        src = Path(sys.argv[1])
+    else:
+        # 不给参数就去 ATM_PACK_ROOT/mods 里认那个 jar（generate_all.sh 走这条）
+        root = os.environ.get('ATM_PACK_ROOT')
+        cand = sorted((Path(root) / 'mods').glob('productivebees-*.jar')) if root else []
+        if not cand:
+            sys.exit('用法: gen_pb_hanhua.py <productivebees jar 路径 | en_us 快照.json>\n'
+                     '      或设好 ATM_PACK_ROOT，让它自己去 mods/ 里认 productivebees-*.jar')
+        src = cand[-1]
+        print('  用 %s' % src.name)
     if src.suffix == '.json':
         en = json.loads(src.read_text(encoding='utf-8'))
     else:
@@ -300,8 +309,10 @@ EntityEvents.spawned(function (event) {
 console.info('[pb_hanhua] 数据迁移已注册 (ID表:' + Object.keys(PB_BID2ZH).length + ')')
 ''')
 
-    (ROOT / 'kubejs/client_scripts/pb_hanhua_tooltip.js').write_text(client, encoding='utf-8')
-    (ROOT / 'kubejs/server_scripts/pb_hanhua_cage_migrate.js').write_text(server, encoding='utf-8')
+    (COMMON / 'kubejs/client_scripts').mkdir(parents=True, exist_ok=True)
+    (COMMON / 'kubejs/server_scripts').mkdir(parents=True, exist_ok=True)
+    (COMMON / 'kubejs/client_scripts/pb_hanhua_tooltip.js').write_text(client, encoding='utf-8')
+    (COMMON / 'kubejs/server_scripts/pb_hanhua_cage_migrate.js').write_text(server, encoding='utf-8')
     print(f'已生成: ID {len(id2zh)} | EN {len(en2zh)} | TYPE {len(type2zh)} | 迁移 {len(bid2zh)} | 闸门 {len(sys_names)}')
     if ambiguous:
         print(f'歧义英文名（已从显示映射剔除，共 {len(ambiguous)} 个）:')

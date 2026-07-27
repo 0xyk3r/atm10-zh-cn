@@ -14,9 +14,10 @@ import sys
 import zipfile
 from pathlib import Path
 
+from paths import COMMON, PACK, snapshot
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / 'scripts' / 'upstream_format_en_us.json'
-PACK = ROOT / 'resourcepacks' / 'ATM10汉化包'
+OUT = snapshot('upstream_format_en_us.json')
+
 
 
 def loadb(b):
@@ -47,7 +48,7 @@ def main(instance):
                 jar_en.setdefault(k, v)
 
     pack_keys = set()
-    for base in (PACK, ROOT / 'kubejs' / 'assets'):
+    for base in (PACK, COMMON / 'kubejs' / 'assets'):
         for p in base.rglob('lang/zh_cn.json'):
             d = json.loads(p.read_text(encoding='utf-8'))
             for k, v in d.items():

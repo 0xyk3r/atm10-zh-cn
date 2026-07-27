@@ -3,8 +3,15 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 name: CI
 
-# 每个 PR / main push 都跑：校验汉化文件 + 试打分发包。
-# 快而全的第一道防线；安装脚本的三系统矩阵在 installer-test.yml。
+# 每个 PR / main push 都跑的**快闸**。
+#
+# 仓库里没有出货目录树，所以第一步永远是 assemble.py 从 src/ 现摊。
+# 这里刻意**不下 480 个 mod jar**（那是 Build / Release 的活，一次十几分钟）：
+# 快闸只覆盖不需要读 jar 的部分——
+#   1. 上游漂移：对每个声明过的整合包版本，拿该版官方文件套一遍我们的改动映射。
+#      ATM 改了哪一行，这里立刻红。这是整套多版本结构最要紧的一道闸。
+#   2. 汉化文件本身的硬检查（JSON / 枚举协议值 / 占位符 / 任务书 delta …）。
+# 安装脚本的三系统矩阵在 installer-test.yml，完整打包在 build.yml。
 on:
   push:
     branches: [main]
@@ -12,31 +19,41 @@ on:
 
 jobs:
   check:
-    name: 校验 + 试打包
+    name: 上游漂移 + 汉化校验
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
-      # 把踩过的雷全部变成硬检查：
-      # JSON 合法性 / 枚举协议值禁翻 / VaultPatcher 主配置 / .gui choice 保持英文
-      - name: 汉化文件校验
-        run: python3 scripts/check.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-      # 蜂名真源→脚本 无漂移（快照离线重跑，任何手改生成文件都会失败）
-      - name: 蜂名生成器一致性
+      - name: 从 src/ 摊出货树
+        run: python3 scripts/assemble.py
+
+      # 对着**每个版本各自的**官方文件套映射。找不到原文就退出——
+      # 上游改了文案而我们没跟，构建当场失败，而不是发出一个
+      # 「旧上游 + 我们的改动」把人家的修复整个覆盖掉的包。
+      - name: 上游文件漂移检测（各版本）
         run: |
-          python3 scripts/gen_pb_hanhua.py scripts/pb_upstream_en_us.json
-          git diff --exit-code kubejs/client_scripts/pb_hanhua_tooltip.js kubejs/server_scripts/pb_hanhua_cage_migrate.js
+          set -euo pipefail
+          for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
+            echo "───── ATM10 $v ─────"
+            python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
+            rm -rf "build/v/$v"; mkdir -p build/v; cp -R build/common "build/v/$v"
+            python3 scripts/gen_upstream_patches.py "build/packsrc/$v" "build/v/$v"
+          done
+
+      # 把踩过的雷全部变成硬检查：
+      # JSON 合法性 / 枚举协议值禁翻 / VaultPatcher 主配置 / .gui choice 保持英文 /
+      # 占位符与颜色码 / 任务书 delta 无重复键。逐版本各查一遍。
+      - name: 汉化文件校验（各版本）
+        run: |
+          set -euo pipefail
+          for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
+            echo "───── ATM10 $v ─────"
+            python3 scripts/check.py "build/v/$v"
+          done
 
       - name: 安装脚本语法检查
         run: bash -n installer/install.sh
-
-      - name: 试打分发包
-        run: ./scripts/build_dist.sh 0.0.0-ci
-
-      - name: 上传测试构建
-        uses: actions/upload-artifact@v7
-        with:
-          name: dist-ci
-          path: dist/*.zip
-          retention-days: 7

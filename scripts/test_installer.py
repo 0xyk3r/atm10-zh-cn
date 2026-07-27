@@ -16,9 +16,18 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import COMMON
+
 ROOT = Path(__file__).resolve().parent.parent
 IS_WIN = platform.system() == 'Windows'
-# 资源包**源目录**是版本中立的（resourcepacks/ATM10汉化包/），但**产物**带整合包版本号，
+# 测的是**出货树**：仓库里没有 kubejs/ config/ 这些目录，它们由 assemble.py 现摊。
+# 可以传一棵合成好的版本树进来（build/v/<版本>），默认用版本中立的 build/common。
+TREE = Path(sys.argv[1]) if len(sys.argv) > 1 else COMMON
+if not TREE.is_dir():
+    sys.exit('❌ 出货树不存在: %s\n'
+             '   先跑: python3 scripts/assemble.py && ./scripts/generate_all.sh' % TREE)
+# 资源包**源目录**是版本中立的（src/pack/），但**产物**带整合包版本号，
 # 由 build_dist.sh 在打包时注入。这里直接从安装器脚本里读它认的那个名字，
 # 免得两边各写一份、日后再对不上（曾因批量改名把这里误改成版本中立名而挂掉 CI）。
 import re as _re
@@ -36,7 +45,7 @@ OPTS_BEFORE = 'version:4189\nresourcePacks:["vanilla","mod_resources"]\nlang:zh_
 (inst / 'options.txt').write_text(OPTS_BEFORE, encoding='utf-8')
 
 # 预置一个「会被覆盖」的旧文件，验证备份/还原
-sample = sorted((ROOT / 'vaultpatcher' / 'modules').glob('*.json'))[0].name
+sample = sorted((COMMON / 'vaultpatcher' / 'modules').glob('*.json'))[0].name
 pre = inst / 'vaultpatcher' / 'modules' / sample
 pre.parent.mkdir(parents=True)
 pre.write_text('OLD-CONTENT', encoding='utf-8')
@@ -45,17 +54,17 @@ pre.write_text('OLD-CONTENT', encoding='utf-8')
 rel = inst / 'ATM10-7.2-汉化补丁-绿油油版'
 rel.mkdir()
 for d in ('config', 'kubejs', 'mods', 'vaultpatcher'):
-    shutil.copytree(ROOT / d, rel / d)
+    shutil.copytree(TREE / d, rel / d)
 (rel / 'resourcepacks').mkdir()
-src = ROOT / 'resourcepacks' / PACK
+src = TREE / 'resourcepacks' / PACK
 with zipfile.ZipFile(rel / 'resourcepacks' / f'{PACK}.zip', 'w', zipfile.ZIP_DEFLATED) as z:
     for p in src.rglob('*'):
         if p.is_file() and p.name != '.DS_Store':
             z.write(p, p.relative_to(src).as_posix())
 for s in ('install.sh', 'install.ps1'):
     shutil.copy2(ROOT / 'installer' / s, rel / s)
-if (ROOT / '可选mods-拼音搜索').is_dir():
-    shutil.copytree(ROOT / '可选mods-拼音搜索', rel / '可选mods-拼音搜索')
+if (TREE / '可选mods-拼音搜索').is_dir():
+    shutil.copytree(TREE / '可选mods-拼音搜索', rel / '可选mods-拼音搜索')
 
 
 def run(*args):
@@ -176,7 +185,7 @@ INPLACE_OPTS = 'version:4189\nresourcePacks:[]\nlang:zh_cn\n'
 for i in range(25):
     (inplace / 'mods' / f'modpack-{i}.jar').write_text('x', encoding='utf-8')
 for d in ('config', 'kubejs', 'vaultpatcher'):          # 模拟解压覆盖
-    shutil.copytree(ROOT / d, inplace / d, dirs_exist_ok=True)
+    shutil.copytree(TREE / d, inplace / d, dirs_exist_ok=True)
 (inplace / 'resourcepacks').mkdir(exist_ok=True)
 shutil.copy2(rel / 'resourcepacks' / f'{PACK}.zip', inplace / 'resourcepacks' / f'{PACK}.zip')
 for s_ in ('install.sh', 'install.ps1'):
@@ -207,7 +216,7 @@ for i in range(25):
 frel = fresh / 'atm10-zh_cn-client'
 frel.mkdir()
 for d in ('config', 'kubejs', 'mods', 'vaultpatcher'):
-    shutil.copytree(ROOT / d, frel / d)
+    shutil.copytree(TREE / d, frel / d)
 (frel / 'resourcepacks').mkdir()
 shutil.copy2(rel / 'resourcepacks' / f'{PACK}.zip', frel / 'resourcepacks' / f'{PACK}.zip')
 for s_ in ('install.sh', 'install.ps1'):

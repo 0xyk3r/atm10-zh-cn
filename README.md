@@ -215,35 +215,56 @@ All the Mods 10\          ← 实例根目录
 
 ## 仓库结构（开发者向）
 
-仓库里**只有源**，所有由脚本产出的东西都不入库、构建时重建。这样不可能出现
-一份手改过、与生成器输出不一致的产物——多版本维护下这点尤其要紧，因为同一份
-生成器要对三个整合包版本负责。
+仓库里**没有任何一棵出货用的目录树**。`kubejs/`、`config/`、`resourcepacks/`、
+`mods/` 这些整合包目录都是**产物**，构建时现摊、现产、现打补丁，全部落在
+`build/` 下（不入库）。仓库里只有 `src/`（手写的真源与改动映射）和 `scripts/`（生成器）。
 
 ```
-resourcepacks/ATM10汉化包/      资源包源（版本中立；lang 按命名空间索引，跨版本通用）
-config/ftbquests/…/zz_hanhua_*  公共任务书 delta
-vaultpatcher/modules/           151 个硬编码文本模块
+src/pack/                       资源包内容（译文；lang 按命名空间索引，跨版本通用）
+src/config/                     本包独有的 config（任务书 delta、VaultPatcher 主配置…）
+src/kubejs/                     本包独有的 KubeJS 脚本
+src/upstream/<路径>.json        上游文件的行级改写映射 —— 见下
+src/vaultpatcher/modules/       152 个硬编码文本模块
 versions/<版本>/                手写的版本专属层（任务书覆盖、默认资源包顺序）
 versions/db/<版本>/             该版的核验数据库与英文底本
 scripts/                        生成器 + 校验器
 ```
 
+### 为什么上游文件只存「改动」，不存副本
+
+整合包自己的 `kubejs/*.js`、`config/*.json` 是**上游的东西**。把改了几个字符串的
+整份副本提交进来，等于把上游内容和我们的改动焊死：ATM 一升级，我们发出去的就是
+「旧上游 + 我们的改动」，把人家的修复整个覆盖掉。多版本更要命——
+`kubejs/startup_scripts/CustomAdditions.js` 在 7.1→7.2 之间被 ATM 换掉了冰与火的类名
+（`iceandfire.data.DragonType` → `registry.IafDragonTypes`），拿 7.2 的副本发给 7.1
+用户，`Java.loadClass` 当场找不到类。
+
+所以 `src/upstream/` 里存的是一组「找这几行 → 换成这几行」（63 个文件、238 处改动），
+构建时对着**目标版本的官方文件**套用：7.1 的包拿到的是 7.1 自己的类名 + 我们的中文。
+**找不到原文就退出**——上游改了哪一行，构建当场红给你看。
+
 构建：
 
 ```bash
 ./scripts/fetch_fonts.sh                        # 取字体（全 OFL，不入库）
-ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh   # 重建全部产物
+ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh   # 摊 src/ + 重建全部产物 → build/common
 ./scripts/build_dist.sh r12                     # 出 versions/ 下声明过的全部版本
 ./scripts/build_dist.sh r12 7.2                 # 只出 7.2
 ```
 
-三套机械校验：
+`build_dist.sh` 会自动为每个目标版本取一份官方 `overrides`（`build/packsrc/<版本>/`），
+在 `build/v/<版本>/` 里合成该版的完整出货树，逐版跑 `check.py`，最后 `verify_dist.py`
+拆开每个 zip 数内容——一个没汉化的包发不出去。
+
+四套机械校验：
 
 | 脚本 | 查什么 |
 |---|---|
 | `check.py` | 会崩游戏的东西：枚举协议值、占位符、非法颜色码、delta 重复键… |
+| `gen_upstream_patches.py` | 上游文件被改动过没有——原文找不到就构建失败 |
 | `check_vaultpatcher_strings.py` | 硬编码文本的 key 是否还在目标模组的字节码里（失配是**静默**的） |
 | `check_en_drift.py` | 英文底本变了而译文没跟着变——上游改文案必然被发现 |
+| `verify_dist.py` | 打好的 zip 里每一类内容够不够量——空壳包发不出去 |
 
 ## 参与与反馈
 

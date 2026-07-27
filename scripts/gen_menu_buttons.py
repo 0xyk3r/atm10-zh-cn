@@ -44,8 +44,9 @@ try:
 except ImportError:
     sys.exit('需要 Pillow：python3 -m pip install Pillow')
 
+from paths import COMMON
 ROOT = Path(__file__).resolve().parent.parent
-ASSETS = ROOT / 'config' / 'fancymenu' / 'assets'
+ASSETS = COMMON / 'config' / 'fancymenu' / 'assets'
 # 按钮图是**就地重绘**的：擦掉文字区再写中文。所以必须先有整合包的原图。
 # 成品不入 git（见 .gitignore），本地/CI 跑之前从整合包拷一份干净的过来。
 PACK = Path(os.environ.get(

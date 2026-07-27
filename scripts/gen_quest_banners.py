@@ -99,8 +99,9 @@ try:
 except ImportError:
     sys.exit('需要 Pillow：python3 -m pip install Pillow')
 
+from paths import PACK, SRC
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / 'resourcepacks' / 'ATM10汉化包' / 'assets' / 'atm' / 'textures' / 'questpics'
+OUT = PACK / 'assets' / 'atm' / 'textures' / 'questpics'
 # 源图 / 任务书来自整合包本体。默认取本机实例，CI 上用 ATM_PACK_ROOT 指向
 # 官方包解压出来的 overrides 目录，这样 Linux 上也能复现出同样的图。
 INST = Path(os.environ.get(
@@ -1015,7 +1016,7 @@ def chapter_titles():
     if split.is_dir():
         for p in sorted(split.rglob('*.snbt')):
             zh.update(parse_lang(str(p)))
-    delta = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
+    delta = SRC / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
     for p in sorted(delta.rglob('*.snbt')):
         zh.update(parse_lang(str(p)))
     out = {}

@@ -13,7 +13,7 @@ from collections import defaultdict
 INST = "/Users/yumeka/Documents/minecraft/.minecraft/versions/All the Mods 10"
 MCROOT = "/Users/yumeka/Documents/minecraft/.minecraft"
 REPO = "/Users/yumeka/Documents/projects/atm10-zh-cn"
-PACK = os.path.join(REPO, "resourcepacks/ATM10汉化包")
+PACK = os.path.join(REPO, "src/pack")
 QDIR = os.path.join(INST, "config/ftbquests/quests")
 # 注意：也要剥掉 &z 这类**非法**颜色码。ATM 任务书里真有 "&zRainbow Plating"，
 # 不剥的话 `(?<![A-Za-z])Rainbow` 的词边界会被前面的 z 吃掉，精确匹配整条漏掉。

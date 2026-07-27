@@ -37,7 +37,9 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODULES = ROOT / 'vaultpatcher' / 'modules'
+from paths import SRC
+
+MODULES = SRC / 'vaultpatcher' / 'modules'
 
 
 def utf8_pool(data):

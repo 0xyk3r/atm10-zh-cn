@@ -57,9 +57,10 @@ import sys
 import zipfile
 from pathlib import Path
 
+from paths import COMMON, PACK, snapshot
 ROOT = Path(__file__).resolve().parent.parent
-SNAPSHOT = ROOT / 'scripts' / 'trophy_entity_names.json'
-OUT = (ROOT / 'resourcepacks' / 'ATM10汉化包' / 'assets'
+SNAPSHOT = snapshot('trophy_entity_names.json')
+OUT = (PACK / 'assets'
        / 'hanhua_trophies' / 'lang' / 'zh_cn.json')
 
 # entity.<ns>.<path>：命名空间与注册名里都不可能有点
@@ -133,7 +134,7 @@ def scan(instance):
          jar_zh)
 
     # 本包（资源包 + kubejs 覆盖）优先级最高
-    for base in (ROOT / 'resourcepacks', ROOT / 'kubejs' / 'assets'):
+    for base in (PACK, COMMON / 'kubejs' / 'assets'):
         for p in base.rglob('lang/zh_cn.json'):
             take(json.loads(p.read_text(encoding='utf-8')), pack_zh)
 
@@ -175,7 +176,7 @@ def scan(instance):
         snap[eid] = rec
     SNAPSHOT.write_text(json.dumps(snap, ensure_ascii=False, indent=1,
                                    sort_keys=True) + '\n', encoding='utf-8')
-    print('快照: %d 个实体 -> %s' % (len(snap), SNAPSHOT.relative_to(ROOT)))
+    print('快照: %d 个实体 -> %s' % (len(snap), SNAPSHOT))
     return snap
 
 
@@ -237,6 +238,11 @@ if __name__ == '__main__':
         data = scan(sys.argv[2])
     else:
         if not SNAPSHOT.exists():
-            sys.exit('缺少快照 %s，先跑 --scan <实例目录>' % SNAPSHOT)
-        data = json.loads(SNAPSHOT.read_text(encoding='utf-8'))
+            # 快照不在就现扫：ATM_PACK_ROOT 指向的整合包实例就是权威来源
+            root = os.environ.get('ATM_PACK_ROOT')
+            if not root or not (Path(root) / 'mods').is_dir():
+                sys.exit('缺少快照 %s；设好 ATM_PACK_ROOT 或跑 --scan <实例目录>' % SNAPSHOT)
+            data = scan(root)
+        else:
+            data = json.loads(SNAPSHOT.read_text(encoding='utf-8'))
     build(data)

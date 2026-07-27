@@ -43,7 +43,9 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'scripts'))
 from check_vaultpatcher_strings import utf8_pool          # noqa: E402
 
-MODULES = ROOT / 'vaultpatcher' / 'modules'
+from paths import SRC
+
+MODULES = SRC / 'vaultpatcher' / 'modules'
 
 
 def build_index(mods_dir):

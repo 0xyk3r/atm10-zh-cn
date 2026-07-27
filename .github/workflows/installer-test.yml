@@ -14,12 +14,14 @@ on:
       - 'installer/**'
       - 'scripts/test_installer.py'
       - 'scripts/build_dist.sh'
+      - 'scripts/assemble.py'
       - '.github/workflows/installer-test.yml'
   pull_request:
     paths:
       - 'installer/**'
       - 'scripts/test_installer.py'
       - 'scripts/build_dist.sh'
+      - 'scripts/assemble.py'
       - '.github/workflows/installer-test.yml'
   workflow_dispatch:
 
@@ -37,6 +39,11 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.x'
+
+      # 仓库里没有 config/ kubejs/ 这些出货目录，先从 src/ 摊出来。
+      # 安装器测试不碰图片与 lang 生成物，所以不用下整合包。
+      - name: 从 src/ 摊出货树
+        run: python scripts/assemble.py
 
       - name: 端到端测试（应用 → 恢复 → 可选mods）
         run: python scripts/test_installer.py

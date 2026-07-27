@@ -2,9 +2,9 @@ name: Build
 
 # 一次构建产出 versions/ 下声明过的**全部**整合包版本的包。
 #
-# 为什么 CI 要从零重建图片：横幅与主菜单按钮不入 git（见 .gitignore），
-# 仓库里只有生成器和手写源数据。CI 每次都重新下整合包、下字体、重跑生成器，
-# 所以「仓库里的图和脚本输出不一致」这种情况在结构上就不可能发生。
+# 仓库里**没有任何一棵出货目录树**：kubejs/ config/ resourcepacks/ mods/ 全是产物。
+# CI 每次都重新下整合包、下字体、从 src/ 摊树、重跑生成器、对着各版本官方文件打补丁，
+# 所以「仓库里躺着一份和脚本输出对不上的文件」这种情况在结构上就不可能发生。
 #
 # 字体全部是 OFL 的（缝合像素字体 + 思源黑体 / 思源宋体），Linux 上跑出来与
 # 作者本机**逐字节相同**（实测 200 张全等），不再依赖 macOS 自带字体。
@@ -55,12 +55,17 @@ jobs:
       - name: 下整合包（overrides + 全部 mod jar）
         run: |
           set -euo pipefail
-          # 产物对三个版本是同一套（资源包 lang 按命名空间索引，跨版本通用），
-          # 用最新那版的源生成一次即可；版本差异全在 versions/<版本>/ 覆盖层里。
+          # 生成器要读 mod jar 里的 en_us 与注册表，取最新那版一次即可
+          # （资源包 lang 按命名空间索引，跨版本通用）。
           NEWEST=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
           echo "以 ATM10 $NEWEST 为生成基准"
           python3 scripts/fetch_pack.py "$NEWEST" pack
           echo "ATM_PACK_ROOT=$PWD/pack" >> "$GITHUB_ENV"
+          # 每个要构建的版本再取一份 overrides（只要官方文件，不下 jar）——
+          # 打上游补丁必须对着**该版**的官方文件，否则等于把旧上游发给新版本用户。
+          for v in ${{ steps.t.outputs.list }}; do
+            python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
+          done
 
       - name: 生成全部汉化产物
         run: ./scripts/generate_all.sh

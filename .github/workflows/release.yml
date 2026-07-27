@@ -4,7 +4,8 @@
 name: Release
 
 # 构建分发包并发布 GitHub Release。
-# 资源包 zip 不入 git —— 由 build_dist.sh 从 resourcepacks/ATM10汉化包/ 源码目录现场压缩。
+# 仓库里没有任何一棵出货目录树：assemble.py 从 src/ 现摊、生成器现产、
+# gen_upstream_patches.py 对着**各版本官方文件**现打补丁，再由 build_dist.sh 压包。
 #
 # 触发方式：
 #   1. push tag v* —— 自动按 tag 名解析版本号、自动发布 release；
@@ -35,9 +36,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      # 发版前最后一道防线：校验必须过
-      - name: 汉化文件校验
-        run: python3 scripts/check.py
+      # 校验挪进 build_dist.sh 了：check.py 查的是**出货树**，而出货树是构建时才有的，
+      # 而且每个整合包版本各查一遍（上游文件按版本不同）。
 
       # 三条路径：
       #   tag push (v7.2.0) ──> publish=true, version=7.2.0
@@ -94,17 +94,29 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "beta=$beta" >> "$GITHUB_OUTPUT"
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 装 Pillow
+        run: python -m pip install --quiet Pillow
+
       - name: 取字体（全部 OFL）
         run: ./scripts/fetch_fonts.sh
 
       - name: 下整合包（overrides + 全部 mod jar）
         run: |
           set -euo pipefail
-          # 产物不入 git，必须现场重建。以 versions/ 里最新那版为生成基准，
-          # 版本差异全在 versions/<版本>/ 覆盖层里。
+          # 生成器要读 mod jar 里的 en_us 与注册表，取最新那版一次即可
+          # （资源包 lang 按命名空间索引，跨版本通用）。
           NEWEST=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
           python3 scripts/fetch_pack.py "$NEWEST" pack
           echo "ATM_PACK_ROOT=$PWD/pack" >> "$GITHUB_ENV"
+          # 每个目标版本再取一份 overrides（只要官方文件，不下 jar）——
+          # 打上游补丁必须对着**该版**的官方文件，否则等于把旧上游发给新版本用户。
+          for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
+            python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
+          done
 
       - name: 生成全部汉化产物
         run: ./scripts/generate_all.sh
@@ -152,18 +164,25 @@ jobs:
           PRERELEASE_FLAG=""
           [[ "$IS_BETA" == "true" ]] && PRERELEASE_FLAG="--prerelease"
 
+          # 一次发版挂上全部整合包版本的包：
+          #   atm10-zh_cn-{client,server}-<补丁版本>-atm<整合包版本>.zip
           # build_dist.sh 直接产出 ASCII 名（连解压出来的文件夹名也是 ASCII）——
-          # 以前只在上传前把 zip 改名，用户解压后拿到的仍是中文文件夹，
-          # Windows 各解压软件编码不一致会变乱码。
-          CLIENT_ZIP="dist/atm10-zh_cn-client-v${RELEASE_VERSION}.zip"
-          SERVER_ZIP="dist/atm10-zh_cn-server-v${RELEASE_VERSION}.zip"
-          [ -f "$CLIENT_ZIP" ] || { echo "缺少 $CLIENT_ZIP"; exit 1; }
-          [ -f "$SERVER_ZIP" ] || { echo "缺少 $SERVER_ZIP"; exit 1; }
+          # 中文文件夹名在 Windows 各解压软件下编码不一致，用户拿到手就是乱码。
+          mapfile -t ZIPS < <(ls dist/*-"${RELEASE_VERSION}"-atm*.zip)
+          [ "${#ZIPS[@]}" -ge 2 ] || { echo "dist/ 里没有 ${RELEASE_VERSION} 的包"; exit 1; }
+          # 每个声明过的整合包版本都必须有客户端 + 服务端两个包，缺一个就别发
+          for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
+            for side in client server; do
+              f="dist/atm10-zh_cn-${side}-${RELEASE_VERSION}-atm${v}.zip"
+              [ -f "$f" ] || { echo "缺少 $f"; exit 1; }
+            done
+          done
+          printf '  挂载: %s\n' "${ZIPS[@]}"
 
           gh release delete "v$RELEASE_VERSION" --yes 2>/dev/null || true
 
           gh release create "v$RELEASE_VERSION" \
-            "$CLIENT_ZIP" "$SERVER_ZIP" \
+            "${ZIPS[@]}" \
             --title "绿油油版汉化 v$RELEASE_VERSION" \
             --notes "$NOTES" \
             --draft=false \

@@ -39,8 +39,10 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PACK = ROOT / 'resourcepacks' / 'ATM10汉化包'
-QDELTA = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
+from paths import SRC
+
+PACK = SRC / 'pack'
+QDELTA = SRC / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
 
 
 def mod_en(mods_dir):

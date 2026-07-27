@@ -3,11 +3,12 @@
 # Copyright (C) 2026 星野夢華 (Hoshino Yumeka)
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# 重新生成全部「由脚本产出」的汉化资源。
+# 从 src/ 摊出货树，再把全部「由脚本产出」的汉化资源生成进去。
 #
-# 规则很硬：**任何脚本生成的产物都不进 git**（见 .gitignore）。仓库里只留生成器和
-# 手写的真源，产物一律现场重建。多版本维护下这条尤其要紧——同一份生成器要对三个
-# 整合包版本负责，仓库里躺一份手改过的产物，就等于在别的版本上埋了一颗看不见的雷。
+# 仓库里**没有任何一棵出货用的目录树**：`kubejs/`、`config/`、`resourcepacks/`、
+# `mods/` 都是产物，落在 build/ 下（.gitignore 排除）。仓库里只有 src/（手写真源
+# 与上游改动映射）和 scripts/（生成器）。这样就不可能出现「仓库里躺着一份手改过、
+# 和生成器输出对不上的文件」，也不可能把「旧上游 + 我们的改动」当成新版本发出去。
 #
 # 需要两样东西：
 #   - assets-src/fonts/    全部 OFL，跑 scripts/fetch_fonts.sh 取（同样不入 git）
@@ -36,6 +37,9 @@ done
 HAVE_JARS=0
 [ -d "$ATM_PACK_ROOT/mods" ] && [ "$(ls "$ATM_PACK_ROOT"/mods/*.jar 2>/dev/null | wc -l)" -ge 20 ] && HAVE_JARS=1
 
+echo "▶ 从 src/ 摊出货树"
+python3 scripts/assemble.py
+
 echo "▶ 任务书横幅艺术字（200 张）"
 python3 scripts/gen_quest_banners.py
 echo "▶ 主菜单按钮（14 张）"
@@ -50,10 +54,10 @@ if [ "$HAVE_JARS" = 1 ]; then
   echo "▶ 精致存储木头名（约 1500 条）"
   python3 scripts/gen_wood_names.py
   echo "▶ 上游格式串快照（check.py 的占位符校验靠它）"
-  python3 scripts/gen_format_snapshot.py
+  python3 scripts/gen_format_snapshot.py "$ATM_PACK_ROOT"
 else
   echo "⚠️ ATM_PACK_ROOT 下没有 mod jar，跳过需要读 jar 的生成器"
   echo "   （资源蜂脚本 / 奖杯名 / 木头名 / 格式串快照）"
   echo "   这些产物缺失时 build_dist.sh 会报错，CI 请把 jar 备齐。"
 fi
-echo "✅ 生成完毕"
+echo "✅ 生成完毕：build/common/"

@@ -57,9 +57,10 @@ import sys
 import zipfile
 from pathlib import Path
 
+from paths import COMMON, PACK, snapshot
 ROOT = Path(__file__).resolve().parent.parent
-SNAPSHOT = ROOT / 'scripts' / 'wood_planks_names.json'
-PACK = ROOT / 'resourcepacks' / 'ATM10汉化包'
+SNAPSHOT = snapshot('wood_planks_names.json')
+
 HAND = PACK / 'assets' / 'sophisticatedstorage' / 'lang' / 'zh_cn.json'
 OUT = PACK / 'assets' / 'hanhua_wood_names' / 'lang' / 'zh_cn.json'
 
@@ -118,7 +119,7 @@ def scan(instance):
     take(json.loads((mcroot / 'assets' / 'objects' / h[:2] / h).read_text(encoding='utf-8')),
          jar_zh)
 
-    for base in (PACK, ROOT / 'kubejs' / 'assets'):
+    for base in (PACK, COMMON / 'kubejs' / 'assets'):
         for p in base.rglob('lang/zh_cn.json'):
             take(json.loads(p.read_text(encoding='utf-8')), pack_zh)
 
@@ -130,7 +131,7 @@ def scan(instance):
         snap[key] = zh
     SNAPSHOT.write_text(json.dumps(snap, ensure_ascii=False, indent=0, sort_keys=True) + '\n',
                         encoding='utf-8')
-    print('快照: %d 种木板 -> %s' % (len(snap), SNAPSHOT.relative_to(ROOT)))
+    print('快照: %d 种木板 -> %s' % (len(snap), SNAPSHOT))
     return snap
 
 
@@ -176,6 +177,11 @@ if __name__ == '__main__':
         data = scan(sys.argv[2])
     else:
         if not SNAPSHOT.exists():
-            sys.exit('缺少快照 %s，先跑 --scan <实例目录>' % SNAPSHOT)
-        data = json.loads(SNAPSHOT.read_text(encoding='utf-8'))
+            # 快照不在就现扫：ATM_PACK_ROOT 指向的整合包实例就是权威来源
+            root = os.environ.get('ATM_PACK_ROOT')
+            if not root or not (Path(root) / 'mods').is_dir():
+                sys.exit('缺少快照 %s；设好 ATM_PACK_ROOT 或跑 --scan <实例目录>' % SNAPSHOT)
+            data = scan(root)
+        else:
+            data = json.loads(SNAPSHOT.read_text(encoding='utf-8'))
     build(data)

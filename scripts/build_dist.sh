@@ -27,19 +27,24 @@ MC_VERSIONS="${2:-$(ls -d versions/[0-9]* 2>/dev/null | xargs -n1 basename | tr 
 CBASE="atm10-zh_cn-client"
 SBASE="atm10-zh_cn-server"
 
-# 图片产物不入 git（见 .gitignore），构建前必须已经生成过，否则会打出一个
-# 缺 200 张横幅的空壳包而毫无提示。
-BANNERS=$(find "resourcepacks/ATM10汉化包/assets/atm/textures/questpics" -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
-BUTTONS=$(find config/fancymenu/assets -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
+# 仓库里没有出货树，先摊 + 生成。这里只查「摊出来了没有」，不查内容——
+# 内容归 check.py（每个版本各查一遍）和 verify_dist.py（拆开 zip 数量）管。
+COMMON="build/common"
+[ -d "$COMMON/resourcepacks" ] || {
+  echo "❌ 还没生成出货树 ($COMMON)"
+  echo "   先跑: ./scripts/fetch_fonts.sh && ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh"
+  exit 1; }
+BANNERS=$(find "$COMMON/resourcepacks/ATM10汉化包/assets/atm/textures/questpics" -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
+BUTTONS=$(find "$COMMON/config/fancymenu/assets" -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
 MISSING=""
 [ "${BANNERS:-0}" -ge 200 ] || MISSING="$MISSING 横幅(${BANNERS}/200)"
 [ "${BUTTONS:-0}" -ge 14 ]  || MISSING="$MISSING 按钮(${BUTTONS}/14)"
 for f in \
-  "resourcepacks/ATM10汉化包/assets/hanhua_trophies/lang/zh_cn.json" \
-  "resourcepacks/ATM10汉化包/assets/hanhua_wood_names/lang/zh_cn.json" \
-  "kubejs/client_scripts/pb_hanhua_tooltip.js" \
-  "kubejs/server_scripts/pb_hanhua_cage_migrate.js" \
-  "scripts/upstream_format_en_us.json"; do
+  "$COMMON/resourcepacks/ATM10汉化包/assets/hanhua_trophies/lang/zh_cn.json" \
+  "$COMMON/resourcepacks/ATM10汉化包/assets/hanhua_wood_names/lang/zh_cn.json" \
+  "$COMMON/kubejs/client_scripts/pb_hanhua_tooltip.js" \
+  "$COMMON/kubejs/server_scripts/pb_hanhua_cage_migrate.js" \
+  "build/snapshots/upstream_format_en_us.json"; do
   [ -f "$f" ] || MISSING="$MISSING $(basename "$f")"
 done
 if [ -n "$MISSING" ]; then
@@ -48,14 +53,23 @@ if [ -n "$MISSING" ]; then
   exit 1
 fi
 
-
-python3 scripts/check.py
-
 build_one() {
 MC="$1"
+# 该版的出货树 = 版本中立部分 + 该版官方文件套上我们的改动。
+# 上游文件（ATM 自己的 kubejs/*.js、config/*.json）**一份副本都不在仓库里**：
+# 这里现取该版官方文件、现打补丁，上游改了哪一行都会当场报错（见 gen_upstream_patches.py）。
+TREE="build/v/${MC}"
+rm -rf "$TREE"; mkdir -p "build/v"; cp -R "$COMMON" "$TREE"
+UPROOT="build/packsrc/${MC}"
+if [ ! -d "$UPROOT/kubejs" ]; then
+  echo "  取 ATM10 ${MC} 的官方文件（只要 overrides，不下 jar）"
+  python3 scripts/fetch_pack.py "$MC" "$UPROOT" --no-jars
+fi
+python3 scripts/gen_upstream_patches.py "$UPROOT" "$TREE"
+python3 scripts/check.py "$TREE"
 # 资源包**内容**跨版本通用（lang 按命名空间索引，多余键不生效、缺的回退），
 # 所以源目录只有一份；只有产出的 zip 文件名带版本号，方便用户认。
-PACK_SRC="resourcepacks/ATM10汉化包"
+PACK_SRC="$TREE/resourcepacks/ATM10汉化包"
 PACK_NAME="ATM10汉化包-${MC}"
 echo "───── 构建 整合包 ${MC} ─────"
 
@@ -74,7 +88,7 @@ p.write_text(p.read_text(encoding='utf-8').replace('@@MCVER@@', sys.argv[2]), en
 PY
 python3 scripts/mkzip.py "${CSTAGE}/resourcepacks/${PACK_NAME}.zip" "$PSTAGE"
 rm -rf "$PSTAGE"
-cp -R config kubejs mods vaultpatcher 可选mods-拼音搜索 "$CSTAGE/"
+cp -R "$TREE/config" "$TREE/kubejs" "$TREE/mods" "$TREE/vaultpatcher" "$TREE/可选mods-拼音搜索" "$CSTAGE/"
 # 该版专属的任务书中文：文件名必须排在本包其余 zz_hanhua_* 之后才能覆盖它们
 # （ftbquestslangsplitter 按文件名字母序合并，后合并的覆盖先合并的）
 QOV="versions/${MC}/quest_overrides.snbt"
@@ -108,21 +122,21 @@ chmod +x "$CSTAGE/install.sh"
 SSTAGE="dist/${SBASE}"
 rm -rf "$SSTAGE"
 mkdir -p "$SSTAGE/mods" "$SSTAGE/vaultpatcher/modules"
-cp mods/vaultpatcher.jar "$SSTAGE/mods/"
+cp "$TREE/mods/vaultpatcher.jar" "$SSTAGE/mods/"
 # 蜂名迁移脚本（KubeJS 服务端）：按 NBT ID 改写老蜂笼/老实体的显示名
 # （不再用语言注入 mod —— 服务端数据必须保持上游英文，否则与 JEI/配方分裂）
 mkdir -p "$SSTAGE/kubejs/server_scripts"
-cp kubejs/server_scripts/pb_hanhua_cage_migrate.js "$SSTAGE/kubejs/server_scripts/"
+cp "$TREE/kubejs/server_scripts/pb_hanhua_cage_migrate.js" "$SSTAGE/kubejs/server_scripts/"
 # 服务端安全模块子集（清单与准入标准见 scripts/server_modules.txt，check.py 把关）
 grep -v '^#' scripts/server_modules.txt | while IFS= read -r m; do
-  [ -n "$m" ] && cp "vaultpatcher/modules/$m.json" "$SSTAGE/vaultpatcher/modules/"
+  [ -n "$m" ] && cp "$TREE/vaultpatcher/modules/$m.json" "$SSTAGE/vaultpatcher/modules/"
 done
 # 服务端 config 只带任务书语言与 VaultPatcher 主配置。
 # ⚠️ mysticalcustomization 绝不能上服务端：服务器带改名后的作物配置会让
 # 所有玩家进服时刷 "error creating crop with id null"（2026-07-24 实测定位）。
 # 作物名汉化是纯客户端的。
 mkdir -p "$SSTAGE/config"
-cp -R config/ftbquests config/vaultpatcher_asm "$SSTAGE/config/"
+cp -R "$TREE/config/ftbquests" "$TREE/config/vaultpatcher_asm" "$SSTAGE/config/"
 [ -f "versions/${MC}/quest_overrides.snbt" ] && cp "versions/${MC}/quest_overrides.snbt" \
   "$SSTAGE/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_zzz_version_override.snbt"
 cp SERVER.md "$SSTAGE/README-服务端.md"
