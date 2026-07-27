@@ -1,5 +1,5 @@
 {
- "count": 482,
+ "count": 483,
  "jars": {
   "7588844.jar": {
    "fileID": 7588844,
@@ -1104,6 +1104,12 @@
    "projectID": 282001,
    "sha256": "f001e5fb2064d9007bb1e5a8177860fa15d9d92b75724871b0e0ae2177ca2f3f",
    "size": 3094722
+  },
+  "cc-tweaked-1.21.1-forge-1.120.0.jar": {
+   "fileID": null,
+   "projectID": null,
+   "sha256": "81a903710d109d129c249c105695a96f4bad5e0acf7068920fb191ba791c14ce",
+   "size": 3126946
   },
   "charginggadgets-1.14.1.jar": {
    "fileID": 5615790,

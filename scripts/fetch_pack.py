@@ -208,9 +208,9 @@ def main(ver, out, jars=True):
                 return None
             got = urllib.parse.unquote(str(final).rsplit('/', 1)[-1].split('?')[0])
             if name and got != name:
-                # 实测踩到过：同一个 fileID，GET 的跳转偶发指到另一个文件
-                # （cc-tweaked 1.113.1 的 ID 拿回来一个 1.120.0）。
-                # 名字对不上就当这次失败，交给外层整轮重试，别把错文件收下。
+                # 保险：同一个 fileID，HEAD 与 GET 报的文件名理应一致。
+                # 对不上说明这次请求拿到的不是想要的那份，当失败交给外层重试，
+                # 别把来路不明的文件收下。
                 errors.append('fileID %d: 跳转文件名不一致 HEAD=%s GET=%s'
                               % (f['fileID'], name, got))
                 return None
@@ -247,6 +247,13 @@ def main(ver, out, jars=True):
           % (len(got), len(todo), len(list(mods.glob('*.jar')))))
     # manifest 里应有多少个必须一起记下来。少下了几个而不留痕，
     # 后面建出来的版本库会拿一个残缺的 jar 集合去下「这一版没有这个 key」的结论。
+    for r in rels:
+        if r.startswith('mods/') and r.endswith('.jar'):
+            f = out / r
+            prov.setdefault(f.name, {
+                'source': 'overrides',
+                'sha256': hashlib.sha256(f.read_bytes()).hexdigest(),
+                'size': f.stat().st_size})
     missing = sorted(f['fileID'] for f in todo if f['fileID'] not in got)
     (out / 'mods.provenance.json').write_text(
         json.dumps({'version': ver, 'expected': len(todo), 'got': len(prov),
@@ -279,9 +286,19 @@ if __name__ == '__main__':
         if len(a) != 2:
             sys.exit(__doc__)
         d = Path(a[1])
-        rels = [p.relative_to(d).as_posix() for p in d.rglob('*')
-                if p.is_file() and not p.relative_to(d).as_posix().startswith('mods/')
-                and p.name != 'mods.provenance.json']
+        # 排除的只有「按 manifest 下载的 jar」与出处文件本身。
+        # **不能一刀切排除 mods/**：整合包自己的 overrides 里就可能带 jar
+        # （ATM10 7.2 在 overrides/mods/ 放了 cc-tweaked 1.120.0 去盖掉 manifest
+        # 里那个会崩的 1.113.1），那是指纹的正当组成部分。
+        skip = {'mods.provenance.json'}
+        pf = d / 'mods.provenance.json'
+        if pf.is_file():
+            for n, v in (json.loads(pf.read_text(encoding='utf-8')).get('jars')
+                         or {}).items():
+                if v.get('fileID'):
+                    skip.add('mods/' + n)
+        rels = [r for r in (p.relative_to(d).as_posix() for p in d.rglob('*')
+                            if p.is_file()) if r not in skip]
         check_digest(a[0], tree_digest(d, rels))
         sys.exit(0)
     if len(sys.argv) < 3:

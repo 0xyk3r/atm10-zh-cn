@@ -36,6 +36,10 @@ jobs:
     # 与 build.yml 同一套钉死的工具链——发布产物必须能和 CI 产物逐字节对上。
     container:
       image: python@sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b
+    # 容器里 GitHub Actions 默认用 sh，而脚本里到处是 set -o pipefail（bash 才有）
+    defaults:
+      run:
+        shell: bash
     env:
       ATM_TOOLCHAIN_DIGEST: sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b
     steps:
