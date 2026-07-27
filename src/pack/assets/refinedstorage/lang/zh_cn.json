@@ -783,8 +783,8 @@
   "gui.refinedstorage.priority.storage_help.ctrl_click_to_modify_insert_priority": "按 CTRL+点击以修改输入优先级。",
   "gui.refinedstorage.priority.storage_help.cmd_click_to_modify_insert_priority": "按 CMD+点击以修改输入优先级。",
   "gui.refinedstorage.priority.storage_help.alt_click_to_modify_extract_priority": "按 ALT+点击以修改输出优先级。",
-  "item.refinedstorage.controller.not_needed_because_energy_is_not_required": "精致存储已配置为无需能源运行。此设备非必需，不会产生任何效果——仅在此处显示以供参考。",
+  "item.refinedstorage.controller.not_needed_because_energy_is_not_required": "精致存储当前配置为无需能源即可运行。该设备并非必需品，不会产生任何实际效果——此处显示仅供参考。",
   "item.refinedstorage.regulator_upgrade.cleared_configuration": "配置已清除",
   "text.autoconfig.refinedstorage.option.requireEnergy": "需要能量",
-  "text.autoconfig.refinedstorage.option.requireEnergy.tooltip": "网络和物品运作时是否需要消耗能量。若为否，则网络无需控制器即可运作。"
+  "text.autoconfig.refinedstorage.option.requireEnergy.tooltip": "网络与物品是否需要消耗能量才能正常运作。若设为否，则网络无需控制器也能运作。"
 }

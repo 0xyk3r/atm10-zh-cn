@@ -67,7 +67,7 @@
       },
       {
         "key": "Print triggered by command",
-        "value": "由命令触发的打印"
+        "value": "该打印由命令触发"
       }
     ]
   }

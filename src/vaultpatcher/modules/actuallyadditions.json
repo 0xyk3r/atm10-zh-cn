@@ -63,11 +63,11 @@
       },
       {
         "key": "Only Mining Ores",
-        "value": "仅挖掘矿石"
+        "value": "只挖掘矿石"
       },
       {
         "key": "Mining Everything",
-        "value": "挖掘全部"
+        "value": "挖掘所有方块"
       }
     ]
   },
@@ -78,7 +78,7 @@
     "pairs": [
       {
         "key": "Valid Tag",
-        "value": "有效标签"
+        "value": "有效的标签"
       },
       {
         "key": "Invalid Tag",
@@ -101,7 +101,7 @@
       },
       {
         "key": "Auto-Insert ",
-        "value": "自动插入 "
+        "value": "自动放入 "
       }
     ]
   },
@@ -120,7 +120,7 @@
       },
       {
         "key": "Auto-Insert ",
-        "value": "自动插入 "
+        "value": "自动放入 "
       }
     ]
   },
@@ -131,7 +131,7 @@
     "pairs": [
       {
         "key": "Patchouli is not installed! Please install Patchouli to view the booklet.",
-        "value": "未安装帕秋莉！请安装帕秋莉以查看指导手册。"
+        "value": "未安装帕秋莉模组！请先安装帕秋莉以查看手册内容。"
       }
     ]
   },

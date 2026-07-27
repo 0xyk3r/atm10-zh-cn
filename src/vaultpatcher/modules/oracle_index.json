@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Unknown Name",
-        "value": "未知名称"
+        "value": "未知的名称"
       }
     ]
   },
@@ -42,15 +42,15 @@
     "pairs": [
       {
         "key": "Invalid crafting recipe data: expected 9 inputs",
-        "value": "合成配方数据无效：需提供 9 个输入项"
+        "value": "合成配方数据无效：应提供 9 个输入"
       },
       {
         "key": "Image not found: ",
-        "value": "未找到图像："
+        "value": "找不到图像："
       },
       {
         "key": "Error reading image: ",
-        "value": "读取图像时出错："
+        "value": "读取图片时发生错误："
       },
       {
         "key": "<invalid link>",

@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Failed to load offers: ",
-        "value": "加载交易失败："
+        "value": "交易信息加载失败："
       }
     ]
   },

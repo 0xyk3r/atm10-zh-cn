@@ -23,7 +23,7 @@
     "pairs": [
       {
         "key": "Readable Scroll",
-        "value": "可读卷轴"
+        "value": "可阅读卷轴"
       }
     ]
   },
@@ -34,7 +34,7 @@
     "pairs": [
       {
         "key": "[effect added by %s]",
-        "value": "效果由 %s 添加"
+        "value": "[效果由 %s 添加]"
       }
     ]
   },
@@ -45,7 +45,7 @@
     "pairs": [
       {
         "key": "Corail Tombstone",
-        "value": "Corail 的墓碑"
+        "value": "Corail墓碑"
       }
     ]
   }

@@ -23,7 +23,7 @@
     "pairs": [
       {
         "key": "Fluid Registry: ",
-        "value": "流体注册表："
+        "value": "流体登记表："
       },
       {
         "key": "Density: ",
@@ -68,7 +68,7 @@
     "pairs": [
       {
         "key": "Invalid link",
-        "value": "非法链接"
+        "value": "无效链接"
       }
     ]
   }

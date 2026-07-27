@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Unsupported enchantment: %s",
-        "value": "不支持的附魔：%s"
+        "value": "不受支持的附魔：%s"
       }
     ]
   }

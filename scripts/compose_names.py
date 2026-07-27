@@ -152,6 +152,37 @@ def segments(suf, pre, whole):
     return seg
 
 
+def greedy(e, seg):
+    """从左往右每次取能查到的最长片段。与最少段数那条路互相独立。"""
+    w = e.split()
+    out, i = [], 0
+    while i < len(w):
+        j = len(w)
+        while j > i and ' '.join(w[i:j]) not in seg:
+            j -= 1
+        if j == i:
+            return None
+        out.append(seg[' '.join(w[i:j])])
+        i = j
+    return ''.join(out)
+
+
+ASCII_OK = set(" -_/'()[]%.,:+&")
+
+
+def sane(e, zh):
+    """产物里不许出现英文原文没有的字母数字。
+
+    `Block of Uranium` 拼出「铀-23」就是这么来的：某个片段的中文里混进了别处的
+    数字。这条闸挡的正是这类——片段表是从一堆译文里统计出来的，偶尔会带进
+    不属于这条的东西。
+    """
+    for ch in zh:
+        if ch.isascii() and ch.isalnum() and ch.lower() not in e.lower():
+            return False
+    return True
+
+
 def compose(e, seg, whole, maxseg=5):
     """按词做分段：整名能查到就直接用，否则切成几段各查各的再拼。
 
@@ -237,7 +268,10 @@ def main(mods, cfpa=None, write=False, terms=None):
     samples = []
     for e in hold:
         w2 = {k: v for k, v in trusted.items() if k != e}
-        zh, _how = compose(e, seg, w2)
+        zh, how = compose(e, seg, w2)
+        if zh is not None and how != 'whole' and (
+                greedy(e, seg) != zh or not sane(e, zh)):
+            zh = None
         if zh is None:
             skip += 1
         elif zh == trusted[e]:
@@ -262,6 +296,14 @@ def main(mods, cfpa=None, write=False, terms=None):
                 miss.append((ns, k, old, 'no-en'))
                 continue
             zh, how = compose(e, seg, trusted)
+            if zh and how != 'whole':
+                # 两条独立拼法必须拼出同一个结果，不一致说明这条有歧义
+                if greedy(e, seg) != zh:
+                    miss.append((ns, k, old, 'ambiguous'))
+                    continue
+                if not sane(e, zh):
+                    miss.append((ns, k, old, 'stray-char'))
+                    continue
             if not zh:
                 miss.append((ns, k, old, 'no-term'))
                 continue

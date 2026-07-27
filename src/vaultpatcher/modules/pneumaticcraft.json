@@ -12,11 +12,11 @@
     "pairs": [
       {
         "key": "negative temperatures are not accepted!",
-        "value": "不接受负温度！"
+        "value": "系统不接受负温度！"
       },
       {
         "key": "min temp must be < max temp!",
-        "value": "最低温度必须小于最高温度！"
+        "value": "最低温度必须低于最高温度！"
       }
     ]
   },
@@ -82,7 +82,7 @@
     "pairs": [
       {
         "key": "Move Gui",
-        "value": "移动GUI"
+        "value": "移动界面"
       }
     ]
   },
@@ -137,7 +137,7 @@
     "pairs": [
       {
         "key": "<parse error>: ",
-        "value": "<解析错误>："
+        "value": "<解析错误>： "
       }
     ]
   },
@@ -148,7 +148,7 @@
     "pairs": [
       {
         "key": "Searcher",
-        "value": "搜索仪"
+        "value": "搜寻器"
       }
     ]
   },
@@ -192,7 +192,7 @@
     "pairs": [
       {
         "key": "index must be 0 or 1!",
-        "value": "索引必须为 0 或 1！"
+        "value": "索引值必须为 0 或 1！"
       }
     ]
   },

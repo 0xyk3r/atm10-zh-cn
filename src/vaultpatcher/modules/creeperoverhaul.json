@@ -27,7 +27,7 @@
       },
       {
         "key": "Claim",
-        "value": "领取"
+        "value": "认领"
       }
     ]
   },
@@ -38,7 +38,7 @@
     "pairs": [
       {
         "key": "Claim Code",
-        "value": "领取代码"
+        "value": "认领代码"
       }
     ]
   },
@@ -77,11 +77,11 @@
       },
       {
         "key": "Error occurred on server side while logging in.",
-        "value": "登录时服务器端发生错误。"
+        "value": "登录过程中服务器端发生了错误。"
       },
       {
         "key": "Unknown error occurred while logging in.",
-        "value": "登录时发生未知错误。"
+        "value": "登录过程中发生了未知错误。"
       }
     ]
   }

@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Current state:",
-        "value": "当前状态："
+        "value": "目前状态："
       }
     ]
   },
@@ -23,7 +23,7 @@
     "pairs": [
       {
         "key": "Flag",
-        "value": "旗帜"
+        "value": "定位旗帜"
       }
     ]
   },
@@ -194,11 +194,11 @@
     "pairs": [
       {
         "key": "Grave of ",
-        "value": "墓碑："
+        "value": "坟墓："
       },
       {
         "key": "Unknown Citizen",
-        "value": "无名市民"
+        "value": "未知公民"
       }
     ]
   },
@@ -231,7 +231,7 @@
     "pairs": [
       {
         "key": "Crafting GUI",
-        "value": "合成界面"
+        "value": "合成操作界面"
       }
     ]
   }

@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Return to player",
-        "value": "返回玩家"
+        "value": "返回至玩家位置"
       },
       {
         "key": "None",
@@ -24,7 +24,7 @@
       },
       {
         "key": "(Double click to teleport)",
-        "value": "（双击传送）"
+        "value": "（双击即可传送）"
       }
     ]
   }

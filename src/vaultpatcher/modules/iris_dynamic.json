@@ -12,11 +12,11 @@
     "pairs": [
       {
         "key": "Reload pack",
-        "value": "重载资源包"
+        "value": "重新加载资源包"
       },
       {
         "key": "Copy error",
-        "value": "复制错误"
+        "value": "复制错误信息"
       }
     ]
   },
@@ -27,7 +27,7 @@
     "pairs": [
       {
         "key": "New update available!",
-        "value": "发现新版本更新！"
+        "value": "有新版本可用！"
       },
       {
         "key": "Shader debug mode toggle",

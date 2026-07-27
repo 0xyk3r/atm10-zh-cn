@@ -12,11 +12,11 @@
     "pairs": [
       {
         "key": "[Create Recipe: ",
-        "value": "[创建配方："
+        "value": "[生成配方： "
       },
       {
         "key": "[Create Processing: ",
-        "value": "[创建处理："
+        "value": "[生成处理： "
       }
     ]
   },
@@ -27,11 +27,11 @@
     "pairs": [
       {
         "key": "Heated Mixing",
-        "value": "加热搅拌"
+        "value": "加热混合"
       },
       {
         "key": "Superheated Mixing",
-        "value": "超高温搅拌"
+        "value": "超高温混合"
       }
     ]
   },
@@ -64,7 +64,7 @@
     "pairs": [
       {
         "key": "Direction set to ",
-        "value": "方向已设为 "
+        "value": "方向设置为 "
       }
     ]
   }

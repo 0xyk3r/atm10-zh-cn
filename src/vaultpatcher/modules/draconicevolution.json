@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "[Not Available]",
-        "value": "[不可用]"
+        "value": "[暂不可用]"
       }
     ]
   },
@@ -38,7 +38,7 @@
     "pairs": [
       {
         "key": "Group",
-        "value": "阵营"
+        "value": "所属组"
       }
     ]
   },
@@ -113,7 +113,7 @@
     "pairs": [
       {
         "key": "Unknown Player",
-        "value": "未知玩家"
+        "value": "未知的玩家"
       }
     ]
   },

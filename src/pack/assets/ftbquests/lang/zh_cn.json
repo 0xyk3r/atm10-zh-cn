@@ -652,8 +652,8 @@
   "config.jade.plugin_ftbquests.barrier": "屏障",
   "ftbquests.gui.xp_rewards_claimed": "已领取经验值奖励",
   "ftbquests.task.ftbquests.kill.nbt_filter": "NBT 过滤器",
-  "ftbquests.task.ftbquests.kill.nbt_filter.tooltip": "若非空，则根据实体的 NBT 进行模糊匹配\n此处使用标准的 Minecraft SNBT 语法\n例如：{Color: 4b} 可匹配一只染成黄色的绵羊",
-  "ftbquests.task.ftbquests.observation.to_observe.tooltip": "要观测的方块、方块实体或实体的 ID，或方块/实体标签\n对于方块实体和实体，可选择性附加 NBT 以实现模糊匹配，例如：\nminecraft:sheep{Color: 4b} —— 一只黄色绵羊\n注意：待匹配的 NBT 必须由服务端实体同步至客户端！",
+  "ftbquests.task.ftbquests.kill.nbt_filter.tooltip": "若该项不为空，将依据实体的 NBT 进行模糊匹配\n请使用标准的 Minecraft SNBT 语法书写\n例如 {Color: 4b} 即可匹配一只染成黄色的绵羊",
+  "ftbquests.task.ftbquests.observation.to_observe.tooltip": "待观测目标的方块、方块实体或实体 ID，亦可填方块/实体标签\n方块实体与实体可额外附加 NBT 以进行模糊匹配，例如\nminecraft:sheep{Color: 4b} —— 代表一只黄色绵羊\n重要提示：用于匹配的 NBT 必须先由服务端实体同步到客户端！",
   "ftbquests.reward.claim_xp": "取出经验",
   "block.ftbquests.banner": "旗帜"
 }

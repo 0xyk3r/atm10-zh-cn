@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Running Heapdump. Massive Lagspike incoming!",
-        "value": "正在执行堆转储。即将出现严重卡顿！"
+        "value": "正在生成堆转储，海量卡顿即将来袭！"
       }
     ]
   },
@@ -124,7 +124,7 @@
     "pairs": [
       {
         "key": "Filter",
-        "value": "过滤器"
+        "value": "筛选器"
       }
     ]
   }

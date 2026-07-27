@@ -90,7 +90,7 @@
     "pairs": [
       {
         "key": "Block is not valid!",
-        "value": "方块无效！"
+        "value": "无效的方块！"
       },
       {
         "key": "Mob resizing not implemented yet!",

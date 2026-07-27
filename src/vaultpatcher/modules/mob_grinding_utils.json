@@ -77,7 +77,7 @@
       },
       {
         "key": "Hide Area",
-        "value": "隐藏范围"
+        "value": "隐藏区域"
       }
     ]
   },
@@ -99,7 +99,7 @@
     "pairs": [
       {
         "key": "Push",
-        "value": "法术冲击"
+        "value": "推动"
       }
     ]
   },

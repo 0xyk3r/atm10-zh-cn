@@ -3,7 +3,7 @@
   "block.restrictions.attractor": "吸引方块",
   "block.restrictions.oneway": "单向推动方块",
   "itemGroup.restrictions": "Restrictions",
-  "block.restrictions.oneway_wall": "单向通行墙",
+  "block.restrictions.oneway_wall": "单向玻璃墙",
   "item.restrictions.glassboots": "玻璃靴子",
   "message.restrictions.shiftmessage": "<按下 Shift>",
   "message.restrictions.glassboots.header": "如果你穿上这双靴子，吸引方块、推离方块和单向推动方块将对你不起作用",

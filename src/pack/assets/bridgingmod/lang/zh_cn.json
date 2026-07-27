@@ -97,6 +97,6 @@
   "config.bridgingmod.option.minBridgeDistance.description.0": "方块距离你至少多远时，才能以其为起点进行搭桥。",
   "config.bridgingmod.option.minBridgeDistanceHorizontal": "最小水平距离",
   "config.bridgingmod.option.minBridgeDistanceHorizontal.description.0": "一个方块在水平方向上距离你多远时，才能从其处进行搭桥。",
-  "config.bridgingmod.option.minBridgeDistanceVertical": "最小垂直距离",
+  "config.bridgingmod.option.minBridgeDistanceVertical": "最小竖纹距离",
   "config.bridgingmod.option.minBridgeDistanceVertical.description.0": "方块在垂直方向上距离你多远时，才能以它为起点进行搭桥。"
 }

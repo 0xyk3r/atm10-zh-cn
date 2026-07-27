@@ -98,7 +98,7 @@
     "pairs": [
       {
         "key": "Unnamed Group",
-        "value": "未命名组"
+        "value": "未命名的组"
       }
     ]
   },
@@ -161,7 +161,7 @@
     "pairs": [
       {
         "key": "[Page Up]",
-        "value": "[上一页]"
+        "value": "[向上翻页]"
       },
       {
         "key": "[Mousewheel Up]",

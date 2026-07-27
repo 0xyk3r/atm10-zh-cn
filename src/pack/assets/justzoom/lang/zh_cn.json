@@ -20,12 +20,12 @@
   "justzoom.options.hide_arms_when_zooming.desc": "启用后，玩家在变焦时手臂将会不可见。",
   "justzoom.options.reset_zoom_factor_when_stop_zooming": "重置缩放倍率：%s",
   "justzoom.options.reset_zoom_factor_when_stop_zooming.desc": "如果启用，开始缩放时，缩放倍数将重置为基础值，\n而不是从上一次的缩放级别继续。",
-  "justzoom.options.toggle.enabled": "已启用",
-  "justzoom.options.toggle.disabled": "已禁用",
+  "justzoom.options.toggle.enabled": "启用",
+  "justzoom.options.toggle.disabled": "禁用",
   "justzoom.options.options_button_corner": "选项按钮位置：%s",
   "justzoom.options.options_button_corner.desc": "Just Zoom 选项按钮应显示在暂停界面的哪个角落。\n\n你可以在 Just Zoom 的 config.txt 文件中完全隐藏该按钮。",
-  "justzoom.options.corner.bottom_left": "左下方",
-  "justzoom.options.corner.bottom_right": "右下方",
-  "justzoom.options.corner.top_left": "左上方",
-  "justzoom.options.corner.top_right": "右上方"
+  "justzoom.options.corner.bottom_left": "左下",
+  "justzoom.options.corner.bottom_right": "右下",
+  "justzoom.options.corner.top_left": "柱端左",
+  "justzoom.options.corner.top_right": "柱端右"
 }

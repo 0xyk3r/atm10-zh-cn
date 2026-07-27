@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Blockout GUI",
-        "value": "屏蔽GUI"
+        "value": "Blockout 界面"
       },
       {
         "key": "Rendering BO screen",
@@ -48,7 +48,7 @@
       },
       {
         "key": "Closing BO screen",
-        "value": "正在关闭BO界面"
+        "value": "正在关闭 BO 界面"
       },
       {
         "key": "XML: %s Scaling: %s (vanilla: %.2f our: %.2f) ",

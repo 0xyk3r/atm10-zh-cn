@@ -44,7 +44,12 @@ def check(item, zh, same_ok):
     if zh == old and not same_ok:
         return '与旧译文相同却没标 same_ok'
     if en and WORD.search(en) and not CJK.search(zh):
-        return '译文里一个汉字都没有'
+        # 专有名词按原样保留是**正确**的决定（MekaSuit、LaserIO、TrueType、
+        # 拉丁学名）。判据：去掉格式码与标点后与原文一致，就是有意保留。
+        def bare(x):
+            return re.sub(r'[^0-9a-z]', '', re.sub(r'[§&][0-9a-fk-orA-FK-OR]', '', x).lower())
+        if bare(zh) != bare(en):
+            return '译文里一个汉字都没有，也不是原样保留专有名词'
     return ''
 
 

@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "Invalid lang formatting!",
-        "value": "语言格式无效！"
+        "value": "语言文件格式无效！"
       }
     ]
   },

@@ -61,7 +61,7 @@
     "pairs": [
       {
         "key": "Gear Sets",
-        "value": "齿轮组"
+        "value": "套装组合"
       }
     ]
   },
@@ -72,7 +72,7 @@
     "pairs": [
       {
         "key": "Invalid Gem Category",
-        "value": "无效的宝石类别"
+        "value": "宝石类别无效"
       }
     ]
   },
@@ -94,7 +94,7 @@
     "pairs": [
       {
         "key": "Legacy Dead King",
-        "value": "旧版死者之王"
+        "value": "旧版亡者之王"
       }
     ]
   }

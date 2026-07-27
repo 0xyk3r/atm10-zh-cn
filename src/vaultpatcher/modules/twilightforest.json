@@ -12,7 +12,7 @@
     "pairs": [
       {
         "key": "EquipmentSlotGroup must only use armor slots",
-        "value": "装备槽组只能使用护甲槽"
+        "value": "EquipmentSlotGroup 只能使用护甲槽位"
       }
     ]
   },
@@ -23,7 +23,7 @@
     "pairs": [
       {
         "key": "Feature Decorator cannot have no occupancy",
-        "value": "特征装饰器不能没有占用率"
+        "value": "特征装饰器不能没有占用值"
       }
     ]
   }
