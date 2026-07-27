@@ -13,6 +13,10 @@
 3. **确实换掉了**：译文与旧译文相同的，必须显式标了 `same_ok`——那是「这句话
    只有这一种译法」的声明，不是忘了改；
 4. **确实是中文**：英文原文里有单词、译文却一个汉字都没有，判为没译。
+   例外只有一种：**这个词在中文语境里本来就用英文原名**——判据不是「我觉得它是
+   品牌名」，而是**模组自带的中文或 CFPA 译文里也照写英文**（通用机械的官方中文
+   就写「MekaSuit能量条」「QIO驱动器阵列」）。拿不出这个证据就不许保留英文：
+   玩家认的是习惯译名，不是英文原名。
 
 过不了的条目**整条不回填**，列出来等人处理。宁可留着旧的，也不能填个会崩的。
 
@@ -44,13 +48,63 @@ def check(item, zh, same_ok):
     if zh == old and not same_ok:
         return '与旧译文相同却没标 same_ok'
     if en and WORD.search(en) and not CJK.search(zh):
-        # 专有名词按原样保留是**正确**的决定（MekaSuit、LaserIO、TrueType、
-        # 拉丁学名）。判据：去掉格式码与标点后与原文一致，就是有意保留。
         def bare(x):
             return re.sub(r'[^0-9a-z]', '', re.sub(r'[§&][0-9a-fk-orA-FK-OR]', '', x).lower())
         if bare(zh) != bare(en):
-            return '译文里一个汉字都没有，也不是原样保留专有名词'
+            return '译文里一个汉字都没有，也不是原样保留原文'
+        if not kept_in_chinese(en):
+            return '保留成英文，但中文来源里查不到同样保留的先例'
     return ''
+
+
+_TRUSTED_CN = None
+
+
+def trusted_cn():
+    """模组自带中文 + CFPA 的全部译文，用来查「这个词中文语境里是否照写英文」。"""
+    global _TRUSTED_CN
+    if _TRUSTED_CN is None:
+        vals = []
+        for p in (ROOT / 'src' / 'pack' / 'assets').glob('*/lang/zh_cn.json'):
+            try:
+                vals += [v for v in json.loads(p.read_text(encoding='utf-8-sig')).values()
+                         if isinstance(v, str)]
+            except Exception:                              # noqa: BLE001
+                pass
+        _TRUSTED_CN = '\n'.join(vals)
+    return _TRUSTED_CN
+
+
+_KEEP = None
+
+
+def keep_list():
+    """明确批准保留英文的词表（src/rules/keep_english.json），每条都写了理由。"""
+    global _KEEP
+    if _KEEP is None:
+        p = ROOT / 'src' / 'keep_english.json'
+        d = json.loads(p.read_text(encoding='utf-8')) if p.is_file() else {}
+        _KEEP = {k.lower() for k in d if not k.startswith('_')}
+    return _KEEP
+
+
+def kept_in_chinese(en):
+    """这个英文词在**中文译文里**是否也照写英文（且那条译文确实是中文）。"""
+    # 先剥掉 `&a`/`§c` 这类格式码，否则 `&aMekaSuit` 会被切成 `aMekaSuit`，
+    # 拿这个去查当然查不到——闸自己造出假阳性
+    clean = re.sub(r'[§&][0-9a-fk-orA-FK-OR]', '', en)
+    words = [w for w in re.findall(r"[A-Za-z][A-Za-z0-9'-]{2,}", clean)]
+    if not words:
+        return True                       # 纯符号/占位符，本来就没什么可译
+    keep = keep_list()
+    if all(w.lower() in keep for w in words):
+        return True
+    hay = trusted_cn()
+    for w in words:
+        for line in hay.split('\n'):
+            if w in line and CJK.search(line):
+                return True
+    return False
 
 
 def apply_lang(items, write):

@@ -26,7 +26,7 @@ CFPA 社区翻译，以及我们自己写过的那部分——总计九万多条
 
 用法:
     python3 scripts/compose_names.py --mods <mods 目录> [--cfpa <CFPA zip>]
-        [--terms src/pack/terms.json] [--write]
+        [--terms src/terms.json] [--write]
 """
 import json
 import sys
@@ -215,9 +215,9 @@ def extra_terms(path):
 
     学习只能索引首尾片段——`Light Blue Couch` 里的 `Blue` 夹在中间，
     既不是前缀也不是后缀，于是「蓝色」这个词学不到。这类词由人（或模型）
-    一次性定下来，放进 `src/pack/terms.json`，此后由脚本反复使用。
+    一次性定下来，放进 `src/terms.json`，此后由脚本反复使用。
     """
-    p = Path(path) if path else (ROOT / 'src' / 'pack' / 'terms.json')
+    p = Path(path) if path else (ROOT / 'src' / 'terms.json')
     if not p.is_file():
         return {}
     d = json.loads(p.read_text(encoding='utf-8'))
