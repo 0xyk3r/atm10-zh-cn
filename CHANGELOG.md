@@ -7,6 +7,27 @@
 > 该版真实 jar 的 **sha256 与不可变的 CurseForge fileID**、VaultPatcher 每条 key 在该版
 > 的存在状态、任务书英文底本，逐版核验，不共用近似值。
 
+### 常见问题增补：模组是中文、唯独原版是英文
+
+有玩家报「原版方块全变成英文了，整合包的都是中文」。日志里是这一句：
+
+    [Render thread/WARN] [net.minecraft.client.resources.language.ClientLanguage]:
+      Failed to load translations for zh_cn from pack vanilla
+    java.nio.file.NoSuchFileException: ...\assets\objects\c4\c4ea30a9…
+
+原版的中文**不在客户端 jar 里**——jar 的 `assets/minecraft/lang/` 只有 `en_us.json`
+一个文件；中文是启动器按资源索引单独下载、存进 `assets/objects/` 的。这份缺了，
+原版就整片回落英文，而模组的中文在各自 jar 里，跟着 `mods/` 走，纹丝不动。
+两半分家的症状就是这么来的，跟资源包顺序（另一条常见问题）不是一回事。
+
+与本包无关：`src/pack/assets/minecraft/lang/zh_cn.json` 是三个版本包共用的唯一真源，
+统共 130 条（102 条成就、16 条附魔、11 条物品、1 条杂项），**一条方块名都没有**——
+原版方块名本包从头到尾没碰过。反过来这也是个可对的指纹：真是资源缺失的话，
+玩家会看到方块物品全英文、成就与部分附魔名却是中文。
+
+README 常见问题加了这条，写明日志特征串、补全办法，以及第三方更新器装包为何最容易踩
+（更新器只管模组和配置，原版资源归启动器管）。
+
 ### 包里的说明文档改名叫「请安装前务必看我.md」
 
 大多数人是从别处拿到 zip 的，不会去 GitHub 看 README，所以文件名得自己把话说完。
