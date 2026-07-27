@@ -46,3 +46,6 @@ __pycache__/
 /scripts/pb_upstream_en_us.json
 /scripts/trophy_entity_names.json
 /scripts/wood_planks_names.json
+
+# 底本残留清单里逐条抄着底本的原文与译文——这东西本身就不能进公开仓库
+versions/base_residue.json
