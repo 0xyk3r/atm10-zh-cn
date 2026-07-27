@@ -45,7 +45,12 @@ CLIENT_MIN = {
     'vp_modules':   140,    # 152 个 VaultPatcher 模块
     'quest_delta':   30,    # 34 个任务书 delta
     'gui_files':     20,    # 24 个 RFTools .gui
-    'book_files':  1500,    # 实测 1683 个导览书文件（patchouli / ae2guide / oracle-index）
+    # 导览书文件数。2026-07-27 起这个数**降了一档**：不再分发与模组自带文件
+    # 逐字节相同的页面（没有可译内容的页，产物等于原页），那批以前是照搬进包的。
+    # 实测：本机全量实例 1633 个；CI 上 1269 个——CI 少是因为它的 jar 集更小
+    # （有些模组关掉了第三方下载，jar 取不到，那几本书就生成不了）。
+    # 下限取 1200：够低，不会因两边 jar 集差异误报；够高，真没生成时一定拦得住。
+    'book_files':  1200,
 }
 SERVER_MIN = {
     'vp_modules':    10,
