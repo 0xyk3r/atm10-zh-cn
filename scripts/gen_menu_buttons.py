@@ -34,6 +34,8 @@ ATM 的主菜单按钮把文字**烤进了 PNG**（996×234，FancyMenu 直接�
     python3 scripts/gen_menu_buttons.py            # 重新生成 14 张
     python3 scripts/gen_menu_buttons.py --check    # 只校验尺寸/未越界，不写文件
 """
+import os
+import shutil
 import sys
 from pathlib import Path
 
@@ -44,10 +46,34 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / 'config' / 'fancymenu' / 'assets'
+# 按钮图是**就地重绘**的：擦掉文字区再写中文。所以必须先有整合包的原图。
+# 成品不入 git（见 .gitignore），本地/CI 跑之前从整合包拷一份干净的过来。
+PACK = Path(os.environ.get(
+    'ATM_PACK_ROOT',
+    '/Users/yumeka/Documents/minecraft/.minecraft/versions/All the Mods 10'))
 
-# 字体按顺序找第一个存在的，一律取中粗那一档（W6 / Medium）。
-# 注：这是 macOS 自带字体，Linux CI 上没有，故本脚本不进 CI 漂移检查，改动后请本机重跑。
+
+def ensure_sources():
+    src = PACK / 'config' / 'fancymenu' / 'assets'
+    if not src.is_dir():
+        sys.exit('❌ 找不到整合包的按钮原图: %s\n'
+                 '   请设 ATM_PACK_ROOT 指向整合包（或其 overrides 目录）' % src)
+    ASSETS.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for stem in BUTTONS:
+        for variant in ('color', 'gray'):
+            f = '%s_%s.png' % (stem, variant)
+            if (src / f).exists():
+                shutil.copy2(src / f, ASSETS / f)
+                n += 1
+    print('  已从整合包取回 %d 张按钮原图' % n)
+
+# 字体按顺序找第一个存在的，一律取中粗那一档。
+# 首选仓库里的 assets-src/fonts/bold.otf（思源黑体 Bold，OFL，跑 scripts/fetch_fonts.sh 取）——
+# 这样 Linux 上的 CI 也能生成出**逐字节相同**的结果；macOS 自带字体只作为没取字体时的兜底。
 FONT_CANDIDATES = [
+    (str(ROOT / 'assets-src' / 'fonts' / 'bold.otf'), 0),
+    (str(ROOT / 'assets-src' / 'fonts' / 'bold.ttf'), 0),
     ('/System/Library/Fonts/Hiragino Sans GB.ttc', 2),   # 冬青黑体简体中文 W6
     ('/System/Library/Fonts/STHeiti Medium.ttc', 1),     # 黑体-简 Medium
     ('/System/Library/Fonts/PingFang.ttc', 4),           # 苹方-简 Medium（部分系统才有）
@@ -107,6 +133,8 @@ def render(word, color):
 
 
 def main(check_only=False):
+    if not check_only:
+        ensure_sources()
     n = 0
     for stem, word in sorted(BUTTONS.items()):
         for variant in ('color', 'gray'):

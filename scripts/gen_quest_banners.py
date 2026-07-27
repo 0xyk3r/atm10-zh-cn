@@ -88,6 +88,7 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
     python3 scripts/gen_quest_banners.py            # 重新生成
     python3 scripts/gen_quest_banners.py --check    # 只算尺寸不写文件
 """
+import os
 import re
 import statistics
 import sys
@@ -99,8 +100,12 @@ except ImportError:
     sys.exit('需要 Pillow：python3 -m pip install Pillow')
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / 'resourcepacks' / 'ATM10汉化包-7.2' / 'assets' / 'atm' / 'textures' / 'questpics'
-INST = Path('/Users/yumeka/Documents/minecraft/.minecraft/versions/All the Mods 10')
+OUT = ROOT / 'resourcepacks' / 'ATM10汉化包' / 'assets' / 'atm' / 'textures' / 'questpics'
+# 源图 / 任务书来自整合包本体。默认取本机实例，CI 上用 ATM_PACK_ROOT 指向
+# 官方包解压出来的 overrides 目录，这样 Linux 上也能复现出同样的图。
+INST = Path(os.environ.get(
+    'ATM_PACK_ROOT',
+    '/Users/yumeka/Documents/minecraft/.minecraft/versions/All the Mods 10'))
 SRC = INST / 'kubejs' / 'assets' / 'atm' / 'textures' / 'questpics'
 QUESTS = INST / 'config' / 'ftbquests' / 'quests'
 
@@ -243,7 +248,12 @@ def load_unifont():
     return g
 
 
-UNIFONT = load_unifont()
+try:
+    UNIFONT = load_unifont()
+except Exception:
+    # Unifont 只是没有像素字体时的兜底。CI 上没有 .minecraft 资源索引，
+    # 但 assets-src/fonts/pixel-*.ttf 一定在（fetch_fonts.sh 取的），所以用不到它。
+    UNIFONT = {}
 
 # 点阵中文字面：优先用 assets-src/fonts/pixel-<设计尺寸>.ttf（缝合像素字体，OFL，
 # 跑 scripts/fetch_fonts.sh 取），没有就退回 Unifont。两者都在**设计尺寸**上光栅化
@@ -994,9 +1004,19 @@ def chapter_titles():
     """图 → 引用它的章节中文标题（用于核验译名没跑偏）"""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from check_quest_item_names import parse_lang, strip
-    zh = parse_lang(str(QUESTS / 'lang' / 'zh_cn.snbt'))
-    delta = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
-    for p in sorted(delta.glob('*.snbt')):
+    # 整合包的中文任务书有两种形态：进过游戏的实例里是合并好的 zh_cn.snbt，
+    # 刚解压的官方包里则还是拆开的 lang/zh_cn/**.snbt（合并是进游戏时才做的）。
+    # 两种都要认，否则 CI 上对着官方包跑会直接找不到文件。
+    zh = {}
+    one = QUESTS / 'lang' / 'zh_cn.snbt'
+    if one.exists():
+        zh.update(parse_lang(str(one)))
+    split = QUESTS / 'lang' / 'zh_cn'
+    if split.is_dir():
+        for p in sorted(split.rglob('*.snbt')):
+            zh.update(parse_lang(str(p)))
+    delta = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
+    for p in sorted(delta.rglob('*.snbt')):
         zh.update(parse_lang(str(p)))
     out = {}
     for p in sorted((QUESTS / 'chapters').glob('*.snbt')):

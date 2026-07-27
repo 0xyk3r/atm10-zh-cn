@@ -29,11 +29,21 @@ SBASE="atm10-zh_cn-server"
 
 python3 scripts/check.py
 
+# 图片产物不入 git（见 .gitignore），构建前必须已经生成过，否则会打出一个
+# 缺 200 张横幅的空壳包而毫无提示。
+BANNERS=$(find "resourcepacks/ATM10汉化包/assets/atm/textures/questpics" -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
+BUTTONS=$(find config/fancymenu/assets -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
+if [ "${BANNERS:-0}" -lt 200 ] || [ "${BUTTONS:-0}" -lt 14 ]; then
+  echo "❌ 生成物不全（横幅 ${BANNERS}/200，按钮 ${BUTTONS}/14）"
+  echo "   先跑: ./scripts/fetch_fonts.sh && ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh"
+  exit 1
+fi
+
 build_one() {
 MC="$1"
 # 资源包**内容**跨版本通用（lang 按命名空间索引，多余键不生效、缺的回退），
 # 所以源目录只有一份；只有产出的 zip 文件名带版本号，方便用户认。
-PACK_SRC="resourcepacks/ATM10汉化包-7.2"
+PACK_SRC="resourcepacks/ATM10汉化包"
 PACK_NAME="ATM10汉化包-${MC}"
 echo "───── 构建 整合包 ${MC} ─────"
 
@@ -41,7 +51,17 @@ echo "───── 构建 整合包 ${MC} ─────"
 CSTAGE="dist/${CBASE}"
 rm -rf "$CSTAGE"
 mkdir -p "$CSTAGE/resourcepacks"
-python3 scripts/mkzip.py "${CSTAGE}/resourcepacks/${PACK_NAME}.zip" "$PACK_SRC"
+# 资源包源目录是版本中立的；pack.mcmeta 的 description 里留了 @@MCVER@@ 占位，
+# 在这里按版本填上，玩家在资源包界面能一眼看出装的是哪一版。
+PSTAGE="dist/.packsrc-${MC}"
+rm -rf "$PSTAGE"; cp -R "$PACK_SRC" "$PSTAGE"
+python3 - "$PSTAGE/pack.mcmeta" "$MC" <<'PY'
+import pathlib, sys
+p = pathlib.Path(sys.argv[1])
+p.write_text(p.read_text(encoding='utf-8').replace('@@MCVER@@', sys.argv[2]), encoding='utf-8')
+PY
+python3 scripts/mkzip.py "${CSTAGE}/resourcepacks/${PACK_NAME}.zip" "$PSTAGE"
+rm -rf "$PSTAGE"
 cp -R config kubejs mods vaultpatcher 可选mods-拼音搜索 "$CSTAGE/"
 # 该版专属的任务书中文：文件名必须排在本包其余 zz_hanhua_* 之后才能覆盖它们
 # （ftbquestslangsplitter 按文件名字母序合并，后合并的覆盖先合并的）

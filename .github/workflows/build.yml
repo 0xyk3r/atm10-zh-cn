@@ -1,0 +1,84 @@
+name: Build
+
+# 一次构建产出 versions/ 下声明过的**全部**整合包版本的包。
+#
+# 为什么 CI 要从零重建图片：横幅与主菜单按钮不入 git（见 .gitignore），
+# 仓库里只有生成器和手写源数据。CI 每次都重新下整合包、下字体、重跑生成器，
+# 所以「仓库里的图和脚本输出不一致」这种情况在结构上就不可能发生。
+#
+# 字体全部是 OFL 的（缝合像素字体 + 思源黑体 / 思源宋体），Linux 上跑出来与
+# 作者本机**逐字节相同**（实测 200 张全等），不再依赖 macOS 自带字体。
+
+on:
+  workflow_dispatch:
+    inputs:
+      patch_version:
+        description: '补丁版本号（如 r12），与整合包版本无关'
+        required: true
+        default: 'dev'
+      targets:
+        description: '目标整合包版本，7.* = versions/ 下全部；也可写 7.2 或 "7.1 7.2"'
+        required: false
+        default: '7.*'
+  push:
+    branches: [main]
+    paths-ignore: ['**.md', 'docs/**']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 装 Pillow
+        run: python -m pip install --quiet Pillow
+
+      - name: 取字体（全部 OFL）
+        run: ./scripts/fetch_fonts.sh
+
+      - name: 解析要构建哪些整合包版本
+        id: t
+        run: |
+          IN='${{ github.event.inputs.targets }}'
+          # 通配符只在**仓库声明过的版本**里展开，绝不去 CurseForge 现查——
+          # 否则 ATM 一发新版，CI 就会自动构建一个从没验证过的包挂上去。
+          if [ -z "$IN" ] || [ "$IN" = "7.*" ]; then
+            IN=$(ls -d versions/[0-9]* | xargs -n1 basename | tr '\n' ' ')
+          fi
+          echo "list=$IN" >> "$GITHUB_OUTPUT"
+          echo "将构建: $IN"
+
+      - name: 下整合包并生成图片
+        run: |
+          set -euo pipefail
+          # 图片对三个版本是同一套（资源包内容跨版本通用），用最新那版的源图生成一次即可。
+          NEWEST=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
+          FID=$(python3 - "$NEWEST" <<'PY'
+          import json, sys, urllib.request
+          want = sys.argv[1]
+          d = json.load(urllib.request.urlopen(
+              'https://www.curseforge.com/api/v1/mods/925200/files?pageSize=50'))
+          for f in d['data']:
+              if f['displayName'].endswith('-' + want):
+                  print(f['id']); break
+          else:
+              sys.exit('❌ CurseForge 上找不到 ATM10 %s' % want)
+          PY
+          )
+          curl -fsSL -o pack.zip "https://www.curseforge.com/api/v1/mods/925200/files/$FID/download"
+          unzip -q pack.zip 'overrides/*' -d pack
+          export ATM_PACK_ROOT="$PWD/pack/overrides"
+          ./scripts/generate_all.sh
+
+      - name: 打包全部版本
+        run: ./scripts/build_dist.sh "${{ github.event.inputs.patch_version || 'dev' }}" "${{ steps.t.outputs.list }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: atm10-zh_cn-${{ github.event.inputs.patch_version || 'dev' }}
+          path: dist/*.zip
+          retention-days: 30

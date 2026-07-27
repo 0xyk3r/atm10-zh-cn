@@ -34,5 +34,25 @@ cp "$TMP/x12/OFL.txt" "$DIR/pixel-OFL.txt"
 rm -rf "$DIR/pixel-LICENSES"
 cp -R "$TMP/x12/LICENSES" "$DIR/pixel-LICENSES"
 
+# ---- 矢量三档：思源黑体 / 思源宋体（Noto CJK，OFL-1.1）
+# 原先这三档直接用 macOS 自带的冬青黑与宋体，结果只有 Mac 能生成图，
+# CI 跑不了。换成 OFL 的近似字体后 Linux 也能产出**逐字节相同**的结果。
+#   bold  ← 思源黑体 Bold   （原冬青黑 W6）
+#   thin  ← 思源黑体 Light  （原冬青黑 W3）
+#   serif ← 思源宋体 Black  （原宋体 SC Black）
+echo "下载 思源黑体 SC ..."
+curl -fsSL -o "$TMP/sans.zip" \
+  "https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/18_NotoSansSC.zip"
+unzip -o -q "$TMP/sans.zip" -d "$TMP/sans"
+cp "$TMP/sans/NotoSansSC-Bold.otf"  "$DIR/bold.otf"
+cp "$TMP/sans/NotoSansSC-Light.otf" "$DIR/thin.otf"
+cp "$TMP/sans/LICENSE" "$DIR/noto-OFL.txt"
+
+echo "下载 思源宋体 SC ..."
+curl -fsSL -o "$TMP/serif.zip" \
+  "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/14_NotoSerifSC.zip"
+unzip -o -q -j "$TMP/serif.zip" 'SubsetOTF/SC/NotoSerifSC-Black.otf' -d "$TMP"
+cp "$TMP/NotoSerifSC-Black.otf" "$DIR/serif.otf"
+
 echo "完成："
 ls -1 "$DIR"

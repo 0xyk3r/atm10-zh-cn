@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """资源蜜蜂汉化生成器 —— 单一真源，产出双端脚本。
 
-真源：resourcepacks/ATM10汉化包-7.2/.../productivebees/lang/zh_cn.json 的
+真源：resourcepacks/ATM10汉化包/.../productivebees/lang/zh_cn.json 的
 entity.productivebees.* 键。禁止在别处手写第二份蜂名表。
 
 产出：
@@ -32,7 +32,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PACK_LANG = ROOT / 'resourcepacks/ATM10汉化包-7.2/assets/productivebees/lang/zh_cn.json'
+PACK_LANG = ROOT / 'resourcepacks/ATM10汉化包/assets/productivebees/lang/zh_cn.json'
 SNAPSHOT = ROOT / 'scripts/pb_upstream_en_us.json'
 
 # 历史上用过、后被否掉的中文译名 → 归一到权威译名（均为 fbi 蜂旧译）

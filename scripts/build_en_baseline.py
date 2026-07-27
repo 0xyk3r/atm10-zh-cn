@@ -39,7 +39,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PACK = ROOT / 'resourcepacks' / 'ATM10汉化包-7.2'
+PACK = ROOT / 'resourcepacks' / 'ATM10汉化包'
 QDELTA = ROOT / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
 
 

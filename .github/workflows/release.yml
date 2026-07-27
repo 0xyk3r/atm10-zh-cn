@@ -4,7 +4,7 @@
 name: Release
 
 # 构建分发包并发布 GitHub Release。
-# 资源包 zip 不入 git —— 由 build_dist.sh 从 resourcepacks/ATM10汉化包-7.2/ 源码目录现场压缩。
+# 资源包 zip 不入 git —— 由 build_dist.sh 从 resourcepacks/ATM10汉化包/ 源码目录现场压缩。
 #
 # 触发方式：
 #   1. push tag v* —— 自动按 tag 名解析版本号、自动发布 release；

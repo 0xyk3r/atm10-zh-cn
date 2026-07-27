@@ -18,7 +18,7 @@ sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
 ROOT = Path(__file__).resolve().parent.parent
 IS_WIN = platform.system() == 'Windows'
-PACK = 'ATM10汉化包-7.2'
+PACK = 'ATM10汉化包'
 ENTRY = f'file/{PACK}.zip'
 
 tmp = Path(tempfile.mkdtemp(prefix='hanhua-test-'))

@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'scripts' / 'upstream_format_en_us.json'
-PACK = ROOT / 'resourcepacks' / 'ATM10汉化包-7.2'
+PACK = ROOT / 'resourcepacks' / 'ATM10汉化包'
 
 
 def loadb(b):

@@ -59,7 +59,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT = ROOT / 'scripts' / 'wood_planks_names.json'
-PACK = ROOT / 'resourcepacks' / 'ATM10汉化包-7.2'
+PACK = ROOT / 'resourcepacks' / 'ATM10汉化包'
 HAND = PACK / 'assets' / 'sophisticatedstorage' / 'lang' / 'zh_cn.json'
 OUT = PACK / 'assets' / 'hanhua_wood_names' / 'lang' / 'zh_cn.json'
 

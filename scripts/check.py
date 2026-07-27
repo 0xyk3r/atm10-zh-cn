@@ -19,7 +19,7 @@ import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PACK_DIR = ROOT / 'resourcepacks' / 'ATM10汉化包-7.2'
+PACK_DIR = ROOT / 'resourcepacks' / 'ATM10汉化包'
 errors = []
 
 # McJtyLib 枚举协议值：NamedCodec 按名字反查，翻译后反查失败 → 崩溃

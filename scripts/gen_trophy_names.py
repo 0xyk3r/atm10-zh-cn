@@ -59,7 +59,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT = ROOT / 'scripts' / 'trophy_entity_names.json'
-OUT = (ROOT / 'resourcepacks' / 'ATM10汉化包-7.2' / 'assets'
+OUT = (ROOT / 'resourcepacks' / 'ATM10汉化包' / 'assets'
        / 'hanhua_trophies' / 'lang' / 'zh_cn.json')
 
 # entity.<ns>.<path>：命名空间与注册名里都不可能有点

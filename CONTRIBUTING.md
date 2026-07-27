@@ -30,7 +30,7 @@ CI 会拦截其中大部分，但请先读完再动手。
   `assets/productivebees/lang/zh_cn.json` 的实体键。改蜂名只改这里，然后跑
   `python3 scripts/gen_pb_hanhua.py scripts/pb_upstream_en_us.json`
   重新生成双端 kubejs 脚本。**手改生成文件会被 CI 拒绝**（快照重跑 diff）。
-- 资源包在仓库中是**源码目录**（`resourcepacks/ATM10汉化包-7.2/`），
+- 资源包在仓库中是**源码目录**（`resourcepacks/ATM10汉化包/`），
   zip 由构建脚本现场压缩，**任何 zip / jar 产物不入 git**。
 - 任务书补丁放 `config/ftbquests/quests/lang/zh_cn/chapters/*.snbt`
   （分章 delta，langsplitter 启动时合并进单体文件）。
