@@ -15,6 +15,7 @@ on:
       - 'scripts/test_installer.py'
       - 'scripts/build_dist.sh'
       - 'scripts/assemble.py'
+      - 'scripts/paths.py'
       - '.github/workflows/installer-test.yml'
   pull_request:
     paths:
@@ -22,6 +23,7 @@ on:
       - 'scripts/test_installer.py'
       - 'scripts/build_dist.sh'
       - 'scripts/assemble.py'
+      - 'scripts/paths.py'
       - '.github/workflows/installer-test.yml'
   workflow_dispatch:
 
