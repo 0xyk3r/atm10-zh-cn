@@ -1,0 +1,20 @@
+{
+ "src": "assets/sushigocrafting/patchouli_books/sushigocrafting/en_us/categories/world.json",
+ "sha1": "856aaa116d8a77cdeed3c9e3ef619d73f14d5668",
+ "t": [
+  [
+   [
+    "name"
+   ],
+   "World",
+   "世界"
+  ],
+  [
+   [
+    "description"
+   ],
+   "What is out there?",
+   "外面都有些什么？"
+  ]
+ ]
+}

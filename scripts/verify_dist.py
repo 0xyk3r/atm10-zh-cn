@@ -37,6 +37,7 @@ CLIENT_MIN = {
     'vp_modules':   140,    # 151 个 VaultPatcher 模块
     'quest_delta':   30,    # 34 个任务书 delta
     'gui_files':     20,    # 24 个 RFTools .gui
+    'book_files':  1500,    # 实测 1700 余个导览书文件（patchouli / ae2guide / oracle-index）
 }
 SERVER_MIN = {
     'vp_modules':    10,
@@ -79,6 +80,8 @@ def check(path):
         got['lang_keys'] = keys
         got['banners'] = sum(1 for n in pn if '/questpics/' in n and n.endswith('.png'))
         got['gui_files'] = sum(1 for n in pn if n.endswith('.gui'))
+        got['book_files'] = sum(1 for n in pn if 'patchouli_books' in n
+                                or 'ae2guide' in n or 'oracle-index' in n)
         got['buttons'] = sum(1 for n in names
                              if '/config/fancymenu/assets/' in n and n.endswith('.png'))
         # 资源包描述里的版本号要和文件名对得上

@@ -1,7 +1,0 @@
-{
-  "name": "传运器",
-  "description": "用于建筑及控制移动载具的方块",
-  "parent": "rftoolsbase:category_rftoolsbuilder",
-  "icon": "rftoolsbuilder:mover_controller",
-  "sortnum": 50
-}

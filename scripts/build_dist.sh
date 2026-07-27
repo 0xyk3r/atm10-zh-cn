@@ -36,7 +36,11 @@ COMMON="build/common"
   exit 1; }
 BANNERS=$(find "$COMMON/resourcepacks/ATM10汉化包/assets/atm/textures/questpics" -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
 BUTTONS=$(find "$COMMON/config/fancymenu/assets" -name '*.png' 2>/dev/null | wc -l | tr -d ' ')
+# 导览书全是 gen_books.py 现产的（仓库里一份副本都没有），漏了就是一整套英文导览书
+BOOKS=$(find "$COMMON/resourcepacks/ATM10汉化包/assets" \
+  -path '*patchouli_books*' -o -path '*ae2guide*' -o -path '*oracle-index*' 2>/dev/null | grep -c . || true)
 MISSING=""
+[ "${BOOKS:-0}" -ge 1500 ] || MISSING="$MISSING 导览书(${BOOKS}/1500)"
 [ "${BANNERS:-0}" -ge 200 ] || MISSING="$MISSING 横幅(${BANNERS}/200)"
 [ "${BUTTONS:-0}" -ge 14 ]  || MISSING="$MISSING 按钮(${BUTTONS}/14)"
 for f in \

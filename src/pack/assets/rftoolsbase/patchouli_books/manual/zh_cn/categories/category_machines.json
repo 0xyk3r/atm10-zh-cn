@@ -1,7 +1,0 @@
-{
-  "name": "机器",
-  "description": "所有机器",
-  "parent": "rftoolsbase:category_rftoolsbase",
-  "icon": "rftoolsbase:machine_infuser",
-  "sortnum": 30
-}

@@ -53,6 +53,18 @@ python3 scripts/extract_upstream_patch.py \
     > src/upstream/kubejs/startup_scripts/CustomAdditions.js.json      # 反解回映射
 ```
 
+**改导览书译文**（Patchouli / AE2 Guide / Oracle Index …）同理：书的结构来自模组 jar，
+仓库里只有 `src/books/<路径>.json` 记着「位置 + 原文 + 译文」。改法：
+
+```bash
+ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh    # 先把书生成到 build/common
+$EDITOR build/common/resourcepacks/ATM10汉化包/assets/<模组>/patchouli_books/…/x.json
+python3 scripts/extract_books.py <整合包目录>/mods       # 反解回 src/books/
+```
+
+`gen_books.py` 会告诉你哪些位置套不上（上游改了那一段），以及哪些散文页的英文原稿
+变了。命中率跌破 90% 直接构建失败——不会让「悄悄少翻一半」的包发出去。
+
 - **资源蜜蜂译名唯一真源** = `src/pack/assets/productivebees/lang/zh_cn.json`
   的实体键。改蜂名只改这里，然后重跑 `generate_all.sh`。双端 kubejs 脚本是产物，
   **不在仓库里，也不许手改**。

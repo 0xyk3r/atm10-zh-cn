@@ -46,7 +46,9 @@ echo "▶ 主菜单按钮（14 张）"
 python3 scripts/gen_menu_buttons.py
 
 if [ "$HAVE_JARS" = 1 ]; then
-  # 这几步要读 mod jar 里的 en_us / 注册表，只有 overrides 是不够的
+  # 这几步要读 mod jar 里的 en_us / 注册表 / 导览书，只有 overrides 是不够的
+  echo "▶ 导览书（Patchouli / AE2 Guide / Oracle Index …）：拿 jar 里那份现套译文"
+  python3 scripts/gen_books.py
   echo "▶ 资源蜂：双端脚本（真源是资源包的 productivebees/zh_cn.json，这里只做派生）"
   python3 scripts/gen_pb_hanhua.py
   echo "▶ 奖杯名（约 2.5 万条）"

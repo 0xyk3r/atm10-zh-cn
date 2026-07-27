@@ -1,6 +1,0 @@
-{
-  "name": "模块",
-  "description": "模块被安装至模块化路由器中，并定义该路由器的功能。",
-  "icon": "modularrouters:sender_module_1",
-  "sortnum": 2
-}
