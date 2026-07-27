@@ -39,7 +39,6 @@ src/books/<路径>.json           导览书的「位置 + 原文 + 译文」映�
 src/vaultpatcher/modules/       152 个硬编码文本模块（只留译文与目标类）
 src/mods.lock.json              随包分发的第三方 jar：项目 / 版本 / 地址 / sha256
 src/rules/*.json                发版校验的**规则**（check.py 只是它们的解释器）
-src/standalone/<模组>.json      把单个模组的汉化摘出来单独发的清单
 src/toolchain.lock.json         构建工具链：容器 digest / Pillow / 字体哈希
 requirements.lock               Pillow 的全平台 wheel 哈希（装的时候必须 --require-hashes）
 versions/<版本>/                手写的版本专属层（任务书覆盖、默认资源包顺序）
@@ -143,7 +142,6 @@ python3 scripts/test_installer.py                       # 安装器端到端测�
 | `check_en_drift.py` | 英文底本变了而译文没跟着变——上游改文案必然被发现 |
 | `verify_dist.py` | 打好的 zip 里每一类内容够不够量——空壳包发不出去；标准工具链下还比内容指纹 |
 | `build_version_db.py --verify` | 一个 mods 目录是不是**逐字节**就是那一版官方的那批 jar |
-| `gen_standalone.py` | 单模组独立包的 lang 与导览书覆盖率——不到 100% 不出包 |
 
 ### CI
 
