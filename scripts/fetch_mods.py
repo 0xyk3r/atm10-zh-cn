@@ -10,9 +10,13 @@
 
 下载缓存在 `build/modcache/<sha256>.jar`，重复构建不重复下。
 
-为什么不是全部 jar 都这么办：JEI 拼音搜索（jecharacters）只在 CurseForge 上有，
-而 CurseForge 的搜索/项目接口挡机器人（403），拿不到能钉死的地址，
-所以那一个仍然入库。哪天它上了 Modrinth 再挪过来。
+**全部**随包 jar 都走这条路，包括只在 CurseForge 上有的 JEI 拼音搜索
+（jecharacters）。之前那一个是入库的，理由写的是「CurseForge 接口挡机器人」——
+搜索接口确实挡，但 `/api/v1/mods/<id>/files` 与 `/files/<id>/download` 是通的，
+按 fileID 就能钉死地址。同一个项目里两套标准没有道理。
+
+许可证正文也一并取：MIT 的唯一实质义务就是再分发时附上版权声明与许可全文，
+jar 里没带，那就由我们放到它旁边。
 
 用法:
     python3 scripts/fetch_mods.py <输出目录>       # 一般是 build/common
@@ -65,6 +69,16 @@ def main(out_dir):
         t = out / rel
         t.parent.mkdir(parents=True, exist_ok=True)
         t.write_bytes(cached.read_bytes())
+        # MIT / Apache 这类许可要求再分发时附许可全文，jar 里没带就由我们放
+        if info.get('license_url'):
+            lic = CACHE / (info['license_sha256'] + '.txt')
+            if not lic.exists():
+                data = get(info['license_url'])
+                if sha256(data) != info['license_sha256']:
+                    sys.exit('❌ %s 的许可证正文哈希对不上' % rel)
+                lic.write_bytes(data)
+            (t.parent / ('LICENSE-%s.txt' % info.get('project', 'third-party'))
+             ).write_bytes(lic.read_bytes())
         print('  %-28s %s %s (%d KB)'
               % (rel, info.get('project', ''), info.get('version', ''),
                  len(cached.read_bytes()) // 1024))

@@ -52,6 +52,7 @@ if [ "$HAVE_JARS" = 1 ]; then
   # 这几步要读 mod jar 里的 en_us / 注册表 / 导览书，只有 overrides 是不够的
   echo "▶ 导览书（Patchouli / AE2 Guide / Oracle Index …）：拿 jar 里那份现套译文"
   python3 scripts/gen_books.py
+
   echo "▶ 资源蜂：双端脚本（真源是资源包的 productivebees/zh_cn.json，这里只做派生）"
   python3 scripts/gen_pb_hanhua.py
   echo "▶ 奖杯名（约 2.5 万条）"
@@ -66,3 +67,13 @@ else
   echo "   这些产物缺失时 build_dist.sh 会报错，CI 请把 jar 备齐。"
 fi
 echo "✅ 生成完毕：build/common/"
+
+if [ "$HAVE_JARS" = 1 ]; then
+  # 版权闸：出货树里不许留下与已装模组逐字节相同的文件。
+  # 会撞上的有两种：模组自带的中文被原样带进包里；以及别的模组为同一本书提供的
+  # zh_cn 恰好与我们的产物一致。两种都没有分发的必要——Patchouli 与 AE2 导览
+  # 按文件回落到 en_us，缺那一页玩家看到的东西一模一样。列出来并剔除。
+  echo "▶ 版权闸：剔除与已装模组逐字节相同的文件"
+  PACK_DIR=$(python3 -c "import sys;sys.path.insert(0,'scripts');from paths import PACK;print(PACK)")
+  python3 scripts/audit_upstream.py --mods "$ATM_PACK_ROOT/mods" --tree "$PACK_DIR" --drop
+fi

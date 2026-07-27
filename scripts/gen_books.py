@@ -62,17 +62,18 @@ def main(mods_dir):
     if not books.BOOKS.is_dir():
         sys.exit('❌ 没有 %s' % books.BOOKS)
 
-    n_copy = n_skip = 0
+    n_copy = n_skip = n_same = 0
+    # **不再从 jar 里拷「与英文逐字节相同」的页面**。
+    #
+    # 原先这些页会被原样拷进资源包：它们没有任何可译内容（纯图纸、纯配方），
+    # 译文等于原文。但那等于把上游的文件重新分发一遍——各家模组的许可五花八门，
+    # 有 26 个命名空间是 All Rights Reserved，这么做站不住。
+    #
+    # 不发也没有任何损失：Patchouli 与 AE2 导览都是**按文件回落**到 en_us 的。
+    # 这不是推断——整合包里就有 21 本书自带的翻译只翻了一部分（Apotheosis 的
+    # 土耳其语 152 页缺 72 页、LaserIO 自己的中文 42 页缺 6 页），照样能用。
     copies = json.loads(books.MAP_COPIES.read_text(encoding='utf-8'))
-    for rel, src in copies.items():
-        data = jars.read(src)
-        if data is None:
-            n_skip += 1                     # 该版本没这个模组/这个文件
-            continue
-        t = PACK / rel
-        t.parent.mkdir(parents=True, exist_ok=True)
-        t.write_bytes(data)
-        n_copy += 1
+    n_skip += len(copies)
 
     drift = []
     prose = json.loads(books.MAP_PROSE.read_text(encoding='utf-8'))
@@ -99,15 +100,22 @@ def main(mods_dir):
         strict = books.sha1(up) == doc['sha1']
         total += len(doc['t'])
         ok += apply_one(obj, doc['t'], rel, strict, miss)
+        # 套完映射还是原文（这一页压根没有可译文本）：**不写**。
+        # 写了等于把上游那一页重新分发一遍，而玩家看到的东西一模一样——
+        # Patchouli 与 AE2 导览都按文件回落到 en_us。
+        out = json.dumps(obj, ensure_ascii=False, indent=2) + '\n'
+        if json.loads(out) == json.loads(up.decode('utf-8-sig')):
+            n_same += 1
+            continue
         t = PACK / rel
         t.parent.mkdir(parents=True, exist_ok=True)
-        t.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        t.write_text(out, encoding='utf-8')
         n_json += 1
 
     rate = (ok / total) if total else 1.0
     print('导览书：结构型 %d 个文件、%d/%d 条译文落位（%.1f%%）；'
-          '照搬 %d 个；该版本没有的跳过 %d 个'
-          % (n_json, ok, total, rate * 100, n_copy, n_skip))
+          '与原文相同没写 %d 个；该版本没有的跳过 %d 个'
+          % (n_json, ok, total, rate * 100, n_same, n_skip))
     if drift:
         print('  ⚠️ %d 个散文页的英文原稿与提取时不同（上游改过，译文可能已过时）：' % len(drift))
         for r in drift[:15]:
