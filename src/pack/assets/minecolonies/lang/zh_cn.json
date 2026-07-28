@@ -1765,7 +1765,7 @@
   "com.minecolonies.coremod.gui.field.to_right": "在你右边",
   "com.minecolonies.coremod.gui.field.near": "你的附近",
   "com.minecolonies.coremod.gui.field.worker": "农夫：%s",
-  "com.minecolonies.coremod.gui.field.selectseed": "拾取种子",
+  "com.minecolonies.coremod.gui.field.selectseed": "选择种子",
   "com.minecolonies.coremod.gui.field.assignedfarmer": "农夫：%s",
   "com.minecolonies.coremod.gui.field.noassignedfarmer": "农夫：无",
   "com.minecolonies.coremod.gui.chat.skipchitchat": "跳过聊天",

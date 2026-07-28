@@ -994,6 +994,7 @@
     "src/books/literal/ars_nouveau.json",
     "src/books/literal/computercraft.json",
     "src/books/literal/herbsandharvest.json",
+    "src/books/literal/minecolonies_gui.json",
     "src/books/literal/structurize.json",
     "src/books/literal/xnet.json",
     "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_aether.snbt",
