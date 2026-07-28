@@ -230,6 +230,12 @@ def main(ver, mods_dir):
         except Exception as e:
             sys.exit('❌ %s 解析失败: %s' % (f.name, e))
         rec = {'blocks': []}
+        # dynamic 模块（模块头 "dynamic": true）替换的是**运行时**才拼出来的字符串
+        # ——比如 MineColonies 的风格名来自 jar 内 blueprints/*/pack.json，类常量池里
+        # 根本没有它。拿「常量匹配」去核这类 key，结果必然是一片 missing，覆盖率被拖垮，
+        # 打包时还会把它们当「这一版不存在」剔掉，等于这个模块白写。
+        # 所以只核**类在不在**（类没了照样要红），key 一律记 dynamic，不计入覆盖率。
+        dyn = any(isinstance(b, dict) and b.get('dynamic') for b in blocks)
         for bi, blk in enumerate(blocks):
             if not isinstance(blk, dict) or 'pairs' not in blk:
                 continue
@@ -250,6 +256,9 @@ def main(ver, mods_dir):
             ps, blob = set(pool), '\n'.join(pool)
             kv = {}
             for k in keys:
+                if dyn:
+                    kv[k] = 'dynamic'
+                    continue
                 s = 'exact' if k in ps else ('substring' if k in blob else 'missing')
                 kv[k] = s
                 stat['key_' + s] += 1
