@@ -1294,6 +1294,86 @@
       {
         "key": "Warped Netherlands",
         "value": "诡异下界"
+      },
+      {
+        "key": "In the heat of the Savanna, you'll find the perfect spot for a place to live. Making use of the native acacia trees, this style is semi-modern, more of a ranch style than an urban one.",
+        "value": "在热带草原的炎热之中，总能找到一处适合安家的好地方。这套风格取材于当地的金合欢木，半现代化，比起都市风更像是牧场风。"
+      },
+      {
+        "key": "In the Age of Aristotle and Plato, a great Mediterranean power dominates the Aegean Sea. Start your own Hellenistic Empire and rival the great Greek capital.",
+        "value": "在亚里士多德与柏拉图的时代，一个地中海强权主宰着爱琴海。建立属于你自己的希腊化帝国，与那座伟大的希腊都城分庭抗礼。"
+      },
+      {
+        "key": "[Beginner] This style is a perfect fit when you plan to settle closely to a birch forest and are looking for a modern look.",
+        "value": "【新手】若你打算在白桦林附近定居，又想要一副现代面貌，这套风格再合适不过。"
+      },
+      {
+        "key": "Welcome to Caledonia! A beautiful mixture of Colonial British and French architecture, nestled in the South Pacific. An urban style, suited for dense housing and grand buildings of all types.",
+        "value": "欢迎来到喀里多尼亚！这是英国殖民地建筑与法式建筑的美妙融合，坐落于南太平洋。属都市风格，适合密集的住宅与各类宏伟建筑。"
+      },
+      {
+        "key": "[Advanced] Delve into the depths of the earth with this interconnecting style! If you like Lego, love Tetris and are obsessed with organization this is the style for you.",
+        "value": "【进阶】用这套彼此咬合的风格深入地底！如果你喜欢乐高、热爱俄罗斯方块、又有整理强迫症，这套风格就是为你准备的。"
+      },
+      {
+        "key": "[Beginner] This is the default MineColonies Style. Set in the early colonial age it mixes elements of neo-classical architecture with an early industrial flavor",
+        "value": "【新手】这是 MineColonies 的默认风格。背景设定在殖民时代早期，糅合了新古典主义建筑元素与早期工业气息。"
+      },
+      {
+        "key": "If building in a spooky forest is an idea that makes you smile, this is the colony design for you! This interconnected treetop set blends in to the surrounding dark oak forest, yet keeps your citizens safe at the same time.",
+        "value": "要是「在阴森的林子里盖房」这个念头让你会心一笑，那这套殖民地设计就是为你准备的！这一整套树冠建筑彼此相连，既融入周围的深色橡木林，又能保住居民的安全。"
+      },
+      {
+        "key": "[Advanced] Every Monarch dreams of having the perfect capital city, where everyone works hard and everything is clean and organized. No pesky holes to fall into, no random heaps of dirt to detour around.",
+        "value": "【进阶】每位君主都梦想拥有一座完美的都城：人人勤勉，处处整洁有序。没有恼人的坑等着你掉进去，也没有莫名其妙的土堆逼你绕道。"
+      },
+      {
+        "key": "Conquer the Andes and grow your own Incan empire! Buildings should be placed on or into the mountain ranges of your growing empire.",
+        "value": "征服安第斯，壮大属于你的印加帝国！建筑应当依山而建，或直接嵌进你日渐扩张的疆域的山脉之中。"
+      },
+      {
+        "key": "Live like the Swiss Family Robinson, or your favorite SciFi movie franchise tree dwellers! This style builds around the native Jungle trees, though you will have to plant your own in many cases. Link the buildings with skyways over the undergrowth of the jungle canopy.",
+        "value": "像《海角乐园》里的一家人那样生活，或者像你最爱的那部科幻电影里的树居族那样！这套风格依托当地的丛林树木而建，不过多数时候你得自己种。用空中廊道把建筑连起来，横跨丛林树冠下的灌木层。"
+      },
+      {
+        "key": "Resurrect the Ruins of the Lost City and restore the Empire to its lost Glory!",
+        "value": "让失落之城的废墟重获新生，让帝国重现昔日荣光！"
+      },
+      {
+        "key": "[Intermediate] Hear ye! A new castle emerges! Find a Good spot near a river and a forest and build your own medieval town! Alt townhall is a castle and regular one's a manor, some buildings are better placed near water and mind the size of the university and library! Those usually go well placed together.",
+        "value": "【进阶】听好了！一座新的城堡拔地而起！在河流与森林旁找块好地方，建起你自己的中世纪城镇！备选的镇厅是城堡，常规的那座是庄园；有些建筑更适合临水而建，另外留意大学与图书馆的占地——这两座通常挨在一起最合适。"
+      },
+      {
+        "key": "The Norsemen are back and are looking for a new Leader. Create a flourishing Norsemen Empire and strike fear in the hearts of your Neighbors!",
+        "value": "北欧人回来了，而且正在物色新的首领。建起一个繁荣的北欧帝国，让邻邦闻风丧胆！"
+      },
+      {
+        "key": "[Beginner] This is the Classic MineColonies Style. It is simplistic in nature and serves a lot of the essential blueprints to raiders, miners, etc.",
+        "value": "【新手】这是 MineColonies 的经典风格。本身走简约路线，为掠夺者、矿工等提供了大量必备蓝图。"
+      },
+      {
+        "key": "Construct your Pagoda Empire and take over all the Cherry Blossom Biomes you can find!",
+        "value": "建起你的塔阁帝国，把能找到的樱花生物群系统统收入囊中！"
+      },
+      {
+        "key": "It's 1001 Nights. Pack in your Magic Carpet and build up your own Desert Empire!",
+        "value": "此刻正是一千零一夜。收好你的魔毯，建起属于你的沙漠帝国！"
+      },
+      {
+        "key": "Welcome to the Shire, where there's mutton to eat, beer to drink, and a nice shady tree to rest under. Pull up a chair and rest up, soon it will be time for Elevenses..",
+        "value": "欢迎来到夏尔——这里有羊肉可吃、有啤酒可喝，还有一棵好乘凉的树。搬把椅子歇歇脚，再过一会儿就该吃早茶了……"
+      },
+      {
+        "key": "[Advanced] It's Space Wars baby! Settle down your favorite desert planet and follow the motto: \"Go Big or Go Home!\" This style is not for the weak of heart, as it uses a lot of resources to build everything. Make sure it's a desert that you build this in.",
+        "value": "【进阶】星际战争，宝贝！在你最中意的沙漠行星上安顿下来，谨记那句箴言：「要么做大，要么滚蛋！」这套风格不适合心志不坚者——把这一切建起来要耗掉海量资源。另外务必确认你是在沙漠里建它。"
+      },
+      {
+        "key": "This is the perfect pack for all the cave dwellers. Build up your colony and let your builder take care of the Stalactites.",
+        "value": "这套包是所有洞穴居民的理想之选。把殖民地建起来，钟乳石交给你的建造师去处理。"
+      },
+      {
+        "key": "The perfect pack to build up a colony in the nether. Beware of Zombified Piglins!",
+        "value": "在下界建立殖民地的理想之选。当心僵尸猪灵！"
       }
     ]
   }
