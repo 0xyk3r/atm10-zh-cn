@@ -2926,6 +2926,7 @@
     "src/vaultpatcher/modules/brandonscore.json",
     "src/vaultpatcher/modules/bwncr.json",
     "src/vaultpatcher/modules/cataclysm.json",
+    "src/vaultpatcher/modules/catnip_config_ui.json",
     "src/vaultpatcher/modules/cloth_config2.json",
     "src/vaultpatcher/modules/codechickenlib.json",
     "src/vaultpatcher/modules/commoncapabilities.json",
