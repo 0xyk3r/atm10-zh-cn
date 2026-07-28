@@ -356,6 +356,14 @@
         [
           "<text id=\"desc\" size=\"170 10\" textalign=\"MIDDLE\"  pos=\"195 120\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.colonylist.indirect.desc)\"/>",
           "<text id=\"desc\" size=\"170 10\"  pos=\"257 120\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.colonylist.indirect.desc)\"/>"
+        ],
+        [
+          "<button id=\"requestally\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.request_ally)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" textscale=\"0.8\"/>",
+          "<button textoffset=\"25 4\" id=\"requestally\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.request_ally)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" textscale=\"0.8\"/>"
+        ],
+        [
+          "<button id=\"setneutral\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.set_neutral)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" visible=\"false\" textscale=\"0.8\"/>",
+          "<button textoffset=\"25 4\" id=\"setneutral\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.set_neutral)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" visible=\"false\" textscale=\"0.8\"/>"
         ]
       ]
     },
@@ -816,6 +824,10 @@
         [
           "<text id=\"desc\" size=\"170 10\" textalign=\"MIDDLE\" pos=\"10 110\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.colonylist.indirect.desc)\"/>",
           "<text id=\"desc\" size=\"170 10\" pos=\"72 110\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.colonylist.indirect.desc)\"/>"
+        ],
+        [
+          "<button id=\"travel\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.travel)\" pos=\"32 22\"\n                    source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" tooltip=\"$(com.minecolonies.core.gui.colonylist.travel.tooltip)\"/>",
+          "<button textoffset=\"34 4\" id=\"travel\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.travel)\" pos=\"32 22\"\n                    source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" tooltip=\"$(com.minecolonies.core.gui.colonylist.travel.tooltip)\"/>"
         ]
       ]
     },
@@ -932,6 +944,20 @@
         [
           "<text size=\"164 11\" pos=\"33 14\" color=\"black\" textalign=\"MIDDLE\"\n           label=\"$(com.minecolonies.coremod.gui.citizen.requests)\"/>",
           "<text size=\"164 11\" pos=\"93 14\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.citizen.requests)\"/>"
+        ]
+      ]
+    },
+    "assets/minecolonies/gui/townhall/layoutsettings.xml": {
+      "sha1": "72d46cf51b6a19bfac8f3a43ba8907ed350830ff",
+      "raw": true,
+      "t": [
+        [
+          "<button id=\"trigger\" size=\"29 16\" pos=\"120 0\" label=\"$(com.minecolonies.coremod.gui.townhall.off)\" color=\"black\"\n                     source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>",
+          "<button textoffset=\"10 3\" id=\"trigger\" size=\"29 16\" pos=\"120 0\" label=\"$(com.minecolonies.coremod.gui.townhall.off)\" color=\"black\"\n                     source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>"
+        ],
+        [
+          "<button id=\"trigger\" size=\"29 16\" pos=\"120 0\" label=\"$(com.minecolonies.coremod.gui.hiring.off)\" color=\"black\"\n                     source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>",
+          "<button textoffset=\"5 3\" id=\"trigger\" size=\"29 16\" pos=\"120 0\" label=\"$(com.minecolonies.coremod.gui.hiring.off)\" color=\"black\"\n                     source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>"
         ]
       ]
     }

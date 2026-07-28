@@ -126,6 +126,20 @@
           "<button textoffset=\"23 4\" label=\"$(com.ldtteam.structurize.gui.tagtool.close)\" id=\"closeUI\" pos=\"300 205\" size=\"86 17\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" textcolor=\"black\"/>"
         ]
       ]
+    },
+    "assets/structurize/gui/dialogconfirmtransparency.xml": {
+      "sha1": "a898c1675e0b5700e59ea648c355adf188a8e4ce",
+      "raw": true,
+      "t": [
+        [
+          "<button id=\"confirm\" pos=\"10 123\" size=\"64 17\" color=\"black\" textalign=\"MIDDLE\" textbox=\"64 17\" text=\"$(gui.yes)\" source=\"structurize:textures/gui/builderhut/builder_button_small.png\"/>",
+          "<button textoffset=\"27 4\" id=\"confirm\" pos=\"10 123\" size=\"64 17\" color=\"black\" textalign=\"MIDDLE\" textbox=\"64 17\" text=\"$(gui.yes)\" source=\"structurize:textures/gui/builderhut/builder_button_small.png\"/>"
+        ],
+        [
+          "<button id=\"cancel\" pos=\"103 123\" size=\"64 17\" color=\"black\" textalign=\"MIDDLE\" textbox=\"64 17\" text=\"$(gui.cancel)\" source=\"structurize:textures/gui/builderhut/builder_button_small.png\"/>",
+          "<button textoffset=\"23 4\" id=\"cancel\" pos=\"103 123\" size=\"64 17\" color=\"black\" textalign=\"MIDDLE\" textbox=\"64 17\" text=\"$(gui.cancel)\" source=\"structurize:textures/gui/builderhut/builder_button_small.png\"/>"
+        ]
+      ]
     }
   }
 }
