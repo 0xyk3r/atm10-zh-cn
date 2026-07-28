@@ -2043,23 +2043,6 @@
     "keys": {
      "Instance UUID": "exact"
     }
-   },
-   {
-    "classes": {
-     "dan200.computercraft.shared.turtle.core.TurtlePlaceCommand": {
-      "actual": "dan200.computercraft.shared.turtle.core.TurtlePlaceCommand",
-      "how": "declared",
-      "jar": "cc-tweaked-1.21.1-forge-1.120.0.jar"
-     }
-    },
-    "i": 2,
-    "jars": [
-     "cc-tweaked-1.21.1-forge-1.120.0.jar"
-    ],
-    "keys": {
-     "Cannot place block here": "exact",
-     "Cannot place item here": "exact"
-    }
    }
   ]
  },
