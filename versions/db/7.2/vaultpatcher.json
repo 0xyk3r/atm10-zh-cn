@@ -7895,8 +7895,17 @@
     ],
     "keys": {
      "Bottom Dome": "exact",
+     "Box": "exact",
      "Capped Cylinder": "exact",
-     "Top Dome": "exact"
+     "Composition": "exact",
+     "Cone": "exact",
+     "Cylinder": "exact",
+     "Heart": "exact",
+     "Prism": "exact",
+     "Scan": "exact",
+     "Sphere": "exact",
+     "Top Dome": "exact",
+     "Torus": "exact"
     }
    },
    {
@@ -8072,6 +8081,22 @@
    {
     "global": true,
     "i": 2
+   },
+   {
+    "classes": {
+     "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardType$1": {
+      "actual": "mcjty.rftoolsbuilder.modules.builder.items.ShapeCardType$1",
+      "how": "declared",
+      "jar": "rftoolsbuilder-1.21-7.0.5.jar"
+     }
+    },
+    "i": 3,
+    "jars": [
+     "rftoolsbuilder-1.21-7.0.5.jar"
+    ],
+    "keys": {
+     "    Shape card": "exact"
+    }
    }
   ]
  },

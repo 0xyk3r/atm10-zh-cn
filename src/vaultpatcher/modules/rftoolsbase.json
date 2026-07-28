@@ -455,16 +455,52 @@
     ],
     "pairs": [
       {
-        "key": "Top Dome",
-        "value": "顶部穹顶"
-      },
-      {
         "key": "Bottom Dome",
         "value": "底部穹顶"
       },
       {
+        "key": "Box",
+        "value": "方块体"
+      },
+      {
         "key": "Capped Cylinder",
         "value": "封顶圆柱体"
+      },
+      {
+        "key": "Composition",
+        "value": "组合体"
+      },
+      {
+        "key": "Cone",
+        "value": "圆锥体"
+      },
+      {
+        "key": "Cylinder",
+        "value": "圆柱体"
+      },
+      {
+        "key": "Heart",
+        "value": "心形"
+      },
+      {
+        "key": "Prism",
+        "value": "棱柱体"
+      },
+      {
+        "key": "Scan",
+        "value": "扫描"
+      },
+      {
+        "key": "Sphere",
+        "value": "球体"
+      },
+      {
+        "key": "Top Dome",
+        "value": "顶部穹顶"
+      },
+      {
+        "key": "Torus",
+        "value": "圆环体"
       }
     ]
   },
