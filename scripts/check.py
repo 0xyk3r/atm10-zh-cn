@@ -80,6 +80,34 @@ def _json_parses(rule):
             yield '%s: JSON 解析失败: %s' % (rel(p), e)
 
 
+@checker('xml_parses')
+def _xml_parses(rule):
+    """出货的界面 XML 必须能解析。
+
+    2026-07-28 的实机事故：我们盖过去的 windowtownhall.xml 里同一个 <button>
+    出现了两个 textoffset（上游本来就有一个，我们又插了一个），blockui 抛
+    「Can't parse xml at: …」，玩家一右键市政厅游戏就崩。XML 坏了不像 JSON
+    那样构建时就露馅——它要等玩家开那个界面才炸，所以必须在这里拦。
+    """
+    import xml.etree.ElementTree as ET
+    g, = need(rule, 'glob')
+    hit = files(g)
+    if not hit:
+        # 这些 XML 是 gen_literal_books.py 拿 mod jar 现套出来的。没有 jar 的环境
+        # （只跑 assemble.py）根本没有它们，这时报错只会教人把闸关掉；有 jar 却一个
+        # 都没命中，才是真出事了——所以按「装过书没有」来分。
+        base = TREE / 'resourcepacks' / 'ATM10汉化包' / 'assets'
+        if not any((base / ns / 'gui').is_dir() for ns in ('minecolonies', 'structurize')):
+            print('ℹ️ 跳过界面 XML 解析检查：%r 是生成物，尚未生成' % g)
+            return
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+    for p in hit:
+        try:
+            ET.fromstring(p.read_bytes())
+        except Exception as e:
+            yield '%s: XML 解析失败: %s —— %s' % (rel(p), e, rule['why'])
+
+
 @checker('json_assert')
 def _json_assert(rule):
     f, path, want = need(rule, 'file', 'path', 'equals')

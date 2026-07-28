@@ -1,38 +1,44 @@
 [
- {
-  "id": "pack-mcmeta-parses",
-  "kind": "json_parses",
-  "glob": "resourcepacks/ATM10汉化包/pack.mcmeta",
-  "why": "pack.mcmeta 坏了整个资源包不加载，游戏不会报错，玩家看到的就是全英文。"
- },
- {
-  "id": "pack-lang-parses",
-  "kind": "json_parses",
-  "glob": "resourcepacks/ATM10汉化包/**/lang/*.json",
-  "why": "单个 lang 文件解析失败只会让那个命名空间静默回英文，日志里翻不出来。"
- },
- {
-  "id": "gui-choice-must-stay-english",
-  "kind": "gui_choice_ascii",
-  "glob": "resourcepacks/ATM10汉化包/**/*.gui",
-  "why": "RFTools 系的 .gui 里 choice(...) 的第一个参数是协议值不是显示文本，翻了会崩。",
-  "message": "choice('{value}') 是协议值，必须保持英文（翻译会崩溃）"
- },
- {
-  "id": "format-placeholder-safety",
-  "kind": "format_safety",
-  "snapshot": "scripts/upstream_format_en_us.json",
-  "why": "四条红线，都是踩过的：①译文的占位符集合必须 ⊆ 英文原文的，多出来 = 运行时参数不足 → TranslatableFormatException（「少」是译者的合法选择，禁止擅自补回来：精致存储 %s%s木桶 的第二个参数其实只是个空格，补上去反而变成「限类Pink Ipe 木桶 I」）；②同序号的转换符不许从 %s 降级成 %d/%f；③结尾裸 % 会被 MC 的 FORMAT_PATTERN 匹配到字符串结尾并抛异常；④§ 后面跟非法字符会让那个字被渲染器静默吞掉。",
-  "allow": {
-   "death.attack.freeze.item": "上游把 %3$s 打成了 %3$（缺转换符），模组实际传 3 个参数，我们的译文才是对的",
-   "item.occultism.book_of_calling_djinni.tooltip.deposit": "上游把 %s 打成了 % s（多一个空格），英文版根本不替换"
+  {
+    "id": "pack-mcmeta-parses",
+    "kind": "json_parses",
+    "glob": "resourcepacks/ATM10汉化包/pack.mcmeta",
+    "why": "pack.mcmeta 坏了整个资源包不加载，游戏不会报错，玩家看到的就是全英文。"
+  },
+  {
+    "id": "pack-lang-parses",
+    "kind": "json_parses",
+    "glob": "resourcepacks/ATM10汉化包/**/lang/*.json",
+    "why": "单个 lang 文件解析失败只会让那个命名空间静默回英文，日志里翻不出来。"
+  },
+  {
+    "id": "gui-choice-must-stay-english",
+    "kind": "gui_choice_ascii",
+    "glob": "resourcepacks/ATM10汉化包/**/*.gui",
+    "why": "RFTools 系的 .gui 里 choice(...) 的第一个参数是协议值不是显示文本，翻了会崩。",
+    "message": "choice('{value}') 是协议值，必须保持英文（翻译会崩溃）"
+  },
+  {
+    "id": "format-placeholder-safety",
+    "kind": "format_safety",
+    "snapshot": "scripts/upstream_format_en_us.json",
+    "why": "四条红线，都是踩过的：①译文的占位符集合必须 ⊆ 英文原文的，多出来 = 运行时参数不足 → TranslatableFormatException（「少」是译者的合法选择，禁止擅自补回来：精致存储 %s%s木桶 的第二个参数其实只是个空格，补上去反而变成「限类Pink Ipe 木桶 I」）；②同序号的转换符不许从 %s 降级成 %d/%f；③结尾裸 % 会被 MC 的 FORMAT_PATTERN 匹配到字符串结尾并抛异常；④§ 后面跟非法字符会让那个字被渲染器静默吞掉。",
+    "allow": {
+      "death.attack.freeze.item": "上游把 %3$s 打成了 %3$（缺转换符），模组实际传 3 个参数，我们的译文才是对的",
+      "item.occultism.book_of_calling_djinni.tooltip.deposit": "上游把 %s 打成了 % s（多一个空格），英文版根本不替换"
+    }
+  },
+  {
+    "id": "productivebees-name-single-source",
+    "kind": "pb_single_source",
+    "lang": "resourcepacks/ATM10汉化包/assets/productivebees/lang/zh_cn.json",
+    "script": "kubejs/client_scripts/pb_hanhua_tooltip.js",
+    "why": "蜂名的唯一真源是资源包 zh_cn，脚本里的 PB_ID2ZH 由 gen_pb_hanhua.py 生成。两边漂移就会出现「JEI 里叫这个、tooltip 里叫那个」。脚本是生成物不入 git，干净 clone 里不存在时跳过即可。"
+  },
+  {
+    "id": "gui-xml-parses",
+    "kind": "xml_parses",
+    "glob": "resourcepacks/ATM10汉化包/assets/*/gui/**/*.xml",
+    "why": "界面 XML 坏了不会在构建时报错，要等玩家打开那个界面才崩（2026-07-28 市政厅事故）。"
   }
- },
- {
-  "id": "productivebees-name-single-source",
-  "kind": "pb_single_source",
-  "lang": "resourcepacks/ATM10汉化包/assets/productivebees/lang/zh_cn.json",
-  "script": "kubejs/client_scripts/pb_hanhua_tooltip.js",
-  "why": "蜂名的唯一真源是资源包 zh_cn，脚本里的 PB_ID2ZH 由 gen_pb_hanhua.py 生成。两边漂移就会出现「JEI 里叫这个、tooltip 里叫那个」。脚本是生成物不入 git，干净 clone 里不存在时跳过即可。"
- }
 ]
