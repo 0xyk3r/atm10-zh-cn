@@ -50,6 +50,9 @@ python3 scripts/gen_menu_buttons.py
 
 if [ "$HAVE_JARS" = 1 ]; then
   # 这几步要读 mod jar 里的 en_us / 注册表 / 导览书，只有 overrides 是不够的
+  echo "▶ 模组贴图里烤进去的英文（minecolonies 速查手册标题）：擦掉重写中文"
+  python3 scripts/gen_mod_textures.py
+
   echo "▶ 导览书（Patchouli / AE2 Guide / Oracle Index …）：拿 jar 里那份现套译文"
   python3 scripts/gen_books.py
 

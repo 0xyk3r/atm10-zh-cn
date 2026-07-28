@@ -126,19 +126,22 @@ def text_color(im):
     return col
 
 
-def render(word, color):
-    """把词渲染成一张紧贴文字的 RGBA 图（超采样后缩回）"""
+def render(word, color, target_h=TARGET_H):
+    """把词渲染成一张紧贴文字的 RGBA 图（超采样后缩回）
+
+    target_h 缺省是主菜单按钮的字高；gen_mod_textures.py 拿它按各自原图的字高复用。
+    """
     # 先按目标字高反推字号：CJK 字面高度约为字号的 0.86
-    size = int(round(TARGET_H / 0.86))
+    size = int(round(target_h / 0.86))
     for _ in range(8):                       # 迭代校正到刚好 TARGET_H
         f = ImageFont.truetype(FONT, size * SS, index=FONT_INDEX)
         tmp = Image.new('RGBA', (size * SS * (len(word) + 2), size * SS * 3), (0, 0, 0, 0))
         ImageDraw.Draw(tmp).text((size * SS, size * SS), word, font=f, fill=color)
         bb = tmp.getbbox()
         h = (bb[3] - bb[1]) / SS
-        if abs(h - TARGET_H) < 0.6:
+        if abs(h - target_h) < 0.6:
             break
-        size = max(1, int(round(size * TARGET_H / h)))
+        size = max(1, int(round(size * target_h / h)))
     glyph = tmp.crop(bb)
     return glyph.resize((max(1, round(glyph.width / SS)), max(1, round(glyph.height / SS))),
                         Image.LANCZOS)
