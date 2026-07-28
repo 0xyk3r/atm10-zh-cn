@@ -221,12 +221,20 @@ function Patch-Options {
         return
     }
     $cur = $lines[$idx]
+    # [System.IO.File]::ReadAllLines 会把 \r\n / \n / \r 三种行尾统一拆掉，
+    # 这里 $cur 不会带残留 \r（不像 bash 版 grep 那样得自己剥）——PS 侧这块本来就安全。
     $body = $cur.Substring('resourcePacks:['.Length)
     $body = $body.Substring(0, $body.Length - 1)
     # 先把已有的汉化包条目摘掉，再追加到**末尾**。
     # 不能只判断「已存在就跳过」——旧版本装出来的实例里它可能排在很前面，
     # 那样等于没启用（后面的包会把它整个盖掉），必须重新挪到最后。
+    # 摘除时同时兼容双引号/单引号、带/不带 file/ 前缀四种写法——重复安装、
+    # 或旧工具用了不同写法留下的残留条目，都得认得出来，否则会越装越多份重复项。
+    $packBasename = $PackEntry.Substring($PackEntry.IndexOf('/') + 1)
     $body = $body -replace [regex]::Escape('"' + $PackEntry + '"'), ''
+    $body = $body -replace [regex]::Escape("'" + $PackEntry + "'"), ''
+    $body = $body -replace [regex]::Escape('"' + $packBasename + '"'), ''
+    $body = $body -replace [regex]::Escape("'" + $packBasename + "'"), ''
     $body = ($body -replace ',{2,}', ',').Trim(',')
     $new = if ($body) { 'resourcePacks:[' + $body + ',"' + $PackEntry + '"]' }
            else       { 'resourcePacks:["' + $PackEntry + '"]' }

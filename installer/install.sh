@@ -246,16 +246,31 @@ patch_options() {
     fi
     return
   fi
-  cur="$(grep '^resourcePacks:' "$OPT" | head -1)"
-  if [ -z "$cur" ]; then
+  cur_raw="$(grep '^resourcePacks:' "$OPT" | head -1)"
+  if [ -z "$cur_raw" ]; then
     say "⚠️ options.txt 中没有 resourcePacks 行，请进游戏手动启用资源包"
     return
   fi
+  # Minecraft 在 Windows 上用 CRLF 写 options.txt（Java println 按系统行尾）。
+  # 这种文件被本脚本（Unix 侧）处理时，grep 取出的整行末尾会带一个 \r。
+  # 旧版没剥它，导致 "${body%]}" 因为末尾其实是 "]\r" 而不是 "]" 匹配不上、
+  # 不做任何裁剪，结果拼出 resourcePacks:[...]\r,"file/xxx.zip"] 这种带多余
+  # 括号和散落 \r 的坏行——资源包实际没启用，这正是玩家反馈的那个 bug。
+  # 这里记下原来是否有 \r，剥掉再处理，写回时按原样把 \r 补回这一行。
+  crlf=0
+  case "$cur_raw" in
+    *$'\r') crlf=1; cur="${cur_raw%$'\r'}" ;;
+    *) cur="$cur_raw" ;;
+  esac
   body="${cur#resourcePacks:[}"; body="${body%]}"
   # 先把已有的汉化包条目摘掉，再追加到**末尾**。
   # 不能只判断「已存在就跳过」——旧版本装出来的实例里它可能排在很前面，
   # 那样等于没启用（后面的包会把它整个盖掉），必须重新挪到最后。
-  body="$(printf '%s' "$body" | sed "s|\"$PACK_ENTRY\"||g; s|,,*|,|g; s|^,||; s|,$||")"
+  # 摘除时同时兼容双引号/单引号、带/不带 file/ 前缀四种写法——重复安装、
+  # 或旧工具用了不同写法留下的残留条目，都得认得出来，否则会越装越多份重复项。
+  PACK_BASENAME="${PACK_ENTRY#file/}"
+  body="$(printf '%s' "$body" | sed \
+    "s|\"$PACK_ENTRY\"||g; s|'$PACK_ENTRY'||g; s|\"$PACK_BASENAME\"||g; s|'$PACK_BASENAME'||g; s|,,*|,|g; s|^,||; s|,\$||")"
   if [ -n "$body" ]; then
     new="resourcePacks:[$body,\"$PACK_ENTRY\"]"
   else
@@ -265,7 +280,9 @@ patch_options() {
     say "options.txt 已正确启用汉化资源包（在列表最后），跳过"
     return
   fi
-  awk -v n="$new" '/^resourcePacks:/{print n; next} {print}' "$OPT" > "$OPT.hanhua-tmp" \
+  out="$new"
+  [ "$crlf" = 1 ] && out="$new"$'\r'
+  awk -v n="$out" '/^resourcePacks:/{print n; next} {print}' "$OPT" > "$OPT.hanhua-tmp" \
     && mv "$OPT.hanhua-tmp" "$OPT"
   say "✅ 已在 options.txt 启用汉化资源包并置于列表最后（不在最后会被其他包盖掉）"
 }

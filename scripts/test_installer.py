@@ -301,5 +301,119 @@ assert not (played / 'options.txt').exists(), \
 assert '不新建' in out, f'应提示不新建 options.txt：\n{out}'
 print('✅ 玩过的实例缺 options.txt 时拒绝新建 OK')
 
+# ---- 回归：多名玩家反馈「装完汉化包没启用，得自己进游戏拖到最后一位」----
+#
+# 根因：bash 版 patch_options 用 grep 取 resourcePacks 整行后直接 "${body%]}" 去掉
+# 结尾的 "]"。但 Minecraft 在 **Windows** 上运行时，Java 的 println 按系统行尾写
+# options.txt，也就是 CRLF；这样的行被 grep 取出来结尾其实是 "]\r" 而不是 "]"，
+# "${body%]}" 匹配不上、什么都不剥，最终拼出
+#   resourcePacks:[...]\r,"file/ATM10汉化包-7.2.zip"]
+# 这种中间多出一个 "]"、还嵌着散落 \r 的坏行——数组语法已经损坏，游戏读出来的
+# 资源包列表是错的，汉化包实际没启用。这种 CRLF 文件不是假设：实例目录如果被
+# 同步/搬去 Windows 上启动过一次，再拿回 Mac/Linux 装这个包，options.txt 就是
+# CRLF 的。（在下方 `resource_packs()` 未修复前对这类输入跑一遍就能复现：拿到的
+# 是 None——说明整行已经不是合法的 resourcePacks 语法了。）
+#
+# 顺带把「重复安装不产生重复项」也在这里测了：旧代码摘除已有条目时只认双引号 +
+# 带 file/ 前缀这一种写法，实测单引号、或不带 file/ 前缀的残留条目都摘不掉，
+# 会越装越多份重复项（功能上不算「没启用」，因为最后一份仍在末尾，但明显是
+# bug，任务要求「重复安装不产生重复项」）。
+#
+# 用 resource_packs() 直接解析数组，而不是像前面测试那样只做子串包含判断——
+# 子串包含判断查不出「中间多插入了一个 ]」这种语法损坏，也查不出「条目还在，
+# 但没排到最后一位」（等于没启用）这种情况。
+def resource_packs(text):
+    """从 options.txt 原文解析 resourcePacks 数组，返回条目列表（不分单双引号）。
+    解析不出时返回 None——不该在语法已经损坏的情况下还拼出一个「看起来还行」的
+    列表来。`[^\\]]*` 严格不吃 "]"：如果数组中间被错误地插入了多余的 "]"
+    （CRLF 那个 bug 的典型症状），这里会在第一个 "]" 处就停手，随后要求紧跟着
+    的是行尾（`\\r?$`）——多出来的内容会让整条正则匹配失败，从而如实报告"解析
+    不出"，而不是悄悄只解析出前半段。"""
+    m = re.search(r'^resourcePacks:\[([^\]]*)\]\r?$', text, re.M)
+    if m is None:
+        return None
+    return re.findall(r'["\']([^"\']*)["\']', m.group(1))
+
+
+def resline_case(name, opts_text):
+    """造一个「实例 + 释放的安装器文件夹」，options.txt 按给定内容原样写入字节
+    （不能用文本模式写，否则 Python 会把 \\r\\n 悄悄换行转写掉，测不出 CRLF 场景）。"""
+    instd = tmp / name / 'instance'
+    (instd / 'mods').mkdir(parents=True)
+    for i in range(25):
+        (instd / 'mods' / f'modpack-{i}.jar').write_text('x', encoding='utf-8')
+    (instd / 'options.txt').write_bytes(opts_text.encode('utf-8'))
+    reld = instd / 'ATM10-hanhua'
+    reld.mkdir()
+    (reld / 'config').mkdir()
+    (reld / 'config' / 'placeholder.txt').write_text('x', encoding='utf-8')
+    for s_ in ('install.sh', 'install.ps1'):
+        materialize(ROOT / 'installer' / s_, reld / s_)
+    return instd, reld
+
+
+def run_apply_only(reld):
+    """跑 apply，返回 (returncode, 合并输出)——不经过 run()，因为这批用例的
+    释放文件夹没有完整出货树，只放了个占位 config/，够 patch_options 测试用。"""
+    if IS_WIN:
+        cmd = ['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass',
+               '-File', str(reld / 'install.ps1'), 'apply']
+    else:
+        cmd = ['bash', str(reld / 'install.sh'), 'apply']
+    r = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', timeout=300)
+    return r.returncode, (r.stdout or '') + (r.stderr or '')
+
+
+BARE = PACK + '.zip'   # 不带 file/ 前缀、带 .zip 后缀的裸文件名写法
+
+CASES = [
+    # 实测过的默认包顺序，十几项——起始状态就是「首次启动过一次后」的真实形状
+    ('内置包十几个-LF-无本包',
+     'version:4189\nresourcePacks:[%s]\nlang:zh_cn\n' % DEFAULT_PACKS),
+    ('内置包十几个-CRLF-无本包',      # ← CRLF：反馈的核心复现场景
+     'version:4189\r\nresourcePacks:[%s]\r\nlang:zh_cn\r\n' % DEFAULT_PACKS),
+    ('本包已存在但不在最后-CRLF',      # ← CRLF + 需要挪位：反馈的核心复现场景
+     'version:4189\r\nresourcePacks:[%s]\r\nlang:zh_cn\r\n'
+     % ','.join(['"vanilla"', '"%s"' % ENTRY, '"mod_resources"',
+                 '"add_xycraft_overrides_stone"'])),
+    ('本包重复项-单引号带file前缀',
+     'version:4189\nresourcePacks:["vanilla",\'%s\',"mod_resources"]\nlang:zh_cn\n' % ENTRY),
+    ('本包重复项-双引号不带file前缀',
+     'version:4189\nresourcePacks:["vanilla","%s","mod_resources"]\nlang:zh_cn\n' % BARE),
+    ('本包重复项-单引号不带file前缀',
+     'version:4189\nresourcePacks:["vanilla",\'%s\',"mod_resources"]\nlang:zh_cn\n' % BARE),
+    ('数组尾随逗号-无本包',
+     'version:4189\nresourcePacks:["vanilla","mod_resources",]\nlang:zh_cn\n'),
+    ('数组尾随逗号-CRLF',
+     'version:4189\r\nresourcePacks:["vanilla","mod_resources",]\r\nlang:zh_cn\r\n'),
+]
+
+for label, opts_before in CASES:
+    c_instd, c_reld = resline_case(label, opts_before)
+    rc, out = run_apply_only(c_reld)
+    raw = (c_instd / 'options.txt').read_bytes().decode('utf-8')
+    packs = resource_packs(raw)
+    assert rc == 0, f'[{label}] apply 失败(rc={rc})：\n{out}'
+    assert packs is not None, f'[{label}] resourcePacks 行语法损坏，解析不出来：\n{raw!r}'
+    assert packs.count(ENTRY) == 1, \
+        f'[{label}] 汉化包条目应恰好 1 份，实际 {packs.count(ENTRY)} 份：{packs}'
+    assert packs[-1] == ENTRY, \
+        f'[{label}] 汉化包不在列表最后一位（不在最后等于没启用）：{packs}'
+print(f'✅ resourcePacks 各种写法 + CRLF + 重复安装 回归 OK（{len(CASES)} 个用例）')
+
+# 幂等专项：本包已经在最后一位时，不该触发任何重写（也顺带验证 CRLF 原样保留，
+# 不会被「已经对了」这条早退路径悄悄改动行尾风格）
+idempo_instd, idempo_reld = resline_case(
+    '本包已在最后-CRLF-幂等',
+    'version:4189\r\nresourcePacks:["vanilla","mod_resources","%s"]\r\nlang:zh_cn\r\n' % ENTRY)
+rc, out = run_apply_only(idempo_reld)
+assert rc == 0, f'幂等用例 apply 失败(rc={rc})：\n{out}'
+assert '跳过' in out, f'汉化包已在最后一位时应提示跳过而不是重写：\n{out}'
+idempo_packs = resource_packs((idempo_instd / 'options.txt').read_bytes().decode('utf-8'))
+assert idempo_packs is not None and idempo_packs == ['vanilla', 'mod_resources', ENTRY], \
+    f'幂等跳过后数组不应变化：{idempo_packs}'
+print('✅ 汉化包已在最后一位时正确识别为跳过、CRLF 原样保留 OK')
+
 shutil.rmtree(tmp, ignore_errors=True)
 print(f'✅ 安装脚本端到端测试通过（{platform.system()}）')
