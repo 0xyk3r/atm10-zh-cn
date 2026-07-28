@@ -142,6 +142,202 @@
       {
         "key": "Trains",
         "value": "列车"
+      },
+      {
+        "key": "Air In Backtank",
+        "value": "背罐储气量"
+      },
+      {
+        "key": "Allow Brewing In Mixer",
+        "value": "允许在搅拌器中酿造"
+      },
+      {
+        "key": "Allow Casting By Spout",
+        "value": "允许用注液口浇铸"
+      },
+      {
+        "key": "Allow Regular Crafting In Crafter",
+        "value": "允许机械合成器进行普通合成"
+      },
+      {
+        "key": "Allow Shaped Square In Press",
+        "value": "允许压床进行方形有序合成"
+      },
+      {
+        "key": "Allow Shapeless In Mixer",
+        "value": "允许在搅拌器中进行无序合成"
+      },
+      {
+        "key": "Allow Stonecutting On Saw",
+        "value": "允许用锯进行切石"
+      },
+      {
+        "key": "Amethyst Movement",
+        "value": "紫水晶可移动"
+      },
+      {
+        "key": "Bottomless Fluid Mode",
+        "value": "无限流体模式"
+      },
+      {
+        "key": "Brass Tunnel Timer",
+        "value": "黄铜隧道计时"
+      },
+      {
+        "key": "Bulk Cutting",
+        "value": "批量切割"
+      },
+      {
+        "key": "Bulk Pressing",
+        "value": "批量压制"
+      },
+      {
+        "key": "Capacity",
+        "value": "容量"
+      },
+      {
+        "key": "Chain Conveyor Capacity",
+        "value": "链式传送带容量"
+      },
+      {
+        "key": "Contraptions",
+        "value": "装置"
+      },
+      {
+        "key": "Crank Hunger Multiplier",
+        "value": "手摇曲柄饥饿倍率"
+      },
+      {
+        "key": "Creative Print Includes Air",
+        "value": "创造打印包含空气"
+      },
+      {
+        "key": "Crushing Damage",
+        "value": "粉碎伤害"
+      },
+      {
+        "key": "Default Extraction Timer",
+        "value": "默认抽取计时"
+      },
+      {
+        "key": "Disable Stress",
+        "value": "禁用应力"
+      },
+      {
+        "key": "Display Link Range",
+        "value": "显示链接范围"
+      },
+      {
+        "key": "Display Log Stripping Recipes",
+        "value": "显示原木剥皮配方"
+      },
+      {
+        "key": "Ejector Scan Interval",
+        "value": "弹射器扫描间隔"
+      },
+      {
+        "key": "Enable Refined Radiance Recipe",
+        "value": "启用光辉精华配方"
+      },
+      {
+        "key": "Enable Shadow Steel Recipe",
+        "value": "启用暗影钢配方"
+      },
+      {
+        "key": "Encased Fan",
+        "value": "包覆式风扇"
+      },
+      {
+        "key": "Enchanted Backtank Capacity",
+        "value": "附魔背罐容量"
+      },
+      {
+        "key": "Equipment",
+        "value": "装备"
+      },
+      {
+        "key": "Factory Gauge Timer",
+        "value": "工厂仪表计时"
+      },
+      {
+        "key": "Fan Block Check Rate",
+        "value": "风扇方块检测频率"
+      },
+      {
+        "key": "Fan Processing Time",
+        "value": "风扇处理时间"
+      },
+      {
+        "key": "Fan Pull Distance",
+        "value": "风扇吸取距离"
+      },
+      {
+        "key": "Fan Push Distance",
+        "value": "风扇推送距离"
+      },
+      {
+        "key": "Fast Speed",
+        "value": "高速档"
+      },
+      {
+        "key": "Fill Infinite",
+        "value": "无限填充"
+      },
+      {
+        "key": "Fluid Fill Place Fluid Source Blocks",
+        "value": "流体填充放置源方块"
+      },
+      {
+        "key": "Fluid Tank Capacity",
+        "value": "流体储罐容量"
+      },
+      {
+        "key": "Fluid Tank Max Height",
+        "value": "流体储罐最大高度"
+      },
+      {
+        "key": "Fluids",
+        "value": "流体"
+      },
+      {
+        "key": "Impact",
+        "value": "冲击"
+      },
+      {
+        "key": "Infrastructure",
+        "value": "基础设施"
+      },
+      {
+        "key": "Kinetics",
+        "value": "动力学"
+      },
+      {
+        "key": "Logistics",
+        "value": "物流"
+      },
+      {
+        "key": "Powered Train Stats",
+        "value": "动力列车参数"
+      },
+      {
+        "key": "Recipes",
+        "value": "配方"
+      },
+      {
+        "key": "Schematicannon",
+        "value": "蓝图加农炮"
+      },
+      {
+        "key": "Schematics",
+        "value": "蓝图"
+      },
+      {
+        "key": "Stats",
+        "value": "参数"
+      },
+      {
+        "key": "Train Stats",
+        "value": "列车参数"
       }
     ]
   },
@@ -281,6 +477,202 @@
       {
         "key": "Trains",
         "value": "列车"
+      },
+      {
+        "key": "Air In Backtank",
+        "value": "背罐储气量"
+      },
+      {
+        "key": "Allow Brewing In Mixer",
+        "value": "允许在搅拌器中酿造"
+      },
+      {
+        "key": "Allow Casting By Spout",
+        "value": "允许用注液口浇铸"
+      },
+      {
+        "key": "Allow Regular Crafting In Crafter",
+        "value": "允许机械合成器进行普通合成"
+      },
+      {
+        "key": "Allow Shaped Square In Press",
+        "value": "允许压床进行方形有序合成"
+      },
+      {
+        "key": "Allow Shapeless In Mixer",
+        "value": "允许在搅拌器中进行无序合成"
+      },
+      {
+        "key": "Allow Stonecutting On Saw",
+        "value": "允许用锯进行切石"
+      },
+      {
+        "key": "Amethyst Movement",
+        "value": "紫水晶可移动"
+      },
+      {
+        "key": "Bottomless Fluid Mode",
+        "value": "无限流体模式"
+      },
+      {
+        "key": "Brass Tunnel Timer",
+        "value": "黄铜隧道计时"
+      },
+      {
+        "key": "Bulk Cutting",
+        "value": "批量切割"
+      },
+      {
+        "key": "Bulk Pressing",
+        "value": "批量压制"
+      },
+      {
+        "key": "Capacity",
+        "value": "容量"
+      },
+      {
+        "key": "Chain Conveyor Capacity",
+        "value": "链式传送带容量"
+      },
+      {
+        "key": "Contraptions",
+        "value": "装置"
+      },
+      {
+        "key": "Crank Hunger Multiplier",
+        "value": "手摇曲柄饥饿倍率"
+      },
+      {
+        "key": "Creative Print Includes Air",
+        "value": "创造打印包含空气"
+      },
+      {
+        "key": "Crushing Damage",
+        "value": "粉碎伤害"
+      },
+      {
+        "key": "Default Extraction Timer",
+        "value": "默认抽取计时"
+      },
+      {
+        "key": "Disable Stress",
+        "value": "禁用应力"
+      },
+      {
+        "key": "Display Link Range",
+        "value": "显示链接范围"
+      },
+      {
+        "key": "Display Log Stripping Recipes",
+        "value": "显示原木剥皮配方"
+      },
+      {
+        "key": "Ejector Scan Interval",
+        "value": "弹射器扫描间隔"
+      },
+      {
+        "key": "Enable Refined Radiance Recipe",
+        "value": "启用光辉精华配方"
+      },
+      {
+        "key": "Enable Shadow Steel Recipe",
+        "value": "启用暗影钢配方"
+      },
+      {
+        "key": "Encased Fan",
+        "value": "包覆式风扇"
+      },
+      {
+        "key": "Enchanted Backtank Capacity",
+        "value": "附魔背罐容量"
+      },
+      {
+        "key": "Equipment",
+        "value": "装备"
+      },
+      {
+        "key": "Factory Gauge Timer",
+        "value": "工厂仪表计时"
+      },
+      {
+        "key": "Fan Block Check Rate",
+        "value": "风扇方块检测频率"
+      },
+      {
+        "key": "Fan Processing Time",
+        "value": "风扇处理时间"
+      },
+      {
+        "key": "Fan Pull Distance",
+        "value": "风扇吸取距离"
+      },
+      {
+        "key": "Fan Push Distance",
+        "value": "风扇推送距离"
+      },
+      {
+        "key": "Fast Speed",
+        "value": "高速档"
+      },
+      {
+        "key": "Fill Infinite",
+        "value": "无限填充"
+      },
+      {
+        "key": "Fluid Fill Place Fluid Source Blocks",
+        "value": "流体填充放置源方块"
+      },
+      {
+        "key": "Fluid Tank Capacity",
+        "value": "流体储罐容量"
+      },
+      {
+        "key": "Fluid Tank Max Height",
+        "value": "流体储罐最大高度"
+      },
+      {
+        "key": "Fluids",
+        "value": "流体"
+      },
+      {
+        "key": "Impact",
+        "value": "冲击"
+      },
+      {
+        "key": "Infrastructure",
+        "value": "基础设施"
+      },
+      {
+        "key": "Kinetics",
+        "value": "动力学"
+      },
+      {
+        "key": "Logistics",
+        "value": "物流"
+      },
+      {
+        "key": "Powered Train Stats",
+        "value": "动力列车参数"
+      },
+      {
+        "key": "Recipes",
+        "value": "配方"
+      },
+      {
+        "key": "Schematicannon",
+        "value": "蓝图加农炮"
+      },
+      {
+        "key": "Schematics",
+        "value": "蓝图"
+      },
+      {
+        "key": "Stats",
+        "value": "参数"
+      },
+      {
+        "key": "Train Stats",
+        "value": "列车参数"
       }
     ]
   },
@@ -420,6 +812,202 @@
       {
         "key": "Trains",
         "value": "列车"
+      },
+      {
+        "key": "Air In Backtank",
+        "value": "背罐储气量"
+      },
+      {
+        "key": "Allow Brewing In Mixer",
+        "value": "允许在搅拌器中酿造"
+      },
+      {
+        "key": "Allow Casting By Spout",
+        "value": "允许用注液口浇铸"
+      },
+      {
+        "key": "Allow Regular Crafting In Crafter",
+        "value": "允许机械合成器进行普通合成"
+      },
+      {
+        "key": "Allow Shaped Square In Press",
+        "value": "允许压床进行方形有序合成"
+      },
+      {
+        "key": "Allow Shapeless In Mixer",
+        "value": "允许在搅拌器中进行无序合成"
+      },
+      {
+        "key": "Allow Stonecutting On Saw",
+        "value": "允许用锯进行切石"
+      },
+      {
+        "key": "Amethyst Movement",
+        "value": "紫水晶可移动"
+      },
+      {
+        "key": "Bottomless Fluid Mode",
+        "value": "无限流体模式"
+      },
+      {
+        "key": "Brass Tunnel Timer",
+        "value": "黄铜隧道计时"
+      },
+      {
+        "key": "Bulk Cutting",
+        "value": "批量切割"
+      },
+      {
+        "key": "Bulk Pressing",
+        "value": "批量压制"
+      },
+      {
+        "key": "Capacity",
+        "value": "容量"
+      },
+      {
+        "key": "Chain Conveyor Capacity",
+        "value": "链式传送带容量"
+      },
+      {
+        "key": "Contraptions",
+        "value": "装置"
+      },
+      {
+        "key": "Crank Hunger Multiplier",
+        "value": "手摇曲柄饥饿倍率"
+      },
+      {
+        "key": "Creative Print Includes Air",
+        "value": "创造打印包含空气"
+      },
+      {
+        "key": "Crushing Damage",
+        "value": "粉碎伤害"
+      },
+      {
+        "key": "Default Extraction Timer",
+        "value": "默认抽取计时"
+      },
+      {
+        "key": "Disable Stress",
+        "value": "禁用应力"
+      },
+      {
+        "key": "Display Link Range",
+        "value": "显示链接范围"
+      },
+      {
+        "key": "Display Log Stripping Recipes",
+        "value": "显示原木剥皮配方"
+      },
+      {
+        "key": "Ejector Scan Interval",
+        "value": "弹射器扫描间隔"
+      },
+      {
+        "key": "Enable Refined Radiance Recipe",
+        "value": "启用光辉精华配方"
+      },
+      {
+        "key": "Enable Shadow Steel Recipe",
+        "value": "启用暗影钢配方"
+      },
+      {
+        "key": "Encased Fan",
+        "value": "包覆式风扇"
+      },
+      {
+        "key": "Enchanted Backtank Capacity",
+        "value": "附魔背罐容量"
+      },
+      {
+        "key": "Equipment",
+        "value": "装备"
+      },
+      {
+        "key": "Factory Gauge Timer",
+        "value": "工厂仪表计时"
+      },
+      {
+        "key": "Fan Block Check Rate",
+        "value": "风扇方块检测频率"
+      },
+      {
+        "key": "Fan Processing Time",
+        "value": "风扇处理时间"
+      },
+      {
+        "key": "Fan Pull Distance",
+        "value": "风扇吸取距离"
+      },
+      {
+        "key": "Fan Push Distance",
+        "value": "风扇推送距离"
+      },
+      {
+        "key": "Fast Speed",
+        "value": "高速档"
+      },
+      {
+        "key": "Fill Infinite",
+        "value": "无限填充"
+      },
+      {
+        "key": "Fluid Fill Place Fluid Source Blocks",
+        "value": "流体填充放置源方块"
+      },
+      {
+        "key": "Fluid Tank Capacity",
+        "value": "流体储罐容量"
+      },
+      {
+        "key": "Fluid Tank Max Height",
+        "value": "流体储罐最大高度"
+      },
+      {
+        "key": "Fluids",
+        "value": "流体"
+      },
+      {
+        "key": "Impact",
+        "value": "冲击"
+      },
+      {
+        "key": "Infrastructure",
+        "value": "基础设施"
+      },
+      {
+        "key": "Kinetics",
+        "value": "动力学"
+      },
+      {
+        "key": "Logistics",
+        "value": "物流"
+      },
+      {
+        "key": "Powered Train Stats",
+        "value": "动力列车参数"
+      },
+      {
+        "key": "Recipes",
+        "value": "配方"
+      },
+      {
+        "key": "Schematicannon",
+        "value": "蓝图加农炮"
+      },
+      {
+        "key": "Schematics",
+        "value": "蓝图"
+      },
+      {
+        "key": "Stats",
+        "value": "参数"
+      },
+      {
+        "key": "Train Stats",
+        "value": "列车参数"
       }
     ]
   }
