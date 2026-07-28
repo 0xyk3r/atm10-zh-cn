@@ -78,5 +78,15 @@
       "bottom right"
     ],
     "why": "blockui 的 Alignment 枚举拿这些串当**行为标志**：构造器里 tag.contains(\"horizontal\") 决定 horizontalCentered、contains(\"right\") 决定 rightAligned。译成中文后 contains 全部落空，整个 blockui 的对齐系统失效——MineColonies / 建筑棒所有界面的文字一律贴左，连上游自己写的 textalign=\"MIDDLE\" 都不生效。2026-07-28 查了一整轮才定位到。"
+  },
+  {
+    "id": "vp-class-patch-off",
+    "kind": "json_assert",
+    "file": "config/vaultpatcher_asm/config.json",
+    "path": [
+      "class_patch"
+    ],
+    "equals": false,
+    "why": "class_patch 会让 VaultPatcher 遍历 <实例>/vaultpatcher/patch/ 并用里面任何 .class 替换同名类——等于把一个数据目录变成代码执行入口。本包一个类都不需要改，开着只会给「别的工具/手滑拷进来的 class 被静默加载」留门，而照着旧版模组编的 class 会直接 ClassFormatError 闪退（2026-07-28 实机踩过）。做字节码实验时可以临时打开，但绝不许随包发出去。"
   }
 ]
