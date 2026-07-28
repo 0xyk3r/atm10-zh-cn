@@ -2983,6 +2983,7 @@
     "src/vaultpatcher/modules/mcjtylib_manual_zh.json",
     "src/vaultpatcher/modules/merrymaking.json",
     "src/vaultpatcher/modules/minecolonies.json",
+    "src/vaultpatcher/modules/minecolonies_styles.json",
     "src/vaultpatcher/modules/mininggadgets.json",
     "src/vaultpatcher/modules/mob_grinding_utils.json",
     "src/vaultpatcher/modules/modern_industrialization.json",

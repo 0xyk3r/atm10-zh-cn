@@ -1,0 +1,1300 @@
+[
+  {
+    "name": "minecolonies_styles_zh_cn",
+    "authors": "Hoshino Yumeka",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_classes": [
+      "com.ldtteam.structurize.client.gui.WindowExtendedBuildTool",
+      "com.ldtteam.structurize.client.gui.WindowSwitchPack"
+    ],
+    "pairs": [
+      {
+        "key": "Adapters",
+        "value": "接头"
+      },
+      {
+        "key": "adapters",
+        "value": "接头"
+      },
+      {
+        "key": "Advanced",
+        "value": "进阶"
+      },
+      {
+        "key": "advanced",
+        "value": "进阶"
+      },
+      {
+        "key": "Agora",
+        "value": "集会广场"
+      },
+      {
+        "key": "agora",
+        "value": "集会广场"
+      },
+      {
+        "key": "Agriculture",
+        "value": "农业"
+      },
+      {
+        "key": "agriculture",
+        "value": "农业"
+      },
+      {
+        "key": "Alley",
+        "value": "巷道"
+      },
+      {
+        "key": "alley",
+        "value": "巷道"
+      },
+      {
+        "key": "Alleys",
+        "value": "巷道"
+      },
+      {
+        "key": "alleys",
+        "value": "巷道"
+      },
+      {
+        "key": "Alternative",
+        "value": "备选"
+      },
+      {
+        "key": "alternative",
+        "value": "备选"
+      },
+      {
+        "key": "Aquaducts",
+        "value": "引水渠"
+      },
+      {
+        "key": "aquaducts",
+        "value": "引水渠"
+      },
+      {
+        "key": "Aqueduct",
+        "value": "引水渠"
+      },
+      {
+        "key": "aqueduct",
+        "value": "引水渠"
+      },
+      {
+        "key": "Arches",
+        "value": "拱门"
+      },
+      {
+        "key": "arches",
+        "value": "拱门"
+      },
+      {
+        "key": "Athenian",
+        "value": "雅典式"
+      },
+      {
+        "key": "athenian",
+        "value": "雅典式"
+      },
+      {
+        "key": "Avenues",
+        "value": "大道"
+      },
+      {
+        "key": "avenues",
+        "value": "大道"
+      },
+      {
+        "key": "Base",
+        "value": "基座"
+      },
+      {
+        "key": "base",
+        "value": "基座"
+      },
+      {
+        "key": "Basic",
+        "value": "基础"
+      },
+      {
+        "key": "basic",
+        "value": "基础"
+      },
+      {
+        "key": "Beigestone",
+        "value": "米色石"
+      },
+      {
+        "key": "beigestone",
+        "value": "米色石"
+      },
+      {
+        "key": "Big_walls",
+        "value": "大型城墙"
+      },
+      {
+        "key": "Big Walls",
+        "value": "大型城墙"
+      },
+      {
+        "key": "big_walls",
+        "value": "大型城墙"
+      },
+      {
+        "key": "Birail",
+        "value": "双轨"
+      },
+      {
+        "key": "birail",
+        "value": "双轨"
+      },
+      {
+        "key": "Blackstone",
+        "value": "黑石"
+      },
+      {
+        "key": "blackstone",
+        "value": "黑石"
+      },
+      {
+        "key": "Boardwalk",
+        "value": "木栈道"
+      },
+      {
+        "key": "boardwalk",
+        "value": "木栈道"
+      },
+      {
+        "key": "Brick",
+        "value": "砖砌"
+      },
+      {
+        "key": "brick",
+        "value": "砖砌"
+      },
+      {
+        "key": "Bridge",
+        "value": "桥梁"
+      },
+      {
+        "key": "bridge",
+        "value": "桥梁"
+      },
+      {
+        "key": "Bridges",
+        "value": "桥梁"
+      },
+      {
+        "key": "bridges",
+        "value": "桥梁"
+      },
+      {
+        "key": "Brownstone",
+        "value": "褐石"
+      },
+      {
+        "key": "brownstone",
+        "value": "褐石"
+      },
+      {
+        "key": "Canal",
+        "value": "运河"
+      },
+      {
+        "key": "canal",
+        "value": "运河"
+      },
+      {
+        "key": "Canals",
+        "value": "运河"
+      },
+      {
+        "key": "canals",
+        "value": "运河"
+      },
+      {
+        "key": "Carpentry",
+        "value": "木工"
+      },
+      {
+        "key": "carpentry",
+        "value": "木工"
+      },
+      {
+        "key": "City",
+        "value": "城区"
+      },
+      {
+        "key": "city",
+        "value": "城区"
+      },
+      {
+        "key": "Clay",
+        "value": "黏土"
+      },
+      {
+        "key": "clay",
+        "value": "黏土"
+      },
+      {
+        "key": "Cliffclimb",
+        "value": "崖道"
+      },
+      {
+        "key": "cliffclimb",
+        "value": "崖道"
+      },
+      {
+        "key": "Cobble",
+        "value": "圆石"
+      },
+      {
+        "key": "cobble",
+        "value": "圆石"
+      },
+      {
+        "key": "Connector_deco",
+        "value": "连接件装饰"
+      },
+      {
+        "key": "Connector Deco",
+        "value": "连接件装饰"
+      },
+      {
+        "key": "connector_deco",
+        "value": "连接件装饰"
+      },
+      {
+        "key": "Connectors",
+        "value": "连接件"
+      },
+      {
+        "key": "connectors",
+        "value": "连接件"
+      },
+      {
+        "key": "Corner",
+        "value": "转角"
+      },
+      {
+        "key": "corner",
+        "value": "转角"
+      },
+      {
+        "key": "Corners",
+        "value": "转角"
+      },
+      {
+        "key": "corners",
+        "value": "转角"
+      },
+      {
+        "key": "Craftsmanship",
+        "value": "工艺"
+      },
+      {
+        "key": "craftsmanship",
+        "value": "工艺"
+      },
+      {
+        "key": "Crossroads",
+        "value": "十字路口"
+      },
+      {
+        "key": "crossroads",
+        "value": "十字路口"
+      },
+      {
+        "key": "Deco",
+        "value": "装饰"
+      },
+      {
+        "key": "deco",
+        "value": "装饰"
+      },
+      {
+        "key": "Decorations",
+        "value": "装饰"
+      },
+      {
+        "key": "decorations",
+        "value": "装饰"
+      },
+      {
+        "key": "Decorative",
+        "value": "装饰"
+      },
+      {
+        "key": "decorative",
+        "value": "装饰"
+      },
+      {
+        "key": "Deep",
+        "value": "深层"
+      },
+      {
+        "key": "deep",
+        "value": "深层"
+      },
+      {
+        "key": "Deepslate",
+        "value": "深板岩"
+      },
+      {
+        "key": "deepslate",
+        "value": "深板岩"
+      },
+      {
+        "key": "Default",
+        "value": "默认"
+      },
+      {
+        "key": "default",
+        "value": "默认"
+      },
+      {
+        "key": "Education",
+        "value": "教育"
+      },
+      {
+        "key": "education",
+        "value": "教育"
+      },
+      {
+        "key": "Facades",
+        "value": "立面"
+      },
+      {
+        "key": "facades",
+        "value": "立面"
+      },
+      {
+        "key": "Fancy",
+        "value": "华丽"
+      },
+      {
+        "key": "fancy",
+        "value": "华丽"
+      },
+      {
+        "key": "Farm",
+        "value": "农场"
+      },
+      {
+        "key": "farm",
+        "value": "农场"
+      },
+      {
+        "key": "Fences",
+        "value": "栅栏"
+      },
+      {
+        "key": "fences",
+        "value": "栅栏"
+      },
+      {
+        "key": "Fields",
+        "value": "田地"
+      },
+      {
+        "key": "fields",
+        "value": "田地"
+      },
+      {
+        "key": "Fortress",
+        "value": "要塞"
+      },
+      {
+        "key": "fortress",
+        "value": "要塞"
+      },
+      {
+        "key": "Fundamentals",
+        "value": "基础设施"
+      },
+      {
+        "key": "fundamentals",
+        "value": "基础设施"
+      },
+      {
+        "key": "Gardens",
+        "value": "花园"
+      },
+      {
+        "key": "gardens",
+        "value": "花园"
+      },
+      {
+        "key": "Gate",
+        "value": "城门"
+      },
+      {
+        "key": "gate",
+        "value": "城门"
+      },
+      {
+        "key": "Gatehouses",
+        "value": "门楼"
+      },
+      {
+        "key": "gatehouses",
+        "value": "门楼"
+      },
+      {
+        "key": "Gates",
+        "value": "城门"
+      },
+      {
+        "key": "gates",
+        "value": "城门"
+      },
+      {
+        "key": "Grand_processional",
+        "value": "仪典大道"
+      },
+      {
+        "key": "Grand Processional",
+        "value": "仪典大道"
+      },
+      {
+        "key": "grand_processional",
+        "value": "仪典大道"
+      },
+      {
+        "key": "Halls",
+        "value": "厅堂"
+      },
+      {
+        "key": "halls",
+        "value": "厅堂"
+      },
+      {
+        "key": "Harbor",
+        "value": "港口"
+      },
+      {
+        "key": "harbor",
+        "value": "港口"
+      },
+      {
+        "key": "Horticulture",
+        "value": "园艺"
+      },
+      {
+        "key": "horticulture",
+        "value": "园艺"
+      },
+      {
+        "key": "Housing",
+        "value": "住宅"
+      },
+      {
+        "key": "housing",
+        "value": "住宅"
+      },
+      {
+        "key": "Husbandry",
+        "value": "畜牧"
+      },
+      {
+        "key": "husbandry",
+        "value": "畜牧"
+      },
+      {
+        "key": "Infrastructure",
+        "value": "基建"
+      },
+      {
+        "key": "infrastructure",
+        "value": "基建"
+      },
+      {
+        "key": "Inland",
+        "value": "内陆"
+      },
+      {
+        "key": "inland",
+        "value": "内陆"
+      },
+      {
+        "key": "Intersection_deco",
+        "value": "路口装饰"
+      },
+      {
+        "key": "Intersection Deco",
+        "value": "路口装饰"
+      },
+      {
+        "key": "intersection_deco",
+        "value": "路口装饰"
+      },
+      {
+        "key": "Intersections",
+        "value": "路口"
+      },
+      {
+        "key": "intersections",
+        "value": "路口"
+      },
+      {
+        "key": "Jetty",
+        "value": "栈桥"
+      },
+      {
+        "key": "jetty",
+        "value": "栈桥"
+      },
+      {
+        "key": "Lampposts",
+        "value": "路灯"
+      },
+      {
+        "key": "lampposts",
+        "value": "路灯"
+      },
+      {
+        "key": "Lanterns",
+        "value": "灯笼"
+      },
+      {
+        "key": "lanterns",
+        "value": "灯笼"
+      },
+      {
+        "key": "Large_deco",
+        "value": "大型装饰"
+      },
+      {
+        "key": "Large Deco",
+        "value": "大型装饰"
+      },
+      {
+        "key": "large_deco",
+        "value": "大型装饰"
+      },
+      {
+        "key": "Lights",
+        "value": "照明"
+      },
+      {
+        "key": "lights",
+        "value": "照明"
+      },
+      {
+        "key": "Luxury",
+        "value": "豪华"
+      },
+      {
+        "key": "luxury",
+        "value": "豪华"
+      },
+      {
+        "key": "Markets",
+        "value": "市集"
+      },
+      {
+        "key": "markets",
+        "value": "市集"
+      },
+      {
+        "key": "Masonry",
+        "value": "石工"
+      },
+      {
+        "key": "masonry",
+        "value": "石工"
+      },
+      {
+        "key": "Megahall",
+        "value": "巨型厅堂"
+      },
+      {
+        "key": "megahall",
+        "value": "巨型厅堂"
+      },
+      {
+        "key": "Megahalls",
+        "value": "巨型厅堂"
+      },
+      {
+        "key": "megahalls",
+        "value": "巨型厅堂"
+      },
+      {
+        "key": "Metallurgy",
+        "value": "冶金"
+      },
+      {
+        "key": "metallurgy",
+        "value": "冶金"
+      },
+      {
+        "key": "Military",
+        "value": "军事"
+      },
+      {
+        "key": "military",
+        "value": "军事"
+      },
+      {
+        "key": "Mineshafts",
+        "value": "矿井"
+      },
+      {
+        "key": "mineshafts",
+        "value": "矿井"
+      },
+      {
+        "key": "Misc",
+        "value": "杂项"
+      },
+      {
+        "key": "misc",
+        "value": "杂项"
+      },
+      {
+        "key": "Moat",
+        "value": "护城河"
+      },
+      {
+        "key": "moat",
+        "value": "护城河"
+      },
+      {
+        "key": "Monorail",
+        "value": "单轨"
+      },
+      {
+        "key": "monorail",
+        "value": "单轨"
+      },
+      {
+        "key": "Mycanean",
+        "value": "迈锡尼式"
+      },
+      {
+        "key": "mycanean",
+        "value": "迈锡尼式"
+      },
+      {
+        "key": "Mystic",
+        "value": "神秘"
+      },
+      {
+        "key": "mystic",
+        "value": "神秘"
+      },
+      {
+        "key": "Narrow",
+        "value": "窄式"
+      },
+      {
+        "key": "narrow",
+        "value": "窄式"
+      },
+      {
+        "key": "Nice",
+        "value": "精致"
+      },
+      {
+        "key": "nice",
+        "value": "精致"
+      },
+      {
+        "key": "Oak",
+        "value": "橡木"
+      },
+      {
+        "key": "oak",
+        "value": "橡木"
+      },
+      {
+        "key": "Original",
+        "value": "原初"
+      },
+      {
+        "key": "original",
+        "value": "原初"
+      },
+      {
+        "key": "Other",
+        "value": "其他"
+      },
+      {
+        "key": "other",
+        "value": "其他"
+      },
+      {
+        "key": "Overground",
+        "value": "地上"
+      },
+      {
+        "key": "overground",
+        "value": "地上"
+      },
+      {
+        "key": "Pagodas",
+        "value": "塔楼"
+      },
+      {
+        "key": "pagodas",
+        "value": "塔楼"
+      },
+      {
+        "key": "Palisade",
+        "value": "木栅"
+      },
+      {
+        "key": "palisade",
+        "value": "木栅"
+      },
+      {
+        "key": "Parks",
+        "value": "公园"
+      },
+      {
+        "key": "parks",
+        "value": "公园"
+      },
+      {
+        "key": "Path",
+        "value": "小径"
+      },
+      {
+        "key": "path",
+        "value": "小径"
+      },
+      {
+        "key": "Paths",
+        "value": "小径"
+      },
+      {
+        "key": "paths",
+        "value": "小径"
+      },
+      {
+        "key": "Piers",
+        "value": "码头"
+      },
+      {
+        "key": "piers",
+        "value": "码头"
+      },
+      {
+        "key": "Plain",
+        "value": "朴素"
+      },
+      {
+        "key": "plain",
+        "value": "朴素"
+      },
+      {
+        "key": "Planks",
+        "value": "木板"
+      },
+      {
+        "key": "planks",
+        "value": "木板"
+      },
+      {
+        "key": "Planning",
+        "value": "规划"
+      },
+      {
+        "key": "planning",
+        "value": "规划"
+      },
+      {
+        "key": "Plantation",
+        "value": "种植园"
+      },
+      {
+        "key": "plantation",
+        "value": "种植园"
+      },
+      {
+        "key": "Platforms",
+        "value": "站台"
+      },
+      {
+        "key": "platforms",
+        "value": "站台"
+      },
+      {
+        "key": "Player_spaces",
+        "value": "玩家空间"
+      },
+      {
+        "key": "Player Spaces",
+        "value": "玩家空间"
+      },
+      {
+        "key": "player_spaces",
+        "value": "玩家空间"
+      },
+      {
+        "key": "Playerhome",
+        "value": "玩家住宅"
+      },
+      {
+        "key": "playerhome",
+        "value": "玩家住宅"
+      },
+      {
+        "key": "Playerhouse",
+        "value": "玩家住宅"
+      },
+      {
+        "key": "playerhouse",
+        "value": "玩家住宅"
+      },
+      {
+        "key": "Plaza",
+        "value": "广场"
+      },
+      {
+        "key": "plaza",
+        "value": "广场"
+      },
+      {
+        "key": "Poor",
+        "value": "简陋"
+      },
+      {
+        "key": "poor",
+        "value": "简陋"
+      },
+      {
+        "key": "Premium",
+        "value": "精品"
+      },
+      {
+        "key": "premium",
+        "value": "精品"
+      },
+      {
+        "key": "Quarry",
+        "value": "采石场"
+      },
+      {
+        "key": "quarry",
+        "value": "采石场"
+      },
+      {
+        "key": "Quarry_inserts",
+        "value": "采石场配件"
+      },
+      {
+        "key": "Quarry Inserts",
+        "value": "采石场配件"
+      },
+      {
+        "key": "quarry_inserts",
+        "value": "采石场配件"
+      },
+      {
+        "key": "Rail",
+        "value": "铁轨"
+      },
+      {
+        "key": "rail",
+        "value": "铁轨"
+      },
+      {
+        "key": "Rails",
+        "value": "铁轨"
+      },
+      {
+        "key": "rails",
+        "value": "铁轨"
+      },
+      {
+        "key": "Retaining_wall",
+        "value": "挡土墙"
+      },
+      {
+        "key": "Retaining Wall",
+        "value": "挡土墙"
+      },
+      {
+        "key": "retaining_wall",
+        "value": "挡土墙"
+      },
+      {
+        "key": "Road",
+        "value": "道路"
+      },
+      {
+        "key": "road",
+        "value": "道路"
+      },
+      {
+        "key": "Roads",
+        "value": "道路"
+      },
+      {
+        "key": "roads",
+        "value": "道路"
+      },
+      {
+        "key": "Rural",
+        "value": "乡村"
+      },
+      {
+        "key": "rural",
+        "value": "乡村"
+      },
+      {
+        "key": "Seawall",
+        "value": "海堤"
+      },
+      {
+        "key": "seawall",
+        "value": "海堤"
+      },
+      {
+        "key": "Segment",
+        "value": "路段"
+      },
+      {
+        "key": "segment",
+        "value": "路段"
+      },
+      {
+        "key": "Sewage",
+        "value": "下水道"
+      },
+      {
+        "key": "sewage",
+        "value": "下水道"
+      },
+      {
+        "key": "Shallow",
+        "value": "浅层"
+      },
+      {
+        "key": "shallow",
+        "value": "浅层"
+      },
+      {
+        "key": "Ships",
+        "value": "船只"
+      },
+      {
+        "key": "ships",
+        "value": "船只"
+      },
+      {
+        "key": "Shoal",
+        "value": "浅滩"
+      },
+      {
+        "key": "shoal",
+        "value": "浅滩"
+      },
+      {
+        "key": "Short",
+        "value": "短式"
+      },
+      {
+        "key": "short",
+        "value": "短式"
+      },
+      {
+        "key": "Simple",
+        "value": "简易"
+      },
+      {
+        "key": "simple",
+        "value": "简易"
+      },
+      {
+        "key": "Small_deco",
+        "value": "小型装饰"
+      },
+      {
+        "key": "Small Deco",
+        "value": "小型装饰"
+      },
+      {
+        "key": "small_deco",
+        "value": "小型装饰"
+      },
+      {
+        "key": "Spartan",
+        "value": "斯巴达式"
+      },
+      {
+        "key": "spartan",
+        "value": "斯巴达式"
+      },
+      {
+        "key": "Stairs",
+        "value": "楼梯"
+      },
+      {
+        "key": "stairs",
+        "value": "楼梯"
+      },
+      {
+        "key": "Statues",
+        "value": "雕像"
+      },
+      {
+        "key": "statues",
+        "value": "雕像"
+      },
+      {
+        "key": "Stone",
+        "value": "石制"
+      },
+      {
+        "key": "stone",
+        "value": "石制"
+      },
+      {
+        "key": "Storage",
+        "value": "仓储"
+      },
+      {
+        "key": "storage",
+        "value": "仓储"
+      },
+      {
+        "key": "Streets",
+        "value": "街道"
+      },
+      {
+        "key": "streets",
+        "value": "街道"
+      },
+      {
+        "key": "Structures",
+        "value": "建筑"
+      },
+      {
+        "key": "structures",
+        "value": "建筑"
+      },
+      {
+        "key": "Sturdy",
+        "value": "坚固"
+      },
+      {
+        "key": "sturdy",
+        "value": "坚固"
+      },
+      {
+        "key": "Subway",
+        "value": "地铁"
+      },
+      {
+        "key": "subway",
+        "value": "地铁"
+      },
+      {
+        "key": "Supplies",
+        "value": "补给"
+      },
+      {
+        "key": "supplies",
+        "value": "补给"
+      },
+      {
+        "key": "Tall",
+        "value": "高式"
+      },
+      {
+        "key": "tall",
+        "value": "高式"
+      },
+      {
+        "key": "Tower",
+        "value": "塔楼"
+      },
+      {
+        "key": "tower",
+        "value": "塔楼"
+      },
+      {
+        "key": "Tunnel",
+        "value": "隧道"
+      },
+      {
+        "key": "tunnel",
+        "value": "隧道"
+      },
+      {
+        "key": "Tunnelexit",
+        "value": "隧道口"
+      },
+      {
+        "key": "tunnelexit",
+        "value": "隧道口"
+      },
+      {
+        "key": "Urban",
+        "value": "都市"
+      },
+      {
+        "key": "urban",
+        "value": "都市"
+      },
+      {
+        "key": "Utility",
+        "value": "实用"
+      },
+      {
+        "key": "utility",
+        "value": "实用"
+      },
+      {
+        "key": "Vegetation",
+        "value": "植被"
+      },
+      {
+        "key": "vegetation",
+        "value": "植被"
+      },
+      {
+        "key": "Villager",
+        "value": "村民"
+      },
+      {
+        "key": "villager",
+        "value": "村民"
+      },
+      {
+        "key": "Wall",
+        "value": "城墙"
+      },
+      {
+        "key": "wall",
+        "value": "城墙"
+      },
+      {
+        "key": "Walls",
+        "value": "城墙"
+      },
+      {
+        "key": "walls",
+        "value": "城墙"
+      },
+      {
+        "key": "Waterfront",
+        "value": "滨水"
+      },
+      {
+        "key": "waterfront",
+        "value": "滨水"
+      },
+      {
+        "key": "Wide",
+        "value": "宽式"
+      },
+      {
+        "key": "wide",
+        "value": "宽式"
+      },
+      {
+        "key": "Wood",
+        "value": "木制"
+      },
+      {
+        "key": "wood",
+        "value": "木制"
+      },
+      {
+        "key": "Ancient Athens",
+        "value": "古雅典"
+      },
+      {
+        "key": "Caledonia",
+        "value": "喀里多尼亚"
+      },
+      {
+        "key": "Cavern",
+        "value": "洞窟"
+      },
+      {
+        "key": "Colonial",
+        "value": "殖民地"
+      },
+      {
+        "key": "Dark Oak Treehouse",
+        "value": "深色橡木树屋"
+      },
+      {
+        "key": "Desert Oasis",
+        "value": "沙漠绿洲"
+      },
+      {
+        "key": "Incan",
+        "value": "印加"
+      },
+      {
+        "key": "Jungle Treehouse",
+        "value": "丛林树屋"
+      },
+      {
+        "key": "Lost Mesa City",
+        "value": "失落方山之城"
+      },
+      {
+        "key": "Medieval Birch",
+        "value": "中世纪白桦"
+      },
+      {
+        "key": "Medieval Dark Oak",
+        "value": "中世纪深色橡木"
+      },
+      {
+        "key": "Medieval Oak",
+        "value": "中世纪橡木"
+      },
+      {
+        "key": "Medieval Spruce",
+        "value": "中世纪云杉"
+      },
+      {
+        "key": "Minecolonies Original",
+        "value": "MineColonies 原初"
+      },
+      {
+        "key": "Nordic Spruce",
+        "value": "北欧云杉"
+      },
+      {
+        "key": "Pagoda",
+        "value": "塔阁"
+      },
+      {
+        "key": "Shire",
+        "value": "夏尔"
+      },
+      {
+        "key": "Space Wars",
+        "value": "星际战争"
+      },
+      {
+        "key": "Stalactite Caves",
+        "value": "钟乳石洞"
+      },
+      {
+        "key": "Urban Birch",
+        "value": "都市白桦"
+      },
+      {
+        "key": "Urban Savanna",
+        "value": "都市热带草原"
+      },
+      {
+        "key": "Warped Netherlands",
+        "value": "诡异下界"
+      }
+    ]
+  }
+]
