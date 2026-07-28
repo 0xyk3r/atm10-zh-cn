@@ -56,10 +56,12 @@ def main(mods_dir):
             strict = books.sha1(raw) == info['sha1']
             if not strict:
                 drift.append(rel)
+            # JSON 文件按「带引号整串」替换——引号把字段值的边界钉死，不会误伤别的串；
+            # XML 之类没有这层边界，用 raw 模式原样替换，由映射自己写足上下文
+            raw = info.get('raw', False)
             for en, zh in info['t']:
                 n_all += 1
-                # 带引号整串替换：引号把字段值的边界钉死，不会误伤别的串
-                needle, sub = '"%s"' % en, '"%s"' % zh
+                needle, sub = (en, zh) if raw else ('"%s"' % en, '"%s"' % zh)
                 if needle in text:
                     text = text.replace(needle, sub)
                     n_ok += 1

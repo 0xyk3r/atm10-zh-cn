@@ -1,0 +1,34 @@
+{
+ "_说明": "上游这两个 GUI 定义里的按钮都没写 textalign，blockui 于是把文字画到左上角；英文短看不太出来，中文一眼就歪。这里只补 textalign=\"MIDDLE\"，不动别的。文件在 assets/ 下，资源包可覆盖。",
+ "mod": "structurize",
+ "files": {
+  "assets/structurize/gui/windowswitchpack.xml": {
+   "sha1": "ac68d68317a3ad3712b7856ca7b30d1e19df8828",
+   "raw": true,
+   "t": [
+    [
+     "textcolor=\"black\" texthovercolor=",
+     "textalign=\"MIDDLE\" textcolor=\"black\" texthovercolor="
+    ],
+    [
+     "text=\"$(structurize.gui.switchpack.select)\"",
+     "text=\"$(structurize.gui.switchpack.select)\" textalign=\"MIDDLE\""
+    ]
+   ]
+  },
+  "assets/structurize/gui/windowbuildtool.xml": {
+   "sha1": "a709cb18e3a36cffc52eb424460a7a0d8997c0c9",
+   "raw": true,
+   "t": [
+    [
+     "textcolor=\"black\" texthovercolor=",
+     "textalign=\"MIDDLE\" textcolor=\"black\" texthovercolor="
+    ],
+    [
+     "textcolor=\"white\" texthovercolor=",
+     "textalign=\"MIDDLE\" textcolor=\"white\" texthovercolor="
+    ]
+   ]
+  }
+ }
+}
