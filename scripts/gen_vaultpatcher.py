@@ -29,10 +29,9 @@ from paths import ROOT, SRC
 
 MODULES = SRC / 'vaultpatcher' / 'modules'
 
-# 这个模块只存在于 src/：它的作用是让「有人（尤其是 AI）擅自删改替换表」这件事
-# 立刻暴露——文件在不在由保护清单管，内容对不对由 module_hashes.json 管。
-# 但它绝不能发到玩家手里，所以摊出货树时整个跳过，出货侧另有闸复核包里没有它。
-NEVER_SHIP = {'blockui_legacy_labels.json'}
+# 这些模块留在 src/ 备查，但不随包发行（对应的上游类已改名或该组文本已由别处覆盖，
+# 发出去只会增加加载体积与排查噪音）。出货侧另有闸复核包里确实没有它们。
+SRC_ONLY = {'blockui_legacy_labels.json'}
 
 
 
@@ -49,7 +48,7 @@ def main(ver, out_dir):
     n = 0
     nojar = []
     for p in sorted(MODULES.glob('*.json')):
-        if p.name in NEVER_SHIP:
+        if p.name in SRC_ONLY:
             continue
         doc = json.loads(p.read_text(encoding='utf-8'))
         entry = db.get(p.name)
@@ -88,7 +87,7 @@ def main(ver, out_dir):
     # `load_all_modules` 为真时无害，一旦有人关掉它，这 6 个模块就静默失效。
     cfg_src = SRC / 'config' / 'vaultpatcher_asm' / 'config.json'
     cfg = json.loads(cfg_src.read_text(encoding='utf-8'))
-    names = sorted(p.stem for p in MODULES.glob('*.json') if p.name not in NEVER_SHIP)
+    names = sorted(p.stem for p in MODULES.glob('*.json') if p.name not in SRC_ONLY)
     cfg_out = {'modules': names, 'mods': names}
     cfg_out.update(cfg)
     cfg_path = Path(out_dir) / 'config' / 'vaultpatcher_asm' / 'config.json'
