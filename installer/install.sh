@@ -178,6 +178,21 @@ do_backup() {
 # 现在统一加 zz_hanhua_ 前缀，不会再撞名。这里把旧名字的残留删掉，
 # 且只在**内容与本包同名新文件逐字节相同**时才删 —— 这样能确定它是本包的旧产物，
 # 绝不会误删整合包自己的文件。
+# r14 之前的版本往实例里装过 CC: Tweaked 的中文 help 文档
+# （kubejs/data/computercraft/lua/rom/help/，97 个 .txt）。
+# 那是个方向性错误：CC 的终端用自带的 term_font.png——256 个字形、没有汉字，
+# 中文进去整屏乱码。新版已经不再生成这些文件，但安装器只覆盖不删除，
+# 旧文件会一直留在玩家盘上，于是"装了新版还是乱码"。这里主动清掉。
+clean_legacy_cc_help() {
+  CCD="$TARGET/kubejs/data/computercraft"
+  [ -d "$CCD" ] || return 0
+  n=$(find "$CCD" -name '*.txt' 2>/dev/null | wc -l | tr -d ' ')
+  rm -rf "$CCD"
+  say "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$n 个文件）。"
+  say "   CC 的终端只有 256 个自带字形、没有汉字，中文在那里必然是乱码，"
+  say "   所以这部分改回英文——这是终端本身的限制，不是漏翻。"
+}
+
 clean_legacy_quest_lang() {
   QD="$TARGET/config/ftbquests/quests/lang/zh_cn/chapters"
   SD="$SCRIPT_DIR/config/ftbquests/quests/lang/zh_cn/chapters"
@@ -290,12 +305,14 @@ patch_options() {
 do_apply() {
   if [ "$IN_PLACE" = "1" ]; then
     clean_legacy_quest_lang
+    clean_legacy_cc_help
     patch_options
     say "✅ 汉化文件已在位，options.txt 已处理完毕。"
     return
   fi
   do_backup
   clean_legacy_quest_lang
+  clean_legacy_cc_help
   while IFS= read -r f; do
     mkdir -p "$TARGET/$(dirname "$f")"
     [ "$SCRIPT_DIR/$f" = "$TARGET/$f" ] && continue   # 双保险：源即目标就跳过

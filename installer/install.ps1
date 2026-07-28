@@ -257,6 +257,20 @@ function Patch-Options {
 # 现在统一加 zz_hanhua_ 前缀，不会再撞名。这里把旧名字的残留删掉，
 # 且只在**内容与本包同名新文件逐字节相同**时才删 —— 这样能确定它是本包的旧产物，
 # 绝不会误删整合包自己的文件。
+# r14 之前的版本往实例里装过 CC: Tweaked 的中文 help 文档
+# （kubejs\data\computercraft\lua\rom\help\，97 个 .txt）。CC 的终端用自带的
+# term_font.png——256 个字形、没有汉字，中文进去整屏乱码。新版不再生成，
+# 但安装器只覆盖不删除，旧文件会一直留着，于是「装了新版还是乱码」。这里主动清掉。
+function Clear-LegacyCCHelp {
+    $ccd = Join-Path $script:Target 'kubejs\data\computercraft'
+    if (-not (Test-Path -LiteralPath $ccd)) { return }
+    $n = (Get-ChildItem -LiteralPath $ccd -Recurse -Filter *.txt -ErrorAction SilentlyContinue).Count
+    Remove-Item -LiteralPath $ccd -Recurse -Force -ErrorAction SilentlyContinue
+    Say "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$n 个文件）。"
+    Say "   CC 的终端只有 256 个自带字形、没有汉字，中文在那里必然是乱码，"
+    Say "   所以这部分改回英文——这是终端本身的限制，不是漏翻。"
+}
+
 function Clear-LegacyQuestLang {
     $qd = Join-Path $script:Target 'config\ftbquests\quests\lang\zh_cn\chapters'
     $sd = Join-Path $ScriptDir 'config\ftbquests\quests\lang\zh_cn\chapters'
@@ -286,12 +300,14 @@ function Clear-LegacyQuestLang {
 function Do-Apply {
     if ($script:InPlace) {
         Clear-LegacyQuestLang
+        Clear-LegacyCCHelp
         Patch-Options
         Write-Host '✅ 汉化文件已在位，options.txt 已处理完毕。'
         return
     }
     Do-Backup
     Clear-LegacyQuestLang
+    Clear-LegacyCCHelp
     foreach ($f in Get-PayloadFiles) {
         $dst = Join-Path $script:Target $f
         if ((Join-Path $ScriptDir $f) -eq $dst) { continue }   # 双保险：源即目标就跳过
