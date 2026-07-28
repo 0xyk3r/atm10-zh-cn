@@ -338,6 +338,42 @@
       {
         "key": "Train Stats",
         "value": "列车参数"
+      },
+      {
+        "key": "Foundry Collect Items",
+        "value": "熔铸炉收集物品"
+      },
+      {
+        "key": "Foundry Cooling Modifier",
+        "value": "熔铸炉冷却系数"
+      },
+      {
+        "key": "Foundry Damage Entities",
+        "value": "熔铸炉伤害实体"
+      },
+      {
+        "key": "Foundry Fluid Capacity Per Block Volume",
+        "value": "熔铸炉每方块流体容量"
+      },
+      {
+        "key": "Foundry Max Circumference",
+        "value": "熔铸炉最大周长"
+      },
+      {
+        "key": "Foundry Max Height",
+        "value": "熔铸炉最大高度"
+      },
+      {
+        "key": "Foundry Max Volume",
+        "value": "熔铸炉最大容积"
+      },
+      {
+        "key": "Foundry Render Inventory",
+        "value": "熔铸炉渲染内容物"
+      },
+      {
+        "key": "Foundry Tank Tick Rate",
+        "value": "熔铸炉储罐刷新频率"
       }
     ]
   },
@@ -673,6 +709,42 @@
       {
         "key": "Train Stats",
         "value": "列车参数"
+      },
+      {
+        "key": "Foundry Collect Items",
+        "value": "熔铸炉收集物品"
+      },
+      {
+        "key": "Foundry Cooling Modifier",
+        "value": "熔铸炉冷却系数"
+      },
+      {
+        "key": "Foundry Damage Entities",
+        "value": "熔铸炉伤害实体"
+      },
+      {
+        "key": "Foundry Fluid Capacity Per Block Volume",
+        "value": "熔铸炉每方块流体容量"
+      },
+      {
+        "key": "Foundry Max Circumference",
+        "value": "熔铸炉最大周长"
+      },
+      {
+        "key": "Foundry Max Height",
+        "value": "熔铸炉最大高度"
+      },
+      {
+        "key": "Foundry Max Volume",
+        "value": "熔铸炉最大容积"
+      },
+      {
+        "key": "Foundry Render Inventory",
+        "value": "熔铸炉渲染内容物"
+      },
+      {
+        "key": "Foundry Tank Tick Rate",
+        "value": "熔铸炉储罐刷新频率"
       }
     ]
   },
@@ -1008,6 +1080,42 @@
       {
         "key": "Train Stats",
         "value": "列车参数"
+      },
+      {
+        "key": "Foundry Collect Items",
+        "value": "熔铸炉收集物品"
+      },
+      {
+        "key": "Foundry Cooling Modifier",
+        "value": "熔铸炉冷却系数"
+      },
+      {
+        "key": "Foundry Damage Entities",
+        "value": "熔铸炉伤害实体"
+      },
+      {
+        "key": "Foundry Fluid Capacity Per Block Volume",
+        "value": "熔铸炉每方块流体容量"
+      },
+      {
+        "key": "Foundry Max Circumference",
+        "value": "熔铸炉最大周长"
+      },
+      {
+        "key": "Foundry Max Height",
+        "value": "熔铸炉最大高度"
+      },
+      {
+        "key": "Foundry Max Volume",
+        "value": "熔铸炉最大容积"
+      },
+      {
+        "key": "Foundry Render Inventory",
+        "value": "熔铸炉渲染内容物"
+      },
+      {
+        "key": "Foundry Tank Tick Rate",
+        "value": "熔铸炉储罐刷新频率"
       }
     ]
   }
