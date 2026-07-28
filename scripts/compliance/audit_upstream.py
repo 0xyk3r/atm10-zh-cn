@@ -167,6 +167,12 @@ def audit_tree(mods, tree, drop=False):
     （整合包里的附属模组会给别的模组的书塞自己的 zh_cn）被当成我们的发出去。
     两种都是再分发别人的作品，而且都毫无必要——Patchouli 与 AE2 导览按文件
     回落，缺了那一页玩家看到的东西一模一样。
+
+    `--drop` 时命中即删——这是既定行为，不改；generate_all.sh 靠这条闸的退出码
+    继续往下跑（见下面 return），改成非零会直接断构建。但 2026-07-28 对抗审计
+    第二轮指出：删除动作本身是**静默**的——退出码恒为 0，CI 日志里翻不出「这次
+    构建到底删了什么」，误删了也没人知道。所以删除照旧，只是现在会把删了什么、
+    删了几个、来自哪些模组，用 ⚠️ 摆到日志里最显眼的地方。
     """
     _jars, by_hash, _by_name = index_jars(mods)
     hits = []
@@ -179,12 +185,24 @@ def audit_tree(mods, tree, drop=False):
         h = hashlib.sha256(b).hexdigest()
         if h in by_hash:
             hits.append((p, by_hash[h]))
+    dropped = []
     for p, (j, n) in hits:
-        print('   %s\n       ← %s ! %s' % (p.relative_to(tree), j, n))
+        tag = '⚠️ 已删除' if drop else '  命中'
+        print('   %s %s\n       ← %s ! %s' % (tag, p.relative_to(tree), j, n))
         if drop:
             p.unlink()
+            dropped.append((p, j))
     print('出货树里与已装模组逐字节相同的文件：%d 个%s'
           % (len(hits), '（已删）' if drop and hits else ''))
+    if drop and dropped:
+        per_jar = defaultdict(int)
+        for _p, j in dropped:
+            per_jar[j] += 1
+        print('\n⚠️ ⚠️ ⚠️ 本次构建静默删除了 %d 个文件（不会让构建失败，退出码仍是 0）⚠️ ⚠️ ⚠️'
+              % len(dropped))
+        print('⚠️ 汇总——来自哪些模组：')
+        for j, c in sorted(per_jar.items(), key=lambda x: -x[1]):
+            print('   ⚠️   %-46s %d 个' % (j, c))
     return 0 if (drop or not hits) else len(hits)
 
 

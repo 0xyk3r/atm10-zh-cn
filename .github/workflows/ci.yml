@@ -49,6 +49,15 @@ jobs:
       - name: dynamic 模块的 @ 子串键互不为子串
         run: python3 scripts/compliance/check_dynamic_substrings.py
 
+      # 保护清单管「文件在不在」，这一条管「内容对不对」。出过「撤回一项汉化只撤了一半」
+      # 「以为改好了其实改的是另一份」这类事故——文件都在，内容已经不是预期的了。
+      - name: 模块内容哈希
+        run: python3 scripts/compliance/check_module_hashes.py
+
+      # 闸的反例测试：每条都复刻一次真实事故，验它真的会红。写了闸不等于有闸。
+      - name: 闸的反例测试
+        run: python3 scripts/compliance/test_gates.py
+
       - name: 从 src/ 摊出货树
         run: python3 scripts/assemble.py
 

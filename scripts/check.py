@@ -439,7 +439,13 @@ def _snbt_no_dup_keys(rule):
     g, = need(rule, 'glob')
     KEY = re.compile(r'\t([A-Za-z0-9_.]+):\s*(.*)$')
     seen = {}
-    for p in files(g):
+    hit = files(g)
+    if not hit:
+        # 和 json_parses/gui_choice_ascii/filename_prefix 同款自爆：一个文件都没命中
+        # 说明任务书 delta 目录被挪走/改名/生成步骤漏跑了，这条闸会跟着静默消失
+        # ——比不加闸更危险。（2026-07-28 对抗审计第二轮指出本检查器唯独漏了这层）
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+    for p in hit:
         lines = p.read_text(encoding='utf-8').split('\n')
         i = 0
         while i < len(lines):

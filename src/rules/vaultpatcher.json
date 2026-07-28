@@ -103,5 +103,11 @@
     "kind": "no_files",
     "glob": "vaultpatcher/patch/**/*.class",
     "why": "出货包里不许残留字节码补丁。对齐问题的根因是我们自己译坏了 blockui 的行为标志串，改一个类都不需要。旧的 class 留在目录里就是活雷：只要哪天 class_patch 被打开（做实验时误开过一次），它就会立刻重新生效，而且是照着旧版模组编的，直接 ClassFormatError 闪退。2026-07-28 对抗审计在正式版产物里抓到过一个。"
+  },
+  {
+    "id": "vp-never-ship-modules",
+    "kind": "no_files",
+    "glob": "vaultpatcher/modules/blockui_legacy_labels.json",
+    "why": "这个模块只用于在仓库侧发现「替换表被擅自删改」，绝不许发到玩家手里。出货树里出现它说明排除逻辑失效了。"
   }
 ]

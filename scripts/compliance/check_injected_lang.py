@@ -27,8 +27,20 @@ ATM 通过 `kubejs/assets/<命名空间>/lang/zh_cn.json` 注入自己的译名�
 2. **我们的译名与注入值不同** —— 我们那份是死的。要么去上游映射改注入值，
    要么把我们那份改齐，别让仓库里存着两套名字。
 
+## 两种运行模式
+
+- **缺省（不带参数）：只报告，恒返回 0。** 给人手动跑、盯着输出自己判断用——
+  `bare` 那条英文判定和 `KEEP_VALUES` 专有名单都可能有漏网之鱼，不该拿这种
+  启发式规则直接拦构建，所以默认不改变退出码。
+- **`--strict`：只要①或②任意一类命中，就返回 1。** 这是留给接进 CI 的开关。
+  2026-07-28 对抗审计第二轮指出：`main()` 结尾恒定 `return 0`，就算手动接进
+  workflow 也拦不住任何东西——这份脚本本身就是当年发现「ATM 注入 536 个键
+  盖掉我们译文、其中 26 个还是英文」那次事故的报告工具，如果它自己永远不会
+  让构建变红，下一次同样的事故还是得靠玩家在游戏里当面纠正才能发现。
+
 用法:
-    python3 scripts/compliance/check_injected_lang.py [<实例目录>]
+    python3 scripts/compliance/check_injected_lang.py [<实例目录>]              # 只报告
+    python3 scripts/compliance/check_injected_lang.py [<实例目录>] --strict      # 报告 + 拦截
     # 缺省读 ATM_PACK_ROOT，再退到 build/packsrc/<最新版本>
 """
 import json
@@ -58,6 +70,8 @@ def instance_dir(argv):
 
 
 def main(argv):
+    strict = '--strict' in argv
+    argv = [a for a in argv if a != '--strict']    # 剩下的才可能是实例目录路径
     inj = instance_dir(argv) / 'kubejs' / 'assets'
     if not inj.is_dir():
         print('（%s 不存在，跳过）' % inj)
@@ -96,6 +110,8 @@ def main(argv):
     if english or shadowed:
         print('\n要改注入值，改 src/upstream/kubejs/assets/<ns>/lang/zh_cn.json.json，'
               '改我们的资源包没有用。')
+    if strict and (english or shadowed):
+        return 1
     return 0
 
 
