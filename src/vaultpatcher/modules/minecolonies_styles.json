@@ -2408,7 +2408,7 @@
       },
       {
         "key": "Blueprint",
-        "value": "@蓝图"
+        "value": "蓝图"
       },
       {
         "key": "Blueprint related settings",
@@ -2528,7 +2528,7 @@
       },
       {
         "key": "Teleportation",
-        "value": "@瞬身术"
+        "value": "瞬身术"
       },
       {
         "key": "Configuration related to scan tool teleportation",
