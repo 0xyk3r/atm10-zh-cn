@@ -90,6 +90,10 @@ def main(mods_dir):
     for mp in sorted(books.BOOKS.rglob('*.json')):
         if mp.parent == books.BOOKS and mp.name.startswith('_'):
             continue
+        # books/literal/ 是另一套东西（正文写死在 JSON 里的书，见
+        # gen_literal_books.py），格式不同，不能按书本 doc 读
+        if 'literal' in mp.relative_to(books.BOOKS).parts[:1]:
+            continue
         rel = mp.relative_to(books.BOOKS).as_posix()[:-len('.json')]
         doc = json.loads(mp.read_text(encoding='utf-8'))
         up = jars.read(doc['src'])
