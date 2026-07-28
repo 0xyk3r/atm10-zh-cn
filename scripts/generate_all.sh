@@ -50,6 +50,9 @@ python3 scripts/gen_menu_buttons.py
 
 if [ "$HAVE_JARS" = 1 ]; then
   # 这几步要读 mod jar 里的 en_us / 注册表 / 导览书，只有 overrides 是不够的
+  echo "▶ 配置界面标签（按逐词词典生成，缺词的整条跳过不猜）"
+  python3 scripts/gen_config_ui.py "$ATM_PACK_ROOT"
+
   echo "▶ blockui 按钮对齐补丁（XML 层做不到，只能改 Button 的构造器）"
   python3 scripts/gen_blockui_patch.py
 

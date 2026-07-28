@@ -1,0 +1,8418 @@
+[
+  {
+    "name": "config_ui_generated_zh_cn",
+    "desc": "配置界面标签（由 gen_config_ui.py 按 src/config_ui_terms.json 逐词生成）。这些字没有翻译键，是把字段名按驼峰拆开现拼的，只能按最终字符串替换。有一个词查不到词典就整条跳过，不猜。",
+    "authors": "Hoshino Yumeka",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "net.createmod.catnip.config.ui.SubMenuConfigScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Advanced",
+        "value": "进阶"
+      },
+      {
+        "key": "Advanced Block Charger Capacity",
+        "value": "进阶方块充电器容量"
+      },
+      {
+        "key": "Advanced Block Charger Range",
+        "value": "进阶方块充电器范围"
+      },
+      {
+        "key": "Advanced Block Charger Transfer Rate",
+        "value": "进阶方块充电器传输频率"
+      },
+      {
+        "key": "Advanced Capacity",
+        "value": "进阶容量"
+      },
+      {
+        "key": "Advanced Factor",
+        "value": "进阶系数"
+      },
+      {
+        "key": "Advanced Filter Upgrade",
+        "value": "进阶过滤升级"
+      },
+      {
+        "key": "Advanced Fuel Limit",
+        "value": "进阶燃料上限"
+      },
+      {
+        "key": "Advanced Heat Capacity",
+        "value": "进阶热量容量"
+      },
+      {
+        "key": "Advanced Max Slot Cost",
+        "value": "进阶最大槽位消耗"
+      },
+      {
+        "key": "Advanced Output",
+        "value": "进阶输出"
+      },
+      {
+        "key": "Advanced Player Charger Capacity",
+        "value": "进阶玩家充电器容量"
+      },
+      {
+        "key": "Advanced Player Charger Range",
+        "value": "进阶玩家充电器范围"
+      },
+      {
+        "key": "Advanced Player Charger Transfer Rate",
+        "value": "进阶玩家充电器传输频率"
+      },
+      {
+        "key": "Advanced Speed",
+        "value": "进阶速度"
+      },
+      {
+        "key": "Advanced Tooltips",
+        "value": "进阶提示"
+      },
+      {
+        "key": "Allow Block Entities",
+        "value": "允许方块实体"
+      },
+      {
+        "key": "Allow List",
+        "value": "允许列表"
+      },
+      {
+        "key": "Always Drop",
+        "value": "始终掉落"
+      },
+      {
+        "key": "Amount",
+        "value": "数量"
+      },
+      {
+        "key": "Animal Effect",
+        "value": "动物特效"
+      },
+      {
+        "key": "Animal Multiplier",
+        "value": "动物倍率"
+      },
+      {
+        "key": "Armor",
+        "value": "护甲"
+      },
+      {
+        "key": "Armor Config",
+        "value": "护甲配置"
+      },
+      {
+        "key": "Armor Enchantment Chance",
+        "value": "护甲附魔几率"
+      },
+      {
+        "key": "Armor Multiplier",
+        "value": "护甲倍率"
+      },
+      {
+        "key": "Armor Render Offset",
+        "value": "护甲渲染偏移"
+      },
+      {
+        "key": "Attack Damage",
+        "value": "攻击伤害"
+      },
+      {
+        "key": "Attack Multiplier",
+        "value": "攻击倍率"
+      },
+      {
+        "key": "Attack Speed",
+        "value": "攻击速度"
+      },
+      {
+        "key": "Auto Focus Search",
+        "value": "自动聚焦搜索"
+      },
+      {
+        "key": "Auto Input Interval",
+        "value": "自动输入间隔"
+      },
+      {
+        "key": "Auto Output Default",
+        "value": "自动输出默认"
+      },
+      {
+        "key": "Auto Output Interval",
+        "value": "自动输出间隔"
+      },
+      {
+        "key": "Auto Update",
+        "value": "自动更新"
+      },
+      {
+        "key": "Auto Use",
+        "value": "自动使用"
+      },
+      {
+        "key": "Base",
+        "value": "基础"
+      },
+      {
+        "key": "Base Chemical Rate",
+        "value": "基础化学频率"
+      },
+      {
+        "key": "Base Cost",
+        "value": "基础消耗"
+      },
+      {
+        "key": "Base Damage",
+        "value": "基础伤害"
+      },
+      {
+        "key": "Base Duration",
+        "value": "基础持续时间"
+      },
+      {
+        "key": "Base Efficiency",
+        "value": "基础效率"
+      },
+      {
+        "key": "Base Energy",
+        "value": "基础能量"
+      },
+      {
+        "key": "Base Energy Capacity",
+        "value": "基础能量容量"
+      },
+      {
+        "key": "Base Energy Per Fuel Tick",
+        "value": "基础能量每燃料刻"
+      },
+      {
+        "key": "Base Entity Distance",
+        "value": "基础实体距离"
+      },
+      {
+        "key": "Base Harvest",
+        "value": "基础收获"
+      },
+      {
+        "key": "Base Item Pipe Transfer",
+        "value": "基础物品管道传输"
+      },
+      {
+        "key": "Base Item Transfer Amount",
+        "value": "基础物品传输数量"
+      },
+      {
+        "key": "Base Level Cost",
+        "value": "基础等级消耗"
+      },
+      {
+        "key": "Base Max",
+        "value": "基础最大"
+      },
+      {
+        "key": "Base Max Blocks",
+        "value": "基础最大方块"
+      },
+      {
+        "key": "Base Max Entities",
+        "value": "基础最大实体"
+      },
+      {
+        "key": "Base Range",
+        "value": "基础范围"
+      },
+      {
+        "key": "Base Slot Limit Multiplier",
+        "value": "基础槽位上限倍率"
+      },
+      {
+        "key": "Base Tick Rate",
+        "value": "基础刻频率"
+      },
+      {
+        "key": "Base Usage",
+        "value": "基础用量"
+      },
+      {
+        "key": "Base Volume",
+        "value": "基础容积"
+      },
+      {
+        "key": "Basic",
+        "value": "基础"
+      },
+      {
+        "key": "Basic Block Charger Capacity",
+        "value": "基础方块充电器容量"
+      },
+      {
+        "key": "Basic Block Charger Range",
+        "value": "基础方块充电器范围"
+      },
+      {
+        "key": "Basic Block Charger Transfer Rate",
+        "value": "基础方块充电器传输频率"
+      },
+      {
+        "key": "Basic Capacity",
+        "value": "基础容量"
+      },
+      {
+        "key": "Basic Heat Capacity",
+        "value": "基础热量容量"
+      },
+      {
+        "key": "Basic Max Slot Cost",
+        "value": "基础最大槽位消耗"
+      },
+      {
+        "key": "Basic Output",
+        "value": "基础输出"
+      },
+      {
+        "key": "Basic Player Charger Capacity",
+        "value": "基础玩家充电器容量"
+      },
+      {
+        "key": "Basic Player Charger Range",
+        "value": "基础玩家充电器范围"
+      },
+      {
+        "key": "Basic Player Charger Transfer Rate",
+        "value": "基础玩家充电器传输频率"
+      },
+      {
+        "key": "Basic Speed",
+        "value": "基础速度"
+      },
+      {
+        "key": "Basic Transfer",
+        "value": "基础传输"
+      },
+      {
+        "key": "Bee Loot Injection",
+        "value": "蜜蜂战利品注入"
+      },
+      {
+        "key": "Biome",
+        "value": "生物群系"
+      },
+      {
+        "key": "Biome Blacklist",
+        "value": "生物群系黑名单"
+      },
+      {
+        "key": "Blacklist",
+        "value": "黑名单"
+      },
+      {
+        "key": "Block",
+        "value": "方块"
+      },
+      {
+        "key": "Block Break Energy Base",
+        "value": "方块破坏能量基础"
+      },
+      {
+        "key": "Block Break Speed",
+        "value": "方块破坏速度"
+      },
+      {
+        "key": "Block Damage",
+        "value": "方块伤害"
+      },
+      {
+        "key": "Block Render Distance",
+        "value": "方块渲染距离"
+      },
+      {
+        "key": "Block To Block Range",
+        "value": "方块至方块范围"
+      },
+      {
+        "key": "Block Update Log",
+        "value": "方块更新日志"
+      },
+      {
+        "key": "Blocks",
+        "value": "方块"
+      },
+      {
+        "key": "Boiler",
+        "value": "锅炉"
+      },
+      {
+        "key": "Boss Health",
+        "value": "首领生命值"
+      },
+      {
+        "key": "Boss Music Volume",
+        "value": "首领音乐容积"
+      },
+      {
+        "key": "Break Block Base",
+        "value": "破坏方块基础"
+      },
+      {
+        "key": "Break Block Fluid",
+        "value": "破坏方块流体"
+      },
+      {
+        "key": "Break Blocks",
+        "value": "破坏方块"
+      },
+      {
+        "key": "Break Radius",
+        "value": "破坏半径"
+      },
+      {
+        "key": "Bronze",
+        "value": "青铜"
+      },
+      {
+        "key": "Bronze Attack Damage",
+        "value": "青铜攻击伤害"
+      },
+      {
+        "key": "Bronze Efficiency",
+        "value": "青铜效率"
+      },
+      {
+        "key": "Buff Health",
+        "value": "增益生命值"
+      },
+      {
+        "key": "Buff With Potion Effects",
+        "value": "增益带药水特效"
+      },
+      {
+        "key": "Cable",
+        "value": "线缆"
+      },
+      {
+        "key": "Cap Config",
+        "value": "上限配置"
+      },
+      {
+        "key": "Capacity",
+        "value": "容量"
+      },
+      {
+        "key": "Capacity Per Slot Row",
+        "value": "容量每槽位行"
+      },
+      {
+        "key": "Chance",
+        "value": "几率"
+      },
+      {
+        "key": "Charger",
+        "value": "充电器"
+      },
+      {
+        "key": "Charger Consumption",
+        "value": "充电器消耗"
+      },
+      {
+        "key": "Charger Max",
+        "value": "充电器最大"
+      },
+      {
+        "key": "Charger Max Energy",
+        "value": "充电器最大能量"
+      },
+      {
+        "key": "Charger Min",
+        "value": "充电器最小"
+      },
+      {
+        "key": "Check Recipe Ticks",
+        "value": "检查配方刻"
+      },
+      {
+        "key": "Check Structure Ticks",
+        "value": "检查结构刻"
+      },
+      {
+        "key": "Chemical",
+        "value": "化学"
+      },
+      {
+        "key": "Chemical Per Tank",
+        "value": "化学每储罐"
+      },
+      {
+        "key": "Chemical Storage Block",
+        "value": "化学存储方块"
+      },
+      {
+        "key": "Chunk Check Radius",
+        "value": "区块检查半径"
+      },
+      {
+        "key": "Clear Search On Open",
+        "value": "清空搜索开打开"
+      },
+      {
+        "key": "Client",
+        "value": "客户端"
+      },
+      {
+        "key": "Client Config",
+        "value": "客户端配置"
+      },
+      {
+        "key": "Coal Generator",
+        "value": "煤发电机"
+      },
+      {
+        "key": "Color",
+        "value": "颜色"
+      },
+      {
+        "key": "Color Message",
+        "value": "颜色消息"
+      },
+      {
+        "key": "Color Text Disabled",
+        "value": "颜色文字禁用"
+      },
+      {
+        "key": "Color Toggle Text Disabled",
+        "value": "颜色切换文字禁用"
+      },
+      {
+        "key": "Colors",
+        "value": "颜色"
+      },
+      {
+        "key": "Common",
+        "value": "通用"
+      },
+      {
+        "key": "Compact Tooltips",
+        "value": "紧凑提示"
+      },
+      {
+        "key": "Compat",
+        "value": "兼容"
+      },
+      {
+        "key": "Config",
+        "value": "配置"
+      },
+      {
+        "key": "Consumption",
+        "value": "消耗"
+      },
+      {
+        "key": "Consumption Rate",
+        "value": "消耗频率"
+      },
+      {
+        "key": "Cooldown",
+        "value": "冷却"
+      },
+      {
+        "key": "Copper",
+        "value": "铜"
+      },
+      {
+        "key": "Copper Barrel",
+        "value": "铜桶"
+      },
+      {
+        "key": "Copper Furnace",
+        "value": "铜熔炉"
+      },
+      {
+        "key": "Copper Weight",
+        "value": "铜权重"
+      },
+      {
+        "key": "Cost",
+        "value": "消耗"
+      },
+      {
+        "key": "Cost Entity",
+        "value": "消耗实体"
+      },
+      {
+        "key": "Cost Min Distance",
+        "value": "消耗最小距离"
+      },
+      {
+        "key": "Cost Per Block",
+        "value": "消耗每方块"
+      },
+      {
+        "key": "Cost Player",
+        "value": "消耗玩家"
+      },
+      {
+        "key": "Count",
+        "value": "数量"
+      },
+      {
+        "key": "Crafting",
+        "value": "合成"
+      },
+      {
+        "key": "Crafting Blacklist",
+        "value": "合成黑名单"
+      },
+      {
+        "key": "Crafting Duration",
+        "value": "合成持续时间"
+      },
+      {
+        "key": "Crafting Energy Usage",
+        "value": "合成能量用量"
+      },
+      {
+        "key": "Crafting Log",
+        "value": "合成日志"
+      },
+      {
+        "key": "Creative Capacity",
+        "value": "创造容量"
+      },
+      {
+        "key": "Creative Energy Usage",
+        "value": "创造能量用量"
+      },
+      {
+        "key": "Creative Output",
+        "value": "创造输出"
+      },
+      {
+        "key": "Creative Range Upgrade Energy Usage",
+        "value": "创造范围升级能量用量"
+      },
+      {
+        "key": "Creative Speed",
+        "value": "创造速度"
+      },
+      {
+        "key": "Crop Blacklist",
+        "value": "作物黑名单"
+      },
+      {
+        "key": "Crusher",
+        "value": "粉碎机"
+      },
+      {
+        "key": "Custom Colors Overlay",
+        "value": "自定义颜色覆盖层"
+      },
+      {
+        "key": "Custom Config Screen",
+        "value": "自定义配置界面"
+      },
+      {
+        "key": "Custom Player",
+        "value": "自定义玩家"
+      },
+      {
+        "key": "Custom Search",
+        "value": "自定义搜索"
+      },
+      {
+        "key": "Damage",
+        "value": "伤害"
+      },
+      {
+        "key": "Damage Base",
+        "value": "伤害基础"
+      },
+      {
+        "key": "Damage Cap",
+        "value": "伤害上限"
+      },
+      {
+        "key": "Damage Chance",
+        "value": "伤害几率"
+      },
+      {
+        "key": "Damage Mode",
+        "value": "伤害模式"
+      },
+      {
+        "key": "Damage Modifier",
+        "value": "伤害系数"
+      },
+      {
+        "key": "Damage Tick Base",
+        "value": "伤害刻基础"
+      },
+      {
+        "key": "Damage Type Colors",
+        "value": "伤害类型颜色"
+      },
+      {
+        "key": "Debug",
+        "value": "调试"
+      },
+      {
+        "key": "Debug Level",
+        "value": "调试等级"
+      },
+      {
+        "key": "Debug Log",
+        "value": "调试日志"
+      },
+      {
+        "key": "Debug Mode",
+        "value": "调试模式"
+      },
+      {
+        "key": "Debug Text",
+        "value": "调试文字"
+      },
+      {
+        "key": "Default",
+        "value": "默认"
+      },
+      {
+        "key": "Default Base Block",
+        "value": "默认基础方块"
+      },
+      {
+        "key": "Default Dimension",
+        "value": "默认维度"
+      },
+      {
+        "key": "Default Fluid Heat Capacity",
+        "value": "默认流体热量容量"
+      },
+      {
+        "key": "Default Interval",
+        "value": "默认间隔"
+      },
+      {
+        "key": "Default Limit",
+        "value": "默认上限"
+      },
+      {
+        "key": "Default Scale",
+        "value": "默认缩放"
+      },
+      {
+        "key": "Default Spawn Energy Cost",
+        "value": "默认生成能量消耗"
+      },
+      {
+        "key": "Default Tick Cooldown",
+        "value": "默认刻冷却"
+      },
+      {
+        "key": "Delay",
+        "value": "延迟"
+      },
+      {
+        "key": "Diamond",
+        "value": "钻石"
+      },
+      {
+        "key": "Diamond Barrel",
+        "value": "钻石桶"
+      },
+      {
+        "key": "Diamond Furnace",
+        "value": "钻石熔炉"
+      },
+      {
+        "key": "Diamond Weight",
+        "value": "钻石权重"
+      },
+      {
+        "key": "Dimension Blacklist",
+        "value": "维度黑名单"
+      },
+      {
+        "key": "Dimension Cost",
+        "value": "维度消耗"
+      },
+      {
+        "key": "Dimension Cost Factor",
+        "value": "维度消耗系数"
+      },
+      {
+        "key": "Dimension Whitelist",
+        "value": "维度白名单"
+      },
+      {
+        "key": "Disable",
+        "value": "禁用"
+      },
+      {
+        "key": "Disable Break",
+        "value": "禁用破坏"
+      },
+      {
+        "key": "Disable Creative Inventory Button",
+        "value": "禁用创造物品栏按钮"
+      },
+      {
+        "key": "Disable Inventory Button",
+        "value": "禁用物品栏按钮"
+      },
+      {
+        "key": "Disable Reactor Particles",
+        "value": "禁用反应堆粒子"
+      },
+      {
+        "key": "Disable Turbine Particles",
+        "value": "禁用涡轮粒子"
+      },
+      {
+        "key": "Disable Villager Damage",
+        "value": "禁用村民伤害"
+      },
+      {
+        "key": "Disabled Time",
+        "value": "禁用时间"
+      },
+      {
+        "key": "Distance",
+        "value": "距离"
+      },
+      {
+        "key": "Do Update Check",
+        "value": "是否更新检查"
+      },
+      {
+        "key": "Drop Chance",
+        "value": "掉落几率"
+      },
+      {
+        "key": "Drop Chance Boss",
+        "value": "掉落几率首领"
+      },
+      {
+        "key": "Drop Chance Players",
+        "value": "掉落几率玩家"
+      },
+      {
+        "key": "Drop Crafting Recipes Enabled",
+        "value": "掉落合成配方启用"
+      },
+      {
+        "key": "Durability",
+        "value": "耐久"
+      },
+      {
+        "key": "Durability Multiplier",
+        "value": "耐久倍率"
+      },
+      {
+        "key": "Duration",
+        "value": "持续时间"
+      },
+      {
+        "key": "Effect Duration",
+        "value": "特效持续时间"
+      },
+      {
+        "key": "Effect Ticks",
+        "value": "特效刻"
+      },
+      {
+        "key": "Efficiency",
+        "value": "效率"
+      },
+      {
+        "key": "Elite Capacity",
+        "value": "精英容量"
+      },
+      {
+        "key": "Elite Energy Usage",
+        "value": "精英能量用量"
+      },
+      {
+        "key": "Elite Heat Capacity",
+        "value": "精英热量容量"
+      },
+      {
+        "key": "Elite Output",
+        "value": "精英输出"
+      },
+      {
+        "key": "Elite Speed",
+        "value": "精英速度"
+      },
+      {
+        "key": "Emerald Furnace",
+        "value": "绿宝石熔炉"
+      },
+      {
+        "key": "Enable",
+        "value": "启用"
+      },
+      {
+        "key": "Enable Boss Music",
+        "value": "启用首领音乐"
+      },
+      {
+        "key": "Enable Break",
+        "value": "启用破坏"
+      },
+      {
+        "key": "Enable Button",
+        "value": "启用按钮"
+      },
+      {
+        "key": "Enable Button Sound",
+        "value": "启用按钮音效"
+      },
+      {
+        "key": "Enable Debug",
+        "value": "启用调试"
+      },
+      {
+        "key": "Enable Debug Mode",
+        "value": "启用调试模式"
+      },
+      {
+        "key": "Enable Dungeon Loot",
+        "value": "启用地牢战利品"
+      },
+      {
+        "key": "Enable Effects",
+        "value": "启用特效"
+      },
+      {
+        "key": "Enable Food Effect Tooltip",
+        "value": "启用食物特效提示"
+      },
+      {
+        "key": "Enable Gui Debug",
+        "value": "启用界面调试"
+      },
+      {
+        "key": "Enable Machine",
+        "value": "启用机器"
+      },
+      {
+        "key": "Enable Player",
+        "value": "启用玩家"
+      },
+      {
+        "key": "Enable Sort",
+        "value": "启用排序"
+      },
+      {
+        "key": "Enable Tooltips",
+        "value": "启用提示"
+      },
+      {
+        "key": "Enable Wire Damage",
+        "value": "启用导线伤害"
+      },
+      {
+        "key": "Enabled",
+        "value": "启用"
+      },
+      {
+        "key": "Enabled Items",
+        "value": "启用物品"
+      },
+      {
+        "key": "Energy",
+        "value": "能量"
+      },
+      {
+        "key": "Energy Capacity",
+        "value": "能量容量"
+      },
+      {
+        "key": "Energy Capacity Per Volume",
+        "value": "能量容量每容积"
+      },
+      {
+        "key": "Energy Color",
+        "value": "能量颜色"
+      },
+      {
+        "key": "Energy Consumption Multiplier",
+        "value": "能量消耗倍率"
+      },
+      {
+        "key": "Energy Cost",
+        "value": "能量消耗"
+      },
+      {
+        "key": "Energy Modifier",
+        "value": "能量系数"
+      },
+      {
+        "key": "Energy Per Damage",
+        "value": "能量每伤害"
+      },
+      {
+        "key": "Energy Per Input",
+        "value": "能量每输入"
+      },
+      {
+        "key": "Energy Per Recipe Tick",
+        "value": "能量每配方刻"
+      },
+      {
+        "key": "Energy Per Slot Row",
+        "value": "能量每槽位行"
+      },
+      {
+        "key": "Energy Per Tick",
+        "value": "能量每刻"
+      },
+      {
+        "key": "Energy Pipe",
+        "value": "能量管道"
+      },
+      {
+        "key": "Energy Pipe Transfer Rate",
+        "value": "能量管道传输频率"
+      },
+      {
+        "key": "Energy Rate",
+        "value": "能量频率"
+      },
+      {
+        "key": "Energy Rate Limit",
+        "value": "能量频率上限"
+      },
+      {
+        "key": "Energy Storage Block",
+        "value": "能量存储方块"
+      },
+      {
+        "key": "Energy To Fuel Rate",
+        "value": "能量至燃料频率"
+      },
+      {
+        "key": "Energy Type",
+        "value": "能量类型"
+      },
+      {
+        "key": "Energy Usage",
+        "value": "能量用量"
+      },
+      {
+        "key": "Energy Usage Potion Tick",
+        "value": "能量用量药水刻"
+      },
+      {
+        "key": "Energy Use",
+        "value": "能量使用"
+      },
+      {
+        "key": "Entity",
+        "value": "实体"
+      },
+      {
+        "key": "Entity Blacklist",
+        "value": "实体黑名单"
+      },
+      {
+        "key": "Entity Block List",
+        "value": "实体方块列表"
+      },
+      {
+        "key": "Entity List Mode",
+        "value": "实体列表模式"
+      },
+      {
+        "key": "Entity Whitelist",
+        "value": "实体白名单"
+      },
+      {
+        "key": "Experience Cost",
+        "value": "经验消耗"
+      },
+      {
+        "key": "Experience Per Item",
+        "value": "经验每物品"
+      },
+      {
+        "key": "Experimental",
+        "value": "实验性"
+      },
+      {
+        "key": "Export Bus Max",
+        "value": "输出总线最大"
+      },
+      {
+        "key": "Export Bus Min",
+        "value": "输出总线最小"
+      },
+      {
+        "key": "Filter Item Render Distance",
+        "value": "过滤物品渲染距离"
+      },
+      {
+        "key": "Filter List",
+        "value": "过滤列表"
+      },
+      {
+        "key": "Filter Slots",
+        "value": "过滤槽位"
+      },
+      {
+        "key": "Filter Upgrade",
+        "value": "过滤升级"
+      },
+      {
+        "key": "First Show Delay",
+        "value": "首次显示延迟"
+      },
+      {
+        "key": "Fluid",
+        "value": "流体"
+      },
+      {
+        "key": "Fluid Base Transfer Rate",
+        "value": "流体基础传输频率"
+      },
+      {
+        "key": "Fluid Capacity",
+        "value": "流体容量"
+      },
+      {
+        "key": "Fluid Laser Base Config",
+        "value": "流体激光基础配置"
+      },
+      {
+        "key": "Fluid Laser Transfer Rate",
+        "value": "流体激光传输频率"
+      },
+      {
+        "key": "Fluid Limit",
+        "value": "流体上限"
+      },
+      {
+        "key": "Fluid Max Transfer Rate",
+        "value": "流体最大传输频率"
+      },
+      {
+        "key": "Fluid Per Tank",
+        "value": "流体每储罐"
+      },
+      {
+        "key": "Fluid Pipe",
+        "value": "流体管道"
+      },
+      {
+        "key": "Fluid Rate Limit",
+        "value": "流体频率上限"
+      },
+      {
+        "key": "Fluid Storage Block",
+        "value": "流体存储方块"
+      },
+      {
+        "key": "Fluid Tank Capacity",
+        "value": "流体储罐容量"
+      },
+      {
+        "key": "Fluid Tank Max Height",
+        "value": "流体储罐最大高度"
+      },
+      {
+        "key": "Fluid Tank Update Rate",
+        "value": "流体储罐更新频率"
+      },
+      {
+        "key": "Fluid Transfer Multiplier",
+        "value": "流体传输倍率"
+      },
+      {
+        "key": "Fluid Unit",
+        "value": "流体单位"
+      },
+      {
+        "key": "Food",
+        "value": "食物"
+      },
+      {
+        "key": "Force Time",
+        "value": "强制时间"
+      },
+      {
+        "key": "Fuel Capacity",
+        "value": "燃料容量"
+      },
+      {
+        "key": "Fuel Efficiency Base",
+        "value": "燃料效率基础"
+      },
+      {
+        "key": "Fuel Efficiency Multiplier",
+        "value": "燃料效率倍率"
+      },
+      {
+        "key": "Fuel Energy",
+        "value": "燃料能量"
+      },
+      {
+        "key": "Fuel Filter Slots",
+        "value": "燃料过滤槽位"
+      },
+      {
+        "key": "Fuel Filter Slots In Row",
+        "value": "燃料过滤槽位在行"
+      },
+      {
+        "key": "Fuel Multiplier",
+        "value": "燃料倍率"
+      },
+      {
+        "key": "Fuel Per Steam Multiplier",
+        "value": "燃料每蒸汽倍率"
+      },
+      {
+        "key": "Fuel Tooltip",
+        "value": "燃料提示"
+      },
+      {
+        "key": "Fuel Tooltips",
+        "value": "燃料提示"
+      },
+      {
+        "key": "Fuel Usage",
+        "value": "燃料用量"
+      },
+      {
+        "key": "Fuel Usage Multiplier",
+        "value": "燃料用量倍率"
+      },
+      {
+        "key": "Gas Generator",
+        "value": "气体发电机"
+      },
+      {
+        "key": "Gas Pipe",
+        "value": "气体管道"
+      },
+      {
+        "key": "General",
+        "value": "常规"
+      },
+      {
+        "key": "Generation",
+        "value": "生成"
+      },
+      {
+        "key": "Generation Max",
+        "value": "生成最大"
+      },
+      {
+        "key": "Generation Min",
+        "value": "生成最小"
+      },
+      {
+        "key": "Generator Capacity",
+        "value": "发电机容量"
+      },
+      {
+        "key": "Generator Efficiency",
+        "value": "发电机效率"
+      },
+      {
+        "key": "Generator Honey Use",
+        "value": "发电机蜂蜜使用"
+      },
+      {
+        "key": "Generator Max Output",
+        "value": "发电机最大输出"
+      },
+      {
+        "key": "Glowstone Cost",
+        "value": "荧石消耗"
+      },
+      {
+        "key": "Glowstone Light Level",
+        "value": "荧石光照等级"
+      },
+      {
+        "key": "Glowstone Limit",
+        "value": "荧石上限"
+      },
+      {
+        "key": "Gold",
+        "value": "金"
+      },
+      {
+        "key": "Gold Barrel",
+        "value": "金桶"
+      },
+      {
+        "key": "Gold Furnace",
+        "value": "金熔炉"
+      },
+      {
+        "key": "Gold Items",
+        "value": "金物品"
+      },
+      {
+        "key": "Gold Weight",
+        "value": "金权重"
+      },
+      {
+        "key": "Growth Modifier",
+        "value": "生长系数"
+      },
+      {
+        "key": "Gui",
+        "value": "界面"
+      },
+      {
+        "key": "Gui Overlay Position",
+        "value": "界面覆盖层位置"
+      },
+      {
+        "key": "Harvest Speed Multiplier",
+        "value": "收获速度倍率"
+      },
+      {
+        "key": "Health",
+        "value": "生命值"
+      },
+      {
+        "key": "Health Multiplier",
+        "value": "生命值倍率"
+      },
+      {
+        "key": "Health Threshold",
+        "value": "生命值阈值"
+      },
+      {
+        "key": "Heat",
+        "value": "热量"
+      },
+      {
+        "key": "Heat Capacity",
+        "value": "热量容量"
+      },
+      {
+        "key": "Heat Generation",
+        "value": "热量生成"
+      },
+      {
+        "key": "Heat Generation Fluid Rate",
+        "value": "热量生成流体频率"
+      },
+      {
+        "key": "Heat Generator",
+        "value": "热量发电机"
+      },
+      {
+        "key": "Heat Per Fuel Tick",
+        "value": "热量每燃料刻"
+      },
+      {
+        "key": "Heat Rate",
+        "value": "热量频率"
+      },
+      {
+        "key": "Height",
+        "value": "高度"
+      },
+      {
+        "key": "Hide Energy Overlay",
+        "value": "隐藏能量覆盖层"
+      },
+      {
+        "key": "Hive",
+        "value": "蜂巢"
+      },
+      {
+        "key": "Hive Tick Rate",
+        "value": "蜂巢刻频率"
+      },
+      {
+        "key": "Honey",
+        "value": "蜂蜜"
+      },
+      {
+        "key": "Honey Base",
+        "value": "蜂蜜基础"
+      },
+      {
+        "key": "Import Bus Max",
+        "value": "输入总线最大"
+      },
+      {
+        "key": "Import Bus Min",
+        "value": "输入总线最小"
+      },
+      {
+        "key": "In World Crafting",
+        "value": "在世界合成"
+      },
+      {
+        "key": "Infusion Allowed Effects",
+        "value": "灌注允许特效"
+      },
+      {
+        "key": "Infusion Minimum Duration",
+        "value": "灌注最小持续时间"
+      },
+      {
+        "key": "Infusion Required Duration",
+        "value": "灌注需要持续时间"
+      },
+      {
+        "key": "Input",
+        "value": "输入"
+      },
+      {
+        "key": "Input Filter Slots",
+        "value": "输入过滤槽位"
+      },
+      {
+        "key": "Input Filter Slots In Row",
+        "value": "输入过滤槽位在行"
+      },
+      {
+        "key": "Input Network Energy Usage",
+        "value": "输入网络能量用量"
+      },
+      {
+        "key": "Integration",
+        "value": "集成"
+      },
+      {
+        "key": "Interface",
+        "value": "接口"
+      },
+      {
+        "key": "Interface Crafting Base Consumption",
+        "value": "接口合成基础消耗"
+      },
+      {
+        "key": "Interface Energy Base Consumption",
+        "value": "接口能量基础消耗"
+      },
+      {
+        "key": "Interface Fluid Base Consumption",
+        "value": "接口流体基础消耗"
+      },
+      {
+        "key": "Interface Item Base Consumption",
+        "value": "接口物品基础消耗"
+      },
+      {
+        "key": "Interface Max",
+        "value": "接口最大"
+      },
+      {
+        "key": "Interface Min",
+        "value": "接口最小"
+      },
+      {
+        "key": "Interval",
+        "value": "间隔"
+      },
+      {
+        "key": "Inventory Button",
+        "value": "物品栏按钮"
+      },
+      {
+        "key": "Inventory Slot Count",
+        "value": "物品栏槽位数量"
+      },
+      {
+        "key": "Inventory Sounds",
+        "value": "物品栏音效"
+      },
+      {
+        "key": "Iron",
+        "value": "铁"
+      },
+      {
+        "key": "Iron Barrel",
+        "value": "铁桶"
+      },
+      {
+        "key": "Iron Furnace",
+        "value": "铁熔炉"
+      },
+      {
+        "key": "Iron Weight",
+        "value": "铁权重"
+      },
+      {
+        "key": "Is Food Tooltip Enabled",
+        "value": "食物提示启用"
+      },
+      {
+        "key": "Item",
+        "value": "物品"
+      },
+      {
+        "key": "Item Blacklist",
+        "value": "物品黑名单"
+      },
+      {
+        "key": "Item Limit",
+        "value": "物品上限"
+      },
+      {
+        "key": "Item Pipe",
+        "value": "物品管道"
+      },
+      {
+        "key": "Item Pipe Interval Duration",
+        "value": "物品管道间隔持续时间"
+      },
+      {
+        "key": "Item Pipe Transfer Amount",
+        "value": "物品管道传输数量"
+      },
+      {
+        "key": "Item To Block Range",
+        "value": "物品至方块范围"
+      },
+      {
+        "key": "Items",
+        "value": "物品"
+      },
+      {
+        "key": "Items Rate",
+        "value": "物品频率"
+      },
+      {
+        "key": "Lapis Cost Factor",
+        "value": "青金石消耗系数"
+      },
+      {
+        "key": "Lapis Lazuli",
+        "value": "青金石石"
+      },
+      {
+        "key": "Lapis Lazuli Attack Damage",
+        "value": "青金石石攻击伤害"
+      },
+      {
+        "key": "Lapis Lazuli Efficiency",
+        "value": "青金石石效率"
+      },
+      {
+        "key": "Large",
+        "value": "大型"
+      },
+      {
+        "key": "Large Energy Storage",
+        "value": "大型能量存储"
+      },
+      {
+        "key": "Large Heat Generation",
+        "value": "大型热量生成"
+      },
+      {
+        "key": "Large Heat Generation Fluid Rate",
+        "value": "大型热量生成流体频率"
+      },
+      {
+        "key": "Large Heat Generator",
+        "value": "大型热量发电机"
+      },
+      {
+        "key": "Large Steam Furnace Size",
+        "value": "大型蒸汽熔炉大小"
+      },
+      {
+        "key": "Large Village Weight",
+        "value": "大型村庄权重"
+      },
+      {
+        "key": "Laser",
+        "value": "激光"
+      },
+      {
+        "key": "Laser Block Range",
+        "value": "激光方块范围"
+      },
+      {
+        "key": "Laser Damage",
+        "value": "激光伤害"
+      },
+      {
+        "key": "Leaf Generator Cooldown",
+        "value": "树叶发电机冷却"
+      },
+      {
+        "key": "Level",
+        "value": "等级"
+      },
+      {
+        "key": "Level Cost Factor",
+        "value": "等级消耗系数"
+      },
+      {
+        "key": "Light Level",
+        "value": "光照等级"
+      },
+      {
+        "key": "Limit",
+        "value": "上限"
+      },
+      {
+        "key": "Load Time",
+        "value": "加载时间"
+      },
+      {
+        "key": "Loot",
+        "value": "战利品"
+      },
+      {
+        "key": "Machine",
+        "value": "机器"
+      },
+      {
+        "key": "Machine Effects",
+        "value": "机器特效"
+      },
+      {
+        "key": "Machine Generator Config",
+        "value": "机器发电机配置"
+      },
+      {
+        "key": "Machine Misc Config",
+        "value": "机器杂项配置"
+      },
+      {
+        "key": "Machine Particles",
+        "value": "机器粒子"
+      },
+      {
+        "key": "Machine Volume",
+        "value": "机器容积"
+      },
+      {
+        "key": "Machine Volume Multiplier",
+        "value": "机器容积倍率"
+      },
+      {
+        "key": "Max",
+        "value": "最大"
+      },
+      {
+        "key": "Max Capacity",
+        "value": "最大容量"
+      },
+      {
+        "key": "Max Capacity Per Item Type",
+        "value": "最大容量每物品类型"
+      },
+      {
+        "key": "Max Cell Content Shown",
+        "value": "最大元件内容显示"
+      },
+      {
+        "key": "Max Cost",
+        "value": "最大消耗"
+      },
+      {
+        "key": "Max Creative Capacity",
+        "value": "最大创造容量"
+      },
+      {
+        "key": "Max Custom Mode Scale",
+        "value": "最大自定义模式缩放"
+      },
+      {
+        "key": "Max Damage",
+        "value": "最大伤害"
+      },
+      {
+        "key": "Max Distance",
+        "value": "最大距离"
+      },
+      {
+        "key": "Max Effect Count",
+        "value": "最大特效数量"
+      },
+      {
+        "key": "Max Energy",
+        "value": "最大能量"
+      },
+      {
+        "key": "Max Energy Per Steam",
+        "value": "最大能量每蒸汽"
+      },
+      {
+        "key": "Max Entities",
+        "value": "最大实体"
+      },
+      {
+        "key": "Max Essence Tank Size",
+        "value": "最大精华储罐大小"
+      },
+      {
+        "key": "Max Fluid Rate Advanced",
+        "value": "最大流体频率进阶"
+      },
+      {
+        "key": "Max Heat",
+        "value": "最大热量"
+      },
+      {
+        "key": "Max Height",
+        "value": "最大高度"
+      },
+      {
+        "key": "Max Input Output",
+        "value": "最大输入输出"
+      },
+      {
+        "key": "Max Input Tank Size",
+        "value": "最大输入储罐大小"
+      },
+      {
+        "key": "Max Items",
+        "value": "最大物品"
+      },
+      {
+        "key": "Max Length",
+        "value": "最大长度"
+      },
+      {
+        "key": "Max Light Level",
+        "value": "最大光照等级"
+      },
+      {
+        "key": "Max Mining Time",
+        "value": "最大挖掘时间"
+      },
+      {
+        "key": "Max Output Size",
+        "value": "最大输出大小"
+      },
+      {
+        "key": "Max Output Tank Size",
+        "value": "最大输出储罐大小"
+      },
+      {
+        "key": "Max Overlay Mode",
+        "value": "最大覆盖层模式"
+      },
+      {
+        "key": "Max Potion Effect Duration",
+        "value": "最大药水特效持续时间"
+      },
+      {
+        "key": "Max Power",
+        "value": "最大功率"
+      },
+      {
+        "key": "Max Radius",
+        "value": "最大半径"
+      },
+      {
+        "key": "Max Range",
+        "value": "最大范围"
+      },
+      {
+        "key": "Max Reactor Height",
+        "value": "最大反应堆高度"
+      },
+      {
+        "key": "Max Reactor Size",
+        "value": "最大反应堆大小"
+      },
+      {
+        "key": "Max Search Radius",
+        "value": "最大搜索半径"
+      },
+      {
+        "key": "Max Size",
+        "value": "最大大小"
+      },
+      {
+        "key": "Max Storage",
+        "value": "最大存储"
+      },
+      {
+        "key": "Max Tank Creative Size",
+        "value": "最大储罐创造大小"
+      },
+      {
+        "key": "Max Tank Size",
+        "value": "最大储罐大小"
+      },
+      {
+        "key": "Max Text",
+        "value": "最大文字"
+      },
+      {
+        "key": "Max Tooltip Height",
+        "value": "最大提示高度"
+      },
+      {
+        "key": "Max Tooltip Width",
+        "value": "最大提示宽度"
+      },
+      {
+        "key": "Max Turbine Height",
+        "value": "最大涡轮高度"
+      },
+      {
+        "key": "Max Turbine Size",
+        "value": "最大涡轮大小"
+      },
+      {
+        "key": "Max Upgrade Multiplier",
+        "value": "最大升级倍率"
+      },
+      {
+        "key": "Max Vein Miner Range",
+        "value": "最大矿脉采矿机范围"
+      },
+      {
+        "key": "Max Vein Size",
+        "value": "最大矿脉大小"
+      },
+      {
+        "key": "Max Water Tank Size",
+        "value": "最大水储罐大小"
+      },
+      {
+        "key": "Max Water Tank Storage",
+        "value": "最大水储罐存储"
+      },
+      {
+        "key": "Max Width",
+        "value": "最大宽度"
+      },
+      {
+        "key": "Maximum",
+        "value": "最大"
+      },
+      {
+        "key": "Maximum Mob Multiplier",
+        "value": "最大生物倍率"
+      },
+      {
+        "key": "Maximum Per Player",
+        "value": "最大每玩家"
+      },
+      {
+        "key": "Medium Capacity",
+        "value": "中型容量"
+      },
+      {
+        "key": "Medium Speed",
+        "value": "中型速度"
+      },
+      {
+        "key": "Medium Village Weight",
+        "value": "中型村庄权重"
+      },
+      {
+        "key": "Menu",
+        "value": "菜单"
+      },
+      {
+        "key": "Message Structure",
+        "value": "消息结构"
+      },
+      {
+        "key": "Min",
+        "value": "最小"
+      },
+      {
+        "key": "Min Damage",
+        "value": "最小伤害"
+      },
+      {
+        "key": "Min Energy Rate",
+        "value": "最小能量频率"
+      },
+      {
+        "key": "Min Light Level",
+        "value": "最小光照等级"
+      },
+      {
+        "key": "Min Radius",
+        "value": "最小半径"
+      },
+      {
+        "key": "Min Range",
+        "value": "最小范围"
+      },
+      {
+        "key": "Min Search Radius",
+        "value": "最小搜索半径"
+      },
+      {
+        "key": "Min Speed",
+        "value": "最小速度"
+      },
+      {
+        "key": "Miner Efficiency",
+        "value": "采矿机效率"
+      },
+      {
+        "key": "Minimum Machine Tick Speed",
+        "value": "最小机器刻速度"
+      },
+      {
+        "key": "Minimum Mob Multiplier",
+        "value": "最小生物倍率"
+      },
+      {
+        "key": "Mining Count",
+        "value": "挖掘数量"
+      },
+      {
+        "key": "Misc",
+        "value": "杂项"
+      },
+      {
+        "key": "Missing",
+        "value": "缺失"
+      },
+      {
+        "key": "Mob",
+        "value": "生物"
+      },
+      {
+        "key": "Mob Crusher Config",
+        "value": "生物粉碎机配置"
+      },
+      {
+        "key": "Mob Drops",
+        "value": "生物掉落"
+      },
+      {
+        "key": "Mob Drops Enabled",
+        "value": "生物掉落启用"
+      },
+      {
+        "key": "Mob Multiplier",
+        "value": "生物倍率"
+      },
+      {
+        "key": "Mob Spawn",
+        "value": "生物生成"
+      },
+      {
+        "key": "Mode",
+        "value": "模式"
+      },
+      {
+        "key": "Music",
+        "value": "音乐"
+      },
+      {
+        "key": "Netherite",
+        "value": "下界合金"
+      },
+      {
+        "key": "Netherite Barrel",
+        "value": "下界合金桶"
+      },
+      {
+        "key": "Netherite Furnace",
+        "value": "下界合金熔炉"
+      },
+      {
+        "key": "Netherite Weight",
+        "value": "下界合金权重"
+      },
+      {
+        "key": "Network Max",
+        "value": "网络最大"
+      },
+      {
+        "key": "No Energy",
+        "value": "不能量"
+      },
+      {
+        "key": "No Upgrade",
+        "value": "不升级"
+      },
+      {
+        "key": "Notification Delay",
+        "value": "通知延迟"
+      },
+      {
+        "key": "Notify For Finished Crafting Jobs",
+        "value": "通知针对完成合成任务"
+      },
+      {
+        "key": "Obsidian Furnace",
+        "value": "黑曜石熔炉"
+      },
+      {
+        "key": "Open Energy Usage",
+        "value": "打开能量用量"
+      },
+      {
+        "key": "Ore Effect",
+        "value": "矿石特效"
+      },
+      {
+        "key": "Ore Laser Base Config",
+        "value": "矿石激光基础配置"
+      },
+      {
+        "key": "Osmium",
+        "value": "锇"
+      },
+      {
+        "key": "Osmium Attack Damage",
+        "value": "锇攻击伤害"
+      },
+      {
+        "key": "Osmium Efficiency",
+        "value": "锇效率"
+      },
+      {
+        "key": "Output",
+        "value": "输出"
+      },
+      {
+        "key": "Output Filter Slots",
+        "value": "输出过滤槽位"
+      },
+      {
+        "key": "Output Filter Slots In Row",
+        "value": "输出过滤槽位在行"
+      },
+      {
+        "key": "Output Multiplier",
+        "value": "输出倍率"
+      },
+      {
+        "key": "Output Network Energy Usage",
+        "value": "输出网络能量用量"
+      },
+      {
+        "key": "Output Tank Capacity",
+        "value": "输出储罐容量"
+      },
+      {
+        "key": "Overlay",
+        "value": "覆盖层"
+      },
+      {
+        "key": "Overlay Position",
+        "value": "覆盖层位置"
+      },
+      {
+        "key": "Particle",
+        "value": "粒子"
+      },
+      {
+        "key": "Particle Amount",
+        "value": "粒子数量"
+      },
+      {
+        "key": "Particles",
+        "value": "粒子"
+      },
+      {
+        "key": "Per Chunk",
+        "value": "每区块"
+      },
+      {
+        "key": "Per Log",
+        "value": "每日志"
+      },
+      {
+        "key": "Per Player Radius",
+        "value": "每玩家半径"
+      },
+      {
+        "key": "Player Drops",
+        "value": "玩家掉落"
+      },
+      {
+        "key": "Player Loot",
+        "value": "玩家战利品"
+      },
+      {
+        "key": "Port",
+        "value": "端口"
+      },
+      {
+        "key": "Position",
+        "value": "位置"
+      },
+      {
+        "key": "Potion",
+        "value": "药水"
+      },
+      {
+        "key": "Potion Time",
+        "value": "药水时间"
+      },
+      {
+        "key": "Power",
+        "value": "功率"
+      },
+      {
+        "key": "Power Cell Cost Factor",
+        "value": "功率元件消耗系数"
+      },
+      {
+        "key": "Power Cell Distance Cap",
+        "value": "功率元件距离上限"
+      },
+      {
+        "key": "Power Cell Min Distance",
+        "value": "功率元件最小距离"
+      },
+      {
+        "key": "Power Items",
+        "value": "功率物品"
+      },
+      {
+        "key": "Power Per Tick",
+        "value": "功率每刻"
+      },
+      {
+        "key": "Power Unit",
+        "value": "功率单位"
+      },
+      {
+        "key": "Pump",
+        "value": "泵"
+      },
+      {
+        "key": "Pump Upgrade",
+        "value": "泵升级"
+      },
+      {
+        "key": "Radiation",
+        "value": "辐射"
+      },
+      {
+        "key": "Radiation Multiplier",
+        "value": "辐射倍率"
+      },
+      {
+        "key": "Radiation Particle Count",
+        "value": "辐射粒子数量"
+      },
+      {
+        "key": "Radiation Particle Radius",
+        "value": "辐射粒子半径"
+      },
+      {
+        "key": "Radiation Transfer",
+        "value": "辐射传输"
+      },
+      {
+        "key": "Radius",
+        "value": "半径"
+      },
+      {
+        "key": "Radius Modifier",
+        "value": "半径系数"
+      },
+      {
+        "key": "Range",
+        "value": "范围"
+      },
+      {
+        "key": "Range Cap",
+        "value": "范围上限"
+      },
+      {
+        "key": "Range Multiplier",
+        "value": "范围倍率"
+      },
+      {
+        "key": "Range Upgrade Energy Usage",
+        "value": "范围升级能量用量"
+      },
+      {
+        "key": "Range Upgrade Range",
+        "value": "范围升级范围"
+      },
+      {
+        "key": "Reactor",
+        "value": "反应堆"
+      },
+      {
+        "key": "Reactor Max Energy Output",
+        "value": "反应堆最大能量输出"
+      },
+      {
+        "key": "Recipe",
+        "value": "配方"
+      },
+      {
+        "key": "Recipe Generation Mode",
+        "value": "配方生成模式"
+      },
+      {
+        "key": "Recipe Transfer Energy Usage",
+        "value": "配方传输能量用量"
+      },
+      {
+        "key": "Recipes",
+        "value": "配方"
+      },
+      {
+        "key": "Redstone",
+        "value": "红石"
+      },
+      {
+        "key": "Redstone And Glowstone",
+        "value": "红石与荧石"
+      },
+      {
+        "key": "Redstone Cost",
+        "value": "红石消耗"
+      },
+      {
+        "key": "Redstone Limit",
+        "value": "红石上限"
+      },
+      {
+        "key": "Refined Glowstone",
+        "value": "精制荧石"
+      },
+      {
+        "key": "Refined Glowstone Attack Damage",
+        "value": "精制荧石攻击伤害"
+      },
+      {
+        "key": "Refined Glowstone Efficiency",
+        "value": "精制荧石效率"
+      },
+      {
+        "key": "Refined Obsidian",
+        "value": "精制黑曜石"
+      },
+      {
+        "key": "Refined Obsidian Attack Damage",
+        "value": "精制黑曜石攻击伤害"
+      },
+      {
+        "key": "Refined Obsidian Efficiency",
+        "value": "精制黑曜石效率"
+      },
+      {
+        "key": "Remember Last Search",
+        "value": "记住上次搜索"
+      },
+      {
+        "key": "Render Block Particles",
+        "value": "渲染方块粒子"
+      },
+      {
+        "key": "Render Experience Cost",
+        "value": "渲染经验消耗"
+      },
+      {
+        "key": "Render Items On Player",
+        "value": "渲染物品开玩家"
+      },
+      {
+        "key": "Render Mode",
+        "value": "渲染模式"
+      },
+      {
+        "key": "Require Energy",
+        "value": "需要能量"
+      },
+      {
+        "key": "Required",
+        "value": "需要"
+      },
+      {
+        "key": "Required Ticks",
+        "value": "需要刻"
+      },
+      {
+        "key": "Saturation",
+        "value": "饱和度"
+      },
+      {
+        "key": "Save",
+        "value": "保存"
+      },
+      {
+        "key": "Save All",
+        "value": "保存全部"
+      },
+      {
+        "key": "Save Level",
+        "value": "保存等级"
+      },
+      {
+        "key": "Save Mode",
+        "value": "保存模式"
+      },
+      {
+        "key": "Scale",
+        "value": "缩放"
+      },
+      {
+        "key": "Screen",
+        "value": "界面"
+      },
+      {
+        "key": "Screen Scale",
+        "value": "界面缩放"
+      },
+      {
+        "key": "Screen Size",
+        "value": "界面大小"
+      },
+      {
+        "key": "Screenshot Show Count",
+        "value": "截图显示数量"
+      },
+      {
+        "key": "Search",
+        "value": "搜索"
+      },
+      {
+        "key": "Search Base",
+        "value": "搜索基础"
+      },
+      {
+        "key": "Search Enabled",
+        "value": "搜索启用"
+      },
+      {
+        "key": "Search Mode",
+        "value": "搜索模式"
+      },
+      {
+        "key": "Search Slot Color",
+        "value": "搜索槽位颜色"
+      },
+      {
+        "key": "Search Tooltip",
+        "value": "搜索提示"
+      },
+      {
+        "key": "Seed Crafting Recipes",
+        "value": "种子合成配方"
+      },
+      {
+        "key": "Server",
+        "value": "服务端"
+      },
+      {
+        "key": "Should Drop Player Loot",
+        "value": "是否掉落玩家战利品"
+      },
+      {
+        "key": "Show Cell Content",
+        "value": "显示元件内容"
+      },
+      {
+        "key": "Show Distance Text",
+        "value": "显示距离文字"
+      },
+      {
+        "key": "Show Missing Only By Default",
+        "value": "显示缺失仅按默认"
+      },
+      {
+        "key": "Show Text Overlay",
+        "value": "显示文字覆盖层"
+      },
+      {
+        "key": "Show Toggle Message",
+        "value": "显示切换消息"
+      },
+      {
+        "key": "Simple Check",
+        "value": "简易检查"
+      },
+      {
+        "key": "Simple Factor",
+        "value": "简易系数"
+      },
+      {
+        "key": "Simple Mode",
+        "value": "简易模式"
+      },
+      {
+        "key": "Size",
+        "value": "大小"
+      },
+      {
+        "key": "Slots",
+        "value": "槽位"
+      },
+      {
+        "key": "Slots In Row",
+        "value": "槽位在行"
+      },
+      {
+        "key": "Small",
+        "value": "小型"
+      },
+      {
+        "key": "Small Energy Storage",
+        "value": "小型能量存储"
+      },
+      {
+        "key": "Small Village Weight",
+        "value": "小型村庄权重"
+      },
+      {
+        "key": "Smelter",
+        "value": "冶炼炉"
+      },
+      {
+        "key": "Sort Range",
+        "value": "排序范围"
+      },
+      {
+        "key": "Sort Recipes",
+        "value": "排序配方"
+      },
+      {
+        "key": "Sort Type",
+        "value": "排序类型"
+      },
+      {
+        "key": "Sound",
+        "value": "音效"
+      },
+      {
+        "key": "Sound Amount",
+        "value": "音效数量"
+      },
+      {
+        "key": "Sounds",
+        "value": "音效"
+      },
+      {
+        "key": "Spawn Always Color",
+        "value": "生成始终颜色"
+      },
+      {
+        "key": "Spawn Amount",
+        "value": "生成数量"
+      },
+      {
+        "key": "Spawn Blacklist",
+        "value": "生成黑名单"
+      },
+      {
+        "key": "Spawn Limit",
+        "value": "生成上限"
+      },
+      {
+        "key": "Spawn On Block Entities",
+        "value": "生成开方块实体"
+      },
+      {
+        "key": "Spawn Time",
+        "value": "生成时间"
+      },
+      {
+        "key": "Spawn Type",
+        "value": "生成类型"
+      },
+      {
+        "key": "Spawning",
+        "value": "生成"
+      },
+      {
+        "key": "Speed",
+        "value": "速度"
+      },
+      {
+        "key": "Speed Multiplier",
+        "value": "速度倍率"
+      },
+      {
+        "key": "Speed Upgrade Energy Usage",
+        "value": "速度升级能量用量"
+      },
+      {
+        "key": "Speed Upgrade Speed Multiplier",
+        "value": "速度升级速度倍率"
+      },
+      {
+        "key": "Speed Upgrade Usage Multiplier",
+        "value": "速度升级用量倍率"
+      },
+      {
+        "key": "Standard",
+        "value": "标准"
+      },
+      {
+        "key": "Steam",
+        "value": "蒸汽"
+      },
+      {
+        "key": "Steam Per Injection",
+        "value": "蒸汽每注入"
+      },
+      {
+        "key": "Steam Per Tank",
+        "value": "蒸汽每储罐"
+      },
+      {
+        "key": "Steel",
+        "value": "钢"
+      },
+      {
+        "key": "Steel Attack Damage",
+        "value": "钢攻击伤害"
+      },
+      {
+        "key": "Steel Efficiency",
+        "value": "钢效率"
+      },
+      {
+        "key": "Storage",
+        "value": "存储"
+      },
+      {
+        "key": "Storage Block",
+        "value": "存储方块"
+      },
+      {
+        "key": "Storage Blocks",
+        "value": "存储方块"
+      },
+      {
+        "key": "Storage Bus Max",
+        "value": "存储总线最大"
+      },
+      {
+        "key": "Storage Bus Min",
+        "value": "存储总线最小"
+      },
+      {
+        "key": "Structure Blacklist",
+        "value": "结构黑名单"
+      },
+      {
+        "key": "Structure Render Time",
+        "value": "结构渲染时间"
+      },
+      {
+        "key": "Structure Steel",
+        "value": "结构钢"
+      },
+      {
+        "key": "Tank",
+        "value": "储罐"
+      },
+      {
+        "key": "Tank Capacity",
+        "value": "储罐容量"
+      },
+      {
+        "key": "Tank Capacity Per Block",
+        "value": "储罐容量每方块"
+      },
+      {
+        "key": "Tank Size",
+        "value": "储罐大小"
+      },
+      {
+        "key": "Tank Size Limit",
+        "value": "储罐大小上限"
+      },
+      {
+        "key": "Tank Storage Per Block",
+        "value": "储罐存储每方块"
+      },
+      {
+        "key": "Tank Upgrade",
+        "value": "储罐升级"
+      },
+      {
+        "key": "Text",
+        "value": "文字"
+      },
+      {
+        "key": "Text Color",
+        "value": "文字颜色"
+      },
+      {
+        "key": "Text Color Multiplier",
+        "value": "文字颜色倍率"
+      },
+      {
+        "key": "Text Size",
+        "value": "文字大小"
+      },
+      {
+        "key": "Theme",
+        "value": "主题"
+      },
+      {
+        "key": "Threshold",
+        "value": "阈值"
+      },
+      {
+        "key": "Tick Rate",
+        "value": "刻频率"
+      },
+      {
+        "key": "Ticks",
+        "value": "刻"
+      },
+      {
+        "key": "Ticks Per Coal",
+        "value": "刻每煤"
+      },
+      {
+        "key": "Ticks Per Damage",
+        "value": "刻每伤害"
+      },
+      {
+        "key": "Ticks Per Redstone Update",
+        "value": "刻每红石更新"
+      },
+      {
+        "key": "Ticks Per Upgrade",
+        "value": "刻每升级"
+      },
+      {
+        "key": "Time",
+        "value": "时间"
+      },
+      {
+        "key": "Time In Hive",
+        "value": "时间在蜂巢"
+      },
+      {
+        "key": "Time Modifier",
+        "value": "时间系数"
+      },
+      {
+        "key": "Time Multiplier",
+        "value": "时间倍率"
+      },
+      {
+        "key": "Timer",
+        "value": "计时"
+      },
+      {
+        "key": "Tooltip",
+        "value": "提示"
+      },
+      {
+        "key": "Tooltips",
+        "value": "提示"
+      },
+      {
+        "key": "Transfer Rate",
+        "value": "传输频率"
+      },
+      {
+        "key": "Transfer Speed Ticks",
+        "value": "传输速度刻"
+      },
+      {
+        "key": "Turbine",
+        "value": "涡轮"
+      },
+      {
+        "key": "Turbine Energy Power Rate Multiplier",
+        "value": "涡轮能量功率频率倍率"
+      },
+      {
+        "key": "Turbine Power Multiplier",
+        "value": "涡轮功率倍率"
+      },
+      {
+        "key": "Type",
+        "value": "类型"
+      },
+      {
+        "key": "Type Limit Creative",
+        "value": "类型上限创造"
+      },
+      {
+        "key": "Ultimate",
+        "value": "终极"
+      },
+      {
+        "key": "Ultimate Capacity",
+        "value": "终极容量"
+      },
+      {
+        "key": "Ultimate Heat Capacity",
+        "value": "终极热量容量"
+      },
+      {
+        "key": "Ultimate Output",
+        "value": "终极输出"
+      },
+      {
+        "key": "Ultimate Speed",
+        "value": "终极速度"
+      },
+      {
+        "key": "Update Interval",
+        "value": "更新间隔"
+      },
+      {
+        "key": "Upgrade",
+        "value": "升级"
+      },
+      {
+        "key": "Upgrade Blacklist",
+        "value": "升级黑名单"
+      },
+      {
+        "key": "Upgrade Light",
+        "value": "升级光照"
+      },
+      {
+        "key": "Upgrade Slot Count",
+        "value": "升级槽位数量"
+      },
+      {
+        "key": "Upgrade Whitelist",
+        "value": "升级白名单"
+      },
+      {
+        "key": "Usage",
+        "value": "用量"
+      },
+      {
+        "key": "Usage Blacklist",
+        "value": "用量黑名单"
+      },
+      {
+        "key": "Usage Multiplier",
+        "value": "用量倍率"
+      },
+      {
+        "key": "Use Compact Tree",
+        "value": "使用紧凑树"
+      },
+      {
+        "key": "Use Energy",
+        "value": "使用能量"
+      },
+      {
+        "key": "Use On Animal Cooldown",
+        "value": "使用开动物冷却"
+      },
+      {
+        "key": "Use On Animal Cost",
+        "value": "使用开动物消耗"
+      },
+      {
+        "key": "Use On Block Cooldown",
+        "value": "使用开方块冷却"
+      },
+      {
+        "key": "Use On Block Cost",
+        "value": "使用开方块消耗"
+      },
+      {
+        "key": "Use Per Tick",
+        "value": "使用每刻"
+      },
+      {
+        "key": "Use Whitelist",
+        "value": "使用白名单"
+      },
+      {
+        "key": "Vein Mining",
+        "value": "矿脉挖掘"
+      },
+      {
+        "key": "Vein Size",
+        "value": "矿脉大小"
+      },
+      {
+        "key": "Version",
+        "value": "版本"
+      },
+      {
+        "key": "Version Check",
+        "value": "版本检查"
+      },
+      {
+        "key": "Village And Dungeon Loot",
+        "value": "村庄与地牢战利品"
+      },
+      {
+        "key": "Villager",
+        "value": "村民"
+      },
+      {
+        "key": "Villager Drop Emerald Chance",
+        "value": "村民掉落绿宝石几率"
+      },
+      {
+        "key": "Villager Structure Weight",
+        "value": "村民结构权重"
+      },
+      {
+        "key": "Volume",
+        "value": "容积"
+      },
+      {
+        "key": "Water Focus Buff",
+        "value": "水聚焦增益"
+      },
+      {
+        "key": "Water Focus Debuff",
+        "value": "水聚焦减益"
+      },
+      {
+        "key": "Water Per Injection",
+        "value": "水每注入"
+      },
+      {
+        "key": "Water Per Tank",
+        "value": "水每储罐"
+      },
+      {
+        "key": "Whitelist",
+        "value": "白名单"
+      },
+      {
+        "key": "Width",
+        "value": "宽度"
+      },
+      {
+        "key": "Wire Colors",
+        "value": "导线颜色"
+      },
+      {
+        "key": "World",
+        "value": "世界"
+      },
+      {
+        "key": "World Generation",
+        "value": "世界生成"
+      },
+      {
+        "key": "Worldgen",
+        "value": "世界生成"
+      },
+      {
+        "key": "Xp Pump Upgrade",
+        "value": "经验泵升级"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "net.createmod.catnip.config.ui.ConfigScreenList"
+    ],
+    "pairs": [
+      {
+        "key": "Advanced",
+        "value": "进阶"
+      },
+      {
+        "key": "Advanced Block Charger Capacity",
+        "value": "进阶方块充电器容量"
+      },
+      {
+        "key": "Advanced Block Charger Range",
+        "value": "进阶方块充电器范围"
+      },
+      {
+        "key": "Advanced Block Charger Transfer Rate",
+        "value": "进阶方块充电器传输频率"
+      },
+      {
+        "key": "Advanced Capacity",
+        "value": "进阶容量"
+      },
+      {
+        "key": "Advanced Factor",
+        "value": "进阶系数"
+      },
+      {
+        "key": "Advanced Filter Upgrade",
+        "value": "进阶过滤升级"
+      },
+      {
+        "key": "Advanced Fuel Limit",
+        "value": "进阶燃料上限"
+      },
+      {
+        "key": "Advanced Heat Capacity",
+        "value": "进阶热量容量"
+      },
+      {
+        "key": "Advanced Max Slot Cost",
+        "value": "进阶最大槽位消耗"
+      },
+      {
+        "key": "Advanced Output",
+        "value": "进阶输出"
+      },
+      {
+        "key": "Advanced Player Charger Capacity",
+        "value": "进阶玩家充电器容量"
+      },
+      {
+        "key": "Advanced Player Charger Range",
+        "value": "进阶玩家充电器范围"
+      },
+      {
+        "key": "Advanced Player Charger Transfer Rate",
+        "value": "进阶玩家充电器传输频率"
+      },
+      {
+        "key": "Advanced Speed",
+        "value": "进阶速度"
+      },
+      {
+        "key": "Advanced Tooltips",
+        "value": "进阶提示"
+      },
+      {
+        "key": "Allow Block Entities",
+        "value": "允许方块实体"
+      },
+      {
+        "key": "Allow List",
+        "value": "允许列表"
+      },
+      {
+        "key": "Always Drop",
+        "value": "始终掉落"
+      },
+      {
+        "key": "Amount",
+        "value": "数量"
+      },
+      {
+        "key": "Animal Effect",
+        "value": "动物特效"
+      },
+      {
+        "key": "Animal Multiplier",
+        "value": "动物倍率"
+      },
+      {
+        "key": "Armor",
+        "value": "护甲"
+      },
+      {
+        "key": "Armor Config",
+        "value": "护甲配置"
+      },
+      {
+        "key": "Armor Enchantment Chance",
+        "value": "护甲附魔几率"
+      },
+      {
+        "key": "Armor Multiplier",
+        "value": "护甲倍率"
+      },
+      {
+        "key": "Armor Render Offset",
+        "value": "护甲渲染偏移"
+      },
+      {
+        "key": "Attack Damage",
+        "value": "攻击伤害"
+      },
+      {
+        "key": "Attack Multiplier",
+        "value": "攻击倍率"
+      },
+      {
+        "key": "Attack Speed",
+        "value": "攻击速度"
+      },
+      {
+        "key": "Auto Focus Search",
+        "value": "自动聚焦搜索"
+      },
+      {
+        "key": "Auto Input Interval",
+        "value": "自动输入间隔"
+      },
+      {
+        "key": "Auto Output Default",
+        "value": "自动输出默认"
+      },
+      {
+        "key": "Auto Output Interval",
+        "value": "自动输出间隔"
+      },
+      {
+        "key": "Auto Update",
+        "value": "自动更新"
+      },
+      {
+        "key": "Auto Use",
+        "value": "自动使用"
+      },
+      {
+        "key": "Base",
+        "value": "基础"
+      },
+      {
+        "key": "Base Chemical Rate",
+        "value": "基础化学频率"
+      },
+      {
+        "key": "Base Cost",
+        "value": "基础消耗"
+      },
+      {
+        "key": "Base Damage",
+        "value": "基础伤害"
+      },
+      {
+        "key": "Base Duration",
+        "value": "基础持续时间"
+      },
+      {
+        "key": "Base Efficiency",
+        "value": "基础效率"
+      },
+      {
+        "key": "Base Energy",
+        "value": "基础能量"
+      },
+      {
+        "key": "Base Energy Capacity",
+        "value": "基础能量容量"
+      },
+      {
+        "key": "Base Energy Per Fuel Tick",
+        "value": "基础能量每燃料刻"
+      },
+      {
+        "key": "Base Entity Distance",
+        "value": "基础实体距离"
+      },
+      {
+        "key": "Base Harvest",
+        "value": "基础收获"
+      },
+      {
+        "key": "Base Item Pipe Transfer",
+        "value": "基础物品管道传输"
+      },
+      {
+        "key": "Base Item Transfer Amount",
+        "value": "基础物品传输数量"
+      },
+      {
+        "key": "Base Level Cost",
+        "value": "基础等级消耗"
+      },
+      {
+        "key": "Base Max",
+        "value": "基础最大"
+      },
+      {
+        "key": "Base Max Blocks",
+        "value": "基础最大方块"
+      },
+      {
+        "key": "Base Max Entities",
+        "value": "基础最大实体"
+      },
+      {
+        "key": "Base Range",
+        "value": "基础范围"
+      },
+      {
+        "key": "Base Slot Limit Multiplier",
+        "value": "基础槽位上限倍率"
+      },
+      {
+        "key": "Base Tick Rate",
+        "value": "基础刻频率"
+      },
+      {
+        "key": "Base Usage",
+        "value": "基础用量"
+      },
+      {
+        "key": "Base Volume",
+        "value": "基础容积"
+      },
+      {
+        "key": "Basic",
+        "value": "基础"
+      },
+      {
+        "key": "Basic Block Charger Capacity",
+        "value": "基础方块充电器容量"
+      },
+      {
+        "key": "Basic Block Charger Range",
+        "value": "基础方块充电器范围"
+      },
+      {
+        "key": "Basic Block Charger Transfer Rate",
+        "value": "基础方块充电器传输频率"
+      },
+      {
+        "key": "Basic Capacity",
+        "value": "基础容量"
+      },
+      {
+        "key": "Basic Heat Capacity",
+        "value": "基础热量容量"
+      },
+      {
+        "key": "Basic Max Slot Cost",
+        "value": "基础最大槽位消耗"
+      },
+      {
+        "key": "Basic Output",
+        "value": "基础输出"
+      },
+      {
+        "key": "Basic Player Charger Capacity",
+        "value": "基础玩家充电器容量"
+      },
+      {
+        "key": "Basic Player Charger Range",
+        "value": "基础玩家充电器范围"
+      },
+      {
+        "key": "Basic Player Charger Transfer Rate",
+        "value": "基础玩家充电器传输频率"
+      },
+      {
+        "key": "Basic Speed",
+        "value": "基础速度"
+      },
+      {
+        "key": "Basic Transfer",
+        "value": "基础传输"
+      },
+      {
+        "key": "Bee Loot Injection",
+        "value": "蜜蜂战利品注入"
+      },
+      {
+        "key": "Biome",
+        "value": "生物群系"
+      },
+      {
+        "key": "Biome Blacklist",
+        "value": "生物群系黑名单"
+      },
+      {
+        "key": "Blacklist",
+        "value": "黑名单"
+      },
+      {
+        "key": "Block",
+        "value": "方块"
+      },
+      {
+        "key": "Block Break Energy Base",
+        "value": "方块破坏能量基础"
+      },
+      {
+        "key": "Block Break Speed",
+        "value": "方块破坏速度"
+      },
+      {
+        "key": "Block Damage",
+        "value": "方块伤害"
+      },
+      {
+        "key": "Block Render Distance",
+        "value": "方块渲染距离"
+      },
+      {
+        "key": "Block To Block Range",
+        "value": "方块至方块范围"
+      },
+      {
+        "key": "Block Update Log",
+        "value": "方块更新日志"
+      },
+      {
+        "key": "Blocks",
+        "value": "方块"
+      },
+      {
+        "key": "Boiler",
+        "value": "锅炉"
+      },
+      {
+        "key": "Boss Health",
+        "value": "首领生命值"
+      },
+      {
+        "key": "Boss Music Volume",
+        "value": "首领音乐容积"
+      },
+      {
+        "key": "Break Block Base",
+        "value": "破坏方块基础"
+      },
+      {
+        "key": "Break Block Fluid",
+        "value": "破坏方块流体"
+      },
+      {
+        "key": "Break Blocks",
+        "value": "破坏方块"
+      },
+      {
+        "key": "Break Radius",
+        "value": "破坏半径"
+      },
+      {
+        "key": "Bronze",
+        "value": "青铜"
+      },
+      {
+        "key": "Bronze Attack Damage",
+        "value": "青铜攻击伤害"
+      },
+      {
+        "key": "Bronze Efficiency",
+        "value": "青铜效率"
+      },
+      {
+        "key": "Buff Health",
+        "value": "增益生命值"
+      },
+      {
+        "key": "Buff With Potion Effects",
+        "value": "增益带药水特效"
+      },
+      {
+        "key": "Cable",
+        "value": "线缆"
+      },
+      {
+        "key": "Cap Config",
+        "value": "上限配置"
+      },
+      {
+        "key": "Capacity",
+        "value": "容量"
+      },
+      {
+        "key": "Capacity Per Slot Row",
+        "value": "容量每槽位行"
+      },
+      {
+        "key": "Chance",
+        "value": "几率"
+      },
+      {
+        "key": "Charger",
+        "value": "充电器"
+      },
+      {
+        "key": "Charger Consumption",
+        "value": "充电器消耗"
+      },
+      {
+        "key": "Charger Max",
+        "value": "充电器最大"
+      },
+      {
+        "key": "Charger Max Energy",
+        "value": "充电器最大能量"
+      },
+      {
+        "key": "Charger Min",
+        "value": "充电器最小"
+      },
+      {
+        "key": "Check Recipe Ticks",
+        "value": "检查配方刻"
+      },
+      {
+        "key": "Check Structure Ticks",
+        "value": "检查结构刻"
+      },
+      {
+        "key": "Chemical",
+        "value": "化学"
+      },
+      {
+        "key": "Chemical Per Tank",
+        "value": "化学每储罐"
+      },
+      {
+        "key": "Chemical Storage Block",
+        "value": "化学存储方块"
+      },
+      {
+        "key": "Chunk Check Radius",
+        "value": "区块检查半径"
+      },
+      {
+        "key": "Clear Search On Open",
+        "value": "清空搜索开打开"
+      },
+      {
+        "key": "Client",
+        "value": "客户端"
+      },
+      {
+        "key": "Client Config",
+        "value": "客户端配置"
+      },
+      {
+        "key": "Coal Generator",
+        "value": "煤发电机"
+      },
+      {
+        "key": "Color",
+        "value": "颜色"
+      },
+      {
+        "key": "Color Message",
+        "value": "颜色消息"
+      },
+      {
+        "key": "Color Text Disabled",
+        "value": "颜色文字禁用"
+      },
+      {
+        "key": "Color Toggle Text Disabled",
+        "value": "颜色切换文字禁用"
+      },
+      {
+        "key": "Colors",
+        "value": "颜色"
+      },
+      {
+        "key": "Common",
+        "value": "通用"
+      },
+      {
+        "key": "Compact Tooltips",
+        "value": "紧凑提示"
+      },
+      {
+        "key": "Compat",
+        "value": "兼容"
+      },
+      {
+        "key": "Config",
+        "value": "配置"
+      },
+      {
+        "key": "Consumption",
+        "value": "消耗"
+      },
+      {
+        "key": "Consumption Rate",
+        "value": "消耗频率"
+      },
+      {
+        "key": "Cooldown",
+        "value": "冷却"
+      },
+      {
+        "key": "Copper",
+        "value": "铜"
+      },
+      {
+        "key": "Copper Barrel",
+        "value": "铜桶"
+      },
+      {
+        "key": "Copper Furnace",
+        "value": "铜熔炉"
+      },
+      {
+        "key": "Copper Weight",
+        "value": "铜权重"
+      },
+      {
+        "key": "Cost",
+        "value": "消耗"
+      },
+      {
+        "key": "Cost Entity",
+        "value": "消耗实体"
+      },
+      {
+        "key": "Cost Min Distance",
+        "value": "消耗最小距离"
+      },
+      {
+        "key": "Cost Per Block",
+        "value": "消耗每方块"
+      },
+      {
+        "key": "Cost Player",
+        "value": "消耗玩家"
+      },
+      {
+        "key": "Count",
+        "value": "数量"
+      },
+      {
+        "key": "Crafting",
+        "value": "合成"
+      },
+      {
+        "key": "Crafting Blacklist",
+        "value": "合成黑名单"
+      },
+      {
+        "key": "Crafting Duration",
+        "value": "合成持续时间"
+      },
+      {
+        "key": "Crafting Energy Usage",
+        "value": "合成能量用量"
+      },
+      {
+        "key": "Crafting Log",
+        "value": "合成日志"
+      },
+      {
+        "key": "Creative Capacity",
+        "value": "创造容量"
+      },
+      {
+        "key": "Creative Energy Usage",
+        "value": "创造能量用量"
+      },
+      {
+        "key": "Creative Output",
+        "value": "创造输出"
+      },
+      {
+        "key": "Creative Range Upgrade Energy Usage",
+        "value": "创造范围升级能量用量"
+      },
+      {
+        "key": "Creative Speed",
+        "value": "创造速度"
+      },
+      {
+        "key": "Crop Blacklist",
+        "value": "作物黑名单"
+      },
+      {
+        "key": "Crusher",
+        "value": "粉碎机"
+      },
+      {
+        "key": "Custom Colors Overlay",
+        "value": "自定义颜色覆盖层"
+      },
+      {
+        "key": "Custom Config Screen",
+        "value": "自定义配置界面"
+      },
+      {
+        "key": "Custom Player",
+        "value": "自定义玩家"
+      },
+      {
+        "key": "Custom Search",
+        "value": "自定义搜索"
+      },
+      {
+        "key": "Damage",
+        "value": "伤害"
+      },
+      {
+        "key": "Damage Base",
+        "value": "伤害基础"
+      },
+      {
+        "key": "Damage Cap",
+        "value": "伤害上限"
+      },
+      {
+        "key": "Damage Chance",
+        "value": "伤害几率"
+      },
+      {
+        "key": "Damage Mode",
+        "value": "伤害模式"
+      },
+      {
+        "key": "Damage Modifier",
+        "value": "伤害系数"
+      },
+      {
+        "key": "Damage Tick Base",
+        "value": "伤害刻基础"
+      },
+      {
+        "key": "Damage Type Colors",
+        "value": "伤害类型颜色"
+      },
+      {
+        "key": "Debug",
+        "value": "调试"
+      },
+      {
+        "key": "Debug Level",
+        "value": "调试等级"
+      },
+      {
+        "key": "Debug Log",
+        "value": "调试日志"
+      },
+      {
+        "key": "Debug Mode",
+        "value": "调试模式"
+      },
+      {
+        "key": "Debug Text",
+        "value": "调试文字"
+      },
+      {
+        "key": "Default",
+        "value": "默认"
+      },
+      {
+        "key": "Default Base Block",
+        "value": "默认基础方块"
+      },
+      {
+        "key": "Default Dimension",
+        "value": "默认维度"
+      },
+      {
+        "key": "Default Fluid Heat Capacity",
+        "value": "默认流体热量容量"
+      },
+      {
+        "key": "Default Interval",
+        "value": "默认间隔"
+      },
+      {
+        "key": "Default Limit",
+        "value": "默认上限"
+      },
+      {
+        "key": "Default Scale",
+        "value": "默认缩放"
+      },
+      {
+        "key": "Default Spawn Energy Cost",
+        "value": "默认生成能量消耗"
+      },
+      {
+        "key": "Default Tick Cooldown",
+        "value": "默认刻冷却"
+      },
+      {
+        "key": "Delay",
+        "value": "延迟"
+      },
+      {
+        "key": "Diamond",
+        "value": "钻石"
+      },
+      {
+        "key": "Diamond Barrel",
+        "value": "钻石桶"
+      },
+      {
+        "key": "Diamond Furnace",
+        "value": "钻石熔炉"
+      },
+      {
+        "key": "Diamond Weight",
+        "value": "钻石权重"
+      },
+      {
+        "key": "Dimension Blacklist",
+        "value": "维度黑名单"
+      },
+      {
+        "key": "Dimension Cost",
+        "value": "维度消耗"
+      },
+      {
+        "key": "Dimension Cost Factor",
+        "value": "维度消耗系数"
+      },
+      {
+        "key": "Dimension Whitelist",
+        "value": "维度白名单"
+      },
+      {
+        "key": "Disable",
+        "value": "禁用"
+      },
+      {
+        "key": "Disable Break",
+        "value": "禁用破坏"
+      },
+      {
+        "key": "Disable Creative Inventory Button",
+        "value": "禁用创造物品栏按钮"
+      },
+      {
+        "key": "Disable Inventory Button",
+        "value": "禁用物品栏按钮"
+      },
+      {
+        "key": "Disable Reactor Particles",
+        "value": "禁用反应堆粒子"
+      },
+      {
+        "key": "Disable Turbine Particles",
+        "value": "禁用涡轮粒子"
+      },
+      {
+        "key": "Disable Villager Damage",
+        "value": "禁用村民伤害"
+      },
+      {
+        "key": "Disabled Time",
+        "value": "禁用时间"
+      },
+      {
+        "key": "Distance",
+        "value": "距离"
+      },
+      {
+        "key": "Do Update Check",
+        "value": "是否更新检查"
+      },
+      {
+        "key": "Drop Chance",
+        "value": "掉落几率"
+      },
+      {
+        "key": "Drop Chance Boss",
+        "value": "掉落几率首领"
+      },
+      {
+        "key": "Drop Chance Players",
+        "value": "掉落几率玩家"
+      },
+      {
+        "key": "Drop Crafting Recipes Enabled",
+        "value": "掉落合成配方启用"
+      },
+      {
+        "key": "Durability",
+        "value": "耐久"
+      },
+      {
+        "key": "Durability Multiplier",
+        "value": "耐久倍率"
+      },
+      {
+        "key": "Duration",
+        "value": "持续时间"
+      },
+      {
+        "key": "Effect Duration",
+        "value": "特效持续时间"
+      },
+      {
+        "key": "Effect Ticks",
+        "value": "特效刻"
+      },
+      {
+        "key": "Efficiency",
+        "value": "效率"
+      },
+      {
+        "key": "Elite Capacity",
+        "value": "精英容量"
+      },
+      {
+        "key": "Elite Energy Usage",
+        "value": "精英能量用量"
+      },
+      {
+        "key": "Elite Heat Capacity",
+        "value": "精英热量容量"
+      },
+      {
+        "key": "Elite Output",
+        "value": "精英输出"
+      },
+      {
+        "key": "Elite Speed",
+        "value": "精英速度"
+      },
+      {
+        "key": "Emerald Furnace",
+        "value": "绿宝石熔炉"
+      },
+      {
+        "key": "Enable",
+        "value": "启用"
+      },
+      {
+        "key": "Enable Boss Music",
+        "value": "启用首领音乐"
+      },
+      {
+        "key": "Enable Break",
+        "value": "启用破坏"
+      },
+      {
+        "key": "Enable Button",
+        "value": "启用按钮"
+      },
+      {
+        "key": "Enable Button Sound",
+        "value": "启用按钮音效"
+      },
+      {
+        "key": "Enable Debug",
+        "value": "启用调试"
+      },
+      {
+        "key": "Enable Debug Mode",
+        "value": "启用调试模式"
+      },
+      {
+        "key": "Enable Dungeon Loot",
+        "value": "启用地牢战利品"
+      },
+      {
+        "key": "Enable Effects",
+        "value": "启用特效"
+      },
+      {
+        "key": "Enable Food Effect Tooltip",
+        "value": "启用食物特效提示"
+      },
+      {
+        "key": "Enable Gui Debug",
+        "value": "启用界面调试"
+      },
+      {
+        "key": "Enable Machine",
+        "value": "启用机器"
+      },
+      {
+        "key": "Enable Player",
+        "value": "启用玩家"
+      },
+      {
+        "key": "Enable Sort",
+        "value": "启用排序"
+      },
+      {
+        "key": "Enable Tooltips",
+        "value": "启用提示"
+      },
+      {
+        "key": "Enable Wire Damage",
+        "value": "启用导线伤害"
+      },
+      {
+        "key": "Enabled",
+        "value": "启用"
+      },
+      {
+        "key": "Enabled Items",
+        "value": "启用物品"
+      },
+      {
+        "key": "Energy",
+        "value": "能量"
+      },
+      {
+        "key": "Energy Capacity",
+        "value": "能量容量"
+      },
+      {
+        "key": "Energy Capacity Per Volume",
+        "value": "能量容量每容积"
+      },
+      {
+        "key": "Energy Color",
+        "value": "能量颜色"
+      },
+      {
+        "key": "Energy Consumption Multiplier",
+        "value": "能量消耗倍率"
+      },
+      {
+        "key": "Energy Cost",
+        "value": "能量消耗"
+      },
+      {
+        "key": "Energy Modifier",
+        "value": "能量系数"
+      },
+      {
+        "key": "Energy Per Damage",
+        "value": "能量每伤害"
+      },
+      {
+        "key": "Energy Per Input",
+        "value": "能量每输入"
+      },
+      {
+        "key": "Energy Per Recipe Tick",
+        "value": "能量每配方刻"
+      },
+      {
+        "key": "Energy Per Slot Row",
+        "value": "能量每槽位行"
+      },
+      {
+        "key": "Energy Per Tick",
+        "value": "能量每刻"
+      },
+      {
+        "key": "Energy Pipe",
+        "value": "能量管道"
+      },
+      {
+        "key": "Energy Pipe Transfer Rate",
+        "value": "能量管道传输频率"
+      },
+      {
+        "key": "Energy Rate",
+        "value": "能量频率"
+      },
+      {
+        "key": "Energy Rate Limit",
+        "value": "能量频率上限"
+      },
+      {
+        "key": "Energy Storage Block",
+        "value": "能量存储方块"
+      },
+      {
+        "key": "Energy To Fuel Rate",
+        "value": "能量至燃料频率"
+      },
+      {
+        "key": "Energy Type",
+        "value": "能量类型"
+      },
+      {
+        "key": "Energy Usage",
+        "value": "能量用量"
+      },
+      {
+        "key": "Energy Usage Potion Tick",
+        "value": "能量用量药水刻"
+      },
+      {
+        "key": "Energy Use",
+        "value": "能量使用"
+      },
+      {
+        "key": "Entity",
+        "value": "实体"
+      },
+      {
+        "key": "Entity Blacklist",
+        "value": "实体黑名单"
+      },
+      {
+        "key": "Entity Block List",
+        "value": "实体方块列表"
+      },
+      {
+        "key": "Entity List Mode",
+        "value": "实体列表模式"
+      },
+      {
+        "key": "Entity Whitelist",
+        "value": "实体白名单"
+      },
+      {
+        "key": "Experience Cost",
+        "value": "经验消耗"
+      },
+      {
+        "key": "Experience Per Item",
+        "value": "经验每物品"
+      },
+      {
+        "key": "Experimental",
+        "value": "实验性"
+      },
+      {
+        "key": "Export Bus Max",
+        "value": "输出总线最大"
+      },
+      {
+        "key": "Export Bus Min",
+        "value": "输出总线最小"
+      },
+      {
+        "key": "Filter Item Render Distance",
+        "value": "过滤物品渲染距离"
+      },
+      {
+        "key": "Filter List",
+        "value": "过滤列表"
+      },
+      {
+        "key": "Filter Slots",
+        "value": "过滤槽位"
+      },
+      {
+        "key": "Filter Upgrade",
+        "value": "过滤升级"
+      },
+      {
+        "key": "First Show Delay",
+        "value": "首次显示延迟"
+      },
+      {
+        "key": "Fluid",
+        "value": "流体"
+      },
+      {
+        "key": "Fluid Base Transfer Rate",
+        "value": "流体基础传输频率"
+      },
+      {
+        "key": "Fluid Capacity",
+        "value": "流体容量"
+      },
+      {
+        "key": "Fluid Laser Base Config",
+        "value": "流体激光基础配置"
+      },
+      {
+        "key": "Fluid Laser Transfer Rate",
+        "value": "流体激光传输频率"
+      },
+      {
+        "key": "Fluid Limit",
+        "value": "流体上限"
+      },
+      {
+        "key": "Fluid Max Transfer Rate",
+        "value": "流体最大传输频率"
+      },
+      {
+        "key": "Fluid Per Tank",
+        "value": "流体每储罐"
+      },
+      {
+        "key": "Fluid Pipe",
+        "value": "流体管道"
+      },
+      {
+        "key": "Fluid Rate Limit",
+        "value": "流体频率上限"
+      },
+      {
+        "key": "Fluid Storage Block",
+        "value": "流体存储方块"
+      },
+      {
+        "key": "Fluid Tank Capacity",
+        "value": "流体储罐容量"
+      },
+      {
+        "key": "Fluid Tank Max Height",
+        "value": "流体储罐最大高度"
+      },
+      {
+        "key": "Fluid Tank Update Rate",
+        "value": "流体储罐更新频率"
+      },
+      {
+        "key": "Fluid Transfer Multiplier",
+        "value": "流体传输倍率"
+      },
+      {
+        "key": "Fluid Unit",
+        "value": "流体单位"
+      },
+      {
+        "key": "Food",
+        "value": "食物"
+      },
+      {
+        "key": "Force Time",
+        "value": "强制时间"
+      },
+      {
+        "key": "Fuel Capacity",
+        "value": "燃料容量"
+      },
+      {
+        "key": "Fuel Efficiency Base",
+        "value": "燃料效率基础"
+      },
+      {
+        "key": "Fuel Efficiency Multiplier",
+        "value": "燃料效率倍率"
+      },
+      {
+        "key": "Fuel Energy",
+        "value": "燃料能量"
+      },
+      {
+        "key": "Fuel Filter Slots",
+        "value": "燃料过滤槽位"
+      },
+      {
+        "key": "Fuel Filter Slots In Row",
+        "value": "燃料过滤槽位在行"
+      },
+      {
+        "key": "Fuel Multiplier",
+        "value": "燃料倍率"
+      },
+      {
+        "key": "Fuel Per Steam Multiplier",
+        "value": "燃料每蒸汽倍率"
+      },
+      {
+        "key": "Fuel Tooltip",
+        "value": "燃料提示"
+      },
+      {
+        "key": "Fuel Tooltips",
+        "value": "燃料提示"
+      },
+      {
+        "key": "Fuel Usage",
+        "value": "燃料用量"
+      },
+      {
+        "key": "Fuel Usage Multiplier",
+        "value": "燃料用量倍率"
+      },
+      {
+        "key": "Gas Generator",
+        "value": "气体发电机"
+      },
+      {
+        "key": "Gas Pipe",
+        "value": "气体管道"
+      },
+      {
+        "key": "General",
+        "value": "常规"
+      },
+      {
+        "key": "Generation",
+        "value": "生成"
+      },
+      {
+        "key": "Generation Max",
+        "value": "生成最大"
+      },
+      {
+        "key": "Generation Min",
+        "value": "生成最小"
+      },
+      {
+        "key": "Generator Capacity",
+        "value": "发电机容量"
+      },
+      {
+        "key": "Generator Efficiency",
+        "value": "发电机效率"
+      },
+      {
+        "key": "Generator Honey Use",
+        "value": "发电机蜂蜜使用"
+      },
+      {
+        "key": "Generator Max Output",
+        "value": "发电机最大输出"
+      },
+      {
+        "key": "Glowstone Cost",
+        "value": "荧石消耗"
+      },
+      {
+        "key": "Glowstone Light Level",
+        "value": "荧石光照等级"
+      },
+      {
+        "key": "Glowstone Limit",
+        "value": "荧石上限"
+      },
+      {
+        "key": "Gold",
+        "value": "金"
+      },
+      {
+        "key": "Gold Barrel",
+        "value": "金桶"
+      },
+      {
+        "key": "Gold Furnace",
+        "value": "金熔炉"
+      },
+      {
+        "key": "Gold Items",
+        "value": "金物品"
+      },
+      {
+        "key": "Gold Weight",
+        "value": "金权重"
+      },
+      {
+        "key": "Growth Modifier",
+        "value": "生长系数"
+      },
+      {
+        "key": "Gui",
+        "value": "界面"
+      },
+      {
+        "key": "Gui Overlay Position",
+        "value": "界面覆盖层位置"
+      },
+      {
+        "key": "Harvest Speed Multiplier",
+        "value": "收获速度倍率"
+      },
+      {
+        "key": "Health",
+        "value": "生命值"
+      },
+      {
+        "key": "Health Multiplier",
+        "value": "生命值倍率"
+      },
+      {
+        "key": "Health Threshold",
+        "value": "生命值阈值"
+      },
+      {
+        "key": "Heat",
+        "value": "热量"
+      },
+      {
+        "key": "Heat Capacity",
+        "value": "热量容量"
+      },
+      {
+        "key": "Heat Generation",
+        "value": "热量生成"
+      },
+      {
+        "key": "Heat Generation Fluid Rate",
+        "value": "热量生成流体频率"
+      },
+      {
+        "key": "Heat Generator",
+        "value": "热量发电机"
+      },
+      {
+        "key": "Heat Per Fuel Tick",
+        "value": "热量每燃料刻"
+      },
+      {
+        "key": "Heat Rate",
+        "value": "热量频率"
+      },
+      {
+        "key": "Height",
+        "value": "高度"
+      },
+      {
+        "key": "Hide Energy Overlay",
+        "value": "隐藏能量覆盖层"
+      },
+      {
+        "key": "Hive",
+        "value": "蜂巢"
+      },
+      {
+        "key": "Hive Tick Rate",
+        "value": "蜂巢刻频率"
+      },
+      {
+        "key": "Honey",
+        "value": "蜂蜜"
+      },
+      {
+        "key": "Honey Base",
+        "value": "蜂蜜基础"
+      },
+      {
+        "key": "Import Bus Max",
+        "value": "输入总线最大"
+      },
+      {
+        "key": "Import Bus Min",
+        "value": "输入总线最小"
+      },
+      {
+        "key": "In World Crafting",
+        "value": "在世界合成"
+      },
+      {
+        "key": "Infusion Allowed Effects",
+        "value": "灌注允许特效"
+      },
+      {
+        "key": "Infusion Minimum Duration",
+        "value": "灌注最小持续时间"
+      },
+      {
+        "key": "Infusion Required Duration",
+        "value": "灌注需要持续时间"
+      },
+      {
+        "key": "Input",
+        "value": "输入"
+      },
+      {
+        "key": "Input Filter Slots",
+        "value": "输入过滤槽位"
+      },
+      {
+        "key": "Input Filter Slots In Row",
+        "value": "输入过滤槽位在行"
+      },
+      {
+        "key": "Input Network Energy Usage",
+        "value": "输入网络能量用量"
+      },
+      {
+        "key": "Integration",
+        "value": "集成"
+      },
+      {
+        "key": "Interface",
+        "value": "接口"
+      },
+      {
+        "key": "Interface Crafting Base Consumption",
+        "value": "接口合成基础消耗"
+      },
+      {
+        "key": "Interface Energy Base Consumption",
+        "value": "接口能量基础消耗"
+      },
+      {
+        "key": "Interface Fluid Base Consumption",
+        "value": "接口流体基础消耗"
+      },
+      {
+        "key": "Interface Item Base Consumption",
+        "value": "接口物品基础消耗"
+      },
+      {
+        "key": "Interface Max",
+        "value": "接口最大"
+      },
+      {
+        "key": "Interface Min",
+        "value": "接口最小"
+      },
+      {
+        "key": "Interval",
+        "value": "间隔"
+      },
+      {
+        "key": "Inventory Button",
+        "value": "物品栏按钮"
+      },
+      {
+        "key": "Inventory Slot Count",
+        "value": "物品栏槽位数量"
+      },
+      {
+        "key": "Inventory Sounds",
+        "value": "物品栏音效"
+      },
+      {
+        "key": "Iron",
+        "value": "铁"
+      },
+      {
+        "key": "Iron Barrel",
+        "value": "铁桶"
+      },
+      {
+        "key": "Iron Furnace",
+        "value": "铁熔炉"
+      },
+      {
+        "key": "Iron Weight",
+        "value": "铁权重"
+      },
+      {
+        "key": "Is Food Tooltip Enabled",
+        "value": "食物提示启用"
+      },
+      {
+        "key": "Item",
+        "value": "物品"
+      },
+      {
+        "key": "Item Blacklist",
+        "value": "物品黑名单"
+      },
+      {
+        "key": "Item Limit",
+        "value": "物品上限"
+      },
+      {
+        "key": "Item Pipe",
+        "value": "物品管道"
+      },
+      {
+        "key": "Item Pipe Interval Duration",
+        "value": "物品管道间隔持续时间"
+      },
+      {
+        "key": "Item Pipe Transfer Amount",
+        "value": "物品管道传输数量"
+      },
+      {
+        "key": "Item To Block Range",
+        "value": "物品至方块范围"
+      },
+      {
+        "key": "Items",
+        "value": "物品"
+      },
+      {
+        "key": "Items Rate",
+        "value": "物品频率"
+      },
+      {
+        "key": "Lapis Cost Factor",
+        "value": "青金石消耗系数"
+      },
+      {
+        "key": "Lapis Lazuli",
+        "value": "青金石石"
+      },
+      {
+        "key": "Lapis Lazuli Attack Damage",
+        "value": "青金石石攻击伤害"
+      },
+      {
+        "key": "Lapis Lazuli Efficiency",
+        "value": "青金石石效率"
+      },
+      {
+        "key": "Large",
+        "value": "大型"
+      },
+      {
+        "key": "Large Energy Storage",
+        "value": "大型能量存储"
+      },
+      {
+        "key": "Large Heat Generation",
+        "value": "大型热量生成"
+      },
+      {
+        "key": "Large Heat Generation Fluid Rate",
+        "value": "大型热量生成流体频率"
+      },
+      {
+        "key": "Large Heat Generator",
+        "value": "大型热量发电机"
+      },
+      {
+        "key": "Large Steam Furnace Size",
+        "value": "大型蒸汽熔炉大小"
+      },
+      {
+        "key": "Large Village Weight",
+        "value": "大型村庄权重"
+      },
+      {
+        "key": "Laser",
+        "value": "激光"
+      },
+      {
+        "key": "Laser Block Range",
+        "value": "激光方块范围"
+      },
+      {
+        "key": "Laser Damage",
+        "value": "激光伤害"
+      },
+      {
+        "key": "Leaf Generator Cooldown",
+        "value": "树叶发电机冷却"
+      },
+      {
+        "key": "Level",
+        "value": "等级"
+      },
+      {
+        "key": "Level Cost Factor",
+        "value": "等级消耗系数"
+      },
+      {
+        "key": "Light Level",
+        "value": "光照等级"
+      },
+      {
+        "key": "Limit",
+        "value": "上限"
+      },
+      {
+        "key": "Load Time",
+        "value": "加载时间"
+      },
+      {
+        "key": "Loot",
+        "value": "战利品"
+      },
+      {
+        "key": "Machine",
+        "value": "机器"
+      },
+      {
+        "key": "Machine Effects",
+        "value": "机器特效"
+      },
+      {
+        "key": "Machine Generator Config",
+        "value": "机器发电机配置"
+      },
+      {
+        "key": "Machine Misc Config",
+        "value": "机器杂项配置"
+      },
+      {
+        "key": "Machine Particles",
+        "value": "机器粒子"
+      },
+      {
+        "key": "Machine Volume",
+        "value": "机器容积"
+      },
+      {
+        "key": "Machine Volume Multiplier",
+        "value": "机器容积倍率"
+      },
+      {
+        "key": "Max",
+        "value": "最大"
+      },
+      {
+        "key": "Max Capacity",
+        "value": "最大容量"
+      },
+      {
+        "key": "Max Capacity Per Item Type",
+        "value": "最大容量每物品类型"
+      },
+      {
+        "key": "Max Cell Content Shown",
+        "value": "最大元件内容显示"
+      },
+      {
+        "key": "Max Cost",
+        "value": "最大消耗"
+      },
+      {
+        "key": "Max Creative Capacity",
+        "value": "最大创造容量"
+      },
+      {
+        "key": "Max Custom Mode Scale",
+        "value": "最大自定义模式缩放"
+      },
+      {
+        "key": "Max Damage",
+        "value": "最大伤害"
+      },
+      {
+        "key": "Max Distance",
+        "value": "最大距离"
+      },
+      {
+        "key": "Max Effect Count",
+        "value": "最大特效数量"
+      },
+      {
+        "key": "Max Energy",
+        "value": "最大能量"
+      },
+      {
+        "key": "Max Energy Per Steam",
+        "value": "最大能量每蒸汽"
+      },
+      {
+        "key": "Max Entities",
+        "value": "最大实体"
+      },
+      {
+        "key": "Max Essence Tank Size",
+        "value": "最大精华储罐大小"
+      },
+      {
+        "key": "Max Fluid Rate Advanced",
+        "value": "最大流体频率进阶"
+      },
+      {
+        "key": "Max Heat",
+        "value": "最大热量"
+      },
+      {
+        "key": "Max Height",
+        "value": "最大高度"
+      },
+      {
+        "key": "Max Input Output",
+        "value": "最大输入输出"
+      },
+      {
+        "key": "Max Input Tank Size",
+        "value": "最大输入储罐大小"
+      },
+      {
+        "key": "Max Items",
+        "value": "最大物品"
+      },
+      {
+        "key": "Max Length",
+        "value": "最大长度"
+      },
+      {
+        "key": "Max Light Level",
+        "value": "最大光照等级"
+      },
+      {
+        "key": "Max Mining Time",
+        "value": "最大挖掘时间"
+      },
+      {
+        "key": "Max Output Size",
+        "value": "最大输出大小"
+      },
+      {
+        "key": "Max Output Tank Size",
+        "value": "最大输出储罐大小"
+      },
+      {
+        "key": "Max Overlay Mode",
+        "value": "最大覆盖层模式"
+      },
+      {
+        "key": "Max Potion Effect Duration",
+        "value": "最大药水特效持续时间"
+      },
+      {
+        "key": "Max Power",
+        "value": "最大功率"
+      },
+      {
+        "key": "Max Radius",
+        "value": "最大半径"
+      },
+      {
+        "key": "Max Range",
+        "value": "最大范围"
+      },
+      {
+        "key": "Max Reactor Height",
+        "value": "最大反应堆高度"
+      },
+      {
+        "key": "Max Reactor Size",
+        "value": "最大反应堆大小"
+      },
+      {
+        "key": "Max Search Radius",
+        "value": "最大搜索半径"
+      },
+      {
+        "key": "Max Size",
+        "value": "最大大小"
+      },
+      {
+        "key": "Max Storage",
+        "value": "最大存储"
+      },
+      {
+        "key": "Max Tank Creative Size",
+        "value": "最大储罐创造大小"
+      },
+      {
+        "key": "Max Tank Size",
+        "value": "最大储罐大小"
+      },
+      {
+        "key": "Max Text",
+        "value": "最大文字"
+      },
+      {
+        "key": "Max Tooltip Height",
+        "value": "最大提示高度"
+      },
+      {
+        "key": "Max Tooltip Width",
+        "value": "最大提示宽度"
+      },
+      {
+        "key": "Max Turbine Height",
+        "value": "最大涡轮高度"
+      },
+      {
+        "key": "Max Turbine Size",
+        "value": "最大涡轮大小"
+      },
+      {
+        "key": "Max Upgrade Multiplier",
+        "value": "最大升级倍率"
+      },
+      {
+        "key": "Max Vein Miner Range",
+        "value": "最大矿脉采矿机范围"
+      },
+      {
+        "key": "Max Vein Size",
+        "value": "最大矿脉大小"
+      },
+      {
+        "key": "Max Water Tank Size",
+        "value": "最大水储罐大小"
+      },
+      {
+        "key": "Max Water Tank Storage",
+        "value": "最大水储罐存储"
+      },
+      {
+        "key": "Max Width",
+        "value": "最大宽度"
+      },
+      {
+        "key": "Maximum",
+        "value": "最大"
+      },
+      {
+        "key": "Maximum Mob Multiplier",
+        "value": "最大生物倍率"
+      },
+      {
+        "key": "Maximum Per Player",
+        "value": "最大每玩家"
+      },
+      {
+        "key": "Medium Capacity",
+        "value": "中型容量"
+      },
+      {
+        "key": "Medium Speed",
+        "value": "中型速度"
+      },
+      {
+        "key": "Medium Village Weight",
+        "value": "中型村庄权重"
+      },
+      {
+        "key": "Menu",
+        "value": "菜单"
+      },
+      {
+        "key": "Message Structure",
+        "value": "消息结构"
+      },
+      {
+        "key": "Min",
+        "value": "最小"
+      },
+      {
+        "key": "Min Damage",
+        "value": "最小伤害"
+      },
+      {
+        "key": "Min Energy Rate",
+        "value": "最小能量频率"
+      },
+      {
+        "key": "Min Light Level",
+        "value": "最小光照等级"
+      },
+      {
+        "key": "Min Radius",
+        "value": "最小半径"
+      },
+      {
+        "key": "Min Range",
+        "value": "最小范围"
+      },
+      {
+        "key": "Min Search Radius",
+        "value": "最小搜索半径"
+      },
+      {
+        "key": "Min Speed",
+        "value": "最小速度"
+      },
+      {
+        "key": "Miner Efficiency",
+        "value": "采矿机效率"
+      },
+      {
+        "key": "Minimum Machine Tick Speed",
+        "value": "最小机器刻速度"
+      },
+      {
+        "key": "Minimum Mob Multiplier",
+        "value": "最小生物倍率"
+      },
+      {
+        "key": "Mining Count",
+        "value": "挖掘数量"
+      },
+      {
+        "key": "Misc",
+        "value": "杂项"
+      },
+      {
+        "key": "Missing",
+        "value": "缺失"
+      },
+      {
+        "key": "Mob",
+        "value": "生物"
+      },
+      {
+        "key": "Mob Crusher Config",
+        "value": "生物粉碎机配置"
+      },
+      {
+        "key": "Mob Drops",
+        "value": "生物掉落"
+      },
+      {
+        "key": "Mob Drops Enabled",
+        "value": "生物掉落启用"
+      },
+      {
+        "key": "Mob Multiplier",
+        "value": "生物倍率"
+      },
+      {
+        "key": "Mob Spawn",
+        "value": "生物生成"
+      },
+      {
+        "key": "Mode",
+        "value": "模式"
+      },
+      {
+        "key": "Music",
+        "value": "音乐"
+      },
+      {
+        "key": "Netherite",
+        "value": "下界合金"
+      },
+      {
+        "key": "Netherite Barrel",
+        "value": "下界合金桶"
+      },
+      {
+        "key": "Netherite Furnace",
+        "value": "下界合金熔炉"
+      },
+      {
+        "key": "Netherite Weight",
+        "value": "下界合金权重"
+      },
+      {
+        "key": "Network Max",
+        "value": "网络最大"
+      },
+      {
+        "key": "No Energy",
+        "value": "不能量"
+      },
+      {
+        "key": "No Upgrade",
+        "value": "不升级"
+      },
+      {
+        "key": "Notification Delay",
+        "value": "通知延迟"
+      },
+      {
+        "key": "Notify For Finished Crafting Jobs",
+        "value": "通知针对完成合成任务"
+      },
+      {
+        "key": "Obsidian Furnace",
+        "value": "黑曜石熔炉"
+      },
+      {
+        "key": "Open Energy Usage",
+        "value": "打开能量用量"
+      },
+      {
+        "key": "Ore Effect",
+        "value": "矿石特效"
+      },
+      {
+        "key": "Ore Laser Base Config",
+        "value": "矿石激光基础配置"
+      },
+      {
+        "key": "Osmium",
+        "value": "锇"
+      },
+      {
+        "key": "Osmium Attack Damage",
+        "value": "锇攻击伤害"
+      },
+      {
+        "key": "Osmium Efficiency",
+        "value": "锇效率"
+      },
+      {
+        "key": "Output",
+        "value": "输出"
+      },
+      {
+        "key": "Output Filter Slots",
+        "value": "输出过滤槽位"
+      },
+      {
+        "key": "Output Filter Slots In Row",
+        "value": "输出过滤槽位在行"
+      },
+      {
+        "key": "Output Multiplier",
+        "value": "输出倍率"
+      },
+      {
+        "key": "Output Network Energy Usage",
+        "value": "输出网络能量用量"
+      },
+      {
+        "key": "Output Tank Capacity",
+        "value": "输出储罐容量"
+      },
+      {
+        "key": "Overlay",
+        "value": "覆盖层"
+      },
+      {
+        "key": "Overlay Position",
+        "value": "覆盖层位置"
+      },
+      {
+        "key": "Particle",
+        "value": "粒子"
+      },
+      {
+        "key": "Particle Amount",
+        "value": "粒子数量"
+      },
+      {
+        "key": "Particles",
+        "value": "粒子"
+      },
+      {
+        "key": "Per Chunk",
+        "value": "每区块"
+      },
+      {
+        "key": "Per Log",
+        "value": "每日志"
+      },
+      {
+        "key": "Per Player Radius",
+        "value": "每玩家半径"
+      },
+      {
+        "key": "Player Drops",
+        "value": "玩家掉落"
+      },
+      {
+        "key": "Player Loot",
+        "value": "玩家战利品"
+      },
+      {
+        "key": "Port",
+        "value": "端口"
+      },
+      {
+        "key": "Position",
+        "value": "位置"
+      },
+      {
+        "key": "Potion",
+        "value": "药水"
+      },
+      {
+        "key": "Potion Time",
+        "value": "药水时间"
+      },
+      {
+        "key": "Power",
+        "value": "功率"
+      },
+      {
+        "key": "Power Cell Cost Factor",
+        "value": "功率元件消耗系数"
+      },
+      {
+        "key": "Power Cell Distance Cap",
+        "value": "功率元件距离上限"
+      },
+      {
+        "key": "Power Cell Min Distance",
+        "value": "功率元件最小距离"
+      },
+      {
+        "key": "Power Items",
+        "value": "功率物品"
+      },
+      {
+        "key": "Power Per Tick",
+        "value": "功率每刻"
+      },
+      {
+        "key": "Power Unit",
+        "value": "功率单位"
+      },
+      {
+        "key": "Pump",
+        "value": "泵"
+      },
+      {
+        "key": "Pump Upgrade",
+        "value": "泵升级"
+      },
+      {
+        "key": "Radiation",
+        "value": "辐射"
+      },
+      {
+        "key": "Radiation Multiplier",
+        "value": "辐射倍率"
+      },
+      {
+        "key": "Radiation Particle Count",
+        "value": "辐射粒子数量"
+      },
+      {
+        "key": "Radiation Particle Radius",
+        "value": "辐射粒子半径"
+      },
+      {
+        "key": "Radiation Transfer",
+        "value": "辐射传输"
+      },
+      {
+        "key": "Radius",
+        "value": "半径"
+      },
+      {
+        "key": "Radius Modifier",
+        "value": "半径系数"
+      },
+      {
+        "key": "Range",
+        "value": "范围"
+      },
+      {
+        "key": "Range Cap",
+        "value": "范围上限"
+      },
+      {
+        "key": "Range Multiplier",
+        "value": "范围倍率"
+      },
+      {
+        "key": "Range Upgrade Energy Usage",
+        "value": "范围升级能量用量"
+      },
+      {
+        "key": "Range Upgrade Range",
+        "value": "范围升级范围"
+      },
+      {
+        "key": "Reactor",
+        "value": "反应堆"
+      },
+      {
+        "key": "Reactor Max Energy Output",
+        "value": "反应堆最大能量输出"
+      },
+      {
+        "key": "Recipe",
+        "value": "配方"
+      },
+      {
+        "key": "Recipe Generation Mode",
+        "value": "配方生成模式"
+      },
+      {
+        "key": "Recipe Transfer Energy Usage",
+        "value": "配方传输能量用量"
+      },
+      {
+        "key": "Recipes",
+        "value": "配方"
+      },
+      {
+        "key": "Redstone",
+        "value": "红石"
+      },
+      {
+        "key": "Redstone And Glowstone",
+        "value": "红石与荧石"
+      },
+      {
+        "key": "Redstone Cost",
+        "value": "红石消耗"
+      },
+      {
+        "key": "Redstone Limit",
+        "value": "红石上限"
+      },
+      {
+        "key": "Refined Glowstone",
+        "value": "精制荧石"
+      },
+      {
+        "key": "Refined Glowstone Attack Damage",
+        "value": "精制荧石攻击伤害"
+      },
+      {
+        "key": "Refined Glowstone Efficiency",
+        "value": "精制荧石效率"
+      },
+      {
+        "key": "Refined Obsidian",
+        "value": "精制黑曜石"
+      },
+      {
+        "key": "Refined Obsidian Attack Damage",
+        "value": "精制黑曜石攻击伤害"
+      },
+      {
+        "key": "Refined Obsidian Efficiency",
+        "value": "精制黑曜石效率"
+      },
+      {
+        "key": "Remember Last Search",
+        "value": "记住上次搜索"
+      },
+      {
+        "key": "Render Block Particles",
+        "value": "渲染方块粒子"
+      },
+      {
+        "key": "Render Experience Cost",
+        "value": "渲染经验消耗"
+      },
+      {
+        "key": "Render Items On Player",
+        "value": "渲染物品开玩家"
+      },
+      {
+        "key": "Render Mode",
+        "value": "渲染模式"
+      },
+      {
+        "key": "Require Energy",
+        "value": "需要能量"
+      },
+      {
+        "key": "Required",
+        "value": "需要"
+      },
+      {
+        "key": "Required Ticks",
+        "value": "需要刻"
+      },
+      {
+        "key": "Saturation",
+        "value": "饱和度"
+      },
+      {
+        "key": "Save",
+        "value": "保存"
+      },
+      {
+        "key": "Save All",
+        "value": "保存全部"
+      },
+      {
+        "key": "Save Level",
+        "value": "保存等级"
+      },
+      {
+        "key": "Save Mode",
+        "value": "保存模式"
+      },
+      {
+        "key": "Scale",
+        "value": "缩放"
+      },
+      {
+        "key": "Screen",
+        "value": "界面"
+      },
+      {
+        "key": "Screen Scale",
+        "value": "界面缩放"
+      },
+      {
+        "key": "Screen Size",
+        "value": "界面大小"
+      },
+      {
+        "key": "Screenshot Show Count",
+        "value": "截图显示数量"
+      },
+      {
+        "key": "Search",
+        "value": "搜索"
+      },
+      {
+        "key": "Search Base",
+        "value": "搜索基础"
+      },
+      {
+        "key": "Search Enabled",
+        "value": "搜索启用"
+      },
+      {
+        "key": "Search Mode",
+        "value": "搜索模式"
+      },
+      {
+        "key": "Search Slot Color",
+        "value": "搜索槽位颜色"
+      },
+      {
+        "key": "Search Tooltip",
+        "value": "搜索提示"
+      },
+      {
+        "key": "Seed Crafting Recipes",
+        "value": "种子合成配方"
+      },
+      {
+        "key": "Server",
+        "value": "服务端"
+      },
+      {
+        "key": "Should Drop Player Loot",
+        "value": "是否掉落玩家战利品"
+      },
+      {
+        "key": "Show Cell Content",
+        "value": "显示元件内容"
+      },
+      {
+        "key": "Show Distance Text",
+        "value": "显示距离文字"
+      },
+      {
+        "key": "Show Missing Only By Default",
+        "value": "显示缺失仅按默认"
+      },
+      {
+        "key": "Show Text Overlay",
+        "value": "显示文字覆盖层"
+      },
+      {
+        "key": "Show Toggle Message",
+        "value": "显示切换消息"
+      },
+      {
+        "key": "Simple Check",
+        "value": "简易检查"
+      },
+      {
+        "key": "Simple Factor",
+        "value": "简易系数"
+      },
+      {
+        "key": "Simple Mode",
+        "value": "简易模式"
+      },
+      {
+        "key": "Size",
+        "value": "大小"
+      },
+      {
+        "key": "Slots",
+        "value": "槽位"
+      },
+      {
+        "key": "Slots In Row",
+        "value": "槽位在行"
+      },
+      {
+        "key": "Small",
+        "value": "小型"
+      },
+      {
+        "key": "Small Energy Storage",
+        "value": "小型能量存储"
+      },
+      {
+        "key": "Small Village Weight",
+        "value": "小型村庄权重"
+      },
+      {
+        "key": "Smelter",
+        "value": "冶炼炉"
+      },
+      {
+        "key": "Sort Range",
+        "value": "排序范围"
+      },
+      {
+        "key": "Sort Recipes",
+        "value": "排序配方"
+      },
+      {
+        "key": "Sort Type",
+        "value": "排序类型"
+      },
+      {
+        "key": "Sound",
+        "value": "音效"
+      },
+      {
+        "key": "Sound Amount",
+        "value": "音效数量"
+      },
+      {
+        "key": "Sounds",
+        "value": "音效"
+      },
+      {
+        "key": "Spawn Always Color",
+        "value": "生成始终颜色"
+      },
+      {
+        "key": "Spawn Amount",
+        "value": "生成数量"
+      },
+      {
+        "key": "Spawn Blacklist",
+        "value": "生成黑名单"
+      },
+      {
+        "key": "Spawn Limit",
+        "value": "生成上限"
+      },
+      {
+        "key": "Spawn On Block Entities",
+        "value": "生成开方块实体"
+      },
+      {
+        "key": "Spawn Time",
+        "value": "生成时间"
+      },
+      {
+        "key": "Spawn Type",
+        "value": "生成类型"
+      },
+      {
+        "key": "Spawning",
+        "value": "生成"
+      },
+      {
+        "key": "Speed",
+        "value": "速度"
+      },
+      {
+        "key": "Speed Multiplier",
+        "value": "速度倍率"
+      },
+      {
+        "key": "Speed Upgrade Energy Usage",
+        "value": "速度升级能量用量"
+      },
+      {
+        "key": "Speed Upgrade Speed Multiplier",
+        "value": "速度升级速度倍率"
+      },
+      {
+        "key": "Speed Upgrade Usage Multiplier",
+        "value": "速度升级用量倍率"
+      },
+      {
+        "key": "Standard",
+        "value": "标准"
+      },
+      {
+        "key": "Steam",
+        "value": "蒸汽"
+      },
+      {
+        "key": "Steam Per Injection",
+        "value": "蒸汽每注入"
+      },
+      {
+        "key": "Steam Per Tank",
+        "value": "蒸汽每储罐"
+      },
+      {
+        "key": "Steel",
+        "value": "钢"
+      },
+      {
+        "key": "Steel Attack Damage",
+        "value": "钢攻击伤害"
+      },
+      {
+        "key": "Steel Efficiency",
+        "value": "钢效率"
+      },
+      {
+        "key": "Storage",
+        "value": "存储"
+      },
+      {
+        "key": "Storage Block",
+        "value": "存储方块"
+      },
+      {
+        "key": "Storage Blocks",
+        "value": "存储方块"
+      },
+      {
+        "key": "Storage Bus Max",
+        "value": "存储总线最大"
+      },
+      {
+        "key": "Storage Bus Min",
+        "value": "存储总线最小"
+      },
+      {
+        "key": "Structure Blacklist",
+        "value": "结构黑名单"
+      },
+      {
+        "key": "Structure Render Time",
+        "value": "结构渲染时间"
+      },
+      {
+        "key": "Structure Steel",
+        "value": "结构钢"
+      },
+      {
+        "key": "Tank",
+        "value": "储罐"
+      },
+      {
+        "key": "Tank Capacity",
+        "value": "储罐容量"
+      },
+      {
+        "key": "Tank Capacity Per Block",
+        "value": "储罐容量每方块"
+      },
+      {
+        "key": "Tank Size",
+        "value": "储罐大小"
+      },
+      {
+        "key": "Tank Size Limit",
+        "value": "储罐大小上限"
+      },
+      {
+        "key": "Tank Storage Per Block",
+        "value": "储罐存储每方块"
+      },
+      {
+        "key": "Tank Upgrade",
+        "value": "储罐升级"
+      },
+      {
+        "key": "Text",
+        "value": "文字"
+      },
+      {
+        "key": "Text Color",
+        "value": "文字颜色"
+      },
+      {
+        "key": "Text Color Multiplier",
+        "value": "文字颜色倍率"
+      },
+      {
+        "key": "Text Size",
+        "value": "文字大小"
+      },
+      {
+        "key": "Theme",
+        "value": "主题"
+      },
+      {
+        "key": "Threshold",
+        "value": "阈值"
+      },
+      {
+        "key": "Tick Rate",
+        "value": "刻频率"
+      },
+      {
+        "key": "Ticks",
+        "value": "刻"
+      },
+      {
+        "key": "Ticks Per Coal",
+        "value": "刻每煤"
+      },
+      {
+        "key": "Ticks Per Damage",
+        "value": "刻每伤害"
+      },
+      {
+        "key": "Ticks Per Redstone Update",
+        "value": "刻每红石更新"
+      },
+      {
+        "key": "Ticks Per Upgrade",
+        "value": "刻每升级"
+      },
+      {
+        "key": "Time",
+        "value": "时间"
+      },
+      {
+        "key": "Time In Hive",
+        "value": "时间在蜂巢"
+      },
+      {
+        "key": "Time Modifier",
+        "value": "时间系数"
+      },
+      {
+        "key": "Time Multiplier",
+        "value": "时间倍率"
+      },
+      {
+        "key": "Timer",
+        "value": "计时"
+      },
+      {
+        "key": "Tooltip",
+        "value": "提示"
+      },
+      {
+        "key": "Tooltips",
+        "value": "提示"
+      },
+      {
+        "key": "Transfer Rate",
+        "value": "传输频率"
+      },
+      {
+        "key": "Transfer Speed Ticks",
+        "value": "传输速度刻"
+      },
+      {
+        "key": "Turbine",
+        "value": "涡轮"
+      },
+      {
+        "key": "Turbine Energy Power Rate Multiplier",
+        "value": "涡轮能量功率频率倍率"
+      },
+      {
+        "key": "Turbine Power Multiplier",
+        "value": "涡轮功率倍率"
+      },
+      {
+        "key": "Type",
+        "value": "类型"
+      },
+      {
+        "key": "Type Limit Creative",
+        "value": "类型上限创造"
+      },
+      {
+        "key": "Ultimate",
+        "value": "终极"
+      },
+      {
+        "key": "Ultimate Capacity",
+        "value": "终极容量"
+      },
+      {
+        "key": "Ultimate Heat Capacity",
+        "value": "终极热量容量"
+      },
+      {
+        "key": "Ultimate Output",
+        "value": "终极输出"
+      },
+      {
+        "key": "Ultimate Speed",
+        "value": "终极速度"
+      },
+      {
+        "key": "Update Interval",
+        "value": "更新间隔"
+      },
+      {
+        "key": "Upgrade",
+        "value": "升级"
+      },
+      {
+        "key": "Upgrade Blacklist",
+        "value": "升级黑名单"
+      },
+      {
+        "key": "Upgrade Light",
+        "value": "升级光照"
+      },
+      {
+        "key": "Upgrade Slot Count",
+        "value": "升级槽位数量"
+      },
+      {
+        "key": "Upgrade Whitelist",
+        "value": "升级白名单"
+      },
+      {
+        "key": "Usage",
+        "value": "用量"
+      },
+      {
+        "key": "Usage Blacklist",
+        "value": "用量黑名单"
+      },
+      {
+        "key": "Usage Multiplier",
+        "value": "用量倍率"
+      },
+      {
+        "key": "Use Compact Tree",
+        "value": "使用紧凑树"
+      },
+      {
+        "key": "Use Energy",
+        "value": "使用能量"
+      },
+      {
+        "key": "Use On Animal Cooldown",
+        "value": "使用开动物冷却"
+      },
+      {
+        "key": "Use On Animal Cost",
+        "value": "使用开动物消耗"
+      },
+      {
+        "key": "Use On Block Cooldown",
+        "value": "使用开方块冷却"
+      },
+      {
+        "key": "Use On Block Cost",
+        "value": "使用开方块消耗"
+      },
+      {
+        "key": "Use Per Tick",
+        "value": "使用每刻"
+      },
+      {
+        "key": "Use Whitelist",
+        "value": "使用白名单"
+      },
+      {
+        "key": "Vein Mining",
+        "value": "矿脉挖掘"
+      },
+      {
+        "key": "Vein Size",
+        "value": "矿脉大小"
+      },
+      {
+        "key": "Version",
+        "value": "版本"
+      },
+      {
+        "key": "Version Check",
+        "value": "版本检查"
+      },
+      {
+        "key": "Village And Dungeon Loot",
+        "value": "村庄与地牢战利品"
+      },
+      {
+        "key": "Villager",
+        "value": "村民"
+      },
+      {
+        "key": "Villager Drop Emerald Chance",
+        "value": "村民掉落绿宝石几率"
+      },
+      {
+        "key": "Villager Structure Weight",
+        "value": "村民结构权重"
+      },
+      {
+        "key": "Volume",
+        "value": "容积"
+      },
+      {
+        "key": "Water Focus Buff",
+        "value": "水聚焦增益"
+      },
+      {
+        "key": "Water Focus Debuff",
+        "value": "水聚焦减益"
+      },
+      {
+        "key": "Water Per Injection",
+        "value": "水每注入"
+      },
+      {
+        "key": "Water Per Tank",
+        "value": "水每储罐"
+      },
+      {
+        "key": "Whitelist",
+        "value": "白名单"
+      },
+      {
+        "key": "Width",
+        "value": "宽度"
+      },
+      {
+        "key": "Wire Colors",
+        "value": "导线颜色"
+      },
+      {
+        "key": "World",
+        "value": "世界"
+      },
+      {
+        "key": "World Generation",
+        "value": "世界生成"
+      },
+      {
+        "key": "Worldgen",
+        "value": "世界生成"
+      },
+      {
+        "key": "Xp Pump Upgrade",
+        "value": "经验泵升级"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "net.createmod.catnip.config.ui.BaseConfigScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Advanced",
+        "value": "进阶"
+      },
+      {
+        "key": "Advanced Block Charger Capacity",
+        "value": "进阶方块充电器容量"
+      },
+      {
+        "key": "Advanced Block Charger Range",
+        "value": "进阶方块充电器范围"
+      },
+      {
+        "key": "Advanced Block Charger Transfer Rate",
+        "value": "进阶方块充电器传输频率"
+      },
+      {
+        "key": "Advanced Capacity",
+        "value": "进阶容量"
+      },
+      {
+        "key": "Advanced Factor",
+        "value": "进阶系数"
+      },
+      {
+        "key": "Advanced Filter Upgrade",
+        "value": "进阶过滤升级"
+      },
+      {
+        "key": "Advanced Fuel Limit",
+        "value": "进阶燃料上限"
+      },
+      {
+        "key": "Advanced Heat Capacity",
+        "value": "进阶热量容量"
+      },
+      {
+        "key": "Advanced Max Slot Cost",
+        "value": "进阶最大槽位消耗"
+      },
+      {
+        "key": "Advanced Output",
+        "value": "进阶输出"
+      },
+      {
+        "key": "Advanced Player Charger Capacity",
+        "value": "进阶玩家充电器容量"
+      },
+      {
+        "key": "Advanced Player Charger Range",
+        "value": "进阶玩家充电器范围"
+      },
+      {
+        "key": "Advanced Player Charger Transfer Rate",
+        "value": "进阶玩家充电器传输频率"
+      },
+      {
+        "key": "Advanced Speed",
+        "value": "进阶速度"
+      },
+      {
+        "key": "Advanced Tooltips",
+        "value": "进阶提示"
+      },
+      {
+        "key": "Allow Block Entities",
+        "value": "允许方块实体"
+      },
+      {
+        "key": "Allow List",
+        "value": "允许列表"
+      },
+      {
+        "key": "Always Drop",
+        "value": "始终掉落"
+      },
+      {
+        "key": "Amount",
+        "value": "数量"
+      },
+      {
+        "key": "Animal Effect",
+        "value": "动物特效"
+      },
+      {
+        "key": "Animal Multiplier",
+        "value": "动物倍率"
+      },
+      {
+        "key": "Armor",
+        "value": "护甲"
+      },
+      {
+        "key": "Armor Config",
+        "value": "护甲配置"
+      },
+      {
+        "key": "Armor Enchantment Chance",
+        "value": "护甲附魔几率"
+      },
+      {
+        "key": "Armor Multiplier",
+        "value": "护甲倍率"
+      },
+      {
+        "key": "Armor Render Offset",
+        "value": "护甲渲染偏移"
+      },
+      {
+        "key": "Attack Damage",
+        "value": "攻击伤害"
+      },
+      {
+        "key": "Attack Multiplier",
+        "value": "攻击倍率"
+      },
+      {
+        "key": "Attack Speed",
+        "value": "攻击速度"
+      },
+      {
+        "key": "Auto Focus Search",
+        "value": "自动聚焦搜索"
+      },
+      {
+        "key": "Auto Input Interval",
+        "value": "自动输入间隔"
+      },
+      {
+        "key": "Auto Output Default",
+        "value": "自动输出默认"
+      },
+      {
+        "key": "Auto Output Interval",
+        "value": "自动输出间隔"
+      },
+      {
+        "key": "Auto Update",
+        "value": "自动更新"
+      },
+      {
+        "key": "Auto Use",
+        "value": "自动使用"
+      },
+      {
+        "key": "Base",
+        "value": "基础"
+      },
+      {
+        "key": "Base Chemical Rate",
+        "value": "基础化学频率"
+      },
+      {
+        "key": "Base Cost",
+        "value": "基础消耗"
+      },
+      {
+        "key": "Base Damage",
+        "value": "基础伤害"
+      },
+      {
+        "key": "Base Duration",
+        "value": "基础持续时间"
+      },
+      {
+        "key": "Base Efficiency",
+        "value": "基础效率"
+      },
+      {
+        "key": "Base Energy",
+        "value": "基础能量"
+      },
+      {
+        "key": "Base Energy Capacity",
+        "value": "基础能量容量"
+      },
+      {
+        "key": "Base Energy Per Fuel Tick",
+        "value": "基础能量每燃料刻"
+      },
+      {
+        "key": "Base Entity Distance",
+        "value": "基础实体距离"
+      },
+      {
+        "key": "Base Harvest",
+        "value": "基础收获"
+      },
+      {
+        "key": "Base Item Pipe Transfer",
+        "value": "基础物品管道传输"
+      },
+      {
+        "key": "Base Item Transfer Amount",
+        "value": "基础物品传输数量"
+      },
+      {
+        "key": "Base Level Cost",
+        "value": "基础等级消耗"
+      },
+      {
+        "key": "Base Max",
+        "value": "基础最大"
+      },
+      {
+        "key": "Base Max Blocks",
+        "value": "基础最大方块"
+      },
+      {
+        "key": "Base Max Entities",
+        "value": "基础最大实体"
+      },
+      {
+        "key": "Base Range",
+        "value": "基础范围"
+      },
+      {
+        "key": "Base Slot Limit Multiplier",
+        "value": "基础槽位上限倍率"
+      },
+      {
+        "key": "Base Tick Rate",
+        "value": "基础刻频率"
+      },
+      {
+        "key": "Base Usage",
+        "value": "基础用量"
+      },
+      {
+        "key": "Base Volume",
+        "value": "基础容积"
+      },
+      {
+        "key": "Basic",
+        "value": "基础"
+      },
+      {
+        "key": "Basic Block Charger Capacity",
+        "value": "基础方块充电器容量"
+      },
+      {
+        "key": "Basic Block Charger Range",
+        "value": "基础方块充电器范围"
+      },
+      {
+        "key": "Basic Block Charger Transfer Rate",
+        "value": "基础方块充电器传输频率"
+      },
+      {
+        "key": "Basic Capacity",
+        "value": "基础容量"
+      },
+      {
+        "key": "Basic Heat Capacity",
+        "value": "基础热量容量"
+      },
+      {
+        "key": "Basic Max Slot Cost",
+        "value": "基础最大槽位消耗"
+      },
+      {
+        "key": "Basic Output",
+        "value": "基础输出"
+      },
+      {
+        "key": "Basic Player Charger Capacity",
+        "value": "基础玩家充电器容量"
+      },
+      {
+        "key": "Basic Player Charger Range",
+        "value": "基础玩家充电器范围"
+      },
+      {
+        "key": "Basic Player Charger Transfer Rate",
+        "value": "基础玩家充电器传输频率"
+      },
+      {
+        "key": "Basic Speed",
+        "value": "基础速度"
+      },
+      {
+        "key": "Basic Transfer",
+        "value": "基础传输"
+      },
+      {
+        "key": "Bee Loot Injection",
+        "value": "蜜蜂战利品注入"
+      },
+      {
+        "key": "Biome",
+        "value": "生物群系"
+      },
+      {
+        "key": "Biome Blacklist",
+        "value": "生物群系黑名单"
+      },
+      {
+        "key": "Blacklist",
+        "value": "黑名单"
+      },
+      {
+        "key": "Block",
+        "value": "方块"
+      },
+      {
+        "key": "Block Break Energy Base",
+        "value": "方块破坏能量基础"
+      },
+      {
+        "key": "Block Break Speed",
+        "value": "方块破坏速度"
+      },
+      {
+        "key": "Block Damage",
+        "value": "方块伤害"
+      },
+      {
+        "key": "Block Render Distance",
+        "value": "方块渲染距离"
+      },
+      {
+        "key": "Block To Block Range",
+        "value": "方块至方块范围"
+      },
+      {
+        "key": "Block Update Log",
+        "value": "方块更新日志"
+      },
+      {
+        "key": "Blocks",
+        "value": "方块"
+      },
+      {
+        "key": "Boiler",
+        "value": "锅炉"
+      },
+      {
+        "key": "Boss Health",
+        "value": "首领生命值"
+      },
+      {
+        "key": "Boss Music Volume",
+        "value": "首领音乐容积"
+      },
+      {
+        "key": "Break Block Base",
+        "value": "破坏方块基础"
+      },
+      {
+        "key": "Break Block Fluid",
+        "value": "破坏方块流体"
+      },
+      {
+        "key": "Break Blocks",
+        "value": "破坏方块"
+      },
+      {
+        "key": "Break Radius",
+        "value": "破坏半径"
+      },
+      {
+        "key": "Bronze",
+        "value": "青铜"
+      },
+      {
+        "key": "Bronze Attack Damage",
+        "value": "青铜攻击伤害"
+      },
+      {
+        "key": "Bronze Efficiency",
+        "value": "青铜效率"
+      },
+      {
+        "key": "Buff Health",
+        "value": "增益生命值"
+      },
+      {
+        "key": "Buff With Potion Effects",
+        "value": "增益带药水特效"
+      },
+      {
+        "key": "Cable",
+        "value": "线缆"
+      },
+      {
+        "key": "Cap Config",
+        "value": "上限配置"
+      },
+      {
+        "key": "Capacity",
+        "value": "容量"
+      },
+      {
+        "key": "Capacity Per Slot Row",
+        "value": "容量每槽位行"
+      },
+      {
+        "key": "Chance",
+        "value": "几率"
+      },
+      {
+        "key": "Charger",
+        "value": "充电器"
+      },
+      {
+        "key": "Charger Consumption",
+        "value": "充电器消耗"
+      },
+      {
+        "key": "Charger Max",
+        "value": "充电器最大"
+      },
+      {
+        "key": "Charger Max Energy",
+        "value": "充电器最大能量"
+      },
+      {
+        "key": "Charger Min",
+        "value": "充电器最小"
+      },
+      {
+        "key": "Check Recipe Ticks",
+        "value": "检查配方刻"
+      },
+      {
+        "key": "Check Structure Ticks",
+        "value": "检查结构刻"
+      },
+      {
+        "key": "Chemical",
+        "value": "化学"
+      },
+      {
+        "key": "Chemical Per Tank",
+        "value": "化学每储罐"
+      },
+      {
+        "key": "Chemical Storage Block",
+        "value": "化学存储方块"
+      },
+      {
+        "key": "Chunk Check Radius",
+        "value": "区块检查半径"
+      },
+      {
+        "key": "Clear Search On Open",
+        "value": "清空搜索开打开"
+      },
+      {
+        "key": "Client",
+        "value": "客户端"
+      },
+      {
+        "key": "Client Config",
+        "value": "客户端配置"
+      },
+      {
+        "key": "Coal Generator",
+        "value": "煤发电机"
+      },
+      {
+        "key": "Color",
+        "value": "颜色"
+      },
+      {
+        "key": "Color Message",
+        "value": "颜色消息"
+      },
+      {
+        "key": "Color Text Disabled",
+        "value": "颜色文字禁用"
+      },
+      {
+        "key": "Color Toggle Text Disabled",
+        "value": "颜色切换文字禁用"
+      },
+      {
+        "key": "Colors",
+        "value": "颜色"
+      },
+      {
+        "key": "Common",
+        "value": "通用"
+      },
+      {
+        "key": "Compact Tooltips",
+        "value": "紧凑提示"
+      },
+      {
+        "key": "Compat",
+        "value": "兼容"
+      },
+      {
+        "key": "Config",
+        "value": "配置"
+      },
+      {
+        "key": "Consumption",
+        "value": "消耗"
+      },
+      {
+        "key": "Consumption Rate",
+        "value": "消耗频率"
+      },
+      {
+        "key": "Cooldown",
+        "value": "冷却"
+      },
+      {
+        "key": "Copper",
+        "value": "铜"
+      },
+      {
+        "key": "Copper Barrel",
+        "value": "铜桶"
+      },
+      {
+        "key": "Copper Furnace",
+        "value": "铜熔炉"
+      },
+      {
+        "key": "Copper Weight",
+        "value": "铜权重"
+      },
+      {
+        "key": "Cost",
+        "value": "消耗"
+      },
+      {
+        "key": "Cost Entity",
+        "value": "消耗实体"
+      },
+      {
+        "key": "Cost Min Distance",
+        "value": "消耗最小距离"
+      },
+      {
+        "key": "Cost Per Block",
+        "value": "消耗每方块"
+      },
+      {
+        "key": "Cost Player",
+        "value": "消耗玩家"
+      },
+      {
+        "key": "Count",
+        "value": "数量"
+      },
+      {
+        "key": "Crafting",
+        "value": "合成"
+      },
+      {
+        "key": "Crafting Blacklist",
+        "value": "合成黑名单"
+      },
+      {
+        "key": "Crafting Duration",
+        "value": "合成持续时间"
+      },
+      {
+        "key": "Crafting Energy Usage",
+        "value": "合成能量用量"
+      },
+      {
+        "key": "Crafting Log",
+        "value": "合成日志"
+      },
+      {
+        "key": "Creative Capacity",
+        "value": "创造容量"
+      },
+      {
+        "key": "Creative Energy Usage",
+        "value": "创造能量用量"
+      },
+      {
+        "key": "Creative Output",
+        "value": "创造输出"
+      },
+      {
+        "key": "Creative Range Upgrade Energy Usage",
+        "value": "创造范围升级能量用量"
+      },
+      {
+        "key": "Creative Speed",
+        "value": "创造速度"
+      },
+      {
+        "key": "Crop Blacklist",
+        "value": "作物黑名单"
+      },
+      {
+        "key": "Crusher",
+        "value": "粉碎机"
+      },
+      {
+        "key": "Custom Colors Overlay",
+        "value": "自定义颜色覆盖层"
+      },
+      {
+        "key": "Custom Config Screen",
+        "value": "自定义配置界面"
+      },
+      {
+        "key": "Custom Player",
+        "value": "自定义玩家"
+      },
+      {
+        "key": "Custom Search",
+        "value": "自定义搜索"
+      },
+      {
+        "key": "Damage",
+        "value": "伤害"
+      },
+      {
+        "key": "Damage Base",
+        "value": "伤害基础"
+      },
+      {
+        "key": "Damage Cap",
+        "value": "伤害上限"
+      },
+      {
+        "key": "Damage Chance",
+        "value": "伤害几率"
+      },
+      {
+        "key": "Damage Mode",
+        "value": "伤害模式"
+      },
+      {
+        "key": "Damage Modifier",
+        "value": "伤害系数"
+      },
+      {
+        "key": "Damage Tick Base",
+        "value": "伤害刻基础"
+      },
+      {
+        "key": "Damage Type Colors",
+        "value": "伤害类型颜色"
+      },
+      {
+        "key": "Debug",
+        "value": "调试"
+      },
+      {
+        "key": "Debug Level",
+        "value": "调试等级"
+      },
+      {
+        "key": "Debug Log",
+        "value": "调试日志"
+      },
+      {
+        "key": "Debug Mode",
+        "value": "调试模式"
+      },
+      {
+        "key": "Debug Text",
+        "value": "调试文字"
+      },
+      {
+        "key": "Default",
+        "value": "默认"
+      },
+      {
+        "key": "Default Base Block",
+        "value": "默认基础方块"
+      },
+      {
+        "key": "Default Dimension",
+        "value": "默认维度"
+      },
+      {
+        "key": "Default Fluid Heat Capacity",
+        "value": "默认流体热量容量"
+      },
+      {
+        "key": "Default Interval",
+        "value": "默认间隔"
+      },
+      {
+        "key": "Default Limit",
+        "value": "默认上限"
+      },
+      {
+        "key": "Default Scale",
+        "value": "默认缩放"
+      },
+      {
+        "key": "Default Spawn Energy Cost",
+        "value": "默认生成能量消耗"
+      },
+      {
+        "key": "Default Tick Cooldown",
+        "value": "默认刻冷却"
+      },
+      {
+        "key": "Delay",
+        "value": "延迟"
+      },
+      {
+        "key": "Diamond",
+        "value": "钻石"
+      },
+      {
+        "key": "Diamond Barrel",
+        "value": "钻石桶"
+      },
+      {
+        "key": "Diamond Furnace",
+        "value": "钻石熔炉"
+      },
+      {
+        "key": "Diamond Weight",
+        "value": "钻石权重"
+      },
+      {
+        "key": "Dimension Blacklist",
+        "value": "维度黑名单"
+      },
+      {
+        "key": "Dimension Cost",
+        "value": "维度消耗"
+      },
+      {
+        "key": "Dimension Cost Factor",
+        "value": "维度消耗系数"
+      },
+      {
+        "key": "Dimension Whitelist",
+        "value": "维度白名单"
+      },
+      {
+        "key": "Disable",
+        "value": "禁用"
+      },
+      {
+        "key": "Disable Break",
+        "value": "禁用破坏"
+      },
+      {
+        "key": "Disable Creative Inventory Button",
+        "value": "禁用创造物品栏按钮"
+      },
+      {
+        "key": "Disable Inventory Button",
+        "value": "禁用物品栏按钮"
+      },
+      {
+        "key": "Disable Reactor Particles",
+        "value": "禁用反应堆粒子"
+      },
+      {
+        "key": "Disable Turbine Particles",
+        "value": "禁用涡轮粒子"
+      },
+      {
+        "key": "Disable Villager Damage",
+        "value": "禁用村民伤害"
+      },
+      {
+        "key": "Disabled Time",
+        "value": "禁用时间"
+      },
+      {
+        "key": "Distance",
+        "value": "距离"
+      },
+      {
+        "key": "Do Update Check",
+        "value": "是否更新检查"
+      },
+      {
+        "key": "Drop Chance",
+        "value": "掉落几率"
+      },
+      {
+        "key": "Drop Chance Boss",
+        "value": "掉落几率首领"
+      },
+      {
+        "key": "Drop Chance Players",
+        "value": "掉落几率玩家"
+      },
+      {
+        "key": "Drop Crafting Recipes Enabled",
+        "value": "掉落合成配方启用"
+      },
+      {
+        "key": "Durability",
+        "value": "耐久"
+      },
+      {
+        "key": "Durability Multiplier",
+        "value": "耐久倍率"
+      },
+      {
+        "key": "Duration",
+        "value": "持续时间"
+      },
+      {
+        "key": "Effect Duration",
+        "value": "特效持续时间"
+      },
+      {
+        "key": "Effect Ticks",
+        "value": "特效刻"
+      },
+      {
+        "key": "Efficiency",
+        "value": "效率"
+      },
+      {
+        "key": "Elite Capacity",
+        "value": "精英容量"
+      },
+      {
+        "key": "Elite Energy Usage",
+        "value": "精英能量用量"
+      },
+      {
+        "key": "Elite Heat Capacity",
+        "value": "精英热量容量"
+      },
+      {
+        "key": "Elite Output",
+        "value": "精英输出"
+      },
+      {
+        "key": "Elite Speed",
+        "value": "精英速度"
+      },
+      {
+        "key": "Emerald Furnace",
+        "value": "绿宝石熔炉"
+      },
+      {
+        "key": "Enable",
+        "value": "启用"
+      },
+      {
+        "key": "Enable Boss Music",
+        "value": "启用首领音乐"
+      },
+      {
+        "key": "Enable Break",
+        "value": "启用破坏"
+      },
+      {
+        "key": "Enable Button",
+        "value": "启用按钮"
+      },
+      {
+        "key": "Enable Button Sound",
+        "value": "启用按钮音效"
+      },
+      {
+        "key": "Enable Debug",
+        "value": "启用调试"
+      },
+      {
+        "key": "Enable Debug Mode",
+        "value": "启用调试模式"
+      },
+      {
+        "key": "Enable Dungeon Loot",
+        "value": "启用地牢战利品"
+      },
+      {
+        "key": "Enable Effects",
+        "value": "启用特效"
+      },
+      {
+        "key": "Enable Food Effect Tooltip",
+        "value": "启用食物特效提示"
+      },
+      {
+        "key": "Enable Gui Debug",
+        "value": "启用界面调试"
+      },
+      {
+        "key": "Enable Machine",
+        "value": "启用机器"
+      },
+      {
+        "key": "Enable Player",
+        "value": "启用玩家"
+      },
+      {
+        "key": "Enable Sort",
+        "value": "启用排序"
+      },
+      {
+        "key": "Enable Tooltips",
+        "value": "启用提示"
+      },
+      {
+        "key": "Enable Wire Damage",
+        "value": "启用导线伤害"
+      },
+      {
+        "key": "Enabled",
+        "value": "启用"
+      },
+      {
+        "key": "Enabled Items",
+        "value": "启用物品"
+      },
+      {
+        "key": "Energy",
+        "value": "能量"
+      },
+      {
+        "key": "Energy Capacity",
+        "value": "能量容量"
+      },
+      {
+        "key": "Energy Capacity Per Volume",
+        "value": "能量容量每容积"
+      },
+      {
+        "key": "Energy Color",
+        "value": "能量颜色"
+      },
+      {
+        "key": "Energy Consumption Multiplier",
+        "value": "能量消耗倍率"
+      },
+      {
+        "key": "Energy Cost",
+        "value": "能量消耗"
+      },
+      {
+        "key": "Energy Modifier",
+        "value": "能量系数"
+      },
+      {
+        "key": "Energy Per Damage",
+        "value": "能量每伤害"
+      },
+      {
+        "key": "Energy Per Input",
+        "value": "能量每输入"
+      },
+      {
+        "key": "Energy Per Recipe Tick",
+        "value": "能量每配方刻"
+      },
+      {
+        "key": "Energy Per Slot Row",
+        "value": "能量每槽位行"
+      },
+      {
+        "key": "Energy Per Tick",
+        "value": "能量每刻"
+      },
+      {
+        "key": "Energy Pipe",
+        "value": "能量管道"
+      },
+      {
+        "key": "Energy Pipe Transfer Rate",
+        "value": "能量管道传输频率"
+      },
+      {
+        "key": "Energy Rate",
+        "value": "能量频率"
+      },
+      {
+        "key": "Energy Rate Limit",
+        "value": "能量频率上限"
+      },
+      {
+        "key": "Energy Storage Block",
+        "value": "能量存储方块"
+      },
+      {
+        "key": "Energy To Fuel Rate",
+        "value": "能量至燃料频率"
+      },
+      {
+        "key": "Energy Type",
+        "value": "能量类型"
+      },
+      {
+        "key": "Energy Usage",
+        "value": "能量用量"
+      },
+      {
+        "key": "Energy Usage Potion Tick",
+        "value": "能量用量药水刻"
+      },
+      {
+        "key": "Energy Use",
+        "value": "能量使用"
+      },
+      {
+        "key": "Entity",
+        "value": "实体"
+      },
+      {
+        "key": "Entity Blacklist",
+        "value": "实体黑名单"
+      },
+      {
+        "key": "Entity Block List",
+        "value": "实体方块列表"
+      },
+      {
+        "key": "Entity List Mode",
+        "value": "实体列表模式"
+      },
+      {
+        "key": "Entity Whitelist",
+        "value": "实体白名单"
+      },
+      {
+        "key": "Experience Cost",
+        "value": "经验消耗"
+      },
+      {
+        "key": "Experience Per Item",
+        "value": "经验每物品"
+      },
+      {
+        "key": "Experimental",
+        "value": "实验性"
+      },
+      {
+        "key": "Export Bus Max",
+        "value": "输出总线最大"
+      },
+      {
+        "key": "Export Bus Min",
+        "value": "输出总线最小"
+      },
+      {
+        "key": "Filter Item Render Distance",
+        "value": "过滤物品渲染距离"
+      },
+      {
+        "key": "Filter List",
+        "value": "过滤列表"
+      },
+      {
+        "key": "Filter Slots",
+        "value": "过滤槽位"
+      },
+      {
+        "key": "Filter Upgrade",
+        "value": "过滤升级"
+      },
+      {
+        "key": "First Show Delay",
+        "value": "首次显示延迟"
+      },
+      {
+        "key": "Fluid",
+        "value": "流体"
+      },
+      {
+        "key": "Fluid Base Transfer Rate",
+        "value": "流体基础传输频率"
+      },
+      {
+        "key": "Fluid Capacity",
+        "value": "流体容量"
+      },
+      {
+        "key": "Fluid Laser Base Config",
+        "value": "流体激光基础配置"
+      },
+      {
+        "key": "Fluid Laser Transfer Rate",
+        "value": "流体激光传输频率"
+      },
+      {
+        "key": "Fluid Limit",
+        "value": "流体上限"
+      },
+      {
+        "key": "Fluid Max Transfer Rate",
+        "value": "流体最大传输频率"
+      },
+      {
+        "key": "Fluid Per Tank",
+        "value": "流体每储罐"
+      },
+      {
+        "key": "Fluid Pipe",
+        "value": "流体管道"
+      },
+      {
+        "key": "Fluid Rate Limit",
+        "value": "流体频率上限"
+      },
+      {
+        "key": "Fluid Storage Block",
+        "value": "流体存储方块"
+      },
+      {
+        "key": "Fluid Tank Capacity",
+        "value": "流体储罐容量"
+      },
+      {
+        "key": "Fluid Tank Max Height",
+        "value": "流体储罐最大高度"
+      },
+      {
+        "key": "Fluid Tank Update Rate",
+        "value": "流体储罐更新频率"
+      },
+      {
+        "key": "Fluid Transfer Multiplier",
+        "value": "流体传输倍率"
+      },
+      {
+        "key": "Fluid Unit",
+        "value": "流体单位"
+      },
+      {
+        "key": "Food",
+        "value": "食物"
+      },
+      {
+        "key": "Force Time",
+        "value": "强制时间"
+      },
+      {
+        "key": "Fuel Capacity",
+        "value": "燃料容量"
+      },
+      {
+        "key": "Fuel Efficiency Base",
+        "value": "燃料效率基础"
+      },
+      {
+        "key": "Fuel Efficiency Multiplier",
+        "value": "燃料效率倍率"
+      },
+      {
+        "key": "Fuel Energy",
+        "value": "燃料能量"
+      },
+      {
+        "key": "Fuel Filter Slots",
+        "value": "燃料过滤槽位"
+      },
+      {
+        "key": "Fuel Filter Slots In Row",
+        "value": "燃料过滤槽位在行"
+      },
+      {
+        "key": "Fuel Multiplier",
+        "value": "燃料倍率"
+      },
+      {
+        "key": "Fuel Per Steam Multiplier",
+        "value": "燃料每蒸汽倍率"
+      },
+      {
+        "key": "Fuel Tooltip",
+        "value": "燃料提示"
+      },
+      {
+        "key": "Fuel Tooltips",
+        "value": "燃料提示"
+      },
+      {
+        "key": "Fuel Usage",
+        "value": "燃料用量"
+      },
+      {
+        "key": "Fuel Usage Multiplier",
+        "value": "燃料用量倍率"
+      },
+      {
+        "key": "Gas Generator",
+        "value": "气体发电机"
+      },
+      {
+        "key": "Gas Pipe",
+        "value": "气体管道"
+      },
+      {
+        "key": "General",
+        "value": "常规"
+      },
+      {
+        "key": "Generation",
+        "value": "生成"
+      },
+      {
+        "key": "Generation Max",
+        "value": "生成最大"
+      },
+      {
+        "key": "Generation Min",
+        "value": "生成最小"
+      },
+      {
+        "key": "Generator Capacity",
+        "value": "发电机容量"
+      },
+      {
+        "key": "Generator Efficiency",
+        "value": "发电机效率"
+      },
+      {
+        "key": "Generator Honey Use",
+        "value": "发电机蜂蜜使用"
+      },
+      {
+        "key": "Generator Max Output",
+        "value": "发电机最大输出"
+      },
+      {
+        "key": "Glowstone Cost",
+        "value": "荧石消耗"
+      },
+      {
+        "key": "Glowstone Light Level",
+        "value": "荧石光照等级"
+      },
+      {
+        "key": "Glowstone Limit",
+        "value": "荧石上限"
+      },
+      {
+        "key": "Gold",
+        "value": "金"
+      },
+      {
+        "key": "Gold Barrel",
+        "value": "金桶"
+      },
+      {
+        "key": "Gold Furnace",
+        "value": "金熔炉"
+      },
+      {
+        "key": "Gold Items",
+        "value": "金物品"
+      },
+      {
+        "key": "Gold Weight",
+        "value": "金权重"
+      },
+      {
+        "key": "Growth Modifier",
+        "value": "生长系数"
+      },
+      {
+        "key": "Gui",
+        "value": "界面"
+      },
+      {
+        "key": "Gui Overlay Position",
+        "value": "界面覆盖层位置"
+      },
+      {
+        "key": "Harvest Speed Multiplier",
+        "value": "收获速度倍率"
+      },
+      {
+        "key": "Health",
+        "value": "生命值"
+      },
+      {
+        "key": "Health Multiplier",
+        "value": "生命值倍率"
+      },
+      {
+        "key": "Health Threshold",
+        "value": "生命值阈值"
+      },
+      {
+        "key": "Heat",
+        "value": "热量"
+      },
+      {
+        "key": "Heat Capacity",
+        "value": "热量容量"
+      },
+      {
+        "key": "Heat Generation",
+        "value": "热量生成"
+      },
+      {
+        "key": "Heat Generation Fluid Rate",
+        "value": "热量生成流体频率"
+      },
+      {
+        "key": "Heat Generator",
+        "value": "热量发电机"
+      },
+      {
+        "key": "Heat Per Fuel Tick",
+        "value": "热量每燃料刻"
+      },
+      {
+        "key": "Heat Rate",
+        "value": "热量频率"
+      },
+      {
+        "key": "Height",
+        "value": "高度"
+      },
+      {
+        "key": "Hide Energy Overlay",
+        "value": "隐藏能量覆盖层"
+      },
+      {
+        "key": "Hive",
+        "value": "蜂巢"
+      },
+      {
+        "key": "Hive Tick Rate",
+        "value": "蜂巢刻频率"
+      },
+      {
+        "key": "Honey",
+        "value": "蜂蜜"
+      },
+      {
+        "key": "Honey Base",
+        "value": "蜂蜜基础"
+      },
+      {
+        "key": "Import Bus Max",
+        "value": "输入总线最大"
+      },
+      {
+        "key": "Import Bus Min",
+        "value": "输入总线最小"
+      },
+      {
+        "key": "In World Crafting",
+        "value": "在世界合成"
+      },
+      {
+        "key": "Infusion Allowed Effects",
+        "value": "灌注允许特效"
+      },
+      {
+        "key": "Infusion Minimum Duration",
+        "value": "灌注最小持续时间"
+      },
+      {
+        "key": "Infusion Required Duration",
+        "value": "灌注需要持续时间"
+      },
+      {
+        "key": "Input",
+        "value": "输入"
+      },
+      {
+        "key": "Input Filter Slots",
+        "value": "输入过滤槽位"
+      },
+      {
+        "key": "Input Filter Slots In Row",
+        "value": "输入过滤槽位在行"
+      },
+      {
+        "key": "Input Network Energy Usage",
+        "value": "输入网络能量用量"
+      },
+      {
+        "key": "Integration",
+        "value": "集成"
+      },
+      {
+        "key": "Interface",
+        "value": "接口"
+      },
+      {
+        "key": "Interface Crafting Base Consumption",
+        "value": "接口合成基础消耗"
+      },
+      {
+        "key": "Interface Energy Base Consumption",
+        "value": "接口能量基础消耗"
+      },
+      {
+        "key": "Interface Fluid Base Consumption",
+        "value": "接口流体基础消耗"
+      },
+      {
+        "key": "Interface Item Base Consumption",
+        "value": "接口物品基础消耗"
+      },
+      {
+        "key": "Interface Max",
+        "value": "接口最大"
+      },
+      {
+        "key": "Interface Min",
+        "value": "接口最小"
+      },
+      {
+        "key": "Interval",
+        "value": "间隔"
+      },
+      {
+        "key": "Inventory Button",
+        "value": "物品栏按钮"
+      },
+      {
+        "key": "Inventory Slot Count",
+        "value": "物品栏槽位数量"
+      },
+      {
+        "key": "Inventory Sounds",
+        "value": "物品栏音效"
+      },
+      {
+        "key": "Iron",
+        "value": "铁"
+      },
+      {
+        "key": "Iron Barrel",
+        "value": "铁桶"
+      },
+      {
+        "key": "Iron Furnace",
+        "value": "铁熔炉"
+      },
+      {
+        "key": "Iron Weight",
+        "value": "铁权重"
+      },
+      {
+        "key": "Is Food Tooltip Enabled",
+        "value": "食物提示启用"
+      },
+      {
+        "key": "Item",
+        "value": "物品"
+      },
+      {
+        "key": "Item Blacklist",
+        "value": "物品黑名单"
+      },
+      {
+        "key": "Item Limit",
+        "value": "物品上限"
+      },
+      {
+        "key": "Item Pipe",
+        "value": "物品管道"
+      },
+      {
+        "key": "Item Pipe Interval Duration",
+        "value": "物品管道间隔持续时间"
+      },
+      {
+        "key": "Item Pipe Transfer Amount",
+        "value": "物品管道传输数量"
+      },
+      {
+        "key": "Item To Block Range",
+        "value": "物品至方块范围"
+      },
+      {
+        "key": "Items",
+        "value": "物品"
+      },
+      {
+        "key": "Items Rate",
+        "value": "物品频率"
+      },
+      {
+        "key": "Lapis Cost Factor",
+        "value": "青金石消耗系数"
+      },
+      {
+        "key": "Lapis Lazuli",
+        "value": "青金石石"
+      },
+      {
+        "key": "Lapis Lazuli Attack Damage",
+        "value": "青金石石攻击伤害"
+      },
+      {
+        "key": "Lapis Lazuli Efficiency",
+        "value": "青金石石效率"
+      },
+      {
+        "key": "Large",
+        "value": "大型"
+      },
+      {
+        "key": "Large Energy Storage",
+        "value": "大型能量存储"
+      },
+      {
+        "key": "Large Heat Generation",
+        "value": "大型热量生成"
+      },
+      {
+        "key": "Large Heat Generation Fluid Rate",
+        "value": "大型热量生成流体频率"
+      },
+      {
+        "key": "Large Heat Generator",
+        "value": "大型热量发电机"
+      },
+      {
+        "key": "Large Steam Furnace Size",
+        "value": "大型蒸汽熔炉大小"
+      },
+      {
+        "key": "Large Village Weight",
+        "value": "大型村庄权重"
+      },
+      {
+        "key": "Laser",
+        "value": "激光"
+      },
+      {
+        "key": "Laser Block Range",
+        "value": "激光方块范围"
+      },
+      {
+        "key": "Laser Damage",
+        "value": "激光伤害"
+      },
+      {
+        "key": "Leaf Generator Cooldown",
+        "value": "树叶发电机冷却"
+      },
+      {
+        "key": "Level",
+        "value": "等级"
+      },
+      {
+        "key": "Level Cost Factor",
+        "value": "等级消耗系数"
+      },
+      {
+        "key": "Light Level",
+        "value": "光照等级"
+      },
+      {
+        "key": "Limit",
+        "value": "上限"
+      },
+      {
+        "key": "Load Time",
+        "value": "加载时间"
+      },
+      {
+        "key": "Loot",
+        "value": "战利品"
+      },
+      {
+        "key": "Machine",
+        "value": "机器"
+      },
+      {
+        "key": "Machine Effects",
+        "value": "机器特效"
+      },
+      {
+        "key": "Machine Generator Config",
+        "value": "机器发电机配置"
+      },
+      {
+        "key": "Machine Misc Config",
+        "value": "机器杂项配置"
+      },
+      {
+        "key": "Machine Particles",
+        "value": "机器粒子"
+      },
+      {
+        "key": "Machine Volume",
+        "value": "机器容积"
+      },
+      {
+        "key": "Machine Volume Multiplier",
+        "value": "机器容积倍率"
+      },
+      {
+        "key": "Max",
+        "value": "最大"
+      },
+      {
+        "key": "Max Capacity",
+        "value": "最大容量"
+      },
+      {
+        "key": "Max Capacity Per Item Type",
+        "value": "最大容量每物品类型"
+      },
+      {
+        "key": "Max Cell Content Shown",
+        "value": "最大元件内容显示"
+      },
+      {
+        "key": "Max Cost",
+        "value": "最大消耗"
+      },
+      {
+        "key": "Max Creative Capacity",
+        "value": "最大创造容量"
+      },
+      {
+        "key": "Max Custom Mode Scale",
+        "value": "最大自定义模式缩放"
+      },
+      {
+        "key": "Max Damage",
+        "value": "最大伤害"
+      },
+      {
+        "key": "Max Distance",
+        "value": "最大距离"
+      },
+      {
+        "key": "Max Effect Count",
+        "value": "最大特效数量"
+      },
+      {
+        "key": "Max Energy",
+        "value": "最大能量"
+      },
+      {
+        "key": "Max Energy Per Steam",
+        "value": "最大能量每蒸汽"
+      },
+      {
+        "key": "Max Entities",
+        "value": "最大实体"
+      },
+      {
+        "key": "Max Essence Tank Size",
+        "value": "最大精华储罐大小"
+      },
+      {
+        "key": "Max Fluid Rate Advanced",
+        "value": "最大流体频率进阶"
+      },
+      {
+        "key": "Max Heat",
+        "value": "最大热量"
+      },
+      {
+        "key": "Max Height",
+        "value": "最大高度"
+      },
+      {
+        "key": "Max Input Output",
+        "value": "最大输入输出"
+      },
+      {
+        "key": "Max Input Tank Size",
+        "value": "最大输入储罐大小"
+      },
+      {
+        "key": "Max Items",
+        "value": "最大物品"
+      },
+      {
+        "key": "Max Length",
+        "value": "最大长度"
+      },
+      {
+        "key": "Max Light Level",
+        "value": "最大光照等级"
+      },
+      {
+        "key": "Max Mining Time",
+        "value": "最大挖掘时间"
+      },
+      {
+        "key": "Max Output Size",
+        "value": "最大输出大小"
+      },
+      {
+        "key": "Max Output Tank Size",
+        "value": "最大输出储罐大小"
+      },
+      {
+        "key": "Max Overlay Mode",
+        "value": "最大覆盖层模式"
+      },
+      {
+        "key": "Max Potion Effect Duration",
+        "value": "最大药水特效持续时间"
+      },
+      {
+        "key": "Max Power",
+        "value": "最大功率"
+      },
+      {
+        "key": "Max Radius",
+        "value": "最大半径"
+      },
+      {
+        "key": "Max Range",
+        "value": "最大范围"
+      },
+      {
+        "key": "Max Reactor Height",
+        "value": "最大反应堆高度"
+      },
+      {
+        "key": "Max Reactor Size",
+        "value": "最大反应堆大小"
+      },
+      {
+        "key": "Max Search Radius",
+        "value": "最大搜索半径"
+      },
+      {
+        "key": "Max Size",
+        "value": "最大大小"
+      },
+      {
+        "key": "Max Storage",
+        "value": "最大存储"
+      },
+      {
+        "key": "Max Tank Creative Size",
+        "value": "最大储罐创造大小"
+      },
+      {
+        "key": "Max Tank Size",
+        "value": "最大储罐大小"
+      },
+      {
+        "key": "Max Text",
+        "value": "最大文字"
+      },
+      {
+        "key": "Max Tooltip Height",
+        "value": "最大提示高度"
+      },
+      {
+        "key": "Max Tooltip Width",
+        "value": "最大提示宽度"
+      },
+      {
+        "key": "Max Turbine Height",
+        "value": "最大涡轮高度"
+      },
+      {
+        "key": "Max Turbine Size",
+        "value": "最大涡轮大小"
+      },
+      {
+        "key": "Max Upgrade Multiplier",
+        "value": "最大升级倍率"
+      },
+      {
+        "key": "Max Vein Miner Range",
+        "value": "最大矿脉采矿机范围"
+      },
+      {
+        "key": "Max Vein Size",
+        "value": "最大矿脉大小"
+      },
+      {
+        "key": "Max Water Tank Size",
+        "value": "最大水储罐大小"
+      },
+      {
+        "key": "Max Water Tank Storage",
+        "value": "最大水储罐存储"
+      },
+      {
+        "key": "Max Width",
+        "value": "最大宽度"
+      },
+      {
+        "key": "Maximum",
+        "value": "最大"
+      },
+      {
+        "key": "Maximum Mob Multiplier",
+        "value": "最大生物倍率"
+      },
+      {
+        "key": "Maximum Per Player",
+        "value": "最大每玩家"
+      },
+      {
+        "key": "Medium Capacity",
+        "value": "中型容量"
+      },
+      {
+        "key": "Medium Speed",
+        "value": "中型速度"
+      },
+      {
+        "key": "Medium Village Weight",
+        "value": "中型村庄权重"
+      },
+      {
+        "key": "Menu",
+        "value": "菜单"
+      },
+      {
+        "key": "Message Structure",
+        "value": "消息结构"
+      },
+      {
+        "key": "Min",
+        "value": "最小"
+      },
+      {
+        "key": "Min Damage",
+        "value": "最小伤害"
+      },
+      {
+        "key": "Min Energy Rate",
+        "value": "最小能量频率"
+      },
+      {
+        "key": "Min Light Level",
+        "value": "最小光照等级"
+      },
+      {
+        "key": "Min Radius",
+        "value": "最小半径"
+      },
+      {
+        "key": "Min Range",
+        "value": "最小范围"
+      },
+      {
+        "key": "Min Search Radius",
+        "value": "最小搜索半径"
+      },
+      {
+        "key": "Min Speed",
+        "value": "最小速度"
+      },
+      {
+        "key": "Miner Efficiency",
+        "value": "采矿机效率"
+      },
+      {
+        "key": "Minimum Machine Tick Speed",
+        "value": "最小机器刻速度"
+      },
+      {
+        "key": "Minimum Mob Multiplier",
+        "value": "最小生物倍率"
+      },
+      {
+        "key": "Mining Count",
+        "value": "挖掘数量"
+      },
+      {
+        "key": "Misc",
+        "value": "杂项"
+      },
+      {
+        "key": "Missing",
+        "value": "缺失"
+      },
+      {
+        "key": "Mob",
+        "value": "生物"
+      },
+      {
+        "key": "Mob Crusher Config",
+        "value": "生物粉碎机配置"
+      },
+      {
+        "key": "Mob Drops",
+        "value": "生物掉落"
+      },
+      {
+        "key": "Mob Drops Enabled",
+        "value": "生物掉落启用"
+      },
+      {
+        "key": "Mob Multiplier",
+        "value": "生物倍率"
+      },
+      {
+        "key": "Mob Spawn",
+        "value": "生物生成"
+      },
+      {
+        "key": "Mode",
+        "value": "模式"
+      },
+      {
+        "key": "Music",
+        "value": "音乐"
+      },
+      {
+        "key": "Netherite",
+        "value": "下界合金"
+      },
+      {
+        "key": "Netherite Barrel",
+        "value": "下界合金桶"
+      },
+      {
+        "key": "Netherite Furnace",
+        "value": "下界合金熔炉"
+      },
+      {
+        "key": "Netherite Weight",
+        "value": "下界合金权重"
+      },
+      {
+        "key": "Network Max",
+        "value": "网络最大"
+      },
+      {
+        "key": "No Energy",
+        "value": "不能量"
+      },
+      {
+        "key": "No Upgrade",
+        "value": "不升级"
+      },
+      {
+        "key": "Notification Delay",
+        "value": "通知延迟"
+      },
+      {
+        "key": "Notify For Finished Crafting Jobs",
+        "value": "通知针对完成合成任务"
+      },
+      {
+        "key": "Obsidian Furnace",
+        "value": "黑曜石熔炉"
+      },
+      {
+        "key": "Open Energy Usage",
+        "value": "打开能量用量"
+      },
+      {
+        "key": "Ore Effect",
+        "value": "矿石特效"
+      },
+      {
+        "key": "Ore Laser Base Config",
+        "value": "矿石激光基础配置"
+      },
+      {
+        "key": "Osmium",
+        "value": "锇"
+      },
+      {
+        "key": "Osmium Attack Damage",
+        "value": "锇攻击伤害"
+      },
+      {
+        "key": "Osmium Efficiency",
+        "value": "锇效率"
+      },
+      {
+        "key": "Output",
+        "value": "输出"
+      },
+      {
+        "key": "Output Filter Slots",
+        "value": "输出过滤槽位"
+      },
+      {
+        "key": "Output Filter Slots In Row",
+        "value": "输出过滤槽位在行"
+      },
+      {
+        "key": "Output Multiplier",
+        "value": "输出倍率"
+      },
+      {
+        "key": "Output Network Energy Usage",
+        "value": "输出网络能量用量"
+      },
+      {
+        "key": "Output Tank Capacity",
+        "value": "输出储罐容量"
+      },
+      {
+        "key": "Overlay",
+        "value": "覆盖层"
+      },
+      {
+        "key": "Overlay Position",
+        "value": "覆盖层位置"
+      },
+      {
+        "key": "Particle",
+        "value": "粒子"
+      },
+      {
+        "key": "Particle Amount",
+        "value": "粒子数量"
+      },
+      {
+        "key": "Particles",
+        "value": "粒子"
+      },
+      {
+        "key": "Per Chunk",
+        "value": "每区块"
+      },
+      {
+        "key": "Per Log",
+        "value": "每日志"
+      },
+      {
+        "key": "Per Player Radius",
+        "value": "每玩家半径"
+      },
+      {
+        "key": "Player Drops",
+        "value": "玩家掉落"
+      },
+      {
+        "key": "Player Loot",
+        "value": "玩家战利品"
+      },
+      {
+        "key": "Port",
+        "value": "端口"
+      },
+      {
+        "key": "Position",
+        "value": "位置"
+      },
+      {
+        "key": "Potion",
+        "value": "药水"
+      },
+      {
+        "key": "Potion Time",
+        "value": "药水时间"
+      },
+      {
+        "key": "Power",
+        "value": "功率"
+      },
+      {
+        "key": "Power Cell Cost Factor",
+        "value": "功率元件消耗系数"
+      },
+      {
+        "key": "Power Cell Distance Cap",
+        "value": "功率元件距离上限"
+      },
+      {
+        "key": "Power Cell Min Distance",
+        "value": "功率元件最小距离"
+      },
+      {
+        "key": "Power Items",
+        "value": "功率物品"
+      },
+      {
+        "key": "Power Per Tick",
+        "value": "功率每刻"
+      },
+      {
+        "key": "Power Unit",
+        "value": "功率单位"
+      },
+      {
+        "key": "Pump",
+        "value": "泵"
+      },
+      {
+        "key": "Pump Upgrade",
+        "value": "泵升级"
+      },
+      {
+        "key": "Radiation",
+        "value": "辐射"
+      },
+      {
+        "key": "Radiation Multiplier",
+        "value": "辐射倍率"
+      },
+      {
+        "key": "Radiation Particle Count",
+        "value": "辐射粒子数量"
+      },
+      {
+        "key": "Radiation Particle Radius",
+        "value": "辐射粒子半径"
+      },
+      {
+        "key": "Radiation Transfer",
+        "value": "辐射传输"
+      },
+      {
+        "key": "Radius",
+        "value": "半径"
+      },
+      {
+        "key": "Radius Modifier",
+        "value": "半径系数"
+      },
+      {
+        "key": "Range",
+        "value": "范围"
+      },
+      {
+        "key": "Range Cap",
+        "value": "范围上限"
+      },
+      {
+        "key": "Range Multiplier",
+        "value": "范围倍率"
+      },
+      {
+        "key": "Range Upgrade Energy Usage",
+        "value": "范围升级能量用量"
+      },
+      {
+        "key": "Range Upgrade Range",
+        "value": "范围升级范围"
+      },
+      {
+        "key": "Reactor",
+        "value": "反应堆"
+      },
+      {
+        "key": "Reactor Max Energy Output",
+        "value": "反应堆最大能量输出"
+      },
+      {
+        "key": "Recipe",
+        "value": "配方"
+      },
+      {
+        "key": "Recipe Generation Mode",
+        "value": "配方生成模式"
+      },
+      {
+        "key": "Recipe Transfer Energy Usage",
+        "value": "配方传输能量用量"
+      },
+      {
+        "key": "Recipes",
+        "value": "配方"
+      },
+      {
+        "key": "Redstone",
+        "value": "红石"
+      },
+      {
+        "key": "Redstone And Glowstone",
+        "value": "红石与荧石"
+      },
+      {
+        "key": "Redstone Cost",
+        "value": "红石消耗"
+      },
+      {
+        "key": "Redstone Limit",
+        "value": "红石上限"
+      },
+      {
+        "key": "Refined Glowstone",
+        "value": "精制荧石"
+      },
+      {
+        "key": "Refined Glowstone Attack Damage",
+        "value": "精制荧石攻击伤害"
+      },
+      {
+        "key": "Refined Glowstone Efficiency",
+        "value": "精制荧石效率"
+      },
+      {
+        "key": "Refined Obsidian",
+        "value": "精制黑曜石"
+      },
+      {
+        "key": "Refined Obsidian Attack Damage",
+        "value": "精制黑曜石攻击伤害"
+      },
+      {
+        "key": "Refined Obsidian Efficiency",
+        "value": "精制黑曜石效率"
+      },
+      {
+        "key": "Remember Last Search",
+        "value": "记住上次搜索"
+      },
+      {
+        "key": "Render Block Particles",
+        "value": "渲染方块粒子"
+      },
+      {
+        "key": "Render Experience Cost",
+        "value": "渲染经验消耗"
+      },
+      {
+        "key": "Render Items On Player",
+        "value": "渲染物品开玩家"
+      },
+      {
+        "key": "Render Mode",
+        "value": "渲染模式"
+      },
+      {
+        "key": "Require Energy",
+        "value": "需要能量"
+      },
+      {
+        "key": "Required",
+        "value": "需要"
+      },
+      {
+        "key": "Required Ticks",
+        "value": "需要刻"
+      },
+      {
+        "key": "Saturation",
+        "value": "饱和度"
+      },
+      {
+        "key": "Save",
+        "value": "保存"
+      },
+      {
+        "key": "Save All",
+        "value": "保存全部"
+      },
+      {
+        "key": "Save Level",
+        "value": "保存等级"
+      },
+      {
+        "key": "Save Mode",
+        "value": "保存模式"
+      },
+      {
+        "key": "Scale",
+        "value": "缩放"
+      },
+      {
+        "key": "Screen",
+        "value": "界面"
+      },
+      {
+        "key": "Screen Scale",
+        "value": "界面缩放"
+      },
+      {
+        "key": "Screen Size",
+        "value": "界面大小"
+      },
+      {
+        "key": "Screenshot Show Count",
+        "value": "截图显示数量"
+      },
+      {
+        "key": "Search",
+        "value": "搜索"
+      },
+      {
+        "key": "Search Base",
+        "value": "搜索基础"
+      },
+      {
+        "key": "Search Enabled",
+        "value": "搜索启用"
+      },
+      {
+        "key": "Search Mode",
+        "value": "搜索模式"
+      },
+      {
+        "key": "Search Slot Color",
+        "value": "搜索槽位颜色"
+      },
+      {
+        "key": "Search Tooltip",
+        "value": "搜索提示"
+      },
+      {
+        "key": "Seed Crafting Recipes",
+        "value": "种子合成配方"
+      },
+      {
+        "key": "Server",
+        "value": "服务端"
+      },
+      {
+        "key": "Should Drop Player Loot",
+        "value": "是否掉落玩家战利品"
+      },
+      {
+        "key": "Show Cell Content",
+        "value": "显示元件内容"
+      },
+      {
+        "key": "Show Distance Text",
+        "value": "显示距离文字"
+      },
+      {
+        "key": "Show Missing Only By Default",
+        "value": "显示缺失仅按默认"
+      },
+      {
+        "key": "Show Text Overlay",
+        "value": "显示文字覆盖层"
+      },
+      {
+        "key": "Show Toggle Message",
+        "value": "显示切换消息"
+      },
+      {
+        "key": "Simple Check",
+        "value": "简易检查"
+      },
+      {
+        "key": "Simple Factor",
+        "value": "简易系数"
+      },
+      {
+        "key": "Simple Mode",
+        "value": "简易模式"
+      },
+      {
+        "key": "Size",
+        "value": "大小"
+      },
+      {
+        "key": "Slots",
+        "value": "槽位"
+      },
+      {
+        "key": "Slots In Row",
+        "value": "槽位在行"
+      },
+      {
+        "key": "Small",
+        "value": "小型"
+      },
+      {
+        "key": "Small Energy Storage",
+        "value": "小型能量存储"
+      },
+      {
+        "key": "Small Village Weight",
+        "value": "小型村庄权重"
+      },
+      {
+        "key": "Smelter",
+        "value": "冶炼炉"
+      },
+      {
+        "key": "Sort Range",
+        "value": "排序范围"
+      },
+      {
+        "key": "Sort Recipes",
+        "value": "排序配方"
+      },
+      {
+        "key": "Sort Type",
+        "value": "排序类型"
+      },
+      {
+        "key": "Sound",
+        "value": "音效"
+      },
+      {
+        "key": "Sound Amount",
+        "value": "音效数量"
+      },
+      {
+        "key": "Sounds",
+        "value": "音效"
+      },
+      {
+        "key": "Spawn Always Color",
+        "value": "生成始终颜色"
+      },
+      {
+        "key": "Spawn Amount",
+        "value": "生成数量"
+      },
+      {
+        "key": "Spawn Blacklist",
+        "value": "生成黑名单"
+      },
+      {
+        "key": "Spawn Limit",
+        "value": "生成上限"
+      },
+      {
+        "key": "Spawn On Block Entities",
+        "value": "生成开方块实体"
+      },
+      {
+        "key": "Spawn Time",
+        "value": "生成时间"
+      },
+      {
+        "key": "Spawn Type",
+        "value": "生成类型"
+      },
+      {
+        "key": "Spawning",
+        "value": "生成"
+      },
+      {
+        "key": "Speed",
+        "value": "速度"
+      },
+      {
+        "key": "Speed Multiplier",
+        "value": "速度倍率"
+      },
+      {
+        "key": "Speed Upgrade Energy Usage",
+        "value": "速度升级能量用量"
+      },
+      {
+        "key": "Speed Upgrade Speed Multiplier",
+        "value": "速度升级速度倍率"
+      },
+      {
+        "key": "Speed Upgrade Usage Multiplier",
+        "value": "速度升级用量倍率"
+      },
+      {
+        "key": "Standard",
+        "value": "标准"
+      },
+      {
+        "key": "Steam",
+        "value": "蒸汽"
+      },
+      {
+        "key": "Steam Per Injection",
+        "value": "蒸汽每注入"
+      },
+      {
+        "key": "Steam Per Tank",
+        "value": "蒸汽每储罐"
+      },
+      {
+        "key": "Steel",
+        "value": "钢"
+      },
+      {
+        "key": "Steel Attack Damage",
+        "value": "钢攻击伤害"
+      },
+      {
+        "key": "Steel Efficiency",
+        "value": "钢效率"
+      },
+      {
+        "key": "Storage",
+        "value": "存储"
+      },
+      {
+        "key": "Storage Block",
+        "value": "存储方块"
+      },
+      {
+        "key": "Storage Blocks",
+        "value": "存储方块"
+      },
+      {
+        "key": "Storage Bus Max",
+        "value": "存储总线最大"
+      },
+      {
+        "key": "Storage Bus Min",
+        "value": "存储总线最小"
+      },
+      {
+        "key": "Structure Blacklist",
+        "value": "结构黑名单"
+      },
+      {
+        "key": "Structure Render Time",
+        "value": "结构渲染时间"
+      },
+      {
+        "key": "Structure Steel",
+        "value": "结构钢"
+      },
+      {
+        "key": "Tank",
+        "value": "储罐"
+      },
+      {
+        "key": "Tank Capacity",
+        "value": "储罐容量"
+      },
+      {
+        "key": "Tank Capacity Per Block",
+        "value": "储罐容量每方块"
+      },
+      {
+        "key": "Tank Size",
+        "value": "储罐大小"
+      },
+      {
+        "key": "Tank Size Limit",
+        "value": "储罐大小上限"
+      },
+      {
+        "key": "Tank Storage Per Block",
+        "value": "储罐存储每方块"
+      },
+      {
+        "key": "Tank Upgrade",
+        "value": "储罐升级"
+      },
+      {
+        "key": "Text",
+        "value": "文字"
+      },
+      {
+        "key": "Text Color",
+        "value": "文字颜色"
+      },
+      {
+        "key": "Text Color Multiplier",
+        "value": "文字颜色倍率"
+      },
+      {
+        "key": "Text Size",
+        "value": "文字大小"
+      },
+      {
+        "key": "Theme",
+        "value": "主题"
+      },
+      {
+        "key": "Threshold",
+        "value": "阈值"
+      },
+      {
+        "key": "Tick Rate",
+        "value": "刻频率"
+      },
+      {
+        "key": "Ticks",
+        "value": "刻"
+      },
+      {
+        "key": "Ticks Per Coal",
+        "value": "刻每煤"
+      },
+      {
+        "key": "Ticks Per Damage",
+        "value": "刻每伤害"
+      },
+      {
+        "key": "Ticks Per Redstone Update",
+        "value": "刻每红石更新"
+      },
+      {
+        "key": "Ticks Per Upgrade",
+        "value": "刻每升级"
+      },
+      {
+        "key": "Time",
+        "value": "时间"
+      },
+      {
+        "key": "Time In Hive",
+        "value": "时间在蜂巢"
+      },
+      {
+        "key": "Time Modifier",
+        "value": "时间系数"
+      },
+      {
+        "key": "Time Multiplier",
+        "value": "时间倍率"
+      },
+      {
+        "key": "Timer",
+        "value": "计时"
+      },
+      {
+        "key": "Tooltip",
+        "value": "提示"
+      },
+      {
+        "key": "Tooltips",
+        "value": "提示"
+      },
+      {
+        "key": "Transfer Rate",
+        "value": "传输频率"
+      },
+      {
+        "key": "Transfer Speed Ticks",
+        "value": "传输速度刻"
+      },
+      {
+        "key": "Turbine",
+        "value": "涡轮"
+      },
+      {
+        "key": "Turbine Energy Power Rate Multiplier",
+        "value": "涡轮能量功率频率倍率"
+      },
+      {
+        "key": "Turbine Power Multiplier",
+        "value": "涡轮功率倍率"
+      },
+      {
+        "key": "Type",
+        "value": "类型"
+      },
+      {
+        "key": "Type Limit Creative",
+        "value": "类型上限创造"
+      },
+      {
+        "key": "Ultimate",
+        "value": "终极"
+      },
+      {
+        "key": "Ultimate Capacity",
+        "value": "终极容量"
+      },
+      {
+        "key": "Ultimate Heat Capacity",
+        "value": "终极热量容量"
+      },
+      {
+        "key": "Ultimate Output",
+        "value": "终极输出"
+      },
+      {
+        "key": "Ultimate Speed",
+        "value": "终极速度"
+      },
+      {
+        "key": "Update Interval",
+        "value": "更新间隔"
+      },
+      {
+        "key": "Upgrade",
+        "value": "升级"
+      },
+      {
+        "key": "Upgrade Blacklist",
+        "value": "升级黑名单"
+      },
+      {
+        "key": "Upgrade Light",
+        "value": "升级光照"
+      },
+      {
+        "key": "Upgrade Slot Count",
+        "value": "升级槽位数量"
+      },
+      {
+        "key": "Upgrade Whitelist",
+        "value": "升级白名单"
+      },
+      {
+        "key": "Usage",
+        "value": "用量"
+      },
+      {
+        "key": "Usage Blacklist",
+        "value": "用量黑名单"
+      },
+      {
+        "key": "Usage Multiplier",
+        "value": "用量倍率"
+      },
+      {
+        "key": "Use Compact Tree",
+        "value": "使用紧凑树"
+      },
+      {
+        "key": "Use Energy",
+        "value": "使用能量"
+      },
+      {
+        "key": "Use On Animal Cooldown",
+        "value": "使用开动物冷却"
+      },
+      {
+        "key": "Use On Animal Cost",
+        "value": "使用开动物消耗"
+      },
+      {
+        "key": "Use On Block Cooldown",
+        "value": "使用开方块冷却"
+      },
+      {
+        "key": "Use On Block Cost",
+        "value": "使用开方块消耗"
+      },
+      {
+        "key": "Use Per Tick",
+        "value": "使用每刻"
+      },
+      {
+        "key": "Use Whitelist",
+        "value": "使用白名单"
+      },
+      {
+        "key": "Vein Mining",
+        "value": "矿脉挖掘"
+      },
+      {
+        "key": "Vein Size",
+        "value": "矿脉大小"
+      },
+      {
+        "key": "Version",
+        "value": "版本"
+      },
+      {
+        "key": "Version Check",
+        "value": "版本检查"
+      },
+      {
+        "key": "Village And Dungeon Loot",
+        "value": "村庄与地牢战利品"
+      },
+      {
+        "key": "Villager",
+        "value": "村民"
+      },
+      {
+        "key": "Villager Drop Emerald Chance",
+        "value": "村民掉落绿宝石几率"
+      },
+      {
+        "key": "Villager Structure Weight",
+        "value": "村民结构权重"
+      },
+      {
+        "key": "Volume",
+        "value": "容积"
+      },
+      {
+        "key": "Water Focus Buff",
+        "value": "水聚焦增益"
+      },
+      {
+        "key": "Water Focus Debuff",
+        "value": "水聚焦减益"
+      },
+      {
+        "key": "Water Per Injection",
+        "value": "水每注入"
+      },
+      {
+        "key": "Water Per Tank",
+        "value": "水每储罐"
+      },
+      {
+        "key": "Whitelist",
+        "value": "白名单"
+      },
+      {
+        "key": "Width",
+        "value": "宽度"
+      },
+      {
+        "key": "Wire Colors",
+        "value": "导线颜色"
+      },
+      {
+        "key": "World",
+        "value": "世界"
+      },
+      {
+        "key": "World Generation",
+        "value": "世界生成"
+      },
+      {
+        "key": "Worldgen",
+        "value": "世界生成"
+      },
+      {
+        "key": "Xp Pump Upgrade",
+        "value": "经验泵升级"
+      }
+    ]
+  }
+]
