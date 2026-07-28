@@ -31,7 +31,7 @@
   "minecolonies.config.buildgogglerange.comment": "佩戴建筑工护目镜时，你需要离多近（以方块为单位）才能看到工作指令。",
   "minecolonies.config.colonyteamborders": "使用队伍颜色显示殖民地边界",
   "minecolonies.config.colonyteamborders.comment": "当启用时，持有建筑工具时出现的殖民地边界，将会以该殖民地所属队伍的颜色显示。当禁用时，你所在的殖民地边界将以白色显示，其他殖民地边界将以红色显示。",
-  "minecolonies.config.showdyetooltips": "",
+  "minecolonies.config.showdyetooltips": "为皮革物品显示染色提示",
   "minecolonies.config.showdyetooltips.comment": "如果染色皮革制品显示正确颜色，则会显示工具提示，以便您知道要使用哪种颜色。",
   "minecolonies.config.diseasemodifier": "疾病发生率",
   "minecolonies.config.diseasemodifier.comment": "疾病发生频率。1 = 非常常见，100 = 非常罕见。",
