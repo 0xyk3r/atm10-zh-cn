@@ -32,38 +32,6 @@
         [
           "<button id=\"switch\" source=\"structurize:textures/gui/buildtool/button_medium.png\" label=\"$(structurize.gui.buildtool.switchpack)\" size=\"86 17\" pos=\"5 5\" textcolor=\"black\" texthovercolor=\"gray\"/>",
           "<button textoffset=\"29 4\" id=\"switch\" source=\"structurize:textures/gui/buildtool/button_medium.png\" label=\"$(structurize.gui.buildtool.switchpack)\" size=\"86 17\" pos=\"5 5\" textcolor=\"black\" texthovercolor=\"gray\"/>"
-        ],
-        [
-          "<button id=\"alternative\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"black\" texthovercolor=\"gray\"/>",
-          "<button textalign=\"MIDDLE\" id=\"alternative\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"black\" texthovercolor=\"gray\"/>"
-        ],
-        [
-          "<button id=\"level\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"black\" texthovercolor=\"gray\"/>",
-          "<button textalign=\"MIDDLE\" id=\"level\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"black\" texthovercolor=\"gray\"/>"
-        ],
-        [
-          "<button id=\"1\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"black\" texthovercolor=\"gray\" visible=\"false\"/>",
-          "<button textalign=\"MIDDLE\" id=\"1\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"black\" texthovercolor=\"gray\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"2\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"87 0\" textcolor=\"black\" texthovercolor=\"gray\" visible=\"false\"/>",
-          "<button textalign=\"MIDDLE\" id=\"2\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"87 0\" textcolor=\"black\" texthovercolor=\"gray\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"3\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"174 0\" textcolor=\"black\" texthovercolor=\"gray\" visible=\"false\"/>",
-          "<button textalign=\"MIDDLE\" id=\"3\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"174 0\" textcolor=\"black\" texthovercolor=\"gray\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"1\" source=\"structurize:textures/gui/buildtool/blueprint_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"white\" texthovercolor=\"gray\" visible=\"false\"/>",
-          "<button textalign=\"MIDDLE\" id=\"1\" source=\"structurize:textures/gui/buildtool/blueprint_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"white\" texthovercolor=\"gray\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"2\" source=\"structurize:textures/gui/buildtool/blueprint_medium.png\" size=\"86 17\" pos=\"87 0\" textcolor=\"white\" texthovercolor=\"gray\" visible=\"false\"/>",
-          "<button textalign=\"MIDDLE\" id=\"2\" source=\"structurize:textures/gui/buildtool/blueprint_medium.png\" size=\"86 17\" pos=\"87 0\" textcolor=\"white\" texthovercolor=\"gray\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"3\" source=\"structurize:textures/gui/buildtool/blueprint_medium.png\" size=\"86 17\" pos=\"174 0\" textcolor=\"white\" texthovercolor=\"gray\" visible=\"false\"/>",
-          "<button textalign=\"MIDDLE\" id=\"3\" source=\"structurize:textures/gui/buildtool/blueprint_medium.png\" size=\"86 17\" pos=\"174 0\" textcolor=\"white\" texthovercolor=\"gray\" visible=\"false\"/>"
         ]
       ]
     },
@@ -88,10 +56,6 @@
         [
           "<button label=\"$(com.ldtteam.structurize.gui.scantool.fillplacerholder.apply)\" id=\"fill\" pos=\"15 70\" size=\"40 17\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_medium_large.png\" textcolor=\"black\"/>",
           "<button textoffset=\"11 4\" label=\"$(com.ldtteam.structurize.gui.scantool.fillplacerholder.apply)\" id=\"fill\" pos=\"15 70\" size=\"40 17\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_medium_large.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button label=\"X\" id=\"cancelfill\" pos=\"70 70\" size=\"17 17\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_medium_large.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" label=\"X\" id=\"cancelfill\" pos=\"70 70\" size=\"17 17\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_medium_large.png\" textcolor=\"black\"/>"
         ]
       ]
     },
@@ -118,26 +82,6 @@
         [
           "<button label=\"$(com.ldtteam.structurize.gui.scantool.remove_filtered)\" id=\"removefiltered\" pos=\"80 83\" size=\"86 17\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" textcolor=\"black\" visible=\"false\"/>",
           "<button textoffset=\"20 4\" label=\"$(com.ldtteam.structurize.gui.scantool.remove_filtered)\" id=\"removefiltered\" pos=\"80 83\" size=\"86 17\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" textcolor=\"black\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"confirm\" source=\"structurize:textures/gui/buildtool/confirm.png\" size=\"32\" pos=\"105 50\"/>",
-          "<button textalign=\"MIDDLE\" id=\"confirm\" source=\"structurize:textures/gui/buildtool/confirm.png\" size=\"32\" pos=\"105 50\"/>"
-        ],
-        [
-          "<button id=\"cancel\" source=\"structurize:textures/gui/buildtool/cancel.png\" size=\"32\" pos=\"275 50\"/>",
-          "<button textalign=\"MIDDLE\" id=\"cancel\" source=\"structurize:textures/gui/buildtool/cancel.png\" size=\"32\" pos=\"275 50\"/>"
-        ],
-        [
-          "<button id=\"fillplaceholders\" pos=\"320 31\" size=\"17 17\"\n                 source=\"structurize:textures/gui/buildtool/default.png\" tooltip=\"$(com.ldtteam.structurize.gui.scantool.fillplacerholder.tooltip)\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"fillplaceholders\" pos=\"320 31\" size=\"17 17\"\n                 source=\"structurize:textures/gui/buildtool/default.png\" tooltip=\"$(com.ldtteam.structurize.gui.scantool.fillplacerholder.tooltip)\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"showBlock\" source=\"structurize:textures/gui/transparent.png\" pos=\"1 1\" size=\"86 16\"/>",
-          "<button textalign=\"MIDDLE\" id=\"showBlock\" source=\"structurize:textures/gui/transparent.png\" pos=\"1 1\" size=\"86 16\"/>"
-        ],
-        [
-          "<button id=\"undoredo\"\n                 tooltip=\"$(structurize.gui.undoredo)\"\n                 source=\"structurize:textures/gui/buildtool/undoredo.png\"\n                 visible=\"true\"\n                 size=\"32 32\"\n                 pos=\"395 210\"\n                 textcolor=\"Black\"\n                 texthovercolor=\"White\"/>",
-          "<button textalign=\"MIDDLE\" id=\"undoredo\"\n                 tooltip=\"$(structurize.gui.undoredo)\"\n                 source=\"structurize:textures/gui/buildtool/undoredo.png\"\n                 visible=\"true\"\n                 size=\"32 32\"\n                 pos=\"395 210\"\n                 textcolor=\"Black\"\n                 texthovercolor=\"White\"/>"
         ]
       ]
     },
@@ -152,54 +96,6 @@
         [
           "<button label=\"$(com.ldtteam.structurize.gui.shapetool.pickfillblock)\" id=\"pickFillBlock\" pos=\"24 43\" size=\"86 17\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" textcolor=\"black\"/>",
           "<button textoffset=\"16 4\" label=\"$(com.ldtteam.structurize.gui.shapetool.pickfillblock)\" id=\"pickFillBlock\" pos=\"24 43\" size=\"86 17\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"previousShape\" size=\"14 15\" pos=\"130 3\" label=\"&lt;\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"previousShape\" size=\"14 15\" pos=\"130 3\" label=\"&lt;\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"button\" size=\"100% 100%\" label=\"\" pos=\"0 0\"/>",
-          "<button textalign=\"MIDDLE\" id=\"button\" size=\"100% 100%\" label=\"\" pos=\"0 0\"/>"
-        ],
-        [
-          "<button id=\"nextShape\" size=\"14 15\" pos=\"275 3\" label=\"&gt;\"\n            source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"nextShape\" size=\"14 15\" pos=\"275 3\" label=\"&gt;\"\n            source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"heightminus\" size=\"14 15\" pos=\"46 2\" label=\"-\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"heightminus\" size=\"14 15\" pos=\"46 2\" label=\"-\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"heightplus\" size=\"14 15\" pos=\"91 2\" label=\"+\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"heightplus\" size=\"14 15\" pos=\"91 2\" label=\"+\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"widthminus\" size=\"14 15\" pos=\"46 2\" label=\"-\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"widthminus\" size=\"14 15\" pos=\"46 2\" label=\"-\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"widthplus\" size=\"14 15\" pos=\"91 2\" label=\"+\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"widthplus\" size=\"14 15\" pos=\"91 2\" label=\"+\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"lengthminus\" size=\"14 15\" pos=\"46 2\" label=\"-\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"lengthminus\" size=\"14 15\" pos=\"46 2\" label=\"-\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"lengthplus\" size=\"14 15\" pos=\"91 2\" label=\"+\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"lengthplus\" size=\"14 15\" pos=\"91 2\" label=\"+\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"frequencyminus\" size=\"14 15\" pos=\"46 2\" label=\"-\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"frequencyminus\" size=\"14 15\" pos=\"46 2\" label=\"-\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"frequencyplus\" size=\"14 15\" pos=\"91 2\" label=\"+\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"frequencyplus\" size=\"14 15\" pos=\"91 2\" label=\"+\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_mini.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"undoredo\"\n                 tooltip=\"$(structurize.gui.undoredo)\"\n                 source=\"structurize:textures/gui/buildtool/undoredo.png\"\n                 visible=\"true\"\n                 size=\"32 32\"\n                 pos=\"395 210\"\n                 textcolor=\"Black\"\n                 texthovercolor=\"White\"/>",
-          "<button textalign=\"MIDDLE\" id=\"undoredo\"\n                 tooltip=\"$(structurize.gui.undoredo)\"\n                 source=\"structurize:textures/gui/buildtool/undoredo.png\"\n                 visible=\"true\"\n                 size=\"32 32\"\n                 pos=\"395 210\"\n                 textcolor=\"Black\"\n                 texthovercolor=\"White\"/>"
         ]
       ]
     },
@@ -228,116 +124,6 @@
         [
           "<button label=\"$(com.ldtteam.structurize.gui.tagtool.close)\" id=\"closeUI\" pos=\"300 205\" size=\"86 17\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" textcolor=\"black\"/>",
           "<button textoffset=\"23 4\" label=\"$(com.ldtteam.structurize.gui.tagtool.close)\" id=\"closeUI\" pos=\"300 205\" size=\"86 17\"\n                 source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"removeTag\" pos=\"207 1\" size=\"15 15\" source=\"structurize:textures/gui/builderhut/button_x.png\" textcolor=\"black\"/>",
-          "<button textalign=\"MIDDLE\" id=\"removeTag\" pos=\"207 1\" size=\"15 15\" source=\"structurize:textures/gui/builderhut/button_x.png\" textcolor=\"black\"/>"
-        ],
-        [
-          "<button id=\"select\" pos=\"104 1\" size=\"16 16\" source=\"structurize:textures/gui/builderhut/checkbox_empty.png\" textcolor=\"black\"\n                    disabled=\"structurize:textures/gui/builderhut/checkbox_checked.png\"/>",
-          "<button textalign=\"MIDDLE\" id=\"select\" pos=\"104 1\" size=\"16 16\" source=\"structurize:textures/gui/builderhut/checkbox_empty.png\" textcolor=\"black\"\n                    disabled=\"structurize:textures/gui/builderhut/checkbox_checked.png\"/>"
-        ],
-        [
-          "<button id=\"cancel\" source=\"structurize:textures/gui/builderhut/button_x.png\" size=\"13 16\" pos=\"325 5\"/>",
-          "<button textalign=\"MIDDLE\" id=\"cancel\" source=\"structurize:textures/gui/builderhut/button_x.png\" size=\"13 16\" pos=\"325 5\"/>"
-        ]
-      ]
-    },
-    "assets/structurize/gui/layoutmanipulation.xml": {
-      "sha1": "718681e17d41a982235d1dd2d52ac70a76b2b697",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"rotateLeft\" source=\"structurize:textures/gui/buildtool/rotateleft.png\" size=\"16\" pos=\"0 0\"/>",
-          "<button textalign=\"MIDDLE\" id=\"rotateLeft\" source=\"structurize:textures/gui/buildtool/rotateleft.png\" size=\"16\" pos=\"0 0\"/>"
-        ],
-        [
-          "<button id=\"up\" source=\"structurize:textures/gui/buildtool/up.png\" size=\"16\" pos=\"16 0\"/>",
-          "<button textalign=\"MIDDLE\" id=\"up\" source=\"structurize:textures/gui/buildtool/up.png\" size=\"16\" pos=\"16 0\"/>"
-        ],
-        [
-          "<button id=\"rotateRight\" source=\"structurize:textures/gui/buildtool/rotateright.png\" size=\"16\" pos=\"32 0\"/>",
-          "<button textalign=\"MIDDLE\" id=\"rotateRight\" source=\"structurize:textures/gui/buildtool/rotateright.png\" size=\"16\" pos=\"32 0\"/>"
-        ],
-        [
-          "<button id=\"left\" source=\"structurize:textures/gui/buildtool/left.png\" size=\"16\" pos=\"0 16\"/>",
-          "<button textalign=\"MIDDLE\" id=\"left\" source=\"structurize:textures/gui/buildtool/left.png\" size=\"16\" pos=\"0 16\"/>"
-        ],
-        [
-          "<button id=\"mirror\" source=\"structurize:textures/gui/buildtool/mirror.png\" size=\"16\" pos=\"16 16\"/>",
-          "<button textalign=\"MIDDLE\" id=\"mirror\" source=\"structurize:textures/gui/buildtool/mirror.png\" size=\"16\" pos=\"16 16\"/>"
-        ],
-        [
-          "<button id=\"right\" source=\"structurize:textures/gui/buildtool/right.png\" size=\"16\" pos=\"32 16\"/>",
-          "<button textalign=\"MIDDLE\" id=\"right\" source=\"structurize:textures/gui/buildtool/right.png\" size=\"16\" pos=\"32 16\"/>"
-        ],
-        [
-          "<button id=\"minus\" source=\"structurize:textures/gui/buildtool/minus.png\" size=\"16\" pos=\"0 32\"/>",
-          "<button textalign=\"MIDDLE\" id=\"minus\" source=\"structurize:textures/gui/buildtool/minus.png\" size=\"16\" pos=\"0 32\"/>"
-        ],
-        [
-          "<button id=\"down\" source=\"structurize:textures/gui/buildtool/down.png\" size=\"16\" pos=\"16 32\"/>",
-          "<button textalign=\"MIDDLE\" id=\"down\" source=\"structurize:textures/gui/buildtool/down.png\" size=\"16\" pos=\"16 32\"/>"
-        ],
-        [
-          "<button id=\"plus\" source=\"structurize:textures/gui/buildtool/plus.png\" size=\"16\" pos=\"32 32\"/>",
-          "<button textalign=\"MIDDLE\" id=\"plus\" source=\"structurize:textures/gui/buildtool/plus.png\" size=\"16\" pos=\"32 32\"/>"
-        ],
-        [
-          "<button id=\"switch\" source=\"structurize:textures/gui/builderhut/builder_button_very_small.png\" size=\"29 15\" pos=\"150 0\" textcolor=\"black\" texthovercolor=\"gray\"/>",
-          "<button textalign=\"MIDDLE\" id=\"switch\" source=\"structurize:textures/gui/builderhut/builder_button_very_small.png\" size=\"29 15\" pos=\"150 0\" textcolor=\"black\" texthovercolor=\"gray\"/>"
-        ],
-        [
-          "<button id=\"type\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"black\" texthovercolor=\"gray\"/>",
-          "<button textalign=\"MIDDLE\" id=\"type\" source=\"structurize:textures/gui/buildtool/button_medium.png\" size=\"86 17\" pos=\"0 0\" textcolor=\"black\" texthovercolor=\"gray\"/>"
-        ],
-        [
-          "<button id=\"confirm\" source=\"structurize:textures/gui/buildtool/confirm.png\" size=\"30\" pos=\"300 213\"/>",
-          "<button textalign=\"MIDDLE\" id=\"confirm\" source=\"structurize:textures/gui/buildtool/confirm.png\" size=\"30\" pos=\"300 213\"/>"
-        ],
-        [
-          "<button id=\"cancel\" source=\"structurize:textures/gui/buildtool/cancel.png\" size=\"30\" pos=\"90 213\"/>",
-          "<button textalign=\"MIDDLE\" id=\"cancel\" source=\"structurize:textures/gui/buildtool/cancel.png\" size=\"30\" pos=\"90 213\"/>"
-        ],
-        [
-          "<button id=\"settings\" source=\"structurize:textures/gui/buildtool/settings.png\" size=\"30\" pos=\"0 213\"/>",
-          "<button textalign=\"MIDDLE\" id=\"settings\" source=\"structurize:textures/gui/buildtool/settings.png\" size=\"30\" pos=\"0 213\"/>"
-        ],
-        [
-          "<button id=\"contents\" source=\"structurize:textures/gui/buildtool/paste.png\" size=\"32 32\" pos=\"30 212\" tooltip=\"$(com.ldtteam.structurize.gui.scantool.showres)\" visible=\"false\"/>",
-          "<button textalign=\"MIDDLE\" id=\"contents\" source=\"structurize:textures/gui/buildtool/paste.png\" size=\"32 32\" pos=\"30 212\" tooltip=\"$(com.ldtteam.structurize.gui.scantool.showres)\" visible=\"false\"/>"
-        ]
-      ]
-    },
-    "assets/structurize/gui/windowselectres.xml": {
-      "sha1": "7889fda4f64fa067fef08c9e86c29695a0c5f2d9",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"done\" source=\"structurize:textures/gui/buildtool/confirm.png\" size=\"32\" pos=\"125 185\" visible=\"false\"/>",
-          "<button textalign=\"MIDDLE\" id=\"done\" source=\"structurize:textures/gui/buildtool/confirm.png\" size=\"32\" pos=\"125 185\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"cancel\" source=\"structurize:textures/gui/buildtool/cancel.png\" size=\"32\" pos=\"215 185\" visible=\"true\"/>",
-          "<button textalign=\"MIDDLE\" id=\"cancel\" source=\"structurize:textures/gui/buildtool/cancel.png\" size=\"32\" pos=\"215 185\" visible=\"true\"/>"
-        ]
-      ]
-    },
-    "assets/structurize/gui/windowundoredo.xml": {
-      "sha1": "c6466ec19120526767f985c89858c26aa78bf1fb",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"cancel\" source=\"structurize:textures/gui/buildtool/cancel.png\" size=\"32\" pos=\"270 40\"/>",
-          "<button textalign=\"MIDDLE\" id=\"cancel\" source=\"structurize:textures/gui/buildtool/cancel.png\" size=\"32\" pos=\"270 40\"/>"
-        ],
-        [
-          "<button id=\"undo\"\n                         source=\"structurize:textures/gui/buildtool/rotateleftsmall.png\"\n                         visible=\"true\"\n                         size=\"32 16\"\n                         pos=\"270 1\"\n                         textcolor=\"Black\"\n                         texthovercolor=\"White\"\n                         tooltip=\"$(structurize.gui.undoredo.undoop)\"/>",
-          "<button textalign=\"MIDDLE\" id=\"undo\"\n                         source=\"structurize:textures/gui/buildtool/rotateleftsmall.png\"\n                         visible=\"true\"\n                         size=\"32 16\"\n                         pos=\"270 1\"\n                         textcolor=\"Black\"\n                         texthovercolor=\"White\"\n                         tooltip=\"$(structurize.gui.undoredo.undoop)\"/>"
-        ],
-        [
-          "<button id=\"redo\"\n                         source=\"structurize:textures/gui/buildtool/rotaterightsmall.png\"\n                         visible=\"true\"\n                         size=\"32 16\"\n                         pos=\"305 1\"\n                         textcolor=\"Black\"\n                         texthovercolor=\"White\"\n                         tooltip=\"$(structurize.gui.undoredo.redoop)\"/>",
-          "<button textalign=\"MIDDLE\" id=\"redo\"\n                         source=\"structurize:textures/gui/buildtool/rotaterightsmall.png\"\n                         visible=\"true\"\n                         size=\"32 16\"\n                         pos=\"305 1\"\n                         textcolor=\"Black\"\n                         texthovercolor=\"White\"\n                         tooltip=\"$(structurize.gui.undoredo.redoop)\"/>"
         ]
       ]
     }

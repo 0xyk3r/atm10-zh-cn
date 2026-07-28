@@ -194,7 +194,7 @@
   "structurize.gui.buildtool.cancel": "取消",
   "structurize.gui.switchpack.select": "选择",
   "structurize.gui.missing.pos": "先用工具点击一个固体方块以选择起始位置",
-  "structurize.gui.manipulation.info": "使用右侧的箭头按钮来移动预览，或使用已配置的热键。你可以通过 esc 退出并重新定位，然后再次右击以重新进入。",
+  "structurize.gui.manipulation.info": "用右侧箭头移动预览，或用已设热键。按 Esc 退出可重新定位，再右键继续。",
   "structurize.pack.missing.blueprint": "所请求的蓝图在服务器端的同一包中不存在。可能是客户端包已被篡改，或者服务器包已过时。",
   "structurize.pack.equaluser.error": "服务器上有一个与你的玩家名称同名的包，这可能会干扰你放置个人扫描。为避免这种情况，你可能需要删除服务器上的该包。",
   "com.ldtteam.structurize.iterators.default": "默认",
