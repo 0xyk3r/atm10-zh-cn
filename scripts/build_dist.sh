@@ -117,11 +117,13 @@ DP="$(grep -v '^#' "versions/${MC}/default_resource_packs.txt" 2>/dev/null | sed
 # 漏填会被 verify_dist.py 的 @@ 残留检查拦下。
 for f in "$CSTAGE/install.sh" "$CSTAGE/install.ps1"; do
   [ -f "$f" ] || continue
-  DP="$DP" MC="$MC" python3 -c "
+  DP="$DP" MC="$MC" PV="$VERSION" python3 -c "
 import os, pathlib, sys
 p = pathlib.Path(sys.argv[1])
 t = p.read_text(encoding='utf-8')
-t = t.replace('@@MCVER@@', os.environ['MC']).replace('@@DEFAULT_PACKS@@', os.environ['DP'])
+t = (t.replace('@@MCVER@@', os.environ['MC'])
+      .replace('@@DEFAULT_PACKS@@', os.environ['DP'])
+      .replace('@@PATCHVER@@', os.environ['PV']))
 p.write_text(t, encoding='utf-8')
 " "$f"
 done

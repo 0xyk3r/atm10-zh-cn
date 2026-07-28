@@ -9,7 +9,7 @@ apply → 断言（文件落位 / options.txt 已启用资源包 / 备份完整�
 restore → 断言（被覆盖文件还原 / 新增文件删除 / options.txt 还原）。
 macOS/Linux 走 install.sh，Windows 走 install.ps1（powershell 5.1，与用户双击 .bat 一致）。
 """
-import platform, shutil, subprocess, sys, tempfile, zipfile
+import platform, re, shutil, subprocess, sys, tempfile, zipfile
 from pathlib import Path
 
 # Windows runner 的 stdout 默认 cp1252，打不出中文/emoji
@@ -45,6 +45,9 @@ def default_packs(ver):
 
 
 DEFAULT_PACKS = default_packs(MCVER)
+# 补丁自己的版本号：测试里用什么值不重要（联网检查已被 ATM_SKIP_UPDATE_CHECK 关掉），
+# 重要的是它**必须被填掉**——否则脚本里留着 @@PATCHVER@@，测的就不是出货那份。
+PATCHVER = 'test'
 
 
 def materialize(src, dst):
@@ -52,15 +55,21 @@ def materialize(src, dst):
     测的必须是玩家真正拿到的那份脚本——以前测试里 @@DEFAULT_PACKS@@ 压根没被替换，
     安装器把这串占位符当成一个资源包名写进了 options.txt，测试还照样通过。"""
     t = src.read_text(encoding='utf-8')
-    t = t.replace('@@MCVER@@', MCVER).replace('@@DEFAULT_PACKS@@', DEFAULT_PACKS)
+    t = (t.replace('@@MCVER@@', MCVER)
+          .replace('@@DEFAULT_PACKS@@', DEFAULT_PACKS)
+          .replace('@@PATCHVER@@', PATCHVER))
+    left = re.findall(r'@@[A-Z_]+@@', t)
+    if left:
+        sys.exit('❌ %s 里还有没填的占位符：%s\n'
+                 '   build_dist.sh 加了新占位符，这里要跟着加，否则测的不是玩家拿到的那份。'
+                 % (src.name, sorted(set(left))))
     dst.write_text(t, encoding='utf-8')
     return dst
 
 
 # 资源包**产物**带整合包版本号。这里直接从安装器脚本里读它认的那个名字，
 # 免得两边各写一份、日后再对不上（曾因批量改名把这里误改成版本中立名而挂掉 CI）。
-import re as _re
-ENTRY = _re.search(r"PACK_ENTRY='([^']+)'",
+ENTRY = re.search(r"PACK_ENTRY='([^']+)'",
                    (ROOT / 'installer' / 'install.sh').read_text(encoding='utf-8')
                    ).group(1).replace('@@MCVER@@', MCVER)
 PACK = ENTRY.split('/', 1)[1][:-4]

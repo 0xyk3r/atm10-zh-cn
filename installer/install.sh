@@ -26,6 +26,61 @@ IN_PLACE=0
 
 say() { printf '%s\n' "$*"; }
 
+# ── 版本检查 ────────────────────────────────────────────────────────────
+# 补丁自己的版本号，由 build_dist.sh 现填（写死的话每次发版都得记得改，必然忘）。
+PATCH_VER="@@PATCHVER@@"
+REPO="chiba233/atm10-zh-cn"
+
+# 取仓库最新**正式版**的 tag。GitHub 的 releases/latest 天然跳过预发布，
+# 正合用：测试版不该被当成「最新版」去催人升级。
+# 任何一步不成（没网、没 curl/wget、被限流、返回不是 JSON）都返回空，
+# **绝不因此拦住安装**——用户是来装汉化的，不是来做联网检测的。
+latest_tag() {
+  [ "${ATM_SKIP_UPDATE_CHECK:-0}" = "1" ] && return 0
+  url="https://api.github.com/repos/${REPO}/releases/latest"
+  body=""
+  if command -v curl >/dev/null 2>&1; then
+    body="$(curl -fsSL --max-time 6 -H 'Accept: application/vnd.github+json' "$url" 2>/dev/null || true)"
+  elif command -v wget >/dev/null 2>&1; then
+    body="$(wget -qO- --timeout=6 "$url" 2>/dev/null || true)"
+  fi
+  [ -n "$body" ] || return 0
+  printf '%s' "$body" | sed -n 's/.*"tag_name"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -1
+}
+
+# 比较时把开头的 v 去掉：tag 是 vr12，包里记的是 r12
+norm_ver() { printf '%s' "${1#v}"; }
+
+check_update() {
+  [ "${ATM_SKIP_UPDATE_CHECK:-0}" = "1" ] && return 0
+  is_beta=0
+  case "$PATCH_VER" in *[Bb][Ee][Tt][Aa]*|*[Rr][Cc][0-9]*|dev|DEV) is_beta=1 ;; esac
+
+  latest="$(latest_tag || true)"
+  if [ "$is_beta" = "1" ]; then
+    say ""
+    say "⚠️ 你装的是**测试版**：$PATCH_VER"
+    say "   测试版可能有没发现的问题。遇到异常请提交 issue："
+    say "   https://github.com/${REPO}/issues"
+    [ -n "$latest" ] && say "   在问题解决前，建议先切回正式版 ${latest}：" \
+                     && say "   https://github.com/${REPO}/releases/latest"
+    say ""
+    return 0
+  fi
+
+  [ -n "$latest" ] || return 0        # 查不到就当没这回事
+  if [ "$(norm_ver "$latest")" = "$(norm_ver "$PATCH_VER")" ]; then
+    say "✓ 版本检查：$PATCH_VER 已是最新正式版"
+  else
+    say ""
+    say "⚠️ 你装的不是最新版本"
+    say "   当前包：$PATCH_VER      最新正式版：$latest"
+    say "   建议先下最新版再装，老版本的已知问题不会再修："
+    say "   https://github.com/${REPO}/releases/latest"
+    say ""
+  fi
+}
+
 # 判定一个目录是不是游戏实例根目录。
 # 不能只看 options.txt —— **刚装好、一次都没启动过的整合包没有 options.txt**
 # （它是 Minecraft 首次退出时才写的）。也不能只看 mods/ —— 汉化包自己的文件夹里
@@ -297,6 +352,7 @@ do_restore() {
 }
 
 check_target
+check_update
 case "${1:-}" in
   apply)             do_apply ;;
   apply-with-pinyin) do_apply; do_pinyin ;;

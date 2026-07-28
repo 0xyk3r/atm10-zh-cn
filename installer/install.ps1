@@ -34,6 +34,60 @@ $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 # 不能只看 options.txt —— **刚装好、一次都没启动过的整合包没有 options.txt**
 # （它是 Minecraft 首次退出时才写的）。也不能只看 mods\ —— 汉化包自己的文件夹里
 # 也有个 mods\（装着 vaultpatcher.jar）。用 jar 数量区分：ATM10 有 400+ 个，汉化包只有 1 个。
+# ── 版本检查 ────────────────────────────────────────────────────────────
+# 补丁自己的版本号，由 build_dist.sh 现填。
+$script:PatchVer = '@@PATCHVER@@'
+$script:Repo     = 'chiba233/atm10-zh-cn'
+
+# 取仓库最新**正式版**的 tag。releases/latest 天然跳过预发布，正合用：
+# 测试版不该被当成「最新版」去催人升级。
+# 任何一步不成（没网、被限流、TLS 不通）都返回 $null，**绝不因此拦住安装**。
+function Get-LatestTag {
+    if ($env:ATM_SKIP_UPDATE_CHECK -eq '1') { return $null }
+    try {
+        $old = $ProgressPreference; $ProgressPreference = 'SilentlyContinue'
+        # 老一点的 Windows PowerShell 默认还在用 TLS 1.0，GitHub 早就不收了
+        try { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 } catch {}
+        $r = Invoke-RestMethod -Uri "https://api.github.com/repos/$($script:Repo)/releases/latest" `
+                               -Headers @{ 'Accept' = 'application/vnd.github+json'
+                                           'User-Agent' = 'atm10-zh-cn-installer' } `
+                               -TimeoutSec 6
+        $ProgressPreference = $old
+        return $r.tag_name
+    } catch { return $null }
+}
+
+function Normalize-Ver([string]$v) { if ($v -and $v.StartsWith('v')) { $v.Substring(1) } else { $v } }
+
+function Check-Update {
+    if ($env:ATM_SKIP_UPDATE_CHECK -eq '1') { return }
+    $isBeta = $script:PatchVer -match '(?i)beta|rc\d|^dev$'
+    $latest = Get-LatestTag
+    if ($isBeta) {
+        Write-Host ''
+        Write-Host "⚠️ 你装的是**测试版**：$($script:PatchVer)"
+        Write-Host '   测试版可能有没发现的问题。遇到异常请提交 issue：'
+        Write-Host "   https://github.com/$($script:Repo)/issues"
+        if ($latest) {
+            Write-Host "   在问题解决前，建议先切回正式版 ${latest}："
+            Write-Host "   https://github.com/$($script:Repo)/releases/latest"
+        }
+        Write-Host ''
+        return
+    }
+    if (-not $latest) { return }        # 查不到就当没这回事
+    if ((Normalize-Ver $latest) -eq (Normalize-Ver $script:PatchVer)) {
+        Write-Host "✓ 版本检查：$($script:PatchVer) 已是最新正式版"
+    } else {
+        Write-Host ''
+        Write-Host '⚠️ 你装的不是最新版本'
+        Write-Host "   当前包：$($script:PatchVer)      最新正式版：$latest"
+        Write-Host '   建议先下最新版再装，老版本的已知问题不会再修：'
+        Write-Host "   https://github.com/$($script:Repo)/releases/latest"
+        Write-Host ''
+    }
+}
+
 function Test-Instance([string]$d) {
     if (!(Test-Path -LiteralPath (Join-Path $d 'mods'))) { return $false }
     if (Test-Path -LiteralPath (Join-Path $d 'options.txt')) { return $true }
@@ -305,6 +359,7 @@ function Do-Restore([string]$name) {
 }
 
 Check-Target
+Check-Update
 switch ($Action) {
     'apply'             { Do-Apply }
     'apply-with-pinyin' { Do-Apply; Do-Pinyin }

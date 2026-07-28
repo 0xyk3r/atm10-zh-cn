@@ -35,6 +35,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
+    # 安装器会去 GitHub API 查最新版。端到端测试不该依赖外网，也不该每次
+    # 三个系统各打一次 API（未认证只有 60 次/小时，撞上限就红得莫名其妙）。
+    env:
+      ATM_SKIP_UPDATE_CHECK: '1'
     steps:
       - uses: actions/checkout@v6
 
