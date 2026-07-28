@@ -92,7 +92,16 @@
   {
     "id": "vp-config-ui-no-single-word",
     "kind": "vp_no_single_word_keys",
-    "module": "config_ui_generated.json",
-    "why": "配置界面的单词标签（On/Off/Client/Sound/Mode/Level/Name…）极可能同时是配置项的**枚举值**，译了可能被反查或写回配置文件——RFTools 那类「一汉化就崩」就是这么来的。多词短语没有这个风险。宁可少译，不冒险。"
+    "why": "配置界面的单词标签（On/Off/Client/Sound/Mode/Level/Name…）极可能同时是配置项的**枚举值**，译了可能被反查或写回配置文件——RFTools 那类「一汉化就崩」就是这么来的。多词短语没有这个风险。宁可少译，不冒险。 【2026-07-28 对抗审计抓到】这条闸原先只查生成模块，手写那份的 18 个单词键一路绿灯放行——闸只盯一个文件就是假闸。",
+    "modules": [
+      "config_ui_generated.json",
+      "catnip_config_ui.json"
+    ]
+  },
+  {
+    "id": "vp-no-stray-class-patch",
+    "kind": "no_files",
+    "glob": "vaultpatcher/patch/**/*.class",
+    "why": "出货包里不许残留字节码补丁。对齐问题的根因是我们自己译坏了 blockui 的行为标志串，改一个类都不需要。旧的 class 留在目录里就是活雷：只要哪天 class_patch 被打开（做实验时误开过一次），它就会立刻重新生效，而且是照着旧版模组编的，直接 ClassFormatError 闪退。2026-07-28 对抗审计在正式版产物里抓到过一个。"
   }
 ]

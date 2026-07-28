@@ -43,6 +43,12 @@ jobs:
           PROTECT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: python3 scripts/compliance/protect.py --check
 
+      # 对抗审计（2026-07-28）抓到：这个脚本写完了却从没接进任何流水线 = 假闸。
+      # 它不需要 mod jar，PR 阶段就能跑。dynamic 模块里两条 @ 子串键互为子串时，
+      # String.replace 的遍历顺序不确定，会把长的那条啃掉、翻出半中半英。
+      - name: dynamic 模块的 @ 子串键互不为子串
+        run: python3 scripts/compliance/check_dynamic_substrings.py
+
       - name: 从 src/ 摊出货树
         run: python3 scripts/assemble.py
 

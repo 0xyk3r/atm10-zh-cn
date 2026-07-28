@@ -103,6 +103,11 @@ jobs:
       - name: 生成全部汉化产物
         run: ./scripts/generate_all.sh
 
+      # 同上：这个脚本专为 2026-07-28 市政厅崩溃写的（重复映射 / 重复属性 /
+      # 套用后非法 XML），却从没被调用过。它要读 mod jar，所以放在这一步之后。
+      - name: 界面 XML 映射三条硬规矩
+        run: python3 scripts/compliance/check_gui_maps.py "$ATM_PACK_ROOT/mods" || python3 scripts/compliance/check_gui_maps.py build/packsrc/7.2/mods
+
       - name: 打包全部版本
         run: ./scripts/build_dist.sh "${{ github.event.inputs.patch_version || 'dev' }}" "${{ steps.t.outputs.list }}"
 

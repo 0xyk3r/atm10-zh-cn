@@ -264,10 +264,6 @@
         "value": "攻击速度"
       },
       {
-        "key": "Auto Focus Search",
-        "value": "自动聚焦搜索"
-      },
-      {
         "key": "Auto Focus Search Bar",
         "value": "自动聚焦搜索条"
       },
@@ -369,7 +365,7 @@
       },
       {
         "key": "Base Max",
-        "value": "基础最大"
+        "value": "基础上限"
       },
       {
         "key": "Base Max Blocks",
@@ -736,16 +732,8 @@
         "value": "充电器消耗"
       },
       {
-        "key": "Charger Max",
-        "value": "充电器最大"
-      },
-      {
         "key": "Charger Max Energy",
         "value": "充电器最大能量"
-      },
-      {
-        "key": "Charger Min",
-        "value": "充电器最小"
       },
       {
         "key": "Check Recipe Ticks",
@@ -998,14 +986,6 @@
       {
         "key": "Crystal Furnace",
         "value": "水晶熔炉"
-      },
-      {
-        "key": "Custom Border Top Overlay",
-        "value": "自定义边框顶部覆盖层"
-      },
-      {
-        "key": "Custom Colors Overlay",
-        "value": "自定义颜色覆盖层"
       },
       {
         "key": "Custom Config Screen",
@@ -1320,10 +1300,6 @@
         "value": "启用地牢战利品"
       },
       {
-        "key": "Enable Effects",
-        "value": "启用特效"
-      },
-      {
         "key": "Enable Food Effect Tooltip",
         "value": "启用食物特效提示"
       },
@@ -1346,10 +1322,6 @@
       {
         "key": "Enable Super Admin",
         "value": "启用超级管理员"
-      },
-      {
-        "key": "Enable Tooltips",
-        "value": "启用提示"
       },
       {
         "key": "Enable Wire Damage",
@@ -1496,14 +1468,6 @@
         "value": "经验每物品"
       },
       {
-        "key": "Export Bus Max",
-        "value": "输出总线最大"
-      },
-      {
-        "key": "Export Bus Min",
-        "value": "输出总线最小"
-      },
-      {
         "key": "Extra Debug",
         "value": "额外调试"
       },
@@ -1514,10 +1478,6 @@
       {
         "key": "Fe Per Energy Upgrade",
         "value": "FE每能量升级"
-      },
-      {
-        "key": "Filter Item Render Distance",
-        "value": "过滤物品渲染距离"
       },
       {
         "key": "Filter List",
@@ -1614,14 +1574,6 @@
       {
         "key": "Fluid Storage Block",
         "value": "流体存储方块"
-      },
-      {
-        "key": "Fluid Tank Capacity",
-        "value": "流体储罐容量"
-      },
-      {
-        "key": "Fluid Tank Max Height",
-        "value": "流体储罐最大高度"
       },
       {
         "key": "Fluid Tank Update Rate",
@@ -1733,11 +1685,11 @@
       },
       {
         "key": "Generation Max",
-        "value": "生成最大"
+        "value": "生成上限"
       },
       {
         "key": "Generation Min",
-        "value": "生成最小"
+        "value": "生成下限"
       },
       {
         "key": "Generator Capacity",
@@ -1924,14 +1876,6 @@
         "value": "忽略生成列表"
       },
       {
-        "key": "Import Bus Max",
-        "value": "输入总线最大"
-      },
-      {
-        "key": "Import Bus Min",
-        "value": "输入总线最小"
-      },
-      {
         "key": "In World Crafting",
         "value": "在世界合成"
       },
@@ -1974,14 +1918,6 @@
       {
         "key": "Interface Item Base Consumption",
         "value": "接口物品基础消耗"
-      },
-      {
-        "key": "Interface Max",
-        "value": "接口最大"
-      },
-      {
-        "key": "Interface Min",
-        "value": "接口最小"
       },
       {
         "key": "Inventory Button",
@@ -2350,10 +2286,6 @@
       {
         "key": "Max Capacity Per Item Type",
         "value": "最大容量每物品类型"
-      },
-      {
-        "key": "Max Cell Content Shown",
-        "value": "最大元件内容显示"
       },
       {
         "key": "Max Charge",
@@ -2769,7 +2701,7 @@
       },
       {
         "key": "Network Max",
-        "value": "网络最大"
+        "value": "网络上限"
       },
       {
         "key": "Neutral Neutral",
@@ -2822,10 +2754,6 @@
       {
         "key": "Notification Delay",
         "value": "通知延迟"
-      },
-      {
-        "key": "Notify For Finished Crafting Jobs",
-        "value": "通知针对完成合成任务"
       },
       {
         "key": "Obsidian Furnace",
@@ -3022,10 +2950,6 @@
       {
         "key": "Power Per Tick",
         "value": "功率每刻"
-      },
-      {
-        "key": "Power Unit",
-        "value": "功率单位"
       },
       {
         "key": "Prevent Fire",
@@ -3352,10 +3276,6 @@
         "value": "精制黑曜石工具耐久"
       },
       {
-        "key": "Remember Last Search",
-        "value": "记住上次搜索"
-      },
-      {
         "key": "Render Block Particles",
         "value": "渲染方块粒子"
       },
@@ -3450,10 +3370,6 @@
       {
         "key": "Screen Size",
         "value": "界面大小"
-      },
-      {
-        "key": "Screenshot Show Count",
-        "value": "截图显示数量"
       },
       {
         "key": "Scroll Duration",
@@ -3566,10 +3482,6 @@
       {
         "key": "Show Hidden Recipes",
         "value": "显示隐藏配方"
-      },
-      {
-        "key": "Show Missing Only By Default",
-        "value": "显示缺失仅按默认"
       },
       {
         "key": "Show Recipe Book",
@@ -3905,11 +3817,11 @@
       },
       {
         "key": "Storage Bus Max",
-        "value": "存储总线最大"
+        "value": "存储总线上限"
       },
       {
         "key": "Storage Bus Min",
-        "value": "存储总线最小"
+        "value": "存储总线下限"
       },
       {
         "key": "Structure Blacklist",
@@ -4134,10 +4046,6 @@
       {
         "key": "Use Cache",
         "value": "使用缓存"
-      },
-      {
-        "key": "Use Compact Tree",
-        "value": "使用紧凑树"
       },
       {
         "key": "Use Energy",
@@ -4595,10 +4503,6 @@
         "value": "攻击速度"
       },
       {
-        "key": "Auto Focus Search",
-        "value": "自动聚焦搜索"
-      },
-      {
         "key": "Auto Focus Search Bar",
         "value": "自动聚焦搜索条"
       },
@@ -4700,7 +4604,7 @@
       },
       {
         "key": "Base Max",
-        "value": "基础最大"
+        "value": "基础上限"
       },
       {
         "key": "Base Max Blocks",
@@ -5067,16 +4971,8 @@
         "value": "充电器消耗"
       },
       {
-        "key": "Charger Max",
-        "value": "充电器最大"
-      },
-      {
         "key": "Charger Max Energy",
         "value": "充电器最大能量"
-      },
-      {
-        "key": "Charger Min",
-        "value": "充电器最小"
       },
       {
         "key": "Check Recipe Ticks",
@@ -5329,14 +5225,6 @@
       {
         "key": "Crystal Furnace",
         "value": "水晶熔炉"
-      },
-      {
-        "key": "Custom Border Top Overlay",
-        "value": "自定义边框顶部覆盖层"
-      },
-      {
-        "key": "Custom Colors Overlay",
-        "value": "自定义颜色覆盖层"
       },
       {
         "key": "Custom Config Screen",
@@ -5651,10 +5539,6 @@
         "value": "启用地牢战利品"
       },
       {
-        "key": "Enable Effects",
-        "value": "启用特效"
-      },
-      {
         "key": "Enable Food Effect Tooltip",
         "value": "启用食物特效提示"
       },
@@ -5677,10 +5561,6 @@
       {
         "key": "Enable Super Admin",
         "value": "启用超级管理员"
-      },
-      {
-        "key": "Enable Tooltips",
-        "value": "启用提示"
       },
       {
         "key": "Enable Wire Damage",
@@ -5827,14 +5707,6 @@
         "value": "经验每物品"
       },
       {
-        "key": "Export Bus Max",
-        "value": "输出总线最大"
-      },
-      {
-        "key": "Export Bus Min",
-        "value": "输出总线最小"
-      },
-      {
         "key": "Extra Debug",
         "value": "额外调试"
       },
@@ -5845,10 +5717,6 @@
       {
         "key": "Fe Per Energy Upgrade",
         "value": "FE每能量升级"
-      },
-      {
-        "key": "Filter Item Render Distance",
-        "value": "过滤物品渲染距离"
       },
       {
         "key": "Filter List",
@@ -5945,14 +5813,6 @@
       {
         "key": "Fluid Storage Block",
         "value": "流体存储方块"
-      },
-      {
-        "key": "Fluid Tank Capacity",
-        "value": "流体储罐容量"
-      },
-      {
-        "key": "Fluid Tank Max Height",
-        "value": "流体储罐最大高度"
       },
       {
         "key": "Fluid Tank Update Rate",
@@ -6064,11 +5924,11 @@
       },
       {
         "key": "Generation Max",
-        "value": "生成最大"
+        "value": "生成上限"
       },
       {
         "key": "Generation Min",
-        "value": "生成最小"
+        "value": "生成下限"
       },
       {
         "key": "Generator Capacity",
@@ -6255,14 +6115,6 @@
         "value": "忽略生成列表"
       },
       {
-        "key": "Import Bus Max",
-        "value": "输入总线最大"
-      },
-      {
-        "key": "Import Bus Min",
-        "value": "输入总线最小"
-      },
-      {
         "key": "In World Crafting",
         "value": "在世界合成"
       },
@@ -6305,14 +6157,6 @@
       {
         "key": "Interface Item Base Consumption",
         "value": "接口物品基础消耗"
-      },
-      {
-        "key": "Interface Max",
-        "value": "接口最大"
-      },
-      {
-        "key": "Interface Min",
-        "value": "接口最小"
       },
       {
         "key": "Inventory Button",
@@ -6681,10 +6525,6 @@
       {
         "key": "Max Capacity Per Item Type",
         "value": "最大容量每物品类型"
-      },
-      {
-        "key": "Max Cell Content Shown",
-        "value": "最大元件内容显示"
       },
       {
         "key": "Max Charge",
@@ -7100,7 +6940,7 @@
       },
       {
         "key": "Network Max",
-        "value": "网络最大"
+        "value": "网络上限"
       },
       {
         "key": "Neutral Neutral",
@@ -7153,10 +6993,6 @@
       {
         "key": "Notification Delay",
         "value": "通知延迟"
-      },
-      {
-        "key": "Notify For Finished Crafting Jobs",
-        "value": "通知针对完成合成任务"
       },
       {
         "key": "Obsidian Furnace",
@@ -7353,10 +7189,6 @@
       {
         "key": "Power Per Tick",
         "value": "功率每刻"
-      },
-      {
-        "key": "Power Unit",
-        "value": "功率单位"
       },
       {
         "key": "Prevent Fire",
@@ -7683,10 +7515,6 @@
         "value": "精制黑曜石工具耐久"
       },
       {
-        "key": "Remember Last Search",
-        "value": "记住上次搜索"
-      },
-      {
         "key": "Render Block Particles",
         "value": "渲染方块粒子"
       },
@@ -7781,10 +7609,6 @@
       {
         "key": "Screen Size",
         "value": "界面大小"
-      },
-      {
-        "key": "Screenshot Show Count",
-        "value": "截图显示数量"
       },
       {
         "key": "Scroll Duration",
@@ -7897,10 +7721,6 @@
       {
         "key": "Show Hidden Recipes",
         "value": "显示隐藏配方"
-      },
-      {
-        "key": "Show Missing Only By Default",
-        "value": "显示缺失仅按默认"
       },
       {
         "key": "Show Recipe Book",
@@ -8236,11 +8056,11 @@
       },
       {
         "key": "Storage Bus Max",
-        "value": "存储总线最大"
+        "value": "存储总线上限"
       },
       {
         "key": "Storage Bus Min",
-        "value": "存储总线最小"
+        "value": "存储总线下限"
       },
       {
         "key": "Structure Blacklist",
@@ -8465,10 +8285,6 @@
       {
         "key": "Use Cache",
         "value": "使用缓存"
-      },
-      {
-        "key": "Use Compact Tree",
-        "value": "使用紧凑树"
       },
       {
         "key": "Use Energy",
@@ -8926,10 +8742,6 @@
         "value": "攻击速度"
       },
       {
-        "key": "Auto Focus Search",
-        "value": "自动聚焦搜索"
-      },
-      {
         "key": "Auto Focus Search Bar",
         "value": "自动聚焦搜索条"
       },
@@ -9031,7 +8843,7 @@
       },
       {
         "key": "Base Max",
-        "value": "基础最大"
+        "value": "基础上限"
       },
       {
         "key": "Base Max Blocks",
@@ -9398,16 +9210,8 @@
         "value": "充电器消耗"
       },
       {
-        "key": "Charger Max",
-        "value": "充电器最大"
-      },
-      {
         "key": "Charger Max Energy",
         "value": "充电器最大能量"
-      },
-      {
-        "key": "Charger Min",
-        "value": "充电器最小"
       },
       {
         "key": "Check Recipe Ticks",
@@ -9660,14 +9464,6 @@
       {
         "key": "Crystal Furnace",
         "value": "水晶熔炉"
-      },
-      {
-        "key": "Custom Border Top Overlay",
-        "value": "自定义边框顶部覆盖层"
-      },
-      {
-        "key": "Custom Colors Overlay",
-        "value": "自定义颜色覆盖层"
       },
       {
         "key": "Custom Config Screen",
@@ -9982,10 +9778,6 @@
         "value": "启用地牢战利品"
       },
       {
-        "key": "Enable Effects",
-        "value": "启用特效"
-      },
-      {
         "key": "Enable Food Effect Tooltip",
         "value": "启用食物特效提示"
       },
@@ -10008,10 +9800,6 @@
       {
         "key": "Enable Super Admin",
         "value": "启用超级管理员"
-      },
-      {
-        "key": "Enable Tooltips",
-        "value": "启用提示"
       },
       {
         "key": "Enable Wire Damage",
@@ -10158,14 +9946,6 @@
         "value": "经验每物品"
       },
       {
-        "key": "Export Bus Max",
-        "value": "输出总线最大"
-      },
-      {
-        "key": "Export Bus Min",
-        "value": "输出总线最小"
-      },
-      {
         "key": "Extra Debug",
         "value": "额外调试"
       },
@@ -10176,10 +9956,6 @@
       {
         "key": "Fe Per Energy Upgrade",
         "value": "FE每能量升级"
-      },
-      {
-        "key": "Filter Item Render Distance",
-        "value": "过滤物品渲染距离"
       },
       {
         "key": "Filter List",
@@ -10276,14 +10052,6 @@
       {
         "key": "Fluid Storage Block",
         "value": "流体存储方块"
-      },
-      {
-        "key": "Fluid Tank Capacity",
-        "value": "流体储罐容量"
-      },
-      {
-        "key": "Fluid Tank Max Height",
-        "value": "流体储罐最大高度"
       },
       {
         "key": "Fluid Tank Update Rate",
@@ -10395,11 +10163,11 @@
       },
       {
         "key": "Generation Max",
-        "value": "生成最大"
+        "value": "生成上限"
       },
       {
         "key": "Generation Min",
-        "value": "生成最小"
+        "value": "生成下限"
       },
       {
         "key": "Generator Capacity",
@@ -10586,14 +10354,6 @@
         "value": "忽略生成列表"
       },
       {
-        "key": "Import Bus Max",
-        "value": "输入总线最大"
-      },
-      {
-        "key": "Import Bus Min",
-        "value": "输入总线最小"
-      },
-      {
         "key": "In World Crafting",
         "value": "在世界合成"
       },
@@ -10636,14 +10396,6 @@
       {
         "key": "Interface Item Base Consumption",
         "value": "接口物品基础消耗"
-      },
-      {
-        "key": "Interface Max",
-        "value": "接口最大"
-      },
-      {
-        "key": "Interface Min",
-        "value": "接口最小"
       },
       {
         "key": "Inventory Button",
@@ -11012,10 +10764,6 @@
       {
         "key": "Max Capacity Per Item Type",
         "value": "最大容量每物品类型"
-      },
-      {
-        "key": "Max Cell Content Shown",
-        "value": "最大元件内容显示"
       },
       {
         "key": "Max Charge",
@@ -11431,7 +11179,7 @@
       },
       {
         "key": "Network Max",
-        "value": "网络最大"
+        "value": "网络上限"
       },
       {
         "key": "Neutral Neutral",
@@ -11484,10 +11232,6 @@
       {
         "key": "Notification Delay",
         "value": "通知延迟"
-      },
-      {
-        "key": "Notify For Finished Crafting Jobs",
-        "value": "通知针对完成合成任务"
       },
       {
         "key": "Obsidian Furnace",
@@ -11684,10 +11428,6 @@
       {
         "key": "Power Per Tick",
         "value": "功率每刻"
-      },
-      {
-        "key": "Power Unit",
-        "value": "功率单位"
       },
       {
         "key": "Prevent Fire",
@@ -12014,10 +11754,6 @@
         "value": "精制黑曜石工具耐久"
       },
       {
-        "key": "Remember Last Search",
-        "value": "记住上次搜索"
-      },
-      {
         "key": "Render Block Particles",
         "value": "渲染方块粒子"
       },
@@ -12112,10 +11848,6 @@
       {
         "key": "Screen Size",
         "value": "界面大小"
-      },
-      {
-        "key": "Screenshot Show Count",
-        "value": "截图显示数量"
       },
       {
         "key": "Scroll Duration",
@@ -12228,10 +11960,6 @@
       {
         "key": "Show Hidden Recipes",
         "value": "显示隐藏配方"
-      },
-      {
-        "key": "Show Missing Only By Default",
-        "value": "显示缺失仅按默认"
       },
       {
         "key": "Show Recipe Book",
@@ -12567,11 +12295,11 @@
       },
       {
         "key": "Storage Bus Max",
-        "value": "存储总线最大"
+        "value": "存储总线上限"
       },
       {
         "key": "Storage Bus Min",
-        "value": "存储总线最小"
+        "value": "存储总线下限"
       },
       {
         "key": "Structure Blacklist",
@@ -12796,10 +12524,6 @@
       {
         "key": "Use Cache",
         "value": "使用缓存"
-      },
-      {
-        "key": "Use Compact Tree",
-        "value": "使用紧凑树"
       },
       {
         "key": "Use Energy",

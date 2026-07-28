@@ -66,7 +66,12 @@ def main(argv):
             for part in m.group(1).split('.'):
                 if part and not SKIP.match(part):
                     labels.add(label(part))
-    pairs, skipped, single = [], 0, 0
+    hand = ROOT / 'src' / 'vaultpatcher' / 'modules' / 'catnip_config_ui.json'
+    handwritten = set()
+    if hand.is_file():
+        hw = json.loads(hand.read_text(encoding='utf-8'))
+        handwritten = {x['key'] for b in hw[1:] for x in b.get('pairs', [])}
+    pairs, skipped, single, conflict = [], 0, 0, 0
     for lb in sorted(labels):
         words = lb.split()
         # 【保守模式】单个词一律不译。这类词（On / Off / Client / Sound / Mode / Level /
@@ -75,6 +80,22 @@ def main(argv):
         # 没人拿一整句当标识符。宁可少译，不冒这个险。
         if len(words) < 2:
             single += 1
+            continue
+        # 手写模块已经译过的，生成器不许再译一遍：两份都命中同一个 key 时，
+        # VaultPatcher 是「先注册先赢」而注册顺序没有声明——同一个标签会出现两种译文，
+        # 玩家看到哪个不确定。手写的那份是人工斟酌过的，让它赢。（对抗审计抓到 17 处冲突）
+        if lb in handwritten:
+            conflict += 1
+            continue
+        # 「Xxx Max / Xxx Min」是「上限 / 下限」，不是「最大 / 最小」——
+        # 逐词直译会拼出「基础最大」「网络最大」这种残缺句。（对抗审计抓到 14 条）
+        tail = {'Max': '上限', 'Min': '下限', 'Maximum': '上限', 'Minimum': '下限'}
+        if len(words) > 1 and words[-1] in tail:
+            head = [terms.get(w) for w in words[:-1]]
+            if any(v is None for v in head):
+                skipped += 1
+                continue
+            pairs.append({'key': lb, 'value': ''.join(head) + tail[words[-1]]})
             continue
         zh = [terms.get(w) for w in words]
         if not words or any(v is None for v in zh):
@@ -90,7 +111,8 @@ def main(argv):
         doc.append({'target_class': [c], 'pairs': pairs})
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print('配置项标签共 %d 个；已生成 %d 条，因缺词跳过 %d 条，'
-          '因是单个词按保守模式跳过 %d 条' % (len(labels), len(pairs), skipped, single))
+          '因是单个词按保守模式跳过 %d 条，因手写模块已有让位 %d 条'
+          % (len(labels), len(pairs), skipped, single, conflict))
     print('   → %s' % OUT.relative_to(ROOT))
     return 0
 

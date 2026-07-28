@@ -80,6 +80,15 @@ def _json_parses(rule):
             yield '%s: JSON 解析失败: %s' % (rel(p), e)
 
 
+@checker('no_files')
+def _no_files(rule):
+    """出货树里不许存在匹配该 glob 的文件（用来拦「本该删掉却还在生成」的产物）。"""
+    g, = need(rule, 'glob')
+    hit = files(g)
+    for p in hit:
+        yield '不该出现的文件 %s —— %s' % (rel(p), rule['why'])
+
+
 @checker('vp_no_single_word_keys')
 def _vp_no_single_word(rule):
     """配置界面模块里不许出现单个词的键——那类词多半同时是枚举值。
@@ -88,15 +97,16 @@ def _vp_no_single_word(rule):
     同时当枚举名反查，译了游戏直接抛异常。配置界面同理：下拉框里选的值和
     条目标签长得一模一样，分不清，所以整类放弃。
     """
-    mod, = need(rule, 'module')
-    f = ROOT / 'src' / 'vaultpatcher' / 'modules' / mod
-    if not f.is_file():
-        return
-    doc = json.loads(f.read_text(encoding='utf-8'))
-    for blk in doc[1:]:
-        for pair in blk.get('pairs', []):
-            if len(pair['key'].split()) < 2:
-                yield '%s 出现单词键 %r —— %s' % (mod, pair['key'], rule['why'])
+    mods, = need(rule, 'modules')
+    for mod in mods:
+        f = ROOT / 'src' / 'vaultpatcher' / 'modules' / mod
+        if not f.is_file():
+            continue
+        doc = json.loads(f.read_text(encoding='utf-8'))
+        for blk in doc[1:]:
+            for pair in blk.get('pairs', []):
+                if len(pair['key'].split()) < 2:
+                    yield '%s 出现单词键 %r —— %s' % (mod, pair['key'], rule['why'])
 
 
 @checker('vp_forbidden_keys')
@@ -176,7 +186,12 @@ def _file_absent(rule):
 def _filename_prefix(rule):
     g, pre = need(rule, 'glob', 'prefix')
     msg = rule.get('message', '{path} 缺少前缀 {prefix}')
-    for p in files(g):
+    hit = files(g)
+    if not hit:
+        # 和 json_parses 同款自爆：一个文件都没命中说明源文件被挪走/删了，
+        # 闸会跟着静默消失——比不加闸更危险。（2026-07-28 对抗审计指出的不一致）
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+    for p in hit:
         if not p.name.startswith(pre):
             yield msg.format(path=rel(p), prefix=pre)
 
@@ -321,7 +336,12 @@ def _vp_keybind_names(rule):
 def _gui_choice_ascii(rule):
     g, = need(rule, 'glob')
     msg = rule.get('message', "choice('{value}') 必须保持英文")
-    for p in files(g):
+    hit = files(g)
+    if not hit:
+        # 和 json_parses 同款自爆：一个文件都没命中说明源文件被挪走/删了，
+        # 闸会跟着静默消失——比不加闸更危险。（2026-07-28 对抗审计指出的不一致）
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+    for p in hit:
         text = p.read_text(encoding='utf-8', errors='replace')
         for m in re.finditer(r"choice\(\s*'([^']*)'", text):
             if CJK.search(m.group(1)):

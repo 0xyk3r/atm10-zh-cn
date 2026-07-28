@@ -16,14 +16,6 @@
         "value": "环境音量上限"
       },
       {
-        "key": "Client",
-        "value": "客户端"
-      },
-      {
-        "key": "Common",
-        "value": "通用"
-      },
-      {
         "key": "Custom Background Overlay",
         "value": "自定义覆盖层背景"
       },
@@ -112,10 +104,6 @@
         "value": "就座时随载具转向"
       },
       {
-        "key": "Server",
-        "value": "服务端"
-      },
-      {
         "key": "Show Extended Track Graph On F3",
         "value": "F3 显示完整轨道图"
       },
@@ -128,20 +116,12 @@
         "value": "显示列车地图覆盖层"
       },
       {
-        "key": "Sound",
-        "value": "音效"
-      },
-      {
         "key": "Sync Recipe Viewer Search",
         "value": "同步配方查看器的搜索"
       },
       {
         "key": "Train Map Color Theme",
         "value": "列车地图配色方案"
-      },
-      {
-        "key": "Trains",
-        "value": "列车"
       },
       {
         "key": "Air In Backtank",
@@ -192,16 +172,8 @@
         "value": "批量压制"
       },
       {
-        "key": "Capacity",
-        "value": "容量"
-      },
-      {
         "key": "Chain Conveyor Capacity",
         "value": "链式传送带容量"
-      },
-      {
-        "key": "Contraptions",
-        "value": "装置"
       },
       {
         "key": "Crank Hunger Multiplier",
@@ -252,10 +224,6 @@
         "value": "附魔背罐容量"
       },
       {
-        "key": "Equipment",
-        "value": "装备"
-      },
-      {
         "key": "Factory Gauge Timer",
         "value": "工厂仪表计时"
       },
@@ -296,44 +264,8 @@
         "value": "流体储罐最大高度"
       },
       {
-        "key": "Fluids",
-        "value": "流体"
-      },
-      {
-        "key": "Impact",
-        "value": "冲击"
-      },
-      {
-        "key": "Infrastructure",
-        "value": "基础设施"
-      },
-      {
-        "key": "Kinetics",
-        "value": "动力学"
-      },
-      {
-        "key": "Logistics",
-        "value": "物流"
-      },
-      {
         "key": "Powered Train Stats",
         "value": "动力列车参数"
-      },
-      {
-        "key": "Recipes",
-        "value": "配方"
-      },
-      {
-        "key": "Schematicannon",
-        "value": "蓝图加农炮"
-      },
-      {
-        "key": "Schematics",
-        "value": "蓝图"
-      },
-      {
-        "key": "Stats",
-        "value": "参数"
       },
       {
         "key": "Train Stats",
@@ -490,10 +422,6 @@
       {
         "key": "Remember Last Search",
         "value": "记住上次搜索"
-      },
-      {
-        "key": "Root",
-        "value": "根"
       },
       {
         "key": "Screenshot Show Count",
@@ -523,14 +451,6 @@
         "value": "环境音量上限"
       },
       {
-        "key": "Client",
-        "value": "客户端"
-      },
-      {
-        "key": "Common",
-        "value": "通用"
-      },
-      {
         "key": "Custom Background Overlay",
         "value": "自定义覆盖层背景"
       },
@@ -619,10 +539,6 @@
         "value": "就座时随载具转向"
       },
       {
-        "key": "Server",
-        "value": "服务端"
-      },
-      {
         "key": "Show Extended Track Graph On F3",
         "value": "F3 显示完整轨道图"
       },
@@ -635,20 +551,12 @@
         "value": "显示列车地图覆盖层"
       },
       {
-        "key": "Sound",
-        "value": "音效"
-      },
-      {
         "key": "Sync Recipe Viewer Search",
         "value": "同步配方查看器的搜索"
       },
       {
         "key": "Train Map Color Theme",
         "value": "列车地图配色方案"
-      },
-      {
-        "key": "Trains",
-        "value": "列车"
       },
       {
         "key": "Air In Backtank",
@@ -699,16 +607,8 @@
         "value": "批量压制"
       },
       {
-        "key": "Capacity",
-        "value": "容量"
-      },
-      {
         "key": "Chain Conveyor Capacity",
         "value": "链式传送带容量"
-      },
-      {
-        "key": "Contraptions",
-        "value": "装置"
       },
       {
         "key": "Crank Hunger Multiplier",
@@ -759,10 +659,6 @@
         "value": "附魔背罐容量"
       },
       {
-        "key": "Equipment",
-        "value": "装备"
-      },
-      {
         "key": "Factory Gauge Timer",
         "value": "工厂仪表计时"
       },
@@ -803,44 +699,8 @@
         "value": "流体储罐最大高度"
       },
       {
-        "key": "Fluids",
-        "value": "流体"
-      },
-      {
-        "key": "Impact",
-        "value": "冲击"
-      },
-      {
-        "key": "Infrastructure",
-        "value": "基础设施"
-      },
-      {
-        "key": "Kinetics",
-        "value": "动力学"
-      },
-      {
-        "key": "Logistics",
-        "value": "物流"
-      },
-      {
         "key": "Powered Train Stats",
         "value": "动力列车参数"
-      },
-      {
-        "key": "Recipes",
-        "value": "配方"
-      },
-      {
-        "key": "Schematicannon",
-        "value": "蓝图加农炮"
-      },
-      {
-        "key": "Schematics",
-        "value": "蓝图"
-      },
-      {
-        "key": "Stats",
-        "value": "参数"
       },
       {
         "key": "Train Stats",
@@ -997,10 +857,6 @@
       {
         "key": "Remember Last Search",
         "value": "记住上次搜索"
-      },
-      {
-        "key": "Root",
-        "value": "根"
       },
       {
         "key": "Screenshot Show Count",
@@ -1030,14 +886,6 @@
         "value": "环境音量上限"
       },
       {
-        "key": "Client",
-        "value": "客户端"
-      },
-      {
-        "key": "Common",
-        "value": "通用"
-      },
-      {
         "key": "Custom Background Overlay",
         "value": "自定义覆盖层背景"
       },
@@ -1126,10 +974,6 @@
         "value": "就座时随载具转向"
       },
       {
-        "key": "Server",
-        "value": "服务端"
-      },
-      {
         "key": "Show Extended Track Graph On F3",
         "value": "F3 显示完整轨道图"
       },
@@ -1142,20 +986,12 @@
         "value": "显示列车地图覆盖层"
       },
       {
-        "key": "Sound",
-        "value": "音效"
-      },
-      {
         "key": "Sync Recipe Viewer Search",
         "value": "同步配方查看器的搜索"
       },
       {
         "key": "Train Map Color Theme",
         "value": "列车地图配色方案"
-      },
-      {
-        "key": "Trains",
-        "value": "列车"
       },
       {
         "key": "Air In Backtank",
@@ -1206,16 +1042,8 @@
         "value": "批量压制"
       },
       {
-        "key": "Capacity",
-        "value": "容量"
-      },
-      {
         "key": "Chain Conveyor Capacity",
         "value": "链式传送带容量"
-      },
-      {
-        "key": "Contraptions",
-        "value": "装置"
       },
       {
         "key": "Crank Hunger Multiplier",
@@ -1266,10 +1094,6 @@
         "value": "附魔背罐容量"
       },
       {
-        "key": "Equipment",
-        "value": "装备"
-      },
-      {
         "key": "Factory Gauge Timer",
         "value": "工厂仪表计时"
       },
@@ -1310,44 +1134,8 @@
         "value": "流体储罐最大高度"
       },
       {
-        "key": "Fluids",
-        "value": "流体"
-      },
-      {
-        "key": "Impact",
-        "value": "冲击"
-      },
-      {
-        "key": "Infrastructure",
-        "value": "基础设施"
-      },
-      {
-        "key": "Kinetics",
-        "value": "动力学"
-      },
-      {
-        "key": "Logistics",
-        "value": "物流"
-      },
-      {
         "key": "Powered Train Stats",
         "value": "动力列车参数"
-      },
-      {
-        "key": "Recipes",
-        "value": "配方"
-      },
-      {
-        "key": "Schematicannon",
-        "value": "蓝图加农炮"
-      },
-      {
-        "key": "Schematics",
-        "value": "蓝图"
-      },
-      {
-        "key": "Stats",
-        "value": "参数"
       },
       {
         "key": "Train Stats",
@@ -1504,10 +1292,6 @@
       {
         "key": "Remember Last Search",
         "value": "记住上次搜索"
-      },
-      {
-        "key": "Root",
-        "value": "根"
       },
       {
         "key": "Screenshot Show Count",
