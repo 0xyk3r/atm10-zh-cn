@@ -1,0 +1,976 @@
+{
+ "_说明": "cc-tweaked 游戏内 help 文档（data/computercraft/lua/rom/help/*.txt 与两个短小的 .md）：这套文件没有语言变体目录，正文写死在纯文本里，只能整份覆盖。只存「原文→译文」，构建时套到 jar 里那一份上。见 scripts/gen_literal_books.py。changelog.md（版本更新历史，约 78KB）与 credits.md（贡献者名单，约 54KB）不在此列——不是给玩家学 Lua 用的说明文档，是历史记录和人名列表，翻了没有意义。",
+ "mod": "computercraft（CC: Tweaked · 电脑 help 文档）",
+ "files": {
+  "data/computercraft/lua/rom/help/adventure.txt": {
+   "sha1": "c16d4266605a897a526a4f486729bf73fc9dad3e",
+   "raw": true,
+   "t": [
+    [
+     "adventure is a text adventure game for CraftOS. To navigate around the world of adventure, type simple instructions to the interpreter, for example: \"go north\", \"punch tree\", \"craft planks\", \"mine coal with pickaxe\", \"hit creeper with sword\"\n",
+     "adventure 是 CraftOS 上的一款文字冒险游戏。要在冒险的世界里探索，请向解释器输入简单的指令，例如：\"go north\"、\"punch tree\"、\"craft planks\"、\"mine coal with pickaxe\"、\"hit creeper with sword\"\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/alias.txt": {
+   "sha1": "e3ee3176bb47d30719859011533caca807f67afe",
+   "raw": true,
+   "t": [
+    [
+     "alias assigns shell commands to run other programs.\n\nex:\n\"alias dir ls\" will make the \"dir\" command run the \"ls\" program\n\"alias dir\" will remove the alias set on \"dir\"\n\"alias\" will list all current aliases.\n",
+     "alias 用来给 shell 命令起别名，让它运行别的程序。\n\n示例：\n\"alias dir ls\" 会让 \"dir\" 命令运行 \"ls\" 程序\n\"alias dir\" 会移除给 \"dir\" 设置的别名\n\"alias\" 会列出当前所有别名。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/apis.txt": {
+   "sha1": "c9c9a76e6594db544a4e078d8dcafca8bc8a9542",
+   "raw": true,
+   "t": [
+    [
+     "apis lists the currently loaded APIs available to programs in CraftOS.\n\nType \"help <api>\" to see help for a specific api.\nCall os.loadAPI( path ) to load extra apis.\n",
+     "apis 用来列出 CraftOS 中程序当前可用的已加载 API。\n\n输入 \"help <api>\" 可以查看指定 API 的帮助。\n调用 os.loadAPI( path ) 可以加载额外的 API。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/bg.txt": {
+   "sha1": "fe6aed7028ce42a38821b86f09789c6e30dbdc15",
+   "raw": true,
+   "t": [
+    [
+     "bg is a program for Advanced Computers which opens a new tab in the background.\n\nex:\n\"bg\" will open a background tab running the shell\n\"bg worm\" will open a background tab running the \"worm\" program\n",
+     "bg 是高级计算机上的程序，用来在后台打开一个新标签页。\n\n示例：\n\"bg\" 会在后台打开一个运行 shell 的标签页\n\"bg worm\" 会在后台打开一个运行 \"worm\" 程序的标签页\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/bit.txt": {
+   "sha1": "da734b1b8066059f5a24633db08e4c0e047736c1",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the bit manipulation API (NOTE: This API will be removed in a future version. Use bit32 instead):\nbit.bnot(n)          -- bitwise not (~n)\nbit.band(m, n)       -- bitwise and (m & n)\nbit.bor(m, n)        -- bitwise or (m | n)\nbit.bxor(m, n)       -- bitwise xor (m ^ n)\nbit.brshift(n, bits) -- right shift (n >> bits)\nbit.blshift(n, bits) -- left shift (n << bits)\n",
+     "bit manipulation API 中的函数（注意：这个 API 将在未来版本中移除，请改用 bit32）：\nbit.bnot(n)          -- bitwise not (~n)\nbit.band(m, n)       -- bitwise and (m & n)\nbit.bor(m, n)        -- bitwise or (m | n)\nbit.bxor(m, n)       -- bitwise xor (m ^ n)\nbit.brshift(n, bits) -- right shift (n >> bits)\nbit.blshift(n, bits) -- left shift (n << bits)\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/bundled.txt": {
+   "sha1": "1ed3a3c37b159559fb3b92c1ab97ffb20cd27a9d",
+   "raw": true,
+   "t": [
+    [
+     "To set bundled outputs:\nc = colors.combine( colors.red, colors.blue )\nrs.setBundledOutput( \"left\", c )\n\nc = colors.combine( c, colors.green )\nrs.setBundledOutput( \"left\", c )\n\nc = colors.subtract( c, colors.blue )\nrs.setBundledOutput( \"left\", c )\n\nTo get bundled inputs:\nc = rs.getBundledInput( \"right\" )\nred = colors.test( c, colors.red )\n\nType \"help colors\" for the list of wire colors.\n",
+     "设置捆绑输出：\nc = colors.combine( colors.red, colors.blue )\nrs.setBundledOutput( \"left\", c )\n\nc = colors.combine( c, colors.green )\nrs.setBundledOutput( \"left\", c )\n\nc = colors.subtract( c, colors.blue )\nrs.setBundledOutput( \"left\", c )\n\n获取捆绑输入：\nc = rs.getBundledInput( \"right\" )\nred = colors.test( c, colors.red )\n\n输入 \"help colors\" 可以查看线缆颜色列表。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/cd.txt": {
+   "sha1": "5156b664b803b78e4e17a6b0e0d20c5b7f9b0d46",
+   "raw": true,
+   "t": [
+    [
+     "cd changes the directory you're in.\n\nex:\n\"cd rom\" will move to \"rom\" folder.\n\"cd ..\" will move up one folder.\n\"cd /\" will move to the root.\n",
+     "cd 用来切换你所在的目录。\n\n示例：\n\"cd rom\" 会移动到 \"rom\" 文件夹。\n\"cd ..\" 会向上移动一级目录。\n\"cd /\" 会移动到根目录。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/chat.txt": {
+   "sha1": "fe7201ffd8c366b337a64d32954a6add7a70fd26",
+   "raw": true,
+   "t": [
+    [
+     "Surf the rednet superhighway with \"chat\", the networked chat program for CraftOS! Host chatrooms and invite your friends! Requires a Wired or Wireless Modem on each computer. When running chat, type \"/help\" to see a list of available commands.\n\nex:\n\"chat host forgecraft\" will create a chatroom with the name \"forgecraft\"\n\"chat join forgecraft direwolf20\" will connect to the chatroom with the name \"forgecraft\", using the nickname \"direwolf20\"\n",
+     "用 \"chat\" 冲上 rednet 信息高速公路吧！这是 CraftOS 上的联网聊天程序。搭建聊天室，邀请你的朋友！每台电脑都需要一个有线或无线调制解调器。运行 chat 后，输入 \"/help\" 可以查看可用命令列表。\n\n示例：\n\"chat host forgecraft\" 会创建一个名为 \"forgecraft\" 的聊天室\n\"chat join forgecraft direwolf20\" 会以昵称 \"direwolf20\" 连接到名为 \"forgecraft\" 的聊天室\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/clear.txt": {
+   "sha1": "7cfebda23cefab4ad39113fbaf9d9ce97c5a4183",
+   "raw": true,
+   "t": [
+    [
+     "clear clears the screen and/or resets the palette.\nex:\n\"clear\" clears the screen, but keeps the palette.\n\"clear screen\" does the same as \"clear\"\n\"clear palette\" resets the palette, but doesn't clear the screen\n\"clear all\" clears the screen and resets the palette\n",
+     "clear 用来清空屏幕和/或重置调色板。\n示例：\n\"clear\" 清空屏幕，但保留调色板。\n\"clear screen\" 效果和 \"clear\" 相同\n\"clear palette\" 重置调色板，但不清空屏幕\n\"clear all\" 同时清空屏幕并重置调色板\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/colors.txt": {
+   "sha1": "5d84030db2b85353c64581a06e6d62f762d2fe45",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the colors api\n(used for redstone.setBundledOutput):\ncolors.combine( color1, color2, color3, ... )\ncolors.subtract( colors, color1, color2, ... )\ncolors.test( colors, color )\ncolors.rgb8( r, g, b )\n\nColor constants in the colors api, in ascending bit order:\ncolors.white, colors.orange, colors.magenta, colors.lightBlue, colors.yellow, colors.lime, colors.pink, colors.gray, colors.lightGray, colors.cyan, colors.purple, colors.blue, colors.brown, colors.green, colors.red, colors.black.\n",
+     "colors api 中的函数\n（用于 redstone.setBundledOutput）：\ncolors.combine( color1, color2, color3, ... )\ncolors.subtract( colors, color1, color2, ... )\ncolors.test( colors, color )\ncolors.rgb8( r, g, b )\n\ncolors api 中的颜色常量，按位序从低到高排列：\ncolors.white, colors.orange, colors.magenta, colors.lightBlue, colors.yellow, colors.lime, colors.pink, colors.gray, colors.lightGray, colors.cyan, colors.purple, colors.blue, colors.brown, colors.green, colors.red, colors.black.\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/colours.txt": {
+   "sha1": "821e373a6ef1f7d2b19a5a2f0817819a7e41c76a",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the colours api\n(used for redstone.setBundledOutput):\ncolours.combine( colour1, colour2, colour3, ...)\ncolours.subtract( colours, colour1, colour2, ...)\ncolours.test( colours, colour )\ncolours.rgb8( r, g, b )\n\nColour constants in the colours api, in ascending bit order:\ncolours.white, colours.orange, colours.magenta, colours.lightBlue, colours.yellow, colours.lime, colours.pink, colours.grey, colours.lightGrey, colours.cyan, colours.purple, colours.blue, colours.brown, colours.green, colours.red, colours.black.\n",
+     "colours api 中的函数\n（用于 redstone.setBundledOutput）：\ncolours.combine( colour1, colour2, colour3, ...)\ncolours.subtract( colours, colour1, colour2, ...)\ncolours.test( colours, colour )\ncolours.rgb8( r, g, b )\n\ncolours api 中的颜色常量，按位序从低到高排列：\ncolours.white, colours.orange, colours.magenta, colours.lightBlue, colours.yellow, colours.lime, colours.pink, colours.grey, colours.lightGrey, colours.cyan, colours.purple, colours.blue, colours.brown, colours.green, colours.red, colours.black.\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/commands.txt": {
+   "sha1": "18e4aa483300912ae778899b69e6bbeafa1adcf6",
+   "raw": true,
+   "t": [
+    [
+     "On a Command Computer, \"commands\" will list all the commands available for use. Use \"exec\" to execute them.\nType \"help commandsapi\" for help using commands in lua programs.\n",
+     "在命令电脑上，\"commands\" 会列出所有可用的命令。使用 \"exec\" 来执行它们。\n输入 \"help commandsapi\" 可以查看如何在 lua 程序中使用命令的帮助。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/commandsapi.txt": {
+   "sha1": "6af67c513e99806cb284c90bdf0f1561e4657c51",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the commands API:\ncommands.exec( command )\ncommands.execAsync( command )\ncommands.list()\ncommands.getBlockPosition()\ncommands.getBlockInfo( x, y, z )\ncommands.getBlockInfos( minx, miny, minz, maxx, maxy, maxz )\n\nThe commands API can also be used to invoke commands directly, like so:\ncommands.say( \"Hello World\" )\ncommands.give( \"dan200\", \"minecraft:diamond\", 64 )\nThis works with any command. Use \"commands.async\" instead of \"commands\" to execute asynchronously.\n\nThe commands API is only available on Command Computers.\nVisit https://minecraft.wiki/w/Commands for documentation on all commands.\n",
+     "commands API 中的函数：\ncommands.exec( command )\ncommands.execAsync( command )\ncommands.list()\ncommands.getBlockPosition()\ncommands.getBlockInfo( x, y, z )\ncommands.getBlockInfos( minx, miny, minz, maxx, maxy, maxz )\n\ncommands API 也可以直接用来调用命令，就像这样：\ncommands.say( \"Hello World\" )\ncommands.give( \"dan200\", \"minecraft:diamond\", 64 )\n这对任何命令都有效。用 \"commands.async\" 代替 \"commands\" 可以异步执行。\n\ncommands API 只在命令电脑上可用。\n访问 https://minecraft.wiki/w/Commands 可以查看所有命令的文档。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/copy.txt": {
+   "sha1": "46dea1cdde4de922dceb3d254fce7f0f0b36aaca",
+   "raw": true,
+   "t": [
+    [
+     "cp copies a file or directory from one location to another.\n\nex:\n\"cp rom myrom\" copies \"rom\" to \"myrom\".\n\"cp rom mystuff/rom\" copies \"rom\" to \"mystuff/rom\".\n\"cp disk/* disk2\" copies the contents of one disk to another\n",
+     "cp 用来把文件或目录从一个位置复制到另一个位置。\n\n示例：\n\"cp rom myrom\" 把 \"rom\" 复制为 \"myrom\"。\n\"cp rom mystuff/rom\" 把 \"rom\" 复制到 \"mystuff/rom\"。\n\"cp disk/* disk2\" 把一张软盘的内容复制到另一张\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/coroutine.txt": {
+   "sha1": "f37c8f8493a86c3567d86858d20669d19d6006c4",
+   "raw": true,
+   "t": [
+    [
+     "coroutine is a standard Lua5.1 API.\nRefer to http://www.lua.org/manual/5.1/ for more information.\n",
+     "coroutine 是标准 Lua5.1 API。\n更多信息请参阅 http://www.lua.org/manual/5.1/。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/craft.txt": {
+   "sha1": "a254c84c3b7741a7438c2a684f6a39420793519a",
+   "raw": true,
+   "t": [
+    [
+     "craft is a program for Crafty Turtles. Craft will craft a stack of items using the current inventory.\n\nex:\n\"craft all\" will craft as many items as possible\n\"craft 5\" will craft at most 5 times\n",
+     "craft 是合成海龟专用的程序。craft 会用当前物品栏合成一组物品。\n\n示例：\n\"craft all\" 会尽可能多地合成物品\n\"craft 5\" 最多合成 5 次\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/dance.txt": {
+   "sha1": "acaad2d7ba2641b994c2b3ffe33739762e313021",
+   "raw": true,
+   "t": [
+    [
+     "dance is a program for Turtles. Turtles love to get funky.\n",
+     "dance 是海龟专用的程序。海龟们个个都爱扭起来。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/delete.txt": {
+   "sha1": "a5dea387d2161e770a8ab5219d839e6225df7763",
+   "raw": true,
+   "t": [
+    [
+     "rm deletes a file or a directory and its contents.\n\nex:\n\"rm foo\" will delete the file foo.\n\"rm disk/*\" will delete the contents of a disk.\n",
+     "rm 用来删除文件，或删除目录及其内容。\n\n示例：\n\"rm foo\" 会删除文件 foo。\n\"rm disk/*\" 会删除一张软盘的内容。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/disk.txt": {
+   "sha1": "06a3d2147538f735a4bc8396d8177b4dd554ea5c",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the disk API. These functions are for interacting with disk drives:\ndisk.isPresent( drive )\ndisk.setLabel( drive, label )\ndisk.getLabel( drive )\ndisk.hasData( drive )\ndisk.getMountPath( drive )\ndisk.hasAudio( drive )\ndisk.getAudioTitle( drive )\ndisk.playAudio( drive )\ndisk.stopAudio( )\ndisk.eject( drive )\ndisk.getID( drive )\n\nEvents fired by the disk API:\n\"disk\" when a disk or other item is inserted into a disk drive. Argument is the name of the drive\n\"disk_eject\" when a disk is removed from a disk drive. Argument is the name of the drive\nType \"help events\" to learn about the event system.\n",
+     "disk API 中的函数。这些函数用于和磁盘驱动器交互：\ndisk.isPresent( drive )\ndisk.setLabel( drive, label )\ndisk.getLabel( drive )\ndisk.hasData( drive )\ndisk.getMountPath( drive )\ndisk.hasAudio( drive )\ndisk.getAudioTitle( drive )\ndisk.playAudio( drive )\ndisk.stopAudio( )\ndisk.eject( drive )\ndisk.getID( drive )\n\ndisk API 触发的事件：\n\"disk\" 当软盘或其他物品被放入磁盘驱动器时触发。参数是驱动器的名称\n\"disk_eject\" 当软盘从磁盘驱动器中取出时触发。参数是驱动器的名称\n输入 \"help events\" 可以了解事件系统。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/dj.txt": {
+   "sha1": "9e1882a7adcbdd90877c7f2927ea87ed53f6103f",
+   "raw": true,
+   "t": [
+    [
+     "dj plays Music Discs from disk drives attached to the computer.\n\nex:\n\"dj\" or \"dj play\" plays a random disc.\n\"dj play left\" plays the disc in the drive on the left of the computer.\n\"dj stop\" stops the current disc.\n",
+     "dj 用来播放接在电脑上的磁盘驱动器里的音乐唱片。\n\n示例：\n\"dj\" 或 \"dj play\" 播放一张随机唱片。\n\"dj play left\" 播放电脑左侧驱动器中的唱片。\n\"dj stop\" 停止当前播放的唱片。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/drive.txt": {
+   "sha1": "c003b2cfb852b57f249c3d52ced8affb5fbbe02a",
+   "raw": true,
+   "t": [
+    [
+     "drive tells you which disk drive the current or specified directory is located in.\n\nex:\n\"drive\" tell you the disk drive of the current directory.\n\"drive foo\" tells you the disk drive of the subdirectory \"foo\"\n",
+     "drive 用来告诉你当前目录或指定目录所在的磁盘驱动器。\n\n示例：\n\"drive\" 告诉你当前目录所在的磁盘驱动器。\n\"drive foo\" 告诉你子目录 \"foo\" 所在的磁盘驱动器\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/drives.txt": {
+   "sha1": "6946b158c8c47e23bd9e0514b6abbcc6f0950011",
+   "raw": true,
+   "t": [
+    [
+     "The Disk Drive is a peripheral device available for CraftOS. Type \"help peripheral\" to learn about using the Peripheral API to connect with peripherals. When a Disk Drive is connected, peripheral.getType() will return \"drive\".\n\nMethods exposed by the Disk Drive:\nisDiskPresent()\ngetDiskLabel()\nsetDiskLabel( label )\nhasData()\ngetMountPath()\nhasAudio()\ngetAudioTitle()\nplayAudio()\nstopAudio()\nejectDisk()\ngetDiskID()\n\nEvents fired by the Disk Drive:\n\"disk\" when a disk or other item is inserted into the drive. Argument is the name of the drive.\n\"disk_eject\" when a disk is removed from a  drive. Argument is the name of the drive.\nType \"help events\" to learn about the event system.\n",
+     "磁盘驱动器是 CraftOS 中可用的一种外围设备。输入 \"help peripheral\" 可以了解如何用外围设备 API 连接外围设备。连接磁盘驱动器后，peripheral.getType() 会返回 \"drive\"。\n\n磁盘驱动器暴露的方法：\nisDiskPresent()\ngetDiskLabel()\nsetDiskLabel( label )\nhasData()\ngetMountPath()\nhasAudio()\ngetAudioTitle()\nplayAudio()\nstopAudio()\nejectDisk()\ngetDiskID()\n\n磁盘驱动器触发的事件：\n\"disk\" 当软盘或其他物品被放入驱动器时触发。参数是驱动器的名称。\n\"disk_eject\" 当软盘从驱动器中取出时触发。参数是驱动器的名称。\n输入 \"help events\" 可以了解事件系统。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/earth.txt": {
+   "sha1": "f50eab15aa3b61a0fbe5d2db6a12d71ab438dd38",
+   "raw": true,
+   "t": [
+    [
+     "Mostly harmless.\n",
+     "基本无害。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/edit.txt": {
+   "sha1": "83ac3eb3593a082a248385dea3e30bbb5ea1bd44",
+   "raw": true,
+   "t": [
+    [
+     "edit is a text editor for creating or modifying programs or text files. After creating a program with edit, type its filename in the shell to run it. You can open any of the builtin programs with edit to learn how to program.\n\nex:\n\"edit hello\" opens a file called \"hello\" for editing.\n",
+     "edit 是用来创建或修改程序、文本文件的文本编辑器。用 edit 创建程序后，在 shell 里输入它的文件名即可运行。你也可以用 edit 打开任意一个内置程序，学习别人是怎么写的。\n\n示例：\n\"edit hello\" 打开一个名为 \"hello\" 的文件进行编辑。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/eject.txt": {
+   "sha1": "2c0a4352278a88d1b5d23dd4ee31047075a7f837",
+   "raw": true,
+   "t": [
+    [
+     "eject ejects the contents of an attached disk drive.\n\nex:\n\"eject left\" ejects the contents of the disk drive to the left of the computer.\n",
+     "eject 用来弹出已连接磁盘驱动器中的内容。\n\n示例：\n\"eject left\" 弹出电脑左侧磁盘驱动器中的内容。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/equip.txt": {
+   "sha1": "19e55c152fa34c098d26566e415bc3852320c50a",
+   "raw": true,
+   "t": [
+    [
+     "equip is a program for Turtles and Pocket Computer. equip will equip an item from the Turtle's inventory for use as a tool of peripheral. On a Pocket Computer you don't need to write a side.\n\nex:\n\"equip 5 left\" will equip the item from slot 5 of the turtle onto the left side of the turtle\n\"equip\" on a Pocket Computer will equip the first item from your inventory.\n",
+     "equip 是给海龟和手提计算机用的程序。equip 会把海龟物品栏里的一件物品装备为工具或外围设备。在手提计算机上不需要写方向。\n\n示例：\n\"equip 5 left\" 会把海龟第 5 格的物品装备到海龟左侧\n\"equip\" 在手提计算机上会装备你物品栏中的第一件物品。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/events.txt": {
+   "sha1": "741f509aa527447a9a006b869fba7e8bede3b803",
+   "raw": true,
+   "t": [
+    [
+     "The function os.pullEvent() will yield the program until a system event occurs. The first return value is the event name, followed by any arguments.\n\nSome events which can occur are:\n\"char\" when text is typed on the keyboard. Argument is the character typed.\n\"key\" when a key is pressed on the keyboard. Arguments are the keycode and whether the key is a repeat. Compare the keycode to the values in keys API to see which key was pressed.\n\"key_up\" when a key is released on the keyboard. Argument is the numerical keycode. Compare to the values in keys API to see which key was released.\n\"paste\" when text is pasted from the users keyboard. Argument is the line of text pasted.\n\nEvents only on advanced computers:\n\"mouse_click\" when a user clicks the mouse. Arguments are button, xPos, yPos.\n\"mouse_drag\" when a user moves the mouse when held. Arguments are button, xPos, yPos.\n\"mouse_up\" when a user releases the mouse button. Arguments are button, xPos, yPos.\n\"mouse_scroll\" when a user uses the scrollwheel on the mouse. Arguments are direction, xPos, yPos.\n\nOther APIs and peripherals will emit their own events. See their respective help pages for details.\n",
+     "函数 os.pullEvent() 会让程序挂起，直到系统事件发生为止。第一个返回值是事件名，后面跟着任意个参数。\n\n可能发生的部分事件有：\n\"char\" 在键盘上输入文字时触发。参数是输入的字符。\n\"key\" 在键盘上按下一个键时触发。参数是键码，以及该按键是否为重复触发。把键码和 keys API 中的值比较即可知道按下的是哪个键。\n\"key_up\" 在键盘上松开一个键时触发。参数是数字键码。和 keys API 中的值比较即可知道松开的是哪个键。\n\"paste\" 从用户键盘粘贴文字时触发。参数是被粘贴的这一行文字。\n\n仅高级计算机才有的事件：\n\"mouse_click\" 用户点击鼠标时触发。参数是按键、xPos、yPos。\n\"mouse_drag\" 用户按住鼠标移动时触发。参数是按键、xPos、yPos。\n\"mouse_up\" 用户松开鼠标按键时触发。参数是按键、xPos、yPos。\n\"mouse_scroll\" 用户使用鼠标滚轮时触发。参数是方向、xPos、yPos。\n\n其他 API 和外围设备也会触发各自的事件，详情请查看它们各自的帮助页面。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/excavate.txt": {
+   "sha1": "6e2c2c2d5fb2498017081b93f5dd0dc2d4a2ebfc",
+   "raw": true,
+   "t": [
+    [
+     "excavate is a program for Mining Turtles. When excavate is run, the turtle will mine a rectangular shaft into the ground, collecting blocks as it goes, and return to the surface once bedrock is hit.\n\nex:\n\"excavate 3\" will mine a 3x3 shaft.\n",
+     "excavate 是给采掘海龟用的程序。运行 excavate 后，海龟会向地下挖出一个矩形竖井，边挖边收集方块，碰到基岩后返回地面。\n\n示例：\n\"excavate 3\" 会挖出一个 3x3 的竖井。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/exec.txt": {
+   "sha1": "c75fb28eaebd7ad3bc81e72d688892f481be7e46",
+   "raw": true,
+   "t": [
+    [
+     "On a Command Computer, \"exec\" will execute a command as if entered on a command block. Use \"commands\" to list all the available commands.\n\nex:\n\"exec say Hello World\"\n\"exec setblock ~0 ~1 ~0 minecraft:dirt\"\n\nType \"help commandsapi\" for help using commands in lua programs.\n",
+     "在命令电脑上，\"exec\" 会像在命令方块里输入一样执行一条命令。用 \"commands\" 可以列出所有可用命令。\n\n示例：\n\"exec say Hello World\"\n\"exec setblock ~0 ~1 ~0 minecraft:dirt\"\n\n输入 \"help commandsapi\" 可以查看如何在 lua 程序中使用命令的帮助。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/exit.txt": {
+   "sha1": "ab1c52c6886238e8f4224a3161488d2f7e98d403",
+   "raw": true,
+   "t": [
+    [
+     "exit will exit the current shell.\n",
+     "exit 用来退出当前 shell。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/falling.txt": {
+   "sha1": "c52631343d75cf1ec17ed5ca4a172bd6220e5847",
+   "raw": true,
+   "t": [
+    [
+     "\"From Russia with Fun\" comes a fun, new, suspiciously-familiar falling block game for CraftOS. Only on Pocket Computers!\n",
+     "\"俄式趣味\"荣誉出品——CraftOS 上一款有趣的方块坠落新游戏，玩法眼熟得让人心里犯嘀咕。仅限手提计算机可玩！\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/fg.txt": {
+   "sha1": "dfe741ab215043f95b2ed412cd82c9a58272a234",
+   "raw": true,
+   "t": [
+    [
+     "fg is a program for Advanced Computers which opens a new tab in the foreground.\n\nex:\n\"fg\" will open a foreground tab running the shell\n\"fg worm\" will open a foreground tab running the \"worm\" program\n",
+     "fg 是高级计算机上的程序，用来在前台打开一个新标签页。\n\n示例：\n\"fg\" 会在前台打开一个运行 shell 的标签页\n\"fg worm\" 会在前台打开一个运行 \"worm\" 程序的标签页\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/fs.txt": {
+   "sha1": "fbb15ae5e3cd48540243da50dbc21e02d1b4f25d",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Filesystem API:\nfs.list( path )\nfs.find( wildcard )\nfs.exists( path )\nfs.isDir( path )\nfs.isReadOnly( path )\nfs.getDir( path )\nfs.getName( path )\nfs.getSize( path )\nfs.getDrive( path )\nfs.getFreeSpace( path )\nfs.makeDir( path )\nfs.move( path, path )\nfs.copy( path, path )\nfs.delete( path )\nfs.combine( path, localpath )\nfs.open( path, mode )\nfs.complete( path, location )\nAvailable fs.open() modes are \"r\", \"w\", \"a\", \"rb\", \"wb\" and \"ab\".\n\nFunctions on files opened with mode \"r\":\nreadLine()\nreadAll()\nclose()\nread( number )\n\nFunctions on files opened with mode \"w\" or \"a\":\nwrite( string )\nwriteLine( string )\nflush()\nclose()\n\nFunctions on files opened with mode \"rb\":\nread()\nclose()\n\nFunctions on files opened with mode \"wb\" or \"ab\":\nwrite( byte )\nflush()\nclose()\n",
+     "文件系统 API 中的函数：\nfs.list( path )\nfs.find( wildcard )\nfs.exists( path )\nfs.isDir( path )\nfs.isReadOnly( path )\nfs.getDir( path )\nfs.getName( path )\nfs.getSize( path )\nfs.getDrive( path )\nfs.getFreeSpace( path )\nfs.makeDir( path )\nfs.move( path, path )\nfs.copy( path, path )\nfs.delete( path )\nfs.combine( path, localpath )\nfs.open( path, mode )\nfs.complete( path, location )\nfs.open() 支持的模式有 \"r\"、\"w\"、\"a\"、\"rb\"、\"wb\" 和 \"ab\"。\n\n以 \"r\" 模式打开的文件上的函数：\nreadLine()\nreadAll()\nclose()\nread( number )\n\n以 \"w\" 或 \"a\" 模式打开的文件上的函数：\nwrite( string )\nwriteLine( string )\nflush()\nclose()\n\n以 \"rb\" 模式打开的文件上的函数：\nread()\nclose()\n\n以 \"wb\" 或 \"ab\" 模式打开的文件上的函数：\nwrite( byte )\nflush()\nclose()\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/go.txt": {
+   "sha1": "378677d8759fa622f0de9a3f96c3f7e8eb9a3837",
+   "raw": true,
+   "t": [
+    [
+     "go is a program for Turtles, used to control the turtle without programming. It accepts one or more commands as a direction followed by a distance.\n\nex:\n\"go forward\" moves the turtle 1 space forward.\n\"go forward 3\" moves the turtle 3 spaces forward.\n\"go forward 3 up left 2\" moves the turtle 3 spaces forward, 1 spaces up, then left 180 degrees.\n",
+     "go 是给海龟用的程序，不用写代码也能操控海龟。它接受一个或多个\"方向+距离\"形式的指令。\n\n示例：\n\"go forward\" 让海龟向前移动 1 格。\n\"go forward 3\" 让海龟向前移动 3 格。\n\"go forward 3 up left 2\" 让海龟向前移动 3 格、向上移动 1 格，然后向左转 180 度。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/gps.txt": {
+   "sha1": "0ceeb2b5c69b4fba82f65e8482f36471a5538191",
+   "raw": true,
+   "t": [
+    [
+     "gps can be used to host a GPS server, or to determine a position using trilateration.\nType \"help gpsapi\" for help using GPS functions in lua programs.\n\nex:\n\"gps locate\" will connect to nearby GPS servers, and try to determine the position of the computer or turtle.\n\"gps host\" will try to determine the position, and host a GPS server if successful.\n\"gps host 10 20 30\" will host a GPS server, using the manually entered position 10,20,30.\n\nTake care when manually entering host positions. If the positions entered into multiple GPS hosts\nare not consistent, the results of locate calls will be incorrect.\n",
+     "gps 可以用来搭建 GPS 服务器，或是通过三边定位确定自己的位置。\n输入 \"help gpsapi\" 可以查看如何在 lua 程序中使用 GPS 函数的帮助。\n\n示例：\n\"gps locate\" 会连接附近的 GPS 服务器，尝试确定这台电脑或海龟的位置。\n\"gps host\" 会尝试确定自身位置，成功后搭建一个 GPS 服务器。\n\"gps host 10 20 30\" 会用手动输入的坐标 10,20,30 搭建一个 GPS 服务器。\n\n手动输入服务器坐标时要格外小心。如果多台 GPS 服务器输入的坐标\n不一致，定位结果就会出错。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/gpsapi.txt": {
+   "sha1": "313ce1c70ff61e21f636e4e5ed780d01020aad2c",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the GPS API:\ngps.locate( timeout )\n\nThe locate function will send a signal to nearby gps servers, and wait for responses before the timeout. If it receives enough responses to determine this computers position then x, y and z co-ordinates will be returned, otherwise it will return nil. If GPS hosts do not have their positions configured correctly, results will be inaccurate.\n",
+     "GPS API 中的函数：\ngps.locate( timeout )\n\nlocate 函数会向附近的 GPS 服务器发送信号，并在超时前等待响应。如果收到足够多的响应来确定这台电脑的位置，就会返回 x、y、z 坐标，否则返回 nil。如果 GPS 服务器的坐标没有配置正确，结果就会不准确。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/hello.txt": {
+   "sha1": "fb92f65465a76c1f0e88a5f579294ba8bacfc3af",
+   "raw": true,
+   "t": [
+    [
+     "hello prints the text \"Hello World!\" to the screen.\n",
+     "hello 用来在屏幕上打印文字 \"Hello World!\"。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/help.txt": {
+   "sha1": "cc2de8ddd55c6ade5fa67b2be28c948ce74c8193",
+   "raw": true,
+   "t": [
+    [
+     "help is the help tool you're currently using.\nType \"help index\" to see all help topics.\nType \"help\" to see the help intro.\nType \"help helpapi\" for information on the help Lua API.\n",
+     "help 就是你现在正在用的这个帮助工具。\n输入 \"help index\" 可以查看所有帮助主题。\n输入 \"help\" 可以查看帮助简介。\n输入 \"help helpapi\" 可以查看 help 这个 Lua API 的相关信息。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/helpapi.txt": {
+   "sha1": "029866cb5595a11e2062ecad6cfdb62faa926ff5",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the help API:\nhelp.setPath( path )\nhelp.lookup( topic )\nhelp.topics()\nhelp.completeTopic( topic )\n",
+     "help API 中的函数：\nhelp.setPath( path )\nhelp.lookup( topic )\nhelp.topics()\nhelp.completeTopic( topic )\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/http.txt": {
+   "sha1": "00d24adbb585301b570c0d1d29cd7962535e43d9",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the HTTP API:\nhttp.checkURL( url )\nhttp.checkURLAsync( url )\nhttp.request( url, [postData], [headers] )\nhttp.get( url, [headers] )\nhttp.post( url, postData, [headers] )\n\nThe HTTP API may be disabled in ComputerCraft.cfg\nA period of time after a http.request() call is made, a \"http_success\" or \"http_failure\" event will be raised. Arguments are the url and a file handle if successful. Arguments are nil, an error message, and (optionally) a file handle if the request failed. http.get() and http.post() block until this event fires instead.\n",
+     "HTTP API 中的函数：\nhttp.checkURL( url )\nhttp.checkURLAsync( url )\nhttp.request( url, [postData], [headers] )\nhttp.get( url, [headers] )\nhttp.post( url, postData, [headers] )\n\nHTTP API 可能在 ComputerCraft.cfg 中被禁用。\n调用 http.request() 一段时间后，会触发 \"http_success\" 或 \"http_failure\" 事件。成功时参数是 url 和一个文件句柄；请求失败时参数是 nil、错误信息，以及（可选的）一个文件句柄。http.get() 和 http.post() 则会阻塞，直到这个事件触发为止。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/id.txt": {
+   "sha1": "9ad6673c84d12fa5a1ded790b22e664990789a15",
+   "raw": true,
+   "t": [
+    [
+     "id prints the unique identifier of this computer, or a Disk in an attached Disk Drive.\n\nex:\n\"id\" will print this Computers ID and label\n\"id left\" will print the ID and label of the disk in the Disk Drive on the left\n",
+     "id 用来打印这台电脑，或已连接磁盘驱动器中软盘的唯一标识符。\n\n示例：\n\"id\" 打印这台电脑的 ID 和标签\n\"id left\" 打印左侧磁盘驱动器中软盘的 ID 和标签\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/intro.txt": {
+   "sha1": "a26c93d2778ecd9ae90bf91989814e29754ba5be",
+   "raw": true,
+   "t": [
+    [
+     "Welcome to CraftOS!\nType \"programs\" to see the programs you can run.\nType \"help <program>\" to see help for a specific program.\nType \"help programming\" to learn about programming.\nType \"help whatsnew\" to find out about new features.\nType \"help credits\" to learn who made all this.\nType \"help index\" to see all help topics.\n",
+     "欢迎使用 CraftOS！\n输入 \"programs\" 可以查看能运行哪些程序。\n输入 \"help <program>\" 可以查看指定程序的帮助。\n输入 \"help programming\" 可以学习编程相关知识。\n输入 \"help whatsnew\" 可以了解有哪些新功能。\n输入 \"help credits\" 可以了解是谁做了这一切。\n输入 \"help index\" 可以查看所有帮助主题。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/io.txt": {
+   "sha1": "fa0894f0f96281a0a63dd3d43e89ba95ed2d15bc",
+   "raw": true,
+   "t": [
+    [
+     "io is a standard Lua5.1 API, reimplemented for CraftOS. Not all the features are available.\nRefer to http://www.lua.org/manual/5.1/ for more information.\n",
+     "io 是标准 Lua5.1 API，为 CraftOS 重新实现，并非所有功能都可用。\n更多信息请参阅 http://www.lua.org/manual/5.1/。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/keys.txt": {
+   "sha1": "95b8dccf5178753800eec5965acbdb2b94db2517",
+   "raw": true,
+   "t": [
+    [
+     "The keys API contains constants for all the key codes that can be returned by the \"key\" event:\n\nExample usage:\nlocal sEvent, nKey = os.pullEvent()\nif sEvent == \"key\" and nKey == keys.enter then\n   -- Do something\nend\n\nSee https://www.minecraft.wiki/w/Key_codes, or the source code, for a complete reference.\n",
+     "keys API 包含了 \"key\" 事件可能返回的所有键码常量：\n\n用法示例：\nlocal sEvent, nKey = os.pullEvent()\nif sEvent == \"key\" and nKey == keys.enter then\n   -- Do something\nend\n\n完整参考请查看 https://www.minecraft.wiki/w/Key_codes，或者直接看源代码。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/label.txt": {
+   "sha1": "3213b4ee4ac303368127ad95106707ba5e779d99",
+   "raw": true,
+   "t": [
+    [
+     "label gets or sets the label of the Computer, or of Floppy Disks in attached disk drives.\n\nex:\n\"label get\" prints the label of the computer.\n\"label get left\" prints the label of the disk in the left drive.\n\"label set \"My Computer\"\" set the label of the computer to \"My Computer\".\n\"label set left \"My Programs\"\" - sets the label of the disk in the left drive to \"My Programs\".\n\"label clear\" clears the label of the computer.\n\"label clear left\" clears the label of the disk in the left drive.\n",
+     "label 用来获取或设置电脑的标签，或已连接磁盘驱动器中软盘的标签。\n\n示例：\n\"label get\" 打印电脑的标签。\n\"label get left\" 打印左侧驱动器中软盘的标签。\n\"label set \"My Computer\"\" 把电脑的标签设为 \"My Computer\"。\n\"label set left \"My Programs\"\" —— 把左侧驱动器中软盘的标签设为 \"My Programs\"。\n\"label clear\" 清除电脑的标签。\n\"label clear left\" 清除左侧驱动器中软盘的标签。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/list.txt": {
+   "sha1": "31553bb512e7d5b20767155ef771d1a4b4b72723",
+   "raw": true,
+   "t": [
+    [
+     "ls will list all the directories and files in the current location. Use \"type\" to find out if an item is a file or a directory.\n",
+     "ls 用来列出当前位置的所有目录和文件。用 \"type\" 可以查看某一项是文件还是目录。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/lua.txt": {
+   "sha1": "f918f0b800f82a8570c4c66f300eef1b4fcdefff",
+   "raw": true,
+   "t": [
+    [
+     "lua is an interactive prompt for the lua programming language. It's a useful tool for learning the language.\n",
+     "lua 是 lua 编程语言的交互式命令行，是学习这门语言的好工具。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/math.txt": {
+   "sha1": "90d4a59bed623e7290141877435d9f393d5b4a2e",
+   "raw": true,
+   "t": [
+    [
+     "math is a standard Lua5.1 API.\nRefer to http://www.lua.org/manual/5.1/ for more information.\n",
+     "math 是标准 Lua5.1 API。\n更多信息请参阅 http://www.lua.org/manual/5.1/。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/mkdir.txt": {
+   "sha1": "0a4c5fe9be5a09574398a740ca1595f4353cd538",
+   "raw": true,
+   "t": [
+    [
+     "mkdir creates a directory in the current location.\n\nex:\n\"mkdir foo\" creates a directory named \"foo\".\n\"mkdir ../foo\" creates a directory named \"foo\" in the directory above the current directory.\n",
+     "mkdir 用来在当前位置创建一个目录。\n\n示例：\n\"mkdir foo\" 创建一个名为 \"foo\" 的目录。\n\"mkdir ../foo\" 在当前目录的上一级创建一个名为 \"foo\" 的目录。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/modems.txt": {
+   "sha1": "f57e6cd34c1bcc619906c9ce3a8bfa0ec5bc4710",
+   "raw": true,
+   "t": [
+    [
+     "Wired and Wireless Modems are peripheral devices available for CraftOS. Type \"help peripheral\" to learn about using the Peripheral API to connect with peripherals. When a Modem is connected, peripheral.getType() will return \"modem\".\n\nMethods exposed by Modems:\nopen( channel )\nisOpen( channel )\nclose( channel )\ncloseAll()\ntransmit( channel, replyChannel, message )\nisWireless()\n\nEvents fired by Modems:\n\"modem_message\" when a message is received on an open channel. Arguments are name, channel, replyChannel, message, distance\n",
+     "有线调制解调器和无线调制解调器是 CraftOS 中可用的外围设备。输入 \"help peripheral\" 可以了解如何用外围设备 API 连接外围设备。连接调制解调器后，peripheral.getType() 会返回 \"modem\"。\n\n调制解调器暴露的方法：\nopen( channel )\nisOpen( channel )\nclose( channel )\ncloseAll()\ntransmit( channel, replyChannel, message )\nisWireless()\n\n调制解调器触发的事件：\n\"modem_message\" 在已打开的频道上收到消息时触发。参数是 name、channel、replyChannel、message、distance\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/monitor.txt": {
+   "sha1": "14dacccf16f1728d65414c7b3d236c9d6eef7b8c",
+   "raw": true,
+   "t": [
+    [
+     "monitor will connect to an attached Monitor peripheral, and run a program on its display.\nType \"help monitors\" for help using monitors as peripherals in lua programs.\n\nex:\n\"monitor left hello\" will run the \"hello\" program on the monitor to the left of the computer.\n\"monitor top edit foo\" will run the edit program on the top monitor, editing the file \"foo\".\n",
+     "monitor 会连接到已连接的显示器外围设备，并在它的显示屏上运行程序。\n输入 \"help monitors\" 可以查看如何在 lua 程序中把显示器当外围设备使用的帮助。\n\n示例：\n\"monitor left hello\" 会在电脑左侧的显示器上运行 \"hello\" 程序。\n\"monitor top edit foo\" 会在顶部的显示器上运行 edit 程序，编辑文件 \"foo\"。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/monitors.txt": {
+   "sha1": "92ea23cfc5ca1bc45753fc53706b681e9e97e14b",
+   "raw": true,
+   "t": [
+    [
+     "The Monitor is a peripheral device available for CraftOS. Type \"help peripheral\" to learn about using the Peripheral API to connect with peripherals. When a Monitor is connected, peripheral.getType() will return \"monitor\". A wrapped monitor can be used with term.redirect() to send all terminal output to the monitor.\n\nMethods exposed by the Monitor:\nwrite( text )\nblit( text, textColor, backgroundColor )\nclear()\nclearLine()\ngetCursorPos()\nsetCursorPos( x, y )\nsetCursorBlink( blink )\nisColor()\nsetTextColor( color )\nsetBackgroundColor( color )\ngetTextColor()\ngetBackgroundColor()\ngetSize()\nscroll( n )\nsetPaletteColor( color, r, g, b )\ngetPaletteColor( color )\n\nEvents fired by the Monitor:\n\"monitor_touch\" when an Advanced Monitor is touched by the player. Arguments are name, x, y\n\"monitor_resize\" when the size of a Monitor changes. Argument is the name of the monitor.\n",
+     "显示器是 CraftOS 中可用的一种外围设备。输入 \"help peripheral\" 可以了解如何用外围设备 API 连接外围设备。连接显示器后，peripheral.getType() 会返回 \"monitor\"。用 term.redirect() 包装显示器后，可以把全部终端输出发送到显示器上。\n\n显示器暴露的方法：\nwrite( text )\nblit( text, textColor, backgroundColor )\nclear()\nclearLine()\ngetCursorPos()\nsetCursorPos( x, y )\nsetCursorBlink( blink )\nisColor()\nsetTextColor( color )\nsetBackgroundColor( color )\ngetTextColor()\ngetBackgroundColor()\ngetSize()\nscroll( n )\nsetPaletteColor( color, r, g, b )\ngetPaletteColor( color )\n\n显示器触发的事件：\n\"monitor_touch\" 玩家触碰高级显示器时触发。参数是 name、x、y\n\"monitor_resize\" 显示器尺寸变化时触发。参数是显示器的名称。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/move.txt": {
+   "sha1": "8a452535c178049af7c864aa817455d37991f6ee",
+   "raw": true,
+   "t": [
+    [
+     "mv moves a file or directory from one location to another.\n\nex:\n\"mv foo bar\" renames the file \"foo\" to \"bar\".\n\"mv foo bar/foo\" moves the file \"foo\" to a folder called \"bar\".\n\"mv disk/* disk2\" moves the contents of one disk to another\n",
+     "mv 用来把文件或目录从一个位置移动到另一个位置。\n\n示例：\n\"mv foo bar\" 把文件 \"foo\" 重命名为 \"bar\"。\n\"mv foo bar/foo\" 把文件 \"foo\" 移动到名为 \"bar\" 的文件夹。\n\"mv disk/* disk2\" 把一张软盘的内容移动到另一张\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/multishell.txt": {
+   "sha1": "1d56a128158e1ba622c302160d5f110ad76fe82c",
+   "raw": true,
+   "t": [
+    [
+     "multishell is the toplevel program on Advanced Computers which manages background tabs.\nType \"help shellapi\" for information about the shell lua api.\n",
+     "multishell 是高级计算机上的顶层程序，用来管理后台标签页。\n输入 \"help shellapi\" 可以查看 shell 这个 lua API 的相关信息。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/os.txt": {
+   "sha1": "0c047144c7aa24ffb289e46e83b9b2665417239b",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the os (Operating System) API:\nos.version()\nos.getComputerID()\nos.getComputerLabel()\nos.setComputerLabel()\nos.run( environment, programpath, arguments )\nos.loadAPI( path )\nos.unloadAPI( name )\nos.pullEvent( [filter] )\nos.queueEvent( event, arguments )\nos.clock()\nos.startTimer( timeout )\nos.cancelTimer( token )\nos.sleep( timeout )\nos.time( [source] )\nos.day( [source] )\nos.epoch( [source] )\nos.setAlarm( time )\nos.cancelAlarm( token )\nos.shutdown()\nos.reboot()\n\nEvents emitted by the os API:\n\"timer\" when a timeout started by os.startTimer() completes. Argument is the token returned by os.startTimer().\n\"alarm\" when a time passed to os.setAlarm() is reached. Argument is the token returned by os.setAlarm().\nType \"help events\" to learn about the event system.\n",
+     "os（操作系统）API 中的函数：\nos.version()\nos.getComputerID()\nos.getComputerLabel()\nos.setComputerLabel()\nos.run( environment, programpath, arguments )\nos.loadAPI( path )\nos.unloadAPI( name )\nos.pullEvent( [filter] )\nos.queueEvent( event, arguments )\nos.clock()\nos.startTimer( timeout )\nos.cancelTimer( token )\nos.sleep( timeout )\nos.time( [source] )\nos.day( [source] )\nos.epoch( [source] )\nos.setAlarm( time )\nos.cancelAlarm( token )\nos.shutdown()\nos.reboot()\n\nos API 触发的事件：\n\"timer\" 由 os.startTimer() 启动的计时到期时触发。参数是 os.startTimer() 返回的令牌。\n\"alarm\" 传给 os.setAlarm() 的时间到达时触发。参数是 os.setAlarm() 返回的令牌。\n输入 \"help events\" 可以了解事件系统。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/paint.txt": {
+   "sha1": "1bff67d512d6b2867e0be405a8d11e7458de44b8",
+   "raw": true,
+   "t": [
+    [
+     "paint is a program for creating images on Advanced Computers. Select colors from the color pallette on the right, and click on the canvas to draw. Press Ctrl to access the menu and save your pictures.\n\nex:\n\"edit mario\" opens an image called \"mario\" for editing.\n",
+     "paint 是高级计算机上用来创作图像的程序。从右侧的调色板选取颜色，点击画布即可绘制。按 Ctrl 打开菜单，可以保存你的作品。\n\n示例：\n\"edit mario\" 打开一张名为 \"mario\" 的图像进行编辑。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/paintutils.txt": {
+   "sha1": "43d59bf52b39b63186910e3cbde010fdac3aff2e",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Paint Utilities API:\npaintutils.drawPixel( x, y, colour )\npaintutils.drawLine( startX, startY, endX, endY, colour )\npaintutils.drawBox( startX, startY, endX, endY, colour )\npaintutils.drawFilledBox( startX, startY, endX, endY, colour )\npaintutils.loadImage( path )\npaintutils.drawImage( image, x, y )\n",
+     "绘图工具 API 中的函数：\npaintutils.drawPixel( x, y, colour )\npaintutils.drawLine( startX, startY, endX, endY, colour )\npaintutils.drawBox( startX, startY, endX, endY, colour )\npaintutils.drawFilledBox( startX, startY, endX, endY, colour )\npaintutils.loadImage( path )\npaintutils.drawImage( image, x, y )\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/parallel.txt": {
+   "sha1": "3f6d245cf74058394baf91351477385a659c01d1",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Parallel API:\nparallel.waitForAny( function1, function2, ... )\nparallel.waitForAll( function1, function2, ... )\nThese methods provide an easy way to run multiple lua functions simultaneously.\n",
+     "并行 API 中的函数：\nparallel.waitForAny( function1, function2, ... )\nparallel.waitForAll( function1, function2, ... )\n这些方法提供了一种简单的方式，能同时运行多个 lua 函数。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/pastebin.txt": {
+   "sha1": "f4c2b364636a8f18232686663bb90011a8774661",
+   "raw": true,
+   "t": [
+    [
+     "pastebin is a program for uploading files to and downloading files from pastebin.com. This is useful for sharing programs with other players.\nThe HTTP API must be enabled in ComputerCraft.cfg to use this program.\n\nex:\n\"pastebin put foo\" will upload the file \"foo\" to pastebin.com, and print the URL.\n\"pastebin get xq5gc7LB foo\" will download the file from the URL http://pastebin.com/xq5gc7LB, and save it as \"foo\".\n\"pastebin run CxaWmPrX\" will download the file from the URL http://pastebin.com/CxaWmPrX, and immediately run it.\n",
+     "pastebin 用来向 pastebin.com 上传文件，或从上面下载文件，适合用来和其他玩家分享程序。\n使用这个程序前，必须先在 ComputerCraft.cfg 中启用 HTTP API。\n\n示例：\n\"pastebin put foo\" 会把文件 \"foo\" 上传到 pastebin.com，并打印出网址。\n\"pastebin get xq5gc7LB foo\" 会从网址 http://pastebin.com/xq5gc7LB 下载文件，并保存为 \"foo\"。\n\"pastebin run CxaWmPrX\" 会从网址 http://pastebin.com/CxaWmPrX 下载文件，并立即运行它。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/peripheral.txt": {
+   "sha1": "852a2d710167d5eea9a2bbde9c1911633e5580e0",
+   "raw": true,
+   "t": [
+    [
+     "The peripheral API is for interacting with external peripheral devices. Type \"help peripherals\" to learn about the peripherals available.\n\nFunctions in the peripheral API:\nperipheral.getNames()\nperipheral.isPresent( name )\nperipheral.getName( peripheral )\nperipheral.getType( name )\nperipheral.getMethods( name )\nperipheral.call( name, methodName, param1, param2, etc )\nperipheral.wrap( name )\nperipheral.find( type, [fnFilter] )\n\nEvents fired by the peripheral API:\n\"peripheral\" when a new peripheral is attached. Argument is the name.\n\"peripheral_detach\" when a peripheral is removed. Argument is the name.\nType \"help events\" to learn about the event system.\n",
+     "peripheral API 用来与外部外围设备交互。输入 \"help peripherals\" 可以了解有哪些可用的外围设备。\n\nperipheral API 中的函数：\nperipheral.getNames()\nperipheral.isPresent( name )\nperipheral.getName( peripheral )\nperipheral.getType( name )\nperipheral.getMethods( name )\nperipheral.call( name, methodName, param1, param2, etc )\nperipheral.wrap( name )\nperipheral.find( type, [fnFilter] )\n\nperipheral API 触发的事件：\n\"peripheral\" 连接新的外围设备时触发。参数是名称。\n\"peripheral_detach\" 外围设备被移除时触发。参数是名称。\n输入 \"help events\" 可以了解事件系统。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/peripherals.txt": {
+   "sha1": "5552c1f999b746e72c3d059140aa7be8bdc15b87",
+   "raw": true,
+   "t": [
+    [
+     "The \"peripherals\" program will list all of the peripheral devices accessible from this computer.\nPeripherals are external devices which CraftOS Computers and Turtles can interact with using the peripheral API.\nType \"help peripheral\" to learn about using the peripheral API.\nType \"help drives\" to learn about using Disk Drives.\nType \"help modems\" to learn about using Modems.\nType \"help monitors\" to learn about using Monitors.\nType \"help printers\" to learn about using Printers.\n",
+     "\"peripherals\" 程序会列出这台电脑能访问的所有外围设备。\n外围设备是 CraftOS 的电脑和海龟可以通过 peripheral API 与之交互的外部设备。\n输入 \"help peripheral\" 可以了解如何使用 peripheral API。\n输入 \"help drives\" 可以了解如何使用磁盘驱动器。\n输入 \"help modems\" 可以了解如何使用调制解调器。\n输入 \"help monitors\" 可以了解如何使用显示器。\n输入 \"help printers\" 可以了解如何使用打印机。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/pocket.txt": {
+   "sha1": "a08d95ee458af4a70761129ccc0566ba59205d2c",
+   "raw": true,
+   "t": [
+    [
+     "pocket is an API available on pocket computers, which allows modifying its upgrades.\nFunctions in the pocket API:\npocket.equipBack()\npocket.unequipBack()\n\nWhen equipping upgrades, it will search your inventory for a suitable upgrade, starting in the selected slot. If one cannot be found then it will check your offhand.\n",
+     "pocket 是手提计算机上可用的 API，用来修改它的升级模块。\npocket API 中的函数：\npocket.equipBack()\npocket.unequipBack()\n\n装备升级模块时，会从选中的物品栏格子开始搜索合适的升级模块；如果没找到，就会再检查副手。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/printers.txt": {
+   "sha1": "4ab05c84cb42c95d85abfbb5fddef001ec5e98d0",
+   "raw": true,
+   "t": [
+    [
+     "The Printer is a peripheral device available for CraftOS. Type \"help peripheral\" to learn about using the Peripheral API to connect with peripherals. When a Printer is connected, peripheral.getType() will return \"printer\".\n\nMethods exposed by the Printer:\ngetInkLevel()\ngetPaperLevel()\nnewPage()\nsetPageTitle( title )\ngetPageSize()\nsetCursorPos( x, y )\ngetCursorPos()\nwrite( text )\nendPage()\n",
+     "打印机是 CraftOS 中可用的一种外围设备。输入 \"help peripheral\" 可以了解如何用外围设备 API 连接外围设备。连接打印机后，peripheral.getType() 会返回 \"printer\"。\n\n打印机暴露的方法：\ngetInkLevel()\ngetPaperLevel()\nnewPage()\nsetPageTitle( title )\ngetPageSize()\nsetCursorPos( x, y )\ngetCursorPos()\nwrite( text )\nendPage()\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/programming.txt": {
+   "sha1": "cfc07dc3ebef321b663f81e462386f92ef5ae025",
+   "raw": true,
+   "t": [
+    [
+     "To learn the lua programming language, visit http://lua-users.org/wiki/TutorialDirectory.\n\nTo experiment with lua in CraftOS, run the \"lua\" program and start typing code.\nTo create programs, use \"edit\" to create files, then type their names in the shell to run them. If you name a program \"startup\" and place it in the root or on a disk drive, it will run automatically when the computer starts.\n\nTo terminate a program stuck in a loop, hold Ctrl+T for 1 second.\nTo quickly shutdown a computer, hold Ctrl+S for 1 second.\nTo quickly reboot a computer, hold Ctrl+R for 1 second.\n\nTo learn about the programming APIs available, type \"apis\" or \"help apis\".\nIf you get stuck, visit the forums at http://www.computercraft.info/ for advice and tutorials.\n",
+     "要学习 lua 编程语言，请访问 http://lua-users.org/wiki/TutorialDirectory。\n\n要在 CraftOS 中试验 lua，运行 \"lua\" 程序，然后开始输入代码。\n要创建程序，用 \"edit\" 创建文件，然后在 shell 里输入文件名即可运行。如果把一个程序命名为 \"startup\"，并放在根目录或磁盘驱动器里，电脑启动时就会自动运行它。\n\n要终止卡在循环里的程序，按住 Ctrl+T 一秒钟。\n要快速关闭电脑，按住 Ctrl+S 一秒钟。\n要快速重启电脑，按住 Ctrl+R 一秒钟。\n\n要了解有哪些可用的编程 API，输入 \"apis\" 或 \"help apis\"。\n如果遇到困难，可以访问论坛 http://www.computercraft.info/ 寻求建议和教程。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/programs.txt": {
+   "sha1": "f542d0089eab229372989770fcd88123ffdbedb0",
+   "raw": true,
+   "t": [
+    [
+     "programs lists all the programs on the rom of the computer.\n",
+     "programs 用来列出电脑 rom 中的所有程序。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/reboot.txt": {
+   "sha1": "3487952247762620cc98aa4b56b8494dd849d196",
+   "raw": true,
+   "t": [
+    [
+     "reboot will turn the computer off and on again.\nYou can also hold Ctrl+R at any time to quickly reboot.\n",
+     "reboot 会把电脑关闭再重新打开。\n你也可以随时按住 Ctrl+R 快速重启。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/redirection.txt": {
+   "sha1": "182f2e8af620a19de00c135915f9d38a2d43bcd6",
+   "raw": true,
+   "t": [
+    [
+     "Redirection ComputerCraft Edition is the CraftOS version of a fun new puzzle game by Dan200, the author of ComputerCraft.\nPlay it on any Advanced Computer, then visit http://www.redirectiongame.com to play the full game!\n",
+     "《Redirection》ComputerCraft 版，是 ComputerCraft 作者 Dan200 制作的一款有趣益智新游戏，移植到了 CraftOS 上。\n在任意一台高级计算机上试玩，然后访问 http://www.redirectiongame.com 畅玩完整版！\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/rednet.txt": {
+   "sha1": "876f6132f6da4b0b8606ec2f7771051e2a74ae2a",
+   "raw": true,
+   "t": [
+    [
+     "The rednet API provides a simple computer networking model using modems.\n\nFunctions in the rednet API:\nrednet.open( side )\nrednet.close( [side] )\nrednet.isOpen( [side] )\nrednet.send( receiverID, message, [protocol] ) -- Send to a specific computer\nrednet.broadcast( message, [protocol] ) -- Send to all computers\nrednet.receive( [protocol], [timeout] ) -- Returns: senderID, message, protocol\nrednet.host( protocol, hostname )\nrednet.unhost( protocol )\nrednet.lookup( protocol, [hostname] ) -- Returns: ID\n\nEvents fired by the rednet API:\n\"rednet_message\" when a message is received. Arguments are senderID, message, protocol\nType \"help events\" to learn about the event system.\n\nRednet is not the only way to use modems for networking. Interfacing with the modem directly using the peripheral API and listening for the \"modem_message\" event allows for lower level control, at the expense of powerful high level networking features.\n",
+     "rednet API 提供了一套通过调制解调器实现的简易电脑联网模型。\n\nrednet API 中的函数：\nrednet.open( side )\nrednet.close( [side] )\nrednet.isOpen( [side] )\nrednet.send( receiverID, message, [protocol] ) -- Send to a specific computer\nrednet.broadcast( message, [protocol] ) -- Send to all computers\nrednet.receive( [protocol], [timeout] ) -- Returns: senderID, message, protocol\nrednet.host( protocol, hostname )\nrednet.unhost( protocol )\nrednet.lookup( protocol, [hostname] ) -- Returns: ID\n\nrednet API 触发的事件：\n\"rednet_message\" 收到消息时触发。参数是 senderID、message、protocol\n输入 \"help events\" 可以了解事件系统。\n\nrednet 并不是用调制解调器组网的唯一方式。直接用 peripheral API 与调制解调器交互，并监听 \"modem_message\" 事件，可以实现更底层的控制，但会失去 rednet 提供的那些强大高层组网功能。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/redstone.txt": {
+   "sha1": "ddd47601b25931a1b4c884c761b883f635580acd",
+   "raw": true,
+   "t": [
+    [
+     "The redstone program can be used to get, set or pulse redstone inputs and outputs from the computer.\n\nex:\n\"redstone probe\" will list all the redstone inputs to the computer\n\"redstone set left true\" turns on the left redstone output.\n\"redstone set right blue false\" turns off the blue wire in the bundled cable on the right redstone output.\n\"redstone pulse front 10 1\" emits 10 one second redstone pulses on the front redstone output.\n\nType \"help redstoneapi\" or \"help rs\" for information on the redstone Lua API.\n",
+     "redstone 程序用来获取、设置或脉冲输出电脑的红石输入与输出。\n\n示例：\n\"redstone probe\" 会列出电脑的所有红石输入\n\"redstone set left true\" 打开左侧的红石输出。\n\"redstone set right blue false\" 关闭右侧红石输出捆绑电缆中的蓝色线路。\n\"redstone pulse front 10 1\" 在前方红石输出上发出 10 次、每次 1 秒的红石脉冲。\n\n输入 \"help redstoneapi\" 或 \"help rs\" 可以查看 redstone 这个 Lua API 的相关信息。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/redstoneapi.txt": {
+   "sha1": "212562cf67e24f7de209cdcaffaaf0412dec714e",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Redstone API:\nredstone.getSides( )\nredstone.getInput( side )\nredstone.setOutput( side, boolean )\nredstone.getOutput( side )\nredstone.getAnalogInput( side )\nredstone.setAnalogOutput( side, number )\nredstone.getAnalogOutput( side )\n\nFunctions in the Redstone API for working with bundled cables:\nredstone.getBundledInput( side )\nredstone.testBundledInput( side, color )\nredstone.setBundledOutput( side, colors )\nredstone.getBundledOutput( side )\nType \"help bundled\" for usage examples.\n\nEvents emitted by the redstone API:\n\"redstone\", when the state of any redstone input changes. Use getInput() or getBundledInput() to inspect the changes\nType \"help events\" to learn about the event system.\n",
+     "红石 API 中的函数：\nredstone.getSides( )\nredstone.getInput( side )\nredstone.setOutput( side, boolean )\nredstone.getOutput( side )\nredstone.getAnalogInput( side )\nredstone.setAnalogOutput( side, number )\nredstone.getAnalogOutput( side )\n\n红石 API 中用于操作捆绑电缆的函数：\nredstone.getBundledInput( side )\nredstone.testBundledInput( side, color )\nredstone.setBundledOutput( side, colors )\nredstone.getBundledOutput( side )\n输入 \"help bundled\" 可以查看用法示例。\n\n红石 API 触发的事件：\n\"redstone\"，任意红石输入状态变化时触发。用 getInput() 或 getBundledInput() 可以查看变化内容\n输入 \"help events\" 可以了解事件系统。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/refuel.txt": {
+   "sha1": "6e912a93d4400490ba1d73fbde0682abcd6bcc86",
+   "raw": true,
+   "t": [
+    [
+     "refuel is a program for Turtles. Refuel will consume items from the inventory as fuel for turtle.\n\nex:\n\"refuel\" will refuel with at most one fuel item\n\"refuel 10\" will refuel with at most 10 fuel items\n\"refuel all\" will refuel with as many fuel items as possible\n",
+     "refuel 是给海龟用的程序。refuel 会消耗物品栏中的物品作为海龟的燃料。\n\n示例：\n\"refuel\" 最多消耗一件燃料物品来加油\n\"refuel 10\" 最多消耗 10 件燃料物品来加油\n\"refuel all\" 会尽可能多地消耗燃料物品来加油\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/rename.txt": {
+   "sha1": "c5c5dbe4bc9fb51dc7eab25d371cfe77d115116a",
+   "raw": true,
+   "t": [
+    [
+     "rename renames a file or directory.\n\nex:\n\"rename foo bar\" renames the file \"foo\" to \"bar\".\n",
+     "rename 用来重命名文件或目录。\n\n示例：\n\"rename foo bar\" 把文件 \"foo\" 重命名为 \"bar\"。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/repeat.txt": {
+   "sha1": "cff8d7b99060412e7615aaa32ceb8f2b14cfb454",
+   "raw": true,
+   "t": [
+    [
+     "repeat is a program for repeating rednet messages across long distances. To use, connect 2 or more modems to a computer and run the \"repeat\" program; from then on, any rednet message sent from any computer in wireless range or connected by networking cable to either of the modems will be repeated to those on the other side.\n",
+     "repeat 是用来把 rednet 消息中继到远距离的程序。使用时，给电脑接上 2 个或更多调制解调器，然后运行 \"repeat\" 程序；此后，从任意一台在无线范围内、或通过网络电缆连接到其中一个调制解调器的电脑发出的 rednet 消息，都会被转发给另一侧的电脑。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/rs.txt": {
+   "sha1": "8a8780ae25f11ec1c8906fd49f5108d8ea53b1c0",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Redstone API:\nrs.getSides( )\nrs.getInput( side )\nrs.setOutput( side, boolean )\nrs.getOutput( side )\nrs.getAnalogInput( side )\nrs.setAnalogOutput( side, number )\nrs.getAnalogOutput( side )\n\nFunctions in the Redstone API for working with RedPower bundled cables:\nrs.getBundledInput( side )\nrs.testBundledInput( side, color )\nrs.setBundledOutput( side, colors )\nrs.getBundledOutput( side )\nType \"help bundled\" for usage examples.\n\nEvents emitted by the redstone API:\n\"redstone\", when the state of any redstone input changes. Use getInput() or getBundledInput() to inspect the changes\nType \"help events\" to learn about the event system.\n",
+     "红石 API 中的函数：\nrs.getSides( )\nrs.getInput( side )\nrs.setOutput( side, boolean )\nrs.getOutput( side )\nrs.getAnalogInput( side )\nrs.setAnalogOutput( side, number )\nrs.getAnalogOutput( side )\n\n红石 API 中用于操作 RedPower 捆绑电缆的函数：\nrs.getBundledInput( side )\nrs.testBundledInput( side, color )\nrs.setBundledOutput( side, colors )\nrs.getBundledOutput( side )\n输入 \"help bundled\" 可以查看用法示例。\n\n红石 API 触发的事件：\n\"redstone\"，任意红石输入状态变化时触发。用 getInput() 或 getBundledInput() 可以查看变化内容\n输入 \"help events\" 可以了解事件系统。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/set.txt": {
+   "sha1": "818620e6dc368739cd3ba363b9feeea316113073",
+   "raw": true,
+   "t": [
+    [
+     "The set program can be used to inspect and change system settings.\n\nUsage:\n\"set\" will print all the system settings and their values\n\"set foo\" will print the value of the system setting \"foo\"\n\"set foo bar\" will set the value of the system setting \"foo\" to \"bar\"\n",
+     "set 程序用来查看和修改系统设置。\n\n用法：\n\"set\" 会打印所有系统设置及其值\n\"set foo\" 会打印系统设置 \"foo\" 的值\n\"set foo bar\" 会把系统设置 \"foo\" 的值设为 \"bar\"\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/settings.txt": {
+   "sha1": "ffee830fcf199c983c62133b9437d63782e88b8a",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Settings API:\nsettings.get( name, [default] )\nsettings.set( name, value )\nsettings.unset( name )\nsettings.load( path )\nsettings.save( path )\nsettings.clear()\nsettings.getNames()\n\nDefault Settings:\nshell.autocomplete - enables auto-completion in the Shell.\nlua.autocomplete - enables auto-completion in the Lua program.\nedit.autocomplete - enables auto-completion in the Edit program.\nedit.default_extension - sets the default file extension for files created with the Edit program\npaint.default_extension - sets the default file extension for files created with the Paint program\nbios.use_multishell - enables Multishell on Advanced Computers, Turtles, Pocket Computers and Command Computers.\nshell.allow_disk_startup - if a Disk Drive with a Disk inside that has a 'startup' script is attached to a computer, this setting allows to automatically run that script when the computer starts.\nshell.allow_startup - if there is a 'startup' script in a computer's root, this setting allow to automatically run that script when the computer runs.\nlist.show_hidden - determines, whether the List program will list hidden files or not.\n",
+     "设置 API 中的函数：\nsettings.get( name, [default] )\nsettings.set( name, value )\nsettings.unset( name )\nsettings.load( path )\nsettings.save( path )\nsettings.clear()\nsettings.getNames()\n\n默认设置：\nshell.autocomplete —— 在 Shell 中启用自动补全。\nlua.autocomplete —— 在 Lua 程序中启用自动补全。\nedit.autocomplete —— 在 Edit 程序中启用自动补全。\nedit.default_extension —— 设置用 Edit 程序创建文件时的默认扩展名\npaint.default_extension —— 设置用 Paint 程序创建文件时的默认扩展名\nbios.use_multishell —— 在高级计算机、海龟、手提计算机和命令电脑上启用 Multishell。\nshell.allow_disk_startup —— 如果接入的磁盘驱动器中有一张带 'startup' 脚本的软盘，此设置决定电脑启动时是否自动运行该脚本。\nshell.allow_startup —— 如果电脑根目录下有 'startup' 脚本，此设置决定电脑运行时是否自动运行该脚本。\nlist.show_hidden —— 决定 List 程序是否列出隐藏文件。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/shell.txt": {
+   "sha1": "edf76255e59aee49046e45f93fead2e53b1c2ec0",
+   "raw": true,
+   "t": [
+    [
+     "shell is the toplevel program which interprets commands and runs program.\nType \"help shellapi\" for information about the shell lua api.\n",
+     "shell 是负责解释命令、运行程序的顶层程序。\n输入 \"help shellapi\" 可以查看 shell 这个 lua API 的相关信息。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/shellapi.txt": {
+   "sha1": "3063fcc7a12733b605ef516bd562796b98b7d408",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Shell API:\nshell.exit()\nshell.dir()\nshell.setDir( path )\nshell.path()\nshell.setPath( path )\nshell.resolve( localpath )\nshell.resolveProgram( name )\nshell.aliases()\nshell.setAlias( alias, command )\nshell.clearAlias( alias )\nshell.programs()\nshell.run( program, arguments )\nshell.getRunningProgram()\nshell.complete( line )\nshell.completeProgram( program )\nshell.setCompletionFunction( program, fnComplete )\nshell.openTab( program, arguments ) (Advanced Computer required)\nshell.switchTab( n ) (Advanced Computer required)\n",
+     "Shell API 中的函数：\nshell.exit()\nshell.dir()\nshell.setDir( path )\nshell.path()\nshell.setPath( path )\nshell.resolve( localpath )\nshell.resolveProgram( name )\nshell.aliases()\nshell.setAlias( alias, command )\nshell.clearAlias( alias )\nshell.programs()\nshell.run( program, arguments )\nshell.getRunningProgram()\nshell.complete( line )\nshell.completeProgram( program )\nshell.setCompletionFunction( program, fnComplete )\nshell.openTab( program, arguments )（需要高级计算机）\nshell.switchTab( n )（需要高级计算机）\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/shutdown.txt": {
+   "sha1": "6a9fa7ce5029da50f659f0c1b55070fecd99fb5b",
+   "raw": true,
+   "t": [
+    [
+     "shutdown will turn off the computer.\n",
+     "shutdown 会关闭电脑。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/speaker.md": {
+   "sha1": "a1a441fc2d5f4d981c3843b781eb21857a6144d5",
+   "raw": true,
+   "t": [
+    [
+     "The speaker program plays audio files using speakers attached to this computer.\n\nIt supports audio files in a limited number of formats:\n* DFPWM: You can convert music to DFPWM with external tools like https://music.madefor.cc.\n* WAV: WAV files must be 8-bit PCM or DFPWM, with exactly one channel and a sample rate of 48kHz.\n\n## Examples:\n* `speaker play example.dfpwm left` plays the \"example.dfpwm\" audio file using the speaker on the left of the computer.\n* `speaker stop` stops any currently playing audio.\n",
+     "speaker 程序用来通过接在这台电脑上的扬声器播放音频文件。\n\n它支持的音频格式有限：\n* DFPWM：可以用 https://music.madefor.cc 之类的外部工具，把音乐转换成 DFPWM 格式。\n* WAV：WAV 文件必须是 8 位 PCM 或 DFPWM 编码，且只能有一个声道，采样率为 48kHz。\n\n## 示例：\n* `speaker play example.dfpwm left` 会用电脑左侧的扬声器播放音频文件 \"example.dfpwm\"。\n* `speaker stop` 会停止当前正在播放的音频。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/speakers.txt": {
+   "sha1": "774fe7a8cba74e40809dc7a6d66d7a67618b8c26",
+   "raw": true,
+   "t": [
+    [
+     "The Speaker is a peripheral device available for CraftOS. Type \"help peripheral\" to learn about using the Peripheral API to connect with peripherals. When a Speaker is connected, peripheral.getType() will return \"speaker\".\n\nMethods exposed by the Speaker:\nplaySound( sResourceName, nVolume, nPitch )\nplayNote( sInstrumentName, nVolume, nPitch )\n\nResource name is the same as used by the /playsound command, such as \"minecraft:entity.cow.ambient\".\nInstruments are as follows: \"harp\", \"bass\", \"snare\", \"hat\", and \"basedrum\" with the addition of \"flute\", \"bell\", \"chime\", and \"guitar\" in Minecraft versions 1.12 and above.\nTicks is the amount of times a noteblock has been tuned (right clicked).\n",
+     "扬声器是 CraftOS 中可用的一种外围设备。输入 \"help peripheral\" 可以了解如何用外围设备 API 连接外围设备。连接扬声器后，peripheral.getType() 会返回 \"speaker\"。\n\n扬声器暴露的方法：\nplaySound( sResourceName, nVolume, nPitch )\nplayNote( sInstrumentName, nVolume, nPitch )\n\n资源名和 /playsound 命令用的一样，比如 \"minecraft:entity.cow.ambient\"。\n可用的乐器有：\"harp\"、\"bass\"、\"snare\"、\"hat\"、\"basedrum\"，在 Minecraft 1.12 及以上版本还新增了 \"flute\"、\"bell\"、\"chime\"、\"guitar\"。\nTicks 是音符盒被调过音（右键点击）的次数。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/string.txt": {
+   "sha1": "13b093f493c5cc8482bd852c9ea7d5373ce38d47",
+   "raw": true,
+   "t": [
+    [
+     "string is a standard Lua5.1 API.\nRefer to http://www.lua.org/manual/5.1/ for more information.\n",
+     "string 是标准 Lua5.1 API。\n更多信息请参阅 http://www.lua.org/manual/5.1/。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/table.txt": {
+   "sha1": "4f253c20a287f687d0c2b5c3177e5eb8ca25c87f",
+   "raw": true,
+   "t": [
+    [
+     "table is a standard Lua5.1 API.\nRefer to http://www.lua.org/manual/5.1/ for more information.\n",
+     "table 是标准 Lua5.1 API。\n更多信息请参阅 http://www.lua.org/manual/5.1/。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/term.txt": {
+   "sha1": "8c6ae3c268da09c0660ddb8eac7b8dd1ebca098b",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Terminal API:\nterm.write( text )\nterm.blit( text, textColor, backgroundColor )\nterm.clear()\nterm.clearLine()\nterm.getCursorPos()\nterm.setCursorPos( x, y )\nterm.setCursorBlink( blink )\nterm.isColor()\nterm.setTextColor( color )\nterm.setBackgroundColor( color )\nterm.getTextColor()\nterm.getBackgroundColor()\nterm.getSize()\nterm.scroll( n )\nterm.redirect( object )\nterm.current()\nterm.setPaletteColor( color, r, g, b )\nterm.getPaletteColor( color )\n\nEvents emitted by the terminals:\n\"term_resize\", when the size of a terminal changes. This can happen in multitasking environments, or when the terminal out is being redirected by the \"monitor\" program.\n",
+     "终端 API 中的函数：\nterm.write( text )\nterm.blit( text, textColor, backgroundColor )\nterm.clear()\nterm.clearLine()\nterm.getCursorPos()\nterm.setCursorPos( x, y )\nterm.setCursorBlink( blink )\nterm.isColor()\nterm.setTextColor( color )\nterm.setBackgroundColor( color )\nterm.getTextColor()\nterm.getBackgroundColor()\nterm.getSize()\nterm.scroll( n )\nterm.redirect( object )\nterm.current()\nterm.setPaletteColor( color, r, g, b )\nterm.getPaletteColor( color )\n\n终端触发的事件：\n\"term_resize\"，终端尺寸变化时触发。这可能发生在多任务环境中，或是终端输出被 \"monitor\" 程序重定向时。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/textutils.txt": {
+   "sha1": "04e67e64bdf6222d45314a628dc522f4591a3a4c",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the Text Utilities API:\ntextutils.slowPrint( text )\ntextutils.tabulate( table, table2, ... )\ntextutils.pagedTabulate( table, table2, ... )\ntextutils.formatTime( time, bTwentyFourHour )\ntextutils.serialize( table )\ntextutils.unserialize( string )\ntextutils.serializeJSON( table, [useNBTStyle] )\ntextutils.urlEncode( string )\ntextutils.complete( string, table )\n",
+     "文本工具 API 中的函数：\ntextutils.slowPrint( text )\ntextutils.tabulate( table, table2, ... )\ntextutils.pagedTabulate( table, table2, ... )\ntextutils.formatTime( time, bTwentyFourHour )\ntextutils.serialize( table )\ntextutils.unserialize( string )\ntextutils.serializeJSON( table, [useNBTStyle] )\ntextutils.urlEncode( string )\ntextutils.complete( string, table )\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/time.txt": {
+   "sha1": "b2864bcd8e4b1d1ca8ed9001632fea3e2f6a531b",
+   "raw": true,
+   "t": [
+    [
+     "time prints the current time of day.\n",
+     "time 用来打印当前的游戏内时间。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/tunnel.txt": {
+   "sha1": "2e545e8d1d26158fb79993eb24f27e7c05cd00b9",
+   "raw": true,
+   "t": [
+    [
+     "tunnel is a program for Mining Turtles. Tunnel will mine a 3x2 tunnel of the depth specified.\n\nex:\n\"tunnel 20\" will tunnel a tunnel 20 blocks long.\n",
+     "tunnel 是给采掘海龟用的程序。tunnel 会挖出一条指定长度的 3x2 隧道。\n\n示例：\n\"tunnel 20\" 会挖一条 20 格长的隧道。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/turn.txt": {
+   "sha1": "ac2ed0044df5176f5814f1e657d2026154cda402",
+   "raw": true,
+   "t": [
+    [
+     "turn is a program for Turtles, used to turn the turtle around without programming. It accepts one or more commands as a direction and a number of turns. The \"go\" program can also be used for turning.\n\nex:\n\"turn left\" turns the turtle 90 degrees left.\n\"turn right 2\" turns the turtle 180 degrees right.\n\"turn left 2 right\" turns left 180 degrees, then right 90 degrees.\n",
+     "turn 是给海龟用的程序，不用写代码也能让海龟转向。它接受一个或多个\"方向+次数\"形式的指令。\"go\" 程序也可以用来转向。\n\n示例：\n\"turn left\" 让海龟向左转 90 度。\n\"turn right 2\" 让海龟向右转 180 度。\n\"turn left 2 right\" 先向左转 180 度，再向右转 90 度。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/turtle.txt": {
+   "sha1": "7a064970165d3060562e5bdc6f22614c4bbe0d31",
+   "raw": true,
+   "t": [
+    [
+     "turtle is an api available on Turtles, which controls their movement.\nFunctions in the Turtle API:\nturtle.forward()\nturtle.back()\nturtle.up()\nturtle.down()\nturtle.turnLeft()\nturtle.turnRight()\nturtle.select( slotNum )\nturtle.getSelectedSlot()\nturtle.getItemCount( [slotNum] )\nturtle.getItemSpace( [slotNum] )\nturtle.getItemDetail( [slotNum] )\nturtle.equipLeft()\nturtle.equipRight()\nturtle.dig( [toolSide] )\nturtle.digUp( [toolSide] )\nturtle.digDown( [toolSide] )\nturtle.place()\nturtle.placeUp()\nturtle.placeDown()\nturtle.attack( [toolSide] )\nturtle.attackUp( [toolSide] )\nturtle.attackDown( [toolSide] )\nturtle.detect()\nturtle.detectUp()\nturtle.detectDown()\nturtle.compare()\nturtle.compareUp()\nturtle.compareDown()\nturtle.inspect()\nturtle.inspectUp()\nturtle.inspectDown()\nturtle.compareTo( slotNum )\nturtle.transferTo( slotNum, [quantity] )\nturtle.drop( [quantity] )\nturtle.dropUp( [quantity] )\nturtle.dropDown( [quantity] )\nturtle.suck( [quantity] )\nturtle.suckUp( [quantity] )\nturtle.suckDown( [quantity] )\nturtle.getFuelLevel()\nturtle.getFuelLimit()\nturtle.refuel( [quantity] )\nturtle.craft( [quantity] ) (requires Crafty Turtle)\n\nEvents fired by the Turtle API:\n\"turtle_inventory\" when any of the items in the inventory are changed. Use comparison operations to inspect the changes.\n",
+     "turtle 是海龟上可用的 API，用来控制海龟的移动。\n海龟 API 中的函数：\nturtle.forward()\nturtle.back()\nturtle.up()\nturtle.down()\nturtle.turnLeft()\nturtle.turnRight()\nturtle.select( slotNum )\nturtle.getSelectedSlot()\nturtle.getItemCount( [slotNum] )\nturtle.getItemSpace( [slotNum] )\nturtle.getItemDetail( [slotNum] )\nturtle.equipLeft()\nturtle.equipRight()\nturtle.dig( [toolSide] )\nturtle.digUp( [toolSide] )\nturtle.digDown( [toolSide] )\nturtle.place()\nturtle.placeUp()\nturtle.placeDown()\nturtle.attack( [toolSide] )\nturtle.attackUp( [toolSide] )\nturtle.attackDown( [toolSide] )\nturtle.detect()\nturtle.detectUp()\nturtle.detectDown()\nturtle.compare()\nturtle.compareUp()\nturtle.compareDown()\nturtle.inspect()\nturtle.inspectUp()\nturtle.inspectDown()\nturtle.compareTo( slotNum )\nturtle.transferTo( slotNum, [quantity] )\nturtle.drop( [quantity] )\nturtle.dropUp( [quantity] )\nturtle.dropDown( [quantity] )\nturtle.suck( [quantity] )\nturtle.suckUp( [quantity] )\nturtle.suckDown( [quantity] )\nturtle.getFuelLevel()\nturtle.getFuelLimit()\nturtle.refuel( [quantity] )\nturtle.craft( [quantity] )（需要合成海龟）\n\n海龟 API 触发的事件：\n\"turtle_inventory\" 物品栏中的物品发生变化时触发。用比较操作可以查看具体变化。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/type.txt": {
+   "sha1": "ad8a7296c552d68796349608f5014fa023c9ec64",
+   "raw": true,
+   "t": [
+    [
+     "type determines the type of a file or directory. Prints \"file\", \"directory\" or \"No such path\".\n",
+     "type 用来判断文件或目录的类型，会打印 \"file\"、\"directory\" 或 \"No such path\"。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/unequip.txt": {
+   "sha1": "6560ee0a7c0f5055b924c3efa8d30ca49bf61ed5",
+   "raw": true,
+   "t": [
+    [
+     "unequip is a program for Turtles and Pocket Computers. unequip will remove tools of peripherals from the specified side of the turtle. On a Pocket Computer you don't need to write a side.\n\nex:\n\"unequip left\" will remove the item on the left side of the turtle\n\"unequip\" on a Pocket Computer will remove the item from the Pocket Computer\n",
+     "unequip 是给海龟和手提计算机用的程序。unequip 会移除海龟指定一侧的工具或外围设备。在手提计算机上不需要写方向。\n\n示例：\n\"unequip left\" 会移除海龟左侧的物品\n\"unequip\" 在手提计算机上会移除手提计算机上的物品\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/vector.txt": {
+   "sha1": "b518431f728df431c5892a2fc5d1ff59db958e24",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the 3D Vector Math API:\nvector.new( x,y,z )\n\nVectors returned by vector.new() have the following fields and methods:\nvector.x\nvector.y\nvector.z\nvector:add( vector )\nvector:sub( vector )\nvector:mul( number )\nvector:dot( vector )\nvector:cross( vector )\nvector:length()\nvector:normalize()\nvector:round()\nvector:tostring()\nThe +, - and * operators can also be used on vectors.\n",
+     "三维向量数学 API 中的函数：\nvector.new( x,y,z )\n\nvector.new() 返回的向量有以下字段和方法：\nvector.x\nvector.y\nvector.z\nvector:add( vector )\nvector:sub( vector )\nvector:mul( number )\nvector:dot( vector )\nvector:cross( vector )\nvector:length()\nvector:normalize()\nvector:round()\nvector:tostring()\n向量也可以直接使用 +、- 和 * 运算符。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/wget.txt": {
+   "sha1": "b016ed045b2420ac503644339ca2daa5e044d39c",
+   "raw": true,
+   "t": [
+    [
+     "wget is a program for downloading files from the internet. This is useful for downloading programs created by other players.\nIf no filename is specified wget will try to determine the filename from the URL by stripping any anchors, parameters and trailing slashes and then taking everything remaining after the last slash.\nThe HTTP API must be enabled in ComputerCraft.cfg to use this program.\nex:\n\"wget http://pastebin.com/raw/CxaWmPrX test\" will download the file from the URL http://pastebin.com/raw/CxaWmPrX, and save it as \"test\".\n\"wget http://example.org/test.lua/?foo=bar#qzu\" will download the file from the URL http://example.org/test.lua/?foo=bar#qzu and save it as \"test.lua\"\n\"wget http://example.org/\" will download the file from the URL http://example.org and save it as \"example.org\"\n\"wget run http://pastebin.com/raw/CxaWmPrX\" will download the file from the URL http://pastebin.com/raw/CxaWmPrX and run it immediately.\n",
+     "wget 是用来从互联网下载文件的程序，适合用来下载其他玩家写的程序。\n如果没有指定文件名，wget 会尝试从网址中去掉锚点、参数和末尾的斜杠，取最后一个斜杠之后剩下的部分作为文件名。\n使用这个程序前，必须先在 ComputerCraft.cfg 中启用 HTTP API。\n示例：\n\"wget http://pastebin.com/raw/CxaWmPrX test\" 会从网址 http://pastebin.com/raw/CxaWmPrX 下载文件，并保存为 \"test\"。\n\"wget http://example.org/test.lua/?foo=bar#qzu\" 会从网址 http://example.org/test.lua/?foo=bar#qzu 下载文件，并保存为 \"test.lua\"\n\"wget http://example.org/\" 会从网址 http://example.org 下载文件，并保存为 \"example.org\"\n\"wget run http://pastebin.com/raw/CxaWmPrX\" 会从网址 http://pastebin.com/raw/CxaWmPrX 下载文件，并立即运行它。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/whatsnew.md": {
+   "sha1": "0216b9204cf29e12752c7f2b25f158e47cc447aa",
+   "raw": true,
+   "t": [
+    [
+     "New features in CC: Tweaked 1.120.0\n\n* Support spawning new parallel functions in `parallel.watiForAll`.\n\nOne bug fix:\n* Make HTTP IP filtering stricter.\n\nType \"help changelog\" to see the full version history.\n",
+     "CC: Tweaked 1.120.0 中的新特性\n\n* 支持在 `parallel.watiForAll` 中生成新的并行函数。\n\n一项 bug 修复：\n* 让 HTTP IP 过滤更加严格。\n\n输入 \"help changelog\" 可以查看完整的版本历史。\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/window.txt": {
+   "sha1": "485927d2fd36146d6bf913e53ae375b67cea690b",
+   "raw": true,
+   "t": [
+    [
+     "Functions in the window API:\nwindow.create( parent, x, y, width, height, visible )\n\nWindows created with the window API have the following methods:\nwrite( text )\nblit( text, textColor, backgroundColor )\nclear()\nclearLine()\ngetCursorPos()\nsetCursorPos( x, y )\nsetCursorBlink( blink )\nisColor()\nsetTextColor( color )\nsetBackgroundColor( color )\ngetTextColor()\ngetBackgroundColor()\ngetSize()\nscroll( n )\nsetVisible( bVisible )\nredraw()\nrestoreCursor()\ngetPosition()\nreposition( x, y, width, height )\ngetPaletteColor( color )\nsetPaletteColor( color, r, g, b )\ngetLine()\n",
+     "window API 中的函数：\nwindow.create( parent, x, y, width, height, visible )\n\n用 window API 创建的窗口拥有以下方法：\nwrite( text )\nblit( text, textColor, backgroundColor )\nclear()\nclearLine()\ngetCursorPos()\nsetCursorPos( x, y )\nsetCursorBlink( blink )\nisColor()\nsetTextColor( color )\nsetBackgroundColor( color )\ngetTextColor()\ngetBackgroundColor()\ngetSize()\nscroll( n )\nsetVisible( bVisible )\nredraw()\nrestoreCursor()\ngetPosition()\nreposition( x, y, width, height )\ngetPaletteColor( color )\nsetPaletteColor( color, r, g, b )\ngetLine()\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/workbench.txt": {
+   "sha1": "c025db0b22ea1371a8e03c440fa899b8f462c27c",
+   "raw": true,
+   "t": [
+    [
+     "Workbenches are peripheral devices found on Crafty Turtles running CraftOS. Type \"help peripheral\" to learn about using the Peripheral API to connect with peripherals. When a workbench is attached to a turtle, peripheral.getType() will return \"workbench\".\n\nMethods exposed by Workbenches:\ncraft( channel )\n",
+     "工作台是运行 CraftOS 的合成海龟上才有的外围设备。输入 \"help peripheral\" 可以了解如何用外围设备 API 连接外围设备。海龟接上工作台后，peripheral.getType() 会返回 \"workbench\"。\n\n工作台暴露的方法：\ncraft( channel )\n"
+    ]
+   ]
+  },
+  "data/computercraft/lua/rom/help/worm.txt": {
+   "sha1": "6c05060104350bdbca18efeb3c4cc0ff7e4a7bd3",
+   "raw": true,
+   "t": [
+    [
+     "You've played it in the arcades, now experience the high-octane thrills of the hit game \"WORM!\" on your home computer! Only on CraftOS!\n",
+     "街机厅里你已经玩过了，现在就在自家电脑上体验这款热门游戏 \"WORM!\" 带来的火爆刺激吧！仅限 CraftOS！\n"
+    ]
+   ]
+  }
+ }
+}
