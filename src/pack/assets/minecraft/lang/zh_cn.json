@@ -128,5 +128,9 @@
  "advancement.kattersstructures.enlightning_title": "赋能",
  "advancement.kattersstructures.enlightning_description": "用能量为避雷针充能。这股力量强大到足以打破空间的界限。",
  "advancement.kattersstructures.deep_blue_wanderer_title": "深海漫游者",
- "advancement.kattersstructures.deep_blue_wanderer_description": "发现每一个深海生物群系"
+ "advancement.kattersstructures.deep_blue_wanderer_description": "发现每一个深海生物群系",
+ "biome.minecraft.end": "末地",
+ "biome.minecraft.hill": "丘陵",
+ "biome.minecraft.mountain": "山地",
+ "biome.minecraft.nether": "下界"
 }
