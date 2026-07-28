@@ -43,6 +43,7 @@ VaultPatcher 靠字符串精确匹配替换硬编码文本，而且失配是**�
 import hashlib
 import json
 import sys
+import io
 import zipfile
 from collections import defaultdict
 from pathlib import Path
@@ -62,6 +63,16 @@ def build_index(mods_dir):
         try:
             with zipfile.ZipFile(j) as z:
                 names = [n for n in z.namelist() if n.endswith('.class')]
+                # 库常常以 jar-in-jar 的形式塞在 META-INF/jarjar/ 里（NeoForge 的常规做法）。
+                # 只扫外层会漏掉一整批类——例如 Create 的配置界面 catnip 就在
+                # ponder-*.jar 里面，不往里挖就会把我们指向它的模块判成「目标类找不到」。
+                for inner in [n for n in z.namelist()
+                              if n.startswith('META-INF/jarjar/') and n.endswith('.jar')]:
+                    try:
+                        with zipfile.ZipFile(io.BytesIO(z.read(inner))) as iz:
+                            names += [n for n in iz.namelist() if n.endswith('.class')]
+                    except Exception:                              # noqa: BLE001
+                        pass
         except Exception:
             continue
         for n in names:

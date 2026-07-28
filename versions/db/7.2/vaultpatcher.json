@@ -1557,17 +1557,7 @@
     "jars": [
      "blockui-1.0.211-1.21.1-snapshot.jar"
     ],
-    "keys": {
-     "bottom horizontal": "exact",
-     "bottom left": "exact",
-     "bottom right": "exact",
-     "top horizontal": "exact",
-     "top left": "exact",
-     "top right": "exact",
-     "vertical horizontal": "exact",
-     "vertical left": "exact",
-     "vertical right": "exact"
-    }
+    "keys": {}
    }
   ]
  },
@@ -1738,6 +1728,154 @@
     "keys": {
      "No ID found for enhanced terrain adaptation type ": "substring",
      "Unknown enhanced terrain adaptation type: ": "substring"
+    }
+   }
+  ]
+ },
+ "catnip_config_ui.json": {
+  "blocks": [
+   {
+    "classes": {
+     "net.createmod.catnip.config.ui.SubMenuConfigScreen": {
+      "actual": "net.createmod.catnip.config.ui.SubMenuConfigScreen",
+      "how": "declared",
+      "jar": "create-1.21.1-6.0.10.jar"
+     }
+    },
+    "i": 1,
+    "jars": [
+     "create-1.21.1-6.0.10.jar"
+    ],
+    "keys": {
+     "Ambient Volume Cap": "dynamic",
+     "Client": "dynamic",
+     "Common": "dynamic",
+     "Custom Background Overlay": "dynamic",
+     "Custom Border Bot Overlay": "dynamic",
+     "Custom Border Top Overlay": "dynamic",
+     "Custom Colors Overlay": "dynamic",
+     "Enable Ambient Sounds": "dynamic",
+     "Enable Overstressed Tooltip": "dynamic",
+     "Enable Tooltips": "dynamic",
+     "Explain Render Errors": "dynamic",
+     "Fan Particle Density": "dynamic",
+     "Filter Item Render Distance": "dynamic",
+     "Fluid Fog Settings": "dynamic",
+     "Goggle Overlay": "dynamic",
+     "Ignore Fabulous Warning": "dynamic",
+     "Ingame Menu Config Button Offset X": "dynamic",
+     "Ingame Menu Config Button Row": "dynamic",
+     "Main Menu Config Button Offset X": "dynamic",
+     "Main Menu Config Button Row": "dynamic",
+     "Mounted Zoom Multiplier": "dynamic",
+     "Overlay Offset X": "dynamic",
+     "Overlay Offset Y": "dynamic",
+     "Recipe Viewer Integration": "dynamic",
+     "Rotate When Seated": "dynamic",
+     "Server": "dynamic",
+     "Show Extended Track Graph On F3": "dynamic",
+     "Show Track Graph On F3": "dynamic",
+     "Show Train Map Overlay": "dynamic",
+     "Sound": "dynamic",
+     "Sync Recipe Viewer Search": "dynamic",
+     "Train Map Color Theme": "dynamic",
+     "Trains": "dynamic"
+    }
+   },
+   {
+    "classes": {
+     "net.createmod.catnip.config.ui.ConfigScreenList": {
+      "actual": "net.createmod.catnip.config.ui.ConfigScreenList",
+      "how": "declared",
+      "jar": "create-1.21.1-6.0.10.jar"
+     }
+    },
+    "i": 2,
+    "jars": [
+     "create-1.21.1-6.0.10.jar"
+    ],
+    "keys": {
+     "Ambient Volume Cap": "dynamic",
+     "Client": "dynamic",
+     "Common": "dynamic",
+     "Custom Background Overlay": "dynamic",
+     "Custom Border Bot Overlay": "dynamic",
+     "Custom Border Top Overlay": "dynamic",
+     "Custom Colors Overlay": "dynamic",
+     "Enable Ambient Sounds": "dynamic",
+     "Enable Overstressed Tooltip": "dynamic",
+     "Enable Tooltips": "dynamic",
+     "Explain Render Errors": "dynamic",
+     "Fan Particle Density": "dynamic",
+     "Filter Item Render Distance": "dynamic",
+     "Fluid Fog Settings": "dynamic",
+     "Goggle Overlay": "dynamic",
+     "Ignore Fabulous Warning": "dynamic",
+     "Ingame Menu Config Button Offset X": "dynamic",
+     "Ingame Menu Config Button Row": "dynamic",
+     "Main Menu Config Button Offset X": "dynamic",
+     "Main Menu Config Button Row": "dynamic",
+     "Mounted Zoom Multiplier": "dynamic",
+     "Overlay Offset X": "dynamic",
+     "Overlay Offset Y": "dynamic",
+     "Recipe Viewer Integration": "dynamic",
+     "Rotate When Seated": "dynamic",
+     "Server": "dynamic",
+     "Show Extended Track Graph On F3": "dynamic",
+     "Show Track Graph On F3": "dynamic",
+     "Show Train Map Overlay": "dynamic",
+     "Sound": "dynamic",
+     "Sync Recipe Viewer Search": "dynamic",
+     "Train Map Color Theme": "dynamic",
+     "Trains": "dynamic"
+    }
+   },
+   {
+    "classes": {
+     "net.createmod.catnip.config.ui.BaseConfigScreen": {
+      "actual": "net.createmod.catnip.config.ui.BaseConfigScreen",
+      "how": "declared",
+      "jar": "create-1.21.1-6.0.10.jar"
+     }
+    },
+    "i": 3,
+    "jars": [
+     "create-1.21.1-6.0.10.jar"
+    ],
+    "keys": {
+     "Ambient Volume Cap": "dynamic",
+     "Client": "dynamic",
+     "Common": "dynamic",
+     "Custom Background Overlay": "dynamic",
+     "Custom Border Bot Overlay": "dynamic",
+     "Custom Border Top Overlay": "dynamic",
+     "Custom Colors Overlay": "dynamic",
+     "Enable Ambient Sounds": "dynamic",
+     "Enable Overstressed Tooltip": "dynamic",
+     "Enable Tooltips": "dynamic",
+     "Explain Render Errors": "dynamic",
+     "Fan Particle Density": "dynamic",
+     "Filter Item Render Distance": "dynamic",
+     "Fluid Fog Settings": "dynamic",
+     "Goggle Overlay": "dynamic",
+     "Ignore Fabulous Warning": "dynamic",
+     "Ingame Menu Config Button Offset X": "dynamic",
+     "Ingame Menu Config Button Row": "dynamic",
+     "Main Menu Config Button Offset X": "dynamic",
+     "Main Menu Config Button Row": "dynamic",
+     "Mounted Zoom Multiplier": "dynamic",
+     "Overlay Offset X": "dynamic",
+     "Overlay Offset Y": "dynamic",
+     "Recipe Viewer Integration": "dynamic",
+     "Rotate When Seated": "dynamic",
+     "Server": "dynamic",
+     "Show Extended Track Graph On F3": "dynamic",
+     "Show Track Graph On F3": "dynamic",
+     "Show Train Map Overlay": "dynamic",
+     "Sound": "dynamic",
+     "Sync Recipe Viewer Search": "dynamic",
+     "Train Map Color Theme": "dynamic",
+     "Trains": "dynamic"
     }
    }
   ]

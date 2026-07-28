@@ -1,0 +1,426 @@
+[
+  {
+    "name": "catnip_config_ui_zh_cn",
+    "desc": "Create 系（catnip）配置界面的条目名。这些字**没有翻译键**——catnip 把配置字段名 fluidFogSettings 按驼峰拆开、首字母大写现拼成 「Fluid Fog Settings」，全部 jar 里搜不到这个串。所以只能按最终字符串做 dynamic 替换，并且必须用 target_class 限定在配置界面里，否则「Sound」「Client」这类通用词会误伤别的界面。",
+    "authors": "Hoshino Yumeka",
+    "dynamic": true,
+    "i18n": false
+  },
+  {
+    "target_class": [
+      "net.createmod.catnip.config.ui.SubMenuConfigScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Ambient Volume Cap",
+        "value": "环境音量上限"
+      },
+      {
+        "key": "Client",
+        "value": "客户端"
+      },
+      {
+        "key": "Common",
+        "value": "通用"
+      },
+      {
+        "key": "Custom Background Overlay",
+        "value": "自定义覆盖层背景"
+      },
+      {
+        "key": "Custom Border Bot Overlay",
+        "value": "自定义覆盖层下边框"
+      },
+      {
+        "key": "Custom Border Top Overlay",
+        "value": "自定义覆盖层上边框"
+      },
+      {
+        "key": "Custom Colors Overlay",
+        "value": "自定义覆盖层配色"
+      },
+      {
+        "key": "Enable Ambient Sounds",
+        "value": "启用环境音效"
+      },
+      {
+        "key": "Enable Overstressed Tooltip",
+        "value": "启用过载提示"
+      },
+      {
+        "key": "Enable Tooltips",
+        "value": "启用提示"
+      },
+      {
+        "key": "Explain Render Errors",
+        "value": "解释渲染错误"
+      },
+      {
+        "key": "Fan Particle Density",
+        "value": "风扇粒子密度"
+      },
+      {
+        "key": "Filter Item Render Distance",
+        "value": "过滤器物品渲染距离"
+      },
+      {
+        "key": "Fluid Fog Settings",
+        "value": "流体雾效设置"
+      },
+      {
+        "key": "Goggle Overlay",
+        "value": "护目镜覆盖层"
+      },
+      {
+        "key": "Ignore Fabulous Warning",
+        "value": "忽略「绚丽」画质警告"
+      },
+      {
+        "key": "Ingame Menu Config Button Offset X",
+        "value": "游戏内菜单配置按钮横向偏移"
+      },
+      {
+        "key": "Ingame Menu Config Button Row",
+        "value": "游戏内菜单配置按钮所在行"
+      },
+      {
+        "key": "Main Menu Config Button Offset X",
+        "value": "主菜单配置按钮横向偏移"
+      },
+      {
+        "key": "Main Menu Config Button Row",
+        "value": "主菜单配置按钮所在行"
+      },
+      {
+        "key": "Mounted Zoom Multiplier",
+        "value": "骑乘时缩放倍率"
+      },
+      {
+        "key": "Overlay Offset X",
+        "value": "覆盖层横向偏移"
+      },
+      {
+        "key": "Overlay Offset Y",
+        "value": "覆盖层纵向偏移"
+      },
+      {
+        "key": "Recipe Viewer Integration",
+        "value": "配方查看器集成"
+      },
+      {
+        "key": "Rotate When Seated",
+        "value": "就座时随载具转向"
+      },
+      {
+        "key": "Server",
+        "value": "服务端"
+      },
+      {
+        "key": "Show Extended Track Graph On F3",
+        "value": "F3 显示完整轨道图"
+      },
+      {
+        "key": "Show Track Graph On F3",
+        "value": "F3 显示轨道图"
+      },
+      {
+        "key": "Show Train Map Overlay",
+        "value": "显示列车地图覆盖层"
+      },
+      {
+        "key": "Sound",
+        "value": "音效"
+      },
+      {
+        "key": "Sync Recipe Viewer Search",
+        "value": "同步配方查看器的搜索"
+      },
+      {
+        "key": "Train Map Color Theme",
+        "value": "列车地图配色方案"
+      },
+      {
+        "key": "Trains",
+        "value": "列车"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "net.createmod.catnip.config.ui.ConfigScreenList"
+    ],
+    "pairs": [
+      {
+        "key": "Ambient Volume Cap",
+        "value": "环境音量上限"
+      },
+      {
+        "key": "Client",
+        "value": "客户端"
+      },
+      {
+        "key": "Common",
+        "value": "通用"
+      },
+      {
+        "key": "Custom Background Overlay",
+        "value": "自定义覆盖层背景"
+      },
+      {
+        "key": "Custom Border Bot Overlay",
+        "value": "自定义覆盖层下边框"
+      },
+      {
+        "key": "Custom Border Top Overlay",
+        "value": "自定义覆盖层上边框"
+      },
+      {
+        "key": "Custom Colors Overlay",
+        "value": "自定义覆盖层配色"
+      },
+      {
+        "key": "Enable Ambient Sounds",
+        "value": "启用环境音效"
+      },
+      {
+        "key": "Enable Overstressed Tooltip",
+        "value": "启用过载提示"
+      },
+      {
+        "key": "Enable Tooltips",
+        "value": "启用提示"
+      },
+      {
+        "key": "Explain Render Errors",
+        "value": "解释渲染错误"
+      },
+      {
+        "key": "Fan Particle Density",
+        "value": "风扇粒子密度"
+      },
+      {
+        "key": "Filter Item Render Distance",
+        "value": "过滤器物品渲染距离"
+      },
+      {
+        "key": "Fluid Fog Settings",
+        "value": "流体雾效设置"
+      },
+      {
+        "key": "Goggle Overlay",
+        "value": "护目镜覆盖层"
+      },
+      {
+        "key": "Ignore Fabulous Warning",
+        "value": "忽略「绚丽」画质警告"
+      },
+      {
+        "key": "Ingame Menu Config Button Offset X",
+        "value": "游戏内菜单配置按钮横向偏移"
+      },
+      {
+        "key": "Ingame Menu Config Button Row",
+        "value": "游戏内菜单配置按钮所在行"
+      },
+      {
+        "key": "Main Menu Config Button Offset X",
+        "value": "主菜单配置按钮横向偏移"
+      },
+      {
+        "key": "Main Menu Config Button Row",
+        "value": "主菜单配置按钮所在行"
+      },
+      {
+        "key": "Mounted Zoom Multiplier",
+        "value": "骑乘时缩放倍率"
+      },
+      {
+        "key": "Overlay Offset X",
+        "value": "覆盖层横向偏移"
+      },
+      {
+        "key": "Overlay Offset Y",
+        "value": "覆盖层纵向偏移"
+      },
+      {
+        "key": "Recipe Viewer Integration",
+        "value": "配方查看器集成"
+      },
+      {
+        "key": "Rotate When Seated",
+        "value": "就座时随载具转向"
+      },
+      {
+        "key": "Server",
+        "value": "服务端"
+      },
+      {
+        "key": "Show Extended Track Graph On F3",
+        "value": "F3 显示完整轨道图"
+      },
+      {
+        "key": "Show Track Graph On F3",
+        "value": "F3 显示轨道图"
+      },
+      {
+        "key": "Show Train Map Overlay",
+        "value": "显示列车地图覆盖层"
+      },
+      {
+        "key": "Sound",
+        "value": "音效"
+      },
+      {
+        "key": "Sync Recipe Viewer Search",
+        "value": "同步配方查看器的搜索"
+      },
+      {
+        "key": "Train Map Color Theme",
+        "value": "列车地图配色方案"
+      },
+      {
+        "key": "Trains",
+        "value": "列车"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "net.createmod.catnip.config.ui.BaseConfigScreen"
+    ],
+    "pairs": [
+      {
+        "key": "Ambient Volume Cap",
+        "value": "环境音量上限"
+      },
+      {
+        "key": "Client",
+        "value": "客户端"
+      },
+      {
+        "key": "Common",
+        "value": "通用"
+      },
+      {
+        "key": "Custom Background Overlay",
+        "value": "自定义覆盖层背景"
+      },
+      {
+        "key": "Custom Border Bot Overlay",
+        "value": "自定义覆盖层下边框"
+      },
+      {
+        "key": "Custom Border Top Overlay",
+        "value": "自定义覆盖层上边框"
+      },
+      {
+        "key": "Custom Colors Overlay",
+        "value": "自定义覆盖层配色"
+      },
+      {
+        "key": "Enable Ambient Sounds",
+        "value": "启用环境音效"
+      },
+      {
+        "key": "Enable Overstressed Tooltip",
+        "value": "启用过载提示"
+      },
+      {
+        "key": "Enable Tooltips",
+        "value": "启用提示"
+      },
+      {
+        "key": "Explain Render Errors",
+        "value": "解释渲染错误"
+      },
+      {
+        "key": "Fan Particle Density",
+        "value": "风扇粒子密度"
+      },
+      {
+        "key": "Filter Item Render Distance",
+        "value": "过滤器物品渲染距离"
+      },
+      {
+        "key": "Fluid Fog Settings",
+        "value": "流体雾效设置"
+      },
+      {
+        "key": "Goggle Overlay",
+        "value": "护目镜覆盖层"
+      },
+      {
+        "key": "Ignore Fabulous Warning",
+        "value": "忽略「绚丽」画质警告"
+      },
+      {
+        "key": "Ingame Menu Config Button Offset X",
+        "value": "游戏内菜单配置按钮横向偏移"
+      },
+      {
+        "key": "Ingame Menu Config Button Row",
+        "value": "游戏内菜单配置按钮所在行"
+      },
+      {
+        "key": "Main Menu Config Button Offset X",
+        "value": "主菜单配置按钮横向偏移"
+      },
+      {
+        "key": "Main Menu Config Button Row",
+        "value": "主菜单配置按钮所在行"
+      },
+      {
+        "key": "Mounted Zoom Multiplier",
+        "value": "骑乘时缩放倍率"
+      },
+      {
+        "key": "Overlay Offset X",
+        "value": "覆盖层横向偏移"
+      },
+      {
+        "key": "Overlay Offset Y",
+        "value": "覆盖层纵向偏移"
+      },
+      {
+        "key": "Recipe Viewer Integration",
+        "value": "配方查看器集成"
+      },
+      {
+        "key": "Rotate When Seated",
+        "value": "就座时随载具转向"
+      },
+      {
+        "key": "Server",
+        "value": "服务端"
+      },
+      {
+        "key": "Show Extended Track Graph On F3",
+        "value": "F3 显示完整轨道图"
+      },
+      {
+        "key": "Show Track Graph On F3",
+        "value": "F3 显示轨道图"
+      },
+      {
+        "key": "Show Train Map Overlay",
+        "value": "显示列车地图覆盖层"
+      },
+      {
+        "key": "Sound",
+        "value": "音效"
+      },
+      {
+        "key": "Sync Recipe Viewer Search",
+        "value": "同步配方查看器的搜索"
+      },
+      {
+        "key": "Train Map Color Theme",
+        "value": "列车地图配色方案"
+      },
+      {
+        "key": "Trains",
+        "value": "列车"
+      }
+    ]
+  }
+]
