@@ -937,6 +937,226 @@
       {
         "key": "This is your local Structurepack. This is where all your scans go.",
         "value": "这是你自己的本地结构包，你扫描保存的建筑都会存到这里。"
+      },
+      {
+        "key": "Ancient Athens",
+        "value": "@古雅典"
+      },
+      {
+        "key": "Antique",
+        "value": "@古典"
+      },
+      {
+        "key": "Aquatica",
+        "value": "@深海"
+      },
+      {
+        "key": "Byzantine_for_1.20",
+        "value": "@拜占庭"
+      },
+      {
+        "key": "Caledonia",
+        "value": "@喀里多尼亚"
+      },
+      {
+        "key": "Cavern",
+        "value": "@洞窟"
+      },
+      {
+        "key": "Colonial",
+        "value": "@殖民地"
+      },
+      {
+        "key": "Corrupted",
+        "value": "@腐化"
+      },
+      {
+        "key": "Crimson Keep",
+        "value": "@绯红城堡"
+      },
+      {
+        "key": "Dark Oak Treehouse",
+        "value": "@深色橡木树屋"
+      },
+      {
+        "key": "Desert Oasis",
+        "value": "@沙漠绿洲"
+      },
+      {
+        "key": "FairyTale",
+        "value": "@童话"
+      },
+      {
+        "key": "Farthest ",
+        "value": "@最远"
+      },
+      {
+        "key": "Fortress",
+        "value": "@要塞"
+      },
+      {
+        "key": "Frontier",
+        "value": "@边疆"
+      },
+      {
+        "key": "Functional Fantasy",
+        "value": "@实用奇幻"
+      },
+      {
+        "key": "High Magic",
+        "value": "@高等魔法"
+      },
+      {
+        "key": "Hive",
+        "value": "@蜂巢"
+      },
+      {
+        "key": "Incan",
+        "value": "@印加"
+      },
+      {
+        "key": "Jungle Treehouse",
+        "value": "@丛林树屋"
+      },
+      {
+        "key": "Lost Mesa City",
+        "value": "@失落方山之城"
+      },
+      {
+        "key": "Medieval Birch",
+        "value": "@中世纪白桦"
+      },
+      {
+        "key": "Medieval Dark Oak",
+        "value": "@中世纪深色橡木"
+      },
+      {
+        "key": "Medieval Oak",
+        "value": "@中世纪橡木"
+      },
+      {
+        "key": "Medieval Spruce",
+        "value": "@中世纪云杉"
+      },
+      {
+        "key": "Minecolonies Original",
+        "value": "@MineColonies 原初"
+      },
+      {
+        "key": "Nile",
+        "value": "@尼罗河"
+      },
+      {
+        "key": "Nordic Spruce",
+        "value": "@北欧云杉"
+      },
+      {
+        "key": "Pagoda",
+        "value": "@塔阁"
+      },
+      {
+        "key": "Rebel_Base",
+        "value": "@义军基地"
+      },
+      {
+        "key": "Shire",
+        "value": "@夏尔"
+      },
+      {
+        "key": "Shogun",
+        "value": "@幕府"
+      },
+      {
+        "key": "Space Wars",
+        "value": "@星际战争"
+      },
+      {
+        "key": "Stalactite Caves",
+        "value": "@钟乳石洞"
+      },
+      {
+        "key": "Steampunk",
+        "value": "@蒸汽朋克"
+      },
+      {
+        "key": "Tropical",
+        "value": "@热带"
+      },
+      {
+        "key": "Underwater Base",
+        "value": "@海底基地"
+      },
+      {
+        "key": "Urban Birch",
+        "value": "@都市白桦"
+      },
+      {
+        "key": "Urban Savanna",
+        "value": "@都市热带草原"
+      },
+      {
+        "key": "Warped Netherlands",
+        "value": "@诡异下界"
+      },
+      {
+        "key": "/agriculture",
+        "value": "@/农业"
+      },
+      {
+        "key": "/craftsmanship",
+        "value": "@/工艺"
+      },
+      {
+        "key": "/decorations",
+        "value": "@/装饰"
+      },
+      {
+        "key": "/education",
+        "value": "@/教育"
+      },
+      {
+        "key": "/fundamentals",
+        "value": "@/基础建筑"
+      },
+      {
+        "key": "/garden",
+        "value": "@/花园"
+      },
+      {
+        "key": "/infrastructure",
+        "value": "@/基础设施"
+      },
+      {
+        "key": "/keep",
+        "value": "@/主堡"
+      },
+      {
+        "key": "/military",
+        "value": "@/军事"
+      },
+      {
+        "key": "/mystic",
+        "value": "@/神秘"
+      },
+      {
+        "key": "/pond",
+        "value": "@/池塘"
+      },
+      {
+        "key": "/production",
+        "value": "@/生产"
+      },
+      {
+        "key": "/sewer",
+        "value": "@/下水道"
+      },
+      {
+        "key": "/storage",
+        "value": "@/仓储"
+      },
+      {
+        "key": "/walls",
+        "value": "@/城墙"
       }
     ]
   },
@@ -1872,6 +2092,226 @@
       {
         "key": "This is your local Structurepack. This is where all your scans go.",
         "value": "这是你自己的本地结构包，你扫描保存的建筑都会存到这里。"
+      },
+      {
+        "key": "Ancient Athens",
+        "value": "@古雅典"
+      },
+      {
+        "key": "Antique",
+        "value": "@古典"
+      },
+      {
+        "key": "Aquatica",
+        "value": "@深海"
+      },
+      {
+        "key": "Byzantine_for_1.20",
+        "value": "@拜占庭"
+      },
+      {
+        "key": "Caledonia",
+        "value": "@喀里多尼亚"
+      },
+      {
+        "key": "Cavern",
+        "value": "@洞窟"
+      },
+      {
+        "key": "Colonial",
+        "value": "@殖民地"
+      },
+      {
+        "key": "Corrupted",
+        "value": "@腐化"
+      },
+      {
+        "key": "Crimson Keep",
+        "value": "@绯红城堡"
+      },
+      {
+        "key": "Dark Oak Treehouse",
+        "value": "@深色橡木树屋"
+      },
+      {
+        "key": "Desert Oasis",
+        "value": "@沙漠绿洲"
+      },
+      {
+        "key": "FairyTale",
+        "value": "@童话"
+      },
+      {
+        "key": "Farthest ",
+        "value": "@最远"
+      },
+      {
+        "key": "Fortress",
+        "value": "@要塞"
+      },
+      {
+        "key": "Frontier",
+        "value": "@边疆"
+      },
+      {
+        "key": "Functional Fantasy",
+        "value": "@实用奇幻"
+      },
+      {
+        "key": "High Magic",
+        "value": "@高等魔法"
+      },
+      {
+        "key": "Hive",
+        "value": "@蜂巢"
+      },
+      {
+        "key": "Incan",
+        "value": "@印加"
+      },
+      {
+        "key": "Jungle Treehouse",
+        "value": "@丛林树屋"
+      },
+      {
+        "key": "Lost Mesa City",
+        "value": "@失落方山之城"
+      },
+      {
+        "key": "Medieval Birch",
+        "value": "@中世纪白桦"
+      },
+      {
+        "key": "Medieval Dark Oak",
+        "value": "@中世纪深色橡木"
+      },
+      {
+        "key": "Medieval Oak",
+        "value": "@中世纪橡木"
+      },
+      {
+        "key": "Medieval Spruce",
+        "value": "@中世纪云杉"
+      },
+      {
+        "key": "Minecolonies Original",
+        "value": "@MineColonies 原初"
+      },
+      {
+        "key": "Nile",
+        "value": "@尼罗河"
+      },
+      {
+        "key": "Nordic Spruce",
+        "value": "@北欧云杉"
+      },
+      {
+        "key": "Pagoda",
+        "value": "@塔阁"
+      },
+      {
+        "key": "Rebel_Base",
+        "value": "@义军基地"
+      },
+      {
+        "key": "Shire",
+        "value": "@夏尔"
+      },
+      {
+        "key": "Shogun",
+        "value": "@幕府"
+      },
+      {
+        "key": "Space Wars",
+        "value": "@星际战争"
+      },
+      {
+        "key": "Stalactite Caves",
+        "value": "@钟乳石洞"
+      },
+      {
+        "key": "Steampunk",
+        "value": "@蒸汽朋克"
+      },
+      {
+        "key": "Tropical",
+        "value": "@热带"
+      },
+      {
+        "key": "Underwater Base",
+        "value": "@海底基地"
+      },
+      {
+        "key": "Urban Birch",
+        "value": "@都市白桦"
+      },
+      {
+        "key": "Urban Savanna",
+        "value": "@都市热带草原"
+      },
+      {
+        "key": "Warped Netherlands",
+        "value": "@诡异下界"
+      },
+      {
+        "key": "/agriculture",
+        "value": "@/农业"
+      },
+      {
+        "key": "/craftsmanship",
+        "value": "@/工艺"
+      },
+      {
+        "key": "/decorations",
+        "value": "@/装饰"
+      },
+      {
+        "key": "/education",
+        "value": "@/教育"
+      },
+      {
+        "key": "/fundamentals",
+        "value": "@/基础建筑"
+      },
+      {
+        "key": "/garden",
+        "value": "@/花园"
+      },
+      {
+        "key": "/infrastructure",
+        "value": "@/基础设施"
+      },
+      {
+        "key": "/keep",
+        "value": "@/主堡"
+      },
+      {
+        "key": "/military",
+        "value": "@/军事"
+      },
+      {
+        "key": "/mystic",
+        "value": "@/神秘"
+      },
+      {
+        "key": "/pond",
+        "value": "@/池塘"
+      },
+      {
+        "key": "/production",
+        "value": "@/生产"
+      },
+      {
+        "key": "/sewer",
+        "value": "@/下水道"
+      },
+      {
+        "key": "/storage",
+        "value": "@/仓储"
+      },
+      {
+        "key": "/walls",
+        "value": "@/城墙"
       }
     ]
   }
