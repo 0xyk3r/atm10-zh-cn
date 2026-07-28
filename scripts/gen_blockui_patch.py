@@ -23,6 +23,17 @@ blockui 1.0.211 **完全无视 XML 里的 `textalign`**。这不是推断，是�
 压到边框和图标上。而按钮的文字大多是**运行时才填**的（玩家名、开/关、建筑名、
 田地半径），构建期算不出宽度，`textoffset` 那条路只能覆盖标签固定的那一批。
 
+## 实测数据（把 blockui 自己的字段 println 出来看的）
+
+给 `AbstractTextElement.recalcPreparedTextBox` 注入一段 dump 之后，一次开界面拿到
+3190 条记录，其中按钮 1808 条：
+
+    稻草人方向数字   width=24  textWidth=24  renderedTextWidth=6   → 居中量 (24-6)/2 = 9px
+    选择种子按钮     width=86  textWidth=86  renderedTextWidth=33  → 居中量 26px
+    非按钮的文字     MIDDLE_LEFT 1293 条 / TOP_LEFT 43 条          → 原样不动，段落没被误伤
+
+也就是说 `textWidth` 和 `renderedTextWidth` 本来就是对的，缺的只是把对齐设成 MIDDLE。
+
 ## 改哪里：只改 Button，不改 AbstractTextElement
 
 把 `DEFAULT_TEXT_ALIGNMENT` 直接翻成 `MIDDLE` 会连「农夫：xxx」这类**段落文字**
@@ -72,7 +83,12 @@ from paths import COMMON                                       # noqa: E402
 JAR_SHA256 = '5dfffc80c057b4d36123bd5f5cad9f32f86896a9dd993ea4a3ecad315cabd77e'  # blockui-1.0.211
 TARGET = 'com/ldtteam/blockui/controls/Button.class'
 CTOR_DESC = '(Lcom/ldtteam/blockui/PaneParams;)V'
-EXPECT_CODE_LEN = 30       # 该构造器现在的字节数；对不上说明上游改过，停下
+# ButtonImage(PaneParams) 调的是 **7 参** 的 Button 构造器，不是 1 参那个——
+# 只打 1 参会完全没有效果（实测：注入的 println 一次都没打出来）。所以 4 个构造器全打。
+DROP_ATTRS = {'LocalVariableTable', 'LocalVariableTypeTable', 'LineNumberTable'}
+# 注入会让方法变长，而 LocalVariableTable 里还写着旧长度，JVM 校验直接
+# ClassFormatError: Illegal local variable table length（实测闪退过一次）。
+# 这些都是调试用的可选属性，注入时整个剥掉最省事，StackMapTable 保留。
 ALIGNMENT = 'com/ldtteam/blockui/Alignment'
 OWNER = 'com/ldtteam/blockui/controls/AbstractTextElement'
 
@@ -126,10 +142,9 @@ def find_class(entries, name):
 
 
 def patch(data):
-    assert data[:4] == b'\xca\xfe\xba\xbe', '不是 class 文件'
+    """给 Button 的**每一个**构造器末尾追加 setTextAlignment(MIDDLE)，并剥掉调试属性。"""
     entries, pool_end, count = parse_pool(data, 8)
-    add = []                       # 追加的池条目（bytes）
-    nxt = count                    # 下一个可用索引
+    add, nxt = [], count
 
     def emit(raw):
         nonlocal nxt
@@ -145,65 +160,74 @@ def patch(data):
         i = find_class(entries, name)
         return i if i else emit(bytes([7]) + struct.pack('>H', want_utf8(name)))
 
-    al_desc = 'L%s;' % ALIGNMENT
-    nat_mid = emit(bytes([12]) + struct.pack('>HH', want_utf8('MIDDLE'), want_utf8(al_desc)))
-    fref = emit(bytes([9]) + struct.pack('>HH', want_class(ALIGNMENT), nat_mid))
-    nat_set = emit(bytes([12]) + struct.pack('>HH', want_utf8('setTextAlignment'),
-                                             want_utf8('(%s)V' % al_desc)))
-    mref = emit(bytes([10]) + struct.pack('>HH', want_class(OWNER), nat_set))
-    inject = bytes([0x2A]) + bytes([0xB2]) + struct.pack('>H', fref) \
-        + bytes([0xB6]) + struct.pack('>H', mref)
-    assert len(inject) == 7
+    al = 'L%s;' % ALIGNMENT
+    nat_a = emit(bytes([12]) + struct.pack('>HH', want_utf8('MIDDLE'), want_utf8(al)))
+    fref = emit(bytes([9]) + struct.pack('>HH', want_class(ALIGNMENT), nat_a))
+    nat_s = emit(bytes([12]) + struct.pack('>HH', want_utf8('setTextAlignment'),
+                                           want_utf8('(%s)V' % al)))
+    mref = emit(bytes([10]) + struct.pack('>HH', want_class(OWNER), nat_s))
+    inject = bytes([0x2A, 0xB2]) + struct.pack('>H', fref) + bytes([0xB6]) + struct.pack('>H', mref)
 
-    out = bytearray(data[:8]) + struct.pack('>H', nxt)
+    head = bytearray(data[:8]) + struct.pack('>H', nxt)
     for i in sorted(entries):
-        out += entries[i][1]
+        head += entries[i][1]
     for raw in add:
-        out += raw
-    tail = bytearray(data[pool_end:])
+        head += raw
 
-    # 在 tail 里定位目标构造器的 Code 属性并注入
-    o = 6                                        # access, this, super
-    ifc = struct.unpack_from('>H', tail, o)[0]
-    o += 2 + ifc * 2
+    tail = bytearray(data[pool_end:])
+    out = bytearray()
+    o = 6
+    o += 2 + struct.unpack_from('>H', tail, o)[0] * 2
+    last, hit = 0, []
     for section in ('fields', 'methods'):
         n = struct.unpack_from('>H', tail, o)[0]
         o += 2
         for _ in range(n):
-            m_start = o
             _, ni, di = struct.unpack_from('>HHH', tail, o)
+            nm = entries[ni][1][3:].decode()
+            ds = entries[di][1][3:].decode()
             o += 6
             an = struct.unpack_from('>H', tail, o)[0]
             o += 2
-            name = entries[ni][1][3:].decode()
-            desc = entries[di][1][3:].decode()
             for _ in range(an):
-                a_name_i, a_len = struct.unpack_from('>HI', tail, o)
-                a_name = entries[a_name_i][1][3:].decode()
+                ai, alen = struct.unpack_from('>HI', tail, o)
+                aname = entries[ai][1][3:].decode()
                 body = o + 6
-                if (section == 'methods' and name == '<init>' and desc == CTOR_DESC
-                        and a_name == 'Code'):
-                    code_len = struct.unpack_from('>I', tail, body + 4)[0]
-                    if code_len != EXPECT_CODE_LEN:
-                        sys.exit('❌ Button.<init> 的字节数是 %d，不是记下的 %d——'
-                                 'blockui 改过了，重新核对注入点，别盲插。'
-                                 % (code_len, EXPECT_CODE_LEN))
-                    code_at = body + 8
-                    if tail[code_at + code_len - 1] != 0xB1:
-                        sys.exit('❌ 构造器最后一条不是 return，注入点不成立。')
-                    ins = code_at + code_len - 1
-                    tail[ins:ins] = inject
-                    struct.pack_into('>I', tail, body + 4, code_len + 7)
-                    struct.pack_into('>I', tail, o + 2, a_len + 7)
-                    print('   已在 Button.<init> 的 return 前注入 7 字节'
-                          '（code %d→%d，跳转目标 22/26 均在注入点之前，帧偏移无需改动）'
-                          % (code_len, code_len + 7))
-                    # 注入之后 tail 里的偏移量已经变了，继续解析只会读到错位的数据。
-                    # 要改的就这一处，直接收工。
-                    return bytes(out + tail)
-                o += 6 + a_len
-    sys.exit('❌ 没找到 Button.<init>%s 的 Code 属性——类结构和记录的不一样，停下。'
-             % CTOR_DESC)
+                if section == 'methods' and nm == '<init>' and aname == 'Code':
+                    ms, ml = struct.unpack_from('>HH', tail, body)
+                    cl = struct.unpack_from('>I', tail, body + 4)[0]
+                    c0 = body + 8
+                    code = bytes(tail[c0:c0 + cl])
+                    if code[-1] != 0xB1:
+                        sys.exit('❌ Button%s 末尾不是 return，注入点不成立。' % ds)
+                    p2 = c0 + cl
+                    exn = struct.unpack_from('>H', tail, p2)[0]
+                    ex = bytes(tail[p2:p2 + 2 + exn * 8])
+                    p2 += 2 + exn * 8
+                    acnt = struct.unpack_from('>H', tail, p2)[0]
+                    p2 += 2
+                    kept = []
+                    for _ in range(acnt):
+                        sai, salen = struct.unpack_from('>HI', tail, p2)
+                        sname = entries[sai][1][3:].decode()
+                        blob = bytes(tail[p2:p2 + 6 + salen])
+                        p2 += 6 + salen
+                        if sname not in DROP_ATTRS:
+                            kept.append(blob)
+                    newcode = code[:-1] + inject + b'\xb1'
+                    nb = (struct.pack('>HH', max(ms, 2), ml) + struct.pack('>I', len(newcode))
+                          + newcode + ex + struct.pack('>H', len(kept)) + b''.join(kept))
+                    out += tail[last:o]
+                    out += struct.pack('>HI', ai, len(nb)) + nb
+                    last = o + 6 + alen
+                    hit.append(ds)
+                o += 6 + alen
+    out += tail[last:]
+    if len(hit) < 4:
+        sys.exit('❌ 只打到 %d 个构造器（应为 4 个）——类结构变了，停下。' % len(hit))
+    for ds in hit:
+        print('   注入 Button%s' % ds)
+    return bytes(head + out)
 
 
 def main(argv):

@@ -1,46 +1,10 @@
 {
   "_说明": "blockui 的按钮标签只有同时给了 textalign 与 textbox 才会居中——textbox 是文字子框，不给就默认很小并贴在左上角，textalign 便无处可居中。上游 dialogconfirmtransparency.xml 里居中的按钮正是这么写的（textalign=\"MIDDLE\" textbox=\"64 17\"，与 size 相同），照抄。只补有文字、且上游没写 textbox 的按钮；textbox 取该按钮自己的 size。",
   "files": {
-    "assets/minecolonies/gui/analyzer/analyzedisplay.xml": {
-      "sha1": "6f82bb62d58176a6f950348dd225ef1fd42d2cdd",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"selectschematic\" size=\"111 15\" pos=\"15 30\" label=\"$(com.minecolonies.coremod.gui.analyzer.select)\"/>",
-          "<button textoffset=\"33 3\" id=\"selectschematic\" size=\"111 15\" pos=\"15 30\" label=\"$(com.minecolonies.coremod.gui.analyzer.select)\"/>"
-        ],
-        [
-          "<button label=\"$(com.ldtteam.structurize.gui.scantool.showres)\" id=\"showresources\" pos=\"3 57\" size=\"86 20\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" color=\"black\"/>",
-          "<button textoffset=\"25 5\" label=\"$(com.ldtteam.structurize.gui.scantool.showres)\" id=\"showresources\" pos=\"3 57\" size=\"86 20\"\n                     source=\"structurize:textures/gui/builderhut/builder_button_medium.png\" color=\"black\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/dialogdonecancel.xml": {
-      "sha1": "ac8015720d49accf665eb6075171d8ce8fa453f8",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"done\" size=\"200 20\" pos=\"28 110\" label=\"$(gui.done)\"/>",
-          "<button textoffset=\"91 5\" id=\"done\" size=\"200 20\" pos=\"28 110\" label=\"$(gui.done)\"/>"
-        ],
-        [
-          "<button id=\"cancel\" size=\"200 20\" pos=\"28 134\" label=\"$(gui.cancel)\"/>",
-          "<button textoffset=\"91 5\" id=\"cancel\" size=\"200 20\" pos=\"28 134\" label=\"$(gui.cancel)\"/>"
-        ]
-      ]
-    },
     "assets/minecolonies/gui/layouthuts/layoutcourierassignment.xml": {
       "sha1": "2987213098f1b2cc94a7d5c3b3511a84fdc331d4",
       "raw": true,
       "t": [
-        [
-          "<button id=\"hire\" size=\"129 17\" pos=\"30 154\" textcolor=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.manage)\"/>",
-          "<button textoffset=\"46 4\" id=\"hire\" size=\"129 17\" pos=\"30 154\" textcolor=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.manage)\"/>"
-        ],
-        [
-          "<button id=\"recall\" size=\"129 17\" pos=\"30 172\" textcolor=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.recall)\"/>",
-          "<button textoffset=\"46 4\" id=\"recall\" size=\"129 17\" pos=\"30 172\" textcolor=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.recall)\"/>"
-        ],
         [
           "<text size=\"164 11\" pos=\"13 22\" textalign=\"MIDDLE\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.workerassigned)\"/>",
           "<text size=\"164 11\" pos=\"62 22\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.workerassigned)\"/>"
@@ -52,14 +16,6 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"resourceAdd\" size=\"64 15\" pos=\"60 0\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.docrafting.switch)\"/>",
-          "<button textoffset=\"23 3\" id=\"resourceAdd\" size=\"64 15\" pos=\"60 0\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.docrafting.switch)\"/>"
-        ],
-        [
-          "<button id=\"add\" size=\"64 17\" pos=\"60 210\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\"\n                 label=\"$(com.minecolonies.coremod.gui.docrafting.teach)\"/>",
-          "<button textoffset=\"23 4\" id=\"add\" size=\"64 17\" pos=\"60 210\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\"\n                 label=\"$(com.minecolonies.coremod.gui.docrafting.teach)\"/>"
-        ],
-        [
           "<text size=\"130 11\" pos=\"30 14\" textalign=\"MIDDLE\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.docrafting)\"/>",
           "<text size=\"130 11\" pos=\"59 14\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.docrafting)\"/>"
         ]
@@ -69,10 +25,6 @@
       "sha1": "47cda30b443685941e5e08b120a1804b20bc88ef",
       "raw": true,
       "t": [
-        [
-          "<button id=\"assignmentMode\" size=\"86 17\" pos=\"52 42\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.hiring.off)\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_disabled.png\"/>",
-          "<button textoffset=\"34 4\" id=\"assignmentMode\" size=\"86 17\" pos=\"52 42\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.hiring.off)\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_disabled.png\"/>"
-        ],
         [
           "<text size=\"130 11\" pos=\"30 14\" color=\"black\" textalign=\"MIDDLE\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.fields)\"/>",
           "<text size=\"130 11\" pos=\"86 14\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.fields)\"/>"
@@ -87,59 +39,13 @@
         ]
       ]
     },
-    "assets/minecolonies/gui/layouthuts/layoutguardtasksetting.xml": {
-      "sha1": "f669ce75c95c2bb141a59cff41a98aa7806f7999",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"setPositions\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.targetpatrol)\"\n                 color=\"black\"\n                 pos=\"70 25\"\n                 size=\"80 17\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"/>",
-          "<button textoffset=\"22 4\" id=\"setPositions\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.targetpatrol)\"\n                 color=\"black\"\n                 pos=\"70 25\"\n                 size=\"80 17\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"/>"
-        ],
-        [
-          "<button id=\"helpButton\"\n                 label=\"?\"\n                 textalign=\"MIDDLE\"\n                 color=\"red\"\n                 pos=\"135 25\"\n                 size=\"15 15\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_mini.png\"/>",
-          "<button textoffset=\"4 3\" id=\"helpButton\"\n                 label=\"?\"\n                \n                 color=\"red\"\n                 pos=\"135 25\"\n                 size=\"15 15\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_mini.png\"/>"
-        ]
-      ]
-    },
     "assets/minecolonies/gui/layouthuts/layouthutpageactions.xml": {
       "sha1": "f23f170cfa927007ab227d6f28bbd1915310ac86",
       "raw": true,
       "t": [
         [
-          "<button id=\"hire\" size=\"129 17\" pos=\"30 74\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n            label=\"$(com.minecolonies.coremod.gui.workerhuts.manage)\"/>",
-          "<button textoffset=\"46 4\" id=\"hire\" size=\"129 17\" pos=\"30 74\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n            label=\"$(com.minecolonies.coremod.gui.workerhuts.manage)\"/>"
-        ],
-        [
-          "<button id=\"recall\" size=\"129 17\" pos=\"30 92\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n            label=\"$(com.minecolonies.coremod.gui.workerhuts.recall)\"/>",
-          "<button textoffset=\"46 4\" id=\"recall\" size=\"129 17\" pos=\"30 92\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n            label=\"$(com.minecolonies.coremod.gui.workerhuts.recall)\"/>"
-        ],
-        [
-          "<button id=\"forcePickup\" size=\"129 17\" pos=\"30 154\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n            label=\"$(com.minecolonies.coremod.gui.workerhuts.forcepickup)\"/>",
-          "<button textoffset=\"37 4\" id=\"forcePickup\" size=\"129 17\" pos=\"30 154\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n            label=\"$(com.minecolonies.coremod.gui.workerhuts.forcepickup)\"/>"
-        ],
-        [
           "<text size=\"164 11\" pos=\"13 32\" textalign=\"MIDDLE\" color=\"black\"\n          label=\"$(com.minecolonies.coremod.gui.workerhuts.workerassigned)\"/>",
           "<text size=\"164 11\" pos=\"62 32\" color=\"black\"\n          label=\"$(com.minecolonies.coremod.gui.workerhuts.workerassigned)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/layouthuts/layouthutpageactionsmin.xml": {
-      "sha1": "57792a2170e9252983c24ee38be67cf92919c6bd",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"inventory\" size=\"86 17\" pos=\"52 214\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n            label=\"$(container.inventory)\"/>",
-          "<button textoffset=\"29 4\" id=\"inventory\" size=\"86 17\" pos=\"52 214\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n            label=\"$(container.inventory)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/layouthuts/layouthutpageactionsminwoinv.xml": {
-      "sha1": "7c0f144483386864ab152708e3753c59128eb00f",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"build\" size=\"129 17\" pos=\"30 110\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n            label=\"$(com.minecolonies.coremod.gui.workerhuts.buildrepair)\"/>",
-          "<button textoffset=\"46 4\" id=\"build\" size=\"129 17\" pos=\"30 110\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n            label=\"$(com.minecolonies.coremod.gui.workerhuts.buildrepair)\"/>"
         ]
       ]
     },
@@ -147,18 +53,6 @@
       "sha1": "2a64bd9ebe9ad56fdffe05b26c0954fc9ef05b1e",
       "raw": true,
       "t": [
-        [
-          "<button id=\"remove\" size=\"45 15\" pos=\"105 3\" label=\"$(com.minecolonies.coremod.gui.recipe.remove)\"/>",
-          "<button textoffset=\"13 3\" id=\"remove\" size=\"45 15\" pos=\"105 3\" label=\"$(com.minecolonies.coremod.gui.recipe.remove)\"/>"
-        ],
-        [
-          "<button id=\"toggle\" size=\"45 15\" pos=\"105 18\" label=\"$(com.minecolonies.coremod.gui.recipe.disable)\"/>",
-          "<button textoffset=\"13 3\" id=\"toggle\" size=\"45 15\" pos=\"105 18\" label=\"$(com.minecolonies.coremod.gui.recipe.disable)\"/>"
-        ],
-        [
-          "<button id=\"crafting\" size=\"129 17\" pos=\"30 200\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.crafting)\"/>",
-          "<button textoffset=\"37 4\" id=\"crafting\" size=\"129 17\" pos=\"30 200\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.crafting)\"/>"
-        ],
         [
           "<text size=\"130 11\" pos=\"30 14\" textalign=\"MIDDLE\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.listrecipes)\"/>",
           "<text size=\"130 11\" pos=\"77 14\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.listrecipes)\"/>"
@@ -170,14 +64,6 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"hire\" size=\"129 17\" pos=\"30 74\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.manage)\"/>",
-          "<button textoffset=\"46 4\" id=\"hire\" size=\"129 17\" pos=\"30 74\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.manage)\"/>"
-        ],
-        [
-          "<button id=\"recall\" size=\"129 17\" pos=\"30 92\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.recall)\"/>",
-          "<button textoffset=\"46 4\" id=\"recall\" size=\"129 17\" pos=\"30 92\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.recall)\"/>"
-        ],
-        [
           "<text size=\"164 11\" pos=\"13 32\" textalign=\"MIDDLE\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.workerassigned)\"/>",
           "<text size=\"164 11\" pos=\"62 32\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.workerassigned)\"/>"
         ]
@@ -187,10 +73,6 @@
       "sha1": "507a9b5b4d8ab5339811acebbfbd261380ef0db1",
       "raw": true,
       "t": [
-        [
-          "<button id=\"repair\" size=\"44 17\" pos=\"88 6\"\n                    label=\"$(com.minecolonies.coremod.gui.workerhuts.minerrepairnode)\"\n                    color=\"black\"\n                    source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                    disabled=\"minecolonies:textures/gui/builderhut/builder_button_quite_small_disabled.png\"/>",
-          "<button textoffset=\"13 4\" id=\"repair\" size=\"44 17\" pos=\"88 6\"\n                    label=\"$(com.minecolonies.coremod.gui.workerhuts.minerrepairnode)\"\n                    color=\"black\"\n                    source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                    disabled=\"minecolonies:textures/gui/builderhut/builder_button_quite_small_disabled.png\"/>"
-        ],
         [
           "<text size=\"130 11\" pos=\"30 14\" textalign=\"MIDDLE\" color=\"black\"\n          label=\"$(com.minecolonies.coremod.gui.workerhuts.minernodelist)\"/>",
           "<text size=\"130 11\" pos=\"77 14\" color=\"black\"\n          label=\"$(com.minecolonies.coremod.gui.workerhuts.minernodelist)\"/>"
@@ -202,10 +84,6 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"addStock\" size=\"86 17\" pos=\"50 30\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                         label=\"$(com.minecolonies.coremod.gui.warehouse.add)\"/>",
-          "<button textoffset=\"34 4\" id=\"addStock\" size=\"86 17\" pos=\"50 30\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                         label=\"$(com.minecolonies.coremod.gui.warehouse.add)\"/>"
-        ],
-        [
           "<text size=\"130 11\" pos=\"30 14\" textalign=\"MIDDLE\" color=\"black\"\n                   label=\"$(com.minecolonies.coremod.gui.warehouse.stock)\"/>",
           "<text size=\"130 11\" pos=\"77 14\" color=\"black\"\n                   label=\"$(com.minecolonies.coremod.gui.warehouse.stock)\"/>"
         ]
@@ -215,10 +93,6 @@
       "sha1": "22cbc0e8f65b5ee1c4a5c81090724ca308d04c3e",
       "raw": true,
       "t": [
-        [
-          "<button id=\"assignmentMode\" size=\"86 17\" pos=\"52 42\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.hiring.off)\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_disabled.png\"/>",
-          "<button textoffset=\"34 4\" id=\"assignmentMode\" size=\"86 17\" pos=\"52 42\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.hiring.off)\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_disabled.png\"/>"
-        ],
         [
           "<text size=\"130 11\" pos=\"30 14\" color=\"black\" textalign=\"MIDDLE\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.fields)\"/>",
           "<text size=\"130 11\" pos=\"86 14\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.workerhuts.fields)\"/>"
@@ -237,28 +111,10 @@
         ]
       ]
     },
-    "assets/minecolonies/gui/layouthuts/layoutrequeststree.xml": {
-      "sha1": "4caf02e1db8cad83a95eb13a08182d6ca0b1c0b5",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"fulfill\" size=\"37 16\" pos=\"20 23\" textcolor=\"black\"\n                label=\"$(com.minecolonies.coremod.gui.citizen.requestsfulfill)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>",
-          "<button textoffset=\"9 3\" id=\"fulfill\" size=\"37 16\" pos=\"20 23\" textcolor=\"black\"\n                label=\"$(com.minecolonies.coremod.gui.citizen.requestsfulfill)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>"
-        ],
-        [
-          "<button id=\"cancel\" size=\"37 16\" pos=\"70 23\" textcolor=\"black\"\n                label=\"$(com.minecolonies.coremod.gui.citizen.requestscancel)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>",
-          "<button textoffset=\"9 3\" id=\"cancel\" size=\"37 16\" pos=\"70 23\" textcolor=\"black\"\n                label=\"$(com.minecolonies.coremod.gui.citizen.requestscancel)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>"
-        ]
-      ]
-    },
     "assets/minecolonies/gui/layouthuts/layoutselectrequest.xml": {
       "sha1": "4a4a51f4470b91ec8bc163e2f446d3f684e266d0",
       "raw": true,
       "t": [
-        [
-          "<button id=\"select\" size=\"37 16\" pos=\"20 23\" color=\"black\"\r\n                         label=\"$(com.minecolonies.coremod.gui.scantool.select)\"\r\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\"/>",
-          "<button textoffset=\"9 3\" id=\"select\" size=\"37 16\" pos=\"20 23\" color=\"black\"\r\n                         label=\"$(com.minecolonies.coremod.gui.scantool.select)\"\r\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\"/>"
-        ],
         [
           "<text size=\"120 11\" pos=\"30 14\" textalign=\"MIDDLE\" color=\"black\"\r\n           label=\"$(com.minecolonies.coremod.gui.citizen.requests)\"/>",
           "<text size=\"120 11\" pos=\"68 14\" color=\"black\"\r\n           label=\"$(com.minecolonies.coremod.gui.citizen.requests)\"/>"
@@ -270,22 +126,8 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"button\" size=\"129 17\" pos=\"0 0\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\" color=\"black\"\n                         label=\"$(com.minecolonies.coremod.gui.interval.yesterday)\"/>",
-          "<button textoffset=\"42 4\" id=\"button\" size=\"129 17\" pos=\"0 0\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\" color=\"black\"\n                         label=\"$(com.minecolonies.coremod.gui.interval.yesterday)\"/>"
-        ],
-        [
           "<text size=\"130 11\" pos=\"30 14\" textalign=\"MIDDLE\" color=\"black\"\n           label=\"$(com.minecolonies.core.gui.modules.stats)\"/>",
           "<text size=\"130 11\" pos=\"77 14\" color=\"black\"\n           label=\"$(com.minecolonies.core.gui.modules.stats)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/layouthuts/layouttool.xml": {
-      "sha1": "d58c3b6a0cb9ab6051d37c4dff5b2ae7c4c1d3ad",
-      "raw": true,
-      "t": [
-        [
-          "<button  id=\"giveTool\" pos=\"25 120\" size=\"129 17\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\" color=\"black\" label=\"$(com.minecolonies.coremod.gui.givetool)\"/>",
-          "<button textoffset=\"46 4\"  id=\"giveTool\" pos=\"25 120\" size=\"129 17\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\" color=\"black\" label=\"$(com.minecolonies.coremod.gui.givetool)\"/>"
         ]
       ]
     },
@@ -293,10 +135,6 @@
       "sha1": "091818d6dc3b23cdc9df9e17eef9ab74c562f661",
       "raw": true,
       "t": [
-        [
-          "<button id=\"sort\" size=\"86 17\" pos=\"50 70\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.coremod.gui.warehouse.sort)\"/>",
-          "<button textoffset=\"34 4\" id=\"sort\" size=\"86 17\" pos=\"50 70\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.coremod.gui.warehouse.sort)\"/>"
-        ],
         [
           "<text size=\"130 11\" pos=\"30 14\" textalign=\"MIDDLE\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.warehouse.upgrade)\"/>",
           "<text size=\"130 11\" pos=\"68 14\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.warehouse.upgrade)\"/>"
@@ -308,26 +146,6 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"map\" size=\"129 17\" pos=\"110 116\"  color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.townHall.map)\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_map.png\"/>",
-          "<button textoffset=\"46 4\" id=\"map\" size=\"129 17\" pos=\"110 116\"  color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.townHall.map)\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_map.png\"/>"
-        ],
-        [
-          "<button id=\"mercenaries\" size=\"129 17\" pos=\"110 136\"  color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.townhall.mercenary)\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_merc.png\"/>",
-          "<button textoffset=\"42 4\" id=\"mercenaries\" size=\"129 17\" pos=\"110 136\"  color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.townhall.mercenary)\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_merc.png\"/>"
-        ],
-        [
-          "<button id=\"bannerPicker\" label=\"$(com.minecolonies.coremod.gui.townhall.edit_flag)\" pos=\"280 57\" size=\"129 17\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_banner.png\"  color=\"black\"/>",
-          "<button textoffset=\"33 4\" id=\"bannerPicker\" label=\"$(com.minecolonies.coremod.gui.townhall.edit_flag)\" pos=\"280 57\" size=\"129 17\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_banner.png\"  color=\"black\"/>"
-        ],
-        [
-          "<button id=\"patreon\" size=\"120 19\" pos=\"288 133\" source=\"minecolonies:textures/gui/patreonwidget.png\"\n                 label=\"$(com.minecolonies.coremod.gui.townhall.patreon)\" tooltip=\"$(com.minecolonies.coremod.gui.townhall.patreon.hover)\" />",
-          "<button textoffset=\"30 5\" id=\"patreon\" size=\"120 19\" pos=\"288 133\" source=\"minecolonies:textures/gui/patreonwidget.png\"\n                 label=\"$(com.minecolonies.coremod.gui.townhall.patreon)\" tooltip=\"$(com.minecolonies.coremod.gui.townhall.patreon.hover)\" />"
-        ],
-        [
-          "<button id=\"resettexture\" size=\"86 17\" pos=\"337 165\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 visible=\"false\" color=\"black\" text=\"$(com.minecolonies.gui.reset)\"/>",
-          "<button textoffset=\"34 4\" id=\"resettexture\" size=\"86 17\" pos=\"337 165\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 visible=\"false\" color=\"black\" text=\"$(com.minecolonies.gui.reset)\"/>"
-        ],
-        [
           "<text label=\"$(com.minecolonies.coremod.gui.townhall.visual)\" textalign=\"MIDDLE\" pos=\"280 35\" size=\"129 11\" color=\"black\"/>",
           "<text label=\"$(com.minecolonies.coremod.gui.townhall.visual)\" pos=\"316 35\" size=\"129 11\" color=\"black\"/>"
         ]
@@ -337,18 +155,6 @@
       "sha1": "4f9b64536d30b969ca5c8630ee4658777b5698fe",
       "raw": true,
       "t": [
-        [
-          "<button id=\"acceptally\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.connectioneventlist.accept_ally)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" textscale=\"0.8\"/>",
-          "<button textoffset=\"25 4\" id=\"acceptally\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.connectioneventlist.accept_ally)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" textscale=\"0.8\"/>"
-        ],
-        [
-          "<button id=\"startfeud\" size=\"71 17\" label=\"$(com.minecolonies.core.gui.colonylist.start_feud)\" pos=\"90 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium_small.png\" color=\"black\" textscale=\"0.8\"/>",
-          "<button textoffset=\"17 4\" id=\"startfeud\" size=\"71 17\" label=\"$(com.minecolonies.core.gui.colonylist.start_feud)\" pos=\"90 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium_small.png\" color=\"black\" textscale=\"0.8\"/>"
-        ],
-        [
-          "<button id=\"startfeud\" size=\"64 17\" label=\"$(com.minecolonies.core.gui.colonylist.start_feud)\" pos=\"90 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\" color=\"black\" textscale=\"0.8\"/>",
-          "<button textoffset=\"14 4\" id=\"startfeud\" size=\"64 17\" label=\"$(com.minecolonies.core.gui.colonylist.start_feud)\" pos=\"90 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\" color=\"black\" textscale=\"0.8\"/>"
-        ],
         [
           "<text id=\"desc\" size=\"170 10\" textalign=\"MIDDLE\" pos=\"25 60\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.connectioneventlist.desc)\"/>",
           "<text id=\"desc\" size=\"170 10\" pos=\"83 60\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.connectioneventlist.desc)\"/>"
@@ -360,164 +166,6 @@
         [
           "<text id=\"desc\" size=\"170 10\" textalign=\"MIDDLE\"  pos=\"195 120\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.colonylist.indirect.desc)\"/>",
           "<text id=\"desc\" size=\"170 10\"  pos=\"257 120\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.colonylist.indirect.desc)\"/>"
-        ],
-        [
-          "<button id=\"requestally\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.request_ally)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" textscale=\"0.8\"/>",
-          "<button textoffset=\"25 4\" id=\"requestally\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.request_ally)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" textscale=\"0.8\"/>"
-        ],
-        [
-          "<button id=\"setneutral\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.set_neutral)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" visible=\"false\" textscale=\"0.8\"/>",
-          "<button textoffset=\"25 4\" id=\"setneutral\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.set_neutral)\" pos=\"2 22\"\n                        source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" visible=\"false\" textscale=\"0.8\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/layoutcitizens.xml": {
-      "sha1": "15f6b0f3aeb080872f9988d546e7765b5d1fcc74",
-      "raw": true,
-      "t": [
-        [
-          "<button label=\"$(com.minecolonies.coremod.gui.townhall.recallone)\" id=\"recallone\" pos=\"306 70\" size=\"86 17\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\"/>",
-          "<button textoffset=\"16 4\" label=\"$(com.minecolonies.coremod.gui.townhall.recallone)\" id=\"recallone\" pos=\"306 70\" size=\"86 17\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/layoutinfo.xml": {
-      "sha1": "d0899f510f8cc62178a9927a395a1294fba5c14a",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"addfakeplayer\" size=\"35 14\" label=\"$(com.minecolonies.coremod.gui.townhall.add)\" pos=\"105 10\"/>",
-          "<button textoffset=\"8 2\" id=\"addfakeplayer\" size=\"35 14\" label=\"$(com.minecolonies.coremod.gui.townhall.add)\" pos=\"105 10\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/layoutpermissions.xml": {
-      "sha1": "1a306aecfec0321fcf9ba7c5acc5384781718086",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"addfakeplayer\" size=\"35 14\" label=\"$(com.minecolonies.coremod.gui.townhall.add)\" pos=\"105 10\"/>",
-          "<button textoffset=\"8 2\" id=\"addfakeplayer\" size=\"35 14\" label=\"$(com.minecolonies.coremod.gui.townhall.add)\" pos=\"105 10\"/>"
-        ],
-        [
-          "<button id=\"trigger\" size=\"29 15\" pos=\"2 3\" align=\"TOP_RIGHT\" color=\"black\"\n                                 label=\"$(com.minecolonies.coremod.gui.workerhuts.retrieveoff)\"\n                                 source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>",
-          "<button textoffset=\"10 3\" id=\"trigger\" size=\"29 15\" pos=\"2 3\" align=\"TOP_RIGHT\" color=\"black\"\n                                 label=\"$(com.minecolonies.coremod.gui.workerhuts.retrieveoff)\"\n                                 source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>"
-        ],
-        [
-          "<button id=\"removeRank\" size=\"129 17\" pos=\"201 200\" label=\"$(com.minecolonies.coremod.gui.townhall.removerank)\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\" color=\"red\"/>",
-          "<button textoffset=\"42 4\" id=\"removeRank\" size=\"129 17\" pos=\"201 200\" label=\"$(com.minecolonies.coremod.gui.townhall.removerank)\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\" color=\"red\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/layoutstats.xml": {
-      "sha1": "abcd2a9fb1acbf651835b154755363456e1f1bad",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"button\" size=\"129 17\" pos=\"0 0\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\" color=\"black\"\n                     label=\"$(com.minecolonies.coremod.gui.interval.yesterday)\"/>",
-          "<button textoffset=\"42 4\" id=\"button\" size=\"129 17\" pos=\"0 0\" source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\" color=\"black\"\n                     label=\"$(com.minecolonies.coremod.gui.interval.yesterday)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/windowcantfoundcolony.xml": {
-      "sha1": "08815e631570eae8e1f4457378251df24054ed2f",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"pickup\" size=\"129 17\" pos=\"30 100\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.founding.pickup)\"/>",
-          "<button textoffset=\"42 4\" id=\"pickup\" size=\"129 17\" pos=\"30 100\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.founding.pickup)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/windowcolonymanagement.xml": {
-      "sha1": "e90489384cec8232a5972571c69fa88b1e73d365",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"create\" size=\"169 17\" pos=\"115 210\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_large_disabled.png\"\n                 label=\"$(com.minecolonies.coremod.gui.colony.create)\"/>",
-          "<button textoffset=\"39 4\" id=\"create\" size=\"169 17\" pos=\"115 210\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_large_disabled.png\"\n                 label=\"$(com.minecolonies.coremod.gui.colony.create)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/windowcolonyreactivate.xml": {
-      "sha1": "dbd693d6582f48c58c3ec2cb5e6620fc27a6eda4",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"create\" size=\"169 17\" pos=\"115 210\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.gui.reactivate.button)\"/>",
-          "<button textoffset=\"62 4\" id=\"create\" size=\"169 17\" pos=\"115 210\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.gui.reactivate.button)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/windowdeleteabandoncolony.xml": {
-      "sha1": "9af5dd1012208b877c3a3f83b6ea2223f14f8006",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"pickup\" size=\"129 17\" pos=\"70 150\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.founding.pickup)\"/>",
-          "<button textoffset=\"42 4\" id=\"pickup\" size=\"129 17\" pos=\"70 150\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.founding.pickup)\"/>"
-        ],
-        [
-          "<button id=\"delete\" size=\"129 17\" pos=\"200 150\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.founding.delete)\"/>",
-          "<button textoffset=\"37 4\" id=\"delete\" size=\"129 17\" pos=\"200 150\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.founding.delete)\"/>"
-        ],
-        [
-          "<button id=\"abandon\" size=\"129 17\" pos=\"130 180\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.founding.abandon)\"/>",
-          "<button textoffset=\"37 4\" id=\"abandon\" size=\"129 17\" pos=\"130 180\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.founding.abandon)\"/>"
-        ],
-        [
-          "<button id=\"confirmdelete\" size=\"86 17\" pos=\"110 160\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.core.gui.colony.delete.confirm)\" visible=\"false\"/>",
-          "<button textoffset=\"20 4\" id=\"confirmdelete\" size=\"86 17\" pos=\"110 160\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.core.gui.colony.delete.confirm)\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"confirmabandon\" size=\"86 17\" pos=\"110 160\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.core.gui.colony.abandon.confirm)\" visible=\"false\"/>",
-          "<button textoffset=\"20 4\" id=\"confirmabandon\" size=\"86 17\" pos=\"110 160\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.core.gui.colony.abandon.confirm)\" visible=\"false\"/>"
-        ],
-        [
-          "<button id=\"cancelaction\" size=\"86 17\" pos=\"210 160\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.core.gui.colony.manage.cancel)\" visible=\"false\"/>",
-          "<button textoffset=\"34 4\" id=\"cancelaction\" size=\"86 17\" pos=\"210 160\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.core.gui.colony.manage.cancel)\" visible=\"false\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/windowtownhallmercenary.xml": {
-      "sha1": "fe93c0acdd5bec59a6a0c15e12255fe4e81665ae",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"done\" size=\"200 20\" pos=\"110 170\" label=\"$(com.minecolonies.coremod.gui.townhall.mercenaryhire)\"/>",
-          "<button textoffset=\"91 5\" id=\"done\" size=\"200 20\" pos=\"110 170\" label=\"$(com.minecolonies.coremod.gui.townhall.mercenaryhire)\"/>"
-        ],
-        [
-          "<button id=\"cancel\" size=\"200 20\" pos=\"110 194\" label=\"$(gui.cancel)\"/>",
-          "<button textoffset=\"91 5\" id=\"cancel\" size=\"200 20\" pos=\"110 194\" label=\"$(gui.cancel)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/windowtownhallnameentry.xml": {
-      "sha1": "4e6bd889c817bb4fb51de146b98cb782c1c558cc",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"done\" size=\"200 20\" pos=\"110 170\" label=\"$(gui.done)\"/>",
-          "<button textoffset=\"91 5\" id=\"done\" size=\"200 20\" pos=\"110 170\" label=\"$(gui.done)\"/>"
-        ],
-        [
-          "<button id=\"cancel\" size=\"200 20\" pos=\"110 194\" label=\"$(gui.cancel)\"/>",
-          "<button textoffset=\"91 5\" id=\"cancel\" size=\"200 20\" pos=\"110 194\" label=\"$(gui.cancel)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowassigncitizen.xml": {
-      "sha1": "ba4a35a1ef5702d584ab2801e401ec4581fab29b",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"fire\" size=\"44 10\" pos=\"120 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.buttonfire)\" textscale=\"0.8\"/>",
-          "<button textoffset=\"13 0\" id=\"fire\" size=\"44 10\" pos=\"120 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.buttonfire)\" textscale=\"0.8\"/>"
-        ],
-        [
-          "<button id=\"hire\" size=\"44 10\" pos=\"120 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.buttonassign)\" textscale=\"0.8\"/>",
-          "<button textoffset=\"13 0\" id=\"hire\" size=\"44 10\" pos=\"120 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.buttonassign)\" textscale=\"0.8\"/>"
         ]
       ]
     },
@@ -526,72 +174,8 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"remove\" size=\"74 16\" pos=\"74 25\" color=\"black\"\n                             label=\"$(com.minecolonies.coremod.item.bannerrallyguards.gui.remove)\" source=\"minecolonies:textures/gui/citizen/colonist_button_medium.png\"/>",
-          "<button textoffset=\"28 3\" id=\"remove\" size=\"74 16\" pos=\"74 25\" color=\"black\"\n                             label=\"$(com.minecolonies.coremod.item.bannerrallyguards.gui.remove)\" source=\"minecolonies:textures/gui/citizen/colonist_button_medium.png\"/>"
-        ],
-        [
           "<text size=\"130 11\" pos=\"30 14\" textalign=\"MIDDLE\" color=\"black\"\n           label=\"$(item.minecolonies.banner_rally_guards)\"/>",
           "<text size=\"130 11\" pos=\"77 14\" color=\"black\"\n           label=\"$(item.minecolonies.banner_rally_guards)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowbarracksspies.xml": {
-      "sha1": "d1ddade06b72825e54981fdfbec9cd5311fbe2a9",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"hireSpies\" size=\"86 17\" pos=\"65 98\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_disabled.png\"\n                 label=\"$(com.minecolonies.coremod.gui.barracks.spieshire)\"/>",
-          "<button textoffset=\"34 4\" id=\"hireSpies\" size=\"86 17\" pos=\"65 98\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_disabled.png\"\n                 label=\"$(com.minecolonies.coremod.gui.barracks.spieshire)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowbuildbuilding.xml": {
-      "sha1": "525848e08e454dcff1852e4b479db7e204df1e80",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"repair\" align=\"TOP_MIDDLE\" size=\"129 17\" pos=\"-120 220\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.repair)\" color=\"black\"/>",
-          "<button textoffset=\"55 4\" id=\"repair\" align=\"TOP_MIDDLE\" size=\"129 17\" pos=\"-120 220\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.repair)\" color=\"black\"/>"
-        ],
-        [
-          "<button id=\"build\" align=\"TOP_MIDDLE\" size=\"129 17\" pos=\"10 220\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.upgrade)\" color=\"black\"/>",
-          "<button textoffset=\"55 4\" id=\"build\" align=\"TOP_MIDDLE\" size=\"129 17\" pos=\"10 220\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.upgrade)\" color=\"black\"/>"
-        ],
-        [
-          "<button id=\"deconstruct\" align=\"TOP_MIDDLE\" size=\"129 17\" pos=\"140 220\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.deconstruct)\" color=\"black\"/>",
-          "<button textoffset=\"55 4\" id=\"deconstruct\" align=\"TOP_MIDDLE\" size=\"129 17\" pos=\"140 220\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.deconstruct)\" color=\"black\"/>"
-        ],
-        [
-          "<button id=\"pickup\" align=\"TOP_MIDDLE\" size=\"129 17\" pos=\"140 220\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.pickup)\" color=\"black\" visible=\"false\"/>",
-          "<button textoffset=\"46 4\" id=\"pickup\" align=\"TOP_MIDDLE\" size=\"129 17\" pos=\"140 220\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.pickup)\" color=\"black\" visible=\"false\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowconfirm.xml": {
-      "sha1": "1fa07d9aa1ea07e1ab8f3983fbc86ad28e37a859",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"cancel\" size=\"86 17\" pos=\"60 120\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n            label=\"$(gui.yes)\" color=\"black\"/>",
-          "<button textoffset=\"38 4\" id=\"cancel\" size=\"86 17\" pos=\"60 120\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n            label=\"$(gui.yes)\" color=\"black\"/>"
-        ],
-        [
-          "<button id=\"confirm\" size=\"86 17\" pos=\"160 120\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n            label=\"$(gui.cancel)\" color=\"black\"/>",
-          "<button textoffset=\"34 4\" id=\"confirm\" size=\"86 17\" pos=\"160 120\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n            label=\"$(gui.cancel)\" color=\"black\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowdecorationcontroller.xml": {
-      "sha1": "817630b10c85beefc38eabc0bca197058191bdf8",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"repair\" size=\"86 17\" pos=\"50 70\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.repair)\" color=\"black\"/>",
-          "<button textoffset=\"34 4\" id=\"repair\" size=\"86 17\" pos=\"50 70\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.repair)\" color=\"black\"/>"
-        ],
-        [
-          "<button id=\"build\" size=\"86 17\" pos=\"50 90\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.upgrade)\" color=\"black\"/>",
-          "<button textoffset=\"34 4\" id=\"build\" size=\"86 17\" pos=\"50 90\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.upgrade)\" color=\"black\"/>"
         ]
       ]
     },
@@ -600,54 +184,8 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"select-seed\" size=\"86 17\" pos=\"13 72\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.field.selectseed)\"/>",
-          "<button textoffset=\"25 4\" id=\"select-seed\" size=\"86 17\" pos=\"13 72\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.field.selectseed)\"/>"
-        ],
-        [
           "<text size=\"130 11\" pos=\"30 14\" color=\"red\" textalign=\"MIDDLE\" label=\"$(block.minecolonies.blockhutfield)\"/>",
           "<text size=\"130 11\" pos=\"86 14\" color=\"red\" label=\"$(block.minecolonies.blockhutfield)\"/>"
-        ],
-        [
-          "<button id=\"dir-resize-north\" size=\"24 24\" pos=\"129 45\" color=\"white\" textalign=\"MIDDLE\"\n        source=\"minecolonies:building/scarecrow/north\" highlight=\"minecolonies:building/scarecrow/north/light\" disabled=\"minecolonies:building/scarecrow/north/dark\"/>",
-          "<button textoffset=\"9 7\" id=\"dir-resize-north\" size=\"24 24\" pos=\"129 45\" color=\"white\"\n        source=\"minecolonies:building/scarecrow/north\" highlight=\"minecolonies:building/scarecrow/north/light\" disabled=\"minecolonies:building/scarecrow/north/dark\"/>"
-        ],
-        [
-          "<button id=\"dir-resize-south\" size=\"24 24\" pos=\"129 93\" color=\"white\" textalign=\"MIDDLE\"\n        source=\"minecolonies:building/scarecrow/south\" highlight=\"minecolonies:building/scarecrow/south/light\" disabled=\"minecolonies:building/scarecrow/south/dark\"/>",
-          "<button textoffset=\"9 7\" id=\"dir-resize-south\" size=\"24 24\" pos=\"129 93\" color=\"white\"\n        source=\"minecolonies:building/scarecrow/south\" highlight=\"minecolonies:building/scarecrow/south/light\" disabled=\"minecolonies:building/scarecrow/south/dark\"/>"
-        ],
-        [
-          "<button id=\"dir-resize-west\" size=\"24 24\" pos=\"105 69\" color=\"white\" textalign=\"MIDDLE\"\n        source=\"minecolonies:building/scarecrow/west\" highlight=\"minecolonies:building/scarecrow/west/light\" disabled=\"minecolonies:building/scarecrow/west/dark\"/>",
-          "<button textoffset=\"9 7\" id=\"dir-resize-west\" size=\"24 24\" pos=\"105 69\" color=\"white\"\n        source=\"minecolonies:building/scarecrow/west\" highlight=\"minecolonies:building/scarecrow/west/light\" disabled=\"minecolonies:building/scarecrow/west/dark\"/>"
-        ],
-        [
-          "<button id=\"dir-resize-east\" size=\"24 24\" pos=\"153 69\" color=\"white\" textalign=\"MIDDLE\"\n        source=\"minecolonies:building/scarecrow/east\" highlight=\"minecolonies:building/scarecrow/east/light\" disabled=\"minecolonies:building/scarecrow/east/dark\"/>",
-          "<button textoffset=\"9 7\" id=\"dir-resize-east\" size=\"24 24\" pos=\"153 69\" color=\"white\"\n        source=\"minecolonies:building/scarecrow/east\" highlight=\"minecolonies:building/scarecrow/east/light\" disabled=\"minecolonies:building/scarecrow/east/dark\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowhireworker.xml": {
-      "sha1": "d8504ea98b40988bf6b6c35dc19573d204fc0add",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"done\" size=\"44 10\" pos=\"200 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.buttonhire)\" textscale=\"0.8\"/>",
-          "<button textoffset=\"13 0\" id=\"done\" size=\"44 10\" pos=\"200 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.buttonhire)\" textscale=\"0.8\"/>"
-        ],
-        [
-          "<button id=\"fire\" size=\"44 10\" pos=\"200 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.buttonfire)\" textscale=\"0.8\"/>",
-          "<button textoffset=\"13 0\" id=\"fire\" size=\"44 10\" pos=\"200 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.buttonfire)\" textscale=\"0.8\"/>"
-        ],
-        [
-          "<button id=\"restart\" size=\"44 10\" pos=\"300 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.restart)\" textscale=\"0.8\"/>",
-          "<button textoffset=\"13 0\" id=\"restart\" size=\"44 10\" pos=\"300 2\" color=\"black\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_quite_small.png\"\n                         label=\"$(com.minecolonies.coremod.gui.hiring.restart)\" textscale=\"0.8\"/>"
-        ],
-        [
-          "<button id=\"mode\" size=\"169 17\" pos=\"150 187\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.manage)\"/>",
-          "<button textoffset=\"66 4\" id=\"mode\" size=\"169 17\" pos=\"150 187\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.manage)\"/>"
-        ],
-        [
-          "<button id=\"showEmployed\" color=\"black\" pos=\"200 208\" size=\"29 17\" label=\"$(gui.no)\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>",
-          "<button textoffset=\"10 4\" id=\"showEmployed\" color=\"black\" pos=\"200 208\" size=\"29 17\" label=\"$(gui.no)\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>"
         ]
       ]
     },
@@ -656,50 +194,8 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"back\" size=\"86 17\" pos=\"50 215\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.back)\"/>",
-          "<button textoffset=\"34 4\" id=\"back\" size=\"86 17\" pos=\"50 215\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.back)\"/>"
-        ],
-        [
           "<text id=\"desc\" size=\"130 11\" pos=\"30 14\" color=\"black\" textalign=\"MIDDLE\" label=\"$(com.minecolonies.coremod.gui.allinventory)\"/>",
           "<text id=\"desc\" size=\"130 11\" pos=\"77 14\" color=\"black\" label=\"$(com.minecolonies.coremod.gui.allinventory)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowhutbarracks.xml": {
-      "sha1": "7d34c9738ceab7d0feda02806ca1a447be3cb3a9",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"hireSpies\" size=\"129 17\" pos=\"30 129\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.spies)\"/>",
-          "<button textoffset=\"46 4\" id=\"hireSpies\" size=\"129 17\" pos=\"30 129\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.spies)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowhuthome.xml": {
-      "sha1": "87be180f90bb78427b0bdf8280f604a0ce94e237",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"assign\" size=\"129 17\" pos=\"30 92\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.home.manage)\"/>",
-          "<button textoffset=\"46 4\" id=\"assign\" size=\"129 17\" pos=\"30 92\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.home.manage)\"/>"
-        ],
-        [
-          "<button id=\"recall\" size=\"129 17\" pos=\"30 128\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.townhall.recall)\"/>",
-          "<button textoffset=\"46 4\" id=\"recall\" size=\"129 17\" pos=\"30 128\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.townhall.recall)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowhutnameentry.xml": {
-      "sha1": "0e2a0d14aab819969d44bdabeccd6943e0ce3b08",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"done\" size=\"200 20\" pos=\"110 170\" label=\"$(gui.done)\"/>",
-          "<button textoffset=\"91 5\" id=\"done\" size=\"200 20\" pos=\"110 170\" label=\"$(gui.done)\"/>"
-        ],
-        [
-          "<button id=\"cancel\" size=\"200 20\" pos=\"110 194\" label=\"$(gui.cancel)\"/>",
-          "<button textoffset=\"91 5\" id=\"cancel\" size=\"200 20\" pos=\"110 194\" label=\"$(gui.cancel)\"/>"
         ]
       ]
     },
@@ -707,10 +203,6 @@
       "sha1": "c85484216ec68983696e8f452e715995f1c1fae5",
       "raw": true,
       "t": [
-        [
-          "<button id=\"repair\" size=\"130 17\" pos=\"30 90\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.plantationfields.repair)\"/>",
-          "<button textoffset=\"47 4\" id=\"repair\" size=\"130 17\" pos=\"30 90\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 label=\"$(com.minecolonies.coremod.gui.workerhuts.plantationfields.repair)\"/>"
-        ],
         [
           "<text size=\"130 11\" pos=\"30 14\" color=\"red\" textalign=\"MIDDLE\" label=\"$(block.minecolonies.blockhutplantationfield)\"/>",
           "<text size=\"130 11\" pos=\"72 14\" color=\"red\" label=\"$(block.minecolonies.blockhutplantationfield)\"/>"
@@ -730,10 +222,6 @@
       "raw": true,
       "t": [
         [
-          "<button id=\"addStock\" size=\"86 17\" pos=\"177 30\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n            label=\"$(com.minecolonies.coremod.gui.warehouse.add)\"/>",
-          "<button textoffset=\"34 4\" id=\"addStock\" size=\"86 17\" pos=\"177 30\" color=\"black\"\n            source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n            label=\"$(com.minecolonies.coremod.gui.warehouse.add)\"/>"
-        ],
-        [
           "<text size=\"440 13\" pos=\"0 14\" color=\"black\" textalign=\"MIDDLE\" label=\"$(com.minecolonies.coremod.gui.warehouse.stock)\"/>",
           "<text size=\"440 13\" pos=\"202 14\" color=\"black\" label=\"$(com.minecolonies.coremod.gui.warehouse.stock)\"/>"
         ]
@@ -744,14 +232,6 @@
       "raw": true,
       "t": [
         [
-          "<button label=\"$(com.minecolonies.coremod.gui.workerhuts.request)\" id=\"request\" pos=\"140 1\" size=\"64 15\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\" color=\"black\"/>",
-          "<button textoffset=\"23 3\" label=\"$(com.minecolonies.coremod.gui.workerhuts.request)\" id=\"request\" pos=\"140 1\" size=\"64 15\"\n                         source=\"minecolonies:textures/gui/builderhut/builder_button_small.png\" color=\"black\"/>"
-        ],
-        [
-          "<button id=\"inventory\" size=\"86 17\" pos=\"107 210\" color=\"black\" label=\"$(container.inventory)\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"/>",
-          "<button textoffset=\"29 4\" id=\"inventory\" size=\"86 17\" pos=\"107 210\" color=\"black\" label=\"$(container.inventory)\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"/>"
-        ],
-        [
           "<text id=\"desc\" size=\"140 11\" pos=\"60 14\" color=\"black\" textalign=\"MIDDLE\" label=\"$(com.minecolonies.coremod.gui.citizen.stacks)\"/>",
           "<text id=\"desc\" size=\"140 11\" pos=\"103 14\" color=\"black\" label=\"$(com.minecolonies.coremod.gui.citizen.stacks)\"/>"
         ],
@@ -761,65 +241,13 @@
         ]
       ]
     },
-    "assets/minecolonies/gui/windowreactivatebuilding.xml": {
-      "sha1": "b8885f1d9973809b8e0308ac3b49b4f7a6ceb91a",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"reactivate\" size=\"86 17\" pos=\"50 100\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.reactivate.button)\"/>",
-          "<button textoffset=\"25 4\" id=\"reactivate\" size=\"86 17\" pos=\"50 100\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.reactivate.button)\"/>"
-        ]
-      ]
-    },
     "assets/minecolonies/gui/windowrequestdetail.xml": {
       "sha1": "50e5562887b82fe3a03b63f93b50b91ca6f18218",
       "raw": true,
       "t": [
         [
-          "<button id=\"back\" size=\"37 16\" pos=\"35 105\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.back)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>",
-          "<button textoffset=\"9 3\" id=\"back\" size=\"37 16\" pos=\"35 105\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.back)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>"
-        ],
-        [
-          "<button id=\"fulfill\" size=\"37 16\" pos=\"76 105\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.citizen.requestsfulfill)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>",
-          "<button textoffset=\"9 3\" id=\"fulfill\" size=\"37 16\" pos=\"76 105\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.citizen.requestsfulfill)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>"
-        ],
-        [
-          "<button id=\"cancel\" size=\"37 16\" pos=\"117 105\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.citizen.requestscancel)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>",
-          "<button textoffset=\"9 3\" id=\"cancel\" size=\"37 16\" pos=\"117 105\" color=\"black\"\n                 label=\"$(com.minecolonies.coremod.gui.citizen.requestscancel)\" source=\"minecolonies:textures/gui/citizen/colonist_button_small.png\"/>"
-        ],
-        [
           "<text size=\"190 11\" pos=\"0 13\" textalign=\"MIDDLE\" color=\"black\" label=\"$(com.minecolonies.coremod.gui.citizen.requests)\"/>",
           "<text size=\"190 11\" pos=\"72 13\" color=\"black\" label=\"$(com.minecolonies.coremod.gui.citizen.requests)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowsuggestbuildtool.xml": {
-      "sha1": "0a64939cd7c0ab51ea01e92052abb436cf1de1c6",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"buildtool\" size=\"86 17\" pos=\"50 100\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.placement.buildtool)\"/>",
-          "<button textoffset=\"16 4\" id=\"buildtool\" size=\"86 17\" pos=\"50 100\" color=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\"\n                 label=\"$(com.minecolonies.coremod.gui.placement.buildtool)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowsupplies.xml": {
-      "sha1": "68393fa304fecafa3dd1930487112ed14658a3e6",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"switch\" source=\"structurize:textures/gui/buildtool/button_medium.png\" label=\"$(structurize.gui.buildtool.switchpack)\" size=\"86 17\" pos=\"5 5\" textcolor=\"black\" texthovercolor=\"gray\"/>",
-          "<button textoffset=\"29 4\" id=\"switch\" source=\"structurize:textures/gui/buildtool/button_medium.png\" label=\"$(structurize.gui.buildtool.switchpack)\" size=\"86 17\" pos=\"5 5\" textcolor=\"black\" texthovercolor=\"gray\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/windowsupplystory.xml": {
-      "sha1": "a56bb236671824763a40a5f12a56bae268860841",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"colonyStylePicker\" size=\"129 17\" pos=\"60 215\" textcolor=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.gui.supplies.selectstyle)\"/>",
-          "<button textoffset=\"46 4\" id=\"colonyStylePicker\" size=\"129 17\" pos=\"60 215\" textcolor=\"black\"\n                 source=\"minecolonies:textures/gui/builderhut/builder_button_medium_large.png\"\n                 disabled=\"minecolonies:textures/gui/builderhut/builder_button_medium_large_disabled.png\"\n                 label=\"$(com.minecolonies.core.gui.supplies.selectstyle)\"/>"
         ]
       ]
     },
@@ -844,10 +272,6 @@
         [
           "<text id=\"desc\" size=\"170 10\" textalign=\"MIDDLE\" pos=\"10 110\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.colonylist.indirect.desc)\"/>",
           "<text id=\"desc\" size=\"170 10\" pos=\"72 110\" color=\"black\" textscale=\"1.0\" label=\"$(com.minecolonies.core.gui.colonylist.indirect.desc)\"/>"
-        ],
-        [
-          "<button id=\"travel\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.travel)\" pos=\"32 22\"\n                    source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" tooltip=\"$(com.minecolonies.core.gui.colonylist.travel.tooltip)\"/>",
-          "<button textoffset=\"34 4\" id=\"travel\" size=\"86 17\" label=\"$(com.minecolonies.core.gui.colonylist.travel)\" pos=\"32 22\"\n                    source=\"minecolonies:textures/gui/builderhut/builder_button_medium.png\" color=\"black\" tooltip=\"$(com.minecolonies.core.gui.colonylist.travel.tooltip)\"/>"
         ]
       ]
     },
@@ -964,20 +388,6 @@
         [
           "<text size=\"164 11\" pos=\"33 14\" color=\"black\" textalign=\"MIDDLE\"\n           label=\"$(com.minecolonies.coremod.gui.citizen.requests)\"/>",
           "<text size=\"164 11\" pos=\"93 14\" color=\"black\"\n           label=\"$(com.minecolonies.coremod.gui.citizen.requests)\"/>"
-        ]
-      ]
-    },
-    "assets/minecolonies/gui/townhall/layoutsettings.xml": {
-      "sha1": "72d46cf51b6a19bfac8f3a43ba8907ed350830ff",
-      "raw": true,
-      "t": [
-        [
-          "<button id=\"trigger\" size=\"29 16\" pos=\"120 0\" label=\"$(com.minecolonies.coremod.gui.townhall.off)\" color=\"black\"\n                     source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>",
-          "<button textoffset=\"10 3\" id=\"trigger\" size=\"29 16\" pos=\"120 0\" label=\"$(com.minecolonies.coremod.gui.townhall.off)\" color=\"black\"\n                     source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>"
-        ],
-        [
-          "<button id=\"trigger\" size=\"29 16\" pos=\"120 0\" label=\"$(com.minecolonies.coremod.gui.hiring.off)\" color=\"black\"\n                     source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>",
-          "<button textoffset=\"5 3\" id=\"trigger\" size=\"29 16\" pos=\"120 0\" label=\"$(com.minecolonies.coremod.gui.hiring.off)\" color=\"black\"\n                     source=\"minecolonies:textures/gui/builderhut/builder_button_very_small.png\"/>"
         ]
       ]
     }
