@@ -32,7 +32,7 @@ import sys
 from pathlib import Path
 
 import books
-from paths import PACK, SRC
+from paths import COMMON, PACK, SRC
 
 MAPS = SRC / 'books' / 'literal'
 MIN_HIT = 0.90
@@ -69,7 +69,10 @@ def main(mods_dir):
                              '   原文: %r' % (rel, en[:80]))
                 else:
                     miss.append((rel, en[:60]))
-            t = PACK / rel
+            # assets/ 是资源包能覆盖的；data/ 只有数据包能覆盖，
+            # 走整合包自带 KubeJS 的 kubejs/data（本仓库既有做法）
+            t = (PACK / rel) if rel.startswith('assets/') else \
+                (COMMON / 'kubejs' / rel)
             t.parent.mkdir(parents=True, exist_ok=True)
             t.write_text(text, encoding='utf-8')
             n_file += 1

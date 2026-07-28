@@ -143,6 +143,10 @@ cp "$TREE/mods/vaultpatcher.jar" "$SSTAGE/mods/"
 # （不再用语言注入 mod —— 服务端数据必须保持上游英文，否则与 JEI/配方分裂）
 mkdir -p "$SSTAGE/kubejs/server_scripts"
 cp "$TREE/kubejs/server_scripts/pb_hanhua_cage_migrate.js" "$SSTAGE/kubejs/server_scripts/"
+# 数据包覆盖（法术书风味文本等）：联机时配方由服务端下发，客户端那份会被忽略，
+# 不带上服务器玩家就看英文。这些只改显示用的数据组件，不参与配方匹配、不进 JEI
+# 搜索，与上面那条「服务端数据保持上游英文」针对的物品名不是一回事。
+[ -d "$TREE/kubejs/data" ] && cp -R "$TREE/kubejs/data" "$SSTAGE/kubejs/"
 # 服务端安全模块子集（清单与准入标准见 scripts/server_modules.txt，check.py 把关）
 grep -v '^#' scripts/server_modules.txt | while IFS= read -r m; do
   [ -n "$m" ] && cp "$TREE/vaultpatcher/modules/$m.json" "$SSTAGE/vaultpatcher/modules/"
