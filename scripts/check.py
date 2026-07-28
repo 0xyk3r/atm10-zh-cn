@@ -80,6 +80,25 @@ def _json_parses(rule):
             yield '%s: JSON 解析失败: %s' % (rel(p), e)
 
 
+@checker('vp_no_single_word_keys')
+def _vp_no_single_word(rule):
+    """配置界面模块里不许出现单个词的键——那类词多半同时是枚举值。
+
+    见 [vp-enum-protocol-values]：RFTools 把 `Ignored` / `Off` 这类界面词
+    同时当枚举名反查，译了游戏直接抛异常。配置界面同理：下拉框里选的值和
+    条目标签长得一模一样，分不清，所以整类放弃。
+    """
+    mod, = need(rule, 'module')
+    f = ROOT / 'src' / 'vaultpatcher' / 'modules' / mod
+    if not f.is_file():
+        return
+    doc = json.loads(f.read_text(encoding='utf-8'))
+    for blk in doc[1:]:
+        for pair in blk.get('pairs', []):
+            if len(pair['key'].split()) < 2:
+                yield '%s 出现单词键 %r —— %s' % (mod, pair['key'], rule['why'])
+
+
 @checker('vp_forbidden_keys')
 def _vp_forbidden_keys(rule):
     """有些字符串是**行为标志**，不是界面文字，译了功能就坏。

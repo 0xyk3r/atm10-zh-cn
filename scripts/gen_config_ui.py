@@ -66,9 +66,16 @@ def main(argv):
             for part in m.group(1).split('.'):
                 if part and not SKIP.match(part):
                     labels.add(label(part))
-    pairs, skipped = [], 0
+    pairs, skipped, single = [], 0, 0
     for lb in sorted(labels):
         words = lb.split()
+        # 【保守模式】单个词一律不译。这类词（On / Off / Client / Sound / Mode / Level /
+        # Name…）极可能同时是配置项的**枚举值**——下拉框里选的那个值。译了就可能被
+        # 反查或写回配置文件，重演 RFTools 那种「一汉化就崩」。多词短语没有这个风险，
+        # 没人拿一整句当标识符。宁可少译，不冒这个险。
+        if len(words) < 2:
+            single += 1
+            continue
         zh = [terms.get(w) for w in words]
         if not words or any(v is None for v in zh):
             skipped += 1
@@ -82,8 +89,8 @@ def main(argv):
     for c in CLASSES:
         doc.append({'target_class': [c], 'pairs': pairs})
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print('配置项标签共 %d 个；词典全覆盖的 %d 个已生成，%d 个因缺词跳过（不猜）'
-          % (len(labels), len(pairs), skipped))
+    print('配置项标签共 %d 个；已生成 %d 条，因缺词跳过 %d 条，'
+          '因是单个词按保守模式跳过 %d 条' % (len(labels), len(pairs), skipped, single))
     print('   → %s' % OUT.relative_to(ROOT))
     return 0
 

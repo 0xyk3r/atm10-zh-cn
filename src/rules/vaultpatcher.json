@@ -88,5 +88,11 @@
     ],
     "equals": false,
     "why": "class_patch 会让 VaultPatcher 遍历 <实例>/vaultpatcher/patch/ 并用里面任何 .class 替换同名类——等于把一个数据目录变成代码执行入口。本包一个类都不需要改，开着只会给「别的工具/手滑拷进来的 class 被静默加载」留门，而照着旧版模组编的 class 会直接 ClassFormatError 闪退（2026-07-28 实机踩过）。做字节码实验时可以临时打开，但绝不许随包发出去。"
+  },
+  {
+    "id": "vp-config-ui-no-single-word",
+    "kind": "vp_no_single_word_keys",
+    "module": "config_ui_generated.json",
+    "why": "配置界面的单词标签（On/Off/Client/Sound/Mode/Level/Name…）极可能同时是配置项的**枚举值**，译了可能被反查或写回配置文件——RFTools 那类「一汉化就崩」就是这么来的。多词短语没有这个风险。宁可少译，不冒险。"
   }
 ]
