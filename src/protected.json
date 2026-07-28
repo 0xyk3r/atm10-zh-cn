@@ -2995,6 +2995,7 @@
     "src/vaultpatcher/modules/mininggadgets.json",
     "src/vaultpatcher/modules/mob_grinding_utils.json",
     "src/vaultpatcher/modules/modern_industrialization.json",
+    "src/vaultpatcher/modules/modlist_names.json",
     "src/vaultpatcher/modules/modonomicon.json",
     "src/vaultpatcher/modules/modularbees.json",
     "src/vaultpatcher/modules/monolib.json",

@@ -1637,6 +1637,28 @@
    }
   ]
  },
+ "blockui_legacy_labels.json": {
+  "blocks": [
+   {
+    "classes": {
+     "com.ldtteam.blockui.BOScreen": {
+      "actual": "com.ldtteam.blockui.BOScreen",
+      "how": "declared",
+      "jar": "blockui-1.0.211-1.21.1-snapshot.jar"
+     }
+    },
+    "i": 1,
+    "jars": [
+     "blockui-1.0.211-1.21.1-snapshot.jar"
+    ],
+    "keys": {
+     "Deprecated Overlay Caption Text": "dynamic",
+     "Legacy Pane Placeholder Label": "dynamic",
+     "Unused Scroll Container Notice": "dynamic"
+    }
+   }
+  ]
+ },
  "brandonscore.json": {
   "blocks": [
    {
@@ -10189,6 +10211,169 @@
     "keys": {
      "Light Blue": "exact",
      "Light Gray": "exact"
+    }
+   }
+  ]
+ },
+ "modlist_names.json": {
+  "blocks": [
+   {
+    "classes": {
+     "net.neoforged.neoforge.client.gui.ModListScreen": {
+      "actual": null,
+      "how": "not_found",
+      "jar": null
+     }
+    },
+    "i": 1,
+    "jars": [],
+    "keys": {
+     "AE2 Import Export Card": "dynamic",
+     "AE2 JEI Integration": "dynamic",
+     "Accelerated Decay": "dynamic",
+     "Actually Additions": "dynamic",
+     "Advanced AE": "dynamic",
+     "Advanced Peripherals": "dynamic",
+     "Akashic Tome": "dynamic",
+     "All The Arcanist Gear": "dynamic",
+     "Apothic Attributes": "dynamic",
+     "Apothic Enchanting": "dynamic",
+     "Apothic Spawners": "dynamic",
+     "Applied Energistics 2": "dynamic",
+     "Applied Mekanistics": "dynamic",
+     "Aquaculture 2": "dynamic",
+     "Ars Additions": "dynamic",
+     "Ars Controle": "dynamic",
+     "Ars Creo": "dynamic",
+     "Ars Nouveau": "dynamic",
+     "Ars Ocultas": "dynamic",
+     "Ars Polymorphia": "dynamic",
+     "Ars Unification": "dynamic",
+     "Ars Énergistique": "dynamic",
+     "Bad Wither No Cookie Reloaded": "dynamic",
+     "Baubley Heart Canisters": "dynamic",
+     "Better Compatibility Checker": "dynamic",
+     "Bibliobiomes Legacy": "dynamic",
+     "Bibliocraft Legacy": "dynamic",
+     "Bibliowoods Legacy": "dynamic",
+     "Blue Flame Burning": "dynamic",
+     "Brandon's Core": "dynamic",
+     "Bridging Mod": "dynamic",
+     "CC: Tweaked": "dynamic",
+     "Cable Tiers": "dynamic",
+     "Caelus API": "dynamic",
+     "Charging Gadgets": "dynamic",
+     "Chisel Reborn": "dynamic",
+     "Cloth Config v15 API": "dynamic",
+     "Cloud Glass": "dynamic",
+     "CodeChicken Lib": "dynamic",
+     "Colorful Hearts": "dynamic"
+    }
+   },
+   {
+    "classes": {
+     "net.neoforged.neoforge.client.gui.ModListScreen$InfoPanel": {
+      "actual": null,
+      "how": "not_found",
+      "jar": null
+     }
+    },
+    "i": 2,
+    "jars": [],
+    "keys": {
+     "AE2 Import Export Card": "dynamic",
+     "AE2 JEI Integration": "dynamic",
+     "Accelerated Decay": "dynamic",
+     "Actually Additions": "dynamic",
+     "Advanced AE": "dynamic",
+     "Advanced Peripherals": "dynamic",
+     "Akashic Tome": "dynamic",
+     "All The Arcanist Gear": "dynamic",
+     "Apothic Attributes": "dynamic",
+     "Apothic Enchanting": "dynamic",
+     "Apothic Spawners": "dynamic",
+     "Applied Energistics 2": "dynamic",
+     "Applied Mekanistics": "dynamic",
+     "Aquaculture 2": "dynamic",
+     "Ars Additions": "dynamic",
+     "Ars Controle": "dynamic",
+     "Ars Creo": "dynamic",
+     "Ars Nouveau": "dynamic",
+     "Ars Ocultas": "dynamic",
+     "Ars Polymorphia": "dynamic",
+     "Ars Unification": "dynamic",
+     "Ars Énergistique": "dynamic",
+     "Bad Wither No Cookie Reloaded": "dynamic",
+     "Baubley Heart Canisters": "dynamic",
+     "Better Compatibility Checker": "dynamic",
+     "Bibliobiomes Legacy": "dynamic",
+     "Bibliocraft Legacy": "dynamic",
+     "Bibliowoods Legacy": "dynamic",
+     "Blue Flame Burning": "dynamic",
+     "Brandon's Core": "dynamic",
+     "Bridging Mod": "dynamic",
+     "CC: Tweaked": "dynamic",
+     "Cable Tiers": "dynamic",
+     "Caelus API": "dynamic",
+     "Charging Gadgets": "dynamic",
+     "Chisel Reborn": "dynamic",
+     "Cloth Config v15 API": "dynamic",
+     "Cloud Glass": "dynamic",
+     "CodeChicken Lib": "dynamic",
+     "Colorful Hearts": "dynamic"
+    }
+   },
+   {
+    "classes": {
+     "net.neoforged.neoforge.client.gui.widget.ModListWidget$ModEntry": {
+      "actual": null,
+      "how": "not_found",
+      "jar": null
+     }
+    },
+    "i": 3,
+    "jars": [],
+    "keys": {
+     "AE2 Import Export Card": "dynamic",
+     "AE2 JEI Integration": "dynamic",
+     "Accelerated Decay": "dynamic",
+     "Actually Additions": "dynamic",
+     "Advanced AE": "dynamic",
+     "Advanced Peripherals": "dynamic",
+     "Akashic Tome": "dynamic",
+     "All The Arcanist Gear": "dynamic",
+     "Apothic Attributes": "dynamic",
+     "Apothic Enchanting": "dynamic",
+     "Apothic Spawners": "dynamic",
+     "Applied Energistics 2": "dynamic",
+     "Applied Mekanistics": "dynamic",
+     "Aquaculture 2": "dynamic",
+     "Ars Additions": "dynamic",
+     "Ars Controle": "dynamic",
+     "Ars Creo": "dynamic",
+     "Ars Nouveau": "dynamic",
+     "Ars Ocultas": "dynamic",
+     "Ars Polymorphia": "dynamic",
+     "Ars Unification": "dynamic",
+     "Ars Énergistique": "dynamic",
+     "Bad Wither No Cookie Reloaded": "dynamic",
+     "Baubley Heart Canisters": "dynamic",
+     "Better Compatibility Checker": "dynamic",
+     "Bibliobiomes Legacy": "dynamic",
+     "Bibliocraft Legacy": "dynamic",
+     "Bibliowoods Legacy": "dynamic",
+     "Blue Flame Burning": "dynamic",
+     "Brandon's Core": "dynamic",
+     "Bridging Mod": "dynamic",
+     "CC: Tweaked": "dynamic",
+     "Cable Tiers": "dynamic",
+     "Caelus API": "dynamic",
+     "Charging Gadgets": "dynamic",
+     "Chisel Reborn": "dynamic",
+     "Cloth Config v15 API": "dynamic",
+     "Cloud Glass": "dynamic",
+     "CodeChicken Lib": "dynamic",
+     "Colorful Hearts": "dynamic"
     }
    }
   ]
