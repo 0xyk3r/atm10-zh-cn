@@ -109,5 +109,13 @@
     "kind": "no_files",
     "glob": "vaultpatcher/modules/blockui_legacy_labels.json",
     "why": "这些模块留在 src/ 备查但不随包发行。出货树里出现它们，说明摊树时的排除逻辑失效了。"
+  },
+  {
+    "id": "vp-no-path-prefix-keys",
+    "kind": "vp_no_key_prefix",
+    "prefixes": [
+      "/"
+    ],
+    "why": "以 / 开头的键是路径片段，不是界面文字。structurize 的建筑棒把类别路径（craftsmanship/luxury）同时当面包屑显示、按钮 ID 和 Map 键用，楼层行还把「路径:序号」塞进隐藏 Text 控件、点击时读回来查表。为了让面包屑显示中文而写的 167 条 `/luxury → /豪华` 子串替换，把 458 条真实路径改坏了 277 条，查表落空直接 NPE 闪退（issue #3，7.2 vr14 beta2）。按钮上显示的其实只是路径最后一段的首字母大写形式，用精确键就能译，所以这一类整体放弃。"
   }
 ]

@@ -28,6 +28,7 @@
 | `class_patch: true` | 数据目录变成代码执行入口 |
 | `vaultpatcher/patch/` 下留 `.class` | 旧补丁复活 → ClassFormatError 闪退 |
 | 标识符样式的键 | 被拿去构造 ResourceLocation → 注册崩 |
+| 以 `/` 开头的键 | 译了建筑棒的类别路径，查表落空 → NPE 闪退（issue #3） |
 
 ## 为什么不会进出货包
 
@@ -99,6 +100,14 @@ def _c5(mods):
         return
     d = json.loads(p.read_text(encoding='utf-8'))
     d['class_patch'] = True
+    p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
+
+
+@case('路径片段被当界面文字译', 'vp-no-path-prefix-keys')
+def _c7(mods):
+    p = mods / 'minecolonies_styles.json'
+    d = json.loads(p.read_text(encoding='utf-8'))
+    d[1]['pairs'].append({'key': '/luxury', 'value': '@/豪华'})
     p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
 
 

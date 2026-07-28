@@ -109,6 +109,40 @@ def _vp_no_single_word(rule):
                     yield '%s 出现单词键 %r —— %s' % (mod, pair['key'], rule['why'])
 
 
+@checker('vp_no_key_prefix')
+def _vp_no_key_prefix(rule):
+    """键不许以这些前缀开头——以它们开头的字符串是**路径片段**，不是界面文字。
+
+    2026-07-29 的实机崩溃（issue #3）：structurize 的建筑棒把「类别路径」
+    （`craftsmanship/luxury` 这种）同时当三件事用——顶部面包屑显示、按钮 ID、
+    以及 `currentBluePrintMappingAtDepthCache` 的 **Map 键**。楼层行还会把
+    `路径:序号` 塞进一个隐藏的 Text 控件，点击时再 `getText().getString()`
+    读回来当键查表。我们为了让面包屑显示中文，写了 167 条 `/luxury → /豪华`
+    这样的子串替换，于是 458 条真实路径里有 277 条被改写，查表落空
+    → `handleBlueprintCategory` 里 `cache.get(...)` 返回 null → NPE 闪退。
+
+    路径片段几乎必然是数据：目录名要拿去查表、拼 ID、做 ResourceLocation。
+    而按钮上真正显示的是「路径最后一段首字母大写」，那是个单独的短词，
+    用精确键就能译——所以整类以 `/` 开头的键放弃，一条都不留。
+    """
+    prefixes, = need(rule, 'prefixes')
+    mods = sorted((ROOT / 'src' / 'vaultpatcher' / 'modules').glob('*.json'))
+    if not mods:
+        yield 'src/vaultpatcher/modules 下一个模块都没有（规则失效了，比不加还危险）'
+    for f in mods:
+        try:
+            doc = json.loads(f.read_text(encoding='utf-8'))
+        except Exception:                                          # noqa: BLE001
+            continue
+        if not isinstance(doc, list):
+            continue
+        for blk in doc[1:]:
+            for pair in blk.get('pairs', []):
+                k = pair.get('key', '')
+                if any(k.startswith(p) for p in prefixes):
+                    yield '%s 的键 %r 是路径片段 —— %s' % (f.name, k, rule['why'])
+
+
 @checker('vp_forbidden_keys')
 def _vp_forbidden_keys(rule):
     """有些字符串是**行为标志**，不是界面文字，译了功能就坏。
