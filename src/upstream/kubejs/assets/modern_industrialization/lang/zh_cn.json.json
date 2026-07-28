@@ -1813,6 +1813,126 @@
     " \"text.modern_industrialization.WaterPercent\": \"水：%s %%\",\n",
     " \"text.modern_industrialization.Whitelist\": \"白名单模式已启用\"\n"
    ]
+  },
+  {
+   "find": [
+    " \"block.modern_industrialization.pipe\": \"Pipe(s)\",\n"
+   ],
+   "replace": [
+    " \"block.modern_industrialization.pipe\": \"管道\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.BaseDurationSeconds\": \"%s sec\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.BaseDurationSeconds\": \"%s 秒\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.ConfigCardConfiguredCamouflage\": \"Configured (%s camouflage)\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.ConfigCardConfiguredCamouflage\": \"已配置（伪装为 %s）\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.ConfigCardConfiguredItems\": \"Configured (%d items)\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.ConfigCardConfiguredItems\": \"已配置（%d 个物品）\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.GunpowderTime\": \"Overclock: %s\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.GunpowderTime\": \"超频：%s\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.MiningArea\": \"Mining Area: %s\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.MiningArea\": \"挖掘范围：%s\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.NeutronsRate\": \"%s neutrons/t\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.NeutronsRate\": \"%s 中子/t\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.PipeConnectionIO\": \"I/O\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.PipeConnectionIO\": \"存取\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.PipeConnectionIn\": \"IN\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.PipeConnectionIn\": \"存入\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.PipeConnectionOut\": \"OUT\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.PipeConnectionOut\": \"取出\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.ShapeTextDepth\": \"Depth: %d\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.ShapeTextDepth\": \"深度：%d\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.ShapeTextHeight\": \"Height: %d\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.ShapeTextHeight\": \"高度：%d\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.ShapeTextWidth\": \"Width: %d\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.ShapeTextWidth\": \"宽度：%d\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.SilkTouchState\": \"Silk Touch: %s\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.SilkTouchState\": \"精准采集：%s\",\n"
+   ]
+  },
+  {
+   "find": [
+    " \"text.modern_industrialization.TooltipsShiftRequired\": \"Press [Shift] for info\",\n"
+   ],
+   "replace": [
+    " \"text.modern_industrialization.TooltipsShiftRequired\": \"按住 [Shift] 以查看信息\",\n"
+   ]
   }
  ]
 }
