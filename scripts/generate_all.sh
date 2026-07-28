@@ -53,6 +53,9 @@ if [ "$HAVE_JARS" = 1 ]; then
   echo "▶ 导览书（Patchouli / AE2 Guide / Oracle Index …）：拿 jar 里那份现套译文"
   python3 scripts/gen_books.py
 
+  echo "▶ 正文写死在 JSON 里的书（自耕农手册）：语言文件够不着，只能整份覆盖"
+  python3 scripts/gen_literal_books.py
+
   echo "▶ 资源蜂：双端脚本（真源是资源包的 productivebees/zh_cn.json，这里只做派生）"
   python3 scripts/gen_pb_hanhua.py
   echo "▶ 奖杯名（约 2.5 万条）"
