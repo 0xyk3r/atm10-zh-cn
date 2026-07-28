@@ -793,6 +793,150 @@
       {
         "key": "The perfect pack to build up a colony in the nether. Beware of Zombified Piglins!",
         "value": "在下界建立殖民地的理想之选。当心僵尸猪灵！"
+      },
+      {
+        "key": "Antique",
+        "value": "古典"
+      },
+      {
+        "key": "Crimson Keep",
+        "value": "绯红城堡"
+      },
+      {
+        "key": "Farthest Frontier",
+        "value": "最远边疆"
+      },
+      {
+        "key": "Functional Fantasy",
+        "value": "实用奇幻"
+      },
+      {
+        "key": "High Magic",
+        "value": "高等魔法"
+      },
+      {
+        "key": "Hive",
+        "value": "蜂巢"
+      },
+      {
+        "key": "Tropical",
+        "value": "热带"
+      },
+      {
+        "key": "Aquatica",
+        "value": "深海"
+      },
+      {
+        "key": "Corrupted",
+        "value": "腐化"
+      },
+      {
+        "key": "FairyTale",
+        "value": "童话"
+      },
+      {
+        "key": "Frontier",
+        "value": "边疆"
+      },
+      {
+        "key": "Steampunk",
+        "value": "蒸汽朋克"
+      },
+      {
+        "key": "Underwater Base",
+        "value": "海底基地"
+      },
+      {
+        "key": "Byzantine_for_1.20",
+        "value": "拜占庭"
+      },
+      {
+        "key": "Nile",
+        "value": "尼罗河"
+      },
+      {
+        "key": "Rebel_Base",
+        "value": "义军基地"
+      },
+      {
+        "key": "Shogun",
+        "value": "幕府"
+      },
+      {
+        "key": "Sent out by the gods themselves to spread their cult, you venture out to create the most thriving Greek colony the world has ever seen! This style makes heavy use of birch and calcite blocks and is therefore best used in a forest or mountain.",
+        "value": "受诸神亲自派遣去传播他们的教派，你踏上征途，要建起世上最繁盛的希腊殖民地！这套风格大量使用白桦木与方解石，因此最适合建在森林或山地。"
+      },
+      {
+        "key": "A modular keep that is kinda expensive",
+        "value": "一座模块化的城堡，就是有点烧钱。"
+      },
+      {
+        "key": "[Advanced] Based on the strategy game, Farthest Frontier, protect and guide your people as you forge a town from untamed wilderness at the edge of the known world.",
+        "value": "【进阶】取材自策略游戏《最远边疆》。在已知世界的边缘，从蛮荒中开辟一座城镇，护佑并引领你的人民。"
+      },
+      {
+        "key": "Modern architecture and fantasy. Escape proof animal pens and a fire breathing dragon",
+        "value": "现代建筑与奇幻的结合。关得住牲畜的围栏，外加一条会喷火的龙。"
+      },
+      {
+        "key": "A mystical style powered by crystals! Watch as your colonists build crystals and power their buildings",
+        "value": "一套由水晶驱动的神秘风格！看着你的居民造出水晶，再用它们为建筑供能。"
+      },
+      {
+        "key": "Bee-lieve in yourself and build the sweetest home! A complex connected style ideal for hanging in open spaces.",
+        "value": "相「蜂」自己，筑起最甜蜜的家园！这是一套彼此咬合的复杂风格，最适合悬在开阔处。"
+      },
+      {
+        "key": "Get the Beach Towels and enjoy the Beach. Tropical is a stilt based style to be placed above shallow water.",
+        "value": "带上沙滩巾，好好享受海滩。热带风格以高脚桩为基础，建在浅水之上。"
+      },
+      {
+        "key": "Subnautica inspired underwater style! Cobbled DioCrete Hell Garunteed! REQUIRES a Deep Ocean to start.",
+        "value": "灵感来自《深海迷航》的水下风格！保证让你在圆石与混凝土里泡到地老天荒。**必须**从深海开局。"
+      },
+      {
+        "key": "A corrupted pogota",
+        "value": "一座腐化的塔阁。"
+      },
+      {
+        "key": "A town within a magical forest with a secret hidden within the past, present, and future.",
+        "value": "魔法森林中的小镇，秘密藏在过去、现在与未来之中。"
+      },
+      {
+        "key": "Frontier, your home on the range!",
+        "value": "边疆——你在旷野上的家！"
+      },
+      {
+        "key": "Steampunk, Big and Challenging! 'copper hell' - Sapph",
+        "value": "蒸汽朋克，又大又难！「铜之地狱」——Sapph"
+      },
+      {
+        "key": "Exploit the treasures hidden in the DEEPEST oceans. Prepare yourself to clean-up an ocean monument to succeed! Try to settle with in a 20 blocks (at least) deep ocean.",
+        "value": "去发掘**最深**海底埋藏的宝藏。想成功，就做好清空一座海底神殿的准备！尽量选一片至少 20 格深的海域安家。"
+      },
+      {
+        "key": "There is no Room in Rome for a Roman!  XXII",
+        "value": "罗马之中，已无罗马人的容身之地！　XXII"
+      },
+      {
+        "key": "So you want to live forever (1.14)",
+        "value": "这么说，你想永生（1.14）"
+      },
+      {
+        "key": "Rebel Scum Ep.21 (testing some buildings)",
+        "value": "义军渣滓 第 21 集（几栋建筑测试中）"
+      },
+      {
+        "key": "ICHIBAN!  (ni-san ban)",
+        "value": "一番！　（二番、三番）"
+      },
+      {
+        "key": "Local",
+        "value": "本地"
+      },
+      {
+        "key": "This is your local Structurepack. This is where all your scans go.",
+        "value": "这是你自己的本地结构包，你扫描保存的建筑都会存到这里。"
       }
     ]
   },
@@ -1584,6 +1728,150 @@
       {
         "key": "The perfect pack to build up a colony in the nether. Beware of Zombified Piglins!",
         "value": "在下界建立殖民地的理想之选。当心僵尸猪灵！"
+      },
+      {
+        "key": "Antique",
+        "value": "古典"
+      },
+      {
+        "key": "Crimson Keep",
+        "value": "绯红城堡"
+      },
+      {
+        "key": "Farthest Frontier",
+        "value": "最远边疆"
+      },
+      {
+        "key": "Functional Fantasy",
+        "value": "实用奇幻"
+      },
+      {
+        "key": "High Magic",
+        "value": "高等魔法"
+      },
+      {
+        "key": "Hive",
+        "value": "蜂巢"
+      },
+      {
+        "key": "Tropical",
+        "value": "热带"
+      },
+      {
+        "key": "Aquatica",
+        "value": "深海"
+      },
+      {
+        "key": "Corrupted",
+        "value": "腐化"
+      },
+      {
+        "key": "FairyTale",
+        "value": "童话"
+      },
+      {
+        "key": "Frontier",
+        "value": "边疆"
+      },
+      {
+        "key": "Steampunk",
+        "value": "蒸汽朋克"
+      },
+      {
+        "key": "Underwater Base",
+        "value": "海底基地"
+      },
+      {
+        "key": "Byzantine_for_1.20",
+        "value": "拜占庭"
+      },
+      {
+        "key": "Nile",
+        "value": "尼罗河"
+      },
+      {
+        "key": "Rebel_Base",
+        "value": "义军基地"
+      },
+      {
+        "key": "Shogun",
+        "value": "幕府"
+      },
+      {
+        "key": "Sent out by the gods themselves to spread their cult, you venture out to create the most thriving Greek colony the world has ever seen! This style makes heavy use of birch and calcite blocks and is therefore best used in a forest or mountain.",
+        "value": "受诸神亲自派遣去传播他们的教派，你踏上征途，要建起世上最繁盛的希腊殖民地！这套风格大量使用白桦木与方解石，因此最适合建在森林或山地。"
+      },
+      {
+        "key": "A modular keep that is kinda expensive",
+        "value": "一座模块化的城堡，就是有点烧钱。"
+      },
+      {
+        "key": "[Advanced] Based on the strategy game, Farthest Frontier, protect and guide your people as you forge a town from untamed wilderness at the edge of the known world.",
+        "value": "【进阶】取材自策略游戏《最远边疆》。在已知世界的边缘，从蛮荒中开辟一座城镇，护佑并引领你的人民。"
+      },
+      {
+        "key": "Modern architecture and fantasy. Escape proof animal pens and a fire breathing dragon",
+        "value": "现代建筑与奇幻的结合。关得住牲畜的围栏，外加一条会喷火的龙。"
+      },
+      {
+        "key": "A mystical style powered by crystals! Watch as your colonists build crystals and power their buildings",
+        "value": "一套由水晶驱动的神秘风格！看着你的居民造出水晶，再用它们为建筑供能。"
+      },
+      {
+        "key": "Bee-lieve in yourself and build the sweetest home! A complex connected style ideal for hanging in open spaces.",
+        "value": "相「蜂」自己，筑起最甜蜜的家园！这是一套彼此咬合的复杂风格，最适合悬在开阔处。"
+      },
+      {
+        "key": "Get the Beach Towels and enjoy the Beach. Tropical is a stilt based style to be placed above shallow water.",
+        "value": "带上沙滩巾，好好享受海滩。热带风格以高脚桩为基础，建在浅水之上。"
+      },
+      {
+        "key": "Subnautica inspired underwater style! Cobbled DioCrete Hell Garunteed! REQUIRES a Deep Ocean to start.",
+        "value": "灵感来自《深海迷航》的水下风格！保证让你在圆石与混凝土里泡到地老天荒。**必须**从深海开局。"
+      },
+      {
+        "key": "A corrupted pogota",
+        "value": "一座腐化的塔阁。"
+      },
+      {
+        "key": "A town within a magical forest with a secret hidden within the past, present, and future.",
+        "value": "魔法森林中的小镇，秘密藏在过去、现在与未来之中。"
+      },
+      {
+        "key": "Frontier, your home on the range!",
+        "value": "边疆——你在旷野上的家！"
+      },
+      {
+        "key": "Steampunk, Big and Challenging! 'copper hell' - Sapph",
+        "value": "蒸汽朋克，又大又难！「铜之地狱」——Sapph"
+      },
+      {
+        "key": "Exploit the treasures hidden in the DEEPEST oceans. Prepare yourself to clean-up an ocean monument to succeed! Try to settle with in a 20 blocks (at least) deep ocean.",
+        "value": "去发掘**最深**海底埋藏的宝藏。想成功，就做好清空一座海底神殿的准备！尽量选一片至少 20 格深的海域安家。"
+      },
+      {
+        "key": "There is no Room in Rome for a Roman!  XXII",
+        "value": "罗马之中，已无罗马人的容身之地！　XXII"
+      },
+      {
+        "key": "So you want to live forever (1.14)",
+        "value": "这么说，你想永生（1.14）"
+      },
+      {
+        "key": "Rebel Scum Ep.21 (testing some buildings)",
+        "value": "义军渣滓 第 21 集（几栋建筑测试中）"
+      },
+      {
+        "key": "ICHIBAN!  (ni-san ban)",
+        "value": "一番！　（二番、三番）"
+      },
+      {
+        "key": "Local",
+        "value": "本地"
+      },
+      {
+        "key": "This is your local Structurepack. This is where all your scans go.",
+        "value": "这是你自己的本地结构包，你扫描保存的建筑都会存到这里。"
       }
     ]
   }
