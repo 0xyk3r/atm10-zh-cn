@@ -1157,6 +1157,1246 @@
       {
         "key": "/walls",
         "value": "@/城墙"
+      },
+      {
+        "key": "Agri",
+        "value": "农业"
+      },
+      {
+        "key": "Andesite",
+        "value": "安山岩"
+      },
+      {
+        "key": "Apartments",
+        "value": "公寓"
+      },
+      {
+        "key": "Avenue",
+        "value": "大道"
+      },
+      {
+        "key": "Avenue_early",
+        "value": "大道·早期"
+      },
+      {
+        "key": "Avenue_odd",
+        "value": "大道·奇数段"
+      },
+      {
+        "key": "Avenueodd",
+        "value": "大道·奇数段"
+      },
+      {
+        "key": "Avenueodd_early",
+        "value": "大道·奇数段·早期"
+      },
+      {
+        "key": "Azalea",
+        "value": "杜鹃"
+      },
+      {
+        "key": "Bamboo",
+        "value": "竹"
+      },
+      {
+        "key": "Barracks",
+        "value": "兵营"
+      },
+      {
+        "key": "Beds",
+        "value": "苗床"
+      },
+      {
+        "key": "Big",
+        "value": "大型"
+      },
+      {
+        "key": "Bonsai",
+        "value": "盆景"
+      },
+      {
+        "key": "Bottom",
+        "value": "底层"
+      },
+      {
+        "key": "Boulevard",
+        "value": "林荫大道"
+      },
+      {
+        "key": "Builder",
+        "value": "建筑工"
+      },
+      {
+        "key": "Building",
+        "value": "建筑"
+      },
+      {
+        "key": "Bush",
+        "value": "灌木"
+      },
+      {
+        "key": "Calcite",
+        "value": "方解石"
+      },
+      {
+        "key": "Carveout",
+        "value": "开凿"
+      },
+      {
+        "key": "Castle",
+        "value": "城堡"
+      },
+      {
+        "key": "Catwalk",
+        "value": "步道"
+      },
+      {
+        "key": "Ceiling",
+        "value": "天花板"
+      },
+      {
+        "key": "Central",
+        "value": "中心"
+      },
+      {
+        "key": "Charioteer",
+        "value": "战车"
+      },
+      {
+        "key": "Chunks",
+        "value": "区块"
+      },
+      {
+        "key": "Church",
+        "value": "教堂"
+      },
+      {
+        "key": "City planning",
+        "value": "城市规划"
+      },
+      {
+        "key": "City_flat",
+        "value": "城市·平地"
+      },
+      {
+        "key": "City_gate",
+        "value": "城门"
+      },
+      {
+        "key": "City_incline",
+        "value": "城市·坡地"
+      },
+      {
+        "key": "City_walltower",
+        "value": "城墙塔楼"
+      },
+      {
+        "key": "Concrete",
+        "value": "混凝土"
+      },
+      {
+        "key": "Conifer",
+        "value": "针叶树"
+      },
+      {
+        "key": "Connector",
+        "value": "连接段"
+      },
+      {
+        "key": "Cornersection",
+        "value": "转角段"
+      },
+      {
+        "key": "Corridors",
+        "value": "走廊"
+      },
+      {
+        "key": "Covered",
+        "value": "带顶"
+      },
+      {
+        "key": "Crossing",
+        "value": "交叉口"
+      },
+      {
+        "key": "Crystals",
+        "value": "水晶"
+      },
+      {
+        "key": "Dark",
+        "value": "深色"
+      },
+      {
+        "key": "Decorated",
+        "value": "带装饰"
+      },
+      {
+        "key": "Diag",
+        "value": "斜向"
+      },
+      {
+        "key": "Diorite",
+        "value": "闪长岩"
+      },
+      {
+        "key": "Districts",
+        "value": "街区"
+      },
+      {
+        "key": "Dummytower",
+        "value": "占位塔"
+      },
+      {
+        "key": "Early",
+        "value": "早期"
+      },
+      {
+        "key": "Edge",
+        "value": "边缘"
+      },
+      {
+        "key": "End",
+        "value": "末端"
+      },
+      {
+        "key": "Estate",
+        "value": "庄园"
+      },
+      {
+        "key": "Estates",
+        "value": "庄园"
+      },
+      {
+        "key": "Farms",
+        "value": "农场"
+      },
+      {
+        "key": "Field",
+        "value": "田地"
+      },
+      {
+        "key": "Field_structures",
+        "value": "田间建筑"
+      },
+      {
+        "key": "Field_tower",
+        "value": "田间塔楼"
+      },
+      {
+        "key": "Flat",
+        "value": "平地"
+      },
+      {
+        "key": "Flowerbeds",
+        "value": "花坛"
+      },
+      {
+        "key": "Fort",
+        "value": "堡垒"
+      },
+      {
+        "key": "Forum",
+        "value": "集会广场"
+      },
+      {
+        "key": "Fullhigh",
+        "value": "全高"
+      },
+      {
+        "key": "Functional",
+        "value": "实用"
+      },
+      {
+        "key": "Gatehouse",
+        "value": "门楼"
+      },
+      {
+        "key": "Glass",
+        "value": "玻璃"
+      },
+      {
+        "key": "Greens",
+        "value": "绿地"
+      },
+      {
+        "key": "Hangarbay",
+        "value": "机库"
+      },
+      {
+        "key": "Hospital",
+        "value": "医院"
+      },
+      {
+        "key": "House",
+        "value": "住宅"
+      },
+      {
+        "key": "Hut",
+        "value": "小屋"
+      },
+      {
+        "key": "Incline",
+        "value": "坡道"
+      },
+      {
+        "key": "Inclines",
+        "value": "坡道"
+      },
+      {
+        "key": "Insulae_corners",
+        "value": "公寓转角"
+      },
+      {
+        "key": "Insulae_ends",
+        "value": "公寓端段"
+      },
+      {
+        "key": "Insulae_middles",
+        "value": "公寓中段"
+      },
+      {
+        "key": "Jungle",
+        "value": "丛林"
+      },
+      {
+        "key": "Late",
+        "value": "后期"
+      },
+      {
+        "key": "Leisure",
+        "value": "休闲"
+      },
+      {
+        "key": "Light post",
+        "value": "灯柱"
+      },
+      {
+        "key": "Lighting",
+        "value": "照明"
+      },
+      {
+        "key": "Long",
+        "value": "长"
+      },
+      {
+        "key": "Low",
+        "value": "低矮"
+      },
+      {
+        "key": "Machiya",
+        "value": "町屋"
+      },
+      {
+        "key": "Main",
+        "value": "主体"
+      },
+      {
+        "key": "Main_odd",
+        "value": "主体·奇数段"
+      },
+      {
+        "key": "Mangrove",
+        "value": "红树"
+      },
+      {
+        "key": "Market",
+        "value": "市场"
+      },
+      {
+        "key": "Mid",
+        "value": "中段"
+      },
+      {
+        "key": "Modules",
+        "value": "模块"
+      },
+      {
+        "key": "Moss",
+        "value": "苔藓"
+      },
+      {
+        "key": "Orchard",
+        "value": "果园"
+      },
+      {
+        "key": "Palisades",
+        "value": "木栅栏"
+      },
+      {
+        "key": "Pier",
+        "value": "码头"
+      },
+      {
+        "key": "Planking",
+        "value": "木板"
+      },
+      {
+        "key": "Plantation fields",
+        "value": "种植园田地"
+      },
+      {
+        "key": "Plantation_Fields",
+        "value": "种植园田地"
+      },
+      {
+        "key": "Planters",
+        "value": "花箱"
+      },
+      {
+        "key": "Player",
+        "value": "玩家"
+      },
+      {
+        "key": "Players",
+        "value": "玩家"
+      },
+      {
+        "key": "Plaza_end",
+        "value": "广场端段"
+      },
+      {
+        "key": "Plaza_endodd",
+        "value": "广场端段·奇数"
+      },
+      {
+        "key": "Plaza_mid",
+        "value": "广场中段"
+      },
+      {
+        "key": "Plaza_midodd",
+        "value": "广场中段·奇数"
+      },
+      {
+        "key": "Plaza_single",
+        "value": "广场单段"
+      },
+      {
+        "key": "Plaza_singleodd",
+        "value": "广场单段·奇数"
+      },
+      {
+        "key": "Plaza_sublevel",
+        "value": "广场下层"
+      },
+      {
+        "key": "Plaza_sublevelodd",
+        "value": "广场下层·奇数"
+      },
+      {
+        "key": "Pond",
+        "value": "池塘"
+      },
+      {
+        "key": "Pools",
+        "value": "水池"
+      },
+      {
+        "key": "Profession",
+        "value": "职业"
+      },
+      {
+        "key": "Quarrycover",
+        "value": "采石场顶盖"
+      },
+      {
+        "key": "Recreation",
+        "value": "休闲"
+      },
+      {
+        "key": "Regular",
+        "value": "常规"
+      },
+      {
+        "key": "Resources",
+        "value": "资源"
+      },
+      {
+        "key": "Restaurant",
+        "value": "餐馆"
+      },
+      {
+        "key": "Retainingwall",
+        "value": "挡土墙"
+      },
+      {
+        "key": "Rock",
+        "value": "岩石"
+      },
+      {
+        "key": "Roof",
+        "value": "屋顶"
+      },
+      {
+        "key": "Rooms",
+        "value": "房间"
+      },
+      {
+        "key": "Sakura",
+        "value": "樱花"
+      },
+      {
+        "key": "Seawall_tall",
+        "value": "高海堤"
+      },
+      {
+        "key": "Sewer",
+        "value": "下水道"
+      },
+      {
+        "key": "Ship",
+        "value": "船只"
+      },
+      {
+        "key": "Side",
+        "value": "侧向"
+      },
+      {
+        "key": "Sideramp",
+        "value": "侧坡道"
+      },
+      {
+        "key": "Siegeworks",
+        "value": "攻城工事"
+      },
+      {
+        "key": "Singlefloor",
+        "value": "单层"
+      },
+      {
+        "key": "Slope",
+        "value": "斜坡"
+      },
+      {
+        "key": "Small",
+        "value": "小型"
+      },
+      {
+        "key": "Spruce",
+        "value": "云杉"
+      },
+      {
+        "key": "Square",
+        "value": "广场"
+      },
+      {
+        "key": "Stables",
+        "value": "马厩"
+      },
+      {
+        "key": "Stair",
+        "value": "楼梯"
+      },
+      {
+        "key": "Statue",
+        "value": "雕像"
+      },
+      {
+        "key": "Straight",
+        "value": "直段"
+      },
+      {
+        "key": "Structure",
+        "value": "建筑"
+      },
+      {
+        "key": "T_junction",
+        "value": "丁字路口"
+      },
+      {
+        "key": "Tavern",
+        "value": "酒馆"
+      },
+      {
+        "key": "Terrace",
+        "value": "露台"
+      },
+      {
+        "key": "Tomb",
+        "value": "陵墓"
+      },
+      {
+        "key": "Top",
+        "value": "顶层"
+      },
+      {
+        "key": "Tower_big",
+        "value": "大型塔楼"
+      },
+      {
+        "key": "Tower_small",
+        "value": "小型塔楼"
+      },
+      {
+        "key": "Town_hall",
+        "value": "市政厅"
+      },
+      {
+        "key": "Transport",
+        "value": "运输"
+      },
+      {
+        "key": "Traps",
+        "value": "陷阱"
+      },
+      {
+        "key": "Trees",
+        "value": "树木"
+      },
+      {
+        "key": "Trojan",
+        "value": "特洛伊式"
+      },
+      {
+        "key": "Tunnels",
+        "value": "隧道"
+      },
+      {
+        "key": "Twofloor",
+        "value": "双层"
+      },
+      {
+        "key": "Utility cells",
+        "value": "功能单元"
+      },
+      {
+        "key": "Venetian",
+        "value": "威尼斯式"
+      },
+      {
+        "key": "Wall_main",
+        "value": "主城墙"
+      },
+      {
+        "key": "Wall_small",
+        "value": "小城墙"
+      },
+      {
+        "key": "Warship",
+        "value": "战舰"
+      },
+      {
+        "key": "Waterway",
+        "value": "水道"
+      },
+      {
+        "key": "Wheels",
+        "value": "轮机"
+      },
+      {
+        "key": "Wonders",
+        "value": "奇观"
+      },
+      {
+        "key": "Wooden",
+        "value": "木质"
+      },
+      {
+        "key": "/Big",
+        "value": "@/大型"
+      },
+      {
+        "key": "/Crystals",
+        "value": "@/水晶"
+      },
+      {
+        "key": "/Leisure",
+        "value": "@/休闲"
+      },
+      {
+        "key": "/Plantation_Fields",
+        "value": "@/种植园田地"
+      },
+      {
+        "key": "/Traps",
+        "value": "@/陷阱"
+      },
+      {
+        "key": "/Tunnels",
+        "value": "@/隧道"
+      },
+      {
+        "key": "/adapters",
+        "value": "@/转接段"
+      },
+      {
+        "key": "/advanced",
+        "value": "@/进阶"
+      },
+      {
+        "key": "/agora",
+        "value": "@/集市广场"
+      },
+      {
+        "key": "/alternative",
+        "value": "@/备选"
+      },
+      {
+        "key": "/andesite",
+        "value": "@/安山岩"
+      },
+      {
+        "key": "/apartments",
+        "value": "@/公寓"
+      },
+      {
+        "key": "/aquaducts",
+        "value": "@/引水渠"
+      },
+      {
+        "key": "/aqueduct",
+        "value": "@/引水渠"
+      },
+      {
+        "key": "/arches",
+        "value": "@/拱门"
+      },
+      {
+        "key": "/athenian",
+        "value": "@/雅典式"
+      },
+      {
+        "key": "/azalea",
+        "value": "@/杜鹃"
+      },
+      {
+        "key": "/bamboo",
+        "value": "@/竹"
+      },
+      {
+        "key": "/barracks",
+        "value": "@/兵营"
+      },
+      {
+        "key": "/base",
+        "value": "@/基座"
+      },
+      {
+        "key": "/basic",
+        "value": "@/基础"
+      },
+      {
+        "key": "/boardwalk",
+        "value": "@/木栈道"
+      },
+      {
+        "key": "/bonsai",
+        "value": "@/盆景"
+      },
+      {
+        "key": "/bottom",
+        "value": "@/底层"
+      },
+      {
+        "key": "/boulevard",
+        "value": "@/林荫大道"
+      },
+      {
+        "key": "/brick",
+        "value": "@/砖"
+      },
+      {
+        "key": "/builder",
+        "value": "@/建筑工"
+      },
+      {
+        "key": "/building",
+        "value": "@/建筑"
+      },
+      {
+        "key": "/bush",
+        "value": "@/灌木"
+      },
+      {
+        "key": "/calcite",
+        "value": "@/方解石"
+      },
+      {
+        "key": "/carpentry",
+        "value": "@/木工"
+      },
+      {
+        "key": "/carveout",
+        "value": "@/开凿"
+      },
+      {
+        "key": "/castle",
+        "value": "@/城堡"
+      },
+      {
+        "key": "/catwalk",
+        "value": "@/步道"
+      },
+      {
+        "key": "/ceiling",
+        "value": "@/天花板"
+      },
+      {
+        "key": "/central",
+        "value": "@/中心"
+      },
+      {
+        "key": "/charioteer",
+        "value": "@/战车"
+      },
+      {
+        "key": "/chunks",
+        "value": "@/区块"
+      },
+      {
+        "key": "/church",
+        "value": "@/教堂"
+      },
+      {
+        "key": "/clay",
+        "value": "@/黏土"
+      },
+      {
+        "key": "/cliffclimb",
+        "value": "@/崖壁攀道"
+      },
+      {
+        "key": "/cobble",
+        "value": "@/圆石"
+      },
+      {
+        "key": "/concrete",
+        "value": "@/混凝土"
+      },
+      {
+        "key": "/conifer",
+        "value": "@/针叶树"
+      },
+      {
+        "key": "/corridors",
+        "value": "@/走廊"
+      },
+      {
+        "key": "/covered",
+        "value": "@/带顶"
+      },
+      {
+        "key": "/crossing",
+        "value": "@/交叉口"
+      },
+      {
+        "key": "/dark",
+        "value": "@/深色"
+      },
+      {
+        "key": "/default",
+        "value": "@/默认"
+      },
+      {
+        "key": "/diag",
+        "value": "@/斜向"
+      },
+      {
+        "key": "/diorite",
+        "value": "@/闪长岩"
+      },
+      {
+        "key": "/districts",
+        "value": "@/街区"
+      },
+      {
+        "key": "/edge",
+        "value": "@/边缘"
+      },
+      {
+        "key": "/facades",
+        "value": "@/立面"
+      },
+      {
+        "key": "/fancy",
+        "value": "@/华丽"
+      },
+      {
+        "key": "/fences",
+        "value": "@/栅栏"
+      },
+      {
+        "key": "/forum",
+        "value": "@/集会广场"
+      },
+      {
+        "key": "/fullhigh",
+        "value": "@/全高"
+      },
+      {
+        "key": "/functional",
+        "value": "@/实用"
+      },
+      {
+        "key": "/glass",
+        "value": "@/玻璃"
+      },
+      {
+        "key": "/grand_processional",
+        "value": "@/凯旋大道"
+      },
+      {
+        "key": "/greens",
+        "value": "@/绿地"
+      },
+      {
+        "key": "/hangarbay",
+        "value": "@/机库"
+      },
+      {
+        "key": "/harbor",
+        "value": "@/港口"
+      },
+      {
+        "key": "/horticulture",
+        "value": "@/园艺"
+      },
+      {
+        "key": "/hospital",
+        "value": "@/医院"
+      },
+      {
+        "key": "/housing",
+        "value": "@/住宅"
+      },
+      {
+        "key": "/husbandry",
+        "value": "@/畜牧"
+      },
+      {
+        "key": "/hut",
+        "value": "@/小屋"
+      },
+      {
+        "key": "/inland",
+        "value": "@/内陆"
+      },
+      {
+        "key": "/intersections",
+        "value": "@/路口"
+      },
+      {
+        "key": "/jetty",
+        "value": "@/栈桥"
+      },
+      {
+        "key": "/jungle",
+        "value": "@/丛林"
+      },
+      {
+        "key": "/lampposts",
+        "value": "@/路灯"
+      },
+      {
+        "key": "/lanterns",
+        "value": "@/灯笼"
+      },
+      {
+        "key": "/light post",
+        "value": "@/灯柱"
+      },
+      {
+        "key": "/lighting",
+        "value": "@/照明"
+      },
+      {
+        "key": "/lights",
+        "value": "@/灯具"
+      },
+      {
+        "key": "/long",
+        "value": "@/长"
+      },
+      {
+        "key": "/luxury",
+        "value": "@/豪华"
+      },
+      {
+        "key": "/machiya",
+        "value": "@/町屋"
+      },
+      {
+        "key": "/mangrove",
+        "value": "@/红树"
+      },
+      {
+        "key": "/masonry",
+        "value": "@/石工"
+      },
+      {
+        "key": "/mineshafts",
+        "value": "@/矿道"
+      },
+      {
+        "key": "/misc",
+        "value": "@/杂项"
+      },
+      {
+        "key": "/moat",
+        "value": "@/护城河"
+      },
+      {
+        "key": "/modules",
+        "value": "@/模块"
+      },
+      {
+        "key": "/moss",
+        "value": "@/苔藓"
+      },
+      {
+        "key": "/mycanean",
+        "value": "@/迈锡尼式"
+      },
+      {
+        "key": "/narrow",
+        "value": "@/窄"
+      },
+      {
+        "key": "/nice",
+        "value": "@/精致"
+      },
+      {
+        "key": "/nile",
+        "value": "@/尼罗河"
+      },
+      {
+        "key": "/oak",
+        "value": "@/橡木"
+      },
+      {
+        "key": "/orchard",
+        "value": "@/果园"
+      },
+      {
+        "key": "/other",
+        "value": "@/其他"
+      },
+      {
+        "key": "/overground",
+        "value": "@/地上"
+      },
+      {
+        "key": "/pagodas",
+        "value": "@/塔"
+      },
+      {
+        "key": "/parks",
+        "value": "@/公园"
+      },
+      {
+        "key": "/plain",
+        "value": "@/朴素"
+      },
+      {
+        "key": "/planking",
+        "value": "@/木板"
+      },
+      {
+        "key": "/planks",
+        "value": "@/木板"
+      },
+      {
+        "key": "/planters",
+        "value": "@/花箱"
+      },
+      {
+        "key": "/platforms",
+        "value": "@/站台"
+      },
+      {
+        "key": "/pools",
+        "value": "@/水池"
+      },
+      {
+        "key": "/poor",
+        "value": "@/简陋"
+      },
+      {
+        "key": "/premium",
+        "value": "@/高级"
+      },
+      {
+        "key": "/profession",
+        "value": "@/职业"
+      },
+      {
+        "key": "/recreation",
+        "value": "@/休闲"
+      },
+      {
+        "key": "/regular",
+        "value": "@/常规"
+      },
+      {
+        "key": "/resources",
+        "value": "@/资源"
+      },
+      {
+        "key": "/restaurant",
+        "value": "@/餐馆"
+      },
+      {
+        "key": "/rock",
+        "value": "@/岩石"
+      },
+      {
+        "key": "/roof",
+        "value": "@/屋顶"
+      },
+      {
+        "key": "/rooms",
+        "value": "@/房间"
+      },
+      {
+        "key": "/rural",
+        "value": "@/乡村"
+      },
+      {
+        "key": "/sakura",
+        "value": "@/樱花"
+      },
+      {
+        "key": "/segment",
+        "value": "@/分段"
+      },
+      {
+        "key": "/sewage",
+        "value": "@/污水"
+      },
+      {
+        "key": "/shoal",
+        "value": "@/浅滩"
+      },
+      {
+        "key": "/short",
+        "value": "@/短"
+      },
+      {
+        "key": "/siegeworks",
+        "value": "@/攻城工事"
+      },
+      {
+        "key": "/simple",
+        "value": "@/简易"
+      },
+      {
+        "key": "/singlefloor",
+        "value": "@/单层"
+      },
+      {
+        "key": "/slope",
+        "value": "@/斜坡"
+      },
+      {
+        "key": "/spartan",
+        "value": "@/斯巴达式"
+      },
+      {
+        "key": "/spruce",
+        "value": "@/云杉"
+      },
+      {
+        "key": "/square",
+        "value": "@/广场"
+      },
+      {
+        "key": "/stables",
+        "value": "@/马厩"
+      },
+      {
+        "key": "/straight",
+        "value": "@/直段"
+      },
+      {
+        "key": "/streets",
+        "value": "@/街道"
+      },
+      {
+        "key": "/sturdy",
+        "value": "@/坚固"
+      },
+      {
+        "key": "/subway",
+        "value": "@/地铁"
+      },
+      {
+        "key": "/supplies",
+        "value": "@/补给"
+      },
+      {
+        "key": "/t_junction",
+        "value": "@/丁字路口"
+      },
+      {
+        "key": "/tavern",
+        "value": "@/酒馆"
+      },
+      {
+        "key": "/terrace",
+        "value": "@/露台"
+      },
+      {
+        "key": "/tomb",
+        "value": "@/陵墓"
+      },
+      {
+        "key": "/top",
+        "value": "@/顶层"
+      },
+      {
+        "key": "/town_hall",
+        "value": "@/市政厅"
+      },
+      {
+        "key": "/transport",
+        "value": "@/运输"
+      },
+      {
+        "key": "/trees",
+        "value": "@/树木"
+      },
+      {
+        "key": "/trojan",
+        "value": "@/特洛伊式"
+      },
+      {
+        "key": "/twofloor",
+        "value": "@/双层"
+      },
+      {
+        "key": "/urban",
+        "value": "@/城市"
+      },
+      {
+        "key": "/vegetation",
+        "value": "@/植被"
+      },
+      {
+        "key": "/venetian",
+        "value": "@/威尼斯式"
+      },
+      {
+        "key": "/villager",
+        "value": "@/村民"
+      },
+      {
+        "key": "/waterfront",
+        "value": "@/滨水"
+      },
+      {
+        "key": "/waterway",
+        "value": "@/水道"
+      },
+      {
+        "key": "/wheels",
+        "value": "@/轮机"
+      },
+      {
+        "key": "/wide",
+        "value": "@/宽"
+      },
+      {
+        "key": "/wonders",
+        "value": "@/奇观"
       }
     ]
   },
@@ -2312,6 +3552,1246 @@
       {
         "key": "/walls",
         "value": "@/城墙"
+      },
+      {
+        "key": "Agri",
+        "value": "农业"
+      },
+      {
+        "key": "Andesite",
+        "value": "安山岩"
+      },
+      {
+        "key": "Apartments",
+        "value": "公寓"
+      },
+      {
+        "key": "Avenue",
+        "value": "大道"
+      },
+      {
+        "key": "Avenue_early",
+        "value": "大道·早期"
+      },
+      {
+        "key": "Avenue_odd",
+        "value": "大道·奇数段"
+      },
+      {
+        "key": "Avenueodd",
+        "value": "大道·奇数段"
+      },
+      {
+        "key": "Avenueodd_early",
+        "value": "大道·奇数段·早期"
+      },
+      {
+        "key": "Azalea",
+        "value": "杜鹃"
+      },
+      {
+        "key": "Bamboo",
+        "value": "竹"
+      },
+      {
+        "key": "Barracks",
+        "value": "兵营"
+      },
+      {
+        "key": "Beds",
+        "value": "苗床"
+      },
+      {
+        "key": "Big",
+        "value": "大型"
+      },
+      {
+        "key": "Bonsai",
+        "value": "盆景"
+      },
+      {
+        "key": "Bottom",
+        "value": "底层"
+      },
+      {
+        "key": "Boulevard",
+        "value": "林荫大道"
+      },
+      {
+        "key": "Builder",
+        "value": "建筑工"
+      },
+      {
+        "key": "Building",
+        "value": "建筑"
+      },
+      {
+        "key": "Bush",
+        "value": "灌木"
+      },
+      {
+        "key": "Calcite",
+        "value": "方解石"
+      },
+      {
+        "key": "Carveout",
+        "value": "开凿"
+      },
+      {
+        "key": "Castle",
+        "value": "城堡"
+      },
+      {
+        "key": "Catwalk",
+        "value": "步道"
+      },
+      {
+        "key": "Ceiling",
+        "value": "天花板"
+      },
+      {
+        "key": "Central",
+        "value": "中心"
+      },
+      {
+        "key": "Charioteer",
+        "value": "战车"
+      },
+      {
+        "key": "Chunks",
+        "value": "区块"
+      },
+      {
+        "key": "Church",
+        "value": "教堂"
+      },
+      {
+        "key": "City planning",
+        "value": "城市规划"
+      },
+      {
+        "key": "City_flat",
+        "value": "城市·平地"
+      },
+      {
+        "key": "City_gate",
+        "value": "城门"
+      },
+      {
+        "key": "City_incline",
+        "value": "城市·坡地"
+      },
+      {
+        "key": "City_walltower",
+        "value": "城墙塔楼"
+      },
+      {
+        "key": "Concrete",
+        "value": "混凝土"
+      },
+      {
+        "key": "Conifer",
+        "value": "针叶树"
+      },
+      {
+        "key": "Connector",
+        "value": "连接段"
+      },
+      {
+        "key": "Cornersection",
+        "value": "转角段"
+      },
+      {
+        "key": "Corridors",
+        "value": "走廊"
+      },
+      {
+        "key": "Covered",
+        "value": "带顶"
+      },
+      {
+        "key": "Crossing",
+        "value": "交叉口"
+      },
+      {
+        "key": "Crystals",
+        "value": "水晶"
+      },
+      {
+        "key": "Dark",
+        "value": "深色"
+      },
+      {
+        "key": "Decorated",
+        "value": "带装饰"
+      },
+      {
+        "key": "Diag",
+        "value": "斜向"
+      },
+      {
+        "key": "Diorite",
+        "value": "闪长岩"
+      },
+      {
+        "key": "Districts",
+        "value": "街区"
+      },
+      {
+        "key": "Dummytower",
+        "value": "占位塔"
+      },
+      {
+        "key": "Early",
+        "value": "早期"
+      },
+      {
+        "key": "Edge",
+        "value": "边缘"
+      },
+      {
+        "key": "End",
+        "value": "末端"
+      },
+      {
+        "key": "Estate",
+        "value": "庄园"
+      },
+      {
+        "key": "Estates",
+        "value": "庄园"
+      },
+      {
+        "key": "Farms",
+        "value": "农场"
+      },
+      {
+        "key": "Field",
+        "value": "田地"
+      },
+      {
+        "key": "Field_structures",
+        "value": "田间建筑"
+      },
+      {
+        "key": "Field_tower",
+        "value": "田间塔楼"
+      },
+      {
+        "key": "Flat",
+        "value": "平地"
+      },
+      {
+        "key": "Flowerbeds",
+        "value": "花坛"
+      },
+      {
+        "key": "Fort",
+        "value": "堡垒"
+      },
+      {
+        "key": "Forum",
+        "value": "集会广场"
+      },
+      {
+        "key": "Fullhigh",
+        "value": "全高"
+      },
+      {
+        "key": "Functional",
+        "value": "实用"
+      },
+      {
+        "key": "Gatehouse",
+        "value": "门楼"
+      },
+      {
+        "key": "Glass",
+        "value": "玻璃"
+      },
+      {
+        "key": "Greens",
+        "value": "绿地"
+      },
+      {
+        "key": "Hangarbay",
+        "value": "机库"
+      },
+      {
+        "key": "Hospital",
+        "value": "医院"
+      },
+      {
+        "key": "House",
+        "value": "住宅"
+      },
+      {
+        "key": "Hut",
+        "value": "小屋"
+      },
+      {
+        "key": "Incline",
+        "value": "坡道"
+      },
+      {
+        "key": "Inclines",
+        "value": "坡道"
+      },
+      {
+        "key": "Insulae_corners",
+        "value": "公寓转角"
+      },
+      {
+        "key": "Insulae_ends",
+        "value": "公寓端段"
+      },
+      {
+        "key": "Insulae_middles",
+        "value": "公寓中段"
+      },
+      {
+        "key": "Jungle",
+        "value": "丛林"
+      },
+      {
+        "key": "Late",
+        "value": "后期"
+      },
+      {
+        "key": "Leisure",
+        "value": "休闲"
+      },
+      {
+        "key": "Light post",
+        "value": "灯柱"
+      },
+      {
+        "key": "Lighting",
+        "value": "照明"
+      },
+      {
+        "key": "Long",
+        "value": "长"
+      },
+      {
+        "key": "Low",
+        "value": "低矮"
+      },
+      {
+        "key": "Machiya",
+        "value": "町屋"
+      },
+      {
+        "key": "Main",
+        "value": "主体"
+      },
+      {
+        "key": "Main_odd",
+        "value": "主体·奇数段"
+      },
+      {
+        "key": "Mangrove",
+        "value": "红树"
+      },
+      {
+        "key": "Market",
+        "value": "市场"
+      },
+      {
+        "key": "Mid",
+        "value": "中段"
+      },
+      {
+        "key": "Modules",
+        "value": "模块"
+      },
+      {
+        "key": "Moss",
+        "value": "苔藓"
+      },
+      {
+        "key": "Orchard",
+        "value": "果园"
+      },
+      {
+        "key": "Palisades",
+        "value": "木栅栏"
+      },
+      {
+        "key": "Pier",
+        "value": "码头"
+      },
+      {
+        "key": "Planking",
+        "value": "木板"
+      },
+      {
+        "key": "Plantation fields",
+        "value": "种植园田地"
+      },
+      {
+        "key": "Plantation_Fields",
+        "value": "种植园田地"
+      },
+      {
+        "key": "Planters",
+        "value": "花箱"
+      },
+      {
+        "key": "Player",
+        "value": "玩家"
+      },
+      {
+        "key": "Players",
+        "value": "玩家"
+      },
+      {
+        "key": "Plaza_end",
+        "value": "广场端段"
+      },
+      {
+        "key": "Plaza_endodd",
+        "value": "广场端段·奇数"
+      },
+      {
+        "key": "Plaza_mid",
+        "value": "广场中段"
+      },
+      {
+        "key": "Plaza_midodd",
+        "value": "广场中段·奇数"
+      },
+      {
+        "key": "Plaza_single",
+        "value": "广场单段"
+      },
+      {
+        "key": "Plaza_singleodd",
+        "value": "广场单段·奇数"
+      },
+      {
+        "key": "Plaza_sublevel",
+        "value": "广场下层"
+      },
+      {
+        "key": "Plaza_sublevelodd",
+        "value": "广场下层·奇数"
+      },
+      {
+        "key": "Pond",
+        "value": "池塘"
+      },
+      {
+        "key": "Pools",
+        "value": "水池"
+      },
+      {
+        "key": "Profession",
+        "value": "职业"
+      },
+      {
+        "key": "Quarrycover",
+        "value": "采石场顶盖"
+      },
+      {
+        "key": "Recreation",
+        "value": "休闲"
+      },
+      {
+        "key": "Regular",
+        "value": "常规"
+      },
+      {
+        "key": "Resources",
+        "value": "资源"
+      },
+      {
+        "key": "Restaurant",
+        "value": "餐馆"
+      },
+      {
+        "key": "Retainingwall",
+        "value": "挡土墙"
+      },
+      {
+        "key": "Rock",
+        "value": "岩石"
+      },
+      {
+        "key": "Roof",
+        "value": "屋顶"
+      },
+      {
+        "key": "Rooms",
+        "value": "房间"
+      },
+      {
+        "key": "Sakura",
+        "value": "樱花"
+      },
+      {
+        "key": "Seawall_tall",
+        "value": "高海堤"
+      },
+      {
+        "key": "Sewer",
+        "value": "下水道"
+      },
+      {
+        "key": "Ship",
+        "value": "船只"
+      },
+      {
+        "key": "Side",
+        "value": "侧向"
+      },
+      {
+        "key": "Sideramp",
+        "value": "侧坡道"
+      },
+      {
+        "key": "Siegeworks",
+        "value": "攻城工事"
+      },
+      {
+        "key": "Singlefloor",
+        "value": "单层"
+      },
+      {
+        "key": "Slope",
+        "value": "斜坡"
+      },
+      {
+        "key": "Small",
+        "value": "小型"
+      },
+      {
+        "key": "Spruce",
+        "value": "云杉"
+      },
+      {
+        "key": "Square",
+        "value": "广场"
+      },
+      {
+        "key": "Stables",
+        "value": "马厩"
+      },
+      {
+        "key": "Stair",
+        "value": "楼梯"
+      },
+      {
+        "key": "Statue",
+        "value": "雕像"
+      },
+      {
+        "key": "Straight",
+        "value": "直段"
+      },
+      {
+        "key": "Structure",
+        "value": "建筑"
+      },
+      {
+        "key": "T_junction",
+        "value": "丁字路口"
+      },
+      {
+        "key": "Tavern",
+        "value": "酒馆"
+      },
+      {
+        "key": "Terrace",
+        "value": "露台"
+      },
+      {
+        "key": "Tomb",
+        "value": "陵墓"
+      },
+      {
+        "key": "Top",
+        "value": "顶层"
+      },
+      {
+        "key": "Tower_big",
+        "value": "大型塔楼"
+      },
+      {
+        "key": "Tower_small",
+        "value": "小型塔楼"
+      },
+      {
+        "key": "Town_hall",
+        "value": "市政厅"
+      },
+      {
+        "key": "Transport",
+        "value": "运输"
+      },
+      {
+        "key": "Traps",
+        "value": "陷阱"
+      },
+      {
+        "key": "Trees",
+        "value": "树木"
+      },
+      {
+        "key": "Trojan",
+        "value": "特洛伊式"
+      },
+      {
+        "key": "Tunnels",
+        "value": "隧道"
+      },
+      {
+        "key": "Twofloor",
+        "value": "双层"
+      },
+      {
+        "key": "Utility cells",
+        "value": "功能单元"
+      },
+      {
+        "key": "Venetian",
+        "value": "威尼斯式"
+      },
+      {
+        "key": "Wall_main",
+        "value": "主城墙"
+      },
+      {
+        "key": "Wall_small",
+        "value": "小城墙"
+      },
+      {
+        "key": "Warship",
+        "value": "战舰"
+      },
+      {
+        "key": "Waterway",
+        "value": "水道"
+      },
+      {
+        "key": "Wheels",
+        "value": "轮机"
+      },
+      {
+        "key": "Wonders",
+        "value": "奇观"
+      },
+      {
+        "key": "Wooden",
+        "value": "木质"
+      },
+      {
+        "key": "/Big",
+        "value": "@/大型"
+      },
+      {
+        "key": "/Crystals",
+        "value": "@/水晶"
+      },
+      {
+        "key": "/Leisure",
+        "value": "@/休闲"
+      },
+      {
+        "key": "/Plantation_Fields",
+        "value": "@/种植园田地"
+      },
+      {
+        "key": "/Traps",
+        "value": "@/陷阱"
+      },
+      {
+        "key": "/Tunnels",
+        "value": "@/隧道"
+      },
+      {
+        "key": "/adapters",
+        "value": "@/转接段"
+      },
+      {
+        "key": "/advanced",
+        "value": "@/进阶"
+      },
+      {
+        "key": "/agora",
+        "value": "@/集市广场"
+      },
+      {
+        "key": "/alternative",
+        "value": "@/备选"
+      },
+      {
+        "key": "/andesite",
+        "value": "@/安山岩"
+      },
+      {
+        "key": "/apartments",
+        "value": "@/公寓"
+      },
+      {
+        "key": "/aquaducts",
+        "value": "@/引水渠"
+      },
+      {
+        "key": "/aqueduct",
+        "value": "@/引水渠"
+      },
+      {
+        "key": "/arches",
+        "value": "@/拱门"
+      },
+      {
+        "key": "/athenian",
+        "value": "@/雅典式"
+      },
+      {
+        "key": "/azalea",
+        "value": "@/杜鹃"
+      },
+      {
+        "key": "/bamboo",
+        "value": "@/竹"
+      },
+      {
+        "key": "/barracks",
+        "value": "@/兵营"
+      },
+      {
+        "key": "/base",
+        "value": "@/基座"
+      },
+      {
+        "key": "/basic",
+        "value": "@/基础"
+      },
+      {
+        "key": "/boardwalk",
+        "value": "@/木栈道"
+      },
+      {
+        "key": "/bonsai",
+        "value": "@/盆景"
+      },
+      {
+        "key": "/bottom",
+        "value": "@/底层"
+      },
+      {
+        "key": "/boulevard",
+        "value": "@/林荫大道"
+      },
+      {
+        "key": "/brick",
+        "value": "@/砖"
+      },
+      {
+        "key": "/builder",
+        "value": "@/建筑工"
+      },
+      {
+        "key": "/building",
+        "value": "@/建筑"
+      },
+      {
+        "key": "/bush",
+        "value": "@/灌木"
+      },
+      {
+        "key": "/calcite",
+        "value": "@/方解石"
+      },
+      {
+        "key": "/carpentry",
+        "value": "@/木工"
+      },
+      {
+        "key": "/carveout",
+        "value": "@/开凿"
+      },
+      {
+        "key": "/castle",
+        "value": "@/城堡"
+      },
+      {
+        "key": "/catwalk",
+        "value": "@/步道"
+      },
+      {
+        "key": "/ceiling",
+        "value": "@/天花板"
+      },
+      {
+        "key": "/central",
+        "value": "@/中心"
+      },
+      {
+        "key": "/charioteer",
+        "value": "@/战车"
+      },
+      {
+        "key": "/chunks",
+        "value": "@/区块"
+      },
+      {
+        "key": "/church",
+        "value": "@/教堂"
+      },
+      {
+        "key": "/clay",
+        "value": "@/黏土"
+      },
+      {
+        "key": "/cliffclimb",
+        "value": "@/崖壁攀道"
+      },
+      {
+        "key": "/cobble",
+        "value": "@/圆石"
+      },
+      {
+        "key": "/concrete",
+        "value": "@/混凝土"
+      },
+      {
+        "key": "/conifer",
+        "value": "@/针叶树"
+      },
+      {
+        "key": "/corridors",
+        "value": "@/走廊"
+      },
+      {
+        "key": "/covered",
+        "value": "@/带顶"
+      },
+      {
+        "key": "/crossing",
+        "value": "@/交叉口"
+      },
+      {
+        "key": "/dark",
+        "value": "@/深色"
+      },
+      {
+        "key": "/default",
+        "value": "@/默认"
+      },
+      {
+        "key": "/diag",
+        "value": "@/斜向"
+      },
+      {
+        "key": "/diorite",
+        "value": "@/闪长岩"
+      },
+      {
+        "key": "/districts",
+        "value": "@/街区"
+      },
+      {
+        "key": "/edge",
+        "value": "@/边缘"
+      },
+      {
+        "key": "/facades",
+        "value": "@/立面"
+      },
+      {
+        "key": "/fancy",
+        "value": "@/华丽"
+      },
+      {
+        "key": "/fences",
+        "value": "@/栅栏"
+      },
+      {
+        "key": "/forum",
+        "value": "@/集会广场"
+      },
+      {
+        "key": "/fullhigh",
+        "value": "@/全高"
+      },
+      {
+        "key": "/functional",
+        "value": "@/实用"
+      },
+      {
+        "key": "/glass",
+        "value": "@/玻璃"
+      },
+      {
+        "key": "/grand_processional",
+        "value": "@/凯旋大道"
+      },
+      {
+        "key": "/greens",
+        "value": "@/绿地"
+      },
+      {
+        "key": "/hangarbay",
+        "value": "@/机库"
+      },
+      {
+        "key": "/harbor",
+        "value": "@/港口"
+      },
+      {
+        "key": "/horticulture",
+        "value": "@/园艺"
+      },
+      {
+        "key": "/hospital",
+        "value": "@/医院"
+      },
+      {
+        "key": "/housing",
+        "value": "@/住宅"
+      },
+      {
+        "key": "/husbandry",
+        "value": "@/畜牧"
+      },
+      {
+        "key": "/hut",
+        "value": "@/小屋"
+      },
+      {
+        "key": "/inland",
+        "value": "@/内陆"
+      },
+      {
+        "key": "/intersections",
+        "value": "@/路口"
+      },
+      {
+        "key": "/jetty",
+        "value": "@/栈桥"
+      },
+      {
+        "key": "/jungle",
+        "value": "@/丛林"
+      },
+      {
+        "key": "/lampposts",
+        "value": "@/路灯"
+      },
+      {
+        "key": "/lanterns",
+        "value": "@/灯笼"
+      },
+      {
+        "key": "/light post",
+        "value": "@/灯柱"
+      },
+      {
+        "key": "/lighting",
+        "value": "@/照明"
+      },
+      {
+        "key": "/lights",
+        "value": "@/灯具"
+      },
+      {
+        "key": "/long",
+        "value": "@/长"
+      },
+      {
+        "key": "/luxury",
+        "value": "@/豪华"
+      },
+      {
+        "key": "/machiya",
+        "value": "@/町屋"
+      },
+      {
+        "key": "/mangrove",
+        "value": "@/红树"
+      },
+      {
+        "key": "/masonry",
+        "value": "@/石工"
+      },
+      {
+        "key": "/mineshafts",
+        "value": "@/矿道"
+      },
+      {
+        "key": "/misc",
+        "value": "@/杂项"
+      },
+      {
+        "key": "/moat",
+        "value": "@/护城河"
+      },
+      {
+        "key": "/modules",
+        "value": "@/模块"
+      },
+      {
+        "key": "/moss",
+        "value": "@/苔藓"
+      },
+      {
+        "key": "/mycanean",
+        "value": "@/迈锡尼式"
+      },
+      {
+        "key": "/narrow",
+        "value": "@/窄"
+      },
+      {
+        "key": "/nice",
+        "value": "@/精致"
+      },
+      {
+        "key": "/nile",
+        "value": "@/尼罗河"
+      },
+      {
+        "key": "/oak",
+        "value": "@/橡木"
+      },
+      {
+        "key": "/orchard",
+        "value": "@/果园"
+      },
+      {
+        "key": "/other",
+        "value": "@/其他"
+      },
+      {
+        "key": "/overground",
+        "value": "@/地上"
+      },
+      {
+        "key": "/pagodas",
+        "value": "@/塔"
+      },
+      {
+        "key": "/parks",
+        "value": "@/公园"
+      },
+      {
+        "key": "/plain",
+        "value": "@/朴素"
+      },
+      {
+        "key": "/planking",
+        "value": "@/木板"
+      },
+      {
+        "key": "/planks",
+        "value": "@/木板"
+      },
+      {
+        "key": "/planters",
+        "value": "@/花箱"
+      },
+      {
+        "key": "/platforms",
+        "value": "@/站台"
+      },
+      {
+        "key": "/pools",
+        "value": "@/水池"
+      },
+      {
+        "key": "/poor",
+        "value": "@/简陋"
+      },
+      {
+        "key": "/premium",
+        "value": "@/高级"
+      },
+      {
+        "key": "/profession",
+        "value": "@/职业"
+      },
+      {
+        "key": "/recreation",
+        "value": "@/休闲"
+      },
+      {
+        "key": "/regular",
+        "value": "@/常规"
+      },
+      {
+        "key": "/resources",
+        "value": "@/资源"
+      },
+      {
+        "key": "/restaurant",
+        "value": "@/餐馆"
+      },
+      {
+        "key": "/rock",
+        "value": "@/岩石"
+      },
+      {
+        "key": "/roof",
+        "value": "@/屋顶"
+      },
+      {
+        "key": "/rooms",
+        "value": "@/房间"
+      },
+      {
+        "key": "/rural",
+        "value": "@/乡村"
+      },
+      {
+        "key": "/sakura",
+        "value": "@/樱花"
+      },
+      {
+        "key": "/segment",
+        "value": "@/分段"
+      },
+      {
+        "key": "/sewage",
+        "value": "@/污水"
+      },
+      {
+        "key": "/shoal",
+        "value": "@/浅滩"
+      },
+      {
+        "key": "/short",
+        "value": "@/短"
+      },
+      {
+        "key": "/siegeworks",
+        "value": "@/攻城工事"
+      },
+      {
+        "key": "/simple",
+        "value": "@/简易"
+      },
+      {
+        "key": "/singlefloor",
+        "value": "@/单层"
+      },
+      {
+        "key": "/slope",
+        "value": "@/斜坡"
+      },
+      {
+        "key": "/spartan",
+        "value": "@/斯巴达式"
+      },
+      {
+        "key": "/spruce",
+        "value": "@/云杉"
+      },
+      {
+        "key": "/square",
+        "value": "@/广场"
+      },
+      {
+        "key": "/stables",
+        "value": "@/马厩"
+      },
+      {
+        "key": "/straight",
+        "value": "@/直段"
+      },
+      {
+        "key": "/streets",
+        "value": "@/街道"
+      },
+      {
+        "key": "/sturdy",
+        "value": "@/坚固"
+      },
+      {
+        "key": "/subway",
+        "value": "@/地铁"
+      },
+      {
+        "key": "/supplies",
+        "value": "@/补给"
+      },
+      {
+        "key": "/t_junction",
+        "value": "@/丁字路口"
+      },
+      {
+        "key": "/tavern",
+        "value": "@/酒馆"
+      },
+      {
+        "key": "/terrace",
+        "value": "@/露台"
+      },
+      {
+        "key": "/tomb",
+        "value": "@/陵墓"
+      },
+      {
+        "key": "/top",
+        "value": "@/顶层"
+      },
+      {
+        "key": "/town_hall",
+        "value": "@/市政厅"
+      },
+      {
+        "key": "/transport",
+        "value": "@/运输"
+      },
+      {
+        "key": "/trees",
+        "value": "@/树木"
+      },
+      {
+        "key": "/trojan",
+        "value": "@/特洛伊式"
+      },
+      {
+        "key": "/twofloor",
+        "value": "@/双层"
+      },
+      {
+        "key": "/urban",
+        "value": "@/城市"
+      },
+      {
+        "key": "/vegetation",
+        "value": "@/植被"
+      },
+      {
+        "key": "/venetian",
+        "value": "@/威尼斯式"
+      },
+      {
+        "key": "/villager",
+        "value": "@/村民"
+      },
+      {
+        "key": "/waterfront",
+        "value": "@/滨水"
+      },
+      {
+        "key": "/waterway",
+        "value": "@/水道"
+      },
+      {
+        "key": "/wheels",
+        "value": "@/轮机"
+      },
+      {
+        "key": "/wide",
+        "value": "@/宽"
+      },
+      {
+        "key": "/wonders",
+        "value": "@/奇观"
       }
     ]
   }
