@@ -3,49 +3,13 @@
     "name": "blockui_zh_cn",
     "authors": "Auto-Translation-Tool",
     "dynamic": false,
-    "i18n": false
+    "i18n": false,
+    "_说明": "⚠️ blockui 的 Alignment 枚举把「top left / top horizontal / vertical horizontal」这类串当**行为标志**用：构造器里 tag.contains(\"horizontal\") 决定 horizontalCentered、contains(\"right\") 决定 rightAligned。译成中文之后 contains 全部落空，**整个 blockui 的对齐系统失效**——所有界面的文字一律贴左，MineColonies / 建筑棒全中招。这 9 条已移除，永远不许再译。"
   },
   {
     "target_class": [
       "com.ldtteam.blockui.Alignment"
     ],
-    "pairs": [
-      {
-        "key": "top left",
-        "value": "顶部左侧"
-      },
-      {
-        "key": "top horizontal",
-        "value": "顶部水平"
-      },
-      {
-        "key": "top right",
-        "value": "顶部右侧"
-      },
-      {
-        "key": "vertical left",
-        "value": "垂直左侧"
-      },
-      {
-        "key": "vertical horizontal",
-        "value": "垂直水平"
-      },
-      {
-        "key": "vertical right",
-        "value": "垂直右侧"
-      },
-      {
-        "key": "bottom left",
-        "value": "底部左侧"
-      },
-      {
-        "key": "bottom horizontal",
-        "value": "底部水平"
-      },
-      {
-        "key": "bottom right",
-        "value": "底部右侧"
-      }
-    ]
+    "pairs": []
   }
 ]

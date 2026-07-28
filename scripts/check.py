@@ -80,6 +80,30 @@ def _json_parses(rule):
             yield '%s: JSON 解析失败: %s' % (rel(p), e)
 
 
+@checker('vp_forbidden_keys')
+def _vp_forbidden_keys(rule):
+    """有些字符串是**行为标志**，不是界面文字，译了功能就坏。
+
+    blockui 的 Alignment 是典型：`horizontalCentered = tag.contains("horizontal")`。
+    把 'top horizontal' 译成 '顶部水平' 之后 contains 落空，整个 blockui 的对齐
+    系统失效——所有界面文字一律贴左，连上游自己写的 textalign 都不生效。
+    这类只能靠**点名禁译**兜住，因为从字面看它和普通界面文字没有区别。
+    """
+    keys, = need(rule, 'keys')
+    ban = set(keys)
+    for f in sorted((ROOT / 'src' / 'vaultpatcher' / 'modules').glob('*.json')):
+        try:
+            doc = json.loads(f.read_text(encoding='utf-8'))
+        except Exception:                                          # noqa: BLE001
+            continue
+        if not isinstance(doc, list):
+            continue
+        for blk in doc[1:]:
+            for pair in blk.get('pairs', []):
+                if pair.get('key') in ban:
+                    yield '%s 译了 %r —— %s' % (f.name, pair['key'], rule['why'])
+
+
 @checker('xml_parses')
 def _xml_parses(rule):
     """出货的界面 XML 必须能解析。
