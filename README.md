@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="src/pack/pack.png" width="96" height="96"
+       alt="ATM10 汉化补丁「绿油油版」资源包图标">
+</p>
+
 # All the Mods 10 汉化补丁 —— 绿油油版
 
 [![GitHub](https://img.shields.io/badge/GitHub-chiba233%2Fatm10--zh--cn-181717?logo=github)](https://github.com/chiba233/atm10-zh-cn)
