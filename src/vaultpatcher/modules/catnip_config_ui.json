@@ -374,6 +374,142 @@
       {
         "key": "Foundry Tank Tick Rate",
         "value": "熔铸炉储罐刷新频率"
+      },
+      {
+        "key": "Always Show Terminal Selector",
+        "value": "始终显示终端选择器"
+      },
+      {
+        "key": "Annihilation Plane Max",
+        "value": "湮灭面板耗能上限"
+      },
+      {
+        "key": "Annihilation Plane Min",
+        "value": "湮灭面板耗能下限"
+      },
+      {
+        "key": "Auto Focus Search",
+        "value": "自动聚焦搜索框"
+      },
+      {
+        "key": "Charger Max",
+        "value": "充电器耗能上限"
+      },
+      {
+        "key": "Charger Min",
+        "value": "充电器耗能下限"
+      },
+      {
+        "key": "Clear External Search On Open",
+        "value": "打开时清空外部搜索"
+      },
+      {
+        "key": "Clear Grid On Close",
+        "value": "关闭时清空网格"
+      },
+      {
+        "key": "Disable Colored Cable Recipes In Recipe Viewer",
+        "value": "配方查看器隐藏染色线缆配方"
+      },
+      {
+        "key": "Enable Effects",
+        "value": "启用特效"
+      },
+      {
+        "key": "Enable Facade Recipes In Recipe Viewer",
+        "value": "配方查看器显示外覆板配方"
+      },
+      {
+        "key": "Enable Facades In Recipe Viewer",
+        "value": "配方查看器显示外覆板"
+      },
+      {
+        "key": "Export Bus Max",
+        "value": "输出总线耗能上限"
+      },
+      {
+        "key": "Export Bus Min",
+        "value": "输出总线耗能下限"
+      },
+      {
+        "key": "IOPort Max",
+        "value": "输入输出端口耗能上限"
+      },
+      {
+        "key": "IOPort Min",
+        "value": "输入输出端口耗能下限"
+      },
+      {
+        "key": "Import Bus Max",
+        "value": "输入总线耗能上限"
+      },
+      {
+        "key": "Import Bus Min",
+        "value": "输入总线耗能下限"
+      },
+      {
+        "key": "Inscriber Max",
+        "value": "压印器耗能上限"
+      },
+      {
+        "key": "Inscriber Min",
+        "value": "压印器耗能下限"
+      },
+      {
+        "key": "Interface Max",
+        "value": "接口耗能上限"
+      },
+      {
+        "key": "Interface Min",
+        "value": "接口耗能下限"
+      },
+      {
+        "key": "Magnet Card Range",
+        "value": "磁力卡范围"
+      },
+      {
+        "key": "Max Cell Content Shown",
+        "value": "存储元件最多显示条目"
+      },
+      {
+        "key": "Notify For Finished Crafting Jobs",
+        "value": "合成任务完成时通知"
+      },
+      {
+        "key": "Pin Auto Crafted Items",
+        "value": "置顶自动合成的物品"
+      },
+      {
+        "key": "Power Unit",
+        "value": "能量单位"
+      },
+      {
+        "key": "Provide Network Inventory To Emi",
+        "value": "向 EMI 提供网络存储"
+      },
+      {
+        "key": "Remember Last Search",
+        "value": "记住上次搜索"
+      },
+      {
+        "key": "Root",
+        "value": "根"
+      },
+      {
+        "key": "Screenshot Show Count",
+        "value": "截图显示数量"
+      },
+      {
+        "key": "Search Mod Name In Tooltips",
+        "value": "提示中搜索模组名"
+      },
+      {
+        "key": "Show Missing Only By Default",
+        "value": "默认只显示缺失项"
+      },
+      {
+        "key": "Use Compact Tree",
+        "value": "使用紧凑树状图"
       }
     ]
   },
@@ -745,6 +881,142 @@
       {
         "key": "Foundry Tank Tick Rate",
         "value": "熔铸炉储罐刷新频率"
+      },
+      {
+        "key": "Always Show Terminal Selector",
+        "value": "始终显示终端选择器"
+      },
+      {
+        "key": "Annihilation Plane Max",
+        "value": "湮灭面板耗能上限"
+      },
+      {
+        "key": "Annihilation Plane Min",
+        "value": "湮灭面板耗能下限"
+      },
+      {
+        "key": "Auto Focus Search",
+        "value": "自动聚焦搜索框"
+      },
+      {
+        "key": "Charger Max",
+        "value": "充电器耗能上限"
+      },
+      {
+        "key": "Charger Min",
+        "value": "充电器耗能下限"
+      },
+      {
+        "key": "Clear External Search On Open",
+        "value": "打开时清空外部搜索"
+      },
+      {
+        "key": "Clear Grid On Close",
+        "value": "关闭时清空网格"
+      },
+      {
+        "key": "Disable Colored Cable Recipes In Recipe Viewer",
+        "value": "配方查看器隐藏染色线缆配方"
+      },
+      {
+        "key": "Enable Effects",
+        "value": "启用特效"
+      },
+      {
+        "key": "Enable Facade Recipes In Recipe Viewer",
+        "value": "配方查看器显示外覆板配方"
+      },
+      {
+        "key": "Enable Facades In Recipe Viewer",
+        "value": "配方查看器显示外覆板"
+      },
+      {
+        "key": "Export Bus Max",
+        "value": "输出总线耗能上限"
+      },
+      {
+        "key": "Export Bus Min",
+        "value": "输出总线耗能下限"
+      },
+      {
+        "key": "IOPort Max",
+        "value": "输入输出端口耗能上限"
+      },
+      {
+        "key": "IOPort Min",
+        "value": "输入输出端口耗能下限"
+      },
+      {
+        "key": "Import Bus Max",
+        "value": "输入总线耗能上限"
+      },
+      {
+        "key": "Import Bus Min",
+        "value": "输入总线耗能下限"
+      },
+      {
+        "key": "Inscriber Max",
+        "value": "压印器耗能上限"
+      },
+      {
+        "key": "Inscriber Min",
+        "value": "压印器耗能下限"
+      },
+      {
+        "key": "Interface Max",
+        "value": "接口耗能上限"
+      },
+      {
+        "key": "Interface Min",
+        "value": "接口耗能下限"
+      },
+      {
+        "key": "Magnet Card Range",
+        "value": "磁力卡范围"
+      },
+      {
+        "key": "Max Cell Content Shown",
+        "value": "存储元件最多显示条目"
+      },
+      {
+        "key": "Notify For Finished Crafting Jobs",
+        "value": "合成任务完成时通知"
+      },
+      {
+        "key": "Pin Auto Crafted Items",
+        "value": "置顶自动合成的物品"
+      },
+      {
+        "key": "Power Unit",
+        "value": "能量单位"
+      },
+      {
+        "key": "Provide Network Inventory To Emi",
+        "value": "向 EMI 提供网络存储"
+      },
+      {
+        "key": "Remember Last Search",
+        "value": "记住上次搜索"
+      },
+      {
+        "key": "Root",
+        "value": "根"
+      },
+      {
+        "key": "Screenshot Show Count",
+        "value": "截图显示数量"
+      },
+      {
+        "key": "Search Mod Name In Tooltips",
+        "value": "提示中搜索模组名"
+      },
+      {
+        "key": "Show Missing Only By Default",
+        "value": "默认只显示缺失项"
+      },
+      {
+        "key": "Use Compact Tree",
+        "value": "使用紧凑树状图"
       }
     ]
   },
@@ -1116,6 +1388,142 @@
       {
         "key": "Foundry Tank Tick Rate",
         "value": "熔铸炉储罐刷新频率"
+      },
+      {
+        "key": "Always Show Terminal Selector",
+        "value": "始终显示终端选择器"
+      },
+      {
+        "key": "Annihilation Plane Max",
+        "value": "湮灭面板耗能上限"
+      },
+      {
+        "key": "Annihilation Plane Min",
+        "value": "湮灭面板耗能下限"
+      },
+      {
+        "key": "Auto Focus Search",
+        "value": "自动聚焦搜索框"
+      },
+      {
+        "key": "Charger Max",
+        "value": "充电器耗能上限"
+      },
+      {
+        "key": "Charger Min",
+        "value": "充电器耗能下限"
+      },
+      {
+        "key": "Clear External Search On Open",
+        "value": "打开时清空外部搜索"
+      },
+      {
+        "key": "Clear Grid On Close",
+        "value": "关闭时清空网格"
+      },
+      {
+        "key": "Disable Colored Cable Recipes In Recipe Viewer",
+        "value": "配方查看器隐藏染色线缆配方"
+      },
+      {
+        "key": "Enable Effects",
+        "value": "启用特效"
+      },
+      {
+        "key": "Enable Facade Recipes In Recipe Viewer",
+        "value": "配方查看器显示外覆板配方"
+      },
+      {
+        "key": "Enable Facades In Recipe Viewer",
+        "value": "配方查看器显示外覆板"
+      },
+      {
+        "key": "Export Bus Max",
+        "value": "输出总线耗能上限"
+      },
+      {
+        "key": "Export Bus Min",
+        "value": "输出总线耗能下限"
+      },
+      {
+        "key": "IOPort Max",
+        "value": "输入输出端口耗能上限"
+      },
+      {
+        "key": "IOPort Min",
+        "value": "输入输出端口耗能下限"
+      },
+      {
+        "key": "Import Bus Max",
+        "value": "输入总线耗能上限"
+      },
+      {
+        "key": "Import Bus Min",
+        "value": "输入总线耗能下限"
+      },
+      {
+        "key": "Inscriber Max",
+        "value": "压印器耗能上限"
+      },
+      {
+        "key": "Inscriber Min",
+        "value": "压印器耗能下限"
+      },
+      {
+        "key": "Interface Max",
+        "value": "接口耗能上限"
+      },
+      {
+        "key": "Interface Min",
+        "value": "接口耗能下限"
+      },
+      {
+        "key": "Magnet Card Range",
+        "value": "磁力卡范围"
+      },
+      {
+        "key": "Max Cell Content Shown",
+        "value": "存储元件最多显示条目"
+      },
+      {
+        "key": "Notify For Finished Crafting Jobs",
+        "value": "合成任务完成时通知"
+      },
+      {
+        "key": "Pin Auto Crafted Items",
+        "value": "置顶自动合成的物品"
+      },
+      {
+        "key": "Power Unit",
+        "value": "能量单位"
+      },
+      {
+        "key": "Provide Network Inventory To Emi",
+        "value": "向 EMI 提供网络存储"
+      },
+      {
+        "key": "Remember Last Search",
+        "value": "记住上次搜索"
+      },
+      {
+        "key": "Root",
+        "value": "根"
+      },
+      {
+        "key": "Screenshot Show Count",
+        "value": "截图显示数量"
+      },
+      {
+        "key": "Search Mod Name In Tooltips",
+        "value": "提示中搜索模组名"
+      },
+      {
+        "key": "Show Missing Only By Default",
+        "value": "默认只显示缺失项"
+      },
+      {
+        "key": "Use Compact Tree",
+        "value": "使用紧凑树状图"
       }
     ]
   }
