@@ -30,6 +30,16 @@ def apply_one(text, edits, rel):
         find, repl = e['find'], e['replace']
         n, m = len(lines), len(find)
         at = [i for i in range(n - m + 1) if lines[i:i + m] == find]
+        # all=true：这一段在文件里出现几次就换几次。任务书的 hover 就是这样——
+        # 同一件物品在一章里被提到好几遍，英文一模一样，中文当然也该一模一样，
+        # 为了「唯一」去凑上下文只会让映射变脆（上游动一行就全崩）。
+        if e.get('all'):
+            if not at:
+                sys.exit('❌ %s 第 %d 处改动在官方文件里找不到\n   原文首行: %r'
+                         % (rel, k, (find[0] if find else '').rstrip('\r\n')[:100]))
+            for i in reversed(at):
+                lines[i:i + m] = repl
+            continue
         if len(at) != 1:
             head = (find[0] if find else '').rstrip('\r\n')[:100]
             sys.exit(
