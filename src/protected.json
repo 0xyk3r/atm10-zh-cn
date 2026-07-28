@@ -2824,6 +2824,7 @@
     "src/rules/terms.json",
     "src/rules/vaultpatcher.json",
     "src/toolchain.lock.json",
+    "src/upstream/config/fancymenu/customization/title_screen_layout.txt.json",
     "src/upstream/config/ftbquests/quests/chapters/apotheosis_gear.snbt.json",
     "src/upstream/config/ftbquests/quests/chapters/bumblezone.snbt.json",
     "src/upstream/config/ftbquests/quests/chapters/elmystical_agriculturerr.snbt.json",

@@ -72,7 +72,7 @@ def ensure_sources():
                  '   请设 ATM_PACK_ROOT 指向整合包（或其 overrides 目录）' % src)
     ASSETS.mkdir(parents=True, exist_ok=True)
     n = 0
-    for stem in BUTTONS:
+    for stem in list(BUTTONS) + BASE_STEMS:
         for variant in ('color', 'gray'):
             f = '%s_%s.png' % (stem, variant)
             if (src / f).exists():
@@ -112,6 +112,15 @@ BUTTONS = {
     'akliz':        '租用服务器',
 }
 # GitHub / Reddit / Discord 等品牌按钮保持英文，不在此列
+
+# 本包自己加的两个按钮（首页最下方）：整合包里没有这两张原图，拿 ATM 自己的
+# GitHub 按钮当底稿——它左边的图标就是 GitHub logo，而这两个按钮也正是跳 GitHub，
+# 语义对得上，视觉也与首页其余按钮完全一致。只擦文字区、图标原样保留。
+NEW_BUTTONS = {
+    'hanhua_home':   ('github', '汉化包主页'),
+    'hanhua_issues': ('github', '问题反馈'),
+}
+BASE_STEMS = sorted({b for b, _ in NEW_BUTTONS.values()})
 
 
 def text_color(im):
@@ -172,6 +181,26 @@ def main(check_only=False):
             print('  %-24s %s  字高=%d 宽=%d  x[%d..%d] y[%d..%d] 色=%s'
                   % (p.name, word, glyph.height, glyph.width,
                      x, x + glyph.width, y, y + glyph.height, col[:3]))
+            n += 1
+    for stem, (base, word) in sorted(NEW_BUTTONS.items()):
+        for variant in ('color', 'gray'):
+            src = ASSETS / f'{base}_{variant}.png'
+            if not src.exists():
+                sys.exit(f'❌ 缺底稿 {src.name}（本包新增按钮拿它重绘）')
+            im = Image.open(src).convert('RGBA')
+            bg = im.getpixel((930, 60))
+            col = text_color(im)
+            glyph = render(word, col)
+            x = int(round(CENTER_X - glyph.width / 2))
+            y = BASELINE_BOTTOM - glyph.height + 1
+            if x < BOX[0] or x + glyph.width > BOX[2] or y < BOX[1]:
+                sys.exit(f'❌ {stem}_{variant}: 文字越出擦除矩形 {BOX}')
+            if not check_only:
+                ImageDraw.Draw(im).rectangle(BOX, fill=bg)
+                im.alpha_composite(glyph, (x, y))
+                save_png(im, ASSETS / f'{stem}_{variant}.png')
+            print('  %-24s %s  字高=%d 宽=%d  （底稿 %s_%s）'
+                  % (f'{stem}_{variant}.png', word, glyph.height, glyph.width, base, variant))
             n += 1
     print(('校验通过' if check_only else '已生成') + f' {n} 张')
 
