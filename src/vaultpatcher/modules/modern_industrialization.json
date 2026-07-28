@@ -27,11 +27,11 @@
     "pairs": [
       {
         "key": "Bronze Plated Bricks",
-        "value": "青铜镀板砖块"
+        "value": "镀青铜砖块"
       },
       {
         "key": "Advanced Machine Casing",
-        "value": "高级机械外壳"
+        "value": "进阶机器外壳"
       },
       {
         "key": "Frostproof Machine Casing",
@@ -43,7 +43,7 @@
       },
       {
         "key": "Highly Advanced Machine Casing",
-        "value": "超高级机械外壳"
+        "value": "精英机器外壳"
       },
       {
         "key": "Solid Titanium Machine Casing",
@@ -63,7 +63,7 @@
       },
       {
         "key": "Quantum Tank",
-        "value": "量子储存槽"
+        "value": "量子储罐"
       },
       {
         "key": "Quantum Barrel",
