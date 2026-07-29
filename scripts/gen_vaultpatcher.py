@@ -235,6 +235,17 @@ def main(ver, out_dir):
     # src/rules/vaultpatcher.json 的 no_files 只 glob 了 blockui_legacy_labels.json，
     # verify_dist 的 vp_modules 是**下限**，漏进来照样过。而「漏回出货树」正是 r14
     # 那次掉帧事故的形状——停发的模块必须真的不在包里。
+    # 单一真源：名单在这里，但拦它的闸在 src/rules/vaultpatcher.json 里（check.py 跑出货树）。
+    # 两处不同步的话，往名单里加第三个模块时「出货侧有闸」就会静默变成假话——
+    # 所以这里反过来查一遍：名单里每个名字都必须被某条 no_files 规则的 glob 盖住。
+    import fnmatch
+    rules = json.loads((ROOT / 'src' / 'rules' / 'vaultpatcher.json').read_text(encoding='utf-8'))
+    globs = [r['glob'] for r in rules if r.get('kind') == 'no_files' and 'glob' in r]
+    for n in sorted(set(SRC_ONLY) | set(PERF_HOLD)):
+        target = 'vaultpatcher/modules/%s' % n
+        if not any(fnmatch.fnmatch(target, gl) for gl in globs):
+            sys.exit('❌ %s 在不出货名单里，却没有任何 no_files 规则拦它。\n'
+                     '   往 src/rules/vaultpatcher.json 补一条，否则「出货侧有闸」是假话。' % n)
     leaked = sorted(n for n in list(SRC_ONLY) + list(PERF_HOLD) if (out / n).exists())
     if leaked:
         sys.exit('❌ 这些模块本不该出货，却出现在出货树里：%s\n'

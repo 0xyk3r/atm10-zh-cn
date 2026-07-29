@@ -111,6 +111,17 @@ def _c7(mods):
     p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
 
 
+@case('停发的配置界面模块漏回出货树', 'vp-never-ship-config-ui')
+def _c8(mods):
+    # r14 那次事故的形状：模块本该被 PERF_HOLD 排除，却因为脏 build/ 或排除逻辑失效
+    # 又回到了包里。它一进包，全局替换表就从 1086 对涨回 3396 对，掉帧照旧。
+    (mods / 'config_ui_generated.json').write_text(
+        json.dumps([{'name': 'x', 'dynamic': True, 'i18n': False},
+                    {'target_class': ['net.createmod.catnip.config.ui.BaseConfigScreen'],
+                     'pairs': [{'key': 'Advanced Capacity', 'value': '进阶容量'}]}],
+                   ensure_ascii=False), encoding='utf-8')
+
+
 @case('出货树残留字节码补丁', 'vp-no-stray-class-patch')
 def _c6(mods):
     f = mods.parent / 'patch' / 'com' / 'ldtteam' / 'blockui' / 'controls' / 'Button.class'
