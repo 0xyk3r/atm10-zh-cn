@@ -33,6 +33,85 @@ MODULES = SRC / 'vaultpatcher' / 'modules'
 # 发出去只会增加加载体积与排查噪音）。出货侧另有闸复核包里确实没有它们。
 SRC_ONLY = {'blockui_legacy_labels.json'}
 
+# ── 显示层动态替换是**全局**开销，不是「只在目标类里」 ──────────────────────
+#
+# 读 vaultpatcher 1.5.2 的字节码（sha256 034b53b7…，javap 逐条看）得到的事实：
+#
+#   VPNeoForgeMinecraftClassProcessor.targets() = {
+#       net.minecraft.network.chat.contents.PlainTextContents$LiteralContents,
+#       net.minecraft.client.gui.Font,
+#       net.minecraft.network.chat.FormattedText }
+#
+# VaultPatcher 往这三个类里注了 DynamicReplaceUtils.__mappingString ——
+# 也就是**每造一个字面量 Component、每渲染一个字符串**都要调一次。而那个方法：
+#
+#   1. `Utils.needStacktrace` 为真就先 `Thread.currentThread().getStackTrace()`；
+#      该开关 = 「任何一个 dynamic 块写了 target_class」（VaultPatcher._init 里
+#      的 anyMatch(ti -> !ti.getTargetClassInfo().getDynamicName().isEmpty())）。
+#   2. 然后遍历**所有** dynamic 模块的表；`Pairs.getValue` 在 dyn 模式下是
+#      对 pairsSet 的**线性 String.equals 扫描**，不是哈希查表。
+#   3. target_class 只在**命中之后**才拿栈回溯去校验。所以它不省任何开销，
+#      它只防误替换。
+#
+# 实测（拿仓库里三个版本的真实表直接调 DynamicReplaceUtils.__mappingString，
+# 栈深 40，语料 64 条真实界面串，200k 次取均值）：
+#
+#     一个 dynamic 模块都不装                  0.1 µs / 串
+#     vr13（481 对，0 个 @）                  13.1 µs / 串
+#     vr14-beta2（1375 对，其中 502 个 @）     69.9 µs / 串   ← 5.3 倍
+#     vr14-beta2 只把 @ 前缀去掉（对数不变）    18.2 µs / 串
+#
+# 那 5 倍几乎全来自 `@`：值以 @ 开头 = 该块进「非完整匹配」模式，于是任何
+# **没被精确命中**的字符串都要在这块里对每个 @ 对做一次 String.replace。
+# 而精确匹配路径本来就会把 @ 前缀吃掉（MatchUtils.matchPairs 第 46 字节起），
+# 所以对「整串就是这个键」的对子，@ 一点额外作用都没有——只有键是长串里的一小段
+# 时才多覆盖一点。拿全局帧率换那点覆盖不成立：性能是 P0，漏翻只是 issue。
+#
+# 因此出货侧一律把 @ 摊平成精确匹配，并给 dynamic 总对数上预算闸。
+MAX_DYNAMIC_PAIRS = 1300
+
+# 因上面这条预算而暂不随包发行的模块（文件留在 src/，一个字没删）。
+# 配置界面那两块合计 3495 对，实测会把每串成本从 18.7 µs 推到 64 µs。
+# 这两个模块从未进过任何已发布的 tag（vr14-beta1/beta2 里都没有），
+# 所以不需要给旧版本安排文件清理。
+PERF_HOLD = {
+    'config_ui_generated.json': '3174 对，dynamic 全局扫表，代价见上方实测',
+    'catnip_config_ui.json': '321 对，同上；与 config_ui_generated 是同一批界面',
+}
+
+
+def flatten_at(doc, name, stats):
+    """把 dynamic 模块里的 `@值` 摊平成精确匹配，并统计对数。
+
+    只动出货副本，src/ 里的原文件不碰。返回新的块列表。
+    """
+    if not doc[0].get('dynamic'):
+        return doc[1:]
+    out = []
+    for b in doc[1:]:
+        pairs, seen = [], set()
+        for x in b.get('pairs') or []:
+            k, v = x.get('key'), x.get('value', '')
+            if not k:
+                continue
+            if isinstance(v, str) and v.startswith('@'):
+                v = v[1:]
+                stats['at'] += 1
+            if (k, v) in seen:                      # 摊平后可能撞成同一对
+                stats['dedup'] += 1
+                continue
+            seen.add((k, v))
+            y = dict(x)
+            y['value'] = v
+            pairs.append(y)
+        stats['pairs'] += len(pairs)
+        nb = dict(b)
+        if 'pairs' in nb:
+            nb['pairs'] = pairs
+        out.append(nb)
+    stats['mods'].append((name, sum(len(b.get('pairs') or []) for b in out)))
+    return out
+
 
 
 def main(ver, out_dir):
@@ -47,8 +126,9 @@ def main(ver, out_dir):
 
     n = 0
     nojar = []
+    stats = {'pairs': 0, 'at': 0, 'dedup': 0, 'mods': []}
     for p in sorted(MODULES.glob('*.json')):
-        if p.name in SRC_ONLY:
+        if p.name in SRC_ONLY or p.name in PERF_HOLD:
             continue
         doc = json.loads(p.read_text(encoding='utf-8'))
         entry = db.get(p.name)
@@ -78,16 +158,35 @@ def main(ver, out_dir):
                 ordered[k] = head[k]
         for k in head:
             ordered.setdefault(k, head[k])
+        blocks = flatten_at(doc, p.name, stats)
         (out / p.name).write_text(
-            json.dumps([ordered] + doc[1:], ensure_ascii=False, indent=2) + '\n',
+            json.dumps([ordered] + blocks, ensure_ascii=False, indent=2) + '\n',
             encoding='utf-8')
         n += 1
+    # 出货侧的硬闸：@ 一个都不许留，总对数不许超预算。
+    for f in sorted(out.glob('*.json')):
+        doc = json.loads(f.read_text(encoding='utf-8'))
+        if not doc[0].get('dynamic'):
+            continue
+        for b in doc[1:]:
+            for x in b.get('pairs') or []:
+                if str(x.get('value', '')).startswith('@'):
+                    sys.exit('❌ %s 里还有 @ 前缀的值（%r）——那是全局非完整匹配，'
+                             '会把每个渲染串的成本抬 4 倍。摊平它。' % (f.name, x['key']))
+    if stats['pairs'] > MAX_DYNAMIC_PAIRS:
+        top = '、'.join('%s %d 对' % r for r in sorted(stats['mods'], key=lambda r: -r[1])[:4])
+        sys.exit('❌ dynamic 模块合计 %d 对，超过预算 %d 对。\n'
+                 '   这张表是**每渲染一个字符串**都要线性扫一遍的（见本脚本顶部实测），\n'
+                 '   超预算就是全局掉帧。最大的几个：%s\n'
+                 '   要么把它挪进 PERF_HOLD，要么先量过再改预算。'
+                 % (stats['pairs'], MAX_DYNAMIC_PAIRS, top))
     # VaultPatcher 主配置里的 modules / mods 就是模块清单本身，可推导 → 现填。
     # 手维护的那份此刻已经漏了 6 个（我们自己加的 *_zh 模块全没进去）：
     # `load_all_modules` 为真时无害，一旦有人关掉它，这 6 个模块就静默失效。
     cfg_src = SRC / 'config' / 'vaultpatcher_asm' / 'config.json'
     cfg = json.loads(cfg_src.read_text(encoding='utf-8'))
-    names = sorted(p.stem for p in MODULES.glob('*.json') if p.name not in SRC_ONLY)
+    names = sorted(p.stem for p in MODULES.glob('*.json')
+                   if p.name not in SRC_ONLY and p.name not in PERF_HOLD)
     cfg_out = {'modules': names, 'mods': names}
     cfg_out.update(cfg)
     cfg_path = Path(out_dir) / 'config' / 'vaultpatcher_asm' / 'config.json'
@@ -97,6 +196,11 @@ def main(ver, out_dir):
 
     print('VaultPatcher 模块：%d 个（ATM10 %s 的 jar 名现填），主配置清单 %d 条'
           % (n, ver, len(names)))
+    print('  dynamic 表合计 %d 对 / 预算 %d 对；摊平 @ 前缀 %d 个，去重 %d 对'
+          % (stats['pairs'], MAX_DYNAMIC_PAIRS, stats['at'], stats['dedup']))
+    if PERF_HOLD:
+        print('  因预算暂不出货 %d 个：%s'
+              % (len(PERF_HOLD), '；'.join('%s（%s）' % kv for kv in sorted(PERF_HOLD.items()))))
     if nojar:
         print('  该版本里找不到目标类的 %d 个：%s' % (len(nojar), '、'.join(nojar)))
 
