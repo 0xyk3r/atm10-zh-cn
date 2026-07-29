@@ -300,7 +300,10 @@ function Clear-LegacyConfigUI {
             # 这里自己塞进本次备份目录（就地解压模式没有备份，那条路本来就无从回退）。
             if ($script:BK -and (Test-Path -LiteralPath $script:BK)) {
                 $to = Join-Path $script:BK 'vaultpatcher\modules'
-                New-Item -ItemType Directory -Force -LiteralPath $to | Out-Null
+                # 不用 New-Item：Windows PowerShell 5.1 的 New-Item 没有 -LiteralPath
+                # （实测 CI 红：NamedParameterNotFound），而 -Path 会把 [ ] 当通配符——
+                # 实例目录叫 [1.21.1]ATM10 这种在 PCL/HMCL 下很常见。
+                [void][System.IO.Directory]::CreateDirectory($to)
                 Copy-Item -LiteralPath $old -Destination (Join-Path $to $f) -ErrorAction SilentlyContinue
             }
             Remove-Item -LiteralPath $old -Force -ErrorAction SilentlyContinue
