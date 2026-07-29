@@ -70,18 +70,37 @@ SRC_ONLY = {'blockui_legacy_labels.json'}
 # 因此出货侧一律把 @ 摊平成精确匹配，并给 dynamic 总对数上预算闸。
 MAX_DYNAMIC_PAIRS = 1300
 
+# 片段键（`'[Default: '` 这种带首尾空格的）才配用 `@`，而且要单独成块。上限卡死，
+# 因为子串替换是「每渲染一个字符串 × 该块全部对数」的开销。
+MAX_FRAGMENT_PAIRS = 16
+
 # 因上面这条预算而暂不随包发行的模块（文件留在 src/，一个字没删）。
-# 配置界面那两块合计 3495 对，实测会把每串成本从 18.7 µs 推到 64 µs。
-# 这两个模块从未进过任何已发布的 tag（vr14-beta1/beta2 里都没有），
-# 所以不需要给旧版本安排文件清理。
+# 配置界面那两块合计 3495 对，实测会把每串成本从 17 µs 推到 64 µs。
+# **r14 正式版发过这两个文件**（拿 vr14 的发布产物解包比对过；vr14-beta2 里确实没有，
+# 只看 beta 会得出相反的错结论）。安装器只覆盖不删除，所以停发的同时必须清理旧文件——
+# 见 installer/install.{sh,ps1} 的 clean_legacy_config_ui / Clear-LegacyConfigUI。
 PERF_HOLD = {
     'config_ui_generated.json': '3174 对，dynamic 全局扫表，代价见上方实测',
     'catnip_config_ui.json': '321 对，同上；与 config_ui_generated 是同一批界面',
 }
 
 
+def is_fragment(key):
+    """键带首尾空格 ⇒ 它是拼出来的长串里的一段，不可能与整串相等。
+
+    这种键只有子串模式才有效（例如 `'[Default: '`、`'Farthest '`）。摊平它等于
+    静默丢掉这条译文，所以它们保留 `@`——但必须单独成块，见 flatten_at。
+    """
+    return key != key.strip()
+
+
 def flatten_at(doc, name, stats):
     """把 dynamic 模块里的 `@值` 摊平成精确匹配，并统计对数。
+
+    例外：`is_fragment` 的键留着 `@`，并集中到该 target_class 的**独立块**里。
+    因为「非完整匹配」是**按块**触发的——一块里只要有一个 `@`，任何没被精确命中的
+    字符串都要把这块的整张表过一遍。把 4 条片段单独关进一块，子串扫描就只跑 4 次
+    而不是跟着 966 条一起跑；译文保住，开销可以忽略。
 
     只动出货副本，src/ 里的原文件不碰。返回新的块列表。
     """
@@ -89,12 +108,16 @@ def flatten_at(doc, name, stats):
         return doc[1:]
     out = []
     for b in doc[1:]:
-        pairs, seen = [], set()
+        pairs, frags, seen = [], [], set()
         for x in b.get('pairs') or []:
             k, v = x.get('key'), x.get('value', '')
             if not k:
                 continue
             if isinstance(v, str) and v.startswith('@'):
+                if is_fragment(k):                  # 只有片段键才值得付子串扫描的钱
+                    frags.append(dict(x))
+                    stats['frag'] += 1
+                    continue
                 v = v[1:]
                 stats['at'] += 1
             if (k, v) in seen:                      # 摊平后可能撞成同一对
@@ -104,11 +127,15 @@ def flatten_at(doc, name, stats):
             y = dict(x)
             y['value'] = v
             pairs.append(y)
-        stats['pairs'] += len(pairs)
+        stats['pairs'] += len(pairs) + len(frags)
         nb = dict(b)
         if 'pairs' in nb:
             nb['pairs'] = pairs
         out.append(nb)
+        if frags:
+            fb = dict(b)
+            fb['pairs'] = frags
+            out.append(fb)                          # 同一个 target_class，独立成块
     stats['mods'].append((name, sum(len(b.get('pairs') or []) for b in out)))
     return out
 
@@ -126,7 +153,7 @@ def main(ver, out_dir):
 
     n = 0
     nojar = []
-    stats = {'pairs': 0, 'at': 0, 'dedup': 0, 'mods': []}
+    stats = {'pairs': 0, 'at': 0, 'dedup': 0, 'frag': 0, 'mods': []}
     for p in sorted(MODULES.glob('*.json')):
         if p.name in SRC_ONLY or p.name in PERF_HOLD:
             continue
@@ -169,10 +196,23 @@ def main(ver, out_dir):
         if not doc[0].get('dynamic'):
             continue
         for b in doc[1:]:
-            for x in b.get('pairs') or []:
-                if str(x.get('value', '')).startswith('@'):
-                    sys.exit('❌ %s 里还有 @ 前缀的值（%r）——那是全局非完整匹配，'
-                             '会把每个渲染串的成本抬 4 倍。摊平它。' % (f.name, x['key']))
+            prs = b.get('pairs') or []
+            at = [x for x in prs if str(x.get('value', '')).startswith('@')]
+            if not at:
+                continue
+            # 「非完整匹配」按块触发：块里只要有一个 @，这块的整张表都会被逐串扫。
+            # 所以 @ 只许待在**整块都是片段键**的小块里。
+            if len(at) != len(prs):
+                sys.exit('❌ %s 有个块混着 %d 个 @ 和 %d 个精确对——@ 会让整块进'
+                         '非完整匹配模式，逐串扫全块。把 @ 单独成块。'
+                         % (f.name, len(at), len(prs) - len(at)))
+            bad = [x['key'] for x in at if x['key'] == x['key'].strip()]
+            if bad:
+                sys.exit('❌ %s 里 %r 不是片段键（没有首尾空格），却用了 @。'
+                         '整串就是这个键时精确匹配已经够用，@ 只会白花钱。' % (f.name, bad[0]))
+            if len(at) > MAX_FRAGMENT_PAIRS:
+                sys.exit('❌ %s 的片段块有 %d 条，超过上限 %d——子串替换是逐串开销，'
+                         '别往这里堆。' % (f.name, len(at), MAX_FRAGMENT_PAIRS))
     if stats['pairs'] > MAX_DYNAMIC_PAIRS:
         top = '、'.join('%s %d 对' % r for r in sorted(stats['mods'], key=lambda r: -r[1])[:4])
         sys.exit('❌ dynamic 模块合计 %d 对，超过预算 %d 对。\n'
@@ -196,8 +236,9 @@ def main(ver, out_dir):
 
     print('VaultPatcher 模块：%d 个（ATM10 %s 的 jar 名现填），主配置清单 %d 条'
           % (n, ver, len(names)))
-    print('  dynamic 表合计 %d 对 / 预算 %d 对；摊平 @ 前缀 %d 个，去重 %d 对'
-          % (stats['pairs'], MAX_DYNAMIC_PAIRS, stats['at'], stats['dedup']))
+    print('  dynamic 表合计 %d 对 / 预算 %d 对；摊平 @ 前缀 %d 个，去重 %d 对，'
+          '片段键保留 @ 并单独成块 %d 条'
+          % (stats['pairs'], MAX_DYNAMIC_PAIRS, stats['at'], stats['dedup'], stats['frag']))
     if PERF_HOLD:
         print('  因预算暂不出货 %d 个：%s'
               % (len(PERF_HOLD), '；'.join('%s（%s）' % kv for kv in sorted(PERF_HOLD.items()))))
