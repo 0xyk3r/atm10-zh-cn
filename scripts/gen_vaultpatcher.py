@@ -215,7 +215,11 @@ def main(ver, out_dir):
                          '非完整匹配模式，逐串扫全块。把 @ 单独成块。'
                          % (f.name, len(at), len(prs) - len(at)))
             # 出货副本里已经不带 @@ 了，所以这里只能反查 src/ 的原始值来放行显式声明。
-            src_doc = json.loads((MODULES / f.name).read_text(encoding='utf-8'))
+            src_path = MODULES / f.name
+            if not src_path.is_file():
+                sys.exit('❌ 出货树里有个 src/ 里不存在的模块 %s，而它还带着 @。'
+                         '这多半是脏 build/ 的残留——先清干净再构建。' % f.name)
+            src_doc = json.loads(src_path.read_text(encoding='utf-8'))
             explicit = {x['key'] for b2 in src_doc[1:] for x in (b2.get('pairs') or [])
                         if str(x.get('value', '')).startswith('@@')}
             bad = [x['key'] for x in at
@@ -227,6 +231,15 @@ def main(ver, out_dir):
             if len(at) > MAX_FRAGMENT_PAIRS:
                 sys.exit('❌ %s 的片段块有 %d 条，超过上限 %d——子串替换是逐串开销，'
                          '别往这里堆。' % (f.name, len(at), MAX_FRAGMENT_PAIRS))
+    # 这道闸以前只写在注释里（「出货侧另有闸复核包里确实没有它们」），实际并不存在：
+    # src/rules/vaultpatcher.json 的 no_files 只 glob 了 blockui_legacy_labels.json，
+    # verify_dist 的 vp_modules 是**下限**，漏进来照样过。而「漏回出货树」正是 r14
+    # 那次掉帧事故的形状——停发的模块必须真的不在包里。
+    leaked = sorted(n for n in list(SRC_ONLY) + list(PERF_HOLD) if (out / n).exists())
+    if leaked:
+        sys.exit('❌ 这些模块本不该出货，却出现在出货树里：%s\n'
+                 '   （SRC_ONLY / PERF_HOLD 名单见本脚本顶部；多半是脏 build/ 残留）'
+                 % '、'.join(leaked))
     if stats['pairs'] > MAX_DYNAMIC_PAIRS:
         top = '、'.join('%s %d 对' % r for r in sorted(stats['mods'], key=lambda r: -r[1])[:4])
         sys.exit('❌ dynamic 模块合计 %d 对，超过预算 %d 对。\n'

@@ -264,11 +264,25 @@ function Patch-Options {
 function Clear-LegacyCCHelp {
     $ccd = Join-Path $script:Target 'kubejs\data\computercraft'
     if (-not (Test-Path -LiteralPath $ccd)) { return }
-    $n = (Get-ChildItem -LiteralPath $ccd -Recurse -Filter *.txt -ErrorAction SilentlyContinue).Count
-    Remove-Item -LiteralPath $ccd -Recurse -Force -ErrorAction SilentlyContinue
-    Say "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$n 个文件）。"
-    Say "   CC 的终端只有 256 个自带字形、没有汉字，中文在那里必然是乱码，"
-    Say "   所以这部分改回英文——这是终端本身的限制，不是漏翻。"
+    # 只删我们装进去的 .txt，不动整棵树：那个目录下可能有玩家自己写的
+    # KubeJS 数据（.json / .lua），整棵 rm 会连它们一起删，而且不进备份、
+    # restore 也回不来。
+    $txt = @(Get-ChildItem -LiteralPath $ccd -Recurse -Filter *.txt -File -ErrorAction SilentlyContinue)
+    if ($txt.Count -eq 0) { return }
+    foreach ($f in $txt) { Remove-Item -LiteralPath $f.FullName -Force -ErrorAction SilentlyContinue }
+    # 自底向上删空目录；非空的一律留着
+    foreach ($d in @(Get-ChildItem -LiteralPath $ccd -Recurse -Directory -ErrorAction SilentlyContinue |
+                     Sort-Object { $_.FullName.Length } -Descending)) {
+        if (-not @(Get-ChildItem -LiteralPath $d.FullName -Force -ErrorAction SilentlyContinue)) {
+            Remove-Item -LiteralPath $d.FullName -Force -ErrorAction SilentlyContinue
+        }
+    }
+    if (-not @(Get-ChildItem -LiteralPath $ccd -Force -ErrorAction SilentlyContinue)) {
+        Remove-Item -LiteralPath $ccd -Force -ErrorAction SilentlyContinue
+    }
+    Write-Host "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$($txt.Count) 个文件）。"
+    Write-Host '   CC 的终端只有 256 个自带字形、没有汉字，中文在那里必然是乱码，'
+    Write-Host '   所以这部分改回英文——这是终端本身的限制，不是漏翻。'
 }
 
 # r14 发过「模组配置界面汉化」那两个 VaultPatcher 模块（合计 2232 条），本版起不再发。
@@ -281,15 +295,22 @@ function Clear-LegacyConfigUI {
     $hit = 0
     foreach ($f in @('config_ui_generated.json', 'catnip_config_ui.json')) {
         $old = Join-Path $vpm $f
-        if (Test-Path -LiteralPath $old) {
-            Remove-Item -LiteralPath $old -Force
+        if (Test-Path -LiteralPath $old -PathType Leaf) {
+            # 这两个文件不在 payload 里，Do-Backup 不会备份它们——删掉就永久没了。
+            # 这里自己塞进本次备份目录（就地解压模式没有备份，那条路本来就无从回退）。
+            if ($script:BK -and (Test-Path -LiteralPath $script:BK)) {
+                $to = Join-Path $script:BK 'vaultpatcher\modules'
+                New-Item -ItemType Directory -Force -LiteralPath $to | Out-Null
+                Copy-Item -LiteralPath $old -Destination (Join-Path $to $f) -ErrorAction SilentlyContinue
+            }
+            Remove-Item -LiteralPath $old -Force -ErrorAction SilentlyContinue
             $hit++
         }
     }
     if ($hit -gt 0) {
         Write-Host "🧹 清理了 $hit 个 r14 装进去的配置界面汉化模块。"
         Write-Host '   那套替换表是全局开销（每渲染一个字符串都要扫一遍），留着会掉帧；'
-        Write-Host '   代价是 Create / AE2 那类模组的配置界面回到英文。'
+        Write-Host '   代价是 Create 及其附属的配置界面回到英文（只有它们用这套界面）。'
     }
 }
 

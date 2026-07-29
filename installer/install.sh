@@ -186,8 +186,15 @@ do_backup() {
 clean_legacy_cc_help() {
   CCD="$TARGET/kubejs/data/computercraft"
   [ -d "$CCD" ] || return 0
-  n=$(find "$CCD" -name '*.txt' 2>/dev/null | wc -l | tr -d ' ')
-  rm -rf "$CCD"
+  # 只删我们装进去的 .txt，不动整棵树：那个目录下可能有玩家自己写的 KubeJS
+  # 数据（.json / .lua），整棵 rm 会连它们一起删，而且不进备份、restore 也回不来。
+  # `|| true`：set -euo pipefail 下 find 一旦非零退出（例如有不可读子目录），
+  # 这个赋值就会让安装器**静默退出**，什么都不打印。
+  n=$(find "$CCD" -name '*.txt' -type f 2>/dev/null | wc -l | tr -d ' ' || true)
+  [ "${n:-0}" -gt 0 ] || return 0
+  find "$CCD" -name '*.txt' -type f -exec rm -f {} + 2>/dev/null || true
+  # 自底向上删空目录；非空的一律留着
+  find "$CCD" -depth -type d -empty -exec rmdir {} + 2>/dev/null || true
   say "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$n 个文件）。"
   say "   CC 的终端只有 256 个自带字形、没有汉字，中文在那里必然是乱码，"
   say "   所以这部分改回英文——这是终端本身的限制，不是漏翻。"
@@ -203,6 +210,13 @@ clean_legacy_config_ui() {
   hit=0
   for f in config_ui_generated.json catnip_config_ui.json; do
     if [ -f "$VPM/$f" ]; then
+      # 这两个文件不在 payload 里，do_backup 不会备份它们——删掉就永久没了，
+      # restore 也拿不回来。所以这里自己塞进本次备份目录（就地解压模式没有备份，
+      # 那条路本来就无从回退，见 do_apply 的提示）。
+      if [ -n "${BK:-}" ] && [ -d "$BK" ]; then
+        mkdir -p "$BK/vaultpatcher/modules"
+        cp -p "$VPM/$f" "$BK/vaultpatcher/modules/$f" 2>/dev/null || true
+      fi
       rm -f "$VPM/$f"
       hit=$((hit + 1))
     fi
@@ -210,7 +224,7 @@ clean_legacy_config_ui() {
   if [ "$hit" -gt 0 ]; then
     say "🧹 清理了 $hit 个 r14 装进去的配置界面汉化模块。"
     say "   那套替换表是全局开销（每渲染一个字符串都要扫一遍），留着会掉帧；"
-    say "   代价是 Create / AE2 那类模组的配置界面回到英文。"
+    say "   代价是 Create 及其附属的配置界面回到英文（只有它们用这套界面）。"
   fi
 }
 

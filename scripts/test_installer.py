@@ -253,6 +253,11 @@ assert 'with itself' not in out, f'仍在把文件复制到自己头上：\n{out
 assert ENTRY in (inplace / 'options.txt').read_text(encoding='utf-8'), \
     f'就地解压模式未启用资源包：\n{out}'
 assert (inplace / 'config' / 'vaultpatcher_asm' / 'config.json').exists(), '就地解压模式误删了文件'
+# 就地解压这条路以前零覆盖：把 clean_legacy_config_ui 的调用从这条分支删掉，CI 照样全绿。
+# 变异测试暴露之后补上——r14 残留必须在两条路径上都被清掉。
+for _s in STALE:
+    assert not (inplace / 'vaultpatcher' / 'modules' / _s).exists(), \
+        f'就地解压模式没清掉 {_s}——那条路的清理没生效'
 print('✅ 就地解压（源即目标）不再自我复制 OK')
 
 # ---- 回归：刚装好、一次都没启动过的实例（没有 options.txt）----
