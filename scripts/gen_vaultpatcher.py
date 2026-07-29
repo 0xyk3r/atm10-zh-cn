@@ -42,8 +42,16 @@ SRC_ONLY = {'blockui_legacy_labels.json'}
 #       net.minecraft.client.gui.Font,
 #       net.minecraft.network.chat.FormattedText }
 #
-# VaultPatcher 往这三个类里注了 DynamicReplaceUtils.__mappingString ——
-# 也就是**每造一个字面量 Component、每渲染一个字符串**都要调一次。而那个方法：
+# VaultPatcher 往这三个类里注了 DynamicReplaceUtils.__mappingString。
+#
+# ⚠️ 别把它说成「每渲染一个字符串都要调一次」——那个说法**已被推翻**：注入是按方法名
+# 命中第一个就跳出循环的，1.21.1 的 Font 里 String 重载排在 FormattedCharSequence
+# 重载前面，所以 Component 文本渲染那条路（drawInBatch → renderText(FormattedCharSequence…)）
+# 很可能压根没被注入，只有裸 String 绘制与字面量 Component 构造会走。
+# 这条结论来自 2026-07-30 的对抗验证，我**没有自己复现过**，别拿它当既定事实往外写。
+# 能站住的只有：调用点在这几个类上，且每次调用要付下面 1-3 的代价。
+#
+# 而那个方法：
 #
 #   1. `Utils.needStacktrace` 为真就先 `Thread.currentThread().getStackTrace()`；
 #      该开关 = 「任何一个 dynamic 块写了 target_class」（VaultPatcher._init 里
@@ -71,7 +79,7 @@ SRC_ONLY = {'blockui_legacy_labels.json'}
 MAX_DYNAMIC_PAIRS = 1300
 
 # 片段键（`'[Default: '` 这种带首尾空格的）才配用 `@`，而且要单独成块。上限卡死，
-# 因为子串替换是「每渲染一个字符串 × 该块全部对数」的开销。
+# 因为子串替换是「每次替换调用 × 该块全部对数」的开销。
 MAX_FRAGMENT_PAIRS = 16
 
 # 因上面这条预算而暂不随包发行的模块（文件留在 src/，一个字没删）。
@@ -95,7 +103,7 @@ def wants_substring(key, value):
        子串命中的情况。出货时 `@@` 收敛成一个 `@`。
 
     两种都会被关进独立的片段块（见 flatten_at），并受 MAX_FRAGMENT_PAIRS 约束——
-    子串替换是「每渲染一个字符串 × 该块全部对数」的开销，能用精确匹配就别用它。
+    子串替换是「每次替换调用 × 该块全部对数」的开销，能用精确匹配就别用它。
     """
     return key != key.strip() or str(value).startswith('@@')
 
@@ -254,7 +262,7 @@ def main(ver, out_dir):
     if stats['pairs'] > MAX_DYNAMIC_PAIRS:
         top = '、'.join('%s %d 对' % r for r in sorted(stats['mods'], key=lambda r: -r[1])[:4])
         sys.exit('❌ dynamic 模块合计 %d 对，超过预算 %d 对。\n'
-                 '   这张表是**每渲染一个字符串**都要线性扫一遍的（见本脚本顶部实测），\n'
+                 '   这张表是**每次替换调用**都要线性扫一遍的（见本脚本顶部实测），\n'
                  '   超预算就是全局掉帧。最大的几个：%s\n'
                  '   要么把它挪进 PERF_HOLD，要么先量过再改预算。'
                  % (stats['pairs'], MAX_DYNAMIC_PAIRS, top))

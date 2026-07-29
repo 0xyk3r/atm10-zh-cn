@@ -90,7 +90,7 @@ pre.parent.mkdir(parents=True)
 pre.write_text('OLD-CONTENT', encoding='utf-8')
 
 # 预置 r14 发过、本版起停发的那两个模块：安装器必须主动删掉它们。
-# 它们是 dynamic 模块，而 dynamic 表是每渲染一个字符串都要线性扫一遍的全局开销——
+# 它们是 dynamic 模块，而 dynamic 表是全局的、每次替换调用都要线性扫一遍的开销——
 # 只覆盖不删除的话，装了新版照旧掉帧（这就是 r14 掉帧修不干净的那条路）。
 STALE = ('config_ui_generated.json', 'catnip_config_ui.json')
 for _s in STALE:

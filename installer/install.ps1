@@ -286,7 +286,7 @@ function Clear-LegacyCCHelp {
 }
 
 # r14 发过「模组配置界面汉化」那两个 VaultPatcher 模块（合计 2232 条），本版起不再发。
-# 它们是 dynamic 模块，而 VaultPatcher 的 dynamic 表是**每渲染一个字符串都要线性扫一遍**
+# 它们是 dynamic 模块，而 VaultPatcher 的 dynamic 表是**全局的、每次替换调用都要线性扫一遍**
 # 的全局开销——留在盘上就等于全场景掉帧照旧，装了新版也修不掉。安装器只覆盖不删除，
 # 所以必须在这里主动清掉。
 function Clear-LegacyConfigUI {
@@ -312,7 +312,7 @@ function Clear-LegacyConfigUI {
     }
     if ($hit -gt 0) {
         Write-Host "🧹 清理了 $hit 个 r14 装进去的配置界面汉化模块。"
-        Write-Host '   那套替换表是全局开销（每渲染一个字符串都要扫一遍），留着会掉帧；'
+        Write-Host '   那套替换表是全局开销（全局的，表越大越慢），留着会掉帧；'
         Write-Host '   代价是 Create 及其附属的配置界面回到英文（只有它们用这套界面）。'
     }
 }
