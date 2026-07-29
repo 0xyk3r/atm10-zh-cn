@@ -241,11 +241,11 @@ def main(ver, out_dir):
     import fnmatch
     rules = json.loads((ROOT / 'src' / 'rules' / 'vaultpatcher.json').read_text(encoding='utf-8'))
     globs = [r['glob'] for r in rules if r.get('kind') == 'no_files' and 'glob' in r]
-    for n in sorted(set(SRC_ONLY) | set(PERF_HOLD)):
-        target = 'vaultpatcher/modules/%s' % n
+    for hold in sorted(set(SRC_ONLY) | set(PERF_HOLD)):   # 别用 n：那是上面的模块计数
+        target = 'vaultpatcher/modules/%s' % hold
         if not any(fnmatch.fnmatch(target, gl) for gl in globs):
             sys.exit('❌ %s 在不出货名单里，却没有任何 no_files 规则拦它。\n'
-                     '   往 src/rules/vaultpatcher.json 补一条，否则「出货侧有闸」是假话。' % n)
+                     '   往 src/rules/vaultpatcher.json 补一条，否则「出货侧有闸」是假话。' % hold)
     leaked = sorted(n for n in list(SRC_ONLY) + list(PERF_HOLD) if (out / n).exists())
     if leaked:
         sys.exit('❌ 这些模块本不该出货，却出现在出货树里：%s\n'
