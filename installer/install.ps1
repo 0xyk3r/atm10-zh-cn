@@ -271,6 +271,28 @@ function Clear-LegacyCCHelp {
     Say "   所以这部分改回英文——这是终端本身的限制，不是漏翻。"
 }
 
+# r14 发过「模组配置界面汉化」那两个 VaultPatcher 模块（合计 2232 条），本版起不再发。
+# 它们是 dynamic 模块，而 VaultPatcher 的 dynamic 表是**每渲染一个字符串都要线性扫一遍**
+# 的全局开销——留在盘上就等于全场景掉帧照旧，装了新版也修不掉。安装器只覆盖不删除，
+# 所以必须在这里主动清掉。
+function Clear-LegacyConfigUI {
+    $vpm = Join-Path $script:Target 'vaultpatcher\modules'
+    if (-not (Test-Path -LiteralPath $vpm)) { return }
+    $hit = 0
+    foreach ($f in @('config_ui_generated.json', 'catnip_config_ui.json')) {
+        $old = Join-Path $vpm $f
+        if (Test-Path -LiteralPath $old) {
+            Remove-Item -LiteralPath $old -Force
+            $hit++
+        }
+    }
+    if ($hit -gt 0) {
+        Write-Host "🧹 清理了 $hit 个 r14 装进去的配置界面汉化模块。"
+        Write-Host '   那套替换表是全局开销（每渲染一个字符串都要扫一遍），留着会掉帧；'
+        Write-Host '   代价是 Create / AE2 那类模组的配置界面回到英文。'
+    }
+}
+
 function Clear-LegacyQuestLang {
     $qd = Join-Path $script:Target 'config\ftbquests\quests\lang\zh_cn\chapters'
     $sd = Join-Path $ScriptDir 'config\ftbquests\quests\lang\zh_cn\chapters'
@@ -301,6 +323,7 @@ function Do-Apply {
     if ($script:InPlace) {
         Clear-LegacyQuestLang
         Clear-LegacyCCHelp
+        Clear-LegacyConfigUI
         Patch-Options
         Write-Host '✅ 汉化文件已在位，options.txt 已处理完毕。'
         return
@@ -308,6 +331,7 @@ function Do-Apply {
     Do-Backup
     Clear-LegacyQuestLang
     Clear-LegacyCCHelp
+    Clear-LegacyConfigUI
     foreach ($f in Get-PayloadFiles) {
         $dst = Join-Path $script:Target $f
         if ((Join-Path $ScriptDir $f) -eq $dst) { continue }   # 双保险：源即目标就跳过

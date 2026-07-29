@@ -193,6 +193,27 @@ clean_legacy_cc_help() {
   say "   所以这部分改回英文——这是终端本身的限制，不是漏翻。"
 }
 
+# r14 发过「模组配置界面汉化」那两个 VaultPatcher 模块（合计 2232 条），本版起不再发。
+# 它们是 dynamic 模块，而 VaultPatcher 的 dynamic 表是**每渲染一个字符串都要线性扫一遍**
+# 的全局开销——留在盘上就等于全场景掉帧照旧，装了新版也修不掉。安装器只覆盖不删除，
+# 所以必须在这里主动清掉。
+clean_legacy_config_ui() {
+  VPM="$TARGET/vaultpatcher/modules"
+  [ -d "$VPM" ] || return 0
+  hit=0
+  for f in config_ui_generated.json catnip_config_ui.json; do
+    if [ -f "$VPM/$f" ]; then
+      rm -f "$VPM/$f"
+      hit=$((hit + 1))
+    fi
+  done
+  if [ "$hit" -gt 0 ]; then
+    say "🧹 清理了 $hit 个 r14 装进去的配置界面汉化模块。"
+    say "   那套替换表是全局开销（每渲染一个字符串都要扫一遍），留着会掉帧；"
+    say "   代价是 Create / AE2 那类模组的配置界面回到英文。"
+  fi
+}
+
 clean_legacy_quest_lang() {
   QD="$TARGET/config/ftbquests/quests/lang/zh_cn/chapters"
   SD="$SCRIPT_DIR/config/ftbquests/quests/lang/zh_cn/chapters"
@@ -306,6 +327,7 @@ do_apply() {
   if [ "$IN_PLACE" = "1" ]; then
     clean_legacy_quest_lang
     clean_legacy_cc_help
+    clean_legacy_config_ui
     patch_options
     say "✅ 汉化文件已在位，options.txt 已处理完毕。"
     return
@@ -313,6 +335,7 @@ do_apply() {
   do_backup
   clean_legacy_quest_lang
   clean_legacy_cc_help
+  clean_legacy_config_ui
   while IFS= read -r f; do
     mkdir -p "$TARGET/$(dirname "$f")"
     [ "$SCRIPT_DIR/$f" = "$TARGET/$f" ] && continue   # 双保险：源即目标就跳过

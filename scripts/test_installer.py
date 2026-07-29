@@ -89,6 +89,13 @@ pre = inst / 'vaultpatcher' / 'modules' / sample
 pre.parent.mkdir(parents=True)
 pre.write_text('OLD-CONTENT', encoding='utf-8')
 
+# 预置 r14 发过、本版起停发的那两个模块：安装器必须主动删掉它们。
+# 它们是 dynamic 模块，而 dynamic 表是每渲染一个字符串都要线性扫一遍的全局开销——
+# 只覆盖不删除的话，装了新版照旧掉帧（这就是 r14 掉帧修不干净的那条路）。
+STALE = ('config_ui_generated.json', 'catnip_config_ui.json')
+for _s in STALE:
+    (inst / 'vaultpatcher' / 'modules' / _s).write_text('STALE', encoding='utf-8')
+
 # 模拟释放后的汉化文件夹（与 build_dist.sh 产物同构）
 rel = inst / 'ATM10-7.2-汉化补丁-绿油油版'
 rel.mkdir()
@@ -129,6 +136,9 @@ assert ENTRY in read_opts(), 'options.txt 未启用汉化资源包'
 assert (inst / 'resourcepacks' / f'{PACK}.zip').exists(), '资源包未落位'
 assert (inst / 'config' / 'vaultpatcher_asm' / 'config.json').exists(), 'config 未落位'
 assert pre.read_text(encoding='utf-8') != 'OLD-CONTENT', '旧文件未被新版覆盖'
+for _s in STALE:
+    assert not (inst / 'vaultpatcher' / 'modules' / _s).exists(), \
+        f'{_s} 没被清理——装过 r14 的人会继续掉帧'
 
 bks = sorted(p for p in (rel / 'backups').iterdir() if p.is_dir())
 assert len(bks) == 1, f'应有 1 个备份，实际 {len(bks)}'
