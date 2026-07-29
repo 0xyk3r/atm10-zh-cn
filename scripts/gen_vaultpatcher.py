@@ -85,13 +85,19 @@ PERF_HOLD = {
 }
 
 
-def is_fragment(key):
-    """键带首尾空格 ⇒ 它是拼出来的长串里的一段，不可能与整串相等。
+def wants_substring(key, value):
+    """这一对要不要保留子串模式（`@`）。两种算：
 
-    这种键只有子串模式才有效（例如 `'[Default: '`、`'Farthest '`）。摊平它等于
-    静默丢掉这条译文，所以它们保留 `@`——但必须单独成块，见 flatten_at。
+    1. **键带首尾空格**：`'[Default: '`、`'Farthest '` 这种，它是拼出来的长串里的
+       一段，不可能与整串相等——摊平等于静默丢译文。自动识别，不用标注。
+    2. **值写 `@@`**：显式声明「我确实需要子串替换，知道代价」。给的是
+       「`Caledonia` 出现在 `Caledonia Roads` 里」这类键本身没空格、但确实只能靠
+       子串命中的情况。出货时 `@@` 收敛成一个 `@`。
+
+    两种都会被关进独立的片段块（见 flatten_at），并受 MAX_FRAGMENT_PAIRS 约束——
+    子串替换是「每渲染一个字符串 × 该块全部对数」的开销，能用精确匹配就别用它。
     """
-    return key != key.strip()
+    return key != key.strip() or str(value).startswith('@@')
 
 
 def flatten_at(doc, name, stats):
@@ -114,8 +120,10 @@ def flatten_at(doc, name, stats):
             if not k:
                 continue
             if isinstance(v, str) and v.startswith('@'):
-                if is_fragment(k):                  # 只有片段键才值得付子串扫描的钱
-                    frags.append(dict(x))
+                if wants_substring(k, v):           # 只有这两种才值得付子串扫描的钱
+                    y = dict(x)
+                    y['value'] = v[1:] if v.startswith('@@') else v   # @@ 收敛成 @
+                    frags.append(y)
                     stats['frag'] += 1
                     continue
                 v = v[1:]
@@ -206,10 +214,16 @@ def main(ver, out_dir):
                 sys.exit('❌ %s 有个块混着 %d 个 @ 和 %d 个精确对——@ 会让整块进'
                          '非完整匹配模式，逐串扫全块。把 @ 单独成块。'
                          % (f.name, len(at), len(prs) - len(at)))
-            bad = [x['key'] for x in at if x['key'] == x['key'].strip()]
+            # 出货副本里已经不带 @@ 了，所以这里只能反查 src/ 的原始值来放行显式声明。
+            src_doc = json.loads((MODULES / f.name).read_text(encoding='utf-8'))
+            explicit = {x['key'] for b2 in src_doc[1:] for x in (b2.get('pairs') or [])
+                        if str(x.get('value', '')).startswith('@@')}
+            bad = [x['key'] for x in at
+                   if x['key'] == x['key'].strip() and x['key'] not in explicit]
             if bad:
-                sys.exit('❌ %s 里 %r 不是片段键（没有首尾空格），却用了 @。'
-                         '整串就是这个键时精确匹配已经够用，@ 只会白花钱。' % (f.name, bad[0]))
+                sys.exit('❌ %s 里 %r 用了 @ 但键没有首尾空格，也没写 @@ 显式声明。'
+                         '整串就是这个键时精确匹配已经够用，@ 只会白花钱；'
+                         '确实需要子串替换就把值写成 @@译文。' % (f.name, bad[0]))
             if len(at) > MAX_FRAGMENT_PAIRS:
                 sys.exit('❌ %s 的片段块有 %d 条，超过上限 %d——子串替换是逐串开销，'
                          '别往这里堆。' % (f.name, len(at), MAX_FRAGMENT_PAIRS))
