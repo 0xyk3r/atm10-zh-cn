@@ -206,9 +206,13 @@ def _xml_parses(rule):
         # 都没命中，才是真出事了——所以按「装过书没有」来分。
         base = TREE / 'resourcepacks' / 'ATM10汉化包' / 'assets'
         if not any((base / ns / 'gui').is_dir() for ns in ('minecolonies', 'structurize')):
-            m = absent('界面 XML 解析检查', '%r 是生成物，尚未生成' % g)
-            if m:
-                yield m
+            # 这条**不接 GATE_STRICT**：0 个 XML 是当前的有意状态，不是生成失败。
+            # aafe85f「根因修好之后，撤掉全部为它做的补偿性改动」之后我们不再发任何
+            # 界面 XML（此前 74 个）——那笔的提交信息里写明了「两道闸留着，将来真要
+            # 盖 XML 时仍然拦得住」。所以它是一道**刻意留空的待用闸**，
+            # 把「没有文件」当失败等于反过来强迫我们重新发 XML。
+            print('ℹ️ 跳过界面 XML 解析检查：本版不发任何界面 XML（见 aafe85f），'
+                  '这道闸留给将来真要盖 XML 的时候')
             return
         yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
     for p in hit:

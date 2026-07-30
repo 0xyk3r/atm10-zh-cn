@@ -21,7 +21,7 @@
   {
     "id": "format-placeholder-safety",
     "kind": "format_safety",
-    "snapshot": "scripts/upstream_format_en_us.json",
+    "snapshot": "build/snapshots/upstream_format_en_us.json",
     "why": "四条红线，都是踩过的：①译文的占位符集合必须 ⊆ 英文原文的，多出来 = 运行时参数不足 → TranslatableFormatException（「少」是译者的合法选择，禁止擅自补回来：精致存储 %s%s木桶 的第二个参数其实只是个空格，补上去反而变成「限类Pink Ipe 木桶 I」）；②同序号的转换符不许从 %s 降级成 %d/%f；③结尾裸 % 会被 MC 的 FORMAT_PATTERN 匹配到字符串结尾并抛异常；④§ 后面跟非法字符会让那个字被渲染器静默吞掉。",
     "allow": {
       "death.attack.freeze.item": "上游把 %3$s 打成了 %3$（缺转换符），模组实际传 3 个参数，我们的译文才是对的",
