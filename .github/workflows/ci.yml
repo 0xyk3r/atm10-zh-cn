@@ -99,6 +99,9 @@ jobs:
       # 把踩过的雷全部变成硬检查：
       # JSON 合法性 / 枚举协议值禁翻 / VaultPatcher 主配置 / .gui choice 保持英文 /
       # 占位符与颜色码 / 任务书 delta 无重复键。逐版本各查一遍。
+      # 这里**故意不设 GATE_STRICT**：上面取整合包用的是 --no-jars，于是要读 jar 才能
+      # 产出的那几样（界面 XML / 蜂名脚本 / 上游格式串快照）在这条流水线里真的不存在，
+      # 设了就是必红。带 jar 的完整生成在 build.yml，GATE_STRICT=1 设在那边。
       - name: 汉化文件校验（各版本）
         run: |
           set -euo pipefail

@@ -30,6 +30,11 @@
 | 标识符样式的键 | 被拿去构造 ResourceLocation → 注册崩 |
 | 以 `/` 开头的键 | 译了建筑棒的类别路径，查表落空 → NPE 闪退（issue #3） |
 
+第二组反例撞的是另一种假象：**前提不在时静默放过**。检查的前提（生成物、入库的
+数据文件、mod jar）缺失时打一行 ℹ️ 然后返回成功，退出码跟「查过了没问题」一样。
+`protect.py` 就这么把两条闸关了整整一个版本。跑在生成之后的环节一律传
+`GATE_STRICT=1`，让「闸没跑成」变成红；`ci.yml` 用 `--no-jars`，那边**不设**。
+
 ## 为什么不会进出货包
 
 夹具全部在**临时目录**里现造现删，仓库里一个假翻译文件都不留；
@@ -40,6 +45,7 @@
     python3 scripts/compliance/test_gates.py
 """
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -129,19 +135,29 @@ def _c6(mods):
     f.write_bytes(b'\xca\xfe\xba\xbe\x00\x00\x00\x41')
 
 
+def fixture(tmp):
+    """把 src/ + scripts/ 复制一份到临时目录，搭出一棵出货树，返回树的路径。"""
+    shutil.copytree(ROOT / 'src', tmp / 'src')
+    shutil.copytree(ROOT / 'scripts', tmp / 'scripts')
+    # versions/db 是**入库**的（keybinds.json 等），不是生成物。不带上它，
+    # 「按键注册名」那条在夹具里就没有前提、跟着静默消失——夹具本身成了假闸。
+    if (ROOT / 'versions' / 'db').is_dir():
+        shutil.copytree(ROOT / 'versions' / 'db', tmp / 'versions' / 'db')
+    tree = tmp / 'build' / 'common'
+    (tree / 'vaultpatcher').mkdir(parents=True)
+    shutil.copytree(ROOT / 'src' / 'vaultpatcher' / 'modules',
+                    tree / 'vaultpatcher' / 'modules')
+    for d in ('config', 'resourcepacks', 'kubejs'):
+        if (ROOT / 'build' / 'common' / d).is_dir():
+            shutil.copytree(ROOT / 'build' / 'common' / d, tree / d, symlinks=True)
+    return tree
+
+
 def run_case(name, inject, rule_id):
     """把 src/ 复制一份到临时目录，注入违规，跑 check.py，看有没有报出那条规则。"""
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
-        shutil.copytree(ROOT / 'src', tmp / 'src')
-        shutil.copytree(ROOT / 'scripts', tmp / 'scripts')
-        tree = tmp / 'build' / 'common'
-        (tree / 'vaultpatcher').mkdir(parents=True)
-        shutil.copytree(ROOT / 'src' / 'vaultpatcher' / 'modules',
-                        tree / 'vaultpatcher' / 'modules')
-        for d in ('config', 'resourcepacks', 'kubejs'):
-            if (ROOT / 'build' / 'common' / d).is_dir():
-                shutil.copytree(ROOT / 'build' / 'common' / d, tree / d, symlinks=True)
+        tree = fixture(tmp)
         inject(tmp / 'src' / 'vaultpatcher' / 'modules')
         inject(tree / 'vaultpatcher' / 'modules')
         if rule_id == 'DYNSUB':      # 这条由独立脚本查，不在 check.py 的规则里
@@ -164,11 +180,81 @@ def run_case(name, inject, rule_id):
         return ok
 
 
+# ── 第二组反例：「前提不在 → 静默放过」这类假闸 ────────────────────────────
+#
+# 前一组撞的是「翻译内容违规」。这一组撞的是另一种假象：检查的前提（生成物、
+# 入库的数据文件、mod jar）不在时打一行 ℹ️ 然后**返回成功**——退出码上跟
+# 「查过了没问题」一模一样。protect.py 那次就是这么漏了两条闸整整一个版本。
+#
+# 这里不断言「基线全绿」：夹具里没有完整出货树（ci.yml 把本脚本排在摊树之前），
+# check.py 本来就会因别的原因报错。所以只断言**那句话在不在**。
+MISSING = []
+
+
+def missing_case(name):
+    def deco(fn):
+        MISSING.append((name, fn))
+        return fn
+    return deco
+
+
+def check_out(tmp, tree, strict):
+    env = dict(os.environ)
+    env.pop('GATE_STRICT', None)
+    if strict:
+        env['GATE_STRICT'] = '1'
+    r = subprocess.run([sys.executable, str(tmp / 'scripts' / 'check.py'), str(tree)],
+                       capture_output=True, text=True, cwd=tmp, env=env)
+    return r.returncode, r.stdout + r.stderr
+
+
+@missing_case('GATE_STRICT 下「前提是生成物但没生成」→ 必须红')
+def _m1(tmp, tree):
+    rc, out = check_out(tmp, tree, strict=True)
+    return rc != 0 and '没跑成' in out and 'GATE_STRICT' in out
+
+
+@missing_case('不设 GATE_STRICT 时同一棵树 → 仍按 ℹ️ 跳过（ci.yml 走这条）')
+def _m2(tmp, tree):
+    rc, out = check_out(tmp, tree, strict=False)
+    return 'ℹ️ 跳过' in out and '没跑成' not in out
+
+
+@missing_case('入库的 keybinds.json 全没了 → 不看 GATE_STRICT 也必须红')
+def _m3(tmp, tree):
+    shutil.rmtree(tmp / 'versions' / 'db')
+    rc, out = check_out(tmp, tree, strict=False)
+    return rc != 0 and '按键注册名检查没跑成' in out
+
+
+@missing_case('GATE_STRICT 下没有 mods 目录 → check_gui_maps 必须红')
+def _m4(tmp, tree):
+    env = dict(os.environ)
+    env['GATE_STRICT'] = '1'
+    env.pop('ATM_PACK_ROOT', None)
+    r = subprocess.run([sys.executable,
+                        str(tmp / 'scripts' / 'compliance' / 'check_gui_maps.py'),
+                        str(tmp / '压根不存在' / 'mods')],
+                       capture_output=True, text=True, cwd=tmp, env=env)
+    return r.returncode != 0 and '没跑成' in (r.stdout + r.stderr)
+
+
+def run_missing(name, fn):
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        ok = fn(tmp, fixture(tmp))
+    print(('✅' if ok else '❌') + ' %s' % name)
+    return ok
+
+
 def main():
     print('闸的反例测试：每条都复刻一次真实事故，验它真的会红\n')
     ok = sum(run_case(*c) for c in CASES)
     print('\n%d/%d 条闸经反例验证确实会红' % (ok, len(CASES)))
-    if ok != len(CASES):
+    print('\n前提缺失时不许静默放过：\n')
+    ok2 = sum(run_missing(*m) for m in MISSING)
+    print('\n%d/%d 条' % (ok2, len(MISSING)))
+    if ok != len(CASES) or ok2 != len(MISSING):
         print('有闸没拦住反例——它现在是假闸，修好之前不许发版。')
         return 1
     return 0

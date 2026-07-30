@@ -21,6 +21,7 @@
     python3 scripts/check.py [出货树]        # 缺省 build/common
 """
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -37,6 +38,26 @@ PACK_DIR = TREE / 'resourcepacks' / 'ATM10汉化包'
 
 CJK = re.compile(r'[一-鿿]')
 CHECKERS = {}
+
+# 有几条检查的前提是**生成物**（要读 mod jar 才能产出）。没有 jar 的环境里它们
+# 真的不存在，这时报错只会教人把闸关掉；但在**本该已经生成完**的流水线里，
+# 「前提不在」意味着生成器静默没产出，而闸跟着一起消失——退出码上跟「查过了没问题」
+# 一模一样。protect.py 那次就是这么漏的（详见它顶部的注释）。
+# 所以：跑在生成之后的环节一律传 GATE_STRICT=1，让「闸没跑成」变成红。
+STRICT = (os.environ.get('GATE_STRICT') or '').strip() not in ('', '0')
+
+
+def absent(what, hint):
+    """前提缺失时的统一出口。
+
+    返回该 yield 出去的话（strict 下），或 None（非 strict，只打一行 ℹ️）。
+    调用方一律写成 `m = absent(...); if m: yield m; return`。
+    """
+    if STRICT:
+        return ('%s没跑成：%s。本环境声明了 GATE_STRICT——前提本该已经生成好，'
+                '缺了就是生成环节出问题，不算通过' % (what, hint))
+    print('ℹ️ 跳过%s：%s' % (what, hint))
+    return None
 
 
 def checker(kind):
@@ -185,7 +206,9 @@ def _xml_parses(rule):
         # 都没命中，才是真出事了——所以按「装过书没有」来分。
         base = TREE / 'resourcepacks' / 'ATM10汉化包' / 'assets'
         if not any((base / ns / 'gui').is_dir() for ns in ('minecolonies', 'structurize')):
-            print('ℹ️ 跳过界面 XML 解析检查：%r 是生成物，尚未生成' % g)
+            m = absent('界面 XML 解析检查', '%r 是生成物，尚未生成' % g)
+            if m:
+                yield m
             return
         yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
     for p in hit:
@@ -351,7 +374,11 @@ def _vp_keybind_names(rule):
     g, = need(rule, 'data_glob')
     data = sorted(ROOT.glob(g))
     if not data:
-        print('ℹ️ 跳过按键注册名检查：还没有 %s（跑 scan_keybinds.py 生成）' % g)
+        # 这条**不看 GATE_STRICT，一律红**：它的前提不是生成物，是入库的
+        # （versions/db/*/keybinds.json 三个版本都在 git 里）。而 protect.py 的
+        # 保护范围只有 src/，versions/ 不在里面——真被删了没有别的闸兜得住。
+        yield ('按键注册名检查没跑成：%s 一个都没命中。这些文件是入库的，'
+               '不是生成物，缺了说明被删/被挪走了（跑 scan_keybinds.py 重建）' % g)
         return
     names = set()
     for p in data:
@@ -387,7 +414,9 @@ def _format_safety(rule):
     snap, = need(rule, 'snapshot')
     f = ROOT / snap
     if not f.exists():
-        print('ℹ️ 跳过占位符检查：还没有 %s' % snap)
+        m = absent('占位符检查', '还没有 %s（gen_format_snapshot.py 要读 mod jar 才能产出）' % snap)
+        if m:
+            yield m
         return
     up = json.loads(f.read_text(encoding='utf-8'))
     allow = set(rule.get('allow', {}))
@@ -452,7 +481,9 @@ def _pb_single_source(rule):
         return
     pack = json.loads(lp.read_text(encoding='utf-8'))
     if not sp.exists():
-        print('ℹ️ 跳过蜂名漂移检查：%s 是生成物，尚未生成' % script)
+        m = absent('蜂名漂移检查', '%s 是生成物，尚未生成' % script)
+        if m:
+            yield m
         return
     m = re.search(r'const PB_ID2ZH = (\{.*?\});', sp.read_text(encoding='utf-8'), re.S)
     if not m:

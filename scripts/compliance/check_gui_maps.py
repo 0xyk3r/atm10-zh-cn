@@ -35,6 +35,13 @@ ATTR = re.compile(r'\b([a-zA-Z_]+)="')
 def main(argv):
     mods = Path(argv[0]) if argv else Path(os.environ.get('ATM_PACK_ROOT', '')) / 'mods'
     if not mods.is_dir():
+        # 没有 jar 的环境里真查不了。但流水线里 jar 本该已经下好，缺了就是下载/
+        # 缓存那步出了问题，而这道闸会跟着静默消失——退出码跟「查过了没问题」一样。
+        # 所以生成之后的环节一律传 GATE_STRICT=1（同 check.py 里的 absent()）。
+        if (os.environ.get('GATE_STRICT') or '').strip() not in ('', '0'):
+            print('❌ 界面 XML 映射检查没跑成：没有 mods 目录 %s。'
+                  '本环境声明了 GATE_STRICT——jar 本该已备好，缺了不算通过' % mods)
+            return 1
         print('ℹ️ 跳过：没有 mods 目录（给个参数或设 ATM_PACK_ROOT）')
         return 0
     jars = {}

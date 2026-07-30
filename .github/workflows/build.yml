@@ -42,6 +42,11 @@ jobs:
         shell: bash
     env:
       ATM_TOOLCHAIN_DIGEST: sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b
+      # 这条流水线是**带 jar 跑完整生成**的，所以 check.py / check_gui_maps.py 里
+      # 那几条「前提是生成物」的检查在这里本该全部有前提。缺了就是生成环节出问题，
+      # 不许再打一行 ℹ️ 然后放过——那样「闸没跑成」和「查过了没问题」退出码一样。
+      # ci.yml 反过来：它用 --no-jars，那些前提真的不存在，所以那边**不设**这个变量。
+      GATE_STRICT: '1'
     steps:
       # git 必须在 checkout **之前**装好。这个容器镜像里没有 git，而
       # actions/checkout 检测不到 git 就退化成「用 REST API 下 tarball」——
