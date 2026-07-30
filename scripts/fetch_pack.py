@@ -24,6 +24,7 @@ CurseForge 的网页 API 没有配额说明但会限速。踩过的坑都写进�
 """
 import concurrent.futures as cf
 import hashlib
+import io
 import json
 import sys
 import time
@@ -149,6 +150,20 @@ def find_file_id(ver):
              % (ver, ' '.join(have)))
 
 
+def site_file_name(project_id, file_id):
+    """问 CurseForge 站点 API 要这个文件的真名（不需要 API key）。
+
+    取不到就返回 None——宁可让外层报错，也别编一个假名字。
+    """
+    url = 'https://www.curseforge.com/api/v1/mods/%d/files/%d' % (project_id, file_id)
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'application/json'})
+        d = json.load(urllib.request.urlopen(req, timeout=15))
+        return ((d.get('data') or {}).get('fileName')) or None
+    except Exception:                                            # noqa: BLE001
+        return None
+
+
 def main(ver, out, jars=True):
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
@@ -216,8 +231,25 @@ def main(ver, out, jars=True):
                 return None
             name = got
             if not name.endswith('.jar'):
-                name = '%d.jar' % f['fileID']
-            p = mods / name
+                # 跳转没带出文件名时，**别**编一个 `<fileID>.jar` 出来：manifest 的
+                # files[] 里混着 mod / 资源包 / 光影包，改名成 .jar 会把光影包伪装成
+                # mod 丢进 mods/（实测 fileID 8123287 = ComplementaryReimagined_r5.8.1.zip
+                # 这么进过 mods/）。站点 API 能给真名，问它。
+                name = site_file_name(f['projectID'], f['fileID']) or name
+            # 分目录不靠名字猜，看 zip 里面有什么（确定性）：
+            #   有 shaders/ → 光影包；有 pack.mcmeta → 资源包；否则当 mod
+            if name.endswith('.jar'):
+                p = mods / name
+            else:
+                try:
+                    inner = zipfile.ZipFile(io.BytesIO(d)).namelist()
+                except Exception:                                # noqa: BLE001
+                    inner = []
+                sub = ('shaderpacks' if any(x.startswith('shaders/') for x in inner)
+                       else 'resourcepacks' if any(x == 'pack.mcmeta' for x in inner)
+                       else 'mods')
+                (mods.parent / sub).mkdir(parents=True, exist_ok=True)
+                p = mods.parent / sub / name
             if not p.exists():
                 p.write_bytes(d)
             prov[name] = {'projectID': f['projectID'], 'fileID': f['fileID'],
