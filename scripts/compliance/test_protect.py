@@ -154,6 +154,34 @@ def t_nogit_delete(repo):
             and 'Traceback' not in r.stderr)
 
 
+@case('base 指向克隆里没有的提交 → 必须红（不许静默跳过）')
+def t_base_missing(repo):
+    # 上面那条 t_launder 传的是 base='HEAD'，在完整仓库里永远解析得出来，
+    # 所以它从没走过「base 取不到」这条分支。而 CI 里恰恰常常取不到：
+    # ci.yml 曾用 fetch-depth: 2 而 github.event.before 在三笔之外，
+    # build.yml 的 checkout 连 fetch-depth 都没写（默认 1）。
+    # 那时闸打一行 ℹ️ 然后退 0——洗白式改动正好能从这里整个漏过去。
+    r = run(repo, '--check', base='0123456789abcdef0123456789abcdef01234567')
+    return r.returncode == 1 and '没跑成' in r.stdout
+
+
+@case('base 是全零 sha（新建分支首次 push）→ 放过')
+def t_base_zero(repo):
+    # github.event.before 在这种 push 上就是全零，确实没有可比的上一版。
+    r = run(repo, '--check', base='0' * 40)
+    return r.returncode == 0 and '全零' in r.stdout
+
+
+@case('真·浅克隆里拿不到 HEAD~1 → 必须红')
+def t_shallow_clone(repo):
+    shallow = repo.parent / 'shallow'
+    sh('git', 'clone', '--quiet', '--depth=1', 'file://%s' % repo, str(shallow))
+    if not (shallow / 'src' / 'protected.json').is_file():
+        return False                                  # 克隆没成，测试本身失效
+    r = run(shallow, '--check')                        # 不传 base，回落 HEAD~1
+    return r.returncode == 1 and '没跑成' in r.stdout
+
+
 @case('--update 只会加，不会把消失的文件从清单里抹掉')
 def t_update_never_removes(repo):
     (repo / 'src' / 'pack' / 'b.json').unlink()

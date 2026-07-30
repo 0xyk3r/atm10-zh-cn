@@ -43,7 +43,12 @@ jobs:
     env:
       ATM_TOOLCHAIN_DIGEST: sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b
     steps:
+      # 要完整历史：下面那道保护清单闸得跟 HEAD~1 比「清单有没有变短」，
+      # checkout 的默认 depth 是 1，HEAD~1 根本不在克隆里。原先没写这行，
+      # 那条闸在本工作流里一次都没真跑过（它取不到 base 只打一行 ℹ️ 就返回成功）。
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 装依赖（哈希锁定）
         run: |

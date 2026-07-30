@@ -22,10 +22,13 @@ jobs:
     name: 上游漂移 + 汉化校验
     runs-on: ubuntu-latest
     steps:
-      # 保护清单要跟**上一版**比（清单自己也不许变短），所以多要一个提交。
+      # 保护清单要跟**上一版**比（清单自己也不许变短），所以要完整历史。
+      # 别改回浅克隆：fetch-depth: 2 只够「一次 push 一笔」——一次推三笔时
+      # github.event.before 就落在克隆之外，PR 的 base.sha 更是随便就在几十笔前。
+      # 那条闸取不到 base 现在会红（见 protect.py 的 base_rev），浅克隆等于直接挂 CI。
       - uses: actions/checkout@v6
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:

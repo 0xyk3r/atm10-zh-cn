@@ -86,21 +86,52 @@ def read_manifest():
     return load(MANIFEST.read_text(encoding='utf-8'))
 
 
+ABSENT = 'absent'      # 那个提交上还没有清单这个文件
+BROKEN = 'broken'      # 有文件但解析不了
+
+
 def at(rev):
-    """某个提交上的清单；那时还没有这个文件就返回 None。"""
+    """某个提交上的清单，或 ABSENT / BROKEN。
+
+    这两种要分开：「那时还没有这个文件」是正常的（清单是后来引入的），
+    「有文件但解析不了」不正常，不许当没事。
+    """
     out = git('show', '%s:%s' % (rev, MANIFEST_REL))
     if out is None:
-        return None
+        return ABSENT
     try:
         return load(out)
     except Exception:                                          # noqa: BLE001
-        return None
+        return BROKEN
+
+
+def have(rev):
+    return git('rev-parse', '--verify', '--quiet', rev + '^{commit}') is not None
 
 
 def base_rev():
-    """跟哪一版比。CI 传 PROTECT_BASE，本地默认上一个提交。"""
-    rev = os.environ.get('PROTECT_BASE') or 'HEAD~1'
-    return rev if git('rev-parse', '--verify', '--quiet', rev + '^{commit}') else None
+    """跟哪一版比，返回 `(rev, 可以跳过的理由)`。
+
+    rev 有值就一定解析得出来。rev 为 None 且理由为 None = **取不到**，
+    调用方必须按失败处理，不许静默跳过——见 check() 里第 3 条的注释。
+
+    浅克隆是常态而不是意外：CI 的 checkout 只要几层，而 `github.event.before`
+    可能落在更早的提交上（一次 push 好几笔就会）。所以取不到先按需补取一个，
+    补不到才算取不到。
+    """
+    raw = (os.environ.get('PROTECT_BASE') or '').strip()
+    if raw and set(raw) == {'0'}:
+        # github.event.before 在新建分支的首次 push 上是全零，确实没有上一版
+        return None, '上一版是全零 sha（新建分支的首次 push），没有可比的清单'
+    rev = raw or 'HEAD~1'
+    if have(rev):
+        return rev, None
+    # 只对看着像 sha 的做补取：HEAD~1 这种相对引用 fetch 不了
+    if len(rev) >= 7 and all(c in '0123456789abcdefABCDEF' for c in rev):
+        git('fetch', '--quiet', '--depth=1', 'origin', rev)
+        if have(rev):
+            return rev, None
+    return None, None
 
 
 def update():
@@ -152,17 +183,35 @@ def check():
     # 3. 防洗白：清单本身也不许悄悄变短。
     #    上一版清单里出现过的路径，现在必须仍在 protected 或 released 里。
     #    想删文件？可以，但必须在 released 留下一条永久记录。
-    rev = base_rev()
-    if rev:
-        prev = at(rev)
-        if prev:
-            _, pprot, prel = prev
-            lost = sorted((pprot | prel) - (prot | rel))
-            if lost:
-                bad.append(('保护清单自己被改短了——这些路径上一版还在，现在两边都查无此条',
-                            lost))
-    else:
-        print('ℹ️ 取不到上一版清单（浅克隆？），跳过「清单不许变短」这一条')
+    #
+    #    这条**取不到 base 就必须红**。早先是打一行 ℹ️ 然后返回成功，于是
+    #    ci.yml（fetch-depth: 2，而 github.event.before 在三笔之外）和
+    #    build.yml（checkout 默认 depth 1，HEAD~1 根本不存在）里这条一直没跑成，
+    #    而闸退 0——「闸没跑」和「查过了没问题」长得一模一样。同时删文件 + 从清单
+    #    抹掉的那种洗白改动，正好撞上浅克隆就会整个漏过去。
+    #    git 完全用不了是另一码事，上面第 2 条已经整段跳过并说明了。
+    if now is not None:
+        rev, skip_why = base_rev()
+        if rev:
+            prev = at(rev)
+            if prev is ABSENT:
+                print('ℹ️ %s 上还没有 %s，跳过「清单不许变短」这一条' % (rev, MANIFEST_REL))
+            elif prev is BROKEN:
+                bad.append(('上一版的保护清单解析不出来，没法比对——不许当没事', [rev]))
+            else:
+                _, pprot, prel = prev
+                lost = sorted((pprot | prel) - (prot | rel))
+                if lost:
+                    bad.append(('保护清单自己被改短了——这些路径上一版还在，现在两边都查无此条',
+                                lost))
+        elif skip_why:
+            print('ℹ️ %s，跳过「清单不许变短」这一条' % skip_why)
+        else:
+            bad.append((
+                '取不到用来比对的上一版，「清单不许变短」这条没跑成——按失败处理。'
+                '克隆里没有这个提交，--depth=1 补取也失败。'
+                'CI 里请把 checkout 的 fetch-depth 设为 0',
+                ['PROTECT_BASE=%s' % (os.environ.get('PROTECT_BASE') or '(未设，回落 HEAD~1)')]))
 
     # 4. released 必须写清楚谁批的、为什么。没有理由的放行不算放行。
     for r in (d.get('released') or []):
