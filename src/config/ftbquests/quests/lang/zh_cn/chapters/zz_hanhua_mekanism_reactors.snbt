@@ -4,5 +4,8 @@
 	]
 	quest.32ABE5D734703B9C.quest_subtitle: "胸甲"
 	quest.32ABE5D734703B9C.title: "&7鞘翅模块"
+	quest.55702BE0151D33FE.quest_desc: [
+		"&a感应端口&r是我们将&a能量&r输入和输出&a&l能量感应矩阵&r的方式。\\n\\n与几乎所有多方块结构一样，你需要将&a端口&r放置在&a&l感应矩阵&r的墙壁内。\\n\\n我认为&a端口&r除了&a&l感应矩阵&r本身的限制外没有其他限制，因此除非你从不同来源获取能量，否则不需要超过2个！"
+	]
 	quest.5B18676A77CD6069.quest_subtitle: "(QIO)"
 }

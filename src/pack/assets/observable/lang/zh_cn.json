@@ -2,7 +2,7 @@
   "screen.observable.profile": "档案",
   "screen.observable.results": "结果",
   "key.observable.profile": "显示性能分析器界面",
-  "category.observable.keybinds": "可观测",
+  "category.observable.keybinds": "可视性能侦测",
   "text.observable.profile_tps": "性能分析TPS",
   "text.observable.profile_fps": "性能分析FPS",
   "text.observable.sampler": "使用采样器进行性能分析（会增加额外开销）",

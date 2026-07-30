@@ -249,6 +249,13 @@ All the Mods 10\          ← 实例根目录
   实测会把替换表的单次成本抬高数倍，界面文字一多就掉帧（`vr14` 掉帧就是这么来的）。
   译文已经生成好留在 `src/` 里，等一个不用付全局代价的做法。
   （那个列表会枚举所有带标准配置的模组，所以受影响的不只 Create 自己的配置页。）
+- **可视性能侦测（Observable）性能分析浮层上的两行计时保持英文**
+  （`Duration (scroll): 30 seconds`、`Running for another 29.3 seconds`）。这两行没有
+  翻译键——`observable/client/ProfileScreen$Action` 里是 `'Duration (scroll): '` 和
+  `' Running for another %.1f seconds'` 这样的字面量，句子中间还夹着实时变动的数字，
+  只能靠 VaultPatcher 的**子串**替换去凑，而且绕不开 ` seconds` 这种全局到处都是的
+  片段。子串替换正是 `vr14` 全场景掉帧的病根，拿全局帧率换一个按快捷键才打开的调试
+  浮层上的两行字不成立。该界面里有翻译键的部分照常汉化。
 - 极少数模组把英文**画进了贴图**（技术边界，语言文件无能为力）。
 - **MineColonies / 建筑棒里「标签运行时才定」的按钮，文字仍靠左。** 这版 blockui
   不认 `textalign`（上游自己写了这个属性的地方同样贴左，实测 266 处无一生效），

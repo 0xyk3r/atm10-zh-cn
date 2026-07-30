@@ -7,7 +7,7 @@
     "name"
    ],
    "Extruder Module Mk1",
-   "挤压模块 Mk1"
+   "造桥模块 Mk1"
   ],
   [
    [
@@ -43,7 +43,7 @@
     "text"
    ],
    "$(li)If you have multiple routers together with Extruder Modules installed (e.g. for a wide door or bridge), you may find the $(l:upgrades/sync)Sync Upgrade/$ useful to ensure they all run on the same tick.$(li)The Extruder (like the $(l:modules/placer)Placer/$) can also plant crop seeds on farmland, and cocoa beans on an adjacent jungle log.",
-   "$(li)若你将多个安装了挤压机模块的路由器并排布置（例如用于建造宽幅门或桥梁），那么$(l:upgrades/sync)同步升级/$将十分有用，可确保它们全部在同一游戏刻运行。$(li)挤压机（与$(l:modules/placer)放置器/$类似）还能在耕地中播种作物种子，并在相邻的丛林原木上种植可可豆。"
+   "$(li)若你将多个安装了造桥模块的路由器并排布置（例如用于建造宽幅门或桥梁），那么$(l:upgrades/sync)同步升级/$将十分有用，可确保它们全部在同一游戏刻运行。$(li)造桥模块（与$(l:modules/placer)放置器/$类似）还能在耕地中播种作物种子，并在相邻的丛林原木上种植可可豆。"
   ],
   [
    [
@@ -52,7 +52,7 @@
     "text"
    ],
    "It is important to note that the $(l:modules/breaker)Breaker Module/$ used to craft this module will transfer its harvest level (and enchantments) to this module. So if you want your Extruder Module to be able to break $(item)Obsidian/$, for example, make sure you use a Breaker Module crafted with a $(item)Diamond Pickaxe/$!",
-   "需要特别注意的是，用于合成该模块的$(l:modules/breaker)破坏器模块/$会把它的挖掘等级（以及附魔）一并继承给这个模块。所以，例如如果你想让挤压机模块能够破坏$(item)黑曜石/$，请务必使用由$(item)钻石镐/$合成的破坏器模块！"
+   "需要特别注意的是，用于合成该模块的$(l:modules/breaker)破坏器模块/$会把它的挖掘等级（以及附魔）一并继承给这个模块。所以，例如如果你想让造桥模块能够破坏$(item)黑曜石/$，请务必使用由$(item)钻石镐/$合成的破坏器模块！"
   ]
  ]
 }
