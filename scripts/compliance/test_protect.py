@@ -29,10 +29,13 @@ def sh(*a, **kw):
     return subprocess.run(a, capture_output=True, text=True, **kw)
 
 
-def run(repo, *args, base=None, break_git=False):
+def run(repo, *args, base=None, break_git=False, extra_env=None):
     env = dict(os.environ)
+    env.pop('PROTECT_REQUIRE_GIT', None)      # 别让外面的流水线环境影响用例
     if base:
         env['PROTECT_BASE'] = base
+    if extra_env:
+        env.update(extra_env)
     if break_git:
         # 造一个必定退 128 的假 git 顶在 PATH 前面，模拟出货容器里那种
         # `detected dubious ownership`——真出过这个事故。
@@ -152,6 +155,15 @@ def t_nogit_delete(repo):
     r = run(repo, '--check', break_git=True)
     return (r.returncode == 1 and 'src/pack/b.json' in r.stdout
             and 'Traceback' not in r.stderr)
+
+
+@case('声明了 PROTECT_REQUIRE_GIT 而 git 用不了 → 必须红')
+def t_require_git(repo):
+    # build.yml 的容器镜像里没有 git，checkout 就退化成 REST API 下 tarball，
+    # 压根不建 .git 目录。于是「新增必须登记」和「清单不许变短」两条在出货流水线里
+    # 一次都没跑过，而闸退 0。流水线一律传这个变量，让「闸没跑成」变成红。
+    r = run(repo, '--check', break_git=True, extra_env={'PROTECT_REQUIRE_GIT': '1'})
+    return r.returncode == 1 and '没跑成' in r.stdout and 'Traceback' not in r.stderr
 
 
 @case('base 指向克隆里没有的提交 → 必须红（不许静默跳过）')

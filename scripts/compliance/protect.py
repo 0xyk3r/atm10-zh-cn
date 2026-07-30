@@ -173,8 +173,20 @@ def check():
     # 2. src/ 下新加的文件必须收进清单，否则保护范围会被「新增的不算」蚕食
     now = tracked()
     if now is None:
-        print('ℹ️ git 用不了（容器里的 ownership 之类），跳过「新增必须登记」'
-              '与「清单不许变短」两条；上面那条「文件必须在」已经查过了')
+        # 本地/奇怪环境里降级放过（出货容器曾因 dubious ownership 让闸崩成
+        # traceback，那比漏查更坏）。但**流水线里必须红**：git 一用不了，第 2、3
+        # 两条就一起静默关掉，而「删文件 + 从清单抹掉」只有第 3 条能拦。
+        # 真出过这个事故：build.yml 的容器镜像里没有 git，checkout 检测不到 git
+        # 就退化成 REST API 下 tarball，压根不建 .git 目录——于是这两条闸在出货
+        # 流水线里一次都没跑过，而闸照样退 0。所以工作流一律传 PROTECT_REQUIRE_GIT=1。
+        if (os.environ.get('PROTECT_REQUIRE_GIT') or '').strip() not in ('', '0'):
+            bad.append(('git 用不了，「新增必须登记」与「清单不许变短」两条没跑成——'
+                        '本环境声明了 PROTECT_REQUIRE_GIT，按失败处理。'
+                        '常见成因：容器里没装 git，checkout 退化成 REST API 下 tarball，'
+                        '没有 .git 目录', ['git ls-files %s 失败' % SCOPE]))
+        else:
+            print('ℹ️ git 用不了（容器里的 ownership 之类），跳过「新增必须登记」'
+                  '与「清单不许变短」两条；上面那条「文件必须在」已经查过了')
     else:
         miss = [p for p in now if p not in prot and p not in rel]
         if miss:

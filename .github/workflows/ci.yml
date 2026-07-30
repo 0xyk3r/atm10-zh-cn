@@ -44,6 +44,8 @@ jobs:
       - name: 保护清单（汉化只许加不许删）
         env:
           PROTECT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          # 流水线里 git 用不了 = 两条闸静默关掉，这里必须当失败。
+          PROTECT_REQUIRE_GIT: '1'
         run: python3 scripts/compliance/protect.py --check
 
       # 对抗审计（2026-07-28）抓到：这个脚本写完了却从没接进任何流水线 = 假闸。

@@ -43,9 +43,21 @@ jobs:
     env:
       ATM_TOOLCHAIN_DIGEST: sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b
     steps:
+      # git 必须在 checkout **之前**装好。这个容器镜像里没有 git，而
+      # actions/checkout 检测不到 git 就退化成「用 REST API 下 tarball」——
+      # 那条路**压根不建 .git 目录**，fetch-depth 也一并被忽略。
+      # 后果是 protect.py 的 `git ls-files` 失败，「新增必须登记」和
+      # 「清单不许变短」两条一起静默关掉，本工作流里只有最弱的
+      # 「清单里的文件必须在」真跑过。日志原话：
+      #   The repository will be downloaded using the GitHub REST API
+      - name: 先装 git（否则 checkout 会退化成 tarball，没有 .git）
+        run: |
+          apt-get update -qq && apt-get install -y -qq --no-install-recommends \
+            git ca-certificates >/dev/null
+          git --version
+
       # 要完整历史：下面那道保护清单闸得跟 HEAD~1 比「清单有没有变短」，
-      # checkout 的默认 depth 是 1，HEAD~1 根本不在克隆里。原先没写这行，
-      # 那条闸在本工作流里一次都没真跑过（它取不到 base 只打一行 ℹ️ 就返回成功）。
+      # checkout 的默认 depth 是 1，HEAD~1 根本不在克隆里。
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -54,7 +66,7 @@ jobs:
         run: |
           python -m pip install --quiet --require-hashes -r requirements.lock
           apt-get update -qq && apt-get install -y -qq --no-install-recommends \
-            curl unzip zip git ca-certificates >/dev/null
+            curl unzip zip ca-certificates >/dev/null
 
       - name: 核对工具链
         run: python3 scripts/toolchain.py --strict
@@ -62,6 +74,10 @@ jobs:
       # 出货前再验一遍保护清单。快闸（ci.yml）已经查过，这里是第二道：
       # 发出去的包不许少汉化，而「少汉化」最常见的成因就是有人（我）把源删了。
       - name: 保护清单（汉化只许加不许删）
+        env:
+          # 流水线里 git 用不了 = 两条闸静默关掉，这在这里必须当失败，
+          # 不许像本地那样降级放过——见 protect.py 里 PROTECT_REQUIRE_GIT 的注释。
+          PROTECT_REQUIRE_GIT: '1'
         run: python3 scripts/compliance/protect.py --check
 
       - name: 取字体（全部 OFL）
