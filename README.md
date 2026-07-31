@@ -249,6 +249,11 @@ All the Mods 10\          ← 实例根目录
   实测会把替换表的单次成本抬高数倍，界面文字一多就掉帧（`vr14` 掉帧就是这么来的）。
   译文已经生成好留在 `src/` 里，等一个不用付全局代价的做法。
   （那个列表会枚举所有带标准配置的模组，所以受影响的不只 Create 自己的配置页。）
+
+  顺带一提：有玩家自己改了一版 VaultPatcher，优化了动态替换那条路径——
+  [suiy-2021/VaultPatcher_jdk21](https://github.com/suiy-2021/VaultPatcher_jdk21)
+  （jar 在 `build/libs/`）。**本包不随包分发它，也没有对它做过任何验证**；
+  作者本人也写明「不稳定，不确保没问题」。想试的自行取用、自担风险。
 - **可视性能侦测（Observable）性能分析浮层上的两行计时保持英文**
   （`Duration (scroll): 30 seconds`、`Running for another 29.3 seconds`）。这两行没有
   翻译键——`observable/client/ProfileScreen$Action` 里是 `'Duration (scroll): '` 和
