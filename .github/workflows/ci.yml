@@ -110,5 +110,16 @@ jobs:
             python3 scripts/check.py "build/v/$v"
           done
 
+      # 任务书的 & 颜色码写错，进游戏整段描述会被红字报错顶掉。这条必须查
+      # 「整合包自带中文 + 我们的覆盖」合并后的结果——错在整合包那份文件里，
+      # 而那份文件我们不出货，只查出货树是看不见的。
+      - name: 任务书 & 颜色码（各版本）
+        run: |
+          set -euo pipefail
+          for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
+            echo "───── ATM10 $v ─────"
+            python3 scripts/compliance/check_quest_formatting.py "build/packsrc/$v"
+          done
+
       - name: 安装脚本语法检查
         run: bash -n installer/install.sh
