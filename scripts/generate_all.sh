@@ -47,6 +47,8 @@ echo "▶ 任务书横幅艺术字（200 张）"
 python3 scripts/gen_quest_banners.py
 echo "▶ 主菜单按钮（14 张）"
 python3 scripts/gen_menu_buttons.py
+echo "▶ 根源经典教程书：按行宽预切并插空格（它的折行只认 ASCII 空格，中文切不开）"
+python3 scripts/gen_rootsclassic_wrap.py
 
 if [ "$HAVE_JARS" = 1 ]; then
   # 这几步要读 mod jar 里的 en_us / 注册表 / 导览书，只有 overrides 是不够的
