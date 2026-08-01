@@ -440,5 +440,56 @@ assert idempo_packs is not None and idempo_packs == ['vanilla', 'mod_resources',
     f'幂等跳过后数组不应变化：{idempo_packs}'
 print('✅ 汉化包已在最后一位时正确识别为跳过、CRLF 原样保留 OK')
 
+# ---- 一键更新：挑 asset 这一步（离线，用夹具 JSON）----------------------
+# Release 里同时挂着 7.0/7.1/7.2 × 客户端/服务端六个包。挑错版本就是把 7.0 用户
+# 升级到 7.2 包；缺 sha256 摘要还照装，等于把一段随后要被执行的脚本无校验落盘。
+# 这两条以前只有 install.ps1 有实现，且一行测试都没有（issue #9 指出的空白）。
+# 夹具照抄 GitHub 的真实形状：asset 里字段顺序是 name → uploader{…} → digest →
+# browser_download_url，uploader 是**嵌套对象**——按 "},{" 切块的解析在这里会散架，
+# 所以必须拿这个形状测，不能拿一个扁平的假 JSON 糊过去。
+def _asset(name, digest=True):
+    sha = ('%064x' % (abs(hash(name)) % (1 << 256)))[:64]
+    d = '"digest": "sha256:%s", ' % sha if digest else ''
+    return ('{"id": 1, "name": "%s", "label": null, '
+            '"uploader": {"login": "x", "id": 2, "type": "User"}, '
+            '"content_type": "application/zip", "state": "uploaded", "size": 123, %s'
+            '"download_count": 0, '
+            '"browser_download_url": "https://example.invalid/%s"}' % (name, d, name))
+
+
+FAKE_RELEASE = ('{\n  "tag_name": "vr99",\n  "assets": [\n    ' + ',\n    '.join(
+    [_asset('atm10-zh_cn-client-r99-atm%s.zip' % v) for v in ('7.0', '7.1', '7.2')]
+    + [_asset('atm10-zh_cn-server-r99-atm%s.zip' % v) for v in ('7.0', '7.1', '7.2')]
+) + '\n  ]\n}\n')
+
+
+def pick_asset(mcver, release_json):
+    """把 install.sh 里的 pick_client_asset 抠出来，按指定 ATM 版本跑一遍。"""
+    src = (ROOT / 'installer' / 'install.sh').read_text(encoding='utf-8').replace('@@MCVER@@', mcver)
+    m = re.search(r'^pick_client_asset\(\) \{.*?^\}', src, re.S | re.M)
+    assert m, 'install.sh 里找不到 pick_client_asset —— 改名了就要同步改这个测试'
+    f = tmp / ('picker-%s.sh' % mcver)
+    f.write_text(m.group(0) + '\n', encoding='utf-8')
+    r = subprocess.run(['bash', '-c',
+                        'set -euo pipefail; RELEASE_JSON="$1"; . "$2"; pick_client_asset',
+                        '_', release_json, str(f)],
+                       capture_output=True, text=True, encoding='utf-8', timeout=60)
+    return r.returncode, [l for l in (r.stdout or '').split('\n') if l]
+
+
+if not IS_WIN:                       # install.sh 只跑在 macOS / Linux
+    for ver in ('7.0', '7.1', '7.2'):
+        rc, got = pick_asset(ver, FAKE_RELEASE)
+        assert rc == 0, f'ATM {ver}：pick_client_asset 退出码 {rc}'
+        want = 'atm10-zh_cn-client-r99-atm%s.zip' % ver
+        assert got and got[0] == want, f'ATM {ver}：挑成了 {got[:1]}，应为 {want}'
+        assert len(got) == 3 and re.fullmatch(r'[0-9a-f]{64}', got[2]), f'ATM {ver}：摘要不对 {got}'
+    rc, got = pick_asset('7.2', FAKE_RELEASE.replace('"digest"', '"nodigest"'))
+    assert rc != 0 or not got, f'缺 sha256 摘要时不该挑得出 asset：rc={rc} got={got}'
+    only_72 = '{"tag_name": "vr99", "assets": [%s]}' % _asset('atm10-zh_cn-client-r99-atm7.2.zip')
+    rc, got = pick_asset('7.0', only_72)
+    assert rc != 0 or not got, f'该版没有对应包时不该挑到别版：rc={rc} got={got}'
+    print('✅ 一键更新挑包：按 ATM 版本精确匹配 + 缺摘要拒绝 OK')
+
 shutil.rmtree(tmp, ignore_errors=True)
 print(f'✅ 安装脚本端到端测试通过（{platform.system()}）')

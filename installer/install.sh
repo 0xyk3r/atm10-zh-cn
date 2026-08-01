@@ -11,6 +11,7 @@
 #   bash install.sh apply-with-pinyin  # 应用汉化 + 安装可选 JEI 拼音搜索 mod
 #   bash install.sh backup             # 仅备份
 #   bash install.sh restore [备份名]   # 恢复备份
+#   bash install.sh update             # 一键下载最新正式版并更新（与 install.ps1 同一套流程）
 set -euo pipefail
 cd "$(dirname "$0")"
 SCRIPT_DIR="$(pwd)"
@@ -35,17 +36,30 @@ REPO="chiba233/atm10-zh-cn"
 # 正合用：测试版不该被当成「最新版」去催人升级。
 # 任何一步不成（没网、没 curl/wget、被限流、返回不是 JSON）都返回空，
 # **绝不因此拦住安装**——用户是来装汉化的，不是来做联网检测的。
-latest_tag() {
+RELEASE_JSON=""
+LATEST_TAG=""
+
+# 整份 Release JSON 只取一次：版本检查要 tag_name，一键更新还要 assets 里的
+# 下载地址与 sha256，两处共用同一份，免得同一个请求发两遍。
+fetch_latest_release() {
   [ "${ATM_SKIP_UPDATE_CHECK:-0}" = "1" ] && return 0
+  [ -n "$RELEASE_JSON" ] && return 0
   url="https://api.github.com/repos/${REPO}/releases/latest"
-  body=""
   if command -v curl >/dev/null 2>&1; then
-    body="$(curl -fsSL --max-time 6 -H 'Accept: application/vnd.github+json' "$url" 2>/dev/null || true)"
+    RELEASE_JSON="$(curl -fsSL --max-time 6 -H 'Accept: application/vnd.github+json' "$url" 2>/dev/null || true)"
   elif command -v wget >/dev/null 2>&1; then
-    body="$(wget -qO- --timeout=6 "$url" 2>/dev/null || true)"
+    RELEASE_JSON="$(wget -qO- --timeout=6 "$url" 2>/dev/null || true)"
   fi
-  [ -n "$body" ] || return 0
-  printf '%s' "$body" | sed -n 's/.*"tag_name"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -1
+  [ -n "$RELEASE_JSON" ] || return 0
+  LATEST_TAG="$(printf '%s' "$RELEASE_JSON" \
+    | sed -n 's/.*"tag_name"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -1)"
+  return 0
+}
+
+latest_tag() {
+  fetch_latest_release
+  [ -n "$LATEST_TAG" ] && printf '%s' "$LATEST_TAG"
+  return 0
 }
 
 # 比较时把开头的 v 去掉：tag 是 vr12，包里记的是 r12
@@ -85,6 +99,178 @@ check_update() {
 # 不能只看 options.txt —— **刚装好、一次都没启动过的整合包没有 options.txt**
 # （它是 Minecraft 首次退出时才写的）。也不能只看 mods/ —— 汉化包自己的文件夹里
 # 也有个 mods/（装着 vaultpatcher.jar）。用 jar 数量区分：ATM10 有 400+ 个，汉化包只有 1 个。
+# ── 一键更新 ────────────────────────────────────────────────────────────
+# 与 install.ps1 的 Invoke-OneClickUpdate 是同一套流程，逐步对齐：
+# 选 asset → 校验 sha256 → 解包 → 由新版安装器 apply → 归并备份 → 更新源目录。
+# 以前这套只有 Windows 有，两个安装器行为分叉；这里把 shell 这侧补齐。
+
+has_update() {
+  [ -n "$LATEST_TAG" ] || return 1
+  [ "$(norm_ver "$LATEST_TAG")" != "$(norm_ver "$PATCH_VER")" ]
+}
+
+sha256_of() {
+  if command -v shasum >/dev/null 2>&1; then
+    shasum -a 256 "$1" 2>/dev/null | cut -d' ' -f1
+  elif command -v sha256sum >/dev/null 2>&1; then
+    sha256sum "$1" 2>/dev/null | cut -d' ' -f1
+  else
+    return 1
+  fi
+}
+
+# Release 里同时挂着 7.0/7.1/7.2 三个 ATM 版本 × 客户端/服务端共六个包。
+# 必须按**本包的 ATM 版本**精确挑客户端 zip——取第一个 asset 会把 7.0 用户升到 7.2。
+# 输出三行：文件名 / 下载地址 / sha256；挑不到或没有摘要就返回 1。
+pick_client_asset() {
+  flat="$(printf '%s' "$RELEASE_JSON" | tr '\n' ' ')"
+  # 从我们要的那个 name 开始截到行尾。GitHub 的 asset 对象里字段顺序是
+  # name → …uploader{}… → digest → browser_download_url，所以截断之后
+  # **第一个** digest / browser_download_url 就是这个 asset 自己的。
+  name="$(printf '%s' "$flat" \
+    | grep -o '"atm10-zh_cn-client-[^"]*-atm@@MCVER@@\.zip"' | head -1 | tr -d '"')"
+  [ -n "$name" ] || return 1
+  after="${flat#*\"$name\"}"
+  url="$(printf '%s' "$after" \
+    | grep -o '"browser_download_url"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 \
+    | sed 's/.*"\([^"]*\)"$/\1/')"
+  sha="$(printf '%s' "$after" \
+    | grep -o '"digest"[[:space:]]*:[[:space:]]*"sha256:[0-9a-fA-F]\{64\}"' | head -1 \
+    | sed 's/.*sha256:\([0-9a-fA-F]*\)"$/\1/')"
+  [ -n "$url" ] && [ -n "$sha" ] || return 1
+  printf '%s\n%s\n%s\n' "$name" "$url" "$sha"
+}
+
+# 新版安装器把备份写在它自己的目录里，而用户日后仍然从原目录运行 restore。
+# 更新成功后必须把备份归并回原入口，否则回滚功能等于没了。
+merge_update_backups() {
+  from="$1/backups"
+  [ -d "$from" ] || return 0
+  to="$SCRIPT_DIR/backups"
+  mkdir -p "$to"
+  for b in "$from"/*; do
+    [ -d "$b" ] || continue
+    dest="$to/$(basename "$b")"
+    n=1
+    while [ -e "$dest" ]; do
+      dest="$to/$(basename "$b")-update-$n"
+      n=$((n + 1))
+    done
+    mv "$b" "$dest"
+  done
+}
+
+# 用户今后还会运行最初解压出来的这个 install.sh。只更新游戏实例而不更新源目录，
+# 下次跑旧脚本会再提示升级，甚至把旧 payload 覆盖回去。
+# 就地解压时源目录就是实例，新版安装器刚刚已经覆盖过 payload，绝不能删。
+update_source_package() {
+  newdir="$1"
+  if [ "$IN_PLACE" != "1" ]; then
+    for d in $PACK_DIRS "$PINYIN_DIR"; do
+      [ -d "$SCRIPT_DIR/$d" ] && rm -rf "$SCRIPT_DIR/$d"
+      [ -d "$newdir/$d" ] && cp -R "$newdir/$d" "$SCRIPT_DIR/$d"
+    done
+  fi
+  # bash 是**边读边执行**的：直接覆盖正在跑的这个文件会让它读到一半错位。
+  # 所以先写到临时文件再原子替换（mv 换的是目录项，当前进程的 fd 仍指向老 inode）。
+  for f in install.sh install.ps1 双击安装-Windows.bat install-windows.bat; do
+    [ -f "$newdir/$f" ] || continue
+    cp "$newdir/$f" "$SCRIPT_DIR/.$f.new"
+    mv "$SCRIPT_DIR/.$f.new" "$SCRIPT_DIR/$f"
+  done
+  chmod +x "$SCRIPT_DIR/install.sh" 2>/dev/null || true
+  say "✅ 已将原安装包更新为新版；以后继续运行原来的 install.sh 即可。"
+}
+
+do_update() {
+  fetch_latest_release
+  if [ -z "$RELEASE_JSON" ]; then
+    say "❌ 无法获取最新版信息，请检查网络后重试。"
+    return 0
+  fi
+  if ! has_update; then
+    say "✓ $PATCH_VER 已是最新正式版，无需更新。"
+    return 0
+  fi
+  for t in unzip; do
+    command -v "$t" >/dev/null 2>&1 || {
+      say "❌ 系统里没有 $t，无法解包。请手动到 Releases 下载新版："
+      say "   https://github.com/${REPO}/releases/latest"
+      return 0; }
+  done
+  if ! command -v shasum >/dev/null 2>&1 && ! command -v sha256sum >/dev/null 2>&1; then
+    # 没法校验就**不装**：这包解压出来是要直接执行的，比大小/凭运气都不算数
+    say "❌ 系统里没有 shasum / sha256sum，无法校验下载文件，拒绝自动更新。"
+    say "   请手动到 Releases 下载新版：https://github.com/${REPO}/releases/latest"
+    return 0
+  fi
+
+  asset="$(pick_client_asset || true)"
+  if [ -z "$asset" ]; then
+    say "❌ 最新版 $LATEST_TAG 没有 ATM10 @@MCVER@@ 的客户端安装包（或缺少 SHA-256 摘要），未做任何改动。"
+    return 0
+  fi
+  name="$(printf '%s' "$asset" | sed -n '1p')"
+  url="$(printf '%s'  "$asset" | sed -n '2p')"
+  want="$(printf '%s' "$asset" | sed -n '3p')"
+
+  stamp="$(date +%Y%m%d-%H%M%S)"
+  stage="$TARGET/.atm10-hanhua-update-$stamp"
+  zipf="$stage/$name"
+  started=0; installed=0; merged=0; newdir=""
+  mkdir -p "$stage"
+
+  say "正在下载 $name……"
+  ok=1
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL --max-time 300 -H 'User-Agent: atm10-zh-cn-installer' -o "$zipf" "$url" || ok=0
+  else
+    wget -q --timeout=300 -O "$zipf" "$url" || ok=0
+  fi
+  if [ "$ok" != "1" ] || [ ! -s "$zipf" ]; then
+    say "❌ 一键更新失败：下载失败。"
+    say "   新版安装器尚未启动；已下载的临时文件（如有）保留在：$stage"
+    return 0
+  fi
+
+  got="$(sha256_of "$zipf" || true)"
+  if [ -z "$got" ] || [ "$(printf '%s' "$got" | tr 'A-Z' 'a-z')" != "$(printf '%s' "$want" | tr 'A-Z' 'a-z')" ]; then
+    say "❌ 一键更新失败：下载文件的 SHA-256 与 GitHub Release 摘要不一致。"
+    say "   期望 $want"
+    say "   实际 ${got:-（算不出来）}"
+    say "   新版安装器尚未启动；文件保留在：$stage"
+    return 0
+  fi
+
+  unzip -q -o "$zipf" -d "$stage" || {
+    say "❌ 一键更新失败：解包失败。"
+    say "   新版安装器尚未启动；文件保留在：$stage"
+    return 0; }
+  newdir="$(find "$stage" -type d -name 'atm10-zh_cn-client' 2>/dev/null | head -1 || true)"
+  if [ -z "$newdir" ] || [ ! -f "$newdir/install.sh" ]; then
+    say "❌ 一键更新失败：下载包中没有预期的客户端安装器。"
+    say "   新版安装器尚未启动；文件保留在：$stage"
+    return 0
+  fi
+
+  say "下载完成，正在由新版安装器备份并应用汉化……"
+  started=1
+  if ATM_TARGET="$TARGET" bash "$newdir/install.sh" apply; then
+    installed=1
+  fi
+  if [ "$installed" != "1" ]; then
+    say "❌ 一键更新失败：新版安装器返回非零退出码。"
+    say "   新版安装器已经启动，实例可能只完成了部分更新。"
+    say "   请先用新版安装器的 restore 功能恢复本次备份：$newdir/backups"
+    return 0
+  fi
+  merge_update_backups "$newdir"; merged=1
+  update_source_package "$newdir"
+  say "✅ 已更新到 $LATEST_TAG。新版安装器保留在：$stage"
+  say "   本次备份已归入原安装包：$SCRIPT_DIR/backups"
+  say "   请退出并重新启动游戏后生效；确认无误前不要删除该目录。"
+}
+
 is_instance() {
   [ -d "$1/mods" ] || return 1
   [ -f "$1/options.txt" ] && return 0
@@ -103,6 +289,13 @@ set_in_place() {
 }
 
 check_target() {
+  # 一键更新时，新版安装器是从 <实例>/.atm10-hanhua-update-*/ 里被调起来的，
+  # 它的上一级目录不是实例。用这个环境变量把目标传进去（对应 ps1 的 -TargetPath）。
+  if [ -n "${ATM_TARGET:-}" ] && is_instance "${ATM_TARGET}"; then
+    TARGET="${ATM_TARGET%/}"
+    set_in_place
+    return
+  fi
   if is_instance "$TARGET"; then
     set_in_place
     return
@@ -448,12 +641,14 @@ case "${1:-}" in
   apply-with-pinyin) do_apply; do_pinyin ;;
   backup)            do_backup ;;
   restore)           do_restore "${2:-}" ;;
+  update)            do_update ;;
   *)
     say "══════════════════════════════════════════"
     say " ATM10 @@MCVER@@ 汉化补丁 · 绿油油版 — 安装器"
     say " 目标实例: $TARGET"
     say "══════════════════════════════════════════"
     say " [1] 应用汉化（自动先备份被覆盖文件）"
+    has_update && say " [u] 一键下载并更新到 $LATEST_TAG"
     say " [2] 仅备份"
     say " [3] 恢复备份"
     say " [q] 退出"
@@ -469,6 +664,7 @@ case "${1:-}" in
           *)   say "（跳过可选mods，之后可运行: bash install.sh apply-with-pinyin）" ;;
         esac
         ;;
+      u|U) do_update ;;
       2) do_backup ;;
       3) do_restore "" ;;
       *) say "已退出" ;;
