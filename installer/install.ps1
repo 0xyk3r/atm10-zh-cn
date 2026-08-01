@@ -12,14 +12,15 @@
 #   .\install.ps1 restore [备份名]   # 恢复备份
 param(
     [string]$Action = '',
-    [string]$BackupName = ''
+    [string]$BackupName = '',
+    [string]$TargetPath = ''
 )
 $ErrorActionPreference = 'Stop'
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location -LiteralPath $ScriptDir
 # 中文输出：cmd 侧已 chcp 65001，这里让 PowerShell 也按 UTF-8 写控制台
 try { [Console]::OutputEncoding = [Text.UTF8Encoding]::new($false) } catch {}
-$script:Target = Split-Path -Parent $ScriptDir
+$script:Target = if ($TargetPath) { $TargetPath } else { Split-Path -Parent $ScriptDir }
 $PackDirs = @('config', 'kubejs', 'mods', 'resourcepacks', 'vaultpatcher')
 $PackEntry = 'file/ATM10汉化包-@@MCVER@@.zip'
 $PinyinDir = '可选mods-拼音搜索'
@@ -37,12 +38,14 @@ $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 # ── 版本检查 ────────────────────────────────────────────────────────────
 # 补丁自己的版本号，由 build_dist.sh 现填。
 $script:PatchVer = '@@PATCHVER@@'
+$script:PackMcVer = '@@MCVER@@'
 $script:Repo     = 'chiba233/atm10-zh-cn'
+$script:LatestRelease = $null
 
 # 取仓库最新**正式版**的 tag。releases/latest 天然跳过预发布，正合用：
 # 测试版不该被当成「最新版」去催人升级。
 # 任何一步不成（没网、被限流、TLS 不通）都返回 $null，**绝不因此拦住安装**。
-function Get-LatestTag {
+function Get-LatestRelease {
     if ($env:ATM_SKIP_UPDATE_CHECK -eq '1') { return $null }
     try {
         $old = $ProgressPreference; $ProgressPreference = 'SilentlyContinue'
@@ -53,7 +56,7 @@ function Get-LatestTag {
                                            'User-Agent' = 'atm10-zh-cn-installer' } `
                                -TimeoutSec 6
         $ProgressPreference = $old
-        return $r.tag_name
+        return $r
     } catch { return $null }
 }
 
@@ -62,7 +65,8 @@ function Normalize-Ver([string]$v) { if ($v -and $v.StartsWith('v')) { $v.Substr
 function Check-Update {
     if ($env:ATM_SKIP_UPDATE_CHECK -eq '1') { return }
     $isBeta = $script:PatchVer -match '(?i)beta|rc\d|^dev$'
-    $latest = Get-LatestTag
+    $script:LatestRelease = Get-LatestRelease
+    $latest = if ($script:LatestRelease) { $script:LatestRelease.tag_name } else { $null }
     if ($isBeta) {
         Write-Host ''
         Write-Host "⚠️ 你装的是**测试版**：$($script:PatchVer)"
@@ -85,6 +89,58 @@ function Check-Update {
         Write-Host '   建议先下最新版再装，老版本的已知问题不会再修：'
         Write-Host "   https://github.com/$($script:Repo)/releases/latest"
         Write-Host ''
+    }
+}
+
+function Invoke-OneClickUpdate {
+    $release = $script:LatestRelease
+    if (-not $release) { $release = Get-LatestRelease }
+    if (-not $release) {
+        Write-Host '❌ 无法获取最新版信息，请检查网络后重试。'
+        return
+    }
+
+    $latest = $release.tag_name
+    if ((Normalize-Ver $latest) -eq (Normalize-Ver $script:PatchVer)) {
+        Write-Host "✓ $($script:PatchVer) 已是最新正式版，无需更新。"
+        return
+    }
+
+    # Release 同时带三个 ATM10 版本和客户端/服务端包；必须按当前包的 ATM 版本
+    # 精确选择客户端 zip，不能只取 assets[0]，否则会把 7.0 用户升级到 7.2 包。
+    $suffix = '-atm' + [regex]::Escape($script:PackMcVer) + '\.zip$'
+    $asset = @($release.assets | Where-Object {
+        $_.name -match '^atm10-zh_cn-client-.+' -and $_.name -match $suffix
+    }) | Select-Object -First 1
+    if (-not $asset) {
+        Write-Host "❌ 最新版 $latest 没有 ATM10 $($script:PackMcVer) 的客户端安装包，未做任何改动。"
+        return
+    }
+
+    $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+    $stage = Join-Path $script:Target ".atm10-hanhua-update-$stamp"
+    $zip = Join-Path $stage $asset.name
+    try {
+        [void][System.IO.Directory]::CreateDirectory($stage)
+        Write-Host "正在下载 $($asset.name)……"
+        Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $zip -UseBasicParsing `
+            -Headers @{ 'User-Agent' = 'atm10-zh-cn-installer' } -TimeoutSec 120
+        if ((Get-Item -LiteralPath $zip).Length -ne [int64]$asset.size) {
+            throw '下载文件大小与 GitHub Release 记录不一致。'
+        }
+        Expand-Archive -LiteralPath $zip -DestinationPath $stage -Force
+        $next = @(Get-ChildItem -LiteralPath $stage -Recurse -Filter 'install.ps1' -File |
+                  Where-Object { $_.Directory.Name -eq 'atm10-zh_cn-client' }) | Select-Object -First 1
+        if (-not $next) { throw '下载包中没有预期的客户端安装器。' }
+
+        Write-Host '下载完成，正在由新版安装器备份并应用汉化……'
+        & powershell -NoProfile -ExecutionPolicy Bypass -File $next.FullName apply -TargetPath $script:Target
+        if ($LASTEXITCODE -ne 0) { throw "新版安装器退出码：$LASTEXITCODE" }
+        Write-Host "✅ 已更新到 $latest。新版安装器和本次备份保留在：$stage"
+        Write-Host '   请退出并重新启动游戏后生效；确认无误前不要删除该目录。'
+    } catch {
+        Write-Host "❌ 一键更新失败：$($_.Exception.Message)"
+        Write-Host "   未启动新版安装器；已下载的临时文件（如有）保留在：$stage"
     }
 }
 
@@ -443,6 +499,10 @@ switch ($Action) {
         Write-Host " 目标实例: $script:Target"
         Write-Host '══════════════════════════════════════════'
         Write-Host ' [1] 应用汉化（自动先备份被覆盖文件）'
+        if ($script:LatestRelease -and
+            (Normalize-Ver $script:LatestRelease.tag_name) -ne (Normalize-Ver $script:PatchVer)) {
+            Write-Host " [u] 一键下载并更新到 $($script:LatestRelease.tag_name)"
+        }
         Write-Host ' [2] 仅备份'
         Write-Host ' [3] 恢复备份'
         Write-Host ' [q] 退出'
@@ -454,6 +514,7 @@ switch ($Action) {
                 if ($ans -eq 'y' -or $ans -eq 'Y') { Do-Pinyin }
                 else { Write-Host '（跳过可选mods，之后可运行: .\install.ps1 apply-with-pinyin）' }
             }
+            'u' { Invoke-OneClickUpdate }
             '2' { Do-Backup }
             '3' { Do-Restore '' }
             default { Write-Host '已退出' }
