@@ -1033,6 +1033,7 @@
     "src/config/vaultpatcher_asm/config.json",
     "src/config_ui_terms.json",
     "src/keep_english.json",
+    "src/kubejs/client_scripts/hanhua_update_check.js",
     "src/kubejs/data/silentgear/patchouli_books/gears_guide/zh_cn/templates/compounding_recipe.json",
     "src/kubejs/server_scripts/pb_hanhua_tooltip_actions.js",
     "src/mods.lock.json",
