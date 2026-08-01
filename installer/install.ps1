@@ -121,6 +121,7 @@ function Invoke-OneClickUpdate {
     $stage = Join-Path $script:Target ".atm10-hanhua-update-$stamp"
     $zip = Join-Path $stage $asset.name
     $newInstallerStarted = $false
+    $newInstallComplete = $false
     try {
         [void][System.IO.Directory]::CreateDirectory($stage)
         Write-Host "正在下载 $($asset.name)……"
@@ -138,11 +139,16 @@ function Invoke-OneClickUpdate {
         $newInstallerStarted = $true
         & powershell -NoProfile -ExecutionPolicy Bypass -File $next.FullName apply -TargetPath $script:Target
         if ($LASTEXITCODE -ne 0) { throw "新版安装器退出码：$LASTEXITCODE" }
+        $newInstallComplete = $true
+        Update-SourcePackage $next.Directory.FullName
         Write-Host "✅ 已更新到 $latest。新版安装器和本次备份保留在：$stage"
         Write-Host '   请退出并重新启动游戏后生效；确认无误前不要删除该目录。'
     } catch {
         Write-Host "❌ 一键更新失败：$($_.Exception.Message)"
-        if ($newInstallerStarted) {
+        if ($newInstallComplete) {
+            Write-Host '   新版汉化已经安装，但原安装包未能更新。'
+            Write-Host "   之后请从这个新版目录运行安装器：$($next.Directory.FullName)"
+        } elseif ($newInstallerStarted) {
             $newBackups = Join-Path $next.Directory.FullName 'backups'
             Write-Host '   新版安装器已经启动，实例可能只完成了部分更新。'
             Write-Host "   请先用新版安装器的 restore 功能恢复本次备份：$newBackups"
@@ -150,6 +156,35 @@ function Invoke-OneClickUpdate {
             Write-Host "   新版安装器尚未启动；已下载的临时文件（如有）保留在：$stage"
         }
     }
+}
+
+function Update-SourcePackage([string]$newDir) {
+    # 用户今后仍会双击最初解压出来的 bat。只把游戏实例更新而不更新这个源目录，
+    # 下次运行旧安装器会再次提示升级，甚至把旧 payload 覆盖回去。
+    # 正常安装时源目录与实例分开，可以安全地以新版 payload 整体替换；就地解压时
+    # 源目录就是实例，刚才的新版安装器已完成 payload 覆盖，绝不能删除实例目录。
+    if (-not $script:InPlace) {
+        foreach ($d in @($PackDirs + $PinyinDir)) {
+            $old = Join-Path $ScriptDir $d
+            $new = Join-Path $newDir $d
+            if (Test-Path -LiteralPath $old) {
+                Remove-Item -LiteralPath $old -Recurse -Force
+            }
+            if (Test-Path -LiteralPath $new) {
+                Copy-Item -LiteralPath $new -Destination $old -Recurse -Force
+            }
+        }
+    }
+
+    # 当前 PowerShell 已把脚本读入内存，替换自身不会中断本次更新；bat 也只会在
+    # 下次双击时读取。因此两个 Windows 入口都能安全换成新版。
+    foreach ($f in @('install.ps1', '双击安装-Windows.bat', 'install-windows.bat')) {
+        $new = Join-Path $newDir $f
+        if (Test-Path -LiteralPath $new) {
+            Copy-Item -LiteralPath $new -Destination (Join-Path $ScriptDir $f) -Force
+        }
+    }
+    Write-Host '✅ 已将原安装包更新为新版；以后继续双击原来的安装 bat 即可。'
 }
 
 function Test-Instance([string]$d) {
