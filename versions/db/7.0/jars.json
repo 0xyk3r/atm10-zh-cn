@@ -1,30 +1,6 @@
 {
- "count": 478,
+ "count": 474,
  "jars": {
-  "7574259.jar": {
-   "fileID": 7574259,
-   "projectID": 627557,
-   "sha256": "24a20634a7832d422d3cd5023be16829f26840e25c69404dd418306ea79f63f0",
-   "size": 522970
-  },
-  "7574260.jar": {
-   "fileID": 7574260,
-   "projectID": 385587,
-   "sha256": "5cbf4d99bc7ce4f0df5c15974d276e0949bf6974d48d88a77d5e307b0b9be8af",
-   "size": 522973
-  },
-  "7588844.jar": {
-   "fileID": 7588844,
-   "projectID": 322506,
-   "sha256": "131ca6b56b100e60577ffdb0dd51bfab2ee6e334564eeee324e5422026891668",
-   "size": 1125052
-  },
-  "8081726.jar": {
-   "fileID": 8081726,
-   "projectID": 431203,
-   "sha256": "433e1edd5d1193ccf4f59c9202a00896820777e73ac10b109b8ee307847fc775",
-   "size": 398018
-  },
   "AE2NetworkAnalyzer-1.21-2.1.5-neoforge.jar": {
    "fileID": 7622554,
    "projectID": 961856,
