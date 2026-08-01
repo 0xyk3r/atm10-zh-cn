@@ -116,19 +116,28 @@ function Invoke-OneClickUpdate {
         Write-Host "❌ 最新版 $latest 没有 ATM10 $($script:PackMcVer) 的客户端安装包，未做任何改动。"
         return
     }
+    $digest = [string]$asset.digest
+    if ($digest -notmatch '^sha256:([0-9a-fA-F]{64})$') {
+        Write-Host "❌ 最新版 $latest 的客户端安装包缺少有效的 SHA-256 摘要，拒绝安装。"
+        return
+    }
+    $expectedSha256 = $Matches[1]
 
     $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
     $stage = Join-Path $script:Target ".atm10-hanhua-update-$stamp"
     $zip = Join-Path $stage $asset.name
     $newInstallerStarted = $false
     $newInstallComplete = $false
+    $newBackupsMerged = $false
     try {
         [void][System.IO.Directory]::CreateDirectory($stage)
         Write-Host "正在下载 $($asset.name)……"
         Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $zip -UseBasicParsing `
             -Headers @{ 'User-Agent' = 'atm10-zh-cn-installer' } -TimeoutSec 120
-        if ((Get-Item -LiteralPath $zip).Length -ne [int64]$asset.size) {
-            throw '下载文件大小与 GitHub Release 记录不一致。'
+        $actualSha256 = (Get-FileHash -LiteralPath $zip -Algorithm SHA256).Hash
+        if (-not [string]::Equals($actualSha256, $expectedSha256,
+                                   [System.StringComparison]::OrdinalIgnoreCase)) {
+            throw '下载文件的 SHA-256 与 GitHub Release 摘要不一致。'
         }
         Expand-Archive -LiteralPath $zip -DestinationPath $stage -Force
         $next = @(Get-ChildItem -LiteralPath $stage -Recurse -Filter 'install.ps1' -File |
@@ -140,14 +149,22 @@ function Invoke-OneClickUpdate {
         & powershell -NoProfile -ExecutionPolicy Bypass -File $next.FullName apply -TargetPath $script:Target
         if ($LASTEXITCODE -ne 0) { throw "新版安装器退出码：$LASTEXITCODE" }
         $newInstallComplete = $true
+        Merge-UpdateBackups $next.Directory.FullName
+        $newBackupsMerged = $true
         Update-SourcePackage $next.Directory.FullName
-        Write-Host "✅ 已更新到 $latest。新版安装器和本次备份保留在：$stage"
+        Write-Host "✅ 已更新到 $latest。新版安装器保留在：$stage"
+        Write-Host "   本次备份已归入原安装包：$(Join-Path $ScriptDir 'backups')"
         Write-Host '   请退出并重新启动游戏后生效；确认无误前不要删除该目录。'
     } catch {
         Write-Host "❌ 一键更新失败：$($_.Exception.Message)"
         if ($newInstallComplete) {
             Write-Host '   新版汉化已经安装，但原安装包未能更新。'
             Write-Host "   之后请从这个新版目录运行安装器：$($next.Directory.FullName)"
+            if ($newBackupsMerged) {
+                Write-Host "   本次备份已归入原安装包：$(Join-Path $ScriptDir 'backups')"
+            } else {
+                Write-Host "   本次备份仍在新版目录：$(Join-Path $next.Directory.FullName 'backups')"
+            }
         } elseif ($newInstallerStarted) {
             $newBackups = Join-Path $next.Directory.FullName 'backups'
             Write-Host '   新版安装器已经启动，实例可能只完成了部分更新。'
@@ -155,6 +172,24 @@ function Invoke-OneClickUpdate {
         } else {
             Write-Host "   新版安装器尚未启动；已下载的临时文件（如有）保留在：$stage"
         }
+    }
+}
+
+function Merge-UpdateBackups([string]$newDir) {
+    # 新版安装器把备份写在下载目录；原入口的 restore 只读取 ScriptDir/backups。
+    # 成功更新后必须将备份归并到原入口，否则用户无法通过日常双击的安装器回滚。
+    $from = Join-Path $newDir 'backups'
+    if (-not (Test-Path -LiteralPath $from)) { return }
+    $to = Join-Path $ScriptDir 'backups'
+    [void][System.IO.Directory]::CreateDirectory($to)
+    foreach ($backup in Get-ChildItem -LiteralPath $from -Directory) {
+        $dest = Join-Path $to $backup.Name
+        $n = 1
+        while (Test-Path -LiteralPath $dest) {
+            $dest = Join-Path $to "$($backup.Name)-update-$n"
+            $n++
+        }
+        Move-Item -LiteralPath $backup.FullName -Destination $dest
     }
 }
 
