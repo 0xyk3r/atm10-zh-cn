@@ -274,8 +274,13 @@ function Check-Target {
 
 function Get-PayloadFiles {
     foreach ($d in $PackDirs) {
-        if (Test-Path -LiteralPath $d) {
-            Get-ChildItem -LiteralPath $d -Recurse -File | Where-Object { $_.Name -ne '.DS_Store' } | ForEach-Object {
+        # ⚠️ 必须用**绝对**路径。Windows PowerShell 5.1 里，当前目录含 [ ] 时，
+        # 相对路径即使配 -LiteralPath 也会在 provider 层被当通配符解析，
+        # 结果是一个文件都枚举不到 → 安装器什么都不装。玩家路径里出现
+        # 「[0.9.1正式版]」这种目录名并不罕见（整合包分享站的常见命名）。
+        $abs = Join-Path $ScriptDir $d
+        if (Test-Path -LiteralPath $abs) {
+            Get-ChildItem -LiteralPath $abs -Recurse -File | Where-Object { $_.Name -ne '.DS_Store' } | ForEach-Object {
                 $_.FullName.Substring($ScriptDir.Length + 1)
             }
         }
@@ -289,14 +294,14 @@ function Do-Backup {
     }
     $script:TS = Get-Date -Format 'yyyyMMdd-HHmmss'
     $script:BK = Join-Path $ScriptDir "backups/$script:TS"
-    New-Item -ItemType Directory -Force -Path $script:BK | Out-Null
+    [System.IO.Directory]::CreateDirectory($script:BK) | Out-Null
     $newFiles = @()
     $n = 0
     foreach ($f in Get-PayloadFiles) {
         $dst = Join-Path $script:Target $f
         if (Test-Path -LiteralPath $dst) {
             $to = Join-Path $script:BK $f
-            New-Item -ItemType Directory -Force -Path (Split-Path $to) | Out-Null
+            [System.IO.Directory]::CreateDirectory((Split-Path $to)) | Out-Null
             Copy-Item -LiteralPath $dst -Destination $to
             $n++
         } else {
@@ -540,8 +545,8 @@ function Do-Apply {
     foreach ($f in $payload) {
         $dst = Join-Path $script:Target $f
         if ((Join-Path $ScriptDir $f) -eq $dst) { continue }   # 双保险：源即目标就跳过
-        New-Item -ItemType Directory -Force -Path (Split-Path $dst) | Out-Null
-        Copy-Item -LiteralPath $f -Destination $dst -Force
+        [System.IO.Directory]::CreateDirectory((Split-Path $dst)) | Out-Null
+        Copy-Item -LiteralPath (Join-Path $ScriptDir $f) -Destination $dst -Force
         $copied++
     }
     # 再核一遍是否真的落地：复制静默失败、目标只读、路径被通配符吃掉都在这里露馅。
@@ -557,11 +562,12 @@ function Do-Apply {
 
 # 可选 mods（JEI 拼音搜索）：装进实例 mods/，并登记进当前备份以便恢复时删除
 function Do-Pinyin {
-    if (!(Test-Path -LiteralPath $PinyinDir)) {
+    $pinAbs = Join-Path $ScriptDir $PinyinDir
+    if (!(Test-Path -LiteralPath $pinAbs)) {
         Write-Host "（未找到 $PinyinDir 目录，跳过可选mods）"
         return
     }
-    $jars = Get-ChildItem -LiteralPath $PinyinDir -Filter '*.jar' -File
+    $jars = Get-ChildItem -LiteralPath $pinAbs -Filter '*.jar' -File
     if (!$jars) {
         Write-Host "（$PinyinDir 内没有 jar，跳过）"
         return
@@ -572,7 +578,7 @@ function Do-Pinyin {
         $dst = Join-Path $script:Target "mods/$($j.Name)"
         if ($script:BK) {
             if (Test-Path -LiteralPath $dst) {
-                New-Item -ItemType Directory -Force -Path (Join-Path $script:BK 'mods') | Out-Null
+                [System.IO.Directory]::CreateDirectory((Join-Path $script:BK 'mods')) | Out-Null
                 Copy-Item -LiteralPath $dst -Destination (Join-Path $script:BK "mods/$($j.Name)")
             } else {
                 [System.IO.File]::AppendAllText($manifest, "mods/$($j.Name)`n", $Utf8NoBom)
@@ -613,7 +619,7 @@ function Do-Restore([string]$name) {
     Get-ChildItem -LiteralPath $bk -Recurse -File | Where-Object { $_.Name -ne '新增文件清单.txt' } | ForEach-Object {
         $rel = $_.FullName.Substring($bk.Length + 1)
         $dst = Join-Path $script:Target $rel
-        New-Item -ItemType Directory -Force -Path (Split-Path $dst) | Out-Null
+        [System.IO.Directory]::CreateDirectory((Split-Path $dst)) | Out-Null
         Copy-Item -LiteralPath $_.FullName -Destination $dst -Force
     }
     Write-Host "✅ 已恢复备份 $name（含 options.txt，安装时新增的文件已删除）"
