@@ -67,6 +67,21 @@ def materialize(src, dst):
     return dst
 
 
+# 子串包含判断查不出「中间多插入了一个 ]」这种语法损坏，也查不出「条目还在，
+# 但没排到最后一位」（等于没启用）这种情况。
+def resource_packs(text):
+    """从 options.txt 原文解析 resourcePacks 数组，返回条目列表（不分单双引号）。
+    解析不出时返回 None——不该在语法已经损坏的情况下还拼出一个「看起来还行」的
+    列表来。`[^\\]]*` 严格不吃 "]"：如果数组中间被错误地插入了多余的 "]"
+    （CRLF 那个 bug 的典型症状），这里会在第一个 "]" 处就停手，随后要求紧跟着
+    的是行尾（`\\r?$`）——多出来的内容会让整条正则匹配失败，从而如实报告"解析
+    不出"，而不是悄悄只解析出前半段。"""
+    m = re.search(r'^resourcePacks:\[([^\]]*)\]\r?$', text, re.M)
+    if m is None:
+        return None
+    return re.findall(r'["\']([^"\']*)["\']', m.group(1))
+
+
 # 资源包**产物**带整合包版本号。这里直接从安装器脚本里读它认的那个名字，
 # 免得两边各写一份、日后再对不上（曾因批量改名把这里误改成版本中立名而挂掉 CI）。
 ENTRY = re.search(r"PACK_ENTRY='([^']+)'",
@@ -290,9 +305,19 @@ assert (fresh / 'config' / 'vaultpatcher_asm' / 'config.json').exists(), '文件
 newopt = fresh / 'options.txt'
 assert newopt.exists(), f'全新实例没建出 options.txt：\n{out}'
 txt = newopt.read_text(encoding='utf-8')
-assert ENTRY in txt, f'新建的 options.txt 没写入资源包：\n{txt}'
 assert 'lang:zh_cn' in txt, f'新建的 options.txt 没写入中文语言：\n{txt}'
-print('✅ 全新实例（无 options.txt，路径含中文+空格）OK')
+# ⚠️ 这里**必须逐项比对**，不能只做子串包含。issue #9 P1-2 就是这么漏掉的：
+# install.ps1 的 $DefaultPacks 是单引号字符串，里面的 "" 原样保留成两个双引号，
+# 写出来的是 resourcePacks:[""vanilla"",...]——数组根本解析不了，游戏回落默认
+# 列表 = 汉化没启用。而「ENTRY in txt」照样成立，测试一路绿。
+want = [n.strip() for n in (ROOT / 'versions' / MCVER / 'default_resource_packs.txt')
+        .read_text(encoding='utf-8').splitlines()
+        if n.strip() and not n.startswith('#')] + [ENTRY]
+got = resource_packs(txt)
+assert got is not None, f'新建的 resourcePacks 行解析不出来（语法坏了）：\n{txt!r}'
+assert got == want, ('新建的 resourcePacks 数组与预期不符\n  实际 %r\n  预期 %r\n  原文 %r'
+                     % (got, want, txt))
+print('✅ 全新实例（无 options.txt，路径含中文+空格）OK —— 数组逐项比对')
 
 # ---- 回归：玩过的实例但 options.txt 不见了 → 绝不新建 ----
 # 玩家报过：装完汉化后键位、视频、声音设置全没了。已有 options.txt 的路径是安全的
@@ -335,21 +360,6 @@ print('✅ 玩过的实例缺 options.txt 时拒绝新建 OK')
 # bug，任务要求「重复安装不产生重复项」）。
 #
 # 用 resource_packs() 直接解析数组，而不是像前面测试那样只做子串包含判断——
-# 子串包含判断查不出「中间多插入了一个 ]」这种语法损坏，也查不出「条目还在，
-# 但没排到最后一位」（等于没启用）这种情况。
-def resource_packs(text):
-    """从 options.txt 原文解析 resourcePacks 数组，返回条目列表（不分单双引号）。
-    解析不出时返回 None——不该在语法已经损坏的情况下还拼出一个「看起来还行」的
-    列表来。`[^\\]]*` 严格不吃 "]"：如果数组中间被错误地插入了多余的 "]"
-    （CRLF 那个 bug 的典型症状），这里会在第一个 "]" 处就停手，随后要求紧跟着
-    的是行尾（`\\r?$`）——多出来的内容会让整条正则匹配失败，从而如实报告"解析
-    不出"，而不是悄悄只解析出前半段。"""
-    m = re.search(r'^resourcePacks:\[([^\]]*)\]\r?$', text, re.M)
-    if m is None:
-        return None
-    return re.findall(r'["\']([^"\']*)["\']', m.group(1))
-
-
 def resline_case(name, opts_text):
     """造一个「实例 + 释放的安装器文件夹」，options.txt 按给定内容原样写入字节
     （不能用文本模式写，否则 Python 会把 \\r\\n 悄悄换行转写掉，测不出 CRLF 场景）。"""

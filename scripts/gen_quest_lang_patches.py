@@ -158,6 +158,13 @@ def main():
     # 空壳集合天然是「历史上发过的一切」的超集。
     for p in srcs:
         p.write_text('{\n}\n', encoding='utf-8')
+        # r13 及更早还用过 `_<章节名>.snbt` 这个命名（`_` 0x5F 排在小写字母前面，
+        # 当初以为字母序能决定覆盖关系）。那批文件同样只覆盖不删除，同样可能还是
+        # 未合并状态、同样会跟新文件抢键，而它们的名字跟我们现在发的不一样，
+        # 不会被 payload 覆盖掉。所以照样发一个同名空壳把它盖住。
+        legacy = p.with_name('_' + p.name[len(DELTA_PREFIX):])
+        if legacy.name != p.name:
+            legacy.write_text('{\n}\n', encoding='utf-8')
 
     # ── 自检 ──────────────────────────────────────────────────────────────
     if len(placed) + len(extra) != len(delta):

@@ -317,7 +317,11 @@ function Do-Backup {
 # 游戏首次启动会把这 15 个内置包**全部插到我们后面**（实测汉化包落到第 3 位，
 # 被 mod_resources 和五百多个模组包压在底下，汉化基本不生效）。
 # 资源包是**后面的覆盖前面的**，我们必须排在最后一个。
-$DefaultPacks = '""modularbees:dynamic_assets"",""vanilla"",""mod_resources"",""add_xycraft_overrides_stone"",""add_xycraft_overrides_metal"",""add_xycraft_overrides_glass"",""moonlight:merged_pack"",""mod/towntalk:respack"",""mod/dyenamicsandfriends:compat_packs/productivemetalworks/"",""mod/dyenamicsandfriends:compat_packs/connectedglass/"",""mod/dyenamicsandfriends:compat_packs/luminax/"",""mod/dyenamicsandfriends:compat_packs/cookingforblockheads/"",""mod/dyenamicsandfriends:compat_packs/botanypots/"",""mod/dyenamicsandfriends:compat_packs/chromacarvings/"",""modern_industrialization/generated""'
+# 这一串由 build_dist.sh 按目标版本现填（versions/<版本>/default_resource_packs.txt），
+# 与 install.sh 用的是同一个占位符。以前这里写死的是 7.2 的列表，7.0/7.1 的 Windows 包
+# 也拿它——而且用的是单引号字符串，里面的 "" 会**原样保留两个双引号**，写出来的
+# resourcePacks 数组根本解析不了，游戏直接回落默认列表 = 汉化没启用。（issue #9 P1-2）
+$DefaultPacks = '@@DEFAULT_PACKS@@'
 
 function Patch-Options {
     $opt = Join-Path $script:Target 'options.txt'
@@ -337,12 +341,21 @@ function Patch-Options {
             Write-Host '   确认无误后进游戏 → 选项 → 资源包，手动把「汉化包」拖到已启用一侧的最后一位。'
             return
         }
-        $line = 'resourcePacks:[' + $DefaultPacks + ',"' + $PackEntry + '"]'
-        [System.IO.File]::WriteAllText($opt, "lang:zh_cn`n$line`n", $Utf8NoBom)
-        Write-Host 'ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。'
-        Write-Host '   首次启动游戏时 Minecraft 会自动补齐其余设置。'
-        Write-Host '   💡 若首次进游戏后发现翻译没生效，退出游戏再跑一次本安装器即可——'
-        Write-Host '      那说明你的整合包比预期多了几个内置资源包，重跑会把汉化包重新挪到最后一位。'
+        if ($DefaultPacks) {
+            $line = 'resourcePacks:[' + $DefaultPacks + ',"' + $PackEntry + '"]'
+            [System.IO.File]::WriteAllText($opt, "lang:zh_cn`n$line`n", $Utf8NoBom)
+            Write-Host 'ℹ️ 这个实例还没启动过（没有 options.txt），已新建一份并写入中文语言与汉化资源包。'
+            Write-Host '   首次启动游戏时 Minecraft 会自动补齐其余设置。'
+            Write-Host '   💡 若首次进游戏后发现翻译没生效，退出游戏再跑一次本安装器即可——'
+            Write-Host '      那说明你的整合包比预期多了几个内置资源包，重跑会把汉化包重新挪到最后一位。'
+        } else {
+            # 这一版的内置资源包顺序没实测过。**绝不伪造**——只写我们一个包的话，
+            # 游戏首次启动会把内置包全插到它后面，汉化包等于没启用。
+            [System.IO.File]::WriteAllText($opt, "lang:zh_cn`n", $Utf8NoBom)
+            Write-Host 'ℹ️ 这个实例还没启动过（没有 options.txt），已写入中文语言。'
+            Write-Host '   ⚠️ 资源包顺序需要两步：先启动一次游戏让 Minecraft 生成完整的资源包列表，'
+            Write-Host '      退出游戏后再运行一次本安装器，它会把汉化包挪到列表最后一位（必须在最后才生效）。'
+        }
         return
     }
     $lines = [System.IO.File]::ReadAllLines($opt)
@@ -396,14 +409,35 @@ function Patch-Options {
 # term_font.png——256 个字形、没有汉字，中文进去整屏乱码。新版不再生成，
 # 但安装器只覆盖不删除，旧文件会一直留着，于是「装了新版还是乱码」。这里主动清掉。
 function Clear-LegacyCCHelp {
-    $ccd = Join-Path $script:Target 'kubejs\data\computercraft'
+    # 只认这一个目录：旧版本就是往 lua\rom\help\ 里放译好的 .txt，别的地方一律不碰。
+    # 旧代码递归删整个 computercraft 目录下的 *.txt，不看内容也不进备份——玩家自己
+    # 放在那底下的 .txt 会**永久消失**，restore 也拿不回来（Do-Backup 只枚举当前
+    # payload，而这些文件早就不在 payload 里）。（issue #9 P1-1）
+    $ccd = Join-Path $script:Target 'kubejs\data\computercraft\lua\rom\help'
     if (-not (Test-Path -LiteralPath $ccd)) { return }
-    # 只删我们装进去的 .txt，不动整棵树：那个目录下可能有玩家自己写的
-    # KubeJS 数据（.json / .lua），整棵 rm 会连它们一起删，而且不进备份、
-    # restore 也回不来。
-    $txt = @(Get-ChildItem -LiteralPath $ccd -Recurse -Filter *.txt -File -ErrorAction SilentlyContinue)
+    $all = @(Get-ChildItem -LiteralPath $ccd -Recurse -Filter *.txt -File -ErrorAction SilentlyContinue)
+    if ($all.Count -eq 0) { return }
+    $txt = @()
+    foreach ($f in $all) {
+        # 判据：文件里有非 ASCII 字节。我们发的是中译本，CC 自带的 help 全是英文；
+        # 纯 ASCII 的一律不动。万一还是判错，下面会先备份，restore 拿得回来。
+        $bytes = $null
+        try { $bytes = [System.IO.File]::ReadAllBytes($f.FullName) } catch { }
+        if ($null -eq $bytes) { continue }
+        foreach ($b in $bytes) { if ($b -gt 127) { $txt += $f; break } }
+    }
     if ($txt.Count -eq 0) { return }
-    foreach ($f in $txt) { Remove-Item -LiteralPath $f.FullName -Force -ErrorAction SilentlyContinue }
+    foreach ($f in $txt) {
+        if ($script:BK -and (Test-Path -LiteralPath $script:BK)) {
+            $rel = $f.FullName.Substring($script:Target.Length).TrimStart('\', '/')
+            $dst = Join-Path $script:BK $rel
+            # 不用 New-Item：Windows PowerShell 5.1 的 New-Item 没有 -LiteralPath，
+            # 而 -Path 会把 [ ] 当通配符（实例目录叫 [1.21.1]ATM10 很常见）。
+            [void][System.IO.Directory]::CreateDirectory([System.IO.Path]::GetDirectoryName($dst))
+            Copy-Item -LiteralPath $f.FullName -Destination $dst -ErrorAction SilentlyContinue
+        }
+        Remove-Item -LiteralPath $f.FullName -Force -ErrorAction SilentlyContinue
+    }
     # 自底向上删空目录；非空的一律留着
     foreach ($d in @(Get-ChildItem -LiteralPath $ccd -Recurse -Directory -ErrorAction SilentlyContinue |
                      Sort-Object { $_.FullName.Length } -Descending)) {
@@ -414,7 +448,7 @@ function Clear-LegacyCCHelp {
     if (-not @(Get-ChildItem -LiteralPath $ccd -Force -ErrorAction SilentlyContinue)) {
         Remove-Item -LiteralPath $ccd -Force -ErrorAction SilentlyContinue
     }
-    Write-Host "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$($txt.Count) 个文件）。"
+    Write-Host "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$($txt.Count) 个文件，已备份）。"
     Write-Host '   CC 的终端只有 256 个自带字形、没有汉字，中文在那里必然是乱码，'
     Write-Host '   所以这部分改回英文——这是终端本身的限制，不是漏翻。'
 }

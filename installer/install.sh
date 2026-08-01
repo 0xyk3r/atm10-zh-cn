@@ -184,18 +184,37 @@ do_backup() {
 # 中文进去整屏乱码。新版已经不再生成这些文件，但安装器只覆盖不删除，
 # 旧文件会一直留在玩家盘上，于是"装了新版还是乱码"。这里主动清掉。
 clean_legacy_cc_help() {
-  CCD="$TARGET/kubejs/data/computercraft"
+  # 只认这一个目录：旧版本就是往 lua/rom/help/ 里放译好的 .txt，别的地方一律不碰。
+  # 旧代码是 `find "$TARGET/kubejs/data/computercraft" -name '*.txt' -delete`——
+  # 整棵树、不看内容、不进备份。玩家自己放在那底下的 .txt（CC 程序的数据文件、
+  # 别的补丁的东西）会**永久消失**，restore 也拿不回来，因为 do_backup 只枚举
+  # 当前 payload，而这些文件早就不在 payload 里了。（issue #9 P1-1）
+  CCD="$TARGET/kubejs/data/computercraft/lua/rom/help"
   [ -d "$CCD" ] || return 0
-  # 只删我们装进去的 .txt，不动整棵树：那个目录下可能有玩家自己写的 KubeJS
-  # 数据（.json / .lua），整棵 rm 会连它们一起删，而且不进备份、restore 也回不来。
   # `|| true`：set -euo pipefail 下 find 一旦非零退出（例如有不可读子目录），
   # 这个赋值就会让安装器**静默退出**，什么都不打印。
-  n=$(find "$CCD" -name '*.txt' -type f 2>/dev/null | wc -l | tr -d ' ' || true)
-  [ "${n:-0}" -gt 0 ] || return 0
-  find "$CCD" -name '*.txt' -type f -exec rm -f {} + 2>/dev/null || true
+  LIST=$(find "$CCD" -name '*.txt' -type f 2>/dev/null || true)
+  [ -n "$LIST" ] || return 0
+  hit=0
+  while IFS= read -r f; do
+    [ -f "$f" ] || continue
+    # 判据：文件里有非 ASCII 字节。我们发的是中译本，CC 自带的 help 全是英文；
+    # 纯 ASCII 的一律不动。万一还是判错，下面已经先备份了，restore 能拿回来。
+    LC_ALL=C tr -d '\000-\177' < "$f" 2>/dev/null | LC_ALL=C grep -q . || continue
+    rel="${f#"$TARGET"/}"
+    if [ -n "${BK:-}" ] && [ -d "$BK" ]; then
+      mkdir -p "$BK/$(dirname "$rel")"
+      cp -p "$f" "$BK/$rel" 2>/dev/null || true
+    fi
+    rm -f "$f"
+    hit=$((hit + 1))
+  done <<EOF
+$LIST
+EOF
+  [ "$hit" -gt 0 ] || return 0
   # 自底向上删空目录；非空的一律留着
   find "$CCD" -depth -type d -empty -exec rmdir {} + 2>/dev/null || true
-  say "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$n 个文件）。"
+  say "🧹 清理了旧版本装进去的 CC: Tweaked 中文 help 文档（$hit 个文件，已备份）。"
   say "   CC 的终端只有 256 个自带字形、没有汉字，中文在那里必然是乱码，"
   say "   所以这部分改回英文——这是终端本身的限制，不是漏翻。"
 }
