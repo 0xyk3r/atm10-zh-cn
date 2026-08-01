@@ -128,6 +128,19 @@ def _c8(mods):
                    ensure_ascii=False), encoding='utf-8')
 
 
+@case('物品 tooltip 值里留了换行', 'occultism-tooltip-no-newline')
+def _c9(mods):
+    # issue #8 的形状：`\n` 在 tooltip 里不断行，而是被当成普通字符去查字形，
+    # unifont 给控制字符画的是一个写着 LF 的方框。上游 en_us 自己就带这些换行，
+    # 升版重导上游译文时会原样带回来，所以要有闸。
+    p = (mods.parent.parent / 'resourcepacks' / 'ATM10汉化包' /
+         'assets' / 'occultism' / 'lang' / 'zh_cn.json')
+    d = json.loads(p.read_text(encoding='utf-8')) if p.is_file() else {}
+    d['item.occultism.chalk_rainbow.auto_tooltip'] = '可代替任意粉笔符文。\n它可以呈现出任何彩色符文的外观。'
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
+
+
 @case('出货树残留字节码补丁', 'vp-no-stray-class-patch')
 def _c6(mods):
     f = mods.parent / 'patch' / 'com' / 'ldtteam' / 'blockui' / 'controls' / 'Button.class'

@@ -257,6 +257,34 @@ def _filename_prefix(rule):
             yield msg.format(path=rel(p), prefix=pre)
 
 
+@checker('lang_value_forbidden')
+def _lang_value_forbidden(rule):
+    """lang 文件里，键匹配 key_regex 的条目，值不许匹配 value_regex。
+
+    issue #8：物品 tooltip 是被 `Component.translatable(...)` 整条塞进
+    `List<Component>` 的，vanilla 渲染 tooltip 走 `Component#getVisualOrderText`，
+    **不做断行**——值里的 `\\n` 不会换行，而是按 U+000A 去字体里查字形，
+    unifont 给控制字符画的是一个写着「LF」的小方框，玩家看到的就是一颗多余的符号。
+    上游 en_us 里就有（英文同样是方框），所以升版重导上游译文时极易复发。
+    """
+    g, kre, vre = need(rule, 'glob', 'key_regex', 'value_regex')
+    msg = rule.get('message', '{key}: 值里不许出现 {value_regex}')
+    krx, vrx = re.compile(kre), re.compile(vre)
+    hit = files(g)
+    if not hit:
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+    for p in hit:
+        doc = json.loads(p.read_text(encoding='utf-8'))
+        watched = [k for k in doc if krx.search(k)]
+        if not watched:
+            # 键被上游改名 / 文件被换掉 → 规则空转。空转和「查过了没问题」
+            # 在退出码上一模一样，所以这里必须自爆。
+            yield '%s: key_regex %r 一个键都没匹配到（规则失效了，比不加还危险）' % (rel(p), kre)
+        for k in watched:
+            if vrx.search(doc[k]):
+                yield '%s: %s' % (rel(p), msg.format(key=k, value_regex=vre))
+
+
 @checker('forbidden_text')
 def _forbidden_text(rule):
     terms, = need(rule, 'terms')

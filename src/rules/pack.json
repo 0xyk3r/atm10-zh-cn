@@ -12,6 +12,15 @@
     "why": "单个 lang 文件解析失败只会让那个命名空间静默回英文，日志里翻不出来。"
   },
   {
+    "id": "occultism-tooltip-no-newline",
+    "kind": "lang_value_forbidden",
+    "glob": "resourcepacks/ATM10汉化包/assets/occultism/lang/zh_cn.json",
+    "key_regex": "^item\\.occultism\\..*\\.(auto_tooltip|tooltip|tooltip_empty|tooltip_filled)$",
+    "value_regex": "\n",
+    "message": "{key} 的值里还留着换行符——物品 tooltip 不会换行，玩家看到的是一个「LF」方框",
+    "why": "issue #8：神灯和彩虹/虚空粉笔的描述里各冒出一颗方框。Occultism 的 TooltipHandler 和 MagicLampItem 都是把整条 Component.translatable 塞进 tooltip 列表，vanilla 渲染 tooltip 走 getVisualOrderText，不断行，于是 U+000A 被当普通字符去查字形，unifont 给控制字符画的正是写着 LF 的方框。上游 en_us 自己就带这些换行（英文也是方框），升版重导上游译文时会原样带回来。"
+  },
+  {
     "id": "gui-choice-must-stay-english",
     "kind": "gui_choice_ascii",
     "glob": "resourcepacks/ATM10汉化包/**/*.gui",

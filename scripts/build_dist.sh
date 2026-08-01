@@ -50,6 +50,7 @@ for f in \
   "$COMMON/resourcepacks/ATM10汉化包/assets/hanhua_trophies/lang/zh_cn.json" \
   "$COMMON/resourcepacks/ATM10汉化包/assets/hanhua_wood_names/lang/zh_cn.json" \
   "$COMMON/kubejs/client_scripts/pb_hanhua_tooltip.js" \
+  "$COMMON/kubejs/client_scripts/occultism_flame_tooltip.js" \
   "$COMMON/kubejs/server_scripts/pb_hanhua_cage_migrate.js" \
   "build/snapshots/upstream_format_en_us.json"; do
   [ -f "$f" ] || MISSING="$MISSING $(basename "$f")"
