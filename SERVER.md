@@ -54,6 +54,21 @@ config/vaultpatcher_asm/…                       # VaultPatcher 主配置
 请安装前务必看我.md · LICENSE · 项目主页与反馈.url
 ```
 
+> ⚠️ **任务书语言文件是整份替换，不是往里加文件。**
+> `config/ftbquests/quests/lang/zh_cn/` 下发的是「整合包自己那份中文 + 本包的修正」，
+> 文件名与整合包原本的一模一样，装的时候会把同名文件覆盖掉。
+>
+> 之所以不能只发修正：`ftbquestslangsplitter` 合并同目录下的 `*.snbt` 时**不排序**
+> （`chapters/` 里是 `Files.list(...).forEach(...)`，一个 comparator 都没有），
+> 而 `Files.list` 不保证顺序——NTFS/APFS 恰好按名字返回，**ext4 返回哈希序**。
+> 同一个键要是同时躺在「整合包那份」和「本包的修正」两个文件里，谁生效在 Linux
+> 服务器上是随机的：在服务器第一次启动**之前**就装包的机器，会有随机一批修正被顶回
+> 整合包原文。整份替换之后，一个键只由一份文件持有，顺序彻底不参与决策。
+>
+> 已经跑过一次的服务器不用担心「两份文件」：整合包那份早就被改名成 `.snbt_merged`，
+> 而 splitter 只读文件名以 `.snbt` 结尾的（`isValidLangFile`），`.snbt_merged` 不会再被
+> 读第二次。硬盘上多出来的那份是死文件，删不删都行。
+
 ## 安装
 
 1. **先备份**服务器数据目录里的 `config/`、`kubejs/`、`vaultpatcher/`、`mods/vaultpatcher.jar`

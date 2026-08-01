@@ -225,6 +225,19 @@ All the Mods 10\          ← 实例根目录
   另外提醒：这种装法**没有备份**，恢复功能对它无效。想要能回退，请按上面的[装法 A](#-两种装法别混着来)。
 - **安装器说我的版本不是最新／是测试版？** 它装之前会查一次 GitHub 上的最新正式版。
   提示只是提醒，不会拦住安装；游戏内的汉化更新提示也使用同一开关。不想让它们联网就设环境变量 `ATM_SKIP_UPDATE_CHECK=1`。
+- **进游戏要卡好几分钟？** 大概率**不是汉化包的事**。整合包里有几个模组在启动时去拉
+  「赞助者 / 贡献者名单」这类纯装饰数据，落点都是 `raw.githubusercontent.com` 这种国内
+  不通的域名——连不上不报错，只会一直等到系统默认超时（macOS 是 75 秒一次）。实测一次
+  启动能撞上 7 次，来自 **titanium**（Industrial Foregoing 的前置）、**ars_nouveau**、
+  **placebo**（Apotheosis 的前置）、**actuallyadditions**、**supplementaries / moonlight**。
+
+  它们走的都是 JDK 老的 `HttpURLConnection`，在启动器的 **JVM 参数**里加这两条能一起治：
+
+  ```
+  -Dsun.net.client.defaultConnectTimeout=5000 -Dsun.net.client.defaultReadTimeout=5000
+  ```
+
+  连不上的 5 秒内失败，不再干等。（HMCL 在「游戏特定设置 → Java 虚拟机参数」里填）
 - **改动不生效？** 资源包类改动 **F3+T** 重载即可；VaultPatcher 硬编码文本、主菜单按钮图需**完整重启游戏**；任务书需**重进世界 / 重连服务器**。
 - **蜂笼上的蜂名是英文？** 老蜂笼里的名字是抓蜂时就烙进 NBT 的，资源包改不动它，得靠脚本改写。
   **单人**：装了客户端包就已经带上这个脚本了；**联机**：需要服主装服务端包。
