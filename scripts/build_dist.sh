@@ -73,6 +73,13 @@ if [ ! -d "$UPROOT/kubejs" ]; then
   python3 scripts/fetch_pack.py "$MC" "$UPROOT" --no-jars
 fi
 python3 scripts/gen_upstream_patches.py "$UPROOT" "$TREE"
+PV="$VERSION" python3 - "$TREE/kubejs/client_scripts/hanhua_update_check.js" <<'PY'
+import os, pathlib, sys
+p = pathlib.Path(sys.argv[1])
+if p.exists():
+    p.write_text(p.read_text(encoding='utf-8').replace('@@PATCHVER@@', os.environ['PV']),
+                 encoding='utf-8')
+PY
 # VaultPatcher 模块头部要写该版真实的 jar 文件名（7.2 那份拿到 7.0 只有 83/152 对得上）
 python3 scripts/gen_vaultpatcher.py "$MC" "$TREE"
 python3 scripts/check.py "$TREE"
