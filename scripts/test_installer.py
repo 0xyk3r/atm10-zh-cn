@@ -491,5 +491,129 @@ if not IS_WIN:                       # install.sh 只跑在 macOS / Linux
     assert rc != 0 or not got, f'该版没有对应包时不该挑到别版：rc={rc} got={got}'
     print('✅ 一键更新挑包：按 ATM 版本精确匹配 + 缺摘要拒绝 OK')
 
+# ---- 一键更新：端到端（离线，本地 HTTP 服务喂一个假 Release）------------
+# 上一段只测了「挑哪个 asset」。这里把剩下的整条链跑一遍：
+#   下载 → 校验 sha256 → 解包 → 用 ATM_TARGET 调起新版安装器 apply
+#   → 把新版目录里的备份归并回原入口 → 把原入口的 payload 与脚本换成新版
+# 不加任何测试专用开关：脚本本来就要经 materialize() 填占位符才是玩家拿到的那份，
+# 这里顺手把 api.github.com 改写到本地服务——production 代码一个字都不用为测试让路。
+if not IS_WIN:                       # install.sh 只跑在 macOS / Linux
+    import hashlib
+    import http.server
+    import json as _json
+    import socketserver
+    import threading
+
+    SERVED = {}                      # path -> (content-type, bytes)
+
+    class _H(http.server.BaseHTTPRequestHandler):
+        def do_GET(self):
+            item = SERVED.get(self.path)
+            if item is None:
+                self.send_error(404)
+                return
+            ctype, body = item
+            self.send_response(200)
+            self.send_header('Content-Type', ctype)
+            self.send_header('Content-Length', str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+
+        def log_message(self, *a):
+            pass
+
+    httpd = socketserver.TCPServer(('127.0.0.1', 0), _H)
+    threading.Thread(target=httpd.serve_forever, daemon=True).start()
+    BASE = 'http://127.0.0.1:%d' % httpd.server_address[1]
+
+    def make_case(tag, break_digest=False):
+        """搭一套「实例 + 旧安装包目录 + 新版 zip + 假 Release」，返回 (实例, 源目录)。"""
+        root = tmp / ('upd-' + tag)
+        instd = root / 'instance'
+        (instd / 'mods').mkdir(parents=True)
+        for i in range(25):
+            (instd / 'mods' / f'm{i}.jar').write_text('x', encoding='utf-8')
+        (instd / 'options.txt').write_text(OPTS_BEFORE, encoding='utf-8')
+
+        def payload(d, mark):
+            """一份最小 payload：够 do_apply 干活，又不用搬整棵出货树。"""
+            (d / 'config' / 'vaultpatcher_asm').mkdir(parents=True)
+            (d / 'config' / 'vaultpatcher_asm' / 'config.json').write_text(
+                '{"class_patch": false}\n', encoding='utf-8')
+            (d / 'vaultpatcher' / 'modules').mkdir(parents=True)
+            (d / 'vaultpatcher' / 'modules' / 'probe.json').write_text(mark, encoding='utf-8')
+            (d / 'resourcepacks').mkdir()
+            with zipfile.ZipFile(d / 'resourcepacks' / f'{PACK}.zip', 'w') as z:
+                z.writestr('pack.mcmeta', '{}')
+            for s_ in ('install.sh', 'install.ps1'):
+                t = (ROOT / 'installer' / s_).read_text(encoding='utf-8')
+                t = (t.replace('@@MCVER@@', MCVER).replace('@@PATCHVER@@', PATCHVER)
+                      .replace('@@DEFAULT_PACKS@@', DEFAULT_PACKS)
+                      .replace('https://api.github.com', BASE))
+                if mark == 'NEW':      # 水印：验证原入口的脚本确实被换成了新版
+                    t += '\n# ATM10-TEST-NEW-INSTALLER\n'
+                (d / s_).write_text(t, encoding='utf-8')
+
+        srcd = instd / 'atm10-zh_cn-client'
+        srcd.mkdir()
+        payload(srcd, 'OLD')
+        newd = root / 'newpkg' / 'atm10-zh_cn-client'
+        newd.mkdir(parents=True)
+        payload(newd, 'NEW')
+
+        zname = f'atm10-zh_cn-client-r99-atm{MCVER}.zip'
+        zpath = root / zname
+        with zipfile.ZipFile(zpath, 'w', zipfile.ZIP_DEFLATED) as z:
+            for q in newd.rglob('*'):
+                if q.is_file():
+                    z.write(q, ('atm10-zh_cn-client/' + q.relative_to(newd).as_posix()))
+        blob = zpath.read_bytes()
+        sha = hashlib.sha256(blob).hexdigest()
+        if break_digest:
+            sha = 'f' * 64          # 摘要对不上：必须拒绝，且一个文件都不许动
+        rel_json = _json.dumps({
+            'tag_name': 'vr99',
+            'assets': [{
+                'name': zname,
+                'uploader': {'login': 'x'},          # 嵌套对象，照抄真实形状
+                'digest': 'sha256:' + sha,
+                'browser_download_url': f'{BASE}/dl/{tag}/{zname}',
+            }],
+        })
+        SERVED[f'/repos/chiba233/atm10-zh-cn/releases/latest'] = ('application/json',
+                                                                  rel_json.encode())
+        SERVED[f'/dl/{tag}/{zname}'] = ('application/zip', blob)
+        return instd, srcd
+
+    # ① 正常路径
+    instd, srcd = make_case('ok')
+    r = subprocess.run(['bash', str(srcd / 'install.sh'), 'update'],
+                       capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', timeout=300)
+    out = (r.stdout or '') + (r.stderr or '')
+    assert r.returncode == 0, f'一键更新退出码 {r.returncode}：\n{out}'
+    assert '已更新到 vr99' in out, f'没走到更新成功那步：\n{out}'
+    assert (instd / 'vaultpatcher' / 'modules' / 'probe.json').read_text(encoding='utf-8') == 'NEW', \
+        f'实例里落地的不是新版 payload：\n{out}'
+    assert (srcd / 'vaultpatcher' / 'modules' / 'probe.json').read_text(encoding='utf-8') == 'NEW', \
+        f'原安装包目录没被换成新版 payload：\n{out}'
+    assert 'ATM10-TEST-NEW-INSTALLER' in (srcd / 'install.sh').read_text(encoding='utf-8'), \
+        f'原入口的 install.sh 没被换成新版：\n{out}'
+    assert any((srcd / 'backups').glob('*')), f'新版安装器的备份没归并回原入口：\n{out}'
+    assert list(instd.glob('.atm10-hanhua-update-*')), f'没留下新版安装器目录：\n{out}'
+
+    # ② 摘要对不上：必须拒绝，且实例与原入口一个字节都不许动
+    instd2, srcd2 = make_case('bad', break_digest=True)
+    r = subprocess.run(['bash', str(srcd2 / 'install.sh'), 'update'],
+                       capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', timeout=300)
+    out2 = (r.stdout or '') + (r.stderr or '')
+    assert 'SHA-256' in out2, f'摘要不符时没报出来：\n{out2}'
+    assert not (instd2 / 'vaultpatcher').exists(), f'摘要不符却已经动了实例：\n{out2}'
+    assert 'ATM10-TEST-NEW-INSTALLER' not in (srcd2 / 'install.sh').read_text(encoding='utf-8'), \
+        f'摘要不符却已经换掉了原入口的安装器：\n{out2}'
+    httpd.shutdown()
+    print('✅ 一键更新端到端：下载→校验→解包→子安装器→归并备份→换源目录 OK（含摘要不符拒绝）')
+
 shutil.rmtree(tmp, ignore_errors=True)
 print(f'✅ 安装脚本端到端测试通过（{platform.system()}）')

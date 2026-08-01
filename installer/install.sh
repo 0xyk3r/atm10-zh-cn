@@ -194,7 +194,7 @@ do_update() {
   fi
   for t in unzip; do
     command -v "$t" >/dev/null 2>&1 || {
-      say "❌ 系统里没有 $t，无法解包。请手动到 Releases 下载新版："
+      say "❌ 系统里没有 ${t}，无法解包。请手动到 Releases 下载新版："
       say "   https://github.com/${REPO}/releases/latest"
       return 0; }
   done
@@ -220,7 +220,9 @@ do_update() {
   started=0; installed=0; merged=0; newdir=""
   mkdir -p "$stage"
 
-  say "正在下载 $name……"
+  # ⚠️ 变量后面紧跟中文时必须写 ${var}：在单字节 Latin 语言环境下（CI 容器常见 LANG=C），
+  # bash 会把 UTF-8 的头字节当成标识符的一部分，`$name……` 变成 `$nameâ` → unbound variable。
+  say "正在下载 ${name}……"
   ok=1
   if command -v curl >/dev/null 2>&1; then
     curl -fsSL --max-time 300 -H 'User-Agent: atm10-zh-cn-installer' -o "$zipf" "$url" || ok=0
@@ -266,7 +268,7 @@ do_update() {
   fi
   merge_update_backups "$newdir"; merged=1
   update_source_package "$newdir"
-  say "✅ 已更新到 $LATEST_TAG。新版安装器保留在：$stage"
+  say "✅ 已更新到 ${LATEST_TAG}。新版安装器保留在：$stage"
   say "   本次备份已归入原安装包：$SCRIPT_DIR/backups"
   say "   请退出并重新启动游戏后生效；确认无误前不要删除该目录。"
 }
