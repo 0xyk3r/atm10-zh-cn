@@ -12,14 +12,15 @@
 #   .\install.ps1 restore [备份名]   # 恢复备份
 param(
     [string]$Action = '',
-    [string]$BackupName = ''
+    [string]$BackupName = '',
+    [string]$TargetPath = ''
 )
 $ErrorActionPreference = 'Stop'
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location -LiteralPath $ScriptDir
 # 中文输出：cmd 侧已 chcp 65001，这里让 PowerShell 也按 UTF-8 写控制台
 try { [Console]::OutputEncoding = [Text.UTF8Encoding]::new($false) } catch {}
-$script:Target = Split-Path -Parent $ScriptDir
+$script:Target = if ($TargetPath) { $TargetPath } else { Split-Path -Parent $ScriptDir }
 $PackDirs = @('config', 'kubejs', 'mods', 'resourcepacks', 'vaultpatcher')
 $PackEntry = 'file/ATM10汉化包-@@MCVER@@.zip'
 $PinyinDir = '可选mods-拼音搜索'
@@ -37,12 +38,14 @@ $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 # ── 版本检查 ────────────────────────────────────────────────────────────
 # 补丁自己的版本号，由 build_dist.sh 现填。
 $script:PatchVer = '@@PATCHVER@@'
+$script:PackMcVer = '@@MCVER@@'
 $script:Repo     = 'chiba233/atm10-zh-cn'
+$script:LatestRelease = $null
 
 # 取仓库最新**正式版**的 tag。releases/latest 天然跳过预发布，正合用：
 # 测试版不该被当成「最新版」去催人升级。
 # 任何一步不成（没网、被限流、TLS 不通）都返回 $null，**绝不因此拦住安装**。
-function Get-LatestTag {
+function Get-LatestRelease {
     if ($env:ATM_SKIP_UPDATE_CHECK -eq '1') { return $null }
     try {
         $old = $ProgressPreference; $ProgressPreference = 'SilentlyContinue'
@@ -53,7 +56,7 @@ function Get-LatestTag {
                                            'User-Agent' = 'atm10-zh-cn-installer' } `
                                -TimeoutSec 6
         $ProgressPreference = $old
-        return $r.tag_name
+        return $r
     } catch { return $null }
 }
 
@@ -62,7 +65,8 @@ function Normalize-Ver([string]$v) { if ($v -and $v.StartsWith('v')) { $v.Substr
 function Check-Update {
     if ($env:ATM_SKIP_UPDATE_CHECK -eq '1') { return }
     $isBeta = $script:PatchVer -match '(?i)beta|rc\d|^dev$'
-    $latest = Get-LatestTag
+    $script:LatestRelease = Get-LatestRelease
+    $latest = if ($script:LatestRelease) { $script:LatestRelease.tag_name } else { $null }
     if ($isBeta) {
         Write-Host ''
         Write-Host "⚠️ 你装的是**测试版**：$($script:PatchVer)"
@@ -86,6 +90,136 @@ function Check-Update {
         Write-Host "   https://github.com/$($script:Repo)/releases/latest"
         Write-Host ''
     }
+}
+
+function Invoke-OneClickUpdate {
+    $release = $script:LatestRelease
+    if (-not $release) { $release = Get-LatestRelease }
+    if (-not $release) {
+        Write-Host '❌ 无法获取最新版信息，请检查网络后重试。'
+        return
+    }
+
+    $latest = $release.tag_name
+    if ((Normalize-Ver $latest) -eq (Normalize-Ver $script:PatchVer)) {
+        Write-Host "✓ $($script:PatchVer) 已是最新正式版，无需更新。"
+        return
+    }
+
+    # Release 同时带三个 ATM10 版本和客户端/服务端包；必须按当前包的 ATM 版本
+    # 精确选择客户端 zip，不能只取 assets[0]，否则会把 7.0 用户升级到 7.2 包。
+    $suffix = '-atm' + [regex]::Escape($script:PackMcVer) + '\.zip$'
+    $asset = @($release.assets | Where-Object {
+        $_.name -match '^atm10-zh_cn-client-.+' -and $_.name -match $suffix
+    }) | Select-Object -First 1
+    if (-not $asset) {
+        Write-Host "❌ 最新版 $latest 没有 ATM10 $($script:PackMcVer) 的客户端安装包，未做任何改动。"
+        return
+    }
+    $digest = [string]$asset.digest
+    if ($digest -notmatch '^sha256:([0-9a-fA-F]{64})$') {
+        Write-Host "❌ 最新版 $latest 的客户端安装包缺少有效的 SHA-256 摘要，拒绝安装。"
+        return
+    }
+    $expectedSha256 = $Matches[1]
+
+    $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+    $stage = Join-Path $script:Target ".atm10-hanhua-update-$stamp"
+    $zip = Join-Path $stage $asset.name
+    $newInstallerStarted = $false
+    $newInstallComplete = $false
+    $newBackupsMerged = $false
+    try {
+        [void][System.IO.Directory]::CreateDirectory($stage)
+        Write-Host "正在下载 $($asset.name)……"
+        Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $zip -UseBasicParsing `
+            -Headers @{ 'User-Agent' = 'atm10-zh-cn-installer' } -TimeoutSec 120
+        $actualSha256 = (Get-FileHash -LiteralPath $zip -Algorithm SHA256).Hash
+        if (-not [string]::Equals($actualSha256, $expectedSha256,
+                                   [System.StringComparison]::OrdinalIgnoreCase)) {
+            throw '下载文件的 SHA-256 与 GitHub Release 摘要不一致。'
+        }
+        Expand-Archive -LiteralPath $zip -DestinationPath $stage -Force
+        $next = @(Get-ChildItem -LiteralPath $stage -Recurse -Filter 'install.ps1' -File |
+                  Where-Object { $_.Directory.Name -eq 'atm10-zh_cn-client' }) | Select-Object -First 1
+        if (-not $next) { throw '下载包中没有预期的客户端安装器。' }
+
+        Write-Host '下载完成，正在由新版安装器备份并应用汉化……'
+        $newInstallerStarted = $true
+        & powershell -NoProfile -ExecutionPolicy Bypass -File $next.FullName apply -TargetPath $script:Target
+        if ($LASTEXITCODE -ne 0) { throw "新版安装器退出码：$LASTEXITCODE" }
+        $newInstallComplete = $true
+        Merge-UpdateBackups $next.Directory.FullName
+        $newBackupsMerged = $true
+        Update-SourcePackage $next.Directory.FullName
+        Write-Host "✅ 已更新到 $latest。新版安装器保留在：$stage"
+        Write-Host "   本次备份已归入原安装包：$(Join-Path $ScriptDir 'backups')"
+        Write-Host '   请退出并重新启动游戏后生效；确认无误前不要删除该目录。'
+    } catch {
+        Write-Host "❌ 一键更新失败：$($_.Exception.Message)"
+        if ($newInstallComplete) {
+            Write-Host '   新版汉化已经安装，但原安装包未能更新。'
+            Write-Host "   之后请从这个新版目录运行安装器：$($next.Directory.FullName)"
+            if ($newBackupsMerged) {
+                Write-Host "   本次备份已归入原安装包：$(Join-Path $ScriptDir 'backups')"
+            } else {
+                Write-Host "   本次备份仍在新版目录：$(Join-Path $next.Directory.FullName 'backups')"
+            }
+        } elseif ($newInstallerStarted) {
+            $newBackups = Join-Path $next.Directory.FullName 'backups'
+            Write-Host '   新版安装器已经启动，实例可能只完成了部分更新。'
+            Write-Host "   请先用新版安装器的 restore 功能恢复本次备份：$newBackups"
+        } else {
+            Write-Host "   新版安装器尚未启动；已下载的临时文件（如有）保留在：$stage"
+        }
+    }
+}
+
+function Merge-UpdateBackups([string]$newDir) {
+    # 新版安装器把备份写在下载目录；原入口的 restore 只读取 ScriptDir/backups。
+    # 成功更新后必须将备份归并到原入口，否则用户无法通过日常双击的安装器回滚。
+    $from = Join-Path $newDir 'backups'
+    if (-not (Test-Path -LiteralPath $from)) { return }
+    $to = Join-Path $ScriptDir 'backups'
+    [void][System.IO.Directory]::CreateDirectory($to)
+    foreach ($backup in Get-ChildItem -LiteralPath $from -Directory) {
+        $dest = Join-Path $to $backup.Name
+        $n = 1
+        while (Test-Path -LiteralPath $dest) {
+            $dest = Join-Path $to "$($backup.Name)-update-$n"
+            $n++
+        }
+        Move-Item -LiteralPath $backup.FullName -Destination $dest
+    }
+}
+
+function Update-SourcePackage([string]$newDir) {
+    # 用户今后仍会双击最初解压出来的 bat。只把游戏实例更新而不更新这个源目录，
+    # 下次运行旧安装器会再次提示升级，甚至把旧 payload 覆盖回去。
+    # 正常安装时源目录与实例分开，可以安全地以新版 payload 整体替换；就地解压时
+    # 源目录就是实例，刚才的新版安装器已完成 payload 覆盖，绝不能删除实例目录。
+    if (-not $script:InPlace) {
+        foreach ($d in @($PackDirs + $PinyinDir)) {
+            $old = Join-Path $ScriptDir $d
+            $new = Join-Path $newDir $d
+            if (Test-Path -LiteralPath $old) {
+                Remove-Item -LiteralPath $old -Recurse -Force
+            }
+            if (Test-Path -LiteralPath $new) {
+                Copy-Item -LiteralPath $new -Destination $old -Recurse -Force
+            }
+        }
+    }
+
+    # 当前 PowerShell 已把脚本读入内存，替换自身不会中断本次更新；bat 也只会在
+    # 下次双击时读取。因此两个 Windows 入口都能安全换成新版。
+    foreach ($f in @('install.ps1', '双击安装-Windows.bat', 'install-windows.bat')) {
+        $new = Join-Path $newDir $f
+        if (Test-Path -LiteralPath $new) {
+            Copy-Item -LiteralPath $new -Destination (Join-Path $ScriptDir $f) -Force
+        }
+    }
+    Write-Host '✅ 已将原安装包更新为新版；以后继续双击原来的安装 bat 即可。'
 }
 
 function Test-Instance([string]$d) {
@@ -443,6 +577,10 @@ switch ($Action) {
         Write-Host " 目标实例: $script:Target"
         Write-Host '══════════════════════════════════════════'
         Write-Host ' [1] 应用汉化（自动先备份被覆盖文件）'
+        if ($script:LatestRelease -and
+            (Normalize-Ver $script:LatestRelease.tag_name) -ne (Normalize-Ver $script:PatchVer)) {
+            Write-Host " [u] 一键下载并更新到 $($script:LatestRelease.tag_name)"
+        }
         Write-Host ' [2] 仅备份'
         Write-Host ' [3] 恢复备份'
         Write-Host ' [q] 退出'
@@ -454,6 +592,7 @@ switch ($Action) {
                 if ($ans -eq 'y' -or $ans -eq 'Y') { Do-Pinyin }
                 else { Write-Host '（跳过可选mods，之后可运行: .\install.ps1 apply-with-pinyin）' }
             }
+            'u' { Invoke-OneClickUpdate }
             '2' { Do-Backup }
             '3' { Do-Restore '' }
             default { Write-Host '已退出' }
