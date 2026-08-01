@@ -120,6 +120,7 @@ function Invoke-OneClickUpdate {
     $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
     $stage = Join-Path $script:Target ".atm10-hanhua-update-$stamp"
     $zip = Join-Path $stage $asset.name
+    $newInstallerStarted = $false
     try {
         [void][System.IO.Directory]::CreateDirectory($stage)
         Write-Host "正在下载 $($asset.name)……"
@@ -134,13 +135,20 @@ function Invoke-OneClickUpdate {
         if (-not $next) { throw '下载包中没有预期的客户端安装器。' }
 
         Write-Host '下载完成，正在由新版安装器备份并应用汉化……'
+        $newInstallerStarted = $true
         & powershell -NoProfile -ExecutionPolicy Bypass -File $next.FullName apply -TargetPath $script:Target
         if ($LASTEXITCODE -ne 0) { throw "新版安装器退出码：$LASTEXITCODE" }
         Write-Host "✅ 已更新到 $latest。新版安装器和本次备份保留在：$stage"
         Write-Host '   请退出并重新启动游戏后生效；确认无误前不要删除该目录。'
     } catch {
         Write-Host "❌ 一键更新失败：$($_.Exception.Message)"
-        Write-Host "   未启动新版安装器；已下载的临时文件（如有）保留在：$stage"
+        if ($newInstallerStarted) {
+            $newBackups = Join-Path $next.Directory.FullName 'backups'
+            Write-Host '   新版安装器已经启动，实例可能只完成了部分更新。'
+            Write-Host "   请先用新版安装器的 restore 功能恢复本次备份：$newBackups"
+        } else {
+            Write-Host "   新版安装器尚未启动；已下载的临时文件（如有）保留在：$stage"
+        }
     }
 }
 
