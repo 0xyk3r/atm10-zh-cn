@@ -42,6 +42,9 @@ jobs:
         shell: bash
     env:
       ATM_TOOLCHAIN_DIGEST: sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b
+      # 这条流水线是带 jar 跑完整生成的，所以「前提是生成物却没生成」一律算失败，
+      # 不许打一行 ℹ️ 就放过去——发版比日常构建更不该有 fail-open。
+      GATE_STRICT: '1'
     steps:
       - uses: actions/checkout@v6
 
@@ -61,7 +64,11 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+          # ⚠️ 必须同时确认 event 就是 tag push。只看 GITHUB_REF_TYPE 的话，
+          #    `gh workflow run release.yml --ref vr16-beta3 -f publish_release=false`
+          #    也满足「ref 是 tag」，于是 publish_release=false 被无视、照发不误，
+          #    还会覆盖已有 Release 的资产。（issue #9 P1-3）
+          if [[ "$GITHUB_EVENT_NAME" == "push" && "$GITHUB_REF_TYPE" == "tag" ]]; then
             tag="$GITHUB_REF_NAME"
             # 补丁版本号已与整合包版本解耦（产物名是 -<补丁版本>-atm<整合包版本>.zip），
             # 所以 tag 认两种：
@@ -146,9 +153,22 @@ jobs:
           for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
             [ -d "build/packsrc/$v/kubejs" ] || python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
           done
+          # 下来的字节必须与 versions/db/<版本>/jars.json 逐字节一致。
+          # 以前只写进临时的 mods.provenance.json，没人跟仓库里的基线比对过——
+          # 限速/404/拿错文件都只会让生成器少产内容，不会有人发现。（issue #9 P1-5）
+          python3 scripts/build_version_db.py --verify "$NEWEST" pack/mods
 
       - name: 生成全部汉化产物
         run: ./scripts/generate_all.sh
+
+      # 下面两道闸要读 mod jar，Build 里有、Release 里以前没有——等于「打 tag 就能
+      # 绕过已知的崩溃闸」。两条都是拿实机崩溃换来的：市政厅 XML（2026-07-28）、
+      # 建筑棒蓝图路径当 Map 键（issue #3）。（issue #9 P1-4）
+      - name: 界面 XML 映射三条硬规矩
+        run: python3 scripts/compliance/check_gui_maps.py "$ATM_PACK_ROOT/mods"
+
+      - name: 蓝图类别路径不许被替换表改动
+        run: python3 scripts/compliance/check_minecolonies_paths.py "$ATM_PACK_ROOT/mods"
 
       - name: 打包全部整合包版本
         # 不给第二个参数 = 出 versions/ 下声明过的全部版本。
@@ -235,7 +255,10 @@ jobs:
 
       - name: Publish GitHub release
         if: steps.release.outputs.publish == 'true'
-        uses: softprops/action-gh-release@v2
+        # 钉完整 commit SHA：这一步握着 contents:write，用可移动的 @v2 意味着
+        # 标签被挪动或上游被入侵时，写权限直接易主。（issue #9 P1-6）
+        # 对应 softprops/action-gh-release 的 v2 标签（2026-08-01 解析）。
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           tag_name: v${{ steps.release.outputs.version }}
           name: 绿油油版汉化 v${{ steps.release.outputs.version }}

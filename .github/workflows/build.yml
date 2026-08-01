@@ -125,6 +125,10 @@ jobs:
           for v in ${{ steps.t.outputs.list }}; do
             [ -d "build/packsrc/$v/kubejs" ] || python3 scripts/fetch_pack.py "$v" "build/packsrc/$v" --no-jars
           done
+          # 下来的字节必须与 versions/db/<版本>/jars.json 逐字节一致。以前只写进临时的
+          # mods.provenance.json，从没跟仓库里的基线比对过——限速 / 404 / 拿错文件都只会
+          # 让生成器少产内容，不会有人发现。（issue #9 P1-5）
+          python3 scripts/build_version_db.py --verify "$NEWEST" pack/mods
 
       - name: 生成全部汉化产物
         run: ./scripts/generate_all.sh

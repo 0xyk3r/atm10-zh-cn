@@ -301,10 +301,13 @@ def main(ver, out, jars=True):
         print('  ⚠️ %d 个 jar 对不上任何 fileID，来路不明，建库前必须处理：' % len(stray))
         for x in stray:
             print('       %s' % x)
-    if len(got) < len(todo) * 0.98:
+    # 一个都不许缺。以前的阈值是 98%：482 项里少 9 个照样继续，而少掉的那几个 jar
+    # 里的 en_us / 注册表就这么静默地没参与生成——产物少几百条译文，退出码还是 0。
+    # 「大部分下到了」不是可复现构建，缺就是缺。（issue #9 P1-5）
+    if len(got) < len(todo):
         for e in errors[:8]:
             print('   %s' % e)
-        sys.exit('❌ jar 下得太少（%d/%d），生成器会漏内容，中止\n'
+        sys.exit('❌ jar 没下齐（%d/%d），生成器会漏内容，中止\n'
                  '   上面是前几条真实错误。403/429 是限速，稍后重跑；'
                  '404 说明接口变了，得改 fetch_pack.py。'
                  % (len(got), len(todo)))
