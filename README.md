@@ -225,19 +225,39 @@ All the Mods 10\          ← 实例根目录
   另外提醒：这种装法**没有备份**，恢复功能对它无效。想要能回退，请按上面的[装法 A](#-两种装法别混着来)。
 - **安装器说我的版本不是最新／是测试版？** 它装之前会查一次 GitHub 上的最新正式版。
   提示只是提醒，不会拦住安装；游戏内的汉化更新提示也使用同一开关。不想让它们联网就设环境变量 `ATM_SKIP_UPDATE_CHECK=1`。
-- **进游戏要卡好几分钟？** 大概率**不是汉化包的事**。整合包里有几个模组在启动时去拉
-  「赞助者 / 贡献者名单」这类纯装饰数据，落点都是 `raw.githubusercontent.com` 这种国内
-  不通的域名——连不上不报错，只会一直等到系统默认超时（macOS 是 75 秒一次）。实测一次
-  启动能撞上 7 次，来自 **titanium**（Industrial Foregoing 的前置）、**ars_nouveau**、
-  **placebo**（Apotheosis 的前置）、**actuallyadditions**、**supplementaries / moonlight**。
+- **启动卡好几分钟，卡完日志里冒出一串 `ConnectException`？** **不是汉化包的事**，
+  多半是**你的 IPv6 是黑洞**——有 IPv6 地址，但实际连不出去。
 
-  它们走的都是 JDK 老的 `HttpURLConnection`，在启动器的 **JVM 参数**里加这两条能一起治：
+  整合包里有一批模组在启动时去拉「赞助者 / 贡献者名单」这种纯装饰数据：
+  **creeperoverhaul**（`CosmeticsApi`，最毒，它是在**资源重载线程上同步**请求，直接卡住加载）、
+  **titanium**（Industrial Foregoing 的前置）、**ars_nouveau**、**placebo**（Apotheosis 的前置）、
+  **actuallyadditions**、**supplementaries / moonlight**。这些域名普遍同时有 IPv6 和 IPv4 地址，
+  而且 **IPv6 排在前面**。浏览器和 `curl` 有 Happy Eyeballs，几百毫秒内就回落到 IPv4，所以你
+  平时完全无感；**Java 没有**——它按解析顺序一个个试，每个 IPv6 地址都等满系统默认连接超时
+  （macOS 是 75 秒）。一个域名 3 个 IPv6 地址，就是三分钟起步。实测 creeperoverhaul 一家
+  贡献了 145 秒。
+
+  两条命令就能确诊（超时的是 `-6`、秒回的是 `-4`，那就是它）：
+
+  ```bash
+  curl -6 --max-time 5 -o /dev/null -w 'v6 %{time_total}s\n' https://raw.githubusercontent.com/
+  ```
+
+  在启动器的 **JVM 参数**里加这一条，让 JVM 干脆不走 IPv6：
+
+  ```
+  -Djava.net.preferIPv4Stack=true
+  ```
+
+  再加两条兜底，让真连不上的域名 5 秒失败而不是 75 秒（只对用老 `HttpURLConnection` 的那几个
+  有效，creeperoverhaul 用的是新的 `java.net.http`，不认这两条——所以上面那条才是主药）：
 
   ```
   -Dsun.net.client.defaultConnectTimeout=5000 -Dsun.net.client.defaultReadTimeout=5000
   ```
 
-  连不上的 5 秒内失败，不再干等。（HMCL 在「游戏特定设置 → Java 虚拟机参数」里填）
+  HMCL 在「游戏特定设置 → Java 虚拟机参数」里填。**改完要重启 HMCL 本身**：它把这些设置
+  缓存在内存里，光改 `hmclversion.cfg` 而不重启启动器，下次启动用的还是旧参数。
 - **改动不生效？** 资源包类改动 **F3+T** 重载即可；VaultPatcher 硬编码文本、主菜单按钮图需**完整重启游戏**；任务书需**重进世界 / 重连服务器**。
 - **蜂笼上的蜂名是英文？** 老蜂笼里的名字是抓蜂时就烙进 NBT 的，资源包改不动它，得靠脚本改写。
   **单人**：装了客户端包就已经带上这个脚本了；**联机**：需要服主装服务端包。
