@@ -243,7 +243,19 @@ All the Mods 10\          ← 实例根目录
   curl -6 --max-time 5 -o /dev/null -w 'v6 %{time_total}s\n' https://raw.githubusercontent.com/
   ```
 
-  在启动器的 **JVM 参数**里加这一条，让 JVM 干脆不走 IPv6：
+  实测（同一台机、同一个 JDK、同一个地址，只差一个参数）：带上启动器默认塞的
+  `-Djava.net.preferIPv6Addresses=system` 是 **90 秒超时失败**，再加一条
+  `-Djava.net.preferIPv4Stack=true` 就是 **584ms 成功**。让 Java 走上死路的正是那条
+  「跟随系统偏好」——系统按 RFC 6724 偏好 IPv6。
+
+  **最省事的办法是直接在网卡上关掉 IPv6**（反正它在这条网络上本来就不通），
+  这样跟启动器无关，浏览器以外的一切都跟着变快：
+
+  ```bash
+  sudo networksetup -setv6off Wi-Fi     # 恢复：sudo networksetup -setv6automatic Wi-Fi
+  ```
+
+  想只改游戏的话，在启动器的 **JVM 参数**里加这一条：
 
   ```
   -Djava.net.preferIPv4Stack=true
