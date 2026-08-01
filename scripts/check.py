@@ -297,6 +297,49 @@ def _js_no_duplicate_decl(rule):
             seen.setdefault(name, rel(p))
 
 
+@checker('js_no_const_inside_block')
+def _js_no_const_inside_block(rule):
+    """`try {}` / `if {}` / `for {}` 这类**普通块**内部不许 `const`，只许赋值。
+
+    KubeJS 的 Rhino 里，写在普通块内部的 `const` 会抛
+    `TypeError: redeclaration of var <名字>`——它把块里的 const 提升成了函数作用域的
+    var，执行到声明那一句时撞上自己。要命的是它**运行时才抛**：脚本加载阶段照样
+    `0 errors`，闸和 CI 全绿，而它躺在事件回调里就表现成「进游戏什么都没发生」，
+    跟「这功能没被触发」完全无法区分。2026-08-01 实机连踩两次，第二次是我误判成
+    `$` 前缀的问题、去掉 `$` 之后照样抛，才定位到真正的形状。
+
+    函数体 / 回调体的**顶层** const 是安全的：拿整包 ATM10 的 kubejs 对照过，上游
+    几十处缩进 const 全都在 `ServerEvents.recipes(x => {` 这类回调体顶层，没有任何
+    一处写进普通块里；写进块里的只有本包那一个文件。所以这里只拦「最内层那个 `{`
+    不是函数/箭头开的」这一种，函数体顶层照旧放行。
+    """
+    g, = need(rule, 'glob')
+    hit = files(g)
+    if not hit:
+        m = absent('「块里不许 const」', '%r 一个文件都没命中' % g)
+        if m:
+            yield m
+        return
+    decl = re.compile(r'^[\t ]*const\s+([\w$]+)')
+    # 这一行开出来的块算不算「函数体」：箭头、function、以及 `get x() {` 这类方法。
+    funcish = re.compile(r'=>|\bfunction\b')
+    for p in hit:
+        stack = []                      # 每层一个布尔：True = 函数体
+        for i, raw in enumerate(p.read_text(encoding='utf-8').splitlines(), 1):
+            ln = raw.split('//')[0]     # 注释里的花括号不算（本文件注释里就有 `try {}`）
+            m = decl.match(raw)
+            if m and stack and not stack[-1]:
+                yield ('%s:%d 在块内部 `const %s` —— KubeJS 的 Rhino 会抛 '
+                       'redeclaration of var，且只在这段代码真被执行时才炸；'
+                       '把声明提到函数体顶层、块里只赋值' % (rel(p), i, m.group(1)))
+            kind = bool(funcish.search(ln))
+            for ch in ln:
+                if ch == '{':
+                    stack.append(kind)
+                elif ch == '}' and stack:
+                    stack.pop()
+
+
 @checker('lang_value_forbidden')
 def _lang_value_forbidden(rule):
     """lang 文件里，键匹配 key_regex 的条目，值不许匹配 value_regex。

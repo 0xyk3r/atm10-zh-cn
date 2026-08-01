@@ -82,6 +82,11 @@ python3 scripts/gen_hanhua_update_check.py "$VERSION" "$TREE"
 # VaultPatcher 模块头部要写该版真实的 jar 文件名（7.2 那份拿到 7.0 只有 83/152 对得上）
 python3 scripts/gen_vaultpatcher.py "$MC" "$TREE"
 python3 scripts/check.py "$TREE"
+# KubeJS 自带的类过滤表会拒掉一批 java.* 类（`- java.net`、`- java.lang` 等）。
+# 脚本里 loadClass 一个被拒的类，运行时当场抛异常；躺在事件回调里就表现成
+# 「进游戏什么都没发生」——vr16 的更新提示就是这么发出去的，加载阶段还全绿。
+# 拿**目标版本 kubejs jar 里的那张表**现查，不在仓库里存副本。
+python3 scripts/compliance/check_kubejs_classfilter.py "${ATM_PACK_ROOT:-pack}/mods" "$TREE"
 # 资源包**内容**跨版本通用（lang 按命名空间索引，多余键不生效、缺的回退），
 # 所以源目录只有一份；只有产出的 zip 文件名带版本号，方便用户认。
 PACK_SRC="$TREE/resourcepacks/ATM10汉化包"

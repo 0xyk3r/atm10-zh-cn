@@ -18,6 +18,12 @@
     "why": "2026-08-01 实机事故：occultism_flame_tooltip.js 与 pb_hanhua_tooltip.js 都写了 const $Component / const $ItemTooltipEvent。KubeJS 的 client_scripts 共用同一个全局作用域，第二个加载时抛 redeclaration of const，**整批客户端脚本一起加载失败**——玩家看到的是一个红框，蜂名 tooltip 之类没毛病的东西也一起没了。加脚本的人不会知道别的文件里声明过什么，只能靠闸。"
   },
   {
+    "id": "js-no-const-inside-block",
+    "kind": "js_no_const_inside_block",
+    "glob": "kubejs/**/*.js",
+    "why": "2026-08-01 实机事故：更新检查脚本在 try 块里写 const，KubeJS 的 Rhino 抛 TypeError: redeclaration of var——它把块里的 const 提成了函数作用域的 var，执行到声明那句时撞上自己。**运行时才抛**，加载阶段照样 0 errors，躺在事件回调里就表现成「进游戏什么都没发生」，与「功能没被触发」无法区分，同一个坑连踩两次（第一次误判成 $ 前缀，去掉 $ 照样抛）。只拦「最内层花括号不是函数/箭头开的」这一种：拿全套 ATM10 kubejs 验过，上游几十处缩进 const 全在回调体顶层，写进普通块的只有本包一处。"
+  },
+  {
     "id": "occultism-tooltip-no-newline",
     "kind": "lang_value_forbidden",
     "glob": "resourcepacks/ATM10汉化包/assets/occultism/lang/zh_cn.json",

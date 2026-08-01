@@ -50,6 +50,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -149,6 +150,26 @@ def _c10(mods):
     for n in ('aaa_gate_probe_one.js', 'aaa_gate_probe_two.js'):
         (d / n).write_text("const $Component = Java.loadClass('net.minecraft.network.chat.Component')\n",
                            encoding='utf-8')
+
+
+@case('try 块内部写 const', 'js-no-const-inside-block')
+def _c12(mods):
+    # 2026-08-01 实机事故的形状：KubeJS 的 Rhino 把块里的 const 提升成函数作用域的
+    # var，执行到声明那句抛 redeclaration of var——加载阶段 0 errors，躺在事件回调里
+    # 就表现成「进游戏什么都没发生」。前三句是对照：顶格、回调体顶层、块里的赋值，
+    # 上游天天在用，一条都不许被拦。
+    d = mods.parent.parent / 'kubejs' / 'client_scripts'
+    d.mkdir(parents=True, exist_ok=True)
+    (d / 'aaa_gate_probe_block.js').write_text(
+        "const TopLevelIsFine = Java.loadClass('net.minecraft.network.chat.Component')\n"
+        "ClientEvents.loggedIn(event => {\n"
+        "  const CallbackTopIsFine = Java.loadClass('java.util.HashSet')\n"
+        "  let assignedLater = null\n"
+        "  try {\n"
+        "    assignedLater = Java.loadClass('java.util.ArrayList')\n"
+        "    const InsideTryIsFatal = Java.loadClass('org.apache.http.impl.client.HttpClients')\n"
+        "  } catch (err) {}\n"
+        "})\n", encoding='utf-8')
 
 
 @case('物品 tooltip 值里留了换行', 'occultism-tooltip-no-newline')
@@ -273,6 +294,66 @@ def _m4(tmp, tree):
                         str(tmp / '压根不存在' / 'mods')],
                        capture_output=True, text=True, cwd=tmp, env=env)
     return r.returncode != 0 and '没跑成' in (r.stdout + r.stderr)
+
+
+# ── 第三组反例：KubeJS 类过滤表 ───────────────────────────────────────────
+#
+# 复刻的事故：`hanhua_update_check.js` 在 vr16-beta4 与 vr16 里发了出去，一次都没工作
+# 过。它在事件回调里 `Java.loadClass('java.lang.System')`，而 KubeJS 的过滤表写着
+# `- java.lang`——必抛，异常又被 catch 吞掉，于是「进游戏什么都没发生」跟「已经是
+# 最新版」长得一样。加载阶段 18/18 全绿，CI 全绿，发出去了也没人看得出来。
+#
+# 夹具里的过滤表是**现造的最小表**，不抄上游那份：只保留这道闸要判的两条语义
+# ——包级前缀拒绝、精确类名放行。
+def _kjs_fixture(tmp, loaded, table='- java.lang\n+ java.lang.Integer\n- java.net\n'):
+    mods = tmp / 'pack' / 'mods'
+    mods.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(mods / 'kubejs-neoforge-2101.7.2-build.368.jar', 'w') as z:
+        z.writestr('kubejs.classfilter.txt', '# 夹具\n' + table)
+    d = tmp / 'kjstree' / 'kubejs' / 'client_scripts'
+    d.mkdir(parents=True, exist_ok=True)
+    (d / 'probe.js').write_text(
+        '\n'.join("const $C%d = Java.loadClass(%s)" % (i, a) for i, a in enumerate(loaded)) + '\n',
+        encoding='utf-8')
+    return mods, tmp / 'kjstree'
+
+
+def _kjs_run(tmp, mods, tree):
+    r = subprocess.run([sys.executable,
+                        str(tmp / 'scripts' / 'compliance' / 'check_kubejs_classfilter.py'),
+                        str(mods), str(tree)],
+                       capture_output=True, text=True, cwd=tmp)
+    return r.returncode, r.stdout + r.stderr
+
+
+@missing_case('脚本 loadClass 了 java.net 里的类 → 必须红')
+def _m5(tmp, tree):
+    mods, kt = _kjs_fixture(tmp, ["'java.net.URI'", "'java.lang.System'"])
+    rc, out = _kjs_run(tmp, mods, kt)
+    return rc != 0 and 'java.net.URI' in out and 'java.lang.System' in out
+
+
+@missing_case('包被禁但类被精确放行 → 必须绿（证明这道闸不是一律红）')
+def _m6(tmp, tree):
+    mods, kt = _kjs_fixture(tmp, ["'java.lang.Integer'", "'org.apache.http.client.methods.HttpGet'"])
+    rc, out = _kjs_run(tmp, mods, kt)
+    return rc == 0 and '全部放行' in out
+
+
+@missing_case('loadClass 的参数不是字面量 → 静态判不了，必须红')
+def _m7(tmp, tree):
+    mods, kt = _kjs_fixture(tmp, ['CLASS_NAME'])
+    rc, out = _kjs_run(tmp, mods, kt)
+    return rc != 0 and '静态判不了' in out
+
+
+@missing_case('拿不到 kubejs jar → 类过滤检查必须红')
+def _m8(tmp, tree):
+    mods, kt = _kjs_fixture(tmp, ["'java.util.HashSet'"])
+    for jar in mods.glob('kubejs-*.jar'):
+        jar.unlink()
+    rc, out = _kjs_run(tmp, mods, kt)
+    return rc != 0 and '没跑成' in out
 
 
 def run_missing(name, fn):
