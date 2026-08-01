@@ -14,10 +14,20 @@ const RELEASES_URL = 'https://github.com/chiba233/atm10-zh-cn/releases/latest'
 const API_URL = 'https://api.github.com/repos/chiba233/atm10-zh-cn/releases/latest'
 let updateCheckStarted = false
 
-function releaseNumber(tag) {
-  // 正式版统一是 r12 / vr12 这一类标签。无法识别的标签不提示，避免误报。
-  const match = String(tag).match(/^v?r(\d+)(?:$|[-.])/i)
-  return match ? Number(match[1]) : null
+function releaseVersion(tag) {
+  // 发布工作流允许 12、v12、r12、vr12 及其 12.1 这种多段版本号。
+  // beta/rc 等后缀不参与正式版之间的数字比较。
+  const match = String(tag).match(/^v?r?(\d+(?:\.\d+)*)(?:$|-)/i)
+  return match ? match[1].split('.').map(part => Number(part)) : null
+}
+
+function isNewerVersion(latest, current) {
+  const length = Math.max(latest.length, current.length)
+  for (let i = 0; i < length; i++) {
+    const diff = (latest[i] || 0) - (current[i] || 0)
+    if (diff !== 0) return diff > 0
+  }
+  return false
 }
 
 function tellUpdate(latest) {
@@ -37,7 +47,7 @@ ClientEvents.loggedIn(event => {
   if (updateCheckStarted) return
   updateCheckStarted = true
 
-  const current = releaseNumber(HANHUA_VERSION)
+  const current = releaseVersion(HANHUA_VERSION)
   if (current === null) return
 
   try {
@@ -55,8 +65,8 @@ ClientEvents.loggedIn(event => {
         const match = String(response.body()).match(/"tag_name"\s*:\s*"([^"]+)"/)
         if (!match) return
         const latest = match[1]
-        const latestNumber = releaseNumber(latest)
-        if (latestNumber !== null && latestNumber > current) tellUpdate(latest)
+        const latestVersion = releaseVersion(latest)
+        if (latestVersion !== null && isNewerVersion(latestVersion, current)) tellUpdate(latest)
       })
       .exceptionally(error => null)
   } catch (error) {
