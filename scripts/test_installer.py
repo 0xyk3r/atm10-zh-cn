@@ -9,7 +9,7 @@ apply → 断言（文件落位 / options.txt 已启用资源包 / 备份完整�
 restore → 断言（被覆盖文件还原 / 新增文件删除 / options.txt 还原）。
 macOS/Linux 走 install.sh，Windows 走 install.ps1（powershell 5.1，与用户双击 .bat 一致）。
 """
-import platform, re, shutil, subprocess, sys, tempfile, zipfile
+import os, platform, re, shutil, subprocess, sys, tempfile, zipfile
 from pathlib import Path
 
 # Windows runner 的 stdout 默认 cp1252，打不出中文/emoji
@@ -585,11 +585,15 @@ if not IS_WIN:                       # install.sh 只跑在 macOS / Linux
         SERVED[f'/dl/{tag}/{zname}'] = ('application/zip', blob)
         return instd, srcd
 
+    # CI 给整个 job 设了 ATM_SKIP_UPDATE_CHECK=1（别让端到端测试去打真的 GitHub）。
+    # 这几条用例要走的正是联网那条路，只不过指向本地服务，所以得把它摘掉。
+    UPD_ENV = {k: v for k, v in os.environ.items() if k != 'ATM_SKIP_UPDATE_CHECK'}
+
     # ① 正常路径
     instd, srcd = make_case('ok')
     r = subprocess.run(['bash', str(srcd / 'install.sh'), 'update'],
                        capture_output=True, text=True, encoding='utf-8',
-                       errors='replace', timeout=300)
+                       errors='replace', timeout=300, env=UPD_ENV)
     out = (r.stdout or '') + (r.stderr or '')
     assert r.returncode == 0, f'一键更新退出码 {r.returncode}：\n{out}'
     assert '已更新到 vr99' in out, f'没走到更新成功那步：\n{out}'
@@ -606,14 +610,24 @@ if not IS_WIN:                       # install.sh 只跑在 macOS / Linux
     instd2, srcd2 = make_case('bad', break_digest=True)
     r = subprocess.run(['bash', str(srcd2 / 'install.sh'), 'update'],
                        capture_output=True, text=True, encoding='utf-8',
-                       errors='replace', timeout=300)
+                       errors='replace', timeout=300, env=UPD_ENV)
     out2 = (r.stdout or '') + (r.stderr or '')
     assert 'SHA-256' in out2, f'摘要不符时没报出来：\n{out2}'
     assert not (instd2 / 'vaultpatcher').exists(), f'摘要不符却已经动了实例：\n{out2}'
     assert 'ATM10-TEST-NEW-INSTALLER' not in (srcd2 / 'install.sh').read_text(encoding='utf-8'), \
         f'摘要不符却已经换掉了原入口的安装器：\n{out2}'
+    # ③ 关闭开关时一步都不许走：不联网、不下载、不动任何文件
+    instd3, srcd3 = make_case('off')
+    r = subprocess.run(['bash', str(srcd3 / 'install.sh'), 'update'],
+                       capture_output=True, text=True, encoding='utf-8', errors='replace',
+                       timeout=300, env={**UPD_ENV, 'ATM_SKIP_UPDATE_CHECK': '1'})
+    out3 = (r.stdout or '') + (r.stderr or '')
+    assert not (instd3 / 'vaultpatcher').exists(), f'关了更新检查却还是动了实例：\n{out3}'
+    assert not list(instd3.glob('.atm10-hanhua-update-*')), f'关了更新检查却还是下载了：\n{out3}'
+
     httpd.shutdown()
-    print('✅ 一键更新端到端：下载→校验→解包→子安装器→归并备份→换源目录 OK（含摘要不符拒绝）')
+    print('✅ 一键更新端到端：下载→校验→解包→子安装器→归并备份→换源目录 OK'
+          '（含摘要不符拒绝、ATM_SKIP_UPDATE_CHECK 关闭）')
 
 shutil.rmtree(tmp, ignore_errors=True)
 print(f'✅ 安装脚本端到端测试通过（{platform.system()}）')
