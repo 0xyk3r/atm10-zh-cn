@@ -128,6 +128,18 @@ def _c8(mods):
                    ensure_ascii=False), encoding='utf-8')
 
 
+@case('同一个任务键落在两份文件里', 'quest-delta-no-duplicate-keys')
+def _c11(mods):
+    # gen_quest_lang_patches.py 之后，出货树里一个任务键只许由一份文件持有：
+    # splitter 在 chapters/ 里根本不排序（Files.list 直接 forEach），
+    # 落在两份文件里就等于「谁生效看 ext4 的哈希序」。
+    d = mods.parent.parent / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
+    d.mkdir(parents=True, exist_ok=True)
+    key = '\tquest.0000A88BB40B2149.quest_desc: ["闸探针"]\n'
+    for n in ('aaa_gate_probe_one.snbt', 'aaa_gate_probe_two.snbt'):
+        (d / n).write_text('{\n' + key + '}\n', encoding='utf-8')
+
+
 @case('两个客户端脚本重名声明', 'client-scripts-no-duplicate-decl')
 def _c10(mods):
     # 2026-08-01 实机事故的形状：KubeJS client_scripts 共用一个全局作用域，

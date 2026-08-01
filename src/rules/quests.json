@@ -1,16 +1,17 @@
 [
- {
-  "id": "quest-delta-filename-prefix",
-  "kind": "filename_prefix",
-  "glob": "config/ftbquests/quests/lang/zh_cn/**/*.snbt",
-  "prefix": "zz_hanhua_",
-  "why": "ftbquestslangsplitter 按文件名字母序把同目录下的 *.snbt 逐个合并进 zh_cn.snbt，后合并的覆盖先合并的。于是文件名同时决定两件事，两件都出过事：①撞名 = 删掉整合包的翻译——安装器是直接覆盖文件的，本包只有 2 个键的 aether.snbt 盖掉了整合包同名文件的 167 个键，而且已经启动过的实例看不出来（整合包那批早就合并完并改名成 .snbt_merged 了），只有全新实例会中招；②排序太靠前 = 本包的修正不生效，早先用 _ 开头（0x5F < 小写字母 0x61）会先于整合包合并然后被盖回去。zz_hanhua_ 前缀两个问题一起解决。",
-  "message": "任务书 delta {path} 缺少 zz_hanhua_ 前缀（会和整合包自带的同名文件撞车，安装时把人家的翻译整个覆盖掉）"
- },
- {
-  "id": "quest-delta-no-duplicate-keys",
-  "kind": "snbt_no_dup_keys",
-  "glob": "config/ftbquests/quests/lang/zh_cn/chapters/*.snbt",
-  "why": "同一个键在两个 delta 文件里都定义时，哪份生效取决于合并顺序，等于埋了一颗随时翻脸的雷。历史事故：refined_storage.snbt 的旧标题盖掉了已对齐的新标题。"
- }
+  {
+    "id": "quest-delta-filename-prefix",
+    "kind": "filename_prefix",
+    "glob": "src/config/ftbquests/quests/lang/zh_cn/**/*.snbt",
+    "prefix": "zz_hanhua_",
+    "why": "本包的任务书覆盖是 delta（只写要改的键），出货时由 gen_quest_lang_patches.py 打进上游那份章节文件、按原文件名发出去。src/ 里这批 delta 必须带 zz_hanhua_ 前缀，好让生成器认得出「哪些是我们的覆盖」——认错了就会把上游整份文件当成 delta。前缀本身也是历史事故的产物：早先是直接按上游原名发 delta，只有 2 个键的 aether.snbt 把上游同名文件的 167 个键整个盖掉了。",
+    "message": "任务书 delta {path} 缺少 zz_hanhua_ 前缀（生成器靠这个前缀认出哪些文件是本包的覆盖）",
+    "scope": "repo"
+  },
+  {
+    "id": "quest-delta-no-duplicate-keys",
+    "kind": "snbt_no_dup_keys",
+    "glob": "config/ftbquests/quests/lang/zh_cn/**/*.snbt",
+    "why": "同一个键出现在两个文件里时，哪份生效取决于合并顺序——而 ftbquestslangsplitter 在 chapters/ 里**根本不排序**（Files.list 直接 forEach），Linux 的 ext4 返回哈希序，等于随机。2026-08-01 查出来：本包 1249 条覆盖有 923 条与 ATM 自带中文撞键，首次启动前就装包的服务器上会有随机一批被顶回上游原文。现在出货树里一个键只由一份文件持有，这条闸就是那个不变量的守卫。历史事故：refined_storage.snbt 的旧标题盖掉了已对齐的新标题。"
+  }
 ]

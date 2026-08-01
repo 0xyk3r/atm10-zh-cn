@@ -247,7 +247,10 @@ def _file_absent(rule):
 def _filename_prefix(rule):
     g, pre = need(rule, 'glob', 'prefix')
     msg = rule.get('message', '{path} 缺少前缀 {prefix}')
-    hit = files(g)
+    # scope=repo 时 glob 相对仓库根，用来查 src/ 里的**源文件**命名
+    # （出货树里的文件名可能是生成器按上游原名写出去的，那是另一回事）
+    hit = (sorted(p for p in ROOT.glob(g) if p.is_file())
+           if rule.get('scope') == 'repo' else files(g))
     if not hit:
         # 和 json_parses 同款自爆：一个文件都没命中说明源文件被挪走/删了，
         # 闸会跟着静默消失——比不加闸更危险。（2026-07-28 对抗审计指出的不一致）
@@ -571,7 +574,9 @@ def _pb_single_source(rule):
 @checker('snbt_no_dup_keys')
 def _snbt_no_dup_keys(rule):
     g, = need(rule, 'glob')
-    KEY = re.compile(r'\t([A-Za-z0-9_.]+):\s*(.*)$')
+    # 上游那批文件缩进不统一（同一个 chapters/ 里既有 tab 也有 4 空格），
+    # 只认 tab 会漏掉一整个文件的键——漏掉就等于这条闸对它不设防
+    KEY = re.compile(r'^[\t ]+([A-Za-z0-9_.]+):\s*(.*)$')
     seen = {}
     hit = files(g)
     if not hit:
