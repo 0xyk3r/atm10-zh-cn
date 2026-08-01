@@ -560,17 +560,41 @@ do_apply() {
     say "✅ 汉化文件已在位，options.txt 已处理完毕。"
     return
   fi
+  # ⚠️ fail-closed：数不出足够的待装文件就**一个字节都不动**地退出。
+  # 2026-08-01 玩家反馈过一次「备份 0 个 + 一路绿勾 + 实际什么都没装」——
+  # 那种情况下安装器照样打印「✅ 汉化已应用」，玩家没有任何办法知道装失败了。
+  # 正常包有数百个文件；少于 50 只可能是解压不完整、脚本不在汉化文件夹里，
+  # 或路径把文件枚举搞没了。宁可当场报错，也不许假装成功。
+  n_payload=$(payload_files | grep -c . || true)
+  if [ "${n_payload:-0}" -lt 50 ]; then
+    say "❌ 只找到 ${n_payload:-0} 个待安装文件，正常应有数百个。"
+    say "   常见原因：压缩包没解压完整；或 install.sh 不在解压出来的汉化文件夹里。"
+    say "   已中止，**没有改动实例里的任何文件**。"
+    exit 1
+  fi
   do_backup
   clean_legacy_quest_lang
   clean_legacy_cc_help
   clean_legacy_config_ui
+  n_copied=0
   while IFS= read -r f; do
     mkdir -p "$TARGET/$(dirname "$f")"
     [ "$SCRIPT_DIR/$f" = "$TARGET/$f" ] && continue   # 双保险：源即目标就跳过
     cp -p "$f" "$TARGET/$f"
+    n_copied=$((n_copied + 1))
   done < <(payload_files)
+  # 再核一遍是否真的落地：cp 静默失败、目标只读、路径被通配符吃掉都在这里露馆。
+  n_missing=0
+  while IFS= read -r f; do
+    [ -f "$TARGET/$f" ] || n_missing=$((n_missing + 1))
+  done < <(payload_files)
+  if [ "$n_missing" -gt 0 ]; then
+    say "❌ 有 $n_missing 个文件没能写进实例（共 $n_payload 个）。汉化未完整安装。"
+    say "   可用 bash install.sh restore $TS 回退。"
+    exit 1
+  fi
   patch_options
-  say "✅ 汉化已应用。备份在 backups/$TS/，如需回退运行: bash install.sh restore $TS"
+  say "✅ 汉化已应用（$n_copied 个文件）。备份在 backups/$TS/，如需回退运行: bash install.sh restore $TS"
 }
 
 # 可选 mods（JEI 拼音搜索）：装进实例 mods/，并登记进当前备份以便恢复时删除

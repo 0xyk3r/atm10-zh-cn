@@ -9,7 +9,7 @@ apply → 断言（文件落位 / options.txt 已启用资源包 / 备份完整�
 restore → 断言（被覆盖文件还原 / 新增文件删除 / options.txt 还原）。
 macOS/Linux 走 install.sh，Windows 走 install.ps1（powershell 5.1，与用户双击 .bat 一致）。
 """
-import os, platform, re, shutil, subprocess, sys, tempfile, zipfile
+import hashlib, os, platform, re, shutil, subprocess, sys, tempfile, zipfile
 from pathlib import Path
 
 # Windows runner 的 stdout 默认 cp1252，打不出中文/emoji
@@ -80,6 +80,16 @@ def resource_packs(text):
     if m is None:
         return None
     return re.findall(r'["\']([^"\']*)["\']', m.group(1))
+
+
+# 安装器现在 fail-closed：待装文件少于 50 个就中止，不许「装了 0 个还报成功」。
+# 这批只测 options.txt 的用例本来只放一个占位文件，会被那道闸拦下——
+# 它们要测的不是文件复制，所以补足数量即可，**不能为了让测试过而把闸调松**。
+def fill_payload(reld, n=60):
+    d = reld / 'config' / 'hanhua_test_payload'
+    d.mkdir(parents=True, exist_ok=True)
+    for i in range(n):
+        (d / f'{i}.json').write_text('{}\n', encoding='utf-8')
 
 
 # 资源包**产物**带整合包版本号。这里直接从安装器脚本里读它认的那个名字，
@@ -197,7 +207,7 @@ SPACED_OPTS = 'version:4189\nresourcePacks:[]\n'
 loose = tmp / 'loose' / 'ATM10-hanhua'   # 父目录 tmp/loose 不含 mods/options.txt
 loose.mkdir(parents=True)
 (loose / 'config').mkdir()
-(loose / 'config' / 'placeholder.txt').write_text('x', encoding='utf-8')
+fill_payload(loose)
 for s in ('install.sh', 'install.ps1'):
     materialize(ROOT / 'installer' / s, loose / s)
 
@@ -332,7 +342,7 @@ for i in range(25):
 prel = played / 'ATM10-hanhua'
 prel.mkdir()
 (prel / 'config').mkdir()
-(prel / 'config' / 'placeholder.txt').write_text('x', encoding='utf-8')
+fill_payload(prel)
 for s_ in ('install.sh', 'install.ps1'):
     materialize(ROOT / 'installer' / s_, prel / s_)
 rc, out = run_prompt(prel, 'apply', str(played))
@@ -371,7 +381,7 @@ def resline_case(name, opts_text):
     reld = instd / 'ATM10-hanhua'
     reld.mkdir()
     (reld / 'config').mkdir()
-    (reld / 'config' / 'placeholder.txt').write_text('x', encoding='utf-8')
+    fill_payload(reld)
     for s_ in ('install.sh', 'install.ps1'):
         materialize(ROOT / 'installer' / s_, reld / s_)
     return instd, reld
@@ -545,6 +555,7 @@ if not IS_WIN:                       # install.sh 只跑在 macOS / Linux
             (d / 'resourcepacks').mkdir()
             with zipfile.ZipFile(d / 'resourcepacks' / f'{PACK}.zip', 'w') as z:
                 z.writestr('pack.mcmeta', '{}')
+            fill_payload(d)     # 凑够文件数，否则被「装了 0 个不许报成功」那道闸拦下
             for s_ in ('install.sh', 'install.ps1'):
                 t = (ROOT / 'installer' / s_).read_text(encoding='utf-8')
                 t = (t.replace('@@MCVER@@', MCVER).replace('@@PATCHVER@@', PATCHVER)
@@ -628,6 +639,107 @@ if not IS_WIN:                       # install.sh 只跑在 macOS / Linux
     httpd.shutdown()
     print('✅ 一键更新端到端：下载→校验→解包→子安装器→归并备份→换源目录 OK'
           '（含摘要不符拒绝、ATM_SKIP_UPDATE_CHECK 关闭）')
+
+# ── 覆盖安装：真的覆盖到了吗 ────────────────────────────────────────────
+#
+# 2026-08-01 玩家反馈：Windows 上一路绿勾，却「已备份 0 个将被覆盖的文件」——
+# 备份 0 个就等于一个原文件都没被盖住，也就是**什么都没装**，而安装器照样打印
+# 「✅ 汉化已应用」。此前的用例只预置了 1 个 vaultpatcher 模块当「旧文件」，
+# 任务书语言那条路（削掉整合包 31 个文件的那次事故所在）一条断言都没有。
+#
+# 反馈者的路径里有 `[0.9.1正式版]` 这种方括号——PowerShell 的通配符字符。
+# 所以这批夹具的路径把常见的「坏字符」全带上：方括号、空格、中文、& 、'、# 、$。
+
+def build_case(root, opts=OPTS_BEFORE):
+    """在 root 下造一个「已经玩过一阵」的实例 + 释放好的汉化文件夹。"""
+    ins = root / 'instance'
+    (ins / 'mods').mkdir(parents=True)
+    for i in range(25):
+        (ins / 'mods' / f'modpack-{i}.jar').write_text('x', encoding='utf-8')
+    (ins / 'options.txt').write_text(opts, encoding='utf-8')
+    reld = ins / 'ATM10-汉化补丁'
+    reld.mkdir()
+    for d in ('config', 'kubejs', 'mods', 'vaultpatcher'):
+        shutil.copytree(TREE / d, reld / d)
+    (reld / 'resourcepacks').mkdir()
+    shutil.copy(rel / 'resourcepacks' / f'{PACK}.zip', reld / 'resourcepacks' / f'{PACK}.zip')
+    for s in ('install.sh', 'install.ps1'):
+        materialize(ROOT / 'installer' / s, reld / s)
+    return ins, reld
+
+
+def payload_of(reld):
+    return sorted(p.relative_to(reld).as_posix()
+                  for d in ('config', 'kubejs', 'mods', 'resourcepacks', 'vaultpatcher')
+                  for p in (reld / d).rglob('*') if p.is_file() and p.name != '.DS_Store')
+
+
+def sha(p):
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+HOSTILE = tmp / "带 [0.9.1正式版] 和 [3月23日更新] 的 & 目录'"
+HOSTILE.mkdir()
+inst2, rel2 = build_case(HOSTILE)
+
+# 预置「整合包自带的任务书语言文件」——用本包会整份替换的那些原名文件，内容打标记。
+# 新方案是**整份换掉**上游同名文件，所以断言不是「原样保留」，而是「装完 = 包里那份」。
+QL = 'config/ftbquests/quests/lang/zh_cn/chapters'
+shipped_ql = sorted(p.name for p in (rel2 / QL).glob('*.snbt'))
+assert len(shipped_ql) >= 30, f'包里任务书语言文件只有 {len(shipped_ql)} 个，夹具不成立'
+UPSTREAM_MARK = '{\n\tquest.UPSTREAM_ORIGINAL.title: "整合包原文，装完必须被换掉"\n}\n'
+preset = shipped_ql[:5] + [n for n in shipped_ql if n.startswith('zz_hanhua_')][:3]
+(inst2 / QL).mkdir(parents=True)
+for n in preset:
+    (inst2 / QL / n).write_text(UPSTREAM_MARK, encoding='utf-8')
+
+before = {f: sha(rel2 / f) for f in payload_of(rel2)}
+assert len(before) >= 50, f'夹具里待装文件只有 {len(before)} 个'
+
+rc, out = run_apply_only(rel2)
+assert rc == 0, f'含方括号/空格/中文的路径下安装失败（退出码 {rc}）：\n{out}'
+
+# ① 每个待装文件都真的落地，且与包里那份逐字节相同
+bad = [f for f, h in before.items()
+       if not (inst2 / f).is_file() or sha(inst2 / f) != h]
+assert not bad, f'{len(bad)} 个文件没装上或内容不符，例如 {bad[:3]}\n{out}'
+
+# ② 预置的 8 个文件确实被**覆盖**了（这正是「备份 0 个」那次没发生的事）
+still_old = [n for n in preset
+             if (inst2 / QL / n).read_text(encoding='utf-8') == UPSTREAM_MARK]
+assert not still_old, f'这些文件没被覆盖，等于没装：{still_old}\n{out}'
+
+# ③ 备份里存着被覆盖前的原内容，restore 能一字不差地还回去
+bk2 = sorted(p for p in (rel2 / 'backups').iterdir() if p.is_dir())[-1]
+for n in preset:
+    b = bk2 / QL / n
+    assert b.is_file(), f'{n} 被覆盖了却没进备份'
+    assert b.read_text(encoding='utf-8') == UPSTREAM_MARK, f'{n} 备份的不是原内容'
+r = subprocess.run((['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File',
+                     str(rel2 / 'install.ps1'), 'restore', bk2.name] if IS_WIN else
+                    ['bash', str(rel2 / 'install.sh'), 'restore', bk2.name]),
+                   capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300)
+assert r.returncode == 0, f'restore 失败：{r.stdout}{r.stderr}'
+for n in preset:
+    assert (inst2 / QL / n).read_text(encoding='utf-8') == UPSTREAM_MARK, f'{n} 没还原回原内容'
+print(f'✅ 覆盖安装：{len(before)} 个文件逐字节核对通过；'
+      f'{len(preset)} 个原有任务书语言文件确实被覆盖并可还原（路径含方括号/空格/中文）')
+
+# ④ 反例：待装文件被削到 50 以下，安装器必须报错退出，且**一个字节都不许动实例**
+HOSTILE2 = tmp / 'counterexample'
+HOSTILE2.mkdir()
+inst3, rel3 = build_case(HOSTILE2)
+(inst3 / 'vaultpatcher').mkdir(parents=True, exist_ok=True)
+(inst3 / 'vaultpatcher' / 'canary.json').write_text('UNTOUCHED', encoding='utf-8')
+for d in ('config', 'kubejs', 'resourcepacks', 'vaultpatcher'):
+    shutil.rmtree(rel3 / d)     # 只剩 mods/ 里那一个 jar，模拟「压缩包没解压完整」
+rc3, out3 = run_apply_only(rel3)
+assert rc3 != 0, f'待装文件被削光了，安装器却报成功（退出码 {rc3}）：\n{out3}'
+assert (inst3 / 'vaultpatcher' / 'canary.json').read_text(encoding='utf-8') == 'UNTOUCHED', \
+    '中止前动了实例里的文件'
+assert not (rel3 / 'backups').exists() or not any((rel3 / 'backups').iterdir()), \
+    '中止了却还是建了备份'
+print('✅ 反例：待装文件不足时安装器报错退出，未改动实例（证明这道闸不是摆设）')
 
 shutil.rmtree(tmp, ignore_errors=True)
 print(f'✅ 安装脚本端到端测试通过（{platform.system()}）')

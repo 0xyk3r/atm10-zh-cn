@@ -520,18 +520,39 @@ function Do-Apply {
         Write-Host '✅ 汉化文件已在位，options.txt 已处理完毕。'
         return
     }
+    # ⚠️ fail-closed：数不出足够的待装文件就**一个字节都不动**地退出。
+    # 2026-08-01 玩家反馈过一次「备份 0 个 + 一路绿勾 + 实际什么都没装」——
+    # 那种情况下安装器照样打印「✅ 汉化已应用」，玩家没有任何办法知道装失败了。
+    # 正常包有数百个文件；少于 50 只可能是解压不完整、脚本不在汉化文件夹里，
+    # 或路径把文件枚举搞没了。宁可当场报错，也不许假装成功。
+    $payload = @(Get-PayloadFiles)
+    if ($payload.Count -lt 50) {
+        Write-Host "❌ 只找到 $($payload.Count) 个待安装文件，正常应有数百个。"
+        Write-Host '   常见原因：压缩包没解压完整；或 install.ps1 不在解压出来的汉化文件夹里。'
+        Write-Host '   已中止，**没有改动实例里的任何文件**。'
+        exit 1
+    }
     Do-Backup
     Clear-LegacyQuestLang
     Clear-LegacyCCHelp
     Clear-LegacyConfigUI
-    foreach ($f in Get-PayloadFiles) {
+    $copied = 0
+    foreach ($f in $payload) {
         $dst = Join-Path $script:Target $f
         if ((Join-Path $ScriptDir $f) -eq $dst) { continue }   # 双保险：源即目标就跳过
         New-Item -ItemType Directory -Force -Path (Split-Path $dst) | Out-Null
         Copy-Item -LiteralPath $f -Destination $dst -Force
+        $copied++
+    }
+    # 再核一遍是否真的落地：复制静默失败、目标只读、路径被通配符吃掉都在这里露馅。
+    $missing = @($payload | Where-Object { -not (Test-Path -LiteralPath (Join-Path $script:Target $_)) })
+    if ($missing.Count -gt 0) {
+        Write-Host "❌ 有 $($missing.Count) 个文件没能写进实例（共 $($payload.Count) 个），例如 $($missing[0])。"
+        Write-Host "   可用 .\install.ps1 restore $script:TS 回退。"
+        exit 1
     }
     Patch-Options
-    Write-Host "✅ 汉化已应用。备份在 backups/$script:TS/，如需回退运行: .\install.ps1 restore $script:TS"
+    Write-Host "✅ 汉化已应用（$copied 个文件）。备份在 backups/$script:TS/，如需回退运行: .\install.ps1 restore $script:TS"
 }
 
 # 可选 mods（JEI 拼音搜索）：装进实例 mods/，并登记进当前备份以便恢复时删除
