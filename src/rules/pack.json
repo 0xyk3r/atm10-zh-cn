@@ -12,6 +12,12 @@
     "why": "单个 lang 文件解析失败只会让那个命名空间静默回英文，日志里翻不出来。"
   },
   {
+    "id": "client-scripts-no-duplicate-decl",
+    "kind": "js_no_duplicate_decl",
+    "glob": "kubejs/client_scripts/*.js",
+    "why": "2026-08-01 实机事故：occultism_flame_tooltip.js 与 pb_hanhua_tooltip.js 都写了 const $Component / const $ItemTooltipEvent。KubeJS 的 client_scripts 共用同一个全局作用域，第二个加载时抛 redeclaration of const，**整批客户端脚本一起加载失败**——玩家看到的是一个红框，蜂名 tooltip 之类没毛病的东西也一起没了。加脚本的人不会知道别的文件里声明过什么，只能靠闸。"
+  },
+  {
     "id": "occultism-tooltip-no-newline",
     "kind": "lang_value_forbidden",
     "glob": "resourcepacks/ATM10汉化包/assets/occultism/lang/zh_cn.json",

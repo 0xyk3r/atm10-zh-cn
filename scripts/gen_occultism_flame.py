@@ -101,15 +101,20 @@ def main():
           '// !! 本文件由 scripts/gen_occultism_flame.py 生成，勿手改；'
           '真源是资源包 occultism/zh_cn.json !!\n'
           '// 那行字是数据（仪式象征物的注册名）不是翻译键，语言文件够不着，只能在显示层换。\n'
+          '// ⚠️ KubeJS 的 client_scripts 共用**同一个全局作用域**：两个文件各写一句\n'
+          '//    `const $Component = ...`，第二个就抛 "redeclaration of const $Component"，\n'
+          '//    而且是**整批客户端脚本一起加载失败**（连蜂名 tooltip 都跟着没）。\n'
+          '//    所以整份包在 IIFE 里，一个全局符号都不留。\n'
+          '(function () {\n'
           'const FLAME_ID2ZH = '
           + json.dumps(table, ensure_ascii=False, sort_keys=True)
           + ';\n' + r'''
-function flameOwn(o, k) { return Object.prototype.hasOwnProperty.call(o, k) }
+function own(o, k) { return Object.prototype.hasOwnProperty.call(o, k) }
 
-const $ItemTooltipEvent = Java.loadClass('net.neoforged.neoforge.event.entity.player.ItemTooltipEvent')
-const $Component = Java.loadClass('net.minecraft.network.chat.Component')
+const TooltipEvent = Java.loadClass('net.neoforged.neoforge.event.entity.player.ItemTooltipEvent')
+const Comp = Java.loadClass('net.minecraft.network.chat.Component')
 
-NativeEvents.onEvent($ItemTooltipEvent, function (event) {
+NativeEvents.onEvent(TooltipEvent, function (event) {
     try {
         let stack = event.getItemStack()
         if (String(stack.getDescriptionId()) !== 'item.occultism.flame_of_automation') return
@@ -119,14 +124,15 @@ NativeEvents.onEvent($ItemTooltipEvent, function (event) {
             let s = String(line.getString())
             // 去掉 §6§l…§r 后必须**整行**就是那个注册名才换，免得误伤别的行
             let plain = s.replace(/§./g, '')
-            if (!flameOwn(FLAME_ID2ZH, plain)) continue
-            lines.set(i, $Component.literal(s.replace(plain, FLAME_ID2ZH[plain])).setStyle(line.getStyle()))
+            if (!own(FLAME_ID2ZH, plain)) continue
+            lines.set(i, Comp.literal(s.replace(plain, FLAME_ID2ZH[plain])).setStyle(line.getStyle()))
             break
         }
     } catch (err) {
     }
 })
 console.info('[occultism_flame] 仪式名显示层已注册 (' + Object.keys(FLAME_ID2ZH).length + ' 条)')
+})()
 ''')
 
     out = COMMON / OUT

@@ -257,6 +257,43 @@ def _filename_prefix(rule):
             yield msg.format(path=rel(p), prefix=pre)
 
 
+@checker('js_no_duplicate_decl')
+def _js_no_duplicate_decl(rule):
+    """同一批 KubeJS 脚本之间不许有重名的顶层声明。
+
+    KubeJS 的 client_scripts 共用**同一个全局作用域**。两个文件各写一句
+    `const $Component = Java.loadClass(...)`，第二个加载时抛
+    `TypeError: redeclaration of const $Component`，而且**整批客户端脚本一起挂**——
+    连没问题的那个文件（蜂名 tooltip）也一起没了，玩家只看到一个红框。
+    2026-08-01 实机踩到：新加的 occultism_flame_tooltip.js 与 pb_hanhua_tooltip.js
+    撞了 `$Component` / `$ItemTooltipEvent`。
+
+    检测按「顶格（第 0 列）声明」算，比真实的全局集合更宽——包在 IIFE 里的名字
+    也会被算进来。宁可多报：重名改个名就行，漏报是整批脚本挂掉。
+    """
+    g, = need(rule, 'glob')
+    hit = files(g)
+    if len(hit) < 2:
+        m = absent('「客户端脚本不许重名声明」', '%r 只命中 %d 个文件，凑不出两两比较'
+                   % (g, len(hit)))
+        if m:
+            yield m
+        return
+    decl = re.compile(r'^(?:const|let|var|function)\s+([A-Za-z_$][\w$]*)')
+    seen = {}
+    for p in hit:
+        for ln in p.read_text(encoding='utf-8').splitlines():
+            m = decl.match(ln)          # 顶格才算：match 而不是 search
+            if not m:
+                continue
+            name = m.group(1)
+            if name in seen and seen[name] != rel(p):
+                yield ('%s 与 %s 都在顶层声明了 %s —— KubeJS 客户端脚本共用一个作用域，'
+                       '第二个会抛 redeclaration，整批脚本一起加载失败'
+                       % (seen[name], rel(p), name))
+            seen.setdefault(name, rel(p))
+
+
 @checker('lang_value_forbidden')
 def _lang_value_forbidden(rule):
     """lang 文件里，键匹配 key_regex 的条目，值不许匹配 value_regex。

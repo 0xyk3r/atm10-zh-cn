@@ -128,6 +128,17 @@ def _c8(mods):
                    ensure_ascii=False), encoding='utf-8')
 
 
+@case('两个客户端脚本重名声明', 'client-scripts-no-duplicate-decl')
+def _c10(mods):
+    # 2026-08-01 实机事故的形状：KubeJS client_scripts 共用一个全局作用域，
+    # 第二个 `const $Component` 抛 redeclaration，整批脚本一起加载失败。
+    d = mods.parent.parent / 'kubejs' / 'client_scripts'
+    d.mkdir(parents=True, exist_ok=True)
+    for n in ('aaa_gate_probe_one.js', 'aaa_gate_probe_two.js'):
+        (d / n).write_text("const $Component = Java.loadClass('net.minecraft.network.chat.Component')\n",
+                           encoding='utf-8')
+
+
 @case('物品 tooltip 值里留了换行', 'occultism-tooltip-no-newline')
 def _c9(mods):
     # issue #8 的形状：`\n` 在 tooltip 里不断行，而是被当成普通字符去查字形，
