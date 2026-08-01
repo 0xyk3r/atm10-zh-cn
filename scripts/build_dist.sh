@@ -50,6 +50,7 @@ for f in \
   "$COMMON/resourcepacks/ATM10汉化包/assets/hanhua_trophies/lang/zh_cn.json" \
   "$COMMON/resourcepacks/ATM10汉化包/assets/hanhua_wood_names/lang/zh_cn.json" \
   "$COMMON/kubejs/client_scripts/pb_hanhua_tooltip.js" \
+  "$COMMON/kubejs/client_scripts/occultism_flame_tooltip.js" \
   "$COMMON/kubejs/server_scripts/pb_hanhua_cage_migrate.js" \
   "build/snapshots/upstream_format_en_us.json"; do
   [ -f "$f" ] || MISSING="$MISSING $(basename "$f")"
@@ -73,6 +74,11 @@ if [ ! -d "$UPROOT/kubejs" ]; then
   python3 scripts/fetch_pack.py "$MC" "$UPROOT" --no-jars
 fi
 python3 scripts/gen_upstream_patches.py "$UPROOT" "$TREE"
+# 任务书语言：把本包的覆盖打进上游那份章节文件，按原文件名出货（含该版专属覆盖）。
+# splitter 的合并顺序在 Linux 上是随机的，同一个键必须只由一份文件持有——
+# 详见 gen_quest_lang_patches.py 顶部。
+python3 scripts/gen_quest_lang_patches.py "$UPROOT" "$TREE" "$MC"
+python3 scripts/gen_hanhua_update_check.py "$VERSION" "$TREE"
 # VaultPatcher 模块头部要写该版真实的 jar 文件名（7.2 那份拿到 7.0 只有 83/152 对得上）
 python3 scripts/gen_vaultpatcher.py "$MC" "$TREE"
 python3 scripts/check.py "$TREE"
@@ -98,13 +104,8 @@ PY
 python3 scripts/mkzip.py "${CSTAGE}/resourcepacks/${PACK_NAME}.zip" "$PSTAGE"
 rm -rf "$PSTAGE"
 cp -R "$TREE/config" "$TREE/kubejs" "$TREE/mods" "$TREE/vaultpatcher" "$TREE/可选mods-拼音搜索" "$CSTAGE/"
-# 该版专属的任务书中文：文件名必须排在本包其余 zz_hanhua_* 之后才能覆盖它们
-# （ftbquestslangsplitter 按文件名字母序合并，后合并的覆盖先合并的）
-QOV="versions/${MC}/quest_overrides.snbt"
-if [ -f "$QOV" ]; then
-  cp "$QOV" "$CSTAGE/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_zzz_version_override.snbt"
-  echo "  已叠加 ${MC} 专属任务书覆盖（$(grep -c ': ' "$QOV") 条）"
-fi
+# 该版专属的任务书覆盖已经由 gen_quest_lang_patches.py 打进上游文件了（它优先级最高），
+# 这里不再单独发一个 delta 文件——发了就又是「同一个键两份文件」。
 cp installer/install.sh installer/install.ps1 "installer/双击安装-Windows.bat" "$CSTAGE/"
 # ASCII 别名：万一中文名在用户的解压软件下还是乱码，起码还有一个认得出的入口
 cp "installer/双击安装-Windows.bat" "$CSTAGE/install-windows.bat"
@@ -159,8 +160,6 @@ done
 # 作物名汉化是纯客户端的。
 mkdir -p "$SSTAGE/config"
 cp -R "$TREE/config/ftbquests" "$TREE/config/vaultpatcher_asm" "$SSTAGE/config/"
-[ -f "versions/${MC}/quest_overrides.snbt" ] && cp "versions/${MC}/quest_overrides.snbt" \
-  "$SSTAGE/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_zzz_version_override.snbt"
 # 服务端说明里写着「适用于 ATM10 x.y 专用服务器」，那是**本包**的适用版本，
 # 必须跟着走；写死一个的话 7.0 / 7.1 的包里都印着 7.2（玩家实际报过这个）。
 MC="$MC" python3 -c "

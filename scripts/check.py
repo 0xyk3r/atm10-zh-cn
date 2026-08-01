@@ -247,7 +247,10 @@ def _file_absent(rule):
 def _filename_prefix(rule):
     g, pre = need(rule, 'glob', 'prefix')
     msg = rule.get('message', '{path} 缺少前缀 {prefix}')
-    hit = files(g)
+    # scope=repo 时 glob 相对仓库根，用来查 src/ 里的**源文件**命名
+    # （出货树里的文件名可能是生成器按上游原名写出去的，那是另一回事）
+    hit = (sorted(p for p in ROOT.glob(g) if p.is_file())
+           if rule.get('scope') == 'repo' else files(g))
     if not hit:
         # 和 json_parses 同款自爆：一个文件都没命中说明源文件被挪走/删了，
         # 闸会跟着静默消失——比不加闸更危险。（2026-07-28 对抗审计指出的不一致）
@@ -255,6 +258,71 @@ def _filename_prefix(rule):
     for p in hit:
         if not p.name.startswith(pre):
             yield msg.format(path=rel(p), prefix=pre)
+
+
+@checker('js_no_duplicate_decl')
+def _js_no_duplicate_decl(rule):
+    """同一批 KubeJS 脚本之间不许有重名的顶层声明。
+
+    KubeJS 的 client_scripts 共用**同一个全局作用域**。两个文件各写一句
+    `const $Component = Java.loadClass(...)`，第二个加载时抛
+    `TypeError: redeclaration of const $Component`，而且**整批客户端脚本一起挂**——
+    连没问题的那个文件（蜂名 tooltip）也一起没了，玩家只看到一个红框。
+    2026-08-01 实机踩到：新加的 occultism_flame_tooltip.js 与 pb_hanhua_tooltip.js
+    撞了 `$Component` / `$ItemTooltipEvent`。
+
+    检测按「顶格（第 0 列）声明」算，比真实的全局集合更宽——包在 IIFE 里的名字
+    也会被算进来。宁可多报：重名改个名就行，漏报是整批脚本挂掉。
+    """
+    g, = need(rule, 'glob')
+    hit = files(g)
+    if len(hit) < 2:
+        m = absent('「客户端脚本不许重名声明」', '%r 只命中 %d 个文件，凑不出两两比较'
+                   % (g, len(hit)))
+        if m:
+            yield m
+        return
+    decl = re.compile(r'^(?:const|let|var|function)\s+([A-Za-z_$][\w$]*)')
+    seen = {}
+    for p in hit:
+        for ln in p.read_text(encoding='utf-8').splitlines():
+            m = decl.match(ln)          # 顶格才算：match 而不是 search
+            if not m:
+                continue
+            name = m.group(1)
+            if name in seen and seen[name] != rel(p):
+                yield ('%s 与 %s 都在顶层声明了 %s —— KubeJS 客户端脚本共用一个作用域，'
+                       '第二个会抛 redeclaration，整批脚本一起加载失败'
+                       % (seen[name], rel(p), name))
+            seen.setdefault(name, rel(p))
+
+
+@checker('lang_value_forbidden')
+def _lang_value_forbidden(rule):
+    """lang 文件里，键匹配 key_regex 的条目，值不许匹配 value_regex。
+
+    issue #8：物品 tooltip 是被 `Component.translatable(...)` 整条塞进
+    `List<Component>` 的，vanilla 渲染 tooltip 走 `Component#getVisualOrderText`，
+    **不做断行**——值里的 `\\n` 不会换行，而是按 U+000A 去字体里查字形，
+    unifont 给控制字符画的是一个写着「LF」的小方框，玩家看到的就是一颗多余的符号。
+    上游 en_us 里就有（英文同样是方框），所以升版重导上游译文时极易复发。
+    """
+    g, kre, vre = need(rule, 'glob', 'key_regex', 'value_regex')
+    msg = rule.get('message', '{key}: 值里不许出现 {value_regex}')
+    krx, vrx = re.compile(kre), re.compile(vre)
+    hit = files(g)
+    if not hit:
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+    for p in hit:
+        doc = json.loads(p.read_text(encoding='utf-8'))
+        watched = [k for k in doc if krx.search(k)]
+        if not watched:
+            # 键被上游改名 / 文件被换掉 → 规则空转。空转和「查过了没问题」
+            # 在退出码上一模一样，所以这里必须自爆。
+            yield '%s: key_regex %r 一个键都没匹配到（规则失效了，比不加还危险）' % (rel(p), kre)
+        for k in watched:
+            if vrx.search(doc[k]):
+                yield '%s: %s' % (rel(p), msg.format(key=k, value_regex=vre))
 
 
 @checker('forbidden_text')
@@ -506,7 +574,9 @@ def _pb_single_source(rule):
 @checker('snbt_no_dup_keys')
 def _snbt_no_dup_keys(rule):
     g, = need(rule, 'glob')
-    KEY = re.compile(r'\t([A-Za-z0-9_.]+):\s*(.*)$')
+    # 上游那批文件缩进不统一（同一个 chapters/ 里既有 tab 也有 4 空格），
+    # 只认 tab 会漏掉一整个文件的键——漏掉就等于这条闸对它不设防
+    KEY = re.compile(r'^[\t ]+([A-Za-z0-9_.]+):\s*(.*)$')
     seen = {}
     hit = files(g)
     if not hit:

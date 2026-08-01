@@ -128,6 +128,42 @@ def _c8(mods):
                    ensure_ascii=False), encoding='utf-8')
 
 
+@case('同一个任务键落在两份文件里', 'quest-delta-no-duplicate-keys')
+def _c11(mods):
+    # gen_quest_lang_patches.py 之后，出货树里一个任务键只许由一份文件持有：
+    # splitter 在 chapters/ 里根本不排序（Files.list 直接 forEach），
+    # 落在两份文件里就等于「谁生效看 ext4 的哈希序」。
+    d = mods.parent.parent / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
+    d.mkdir(parents=True, exist_ok=True)
+    key = '\tquest.0000A88BB40B2149.quest_desc: ["闸探针"]\n'
+    for n in ('aaa_gate_probe_one.snbt', 'aaa_gate_probe_two.snbt'):
+        (d / n).write_text('{\n' + key + '}\n', encoding='utf-8')
+
+
+@case('两个客户端脚本重名声明', 'client-scripts-no-duplicate-decl')
+def _c10(mods):
+    # 2026-08-01 实机事故的形状：KubeJS client_scripts 共用一个全局作用域，
+    # 第二个 `const $Component` 抛 redeclaration，整批脚本一起加载失败。
+    d = mods.parent.parent / 'kubejs' / 'client_scripts'
+    d.mkdir(parents=True, exist_ok=True)
+    for n in ('aaa_gate_probe_one.js', 'aaa_gate_probe_two.js'):
+        (d / n).write_text("const $Component = Java.loadClass('net.minecraft.network.chat.Component')\n",
+                           encoding='utf-8')
+
+
+@case('物品 tooltip 值里留了换行', 'occultism-tooltip-no-newline')
+def _c9(mods):
+    # issue #8 的形状：`\n` 在 tooltip 里不断行，而是被当成普通字符去查字形，
+    # unifont 给控制字符画的是一个写着 LF 的方框。上游 en_us 自己就带这些换行，
+    # 升版重导上游译文时会原样带回来，所以要有闸。
+    p = (mods.parent.parent / 'resourcepacks' / 'ATM10汉化包' /
+         'assets' / 'occultism' / 'lang' / 'zh_cn.json')
+    d = json.loads(p.read_text(encoding='utf-8')) if p.is_file() else {}
+    d['item.occultism.chalk_rainbow.auto_tooltip'] = '可代替任意粉笔符文。\n它可以呈现出任何彩色符文的外观。'
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
+
+
 @case('出货树残留字节码补丁', 'vp-no-stray-class-patch')
 def _c6(mods):
     f = mods.parent / 'patch' / 'com' / 'ldtteam' / 'blockui' / 'controls' / 'Button.class'
