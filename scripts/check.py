@@ -628,8 +628,10 @@ def _snbt_blocks_parse(rule):
     from gen_quest_lang_patches import SnbtShapeError, blocks
 
     g, = need(rule, 'glob')
-    # 空文件另算一条规则（quest-delta-not-empty）：空文件语法上是合法的，
-    # 但「生成器静默产出空覆盖」跟「结构坏了」是两种事故，豁免名单也不该混在一起。
+    # 结构检查罩整棵 zh_cn 树（含打完补丁的上游文件）；
+    # 「不许为空」只罩**我们自己写的**覆盖文件。上游那批按章节切出来的 `_xxx.snbt`
+    # 空壳是正常的——它们本来就没有中文键，拿我们的标准去要求它们纯属越界。
+    empty_prefix = rule.get('empty_prefix', 'zz_hanhua_')
     allow_empty = set(rule.get('allow_empty', []))
     hit = files(g)
     if not hit:
@@ -641,7 +643,8 @@ def _snbt_blocks_parse(rule):
         except SnbtShapeError as e:
             yield '%s' % e
             continue
-        if not got and p.name not in allow_empty:
+        if (not got and p.name.startswith(empty_prefix)
+                and p.name not in allow_empty):
             yield ('%s 一个键都没有——空文件出货等于这条覆盖静默消失'
                    '（确实该是空的就写进规则的 allow_empty 并注明理由）' % rel(p))
 
