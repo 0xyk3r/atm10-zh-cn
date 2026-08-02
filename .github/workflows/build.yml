@@ -118,7 +118,19 @@ jobs:
           # （资源包 lang 按命名空间索引，跨版本通用）。
           NEWEST=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
           echo "以 ATM10 $NEWEST 为生成基准"
-          python3 scripts/fetch_pack.py "$NEWEST" pack
+          echo "NEWEST=$NEWEST" >> "$GITHUB_ENV"
+          # 新版本首次入库：指纹由**这里**算并写出来，不许拿开发机下载的数当基线
+          # （本机可能限速、断流、少下几个 jar，而这些都看不出来）。
+          RECORD=''
+          [ -f "versions/$NEWEST/overrides.sha256" ] || RECORD='--record'
+          # 这个标志位要在**生成基线之前**定下来：生成之后文件就存在了，
+          # 再用 hashFiles 判断会把后面该跑的步骤全跳过。
+          if [ -f "versions/db/$NEWEST/jars.json" ]; then
+            echo "NEW_VERSION=0" >> "$GITHUB_ENV"
+          else
+            echo "NEW_VERSION=1" >> "$GITHUB_ENV"
+          fi
+          python3 scripts/fetch_pack.py "$NEWEST" pack $RECORD
           echo "ATM_PACK_ROOT=$PWD/pack" >> "$GITHUB_ENV"
           # 每个要构建的版本再取一份 overrides（只要官方文件，不下 jar）——
           # 打上游补丁必须对着**该版**的官方文件，否则等于把旧上游发给新版本用户。
@@ -128,7 +140,44 @@ jobs:
           # 下来的字节必须与 versions/db/<版本>/jars.json 逐字节一致。以前只写进临时的
           # mods.provenance.json，从没跟仓库里的基线比对过——限速 / 404 / 拿错文件都只会
           # 让生成器少产内容，不会有人发现。（issue #9 P1-5）
-          python3 scripts/build_version_db.py --verify "$NEWEST" pack/mods
+          if [ -f "versions/db/$NEWEST/jars.json" ]; then
+            python3 scripts/build_version_db.py --verify "$NEWEST" pack/mods
+          else
+            echo "versions/db/$NEWEST/jars.json 不存在——新版本首次入库，核对留到基线生成之后"
+          fi
+
+      # 整合包发了新版本时，基线由 CI 生成、由人过目后提交——机器只负责算，不负责拍板。
+      # 故意**不**自动信任并继续构建：没入库的基线等于没有基线，此时产出的包
+      # 没有任何东西能证明它对着的是干净的官方文件。
+      - name: 新版本首次入库：生成基线（不自动信任，红着等人提交）
+        if: env.NEW_VERSION == '1'
+        run: |
+          set -euo pipefail
+          echo "versions/db/$NEWEST/ 还不存在——这是 ATM10 $NEWEST 第一次进本仓库。"
+          python3 scripts/build_version_db.py "$NEWEST" pack/mods
+          python3 scripts/build_en_baseline.py "$NEWEST" pack/mods pack
+          PREV=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -2 | head -1)
+          echo "───── 与上一版 $PREV 的英文底本漂移 ─────"
+          python3 scripts/check_en_drift.py "$PREV" "$NEWEST" || true
+
+      - uses: actions/upload-artifact@v4
+        if: env.NEW_VERSION == '1'
+        with:
+          name: new-version-baseline-${{ env.NEWEST }}
+          path: |
+            versions/${{ env.NEWEST }}/
+            versions/db/${{ env.NEWEST }}/
+          retention-days: 30
+
+      - name: 基线没入库就到此为止
+        if: env.NEW_VERSION == '1'
+        run: |
+          echo "❌ ATM10 $NEWEST 的基线刚由本次 CI 生成，尚未提交进仓库。"
+          echo "   下载 artifact「new-version-baseline-$NEWEST」，人工核对后提交："
+          echo "     versions/$NEWEST/overrides.sha256   （官方 overrides 的内容指纹）"
+          echo "     versions/db/$NEWEST/                （jar 字节基线 / 英文底本）"
+          echo "   提交后重跑本流水线，才会真正出包。"
+          exit 1
 
       - name: 生成全部汉化产物
         run: ./scripts/generate_all.sh

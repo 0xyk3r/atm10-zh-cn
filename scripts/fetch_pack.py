@@ -123,10 +123,20 @@ def tree_digest(root, only=None):
     return h.hexdigest()
 
 
-def check_digest(ver, digest):
-    """跟 versions/<版本>/overrides.sha256 对照；没记过就打印出来让人记上。"""
+def check_digest(ver, digest, record=False):
+    """跟 versions/<版本>/overrides.sha256 对照；没记过就打印出来让人记上。
+
+    `record=True` 时把指纹写进去——**只给「新版本首次入库」那条流水线用**。
+    平时绝不能自动记：那等于把「下载被污染」变成「悄悄把污染当成基线」。
+    写出来的文件仍然要人过目并提交，机器只负责算，不负责拍板。
+    """
     f = Path(__file__).resolve().parent.parent / 'versions' / ver / 'overrides.sha256'
     if not f.is_file():
+        if record:
+            f.parent.mkdir(parents=True, exist_ok=True)
+            f.write_text(digest + '\n', encoding='utf-8')
+            print('  📝 已生成 versions/%s/overrides.sha256（需人工确认后提交）' % ver)
+            return
         print('  ⚠️ versions/%s/overrides.sha256 还没记。确认这份没问题后写进去：' % ver)
         print('     echo %s > versions/%s/overrides.sha256' % (digest, ver))
         return
@@ -164,7 +174,7 @@ def site_file_name(project_id, file_id):
         return None
 
 
-def main(ver, out, jars=True):
+def main(ver, out, jars=True, record=False):
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
     fid = find_file_id(ver)
@@ -185,7 +195,7 @@ def main(ver, out, jars=True):
                 rels.append(rel)
     digest = tree_digest(out, rels)
     print('  overrides 解出 %d 个文件，指纹 %s' % (len(rels), digest[:16]))
-    check_digest(ver, digest)
+    check_digest(ver, digest, record)
     if not jars:
         return
     mods = out / 'mods'
@@ -338,4 +348,5 @@ if __name__ == '__main__':
         sys.exit(0)
     if len(sys.argv) < 3:
         sys.exit(__doc__)
-    main(sys.argv[1], sys.argv[2], '--no-jars' not in sys.argv)
+    main(sys.argv[1], sys.argv[2], '--no-jars' not in sys.argv,
+         '--record' in sys.argv)
