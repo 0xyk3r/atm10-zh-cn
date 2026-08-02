@@ -100,6 +100,10 @@
     ],
     "pairs": [
       {
+        "key": "Details",
+        "value": "详细信息"
+      },
+      {
         "key": "Invalid crafting recipe data: expected 9 inputs",
         "value": "合成配方数据无效：需提供 9 个输入项"
       },
