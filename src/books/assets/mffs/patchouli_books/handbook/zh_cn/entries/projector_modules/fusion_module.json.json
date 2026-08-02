@@ -16,7 +16,7 @@
     "text"
    ],
    "The $(5)Field Fusion Module$() can be placed in the matrix slots of $(l:mffs:machines/projector)Force Field Projector$()s to fuse two or more projected fields. The module will cut off any projected blocks that overlap with another forcefield. Multiple force field having this module will then be seamlessly merged into one.",
-   "$(5)力场融合模块$()可被置入$(l:mffs:machines/projector)力场投射器$()的矩阵插槽中，以融合两个或更多投射力场。该模块将自动裁剪掉与其他力场重叠的投射方块，使多个启用此模块的力场无缝合并为单一整体。"
+   "$(5)力场融合模块$()可被置入$(l:mffs:machines/projector)力场投影仪$()的矩阵插槽中，以融合两个或更多投射力场。该模块将自动裁剪掉与其他力场重叠的投射方块，使多个启用此模块的力场无缝合并为单一整体。"
   ],
   [
    [

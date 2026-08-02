@@ -16,7 +16,7 @@
     "text"
    ],
    "The first step towards force fields is finding the base resources.$(br)MFFS components are mainly made out of $(5)Steel Ingots$(), which can be crafted in 2 simple steps. First, make yourself some $(5)Steel Compound$() in crafting, which you can then smelt into ingots.",
-   "迈向力场的第一步是寻找基础资源。$(br)MFFS组件主要由$(5)钢锭$()制成，而钢锭可通过两个简单步骤合成：首先在合成界面制作$(5)钢复合物$()，再将其冶炼成锭。"
+   "迈向力场的第一步是寻找基础资源。$(br)MFFS组件主要由$(5)钢锭$()制成，而钢锭可通过两个简单步骤合成：首先在合成界面制作$(5)钢化合物$()，再将其冶炼成锭。"
   ],
   [
    [
@@ -25,7 +25,7 @@
     "text"
    ],
    "Combine an Iron Ingot with 4 Coal to create a Steel Compound.",
-   "将1个铁锭与4个煤炭合成钢复合物。"
+   "将1个铁锭与4个煤炭合成钢化合物。"
   ],
   [
    [
@@ -34,7 +34,7 @@
     "text"
    ],
    "Smelting the Steel Compound into a Steel Ingot.",
-   "将钢复合物冶炼为钢锭。"
+   "将钢化合物冶炼为钢锭。"
   ],
   [
    [

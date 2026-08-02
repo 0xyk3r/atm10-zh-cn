@@ -7,7 +7,7 @@
     "name"
    ],
    "Tube Mode",
-   "管状模式"
+   "管模式"
   ],
   [
    [
@@ -16,7 +16,7 @@
     "text"
    ],
    "By default, the $(2)Tube Mode$() sets the Projector to generate a force field in the shape of a square tube (or tetragonal prism) that is exactly 1 block thick. A tube shaped field consists of four solid sides that run parallel along the horizontal plane. The front and back sides of the Projector represent the open faces of the force field tube.",
-   "默认情况下，$(2)管状模式$()会将投射器设置为生成厚度恰好为1个方块的方形管状（或四角棱柱）力场。管状力场由四个沿水平面平行延伸的实心侧面构成，投射器的前方与后方即代表该力场管的两个开口面。"
+   "默认情况下，$(2)管模式$()会将投射器设置为生成厚度恰好为1个方块的方形管状（或四角棱柱）力场。管状力场由四个沿水平面平行延伸的实心侧面构成，投射器的前方与后方即代表该力场管的两个开口面。"
   ],
   [
    [
@@ -25,7 +25,7 @@
     "text"
    ],
    "Crafting the $(2)Tube Mode$().",
-   "合成$(2)管状模式$()。"
+   "合成$(2)管模式$()。"
   ],
   [
    [
@@ -34,7 +34,7 @@
     "text"
    ],
    "Placing a $(l:mffs:upgrade_modules/scale_module)$(5)Scale Module$() into an item slot marked by a directional arrow will scale the field by 1 block in only that direction. For example, to increase the height of a force field by 1 block; add a $(l:mffs:upgrade_modules/scale_module)$(5)Scale Module$() into an item slot marked by a directional arrow pointing towards the top-left or top-right of the GUI screen.",
-   "将$(l:mffs:upgrade_modules/scale_module)$(5)尺寸模块$()放入带有方向箭头标记的物品槽中，可使力场仅在该方向上扩大1个方块。例如，若要将力场高度增加1个方块，请将$(l:mffs:upgrade_modules/scale_module)$(5)尺寸模块$()放入GUI界面左上角或右上角方向箭头所标记的物品槽中。"
+   "将$(l:mffs:upgrade_modules/scale_module)$(5)扩展模块$()放入带有方向箭头标记的物品槽中，可使力场仅在该方向上扩大1个方块。例如，若要将力场高度增加1个方块，请将$(l:mffs:upgrade_modules/scale_module)$(5)扩展模块$()放入GUI界面左上角或右上角方向箭头所标记的物品槽中。"
   ],
   [
    [
@@ -52,7 +52,7 @@
     "text"
    ],
    "A scaled $(2)Tube Mode$() field being projected.",
-   "一个已缩放的$(2)管状模式$()力场正在被投射。"
+   "一个已缩放的$(2)管模式$()力场正在被投射。"
   ],
   [
    [

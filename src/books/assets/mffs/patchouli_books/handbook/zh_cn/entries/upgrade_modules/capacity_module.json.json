@@ -7,7 +7,7 @@
     "name"
    ],
    "Capacity Module",
-   "电容模块"
+   "容量模块"
   ],
   [
    [
@@ -16,7 +16,7 @@
     "text"
    ],
    "The $(5)Capacity Module$() can be placed in the upgrade slots of various MFFS machines to upgrade their $(l:mffs:getting_started/fortron)Fortron$() storage capabilities. Its effects vary depending on the machine, but most commonly include increasing the $(l:mffs:getting_started/fortron)Fortron$() capacity of a device.",
-   "$(5)电容模块$()可被置入各类MFFS机器的升级插槽中，以提升其$(l:mffs:getting_started/fortron)力场子$()存储能力。其具体效果因机器而异，但最常见的是提升设备的$(l:mffs:getting_started/fortron)力场子$()容量。"
+   "$(5)容量模块$()可被置入各类MFFS机器的升级插槽中，以提升其$(l:mffs:getting_started/fortron)力场子$()存储能力。其具体效果因机器而异，但最常见的是提升设备的$(l:mffs:getting_started/fortron)力场子$()容量。"
   ],
   [
    [
@@ -25,7 +25,7 @@
     "text"
    ],
    "Crafting the $(5)Capacity Module$().",
-   "合成$(5)电容模块$()。"
+   "合成$(5)容量模块$()。"
   ]
  ]
 }
