@@ -553,6 +553,46 @@ def _m18(tmp, tree):
     return rc != 0 and '英文名表取不到' in out
 
 
+# ── 第六组反例：任务书断行用的空格处理 ──────────────────────────────────
+#
+# 复刻的事故：issue #10 里 11 条「断行错误」，根因是中文里留着英文词间空格，
+# FTB Quests 在空格处断行，于是断在「有 / 3 个」「抄写台 / 来」这种地方。
+# 这一组保的是**反向**风险：处理得太狠，把中西混排该留的空格也删掉。
+def _space(src):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        'qsf', str(ROOT / 'scripts' / 'gen_quest_space_fix.py'))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m.fix(src)[0]
+
+
+@missing_case('中文之间的空格要删掉')
+def _m19(tmp, tree):
+    return (_space('模组包均受 &e保留所有权利&r 许可') == '模组包均受&e保留所有权利&r许可'
+            and _space('一个&6抄写台&r 来为你') == '一个&6抄写台&r来为你')
+
+
+@missing_case('中文夹短数字两侧的空格也要删（有 3 个）')
+def _m20(tmp, tree):
+    return _space('你开始时有 3 个基本形态') == '你开始时有3个基本形态'
+
+
+@missing_case('中西之间的空格必须保留，不许一刀切')
+def _m21(tmp, tree):
+    return (_space('&6AllTheMods 团队') == '&6AllTheMods 团队'
+            and _space('&a60 位阶&r') == '&a60 位阶&r'
+            and _space('Ars Ocultas 来连接') == 'Ars Ocultas 来连接')
+
+
+@missing_case('键名、颜色码、\\n 转义一个字节都不许动')
+def _m22(tmp, tree):
+    src = '\tquest.ABC123.quest_desc: ["前面 后面\\\\n\\\\n下一段"]'
+    out = _space(src)
+    return (out == '\tquest.ABC123.quest_desc: ["前面后面\\\\n\\\\n下一段"]'
+            and 'quest.ABC123.quest_desc' in out and '\\\\n\\\\n' in out)
+
+
 def run_missing(name, fn):
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)

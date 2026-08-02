@@ -78,6 +78,10 @@ python3 scripts/gen_upstream_patches.py "$UPROOT" "$TREE"
 # splitter 的合并顺序在 Linux 上是随机的，同一个键必须只由一份文件持有——
 # 详见 gen_quest_lang_patches.py 顶部。
 python3 scripts/gen_quest_lang_patches.py "$UPROOT" "$TREE" "$MC"
+# FTB Quests 在空格处断行。上游中文里留着大量英文词间空格，每一个都是断行点，
+# 于是断在「有 / 3 个」「抄写台 / 来」这种地方。issue #10 里被当成 11 条独立瑕疵
+# 报上来，其实是同一个成因、几千处。逐条存覆盖 delta 会暴涨，改成构建时统一处理。
+python3 scripts/gen_quest_space_fix.py "$TREE"
 NF=$(cat "versions/$MC/neoforge.txt" 2>/dev/null | tr -d " \n")
 # 加载器版本是版本相关字段，禁手写：SERVER.md 里那行写死成 21.1.241，
 # 对 7.0(228)/7.1(234)/7.3(247) 一直是错的，服务主照它钉加载器会起不来。
