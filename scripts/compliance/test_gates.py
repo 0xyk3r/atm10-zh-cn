@@ -185,6 +185,25 @@ def _c9(mods):
     p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
 
 
+def _delta(mods, text):
+    p = (mods.parent.parent / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
+         / 'chapters' / 'zz_hanhua_zzz_gate_fixture.snbt')
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(text, encoding='utf-8')
+
+
+@case('delta 里有不属于任何键的游离行', 'quest-delta-blocks-parse')
+def _c13(mods):
+    # 2026-08-02 的形状：按行 sort 把多行数组打散，留下 513 个孤零零的 `""`。
+    # 当时 check.py 只有按行正则，匹配不上就跳过 → 全绿放行。
+    _delta(mods, '{\n\ttitle: "测试"\n\t\t""\n}\n')
+
+
+@case('delta 里的多行数组到文件尾都没闭合', 'quest-delta-blocks-parse')
+def _c14(mods):
+    _delta(mods, '{\n\tdescription: [\n\t\t"第一行"\n}\n')
+
+
 @case('出货树残留字节码补丁', 'vp-no-stray-class-patch')
 def _c6(mods):
     f = mods.parent / 'patch' / 'com' / 'ldtteam' / 'blockui' / 'controls' / 'Button.class'

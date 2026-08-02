@@ -58,11 +58,23 @@ ADDITIONS = 'chapters/hanhua_additions.snbt'
 KEY = re.compile(r'^[\t ]+([A-Za-z0-9_.]+):')
 
 
+class SnbtShapeError(Exception):
+    """delta 文件的块结构坏了。
+
+    单独立一个异常，是为了让 check.py 能把同一个解析器当**闸**用：
+    生成阶段遇到它要当场死，校验阶段要把它变成一条带规则号的报错继续往下查。
+    以前这里直接 `raise SystemExit`，check.py 想复用就只能自己再写一份解析器
+    ——而 2026-08-02 的事故正是「两份解析器判得不一样」：按行 sort 把多行数组
+    打散成 513 个游离的 `""`，check.py 的按行正则匹配不上就跳过，全绿放行，
+    三分钟后才被真正用 blocks() 的 build.yml 拦下。
+    """
+
+
 def blocks(path):
     """把一个 .snbt 语言文件切成 [(键, 该键占的原始行)]，多行数组整块保留。"""
     lines = path.read_text(encoding='utf-8').split('\n')
     if not (lines and lines[0] == '{' and lines[-2:] == ['}', '']):
-        raise SystemExit('❌ %s 不是预期的 snbt 语言文件（首行 { 尾行 }）' % path)
+        raise SnbtShapeError('%s 不是预期的 snbt 语言文件（首行 { 尾行 }）' % path)
     body, out, i = lines[1:-2], [], 0
     while i < len(body):
         if not body[i].strip():          # 空行归给上一个键，输出时原样带回去
@@ -70,16 +82,22 @@ def blocks(path):
                 out[-1][1].append(body[i])
                 i += 1
                 continue
-            raise SystemExit('❌ %s 开头就是空行' % path)
+            raise SnbtShapeError('%s 开头就是空行' % path)
         m = KEY.match(body[i])
         if not m:
-            raise SystemExit('❌ %s 第 %d 行不认识: %r' % (path, i + 2, body[i][:60]))
+            raise SnbtShapeError('%s 第 %d 行不属于任何键: %r'
+                                 % (path, i + 2, body[i][:60]))
         blk = [body[i]]
         if body[i].rstrip().endswith('['):          # 多行数组：吃到单独的 ]
+            start = i
             i += 1
-            while body[i].strip() != ']':
+            while i < len(body) and body[i].strip() != ']':
                 blk.append(body[i])
                 i += 1
+            if i >= len(body):
+                # 数组没闭合就到文件尾。以前这里是 IndexError，堆栈里看不出是哪个键。
+                raise SnbtShapeError('%s 第 %d 行的键 %s 起了个多行数组，直到文件尾都没闭合'
+                                     % (path, start + 2, m.group(1)))
             blk.append(body[i])
         i += 1
         out.append((m.group(1), blk))
@@ -195,4 +213,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except SnbtShapeError as e:
+        # 生成阶段块结构坏了就当场死；报错要跟以前一样是一行人话，不是堆栈。
+        raise SystemExit('❌ %s' % e)

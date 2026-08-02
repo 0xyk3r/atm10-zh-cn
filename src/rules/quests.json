@@ -9,6 +9,12 @@
     "scope": "repo"
   },
   {
+    "id": "quest-delta-blocks-parse",
+    "kind": "snbt_blocks_parse",
+    "glob": "config/ftbquests/quests/lang/zh_cn/**/*.snbt",
+    "why": "delta 文件必须能被生成器那个块解析器读通。2026-08-02 给 delta 排序时按行 sort，把 129 个多行数组打散成 513 个游离的空串行；当时 check.py 只有按行正则，匹配不上的行直接跳过，ci.yml 全绿放行，三分钟后才被真正调用 blocks() 的 build.yml 拦下。这条闸复用同一个解析器，不另写一份——两份判得不一样就等于没有闸。"
+  },
+  {
     "id": "quest-delta-no-duplicate-keys",
     "kind": "snbt_no_dup_keys",
     "glob": "config/ftbquests/quests/lang/zh_cn/**/*.snbt",

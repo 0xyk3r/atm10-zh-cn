@@ -614,6 +614,34 @@ def _pb_single_source(rule):
 
 # ─────────────────────────────── 任务书检查器 ───────────────────────────────
 
+@checker('snbt_blocks_parse')
+def _snbt_blocks_parse(rule):
+    """delta 文件必须能被**生成器那个**块解析器完整读通。
+
+    2026-08-02：给 delta 排序时按行 sort，把 129 个多行数组打散成 513 个游离的
+    `\t\t""`。ci.yml 全绿——因为 check.py 当时只有按行的正则检查，匹配不上的行
+    直接跳过；三分钟后才被真正调用 blocks() 的 build.yml 拦下。
+
+    所以这里**不另写一份解析器**，直接 import 生成器用的那个：两份判得不一样，
+    就等于闸判绿、生成阶段判红，跟没有闸没区别。
+    """
+    from gen_quest_lang_patches import SnbtShapeError, blocks
+
+    g, = need(rule, 'glob')
+    hit = files(g)
+    if not hit:
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+        return
+    for p in hit:
+        try:
+            got = blocks(p)
+        except SnbtShapeError as e:
+            yield '%s' % e
+            continue
+        if not got:
+            yield '%s 一个键都没有——空文件出货等于这条覆盖静默消失' % rel(p)
+
+
 @checker('snbt_no_dup_keys')
 def _snbt_no_dup_keys(rule):
     g, = need(rule, 'glob')
