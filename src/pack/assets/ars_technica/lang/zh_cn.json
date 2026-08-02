@@ -1,5 +1,5 @@
 {
-  "itemGroup.ars_technica": "奥术工艺",
+  "itemGroup.ars_technica": "新生魔艺工业",
   "item.ars_technica.calibrated_precision_mechanism": "精校精密构件",
   "item.ars_technica.mark_of_technomancy": "机械法术之印",
   "ars_technica.glyph_desc.glyph_carve": "雕刻同种物品实体的外形，将其合成为楼梯。只对石材和木材有效。",
@@ -145,8 +145,8 @@
   "ars_technica.tooltip.press_mode.superheated_compacting": "超高温压缩 - 可识别流体！",
   "entity.ars_technica.arcane_compact_entity": "奥术压缩机",
   "entity.ars_technica.arcane_pack_entity": "奥法封包器",
-  "ars_technica.category.ars_technica": "奥术工艺",
-  "ars_technica.section.ars_technica": "奥术工艺",
+  "ars_technica.category.ars_technica": "新生魔艺工业",
+  "ars_technica.section.ars_technica": "新生魔艺工业",
   "ars_technica.category.ars_technica.desc": "Create机械与新生魔艺法术技艺的交汇。",
   "ars_technica.entry.processing": "处理",
   "ars_technica.page.processing": "处理",

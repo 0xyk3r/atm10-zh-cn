@@ -4,6 +4,6 @@ navigation:
   position: 150
 ---
 
-# 奥术能源学
+# 新生魔艺能源
 
 ...

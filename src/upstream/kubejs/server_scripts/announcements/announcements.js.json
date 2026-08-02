@@ -18,7 +18,7 @@
     "  addAnnouncement(\"5.5\", Text.of(\"We just launched \").append(Text.green(\"All The Mons (ATM10 + Cobblemon)\").clickOpenUrl(\"https://www.curseforge.com/minecraft/modpacks/all-the-mons\").hover(Text.translatable(\"mco.notification.visitUrl.buttonText.default\"))).append(\" for public beta testing!\"))\n"
    ],
    "replace": [
-    "  addAnnouncement(\"4.0\", \"新增模组：奥术创造、冰与火之歌、Oritech\")\n",
+    "  addAnnouncement(\"4.0\", \"新增模组：新生魔艺造物、冰与火之歌、Oritech\")\n",
     "  addAnnouncement(\"4.1\", \"新增模组：Oritech\")\n",
     "  addAnnouncement(\"4.2\", \"已移除模组：Oritech\")\n",
     "  addAnnouncement(\"4.3\", \"新增模组：奥术控制、机械动力：海洋雄心、机械动力：超级管道、通用机械：更多机器\")\n",
