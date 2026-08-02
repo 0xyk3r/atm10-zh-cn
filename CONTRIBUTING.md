@@ -78,6 +78,68 @@ python3 scripts/assemble.py                             # 只摊源（不需要�
 ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh    # 摊 + 跑全部生成器
 ```
 
+### 生成器一览
+
+`scripts/` 下是生成器与取材脚本，`scripts/compliance/` 下是闸。入口只有两个：
+`generate_all.sh`（摊源 + 依次跑全部生成器）与 `build_dist.sh`（逐版合成、校验、出 zip）。
+
+**摊源与出货**
+
+| 脚本 | 作用 |
+|---|---|
+| `assemble.py` | 把 `src/` 的真源摊成一棵出货树（`build/common/`）|
+| `paths.py` | 全仓库统一的目录约定，所有脚本从这里取路径 |
+| `mkzip.py` | 打 zip，并保证中文文件名带 UTF-8 标志位 |
+| `build_in_container.sh` | 在按 digest 钉死的容器里构建——产物哈希只有从这里出来才作数 |
+| `toolchain.py` | 核对本次构建的工具链，决定产物**能不能拿字节去比** |
+
+**取上游素材**
+
+| 脚本 | 作用 |
+|---|---|
+| `fetch_pack.py` | 把某个版本的 ATM10 备齐成一个可当 `ATM_PACK_ROOT` 用的目录 |
+| `fetch_mods.py` | 按 `src/mods.lock.json` 取随包分发的第三方 jar，逐个核 sha256 |
+| `fetch_fonts.sh` | 取生成 PNG 用的字体（全 OFL，不入库）|
+| `vanilla.py` | 取**原版** Minecraft 的语言文件与字体资源（被 5 个生成器 import，不单独运行）|
+| `build_version_db.py` | 为某版建核验数据库：每个 jar 的 sha256 与不可变 fileID、字节码常量、按键表 |
+| `build_en_baseline.py` | 给每一条译文记下它翻译时对着的英文底本 |
+| `gen_format_snapshot.py` | 上游英文的格式快照，供 `check.py` 离线核占位符与颜色码 |
+
+**语言文件够不着的那些汉化**（本包的主要工作量都在这里）
+
+| 脚本 | 作用 |
+|---|---|
+| `gen_vaultpatcher.py` | 产出某版的 VaultPatcher 模块——写死在字节码常量池里的界面文本 |
+| `gen_books.py` · `books.py` · `extract_books.py` | 导览书：把 `src/books/` 的映射套到**模组 jar 里那份书**上；`extract_` 是反解回映射 |
+| `gen_literal_books.py` | 正文直接写死在 JSON 里的那类书 |
+| `gen_quest_banners.py` | 任务书章节横幅上的艺术字（烤进 PNG）|
+| `gen_menu_buttons.py` | 主菜单按钮图上的中文 |
+| `gen_mod_textures.py` | 模组把英文**画进贴图**的那几张，擦掉英文重写中文 |
+| `gen_quest_lang_patches.py` | 把本包的任务书覆盖打进 ATM 自己那份章节文件，按**原文件名**出货 |
+| `gen_quest_space_fix.py` | 去掉中文里从英文原文带过来的半角空格 |
+| `gen_rootsclassic_wrap.py` | 根源经典的教程书按行宽预切、在断点插 ASCII 空格（那本书自己不折中文）|
+| `gen_occultism_flame.py` | 自动化之火 tooltip 上那行橙色的仪式 ID 换成中文仪式名 |
+
+**运行时才拼出名字的**
+
+| 脚本 | 作用 |
+|---|---|
+| `gen_pb_hanhua.py` | 资源蜜蜂：以 lang 实体键为单一真源，产出双端脚本 |
+| `gen_trophy_names.py` | Jonn's Trophies 奖杯名（四种烘焙形态）|
+| `gen_wood_names.py` | 精致存储木桶 / 箱子的木头名 |
+| `scan_keybinds.py` | 扫出全部按键的注册名与分类标题，喂给规则 |
+
+**跟着目标版本现填**
+
+| 脚本 | 作用 |
+|---|---|
+| `gen_upstream_patches.py` | 把 `src/upstream/` 的映射套到**目标版本的官方文件**上 |
+| `gen_vanilla_assets.py` | 字体 provider 列表与 `pack.mcmeta` 跟着该版原版走 |
+| `gen_hanhua_update_check.py` | 给游戏内的汉化更新检查器填补丁版本号 |
+
+`gen_config_ui.py` 与 `gen_blockui_patch.py` **不在任何入口里**，原因见
+[走过的弯路](#走过的弯路已废弃的做法与留在仓库里的脚本)。
+
 ### 一条判据：能算出来的，一律不写进仓库
 
 **这个值换个整合包版本还对吗？能从官方文件 / 字节码 / manifest 算出来吗？**
@@ -201,6 +263,75 @@ python3 scripts/test_installer.py                       # 安装器端到端测�
   第一个 `## ` 段（当前在写的那一段），**不会**回落到 `## 7.2`，那是冻结的历史段。
   发版前记得写 CHANGELOG。
   发布前逐个点名检查「每个声明过的版本都有客户端 + 服务端两个包」，缺一个就不发。
+
+## 走过的弯路：已废弃的做法与留在仓库里的脚本
+
+下列做法都实际实施过，其中几条已经发布出去过。记录在此，是为了不再走第二遍。
+
+### blockui 的按钮对齐：一次彻底错误的归因
+
+`scripts/gen_blockui_patch.py` **不被任何入口调用**，也不参与构建，但文件还在。
+
+当时的结论是：blockui 1.0.211 完全无视 XML 里的 `textalign`，界面文字只能贴左，
+XML 层无解，只能改字节码。于是给 `com/ldtteam/blockui/controls/Button` 的构造器注入 7 字节
+把默认对齐改成居中，并按 sha256 把 blockui 的 jar 钉死（版本一变就构建失败）；
+此前手算的 121 条 `textoffset` 也随之撤掉。
+
+**这个归因是错的，根因在本包自身。** blockui 的 `Alignment` 不做枚举比较，
+而是拿 `tag.contains("horizontal")`、`contains("right")` 这样的**字符串判定**当行为开关。
+本包把 `top horizontal` 这类**标志串**当成界面文字译成了中文，`contains` 于是全部落空，
+整个 MineColonies / 建筑棒的对齐随之失效——文字一律贴左、标题压出装饰之外。
+移除那 9 条译文之后，上游原本的对齐设计整体恢复，字节码补丁失去存在的意义。
+
+现在的状态：`src/config/vaultpatcher_asm/config.json` 的 `class_patch` 为 `false`；
+`vp-class-patch-off` 与 `vp-no-stray-class-patch` 两条规则禁止随包分发任何字节码补丁；
+`vp-blockui-alignment-tags` 专门盯住那 9 条标志串不许再被译；
+`blockui_legacy_labels.json` 是 src-only 模块，只留档不出货。
+
+脚本没删，因为它的文件头记着当时的实测数据与注入点。
+**下次再出现「这个界面只有改字节码才有救」的判断，先读它，再回头检查是不是自己译坏了什么。**
+判据是通用的：**上游功能在装了本包之后才坏掉，第一嫌疑人永远是本包，不是上游。**
+
+### 模组配置界面的 744 条标签：译文早就有，代价付不起
+
+`scripts/gen_config_ui.py` 同样不在入口里。它能把「模组配置」列表里那些配置页的标签
+全部译出来——那些标签没有翻译键，是把字段名按驼峰拆开现拼的，唯一的路子是
+VaultPatcher 的 `dynamic` 替换。
+
+而 `dynamic` 是**全局**开销：替换表越大，游戏内每一次文本绘制都随之变慢。这批 744 条
+实测把单次替换成本抬高数倍，界面文字一多就掉帧——`vr14` 的全场景掉帧就是这么来的。
+
+译文已生成并保留在 `src/` 中，等待一个不必付全局代价的实现方式。
+**判据：只在某个界面出现的字，不值得让全局文字渲染变慢。** 同类被否掉的还有
+Observable 性能浮层上那两行计时——它们没有翻译键，只能依赖 ` seconds` 这类随处可见的子串拼凑，
+为一个需按快捷键才打开的调试浮层付出全局帧率代价，不成立。
+
+### 服务端注入语言表：会把 JEI 和配方劈成两半
+
+早期在服务端装过语言注入 mod。结果是服务端**现算**的文本变成中文，而 JEI 与配方
+（客户端拿英文数据现算）不变，两侧名称不一致，玩家依服务器中的名称在 JEI 内检索不到。
+
+现在服务端只做一件事：**按 NBT 里的 ID 精确改写纯显示字段**，别的一概不碰。
+服务端包内容极少，原因即在于此（见 `SERVER.md`）。
+
+### 「这个模组不在 mods/ 里」不是删译文的理由
+
+曾经按「扫三版 jar 的存在状态」裁掉 238 个命名空间，判据看似严密，结果误删 104 条——
+英文底本看不见 jar-in-jar，被内嵌进别的 jar 的模组在扫描里整个消失。
+`r12` 的事故正由此而来：罗盘、成就、JEI 读的是**表**，表里少一个命名空间，对应界面直接空白。
+
+现在的规矩：**发版前拿上一版的产物逐命名空间 diff**，少了哪个都要能说清为什么少。
+删除类改动一律先出具证据清单，不在其他流程中顺带执行。
+
+### 任务书 delta 靠合并顺序生效：结果不确定
+
+任务书的分章 delta 由 `ftbquestslangsplitter` 合并，而它合并同目录下的 `*.snbt` 时
+**不排序**（`Files.list(...).forEach(...)`，一个 comparator 都没有）。`Files.list` 不保证顺序：
+NTFS / APFS 恰好按名字返回，**ext4 返回哈希序**。同一个键若同时躺在两份文件里，
+谁生效在 Linux 服务器上是随机的。
+
+现在服务端包**整份替换**任务书语言文件，一个键只由一份文件持有，顺序彻底不参与决策；
+旧版本发过的 delta 文件名照原名发一个内容为 `{}` 的空壳盖住，全程不删任何文件。
 
 ## PR 约定
 
