@@ -334,7 +334,7 @@
   "book.occultism.dictionary_of_spirits.crafting_rituals.craft_iesnium_anvil.spotlight.text": "[](item://occultism:iesnium_anvil)是一件[#](AA00AA)魔王[#]()灌注物品。\n该砧具有以下改进特性：\n1. 不会损坏；\n2. 可使魔咒等级上限+1；\n3. 魔王将支付所显示经验等花费的一半（向上取整）；\n4. 同一物品重复操作导致的消耗增幅将降低；\n5. 最高消耗上限提升；\n",
   "book.occultism.dictionary_of_spirits.crafting_rituals.craft_iesnium_sacrificial_bowl.description": "更快的仪式",
   "book.occultism.dictionary_of_spirits.crafting_rituals.craft_iesnium_sacrificial_bowl.name": "艾瑟金属仪式之碗",
-  "book.occultism.dictionary_of_spirits.crafting_rituals.craft_iesnium_sacrificial_bowl.spotlight.text": "[](item://occultism:iesnium_sacrificial_bowl)是一件[#](AA00AA)魔王[#]()灌注物品，能使资深神秘学者以常规时间的四分之一完成任何仪式。其余功能均与黄金仪式之碗完全相同。\n",
+  "book.occultism.dictionary_of_spirits.crafting_rituals.craft_iesnium_sacrificial_bowl.spotlight.text": "[](item://occultism:iesnium_sacrificial_bowl)是一件[#](AA00AA)火灵[#]()灌注物品，能使资深神秘学者以常规时间的四分之一完成任何仪式。其余功能均与黄金仪式之碗完全相同。\n",
   "book.occultism.dictionary_of_spirits.crafting_rituals.craft_iesnium_sacrificial_bowl.spotlight2.text": "对于选择异界岩的玩家来说，还有暗色版本以供使用。\n",
   "book.occultism.dictionary_of_spirits.crafting_rituals.craft_infused_pickaxe.description": "当第三只眼也不够用时",
   "book.occultism.dictionary_of_spirits.crafting_rituals.craft_infused_pickaxe.name": "灌注镐",

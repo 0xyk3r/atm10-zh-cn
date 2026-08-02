@@ -17,7 +17,7 @@
   "enchantment.minecraft.efficiency.desc": "增加工具的开采速度。",
   "enchantment.minecraft.silk_touch.desc": "被挖掘的方块会掉落它们的本体而不是应该掉落的物品。",
   "enchantment.minecraft.unbreaking.desc": "减缓工具的耐久度消耗速率。",
-  "enchantment.minecraft.fortune.desc": "增加方块的掉落（如钻石和煤炭）。",
+  "enchantment.minecraft.fortune.desc": "煤矿石、钻石矿石等部分方块可能掉落更多物品。",
   "enchantment.minecraft.power.desc": "增加弓发射的箭矢的伤害。",
   "enchantment.minecraft.punch.desc": "增加弓箭击退的距离。",
   "enchantment.minecraft.flame.desc": "点燃被弓箭攻击的目标。",

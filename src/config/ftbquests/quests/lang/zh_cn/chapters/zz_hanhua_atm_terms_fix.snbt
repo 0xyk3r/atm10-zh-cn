@@ -985,6 +985,7 @@
 		"{image:atm:textures/questpics/theurgy/theurgy_item.png width:200 height:75 align:center}"
 	]
 	quest.49EE6D2A3684A510.title: "&b寒冰弓"
+	quest.49FDD8666356A3E7.title: "使用&2防爆外壳&f或256M便携物品元件"
 	quest.4A03A671757B2EBF.quest_desc: ["耐久度、流体水平、能量水平、附魔等级和食物值都是我们可以使用检测过滤器的类别。\\n\\n然后我们选择是否要大于、小于、等于或这些的组合。\\n\\n接下来我们给出一个数值并点击加号按钮将其添加到过滤器中。\\n\\n这可以用来只保留高耐久度的工具或高食物值的食物。"]
 	quest.4A06CCE1FE0F333C.quest_desc: ["将 &#74C3DB进气口&r 放入 &#46CAF2真空冷冻机&r 中，将得到 &#B5E7F7液态空气&r。"]
 	quest.4A079D40C0AF6BC3.quest_desc: [
@@ -1197,6 +1198,15 @@
 	quest.54BAF833344F0AAE.title: "装满&7蚀空燃液&r的&8暗黑流体罐"
 	quest.54DE8AAAE2181F18.quest_desc: ["月珥巨剑需要用两个Boss的掉落物合成！显然这使得它最难获得，也最强大！\\n\\n它的功能就像1.9版本之前的普通剑一样。它可以像盾牌一样格挡攻击，但不能通过连续攻击造成全额伤害。"]
 	quest.54DE8AAAE2181F18.title: "&d月珥巨剑"
+	quest.54E0B946BAC13654.quest_desc: [
+		"从技术上讲，我们能制造的最小（可工作）&a&l能量感应矩阵&r只有1个&a感应元件&f和&a感应供应器&r，但所有矩阵的制造方式相同。\\n\\n我们需要制作一个至少为3x4x3至18x18x18的&a感应外壳&r框架。\\n\\n外墙、顶部和底部可以用&a感应外壳&r、结构/反应堆玻璃或&a感应端口&r填充。\\n\\n&a&l感应矩阵&r的内部将由我们的&a感应元件&f和&a供应器&r构成。\\n\\n如果我们使用18x18x18尺寸，我们将有4,096个空间来放置&a元件&f和&a供应器&r。因此，如果我们将其平均分配给两者，我们可以得到……存储容量为3.28QFE，每刻输入/输出为107GFE。"
+		"{@pagebreak}"
+		"这个多方块结构可以制作为任何可用尺寸，不仅仅是图片中显示的尺寸。图片仅显示我们能制造的最小尺寸。"
+		"{image:atm:textures/questpics/mek/mek_matrix1.png width:100 height:75 align:center}"
+		"{image:atm:textures/questpics/mek/mek_matrix2.png width:100 height:90 align:center}"
+		"{image:atm:textures/questpics/mek/mek_matrix3.png width:100 height:100 align:center}"
+		"{image:atm:textures/questpics/mek/mek_matrix4.png width:100 height:110 align:center}"
+	]
 	quest.54F0C5C48CFC94D0.quest_desc: ["在物流中我们需要过滤。有两种不同的过滤器：列表和属性。\\n列表过滤器你可以添加物品，并更改它是白名单还是黑名单，以及是否比对NBT数据。\\n\\n属性过滤器则以参考物品为基础，根据选定的属性进行过滤。这包括标签和其他东西，比如是否可以作为熔炉燃料或是否可以路径化！"]
 	quest.54F7AD64A403C9BF.quest_desc: ["这些催化器可作为柱顶添加到你的&2自然祭坛&r上。它们允许你将更多物品转化为其他物品或将其分解。\\n\\n崩坏催化器允许你将每个黄金叶转化为4个金粉，而不是2个！"]
 	quest.55160BAFFD9E2988.quest_desc: ["最具代表性的&9Macaw&r模组——&9&lMacaw的家具&r！\\n\\n它添加了你需要的一切！椅子、桌子、书架，甚至还有抽屉！"]
@@ -1399,6 +1409,7 @@
 		"骏鹰是马和鹰的混合体。它们的后半身像马，前半身像鹰。\\n\\n由于双翅有力，它们飞得非常快，还有20&4颗心&r的生命值。\\n\\n骏鹰不会主动发起战斗，但如果你靠得太近，它们会自卫。它们会用爪子造成一点伤害，或者把你踢到高空让你受到摔落伤害。\\n\\n也许尝试驯服它们更好……除非你真的想要骏鹰利爪剑。"
 		"{image:atm:textures/questpics/iceandfire/iaf_hippogryth.png width:130 height:100 align:center}"
 	]
+	quest.601C719C8FD513F0.quest_desc: ["3个&c下界合金锭&r、3个无线增幅器和一堆&2精美的&e齿轮&r，我们可以制作一个无限范围增幅器！\\n\\n最令人困惑的部分是齿轮。我们不能直接制作锭，我们需要将粉末混合在一起，然后把产物熔炼成锭。\\n\\n无限范围增幅器不能跨维度使用，抱歉！"]
 	quest.603BEDD49070ECAD.quest_desc: ["&b汽化&r是将&b液体&f转化为&c气体&r。&c液化&r是将&c气体&f转化为&b液体&r。\\n\\n&c&l回旋式气液转换机&r两者皆可！\\n\\n&c气体&r将进入左侧的条栏。它们可以通过放置在左侧槽位中的&c管道&f或&c化学品储罐&r添加。\\n\\n&b液体&r将进入右侧的条栏。它们也可以通过放置在右侧槽位中的&b管道&f或&b流体储罐&r添加。\\n\\n当供能时，&c气体&r会变成&b液体&r，而&b液体&r会变成&c气体&r。它们会交换条栏，然后可以通过&c管道&f/&b管道&r或&c化学品&f/&b流体储罐&r取出。"]
 	quest.604F2B68B27885BF.quest_desc: ["在 &9暮色森林&r 中，你可以制作许多不同的食物。\\n\\n都尝尝看吧！"]
 	quest.605A5AC65BC7E864.quest_desc: ["钓鱼机会自动钓鱼，可以钓到鱼、宝藏、附魔书以及其他一些东西。就是钓不到蜜蜂，那种还得你自己手动来。\\n\\n它必须放置在 3x3 或更大的&9水&r池上方。"]
@@ -1549,6 +1560,20 @@
 	quest.6C5F9D0D447EFB9C.quest_desc: ["你以为我们只有&l&2原版&r吗？\\n\\n&6ATM盔甲&r拥有更高的护甲值和盔甲韧性，以及对魔法的额外抗性和其他增益，你可以在&6&lATM&r任务页面阅读详情！\\n\\n顺便说一句，你需要&c下界合金&r来制作它。"]
 	quest.6C5F9D0D447EFB9C.title: "&6ATM盔甲"
 	quest.6CA1D90CCE17097D.quest_subtitle: "一次性使用的雷电权杖"
+	quest.6CCE920735187234.quest_desc: [
+		"&9&l涡轮机&r至少是一台体积为5x7x5的&5机器&r，但可以扩展以容纳更多蒸汽并产生更多&a能量&r！\\n\\n&9&l涡轮机&r的框架由&9涡轮外壳&r制成。底部和顶部可以用&9涡轮外壳&r或结构玻璃填充。\\n\\n在操心外墙之前，让我们先关注内部！这才是真正的赚钱机器！\\n\\n从底部数起的正中央是放置&9转子&r的地方。对于最小的那个，我们需要2个！然后，在上面安装&9叶片&r，总共4个。\\n\\n在最高的&9转子&r上方放置我们的&9复合旋钮装置&r，并用&9分压元件&r包围它。\\n\\n&9复合旋钮装置&r上方的层将是&a电磁线圈&r，它们上方将是我们的&9饱和冷凝器&r。\\n\\n现在我们可以把&9端口&r和&9通风口&r放在外墙上，其余部分用&9涡轮外壳&r或结构玻璃填充！"
+		"{@pagebreak}"
+		"幸运的是，&9&l涡轮机&r使用起来比建造容易得多！\\n\\n通过&9端口&r&c管道&r输入一些蒸汽，它应该开始旋转。它能容纳的蒸汽量取决于整个&9&l涡轮机&r建造的尺寸。\\n\\n然后，&9转子&f和&9叶片&r将因为蒸汽通过&9&l涡轮机&r上升而开始旋转。这将移动&9复合旋钮装置&r，从而移动&a电磁线圈&r产生&a能量&r！\\n\\n&a能量&r可以通过我们的第二个&9端口&r通过&a线缆&r输出。&a能量&r的数量取决于&9转子&f和&9叶片&r的旋转速度。而这本身又取决于输入到&9&l涡轮机&r的蒸汽量。\\n\\n如果我们使用&9饱和冷凝器&r，我们将从蒸汽中回收一点&9水&r。我们可以通过&9通风口&r取出这些&9水&r，然后送回我们的&2&l裂变反应堆&r！\\n\\n我们在&9&l涡轮机&r的GUI中有一个设置，类似于&9&l电解分离器&r中的设置。我们可以选择排出过量蒸汽，以使其始终以最快的&a能量&r生产速度工作。我们可以排出蒸汽，以防你想要摆脱它……或者默认的空闲模式！如果你使用非空闲模式，它将不会从蒸汽中回收&9水&r。"
+		"{@pagebreak}"
+		"这个多方块结构可以按任何可用尺寸建造，而不仅仅是图片中显示的尺寸。图片仅显示我们可以建造的最小尺寸。"
+		"{image:atm:textures/questpics/mek/mek_turbine1.png width:100 height:100 align:center}"
+		"{image:atm:textures/questpics/mek/mek_turbine2.png width:100 height:100 align:center}"
+		"{image:atm:textures/questpics/mek/mek_turbine3.png width:110 height:100 align:center}"
+		"{image:atm:textures/questpics/mek/mek_turbine4.png width:100 height:100 align:center}"
+		"{image:atm:textures/questpics/mek/mek_turbine5.png width:100 height:110 align:center}"
+		"{image:atm:textures/questpics/mek/mek_turbine6.png width:100 height:120 align:center}"
+		"{image:atm:textures/questpics/mek/mek_turbine7.png width:100 height:125 align:center}"
+	]
 	quest.6CD7D99AA102A5C3.quest_desc: ["&n&f&l物流&r：\\n一种移动、管理和存储物品或资源的系统。\\n\\n在模组化的 Minecraft 中，它几乎是一样的，移动物品！在模组化的 Minecraft 中，你需要物品，而且成千上万，如果想要&6&lATM之星&r，那可能达到数百万！因此你需要从工厂、机器、农场，尤其是箱子中移动物品。这就是&l&f物流&r的作用。"]
 	quest.6D0876A402C22067.quest_desc: ["晶工艺有一些物品存储和操作功能，但不如流体存储和操作功能多！"]
 	quest.6D2425DAEA1FC211.title: "&c日轮祭坛"
