@@ -50,5 +50,16 @@
         "value": "奥术永载"
       }
     ]
+  },
+  {
+    "target_class": [
+      "com.github.jarva.arsadditions.common.ritual.RitualLocateStructure"
+    ],
+    "pairs": [
+      {
+        "key": "Locate Structure",
+        "value": "定位结构"
+      }
+    ]
   }
 ]
