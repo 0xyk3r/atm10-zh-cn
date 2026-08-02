@@ -28,9 +28,17 @@ ROOT = Path(__file__).resolve().parent.parent
 PREVIEW = 90
 
 
-def load(ver, name):
+def load(ver, name, required=True):
+    """required=False 时文件不在就返回 None——给那些**故意不入库**的底本用。
+
+    `lang_baseline_local.json` 被 .gitignore 排除（十几万条键，且随时可从 jar 重建），
+    所以在 CI 上通常只有「刚生成的那一版」有、上一版没有。任务书底本是入库的，
+    两版都在，那才是这个脚本的主要判据。
+    """
     f = ROOT / 'versions' / 'db' / ver / (name + '.json')
     if not f.is_file():
+        if not required:
+            return None
         sys.exit('❌ 没有 %s\n   先跑: python3 scripts/build_en_baseline.py %s <该版mods目录> <该版overrides目录>'
                  % (f.relative_to(ROOT), ver))
     return json.loads(f.read_text(encoding='utf-8'))
@@ -65,8 +73,17 @@ def main(old, new):
     _, _, qchanged = report('任务书（我们已有覆盖的那批键）', qa, qb)
 
     # 资源包 lang 有十几万条，逐条打印没法看；只报「我们译过的命名空间里改了多少」。
-    la = load(old, 'lang_baseline_local')['lang']
-    lb = load(new, 'lang_baseline_local')['lang']
+    # 这份底本不入库（.gitignore 排除），所以经常只有一边有——那就跳过并说清楚，
+    # 不要因为一份可再生的本地产物缺席就把整份报告废掉。
+    ra, rb = load(old, 'lang_baseline_local', False), load(new, 'lang_baseline_local', False)
+    if ra is None or rb is None:
+        miss = ' 与 '.join(v for v, r in ((old, ra), (new, rb)) if r is None)
+        print('\n── 资源包 lang：跳过（%s 的 lang_baseline_local.json 不在本地）' % miss)
+        print('   它被 .gitignore 排除，只在跑过 build_en_baseline.py 的机器上存在。')
+        print('   要看这部分，对两个版本各跑一次 build_en_baseline.py 再重跑本脚本。')
+        print('\n结论：任务书 %d 条的英文变了（资源包 lang 未比对）。' % len(qchanged))
+        return 0
+    la, lb = ra['lang'], rb['lang']
     lchanged = sorted(k for k in set(la) & set(lb) if la[k] != lb[k])
     ladded = sorted(set(lb) - set(la))
     lgone = sorted(set(la) - set(lb))
