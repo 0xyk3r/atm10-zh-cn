@@ -52,7 +52,7 @@
     "text"
    ],
    "It is important to note that the $(l:modules/breaker)Breaker Module/$ used to craft this module will transfer its harvest level (and enchantments) to this module. So if you want your Extruder Module to be able to break $(item)Obsidian/$, for example, make sure you use a Breaker Module crafted with a $(item)Diamond Pickaxe/$!",
-   "需要特别注意的是，用于合成该模块的$(l:modules/breaker)破坏器模块/$会把它的挖掘等级（以及附魔）一并继承给这个模块。所以，例如如果你想让造桥模块能够破坏$(item)黑曜石/$，请务必使用由$(item)钻石镐/$合成的破坏器模块！"
+   "需要特别注意的是，用于合成该模块的$(l:modules/breaker)破坏模块/$会把它的挖掘等级（以及附魔）一并继承给这个模块。所以，例如如果你想让造桥模块能够破坏$(item)黑曜石/$，请务必使用由$(item)钻石镐/$合成的破坏模块！"
   ]
  ]
 }

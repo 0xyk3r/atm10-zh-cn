@@ -25,7 +25,7 @@
     "text"
    ],
    "$(item)Molten Plastic/$ can be solidified simply by pouring it into the world; it will turn into a $(item)Plastic Sheet/$ within half a second or so. This is very easily automated with a $(l:machines/liquid_hopper)Liquid Hopper/$ with a $(l:base_concepts/upgrades#dispenser)Dispenser Upgrade/$, and an $(l:machines/omnidirectional_hopper)Omnidirectional Hopper/$.",
-   "$(item)熔融塑料/$只需倒入世界中即可凝固；大约半秒后，它就会变成一块$(item)塑料板/$。使用带有$(l:base_concepts/upgrades#dispenser)发射器升级/$的$(l:machines/liquid_hopper)流体漏斗/$和一个$(l:machines/omnidirectional_hopper)全向漏斗/$，就能非常轻松地实现自动化。"
+   "$(item)熔融塑料/$只需倒入世界中即可凝固；大约半秒后，它就会变成一块$(item)塑料片/$。使用带有$(l:base_concepts/upgrades#dispenser)发射器升级/$的$(l:machines/liquid_hopper)流体漏斗/$和一个$(l:machines/omnidirectional_hopper)全向漏斗/$，就能非常轻松地实现自动化。"
   ],
   [
    [
@@ -34,7 +34,7 @@
     "title"
    ],
    "Plastic Sheet",
-   "塑料板"
+   "塑料片"
   ],
   [
    [
@@ -52,7 +52,7 @@
     "title"
    ],
    "Plastic Sheet",
-   "塑料板"
+   "塑料片"
   ],
   [
    [

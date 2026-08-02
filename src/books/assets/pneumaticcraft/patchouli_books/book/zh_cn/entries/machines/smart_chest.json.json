@@ -61,7 +61,7 @@
     "text"
    ],
    "Faces configured to pull items will try to pull items from an adjacent inventory on that face.$(p)If you install a $(l:base_concepts/upgrades#magnet)Magnet Upgrade/$, the chest can absorb nearby items on the ground. This only works for faces that have been configured to pull items; the default pickup area is a 3x3x3 cube adjacent to the pulling face, which can be increased with $(l:base_concepts/upgrades#range)Range Upgrades/$.",
-   "被配置为拉取物品的面，会尝试从该面相邻的容器中拉取物品。$(p)如果你安装了 $(l:base_concepts/upgrades#magnet)磁力升级/$，箱子就能吸收地面上附近的物品。这只对已配置为拉取物品的面生效；默认拾取范围是拉取面相邻的一个 3x3x3 立方体区域，并且可以通过 $(l:base_concepts/upgrades#range)范围升级/$ 进一步扩大。"
+   "被配置为拉取物品的面，会尝试从该面相邻的容器中拉取物品。$(p)如果你安装了 $(l:base_concepts/upgrades#magnet)磁铁升级/$，箱子就能吸收地面上附近的物品。这只对已配置为拉取物品的面生效；默认拾取范围是拉取面相邻的一个 3x3x3 立方体区域，并且可以通过 $(l:base_concepts/upgrades#range)范围升级/$ 进一步扩大。"
   ],
   [
    [

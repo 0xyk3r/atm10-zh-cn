@@ -106,7 +106,7 @@
     "text"
    ],
    "$(l:base_concepts/upgrades#armor)Armor Upgrades/$ increase the protection and toughness of each armor piece. With 2 upgrades installed, each piece is as good as the corresponding $(thing)Diamond Armor/$ piece.  With the maximum 4 upgrades, the protection is thus superior to $(thing)Diamond Armor/$.",
-   "$(l:base_concepts/upgrades#armor)装甲升级/$会提高每件护甲的防护值和韧性。安装 2 个升级后，每一件护甲都能达到对应的 $(thing)钻石护甲/$部件水平。安装满 4 个升级后，其防护性能将优于 $(thing)钻石护甲/$。"
+   "$(l:base_concepts/upgrades#armor)护甲升级/$会提高每件护甲的防护值和韧性。安装 2 个升级后，每一件护甲都能达到对应的 $(thing)钻石护甲/$部件水平。安装满 4 个升级后，其防护性能将优于 $(thing)钻石护甲/$。"
   ],
   [
    [

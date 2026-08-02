@@ -34,7 +34,7 @@
     "text"
    ],
    "If you've ever wanted to soar through the air without a care in the world (except how much pressure you have left), the $(l:base_concepts/upgrades#jet_boots_1)Jet Boots Upgrade/$ is for you.  There are 5 tiers of Jet Boots Upgrade for progressively faster flight, and greater air usage.",
-   "如果你曾想过无忧无虑地翱翔天际（除了还得担心自己剩下多少气压），那么 $(l:base_concepts/upgrades#jet_boots_1)喷射鞋升级/$ 就是为你准备的。喷射鞋升级共有 5 个等级，飞行速度会逐级提升，但耗气量也会更高。"
+   "如果你曾想过无忧无虑地翱翔天际（除了还得担心自己剩下多少气压），那么 $(l:base_concepts/upgrades#jet_boots_1)喷气靴升级/$ 就是为你准备的。喷气靴升级共有 5 个等级，飞行速度会逐级提升，但耗气量也会更高。"
   ],
   [
    [
@@ -61,7 +61,7 @@
     "text"
    ],
    "With $(l:base_concepts/upgrades#jet_boots_3)Jet Boots Upgrades: Tier III/$ or better, you will also have access to $(thing)Builder Mode/$, which allows for more creative-style (but slower) flight control and improved airborne digging speed.$(p)This can be toggled on & off via the armor GUI (and bound to a toggle key).",
-   "拥有 $(l:base_concepts/upgrades#jet_boots_3)喷射鞋升级：III级/$ 或更高等级后，你还可以使用 $(thing)建筑工模式/$，它能提供更偏创造模式风格（但更慢）的飞行控制，并提升你在空中的挖掘速度。$(p)你可以在护甲 GUI 中将其开启或关闭（也可绑定到一个切换按键）。"
+   "拥有 $(l:base_concepts/upgrades#jet_boots_3)喷气靴升级：III级/$ 或更高等级后，你还可以使用 $(thing)建筑工模式/$，它能提供更偏创造模式风格（但更慢）的飞行控制，并提升你在空中的挖掘速度。$(p)你可以在护甲 GUI 中将其开启或关闭（也可绑定到一个切换按键）。"
   ],
   [
    [

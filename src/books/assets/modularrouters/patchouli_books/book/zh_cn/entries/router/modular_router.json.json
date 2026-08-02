@@ -124,7 +124,7 @@
     "text"
    ],
    "This is primarily intended for busy servers, to save on CPU cycles, but it's potentially nice-to-have for any router that only runs rarely and where rapid item transfer isn't that important (e.g. a sheep farm where you might have a $(l:modules/vacuum)Vacuum Module/$ gathering sheared wool periodically).",
-   "这项功能主要是为繁忙的服务器设计的，用来节省 CPU 周期，但对于那些很少运行且不太需要快速传输物品的路由器来说也很实用（例如羊毛农场中，使用$(l:modules/vacuum)真空模块/$定期收集剪下的羊毛）。"
+   "这项功能主要是为繁忙的服务器设计的，用来节省 CPU 周期，但对于那些很少运行且不太需要快速传输物品的路由器来说也很实用（例如羊毛农场中，使用$(l:modules/vacuum)虚空模块/$定期收集剪下的羊毛）。"
   ],
   [
    [

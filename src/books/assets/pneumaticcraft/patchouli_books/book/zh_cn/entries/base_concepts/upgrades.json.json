@@ -133,7 +133,7 @@
     "text"
    ],
    "Crafting a Magnet Upgrade",
-   "合成磁力升级"
+   "合成磁铁升级"
   ],
   [
    [
@@ -160,7 +160,7 @@
     "text"
    ],
    "Crafting a Armor Upgrade",
-   "合成装甲升级"
+   "合成护甲升级"
   ],
   [
    [
@@ -178,7 +178,7 @@
     "text"
    ],
    "Crafting a Jet Boots Upgrade: Tier II",
-   "合成喷射鞋升级：II级"
+   "合成喷气靴升级：II级"
   ],
   [
    [
@@ -187,7 +187,7 @@
     "text"
    ],
    "Crafting a Jet Boots Upgrade: Tier III",
-   "合成喷射鞋升级：III级"
+   "合成喷气靴升级：III级"
   ],
   [
    [
@@ -196,7 +196,7 @@
     "text"
    ],
    "Crafting a Jet Boots Upgrade: Tier IV",
-   "合成喷射鞋升级：Tier IV"
+   "合成喷气靴升级：Tier IV"
   ],
   [
    [
@@ -277,7 +277,7 @@
     "text"
    ],
    "Crafting a Standby Upgrade",
-   "合成备用升级"
+   "合成待机升级"
   ],
   [
    [
@@ -340,7 +340,7 @@
     "text"
    ],
    "Crafting a Chunkloader Upgrade",
-   "合成区块载入升级"
+   "合成区块加载升级"
   ]
  ]
 }
