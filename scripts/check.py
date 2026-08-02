@@ -628,25 +628,20 @@ def _snbt_blocks_parse(rule):
     from gen_quest_lang_patches import SnbtShapeError, blocks
 
     g, = need(rule, 'glob')
-    # 结构检查罩整棵 zh_cn 树（含打完补丁的上游文件）；
-    # 「不许为空」只罩**我们自己写的**覆盖文件。上游那批按章节切出来的 `_xxx.snbt`
-    # 空壳是正常的——它们本来就没有中文键，拿我们的标准去要求它们纯属越界。
-    empty_prefix = rule.get('empty_prefix', 'zz_hanhua_')
-    allow_empty = set(rule.get('allow_empty', []))
+    # **只查结构，不查有没有键。** 空文件在这里是合法的，而且往往是正确终态：
+    # gen_quest_lang_patches.py 把覆盖打进上游文件之后，会照原名发一个 `{\n}` 空壳
+    # 去盖掉玩家硬盘上的旧 delta（安装器只覆盖不删除）。所以同一条规则在
+    # ci.yml（生成之前，delta 带着键）和 build.yml（生成之后，delta 全是空壳）
+    # 看到的是两个世界——「一个键都没有」在后者是 35 个文件全中。
     hit = files(g)
     if not hit:
         yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
         return
     for p in hit:
         try:
-            got = blocks(p)
+            blocks(p)
         except SnbtShapeError as e:
             yield '%s' % e
-            continue
-        if (not got and p.name.startswith(empty_prefix)
-                and p.name not in allow_empty):
-            yield ('%s 一个键都没有——空文件出货等于这条覆盖静默消失'
-                   '（确实该是空的就写进规则的 allow_empty 并注明理由）' % rel(p))
 
 
 @checker('snbt_no_dup_keys')

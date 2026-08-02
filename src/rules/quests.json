@@ -12,11 +12,7 @@
     "id": "quest-delta-blocks-parse",
     "kind": "snbt_blocks_parse",
     "glob": "config/ftbquests/quests/lang/zh_cn/**/*.snbt",
-    "why": "delta 文件必须能被生成器那个块解析器读通。2026-08-02 给 delta 排序时按行 sort，把 129 个多行数组打散成 513 个游离的空串行；当时 check.py 只有按行正则，匹配不上的行直接跳过，ci.yml 全绿放行，三分钟后才被真正调用 blocks() 的 build.yml 拦下。这条闸复用同一个解析器，不另写一份——两份判得不一样就等于没有闸。  allow_empty：zz_hanhua_immersive_engineering.snbt 自仓库重构（98e54af）起就是 4 字节的空壳，出货一个什么都不覆盖的文件。它是历史遗留，不是生成失败，但删不删由仓库主人定，所以先豁免并记在这里；哪天它被删了，这条 allow_empty 也要跟着删，否则就成了永久后门。  empty_prefix：结构检查罩整棵 zh_cn 树（含打完补丁的上游文件），但「不许为空」只罩我们自己写的 zz_hanhua_* 覆盖——上游那 71 个按章节切出来的 _xxx.snbt 空壳本来就没有中文键，拿我们的标准去要求它们纯属越界。",
-    "allow_empty": [
-      "zz_hanhua_immersive_engineering.snbt"
-    ],
-    "empty_prefix": "zz_hanhua_"
+    "why": "delta 文件必须能被生成器那个块解析器读通。2026-08-02 给 delta 排序时按行 sort，把 129 个多行数组打散成 513 个游离的空串行；当时 check.py 只有按行正则，匹配不上的行直接跳过，ci.yml 全绿放行，三分钟后才被真正调用 blocks() 的 build.yml 拦下。这条闸复用同一个解析器，不另写一份——两份判得不一样就等于没有闸。只查结构不查有没有键：空的 delta 是合法的，生成器打完补丁后会照原名发一个空壳去盖掉玩家硬盘上的旧文件（安装器只覆盖不删除），所以生成之后整棵树的 delta 本来就都是空的。"
   },
   {
     "id": "quest-delta-no-duplicate-keys",

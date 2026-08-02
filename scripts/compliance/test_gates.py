@@ -204,11 +204,12 @@ def _c14(mods):
     _delta(mods, '{\n\tdescription: [\n\t\t"第一行"\n}\n')
 
 
-@case('delta 是个一条键都没有的空壳', 'quest-delta-blocks-parse')
-def _c15(mods):
-    # 空文件语法上合法，但「生成器静默产出空覆盖」＝这批译文人间蒸发。
-    # 规则里有 allow_empty 名单，夹具用的文件名不在名单上，所以必须红。
-    _delta(mods, '{\n}\n')
+
+# 注意：**空的 delta 文件不是错误**，所以这里没有对应的反例。
+# gen_quest_lang_patches.py 把覆盖打进上游文件后，会照原名发一个 `{\n}` 空壳
+# 去盖掉玩家硬盘上的旧 delta（安装器只覆盖不删除）。曾短暂加过一条「不许为空」，
+# 结果 ci.yml（生成之前）绿、build.yml（生成之后）35 个文件全红——
+# 同一条规则在两条流水线上罩的文件集不一样，加规则前先想清楚它在哪一步跑。
 
 
 @case('出货树残留字节码补丁', 'vp-no-stray-class-patch')
