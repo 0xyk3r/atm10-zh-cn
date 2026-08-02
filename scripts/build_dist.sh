@@ -91,6 +91,10 @@ python3 scripts/check.py "$TREE"
 # 「进游戏什么都没发生」——vr16 的更新提示就是这么发出去的，加载阶段还全绿。
 # 拿**目标版本 kubejs jar 里的那张表**现查，不在仓库里存副本。
 python3 scripts/compliance/check_kubejs_classfilter.py "${ATM_PACK_ROOT:-pack}/mods" "$TREE"
+# Iron Jetpacks 的等级名（振金/难得素/创造…）不在 lang 里，在整合包 config 里；
+# lang 缺 `jetpack.<name>.name` 就静默回退成英文，跟翻好了完全无法区分。
+# 档位清单随整合包版本变，拿该版官方 config 现查，不手写死在仓库里。
+python3 scripts/compliance/check_jetpack_tiers.py "$UPROOT" "$TREE"
 # 资源包**内容**跨版本通用（lang 按命名空间索引，多余键不生效、缺的回退），
 # 所以源目录只有一份；只有产出的 zip 文件名带版本号，方便用户认。
 PACK_SRC="$TREE/resourcepacks/ATM10汉化包"

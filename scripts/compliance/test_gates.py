@@ -356,6 +356,89 @@ def _m8(tmp, tree):
     return rc != 0 and '没跑成' in out
 
 
+# ── 第四组反例：Iron Jetpacks 的等级名 ────────────────────────────────────
+#
+# 复刻的事故：游戏里显示「Vibranium能量电池」「Creative喷气背包」。物品名模板在
+# lang 里，但 `%s` 来自整合包 config 的 `name` 字段；mod 先查 `jetpack.<name>.name`，
+# 查不到就**静默**回退成把 name 首字母大写。回退不报错、不留日志，17 个等级一条
+# 没翻，跟全翻好了在任何自动检查里都长得一样，只能靠玩家截图发现。
+#
+# 档位清单随整合包版本变（ATM 自己加了 allthemodium/vibranium/unobtainium/creative），
+# 所以夹具里的上游 config 是现造的，不抄任何一版的真实清单。
+def _ijp_fixture(tmp, tiers, keys, make_config=True):
+    up = tmp / 'uproot'
+    if make_config:
+        d = up / 'config' / 'ironjetpacks' / 'jetpacks'
+        d.mkdir(parents=True, exist_ok=True)
+        for name, disable in tiers:
+            (d / ('%s.json' % name)).write_text(
+                json.dumps({'name': name, 'disable': disable, 'tier': 1}),
+                encoding='utf-8')
+    else:
+        up.mkdir(parents=True, exist_ok=True)
+    lang = (tmp / 'ijptree' / 'resourcepacks' / 'ATM10汉化包'
+            / 'assets' / 'ironjetpacks' / 'lang')
+    lang.mkdir(parents=True, exist_ok=True)
+    (lang / 'zh_cn.json').write_text(
+        json.dumps(keys, ensure_ascii=False), encoding='utf-8')
+    return up, tmp / 'ijptree'
+
+
+def _ijp_run(tmp, up, tree):
+    r = subprocess.run([sys.executable,
+                        str(tmp / 'scripts' / 'compliance' / 'check_jetpack_tiers.py'),
+                        str(up), str(tree)],
+                       capture_output=True, text=True, cwd=tmp)
+    return r.returncode, r.stdout + r.stderr
+
+
+@missing_case('上游有档位而 lang 里没有对应等级名 → 必须红')
+def _m9(tmp, tree):
+    up, t = _ijp_fixture(
+        tmp,
+        [('iron', False), ('vibranium', False)],
+        {'jetpack.iron.name': '铁'})
+    rc, out = _ijp_run(tmp, up, t)
+    return rc != 0 and 'jetpack.vibranium.name' in out
+
+
+@missing_case('每个档位都有等级名 → 必须绿（证明这道闸不是一律红）')
+def _m10(tmp, tree):
+    up, t = _ijp_fixture(
+        tmp,
+        [('iron', False), ('vibranium', False)],
+        {'jetpack.iron.name': '铁', 'jetpack.vibranium.name': '振金'})
+    rc, out = _ijp_run(tmp, up, t)
+    return rc == 0 and '2 个等级名全部有译' in out
+
+
+@missing_case('等级名是空串 → 必须红（有键不等于有译）')
+def _m11(tmp, tree):
+    up, t = _ijp_fixture(
+        tmp,
+        [('iron', False)],
+        {'jetpack.iron.name': '   '})
+    rc, out = _ijp_run(tmp, up, t)
+    return rc != 0 and 'jetpack.iron.name' in out
+
+
+@missing_case('上游 config 没取到 → 等级名检查必须红，不许「没扫到所以通过」')
+def _m12(tmp, tree):
+    up, t = _ijp_fixture(tmp, [], {'jetpack.iron.name': '铁'}, make_config=False)
+    rc, out = _ijp_run(tmp, up, t)
+    return rc != 0 and 'config/ironjetpacks/jetpacks' in out
+
+
+@missing_case('档位被 disable → mod 不注册它，不要求译名，必须绿')
+def _m13(tmp, tree):
+    up, t = _ijp_fixture(
+        tmp,
+        [('iron', False), ('wood', True)],
+        {'jetpack.iron.name': '铁'})
+    rc, out = _ijp_run(tmp, up, t)
+    return rc == 0 and '1 个等级名全部有译' in out
+
+
 def run_missing(name, fn):
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
