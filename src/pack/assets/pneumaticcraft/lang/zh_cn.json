@@ -369,7 +369,7 @@
   "gui.tooltip.item.pneumaticcraft.smart_chest_kit": "潜行右击（木制）箱子或强化箱子以将其升级为智能箱子，同时保留原箱子的内容物。\n原本的箱子将以物品形式掉落。",
   "gui.tooltip.item.pneumaticcraft.sourdough_bread": "比普通的面包更好吃更有营养！",
   "gui.tooltip.item.pneumaticcraft.spawner_agitator": "当安装在刷怪笼上时，刷怪笼激活器会阻止玩家离开后刷出的生物消失。并且，玩家不在附近刷怪笼也会刷怪。有人要刷怪场吗？",
-  "gui.tooltip.item.pneumaticcraft.spawner_agitator.apotheosis": "由于安装了Apothic Spawners模组，刷怪笼激活器的功能受限：玩家不在附近时刷怪笼不会刷怪，但玩家离开时，已刷出的生物不会消失。",
+  "gui.tooltip.item.pneumaticcraft.spawner_agitator.apotheosis": "装了神化刷怪笼后功能受限：玩家离得远时不会刷怪，但已刷出的生物不会因玩家走开而消失。",
   "gui.tooltip.item.pneumaticcraft.spawner_core": "刷怪笼的心脏。放置于气动刷怪笼中以自其承载的源质生成怪物。\n\n由原版刷怪笼抽取出的刷怪笼核心承载有单个生物的源质，但可以使用真空陷阱构造承载多个生物源质的核心……",
   "gui.tooltip.item.pneumaticcraft.stop_worm": "对安全站使用，可以提升入侵成功的几率。",
   "gui.tooltip.item.pneumaticcraft.tag_filter": "在标签工作台中制作。能放在物流框架的过滤槽中，或用于一个物品过滤器编程部件，以通过被配置的标签过滤物品。",
