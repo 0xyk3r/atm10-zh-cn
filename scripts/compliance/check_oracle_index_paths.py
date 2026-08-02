@@ -14,10 +14,11 @@ Oracle Index 按书里的 `sinytra-wiki.json` 选解析器（`DocsIndexer.detect
     LegacyDocsFormat  .content/     .translated/      ← 带点
 
 两套路径长得几乎一样，放错了不报错、不留日志，书照常显示——只是显示英文。
-本仓库现在两套都有：oritech 的 `.translated/` 下 385 个文件、`translated/` 下 20 个，
-oracle-index 的 `.translated/` 下 7 个。7.3 的 oritech 1.2.10 声明 `"schema": "1"`，
-也就是说那 385 个在 7.3 上一个都不生效。但 7.0–7.2 用的是更老的 oritech，
-schema 可能不一样——**这正是这道闸要替人回答的问题**：它对每个版本各判一次。
+本仓库两套都有：正确路径下是生效的那份，另一条路径下留着历史遗留的旧文件。
+**旧文件是有意保留的**（仓库主人的惯例是「不影响就不删」），所以这道闸只拦
+「有译文放错了地方、导致该显示中文的地方显示英文」，对残留文件只报个数、不拦。
+
+各版本的 mod 版本不同、schema 声明也可能不同，所以按版本各判一次。
 
 ## 判定
 
@@ -106,7 +107,7 @@ def main(argv):
         print('%s 《%s》%s → 只读 %s/（%d 个文件）%s'
               % ('❌' if any(x[0] == b for x in bad) else '✅', b, 
                  'schema=%s' % (schema or '无'), right, n,
-                 '；%s/ 下还有 %d 个死文件待清理' % (wrong, stale) if stale else ''))
+                 '；%s/ 下另有 %d 个不生效的旧文件（有意保留，不影响）' % (wrong, stale) if stale else ''))
 
     if bad:
         print()
