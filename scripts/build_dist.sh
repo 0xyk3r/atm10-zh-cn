@@ -99,6 +99,10 @@ python3 scripts/compliance/check_jetpack_tiers.py "$UPROOT" "$TREE"
 # 「幽灵蜜蜂」vs 物品名「恶魂蜜蜂」这种，照任务书去搜是搜不到的——比漏翻更难受。
 python3 scripts/compliance/check_bee_names_in_quests.py \
   "${ATM_PACK_ROOT:-pack}/mods" "$UPROOT" "$TREE"
+# 神谕目录的书有两套目录约定（V1 的 translated/ 与 Legacy 的 .translated/），
+# 由书自己的 sinytra-wiki.json 声明。放错那条路径的译文永远不会被读，且不报错。
+# 各版本的 mod 版本不同，声明也可能不同，所以按版本现判。
+python3 scripts/compliance/check_oracle_index_paths.py "${ATM_PACK_ROOT:-pack}/mods" "$TREE"
 # 资源包**内容**跨版本通用（lang 按命名空间索引，多余键不生效、缺的回退），
 # 所以源目录只有一份；只有产出的 zip 文件名带版本号，方便用户认。
 PACK_SRC="$TREE/resourcepacks/ATM10汉化包"

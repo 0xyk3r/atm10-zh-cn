@@ -1,11 +1,20 @@
 {
   "getting_started": {
-    "name": "\uD83D\uDCD5 起步",
+    "name": "📕 入门指南",
     "icon": null
   },
-  "multiblocks.mdx": "多方块结构",
-  "addons.mdx": "插件",
-  "particle_accelerator.mdx": "粒子加速器",
+  "multiblocks.mdx": {
+    "name": "多方块结构",
+    "icon": null
+  },
+  "addons.mdx": {
+    "name": "插件",
+    "icon": null
+  },
+  "particle_accelerator.mdx": {
+    "name": "粒子加速器",
+    "icon": null
+  },
   "reactor": {
     "name": "☢ 核反应堆",
     "icon": null

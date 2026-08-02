@@ -1,7 +1,7 @@
 {
-  "accelerator_controller.mdx": "粒子加速器控制器",
-  "accelerator_motor.mdx": "粒子加速器直线型马达",
-  "accelerator_ring.mdx": "粒子加速器导向环",
-  "accelerator_sensor.mdx": "粒子加速器传感器",
-  "particle_collector_block.mdx": "速子吸收器"
+  "accelerator_controller.mdx": "加速器控制器",
+  "accelerator_motor.mdx": "加速器马达",
+  "accelerator_ring.mdx": "加速器导引环",
+  "accelerator_sensor.mdx": "加速器速度传感器",
+  "particle_collector_block.mdx": "速子收集器"
 }
