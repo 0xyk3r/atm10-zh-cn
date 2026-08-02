@@ -593,6 +593,117 @@ def _m22(tmp, tree):
             and 'quest.ABC123.quest_desc' in out and '\\\\n\\\\n' in out)
 
 
+# ── 第七组反例：任务书里的物品名 ─────────────────────────────────────────
+#
+# 复刻的事故：反馈说任务书写「XP 果冻豆」「XP 固化机」「空灵魂宝石」，而 JEI 里
+# 分别叫「经验果冻宝宝」「经验固化器」「灵魂宝石（空）」。照任务书去搜，搜不到。
+#
+# 这一组更要紧的是**做这道闸时自己踩的四个坑**——每个都曾让它误报或静默漏判：
+#   ① 颜色码把词边界吃掉（&8Wither 里 8 和 W 都是 \w，\bWither 匹配不上）
+#   ② 同名跨模组（Rotten Egg：MGU 叫腐烂鸡蛋，冰与火叫烂鸡蛋）
+#   ③ 最长匹配按整段算，短名被长名整条吃掉（Divination Rod / Glass Divination Rod）
+#   ④ 不区分大小写，把 `a falling star` 当成了遗物 Falling Star
+NS_ALL = ('mob_grinding_utils', 'occultism', 'relics')
+
+
+def _item_fixture(tmp, en_quest, zh_quest, names=None, skip_ns=(), extra=None):
+    """names: {命名空间: {键: (英文, 中文)}}；缺省给三个命名空间各垫一条。"""
+    names = names or {'occultism': {'item.occultism.soul_gem_empty':
+                                    ('Empty Soul Gem', '灵魂宝石（空）')}}
+    mods = tmp / 'ipack' / 'mods'
+    mods.mkdir(parents=True, exist_ok=True)
+    for ns in NS_ALL:
+        if ns in skip_ns:
+            continue
+        tbl = names.get(ns) or {'item.%s.filler' % ns: ('Filler Item', '填充物')}
+        with zipfile.ZipFile(mods / ('%s-fixture.jar' % ns), 'w') as z:
+            z.writestr('assets/%s/lang/en_us.json' % ns,
+                       json.dumps({k: v[0] for k, v in tbl.items()}, ensure_ascii=False))
+            z.writestr('assets/%s/lang/zh_cn.json' % ns,
+                       json.dumps({k: v[1] for k, v in tbl.items()}, ensure_ascii=False))
+    for ns, tbl in (extra or {}).items():           # 不在强制表里的别的模组
+        with zipfile.ZipFile(mods / ('%s-fixture.jar' % ns), 'w') as z:
+            z.writestr('assets/%s/lang/en_us.json' % ns,
+                       json.dumps({k: v[0] for k, v in tbl.items()}, ensure_ascii=False))
+            z.writestr('assets/%s/lang/zh_cn.json' % ns,
+                       json.dumps({k: v[1] for k, v in tbl.items()}, ensure_ascii=False))
+    up = tmp / 'iup' / 'config' / 'ftbquests' / 'quests' / 'lang' / 'en_us' / 'chapters'
+    up.mkdir(parents=True, exist_ok=True)
+    (up / 'c.snbt').write_text('{\n\tquest.AAA.quest_desc: "%s"\n}\n' % en_quest,
+                               encoding='utf-8')
+    tree = tmp / 'itree'
+    zq = tree / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
+    zq.mkdir(parents=True, exist_ok=True)
+    (zq / 'zz_hanhua_c.snbt').write_text('{\n\tquest.AAA.quest_desc: "%s"\n}\n' % zh_quest,
+                                         encoding='utf-8')
+    return mods, tmp / 'iup', tree
+
+
+def _item_run(tmp, mods, up, tree):
+    r = subprocess.run([sys.executable,
+                        str(tmp / 'scripts' / 'compliance' / 'check_item_names_in_quests.py'),
+                        str(mods), str(up), str(tree)],
+                       capture_output=True, text=True, cwd=tmp)
+    return r.returncode, r.stdout + r.stderr
+
+
+@missing_case('任务书用了物品名之外的叫法 → 必须红')
+def _m23(tmp, tree):
+    rc, out = _item_run(tmp, *_item_fixture(tmp, 'make an Empty Soul Gem', '制作一个空灵魂宝石'))
+    return rc != 0 and '灵魂宝石（空）' in out
+
+
+@missing_case('任务书用的就是物品名 → 必须绿（证明这道闸不是一律红）')
+def _m24(tmp, tree):
+    rc, out = _item_run(tmp, *_item_fixture(tmp, 'make an Empty Soul Gem', '制作一个灵魂宝石（空）'))
+    return rc == 0
+
+
+@missing_case('颜色码紧贴名字时照样要判（&8 会吃掉词边界）')
+def _m25(tmp, tree):
+    names = {'occultism': {'block.occultism.wither_skeleton_skull_dummy':
+                           ('Wither Skeleton Skull', '凋灵骷髅头颅')}}
+    rc, out = _item_run(tmp, *_item_fixture(
+        tmp, 'Brew it with a &8Wither Skeleton Skull&r', '用&8凋零骷髅头骨&r酿造', names))
+    return rc != 0 and '凋灵骷髅头颅' in out
+
+
+@missing_case('同名跨模组：用了另一个模组那件的物品名也算过')
+def _m26(tmp, tree):
+    names = {'mob_grinding_utils': {'item.mob_grinding_utils.rotten_egg':
+                                    ('Rotten Egg', '腐烂鸡蛋')}}
+    extra = {'iceandfire': {'item.iceandfire.rotten_egg': ('Rotten Egg', '烂鸡蛋')}}
+    rc, out = _item_run(tmp, *_item_fixture(
+        tmp, 'Toss a Rotten Egg at it', '朝它投掷一个烂鸡蛋', names, extra=extra))
+    return rc == 0
+
+
+@missing_case('长短名同段都出现时，短名不许被整段吃掉')
+def _m27(tmp, tree):
+    names = {'occultism': {'item.occultism.divination_rod': ('Divination Rod', '探测杖'),
+                           'item.occultism.divination_rod_t1':
+                           ('Glass Divination Rod', '玻璃探测杖')}}
+    rc, out = _item_run(tmp, *_item_fixture(
+        tmp, 'The cheapest Divination Rod, the Glass Divination Rod.',
+        '最便宜的占卜杖，玻璃占卜杖。', names))
+    return rc != 0 and '探测杖' in out
+
+
+@missing_case('大小写敏感：小写的普通名词不算提到那件物品')
+def _m28(tmp, tree):
+    names = {'relics': {'item.relics.falling_star': ('Falling Star', '落星')}}
+    rc, out = _item_run(tmp, *_item_fixture(
+        tmp, 'a chance to call down a falling star', '有概率召来一颗坠落之星', names))
+    return rc == 0
+
+
+@missing_case('某个命名空间的英文表取不到 → 必须红，不许当成没问题')
+def _m29(tmp, tree):
+    rc, out = _item_run(tmp, *_item_fixture(
+        tmp, 'make an Empty Soul Gem', '制作一个灵魂宝石（空）', skip_ns=('relics',)))
+    return rc != 0 and 'relics' in out
+
+
 def run_missing(name, fn):
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)

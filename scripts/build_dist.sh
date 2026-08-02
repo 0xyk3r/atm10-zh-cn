@@ -103,6 +103,12 @@ python3 scripts/compliance/check_jetpack_tiers.py "$UPROOT" "$TREE"
 # 「幽灵蜜蜂」vs 物品名「恶魂蜜蜂」这种，照任务书去搜是搜不到的——比漏翻更难受。
 python3 scripts/compliance/check_bee_names_in_quests.py \
   "${ATM_PACK_ROOT:-pack}/mods" "$UPROOT" "$TREE"
+# 同一条判据推到别的模组：任务书写「XP 果冻豆」而 JEI 里叫「经验果冻宝宝」，
+# 写「空灵魂宝石」而物品叫「灵魂宝石（空）」。反馈报了 4 组，机械扫出 19 处。
+# 名字表和「更长的名字」都取全包所有模组的并集——Rotten Egg 在两个模组里各有一件，
+# 只按其中一个判，会理直气壮地要求改成另一个模组的物品名。
+python3 scripts/compliance/check_item_names_in_quests.py \
+  "${ATM_PACK_ROOT:-pack}/mods" "$UPROOT" "$TREE"
 # 神谕目录的书有两套目录约定（V1 的 translated/ 与 Legacy 的 .translated/），
 # 由书自己的 sinytra-wiki.json 声明。放错那条路径的译文永远不会被读，且不报错。
 # 各版本的 mod 版本不同，声明也可能不同，所以按版本现判。
