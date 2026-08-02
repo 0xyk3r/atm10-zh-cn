@@ -10,7 +10,7 @@
 		"{\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://allthemods.github.io/alltheguides/mods/ae2/\"},\"color\":\"blue\",\"text\":\"AllTheGuides AE2 指南\",\"underlined\":true}"
 		"{\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://www.youtube.com/watch?v=3htUhkDYbJ8\"},\"color\":\"blue\",\"text\":\"BucketSt 的 AE2 视频教程\",\"underlined\":true}"
 		"{\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://www.youtube.com/playlist?list=PLz9AkOmMlH1lI4H3GeBQ3VzEKlcDDNO8_\"},\"color\":\"blue\",\"text\":\"The MindCrafters 的 AE2 教程合集\",\"underlined\":true}"
-		"{\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://www.youtube.com/watch?v=2_s1srWvq20\"},\"color\":\"blue\",\"text\":\"The MindCrafters 的 Advanced AE 教程\",\"underlined\":true}"
+		"{\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://www.youtube.com/watch?v=2_s1srWvq20\"},\"color\":\"blue\",\"text\":\"The MindCrafters 的 高级AE 教程\",\"underlined\":true}"
 	]
 	task.2923D1E2BEAF94B0.title: "更多指南"
 }
