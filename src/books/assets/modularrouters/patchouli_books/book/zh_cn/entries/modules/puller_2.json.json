@@ -7,7 +7,7 @@
     "name"
    ],
    "Puller Module Mk2",
-   "抽取模块 Mk1 Mk2"
+   "抽取模块 Mk2"
   ],
   [
    [
@@ -25,7 +25,7 @@
     "text"
    ],
    "$(li)To select the target inventory, $(thing)Sneak-Right-click/$ the block with the Puller Mk2 module in hand. You will get a confirmation message.$(li)While holding a Puller Mk2 with a target set, the targeted block will be highlighted.",
-   "$(li)要选择目标容器，请手持抽取模块 Mk1 Mk2 对方块$(thing)潜行右键单击/$。你会收到一条确认消息。$(li)手持已设定目标的抽取模块 Mk1 Mk2 时，目标方块会被高亮显示。"
+   "$(li)要选择目标容器，请手持抽取模块 Mk2 对方块$(thing)潜行右键单击/$。你会收到一条确认消息。$(li)手持已设定目标的抽取模块 Mk2 时，目标方块会被高亮显示。"
   ]
  ]
 }
