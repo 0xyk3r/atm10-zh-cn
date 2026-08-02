@@ -416,5 +416,6 @@
   "enchantment.level.127": "CXXVII",
   "block.apothic_enchanting.prismatic_altar": "棱彩祭坛",
   "block.apothic_enchanting.reforging_table": "重铸台",
-  "block.apothic_enchanting.salvaging_table": "拆解台"
+  "block.apothic_enchanting.salvaging_table": "拆解台",
+  "block.apothic_enchanting.raven_enchanting_table": "渡鸦附魔台"
 }
