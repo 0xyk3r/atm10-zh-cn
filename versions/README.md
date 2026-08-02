@@ -38,11 +38,38 @@ versions/
 合并、后合并的覆盖先合并的，`zzz_` 保证它排在本包其余 `zz_hanhua_*` 之后，
 所以覆盖一定生效。
 
+## 加一个新的整合包版本
+
+**基线一律由 CI 生成，不许拿开发机的下载入库。** 本机可能限速、断流、少下几个 jar，
+而这些都看不出来——把一次不干净的下载钉成永久基线，后面所有核对都建立在沙子上。
+
+1. 在仓库里只声明「这个版本存在」：
+
+   ```bash
+   mkdir -p versions/<新版本> && touch versions/<新版本>/.keep
+   ```
+
+   顺手写 `versions/<新版本>/default_resource_packs.txt`。**没实测就留空并写明原因**：
+   那串顺序必须真起一次实例、干净退出才拿得到；抄上一版会让汉化包被压在别的包下面，
+   而且没有任何提示。留空时安装器不伪造 `resourcePacks` 行，只提示玩家先启动一次。
+
+2. 推上去。`build.yml` 发现 `versions/db/<新版本>/jars.json` 不存在，就会：现取整合包
+   （含全部 jar）→ 写出 overrides 指纹 → 生成 jar 字节基线 / VaultPatcher 数据库 /
+   英文底本 / 按键注册名 → 跟上一版跑一次英文漂移 → 打包成 artifact
+   `new-version-baseline-<新版本>` → **然后 exit 1**。
+
+   这个 exit 1 是有意的：基线没进仓库就等于没有基线，此时出的包没有任何东西能证明
+   它对着的是干净的官方文件。机器负责算，人负责过目并提交。
+
+3. 下载 artifact，人工核对后提交 `versions/<新版本>/overrides.sha256` 与
+   `versions/db/<新版本>/`，重跑流水线才会真正出包。
+
 ## 怎么知道哪些条目需要分叉
 
+上一步的漂移报告就是答案；基线入库后也可以随时重跑：
+
 ```bash
-python3 scripts/build_en_baseline.py <版本> <该版mods目录> <该版overrides目录>
-python3 scripts/check_en_drift.py 7.1 7.2
+python3 scripts/check_en_drift.py 7.2 7.3
 ```
 
 英文变了就会列出来。**列出不等于要改译文**——半数是拼写修正（Ingrediant→Ingredient

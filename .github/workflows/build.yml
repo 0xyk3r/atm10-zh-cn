@@ -156,9 +156,14 @@ jobs:
           echo "versions/db/$NEWEST/ 还不存在——这是 ATM10 $NEWEST 第一次进本仓库。"
           python3 scripts/build_version_db.py "$NEWEST" pack/mods
           python3 scripts/build_en_baseline.py "$NEWEST" pack/mods pack
+          # 按键分类的注册名同样是**入库数据**，check.py 的按键闸靠它。漏掉它的话，
+          # 新版本一入库那道闸就没了前提——而这一步是它唯一的产出机会：
+          # 基线一旦提交，NEW_VERSION 就变 0，本步骤再也不会跑。
+          python3 scripts/scan_keybinds.py pack/mods "versions/db/$NEWEST/keybinds.json"
           PREV=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -2 | head -1)
           echo "───── 与上一版 $PREV 的英文底本漂移 ─────"
-          python3 scripts/check_en_drift.py "$PREV" "$NEWEST" || true
+          # 不加 || true：这个脚本自己永远返回 0，真报错就是它坏了，那要红。
+          python3 scripts/check_en_drift.py "$PREV" "$NEWEST"
 
       - uses: actions/upload-artifact@v4
         if: env.NEW_VERSION == '1'
