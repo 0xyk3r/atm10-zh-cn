@@ -628,6 +628,9 @@ def _snbt_blocks_parse(rule):
     from gen_quest_lang_patches import SnbtShapeError, blocks
 
     g, = need(rule, 'glob')
+    # 空文件另算一条规则（quest-delta-not-empty）：空文件语法上是合法的，
+    # 但「生成器静默产出空覆盖」跟「结构坏了」是两种事故，豁免名单也不该混在一起。
+    allow_empty = set(rule.get('allow_empty', []))
     hit = files(g)
     if not hit:
         yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
@@ -638,8 +641,9 @@ def _snbt_blocks_parse(rule):
         except SnbtShapeError as e:
             yield '%s' % e
             continue
-        if not got:
-            yield '%s 一个键都没有——空文件出货等于这条覆盖静默消失' % rel(p)
+        if not got and p.name not in allow_empty:
+            yield ('%s 一个键都没有——空文件出货等于这条覆盖静默消失'
+                   '（确实该是空的就写进规则的 allow_empty 并注明理由）' % rel(p))
 
 
 @checker('snbt_no_dup_keys')

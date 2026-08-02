@@ -204,6 +204,13 @@ def _c14(mods):
     _delta(mods, '{\n\tdescription: [\n\t\t"第一行"\n}\n')
 
 
+@case('delta 是个一条键都没有的空壳', 'quest-delta-blocks-parse')
+def _c15(mods):
+    # 空文件语法上合法，但「生成器静默产出空覆盖」＝这批译文人间蒸发。
+    # 规则里有 allow_empty 名单，夹具用的文件名不在名单上，所以必须红。
+    _delta(mods, '{\n}\n')
+
+
 @case('出货树残留字节码补丁', 'vp-no-stray-class-patch')
 def _c6(mods):
     f = mods.parent / 'patch' / 'com' / 'ldtteam' / 'blockui' / 'controls' / 'Button.class'
