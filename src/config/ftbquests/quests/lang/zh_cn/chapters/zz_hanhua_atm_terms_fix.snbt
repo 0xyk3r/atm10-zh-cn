@@ -987,6 +987,8 @@
 	quest.4926C95DD02F1410.title: "&4激光发射器"
 	quest.4933CF4675E77D50.title: "&5黑曜石头颅&r"
 	quest.495DCA49B4E80852.quest_subtitle: "biu～biu～！"
+	quest.499CF9F39CED8899.quest_desc: ["&b动态联合&r (ID) 是一个物流模组，可用于存储、物品/电力/流体传输等！\\n\\n门瑞欧树可以在门勒格林生物群系中找到。\\n\\n这些任务将涵盖模组的一些基本概念，如果你想深入了解，请阅读本任务奖励的指南书。"]
+	quest.499CF9F39CED8899.title: "&b动态联合"
 	quest.49D1B01E07ABA471.quest_desc: [
 		"你可以使用&c汞&r转移物品。\\n将物品提取器连接到你想提取物品的地方。然后将物品插入器连接到你想放置物品的地方。用&c汞线缆&r连接两者，物品应该开始移动！\\n\\n这可以与&l&6神通术&r机器一起用于自动化！"
 		"{image:atm:textures/questpics/theurgy/theurgy_item.png width:200 height:75 align:center}"
@@ -1432,6 +1434,7 @@
 	quest.60C27206F1414DD6.title: "反弹射物免疫模块"
 	quest.60CECAAE2D43EC6E.quest_desc: [" 在破碎的 &e末地&r 深处，在时间本身曾经断裂的地方，有一件奇异的遗物静候被发现……&5时光凝块&r。 \\n\\n 这块 &6神秘碎片&r 回荡着过去时刻的残响，让持有者能够像重写刚才发生的一切那样，&6回溯&r 自己的 &6脚步&r。 \\n\\n- &l它有 1 个能力：&r \\n\\n &d时轨回溯&r： \\n 通过 &6按住使用键&r，你会开始沿着最近几秒的路径回卷时间，&6返回&r 自己不久前走过的轨迹。回溯结束后，该能力会进入与实际使用 &6时长&r 相同的 &6冷却&r。 \\n\\n- 这是一件违逆 &d时间&r 本身的 &6遗物&r……属于那些足够迅速、能重写自己 &5错误&r 的人。"]
 	quest.60CECAAE2D43EC6E.title: "&5时光凝块&r"
+	quest.60D9F04E91171D16.quest_desc: ["这可以作为你的变量的箱子，或者实际上可以在高级网络中使用。\\n\\n如果你想使用高级网络，请确保在 &e动态联合&r 中阅读相关内容。"]
 	quest.60FDCA2FDFE74056.quest_desc: [
 		"它是粉红色的！\\n\\n在这里你会发现猩红树，它们的落叶堆积在树下。你还可以在这里找到荧光蘑菇！"
 		"{image:atm:textures/questpics/eternal/starlight_scarlet.png width:200 height:100 align:center}"

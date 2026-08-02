@@ -39,6 +39,7 @@
 | 任务书里夹着的英文（15 种） | Applied Energistics、Advanced AE、Just Dire Things、Crystalix Glass、Modular Bees、KeyBind Bundles、Mob Grinding Utils、Silent Gear、Iron Furnaces、Integrated Dynamics、Trail Ruins、Ender IO、Generators Galore、Questing Ram、Rainbow Wool | 应用能源／应用能源2、高级AE、可怖之物、水晶玻璃、模块化蜜蜂、快捷轮盘、刷怪塔实用设备、寂静装备、更多熔炉、动态联合、古迹遗址、末影接口、发电机大全、谜题羊、彩虹羊毛 |
 | 炽炉的 JEI 页（13 处） | 直接画出 `jei.forbidden_arcanus.category.clibanoCombustion` 这样的键名 | 炽炉熔炼、产出概率，以及金／铁／铜／煤炭／钻石／绿宝石／青金石／下界合金／神秘水晶／圣金／符文残渣 |
 | 神谕目录数据面板 | 标题 Details | 详细信息 |
+| 动态联合（3 条任务 + 2 本图鉴） | 集成动力学 | 动态联合——章节名一直是动态联合，只有这几处不一样 |
 
 **跨模组的 XP／经验没有拉平**：经验流体（可怖之物）、流体经验（刷怪塔实用设备）、
 液态经验（动力附魔工业）是三个模组各自的官方物品名，拉平反而与 JEI 里搜到的对不上。

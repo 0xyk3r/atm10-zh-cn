@@ -96,7 +96,7 @@
   "info_book.integratedcrafting.crafting_writer.text3": "如果你想插入一张 &l变量卡&r 来表示应合成 &o无&r，只需插入一个空值，例如一张用于 &8物品&0 值类型且其中没有实际物品的 &l变量卡&r。",
   "info_book.integratedcrafting.crafting_writer.text4": "请注意，如果你安装了 &l集成终端&r，就可以在 &l存储终端&r 中以可视化方式启动合成任务。",
   "info_book.integratedcrafting.section.tutorials": "合成教程",
-  "info_book.integratedcrafting.tutorials.introduction.text1": "本节包含多个教程，可帮助你了解 &l联合合成&r，这是 &l集成动力学&r 的一个附属模组，用于在 &l集成动力学&r 网络中进行自动合成。",
+  "info_book.integratedcrafting.tutorials.introduction.text1": "本节包含多个教程，可帮助你了解 &l联合合成&r，这是 &l动态联合&r 的一个附属模组，用于在 &l动态联合&r 网络中进行自动合成。",
   "info_book.integratedcrafting.tutorials.autocrafting_setup": "设置自动合成",
   "info_book.integratedcrafting.tutorials.autocrafting_setup.text1": "在本篇 &l联合合成&r 的第一篇教程中，我们将介绍自动合成的基础搭建。",
   "info_book.integratedcrafting.tutorials.autocrafting_setup.text2": "自动合成的第一个要求是 &l合成接口&r，它是一个必须朝向某台机器的网络部件，例如工作台或熔炉。首先，合成一个这样的 &l合成接口&r，并让它朝向一个 &l工作台&r。",

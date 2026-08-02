@@ -127,7 +127,7 @@
   "parttype.integratedterminals.terminal_crafting_job.tooltip.nohandlers": "警告：没有可用的合成处理器。安装了其他模组（例如联合合成）后，这将变得可用。",
   "info_book.integratedterminals.section.main": "终端",
   "info_book.integratedterminals.introduction": "介绍",
-  "info_book.integratedterminals.introduction.text1": "&l集成终端&r是 &l集成动力学&r 的扩展，用于管理和概览 &l集成动力学&r 网络。",
+  "info_book.integratedterminals.introduction.text1": "&l集成终端&r是 &l动态联合&r 的扩展，用于管理和概览 &l动态联合&r 网络。",
   "info_book.integratedterminals.introduction.text2": "例如，&l存储终端&r可以让你与&o存储网络&r交互，例如已连接的&o能量电池&r。当安装了其他添加存储功能的模组时，例如来自 &l集成管道&r 的 &o物品&r 和 &o流体&r能力，你也将能够与这些内容进行交互。",
   "info_book.integratedterminals.storage_terminal": "存储终端",
   "info_book.integratedterminals.storage_terminal.introduction": "存储终端介绍",
