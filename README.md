@@ -10,7 +10,7 @@
 [![Security](https://img.shields.io/badge/Security-policy-red.svg)](./SECURITY.md)
 [![License](https://img.shields.io/badge/License-GPL--3.0-green.svg)](./LICENSE)
 
-All the Mods 10 的简体中文汉化补丁，**同时支持 7.0 / 7.1 / 7.2**，每个整合包版本一个专属包。
+All the Mods 10 的简体中文汉化补丁，**同时支持 7.0 / 7.1 / 7.2 / 7.3**，每个整合包版本一个专属包。
 整理／补译：**星野夢華 (Hoshino Yumeka)**。改动幅度较大，独立命名、独立发布；原始底本见[致谢](#许可证与致谢)。
 
 ## 目录
