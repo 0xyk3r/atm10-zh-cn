@@ -78,6 +78,10 @@ python3 scripts/gen_upstream_patches.py "$UPROOT" "$TREE"
 # splitter 的合并顺序在 Linux 上是随机的，同一个键必须只由一份文件持有——
 # 详见 gen_quest_lang_patches.py 顶部。
 python3 scripts/gen_quest_lang_patches.py "$UPROOT" "$TREE" "$MC"
+NF=$(cat "versions/$MC/neoforge.txt" 2>/dev/null | tr -d " \n")
+# 加载器版本是版本相关字段，禁手写：SERVER.md 里那行写死成 21.1.241，
+# 对 7.0(228)/7.1(234)/7.3(247) 一直是错的，服务主照它钉加载器会起不来。
+[ -n "$NF" ] || { echo "❌ versions/$MC/neoforge.txt 缺失或为空"; exit 1; }
 python3 scripts/gen_hanhua_update_check.py "$VERSION" "$TREE"
 # VaultPatcher 模块头部要写该版真实的 jar 文件名（7.2 那份拿到 7.0 只有 83/152 对得上）
 python3 scripts/gen_vaultpatcher.py "$MC" "$TREE"
@@ -123,13 +127,14 @@ DP="$(grep -v '^#' "versions/${MC}/default_resource_packs.txt" 2>/dev/null | sed
 # 漏填会被 verify_dist.py 的 @@ 残留检查拦下。
 for f in "$CSTAGE/install.sh" "$CSTAGE/install.ps1"; do
   [ -f "$f" ] || continue
-  DP="$DP" MC="$MC" PV="$VERSION" python3 -c "
+  DP="$DP" MC="$MC" PV="$VERSION" NF="$NF" python3 -c "
 import os, pathlib, sys
 p = pathlib.Path(sys.argv[1])
 t = p.read_text(encoding='utf-8')
 t = (t.replace('@@MCVER@@', os.environ['MC'])
       .replace('@@DEFAULT_PACKS@@', os.environ['DP'])
-      .replace('@@PATCHVER@@', os.environ['PV']))
+      .replace('@@PATCHVER@@', os.environ['PV'])
+      .replace('@@NEOFORGE@@', os.environ['NF']))
 p.write_text(t, encoding='utf-8')
 " "$f"
 done
@@ -167,10 +172,12 @@ mkdir -p "$SSTAGE/config"
 cp -R "$TREE/config/ftbquests" "$TREE/config/vaultpatcher_asm" "$SSTAGE/config/"
 # 服务端说明里写着「适用于 ATM10 x.y 专用服务器」，那是**本包**的适用版本，
 # 必须跟着走；写死一个的话 7.0 / 7.1 的包里都印着 7.2（玩家实际报过这个）。
-MC="$MC" python3 -c "
+MC="$MC" NF="$NF" python3 -c "
 import os, pathlib, sys
 src, dst = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
-dst.write_text(src.read_text(encoding='utf-8').replace('@@MCVER@@', os.environ['MC']),
+dst.write_text(src.read_text(encoding='utf-8')
+                  .replace('@@MCVER@@', os.environ['MC'])
+                  .replace('@@NEOFORGE@@', os.environ['NF']),
                encoding='utf-8')
 " SERVER.md "$SSTAGE/请安装前务必看我.md"
 cp LICENSE LICENSE-GPL-3.0 "$SSTAGE/"
