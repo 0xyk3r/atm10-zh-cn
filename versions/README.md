@@ -64,6 +64,21 @@ versions/
 3. 下载 artifact，人工核对后提交 `versions/<新版本>/overrides.sha256` 与
    `versions/db/<新版本>/`，重跑流水线才会真正出包。
 
+## 已核过、不必再查的上游漂移
+
+构建时 `gen_books.py` 会报「N 个散文页的英文原稿与提取时不同」。这是闸在正常工作：
+上游一改英文就叫。但**「英文改了」不等于「译文错了」**，得人看一眼才知道，
+所以它是警告不是错误。核过的结论记在这里，免得下次从头再查一遍。
+
+| 何时 | 什么 | 结论 |
+|---|---|---|
+| ATM10 7.3（ExtendedAE 2.2.33 → 2.2.35） | `assets/extendedae/ae2guide/epp_intro/` 46 页里 41 页变了 | **纯英语文法润色，译文无需跟进** |
+
+抽查两页的差异形状：`an combination` → `a combination`、`at the same` 漏掉的 `time`
+补回、`can place block or drop items actively` → `can actively place blocks or drop items`、
+`Edges composed of` → `Edges are composed of`。ExtendedAE 是国人模组，2.2.35 有人把
+英文文法过了一遍。机制、数值、结构描述一个字没变——中文译的是意思，原样正确。
+
 ## 怎么知道哪些条目需要分叉
 
 上一步的漂移报告就是答案；基线入库后也可以随时重跑：
