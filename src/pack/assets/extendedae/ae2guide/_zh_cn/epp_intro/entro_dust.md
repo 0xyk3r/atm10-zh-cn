@@ -17,4 +17,4 @@ item_ids:
 
 你可以通过粉碎一个 <ItemLink id="extendedae:entro_crystal" /> 或破坏[熵化福鲁伊克斯晶簇母岩](./entro_budding.md)来获得它。
 
-它用于制作某些 ExtendedAE 机器和 <ItemLink id="extendedae:entro_ingot" />。
+它用于制作某些 AE2扩展 机器和 <ItemLink id="extendedae:entro_ingot" />。

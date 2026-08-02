@@ -9,7 +9,7 @@ item_ids:
 - extendedae:machine_frame
 ---
 
-# ExtendedAE 的起点
+# AE2扩展 的起点
 
 <Row>
 <BlockImage id="extendedae:machine_frame" scale="8"></BlockImage>

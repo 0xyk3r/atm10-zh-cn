@@ -17,4 +17,4 @@ item_ids:
 
 *“恩特罗水晶太过易碎，无法用于机器框架，但我们可以将它与金锭融合来提升其延展性。”*
 
-它用于合成 <ItemLink id="extendedae:machine_frame" /> 以及其他少量 ExtendedAE 的内容。
+它用于合成 <ItemLink id="extendedae:machine_frame" /> 以及其他少量 AE2扩展 的内容。
