@@ -1044,8 +1044,15 @@ def main(check_only=False):
         if not src.exists():
             sys.exit('❌ 找不到原图 %s（本脚本要对着整合包实例跑）' % src)
         used = titles.get(rel, [])
-        if len(used) > 1:
-            sys.exit('❌ %s 被多个章节引用 %s，不能写死一个标题' % (rel, used))
+        # 真正的风险形状：这张图**当章节标题用**（文案就是某个章节的标题），却被
+        # 标题不同的两个章节共用——写死一个，另一个章节就顶着别人的标题。
+        # 只是「被两个章节引用」不构成风险：内容横幅（如 gear_tiers 的「世界层级」）
+        # 与章节标题无关，两处显示同一句话本来就对。
+        # 2026-08-02：ATM10 7.3 改了 Apotheosis 系的章节结构，gear_tiers.png 同时被
+        # 「神化装备」「神化附魔」引用，旧写法在这里必红——红的是闸太宽，不是内容有错。
+        if len(set(used)) > 1 and text in used:
+            sys.exit('❌ %s 的文案「%s」正是章节标题，而它被标题不同的多个章节共用 %s'
+                     '——写死会让另一个章节顶着别人的标题' % (rel, text, used))
         im = Image.open(src).convert('RGBA')
         sub, at, cfg = crop_box(im, rel)
         outline, plate, sw, how = sample_style(sub, rel)
@@ -1086,7 +1093,9 @@ def main(check_only=False):
             dst = OUT / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
             save_png(img, dst)
-        note = '' if (not used or used[0] == text) else '  ← 与章节标题「%s」不同' % used[0]
+        # 被多个章节共用时把它们都列出来：只报第一个会让人以为另一个不存在。
+        note = ('' if (not used or text in used)
+                else '  ← 与章节标题「%s」不同' % '」「'.join(dict.fromkeys(used)))
         print('  %-48s %-7s %-5s %-10s %dx%d%s'
               % (rel, text, face, how, im.width, im.height, note))
         n += 1
