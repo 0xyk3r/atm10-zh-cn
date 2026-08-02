@@ -11,7 +11,7 @@
 	quest.22BB55249EF2E819.quest_desc: ["&l&6嗡嗡领域&r是一个探索模组，在我们的&e蜂巢&r内部添加了一个全新的维度。\\n\\n想知道&6蜜&8蜂&6在它们的&e蜂巢&r里做什么吗？你可以通过冒险进入其中来发现！"]
 	quest.22BB55249EF2E819.title: "&l&6嗡嗡领域！"
 	quest.2A50A687C40DB864.quest_desc: [
-		"&6&l蜂巢墙&r是&l&6嗡嗡领域&r的基础。\\n\\n它们是从地面延伸到天花板的巨大&6蜂巢&r和&e蜂蜡&r墙壁。\\n\\n它们也含有&l高效蜜蜂&r的蜂巢，并且&6&l墙壁&r上的孔洞会生成幼虫块。"
+		"&6&l蜂巢墙&r是&l&6嗡嗡领域&r的基础。\\n\\n它们是从地面延伸到天花板的巨大&6蜂巢&r和&e蜂蜡&r墙壁。\\n\\n它们也含有&l资源蜜蜂&r的蜂巢，并且&6&l墙壁&r上的孔洞会生成幼虫块。"
 		"{image:atm:textures/questpics/bumblezone/bumble_hivewall.png width:200 height:100 align:center}"
 	]
 	quest.2A6FC21142E75DD5.quest_desc: [

@@ -22,6 +22,16 @@
 英文名取自 productivebees 的 `en_us.json`，中文名取自本包资源包的 `zh_cn.json`
 （同一个键，所以是一一对应，不靠猜）。
 
+**蜜脾、蜜脾块、刷怪蛋的名字是拿蜂名现拼的，也得一起判。** 2026-08-03 玩家截图：
+任务标题写「凋亡蜜脾块」，而游戏里那个方块叫「凋灵蜜蜂蜜脾块」。这类名字在 lang 里
+根本没有独立的键，扫静态键表永远扫不到它们。
+
+拼法是从 `CombBlockItem` / `Honeycomb` 的字节码里读出来的，不是猜的：
+取 `entity.productivebees.<type>_bee` 的**本地化**名字，删掉字面量 `" Bee"`，
+再填进 `%s Comb Block` / `%s蜜脾块` 这类模板。中文名里没有 `" Bee"` 可删，
+所以中文那边填进去的是**整个蜂名**——这正是「凋灵蜜蜂蜜脾块」多出「蜜蜂」两个字的原因。
+模板本身也从两张表里现取（`*_configurable` 那几个键），不写死。
+
 **最长匹配优先**：`Dragonsteel Bee` 会带着词边界落在 `Lightning Dragonsteel Bee`
 里边，不排掉就会误报——第一版扫描器就是这么多报了一条，而「龙霆钢蜜蜂」本来是对的。
 所以某条英文名命中时，若同一段文字里还命中了包含它的更长的名字，这条不算。
@@ -45,8 +55,16 @@ ZH_LANG = 'resourcepacks/ATM10汉化包/assets/productivebees/lang/zh_cn.json'
 EN_QUESTS = 'config/ftbquests/quests/lang/en_us'
 ZH_QUESTS = 'config/ftbquests/quests/lang/zh_cn'
 KEY = re.compile(r'^[\t ]+([A-Za-z0-9_.]+):\s*(.*)$')
+# 拿蜂名现拼的那几类名字的模板键（`%s Comb Block` / `%s蜜脾块` 这种）
+DERIVED = ('block.productivebees.comb_configurable',
+           'item.productivebees.honeycomb_configurable',
+           'item.productivebees.spawn_egg_configurable')
 # 太短的英文名（Bee、Egg 之类）拿去全文搜必然满地假阳性，判不了就不判。
 MIN_LEN = 6
+WORD = re.compile(r'\w+')
+# 颜色码和转义换行会把词边界吃掉：`&8Withered` 里 `8` 和 `W` 都是 \w，
+# 按单词切会切成一个 `8Withered`，整条静默漏判。非法码（ATM 任务书里真有 `&z`）也要剥。
+NOISE = re.compile(r'[&§](?:#[0-9A-Fa-f]{6}|[0-9A-Za-z])|\\+n')
 
 
 def die(msg):
@@ -74,6 +92,16 @@ def bee_names(mods, tree):
     # 一个英文名可能对应多只蜜蜂：上游把 chaos_bee 和 chaotic_bee 都叫 "Chaos Bee"，
     # 而中文得分开（混沌蜜蜂 / 混沌锭蜜蜂）。这时静态判不出正文说的是哪一只，
     # 所以只要命中其中任意一个中文名就算过——宁可漏报，不许拿判不了的事去红。
+    # 蜜脾/蜜脾块/刷怪蛋的名字模板，两张表里现取
+    tmpl = []
+    for k in DERIVED:
+        if isinstance(en.get(k), str) and isinstance(zh.get(k), str) \
+                and '%s' in en[k] and '%s' in zh[k]:
+            tmpl.append((en[k], zh[k]))
+    if not tmpl:
+        die('%s 这几个模板键一个都没配上 —— 蜜脾/刷怪蛋这类拼出来的名字判不了'
+            % '、'.join(DERIVED))
+
     byname = {}
     for k in en:
         if not (k.startswith('entity.productivebees.') and k in zh):
@@ -84,6 +112,11 @@ def bee_names(mods, tree):
         if not (isinstance(c, str) and c.strip()):
             continue
         byname.setdefault(e, set()).add(c)
+        # mod 是这么拼的：本地化蜂名删掉字面量 " Bee" 再填模板。
+        # 中文名里没有 " Bee"，所以中文那边填的是整个蜂名。
+        stem_en = e[:-4] if e.endswith(' Bee') else e   # 跟 CombBlockItem 的 endsWith 判定一致
+        for te, tz in tmpl:
+            byname.setdefault(te % stem_en, set()).add(tz % c)
     pairs = sorted((e, frozenset(cs)) for e, cs in byname.items())
     if not pairs:
         die('一对「英文名→中文名」都没配上 —— 两张表对不上，判不了')
@@ -125,11 +158,26 @@ def main(argv):
     if not common:
         die('英文与中文一个键都对不上 —— 两棵树不是同一版，判了也没意义')
 
+    # 加上蜜脾/蜜脾块/刷怪蛋之后名字表涨了三倍，逐条跑正则是分钟级的。
+    # 改成按首词建索引：只在正文里每个单词的位置上试以这个词开头的名字。
+    by_first = {}
+    for e, cs in pairs:
+        m = WORD.match(e)
+        if m:
+            by_first.setdefault(m.group(0).lower(), []).append((e, cs))
+
     hits = []
     for k in common:
-        text, mine = up[k], ours[k]
-        found = [(e, cs) for e, cs in pairs
-                 if re.search(r'\b' + re.escape(e) + r'\b', text, re.I)]
+        text, mine = NOISE.sub(' ', up[k]), ours[k]
+        found = []
+        for m in WORD.finditer(text):
+            for e, cs in by_first.get(m.group(0).lower(), ()):
+                end = m.start() + len(e)
+                if text[m.start():end].lower() != e.lower():
+                    continue
+                if end < len(text) and (text[end].isalnum() or text[end] == '_'):
+                    continue                  # 右边界，别把 Bees 当成 Bee
+                found.append((e, cs))
         for e, cs in found:
             # 最长匹配优先：短名落在长名里不算命中
             if any(len(e2) > len(e) and e.lower() in e2.lower() for e2, _ in found):

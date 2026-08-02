@@ -474,8 +474,13 @@ def _m13(tmp, tree):
 #
 # 夹具里的两张名字表是现造的最小表，不抄上游那 463 条。
 def _bee_fixture(tmp, en_quest, zh_quest, en_names=None, zh_names=None):
-    en_names = en_names or {'entity.productivebees.ghostly_bee': 'Ghostly Bee'}
-    zh_names = zh_names or {'entity.productivebees.ghostly_bee': '恶魂蜜蜂'}
+    en_names = dict(en_names or {'entity.productivebees.ghostly_bee': 'Ghostly Bee'})
+    zh_names = dict(zh_names or {'entity.productivebees.ghostly_bee': '恶魂蜜蜂'})
+    # 蜜脾/蜜脾块/刷怪蛋的名字模板：新版闸拿它来拼派生名，缺了要 fail-closed
+    en_names.setdefault('block.productivebees.comb_configurable', '%s Comb Block')
+    zh_names.setdefault('block.productivebees.comb_configurable', '%s蜜脾块')
+    en_names.setdefault('item.productivebees.honeycomb_configurable', '%s Comb')
+    zh_names.setdefault('item.productivebees.honeycomb_configurable', '%s蜜脾')
     mods = tmp / 'beepack' / 'mods'
     mods.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(mods / 'productivebees-1.21.1-fixture.jar', 'w') as z:
@@ -702,6 +707,37 @@ def _m29(tmp, tree):
     rc, out = _item_run(tmp, *_item_fixture(
         tmp, 'make an Empty Soul Gem', '制作一个灵魂宝石（空）', skip_ns=('relics',)))
     return rc != 0 and 'relics' in out
+
+
+@missing_case('蜜脾块的名字是拿蜂名拼的，任务书对不上也必须红')
+def _m30(tmp, tree):
+    mods, up, t = _bee_fixture(tmp, 'the &8Withered Comb Block&r', '&8凋亡蜜脾块',
+                               {'entity.productivebees.withered_bee': 'Withered Bee'},
+                               {'entity.productivebees.withered_bee': '凋灵蜜蜂'})
+    rc, out = _bee_run(tmp, mods, up, t)
+    return rc != 0 and '凋灵蜜蜂蜜脾块' in out
+
+
+@missing_case('用了拼出来的那个全名 → 必须绿（中文不删「蜜蜂」，这是 mod 的行为）')
+def _m31(tmp, tree):
+    mods, up, t = _bee_fixture(tmp, 'the &8Withered Comb Block&r', '&8凋灵蜜蜂蜜脾块',
+                               {'entity.productivebees.withered_bee': 'Withered Bee'},
+                               {'entity.productivebees.withered_bee': '凋灵蜜蜂'})
+    rc, out = _bee_run(tmp, mods, up, t)
+    return rc == 0
+
+
+@missing_case('模板键取不到 → 必须红，不许「派生名判不了就当没问题」')
+def _m32(tmp, tree):
+    mods, up, t = _bee_fixture(tmp, 'a Ghostly Bee egg', '恶魂蜜蜂蛋',
+                               {'entity.productivebees.ghostly_bee': 'Ghostly Bee',
+                                'block.productivebees.comb_configurable': 'no placeholder',
+                                'item.productivebees.honeycomb_configurable': 'no placeholder'},
+                               {'entity.productivebees.ghostly_bee': '恶魂蜜蜂',
+                                'block.productivebees.comb_configurable': '没有占位符',
+                                'item.productivebees.honeycomb_configurable': '没有占位符'})
+    rc, out = _bee_run(tmp, mods, up, t)
+    return rc != 0 and 'comb_configurable' in out
 
 
 def run_missing(name, fn):
