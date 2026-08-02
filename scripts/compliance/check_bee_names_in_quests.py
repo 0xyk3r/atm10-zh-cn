@@ -71,10 +71,20 @@ def bee_names(mods, tree):
     except Exception as e:
         die('%s 解析失败：%s' % (zp, e))
 
-    pairs = [(en[k], zh[k]) for k in en
-             if k.startswith('entity.productivebees.') and k in zh
-             and isinstance(en[k], str) and len(en[k]) >= MIN_LEN
-             and isinstance(zh[k], str) and zh[k].strip()]
+    # 一个英文名可能对应多只蜜蜂：上游把 chaos_bee 和 chaotic_bee 都叫 "Chaos Bee"，
+    # 而中文得分开（混沌蜜蜂 / 混沌锭蜜蜂）。这时静态判不出正文说的是哪一只，
+    # 所以只要命中其中任意一个中文名就算过——宁可漏报，不许拿判不了的事去红。
+    byname = {}
+    for k in en:
+        if not (k.startswith('entity.productivebees.') and k in zh):
+            continue
+        e, c = en[k], zh[k]
+        if not (isinstance(e, str) and len(e) >= MIN_LEN):
+            continue
+        if not (isinstance(c, str) and c.strip()):
+            continue
+        byname.setdefault(e, set()).add(c)
+    pairs = sorted((e, frozenset(cs)) for e, cs in byname.items())
     if not pairs:
         die('一对「英文名→中文名」都没配上 —— 两张表对不上，判不了')
     return pairs
@@ -118,14 +128,14 @@ def main(argv):
     hits = []
     for k in common:
         text, mine = up[k], ours[k]
-        found = [(e, c) for e, c in pairs
+        found = [(e, cs) for e, cs in pairs
                  if re.search(r'\b' + re.escape(e) + r'\b', text, re.I)]
-        for e, c in found:
+        for e, cs in found:
             # 最长匹配优先：短名落在长名里不算命中
             if any(len(e2) > len(e) and e.lower() in e2.lower() for e2, _ in found):
                 continue
-            if c not in mine:
-                hits.append((k, e, c))
+            if not any(c in mine for c in cs):
+                hits.append((k, e, '／'.join(sorted(cs))))
 
     if hits:
         print('❌ 任务书里的蜜蜂名跟物品名对不上（玩家照任务书去 JEI 搜会搜不到）：')
