@@ -458,6 +458,93 @@ def _m13(tmp, tree):
     return rc == 0 and '1 个等级名全部有译' in out
 
 
+# ── 第五组反例：任务书里的蜜蜂名 ─────────────────────────────────────────
+#
+# 复刻的事故：任务正文写「倒在幽灵蜜蜂蛋上」，而 JEI 里那个物品叫「恶魂蜜蜂」。
+# 照着任务书搜是搜不到的。顺同一条线索机械扫描又找出三处同类（BeeBee /
+# KamikazBee 留着英文原名、Shroombees 整个漏译）——一次报告只是一个表面。
+#
+# 夹具里的两张名字表是现造的最小表，不抄上游那 463 条。
+def _bee_fixture(tmp, en_quest, zh_quest, en_names=None, zh_names=None):
+    en_names = en_names or {'entity.productivebees.ghostly_bee': 'Ghostly Bee'}
+    zh_names = zh_names or {'entity.productivebees.ghostly_bee': '恶魂蜜蜂'}
+    mods = tmp / 'beepack' / 'mods'
+    mods.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(mods / 'productivebees-1.21.1-fixture.jar', 'w') as z:
+        z.writestr('assets/productivebees/lang/en_us.json',
+                   json.dumps(en_names, ensure_ascii=False))
+    up = tmp / 'beeup' / 'config' / 'ftbquests' / 'quests' / 'lang' / 'en_us' / 'chapters'
+    up.mkdir(parents=True, exist_ok=True)
+    (up / 'c.snbt').write_text('{\n\tquest.AAA.quest_desc: "%s"\n}\n' % en_quest,
+                               encoding='utf-8')
+    tree = tmp / 'beetree'
+    zq = tree / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
+    zq.mkdir(parents=True, exist_ok=True)
+    (zq / 'zz_hanhua_c.snbt').write_text('{\n\tquest.AAA.quest_desc: "%s"\n}\n' % zh_quest,
+                                         encoding='utf-8')
+    zl = tree / 'resourcepacks' / 'ATM10汉化包' / 'assets' / 'productivebees' / 'lang'
+    zl.mkdir(parents=True, exist_ok=True)
+    (zl / 'zh_cn.json').write_text(json.dumps(zh_names, ensure_ascii=False),
+                                   encoding='utf-8')
+    return mods, tmp / 'beeup', tree
+
+
+def _bee_run(tmp, mods, up, tree):
+    r = subprocess.run([sys.executable,
+                        str(tmp / 'scripts' / 'compliance' / 'check_bee_names_in_quests.py'),
+                        str(mods), str(up), str(tree)],
+                       capture_output=True, text=True, cwd=tmp)
+    return r.returncode, r.stdout + r.stderr
+
+
+@missing_case('任务书用了物品名之外的蜜蜂叫法 → 必须红')
+def _m14(tmp, tree):
+    mods, up, t = _bee_fixture(tmp,
+                               'pour it over a Ghostly Bee egg',
+                               '倒在幽灵蜜蜂蛋上')
+    rc, out = _bee_run(tmp, mods, up, t)
+    return rc != 0 and '恶魂蜜蜂' in out
+
+
+@missing_case('任务书用的就是物品名 → 必须绿（证明这道闸不是一律红）')
+def _m15(tmp, tree):
+    mods, up, t = _bee_fixture(tmp,
+                               'pour it over a Ghostly Bee egg',
+                               '倒在恶魂蜜蜂蛋上')
+    rc, out = _bee_run(tmp, mods, up, t)
+    return rc == 0 and '全部与物品名一致' in out
+
+
+@missing_case('短名落在长名里 → 不算命中，不许误报')
+def _m16(tmp, tree):
+    # Dragonsteel Bee 会带词边界落在 Lightning Dragonsteel Bee 里，
+    # 第一版扫描器就是这么多报了一条，而「龙霆钢蜜蜂」本来是对的。
+    en = {'entity.productivebees.dragonsteel_bee': 'Dragonsteel Bee',
+          'entity.productivebees.lightning_dragonsteel_bee': 'Lightning Dragonsteel Bee'}
+    zh = {'entity.productivebees.dragonsteel_bee': '龙钢蜜蜂',
+          'entity.productivebees.lightning_dragonsteel_bee': '龙霆钢蜜蜂'}
+    mods, up, t = _bee_fixture(tmp, 'Lightning Dragonsteel Bee', '龙霆钢蜜蜂', en, zh)
+    rc, out = _bee_run(tmp, mods, up, t)
+    return rc == 0
+
+
+@missing_case('上游英文任务书没取到 → 蜜蜂名检查必须红')
+def _m17(tmp, tree):
+    mods, up, t = _bee_fixture(tmp, 'a Ghostly Bee', '恶魂蜜蜂')
+    shutil.rmtree(up / 'config')
+    rc, out = _bee_run(tmp, mods, up, t)
+    return rc != 0 and 'config/ftbquests/quests/lang/en_us' in out
+
+
+@missing_case('拿不到 productivebees jar → 蜜蜂名检查必须红')
+def _m18(tmp, tree):
+    mods, up, t = _bee_fixture(tmp, 'a Ghostly Bee', '恶魂蜜蜂')
+    for jar in mods.glob('productivebees*.jar'):
+        jar.unlink()
+    rc, out = _bee_run(tmp, mods, up, t)
+    return rc != 0 and '英文名表取不到' in out
+
+
 def run_missing(name, fn):
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)

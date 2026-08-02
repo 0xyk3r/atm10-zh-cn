@@ -95,6 +95,10 @@ python3 scripts/compliance/check_kubejs_classfilter.py "${ATM_PACK_ROOT:-pack}/m
 # lang 缺 `jetpack.<name>.name` 就静默回退成英文，跟翻好了完全无法区分。
 # 档位清单随整合包版本变，拿该版官方 config 现查，不手写死在仓库里。
 python3 scripts/compliance/check_jetpack_tiers.py "$UPROOT" "$TREE"
+# 任务书提到某只蜜蜂时，用的必须是玩家在 JEI 里搜得到的那个名字。
+# 「幽灵蜜蜂」vs 物品名「恶魂蜜蜂」这种，照任务书去搜是搜不到的——比漏翻更难受。
+python3 scripts/compliance/check_bee_names_in_quests.py \
+  "${ATM_PACK_ROOT:-pack}/mods" "$UPROOT" "$TREE"
 # 资源包**内容**跨版本通用（lang 按命名空间索引，多余键不生效、缺的回退），
 # 所以源目录只有一份；只有产出的 zip 文件名带版本号，方便用户认。
 PACK_SRC="$TREE/resourcepacks/ATM10汉化包"
