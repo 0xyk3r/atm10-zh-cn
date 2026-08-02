@@ -1107,7 +1107,7 @@
   "irons_spellbooks.tetra_effect.freeze": "冰冻",
   "irons_spellbooks.tetra_effect.freeze.tooltip": "可叠加的冰冻效果持续§e%s秒。",
   "irons_spellbooks.tetra_effect.mana_siphon": "法力虹吸",
-  "irons_spellbooks.tetra_effect.mana_siphon.tooltip": "造成 §e%s §rof 的伤害转换为魔力值, 每次至多恢复可 §e50 §r",
+  "irons_spellbooks.tetra_effect.mana_siphon.tooltip": "将造成伤害的 §e%s §r转化为法力值，单次最多 §e50 §r点。",
   "irons_spellbooks.tetra_bar.cooldown_reduction.tooltip": "§e%s 减少法术的冷却时间。",
   "irons_spellbooks.tetra_bar.max_mana.tooltip": "持有 §e%s 时增加最大法力值。",
   "irons_spellbooks.tetra_bar.fire_spell_power.tooltip": "§e%s 增加炽焰法术的强度。",
