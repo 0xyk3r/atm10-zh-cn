@@ -11,7 +11,7 @@ navigation:
 如 [赛特斯生长](../ae2-mechanics/certus-growth.md)] 中所述，<ItemLink id="certus_quartz_crystal" /> 的自动收获需要用到 <ItemLink id="annihilation_plane" /> 和 <ItemLink id="storage_bus" />。  
 <ItemLink id="growth_accelerator" /> 可用于大幅加快赛特斯石英芽的生长，随后平面会破坏已经完全成熟的 <ItemLink id="quartz_cluster" />。它们之所以能够被筛选出来，是利用了一个好得过头的特性：未成熟的赛特斯石英芽会掉落 <ItemLink id="certus_quartz_dust" />，而不是没有掉落物。
 
-这个农场在使用 <ItemLink id="flawless_budding_quartz" /> 时可完全自动运行，但如果使用的是有瑕的、开裂的或受损的赛特斯石英母岩，你就必须手动更换母岩。或者，如 [半自动赛特斯农场](semiauto-certus-farm.md)
+这个农场在使用 <ItemLink id="flawless_budding_quartz" /> 时可完全自动运行，但如果使用的是有瑕的、开裂的或损坏的赛特斯石英母岩，你就必须手动更换母岩。或者，如 [半自动赛特斯农场](semiauto-certus-farm.md)
 和 [高级赛特斯农场](advanced-certus-farm.md) 中所述，也可以实现自动更换。
 
 速度估算请参见 [赛特斯生长](../ae2-mechanics/certus-growth.md)。

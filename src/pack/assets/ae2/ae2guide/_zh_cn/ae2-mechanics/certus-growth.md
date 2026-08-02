@@ -13,11 +13,11 @@ navigation:
 <ImportStructure src="../assets/assemblies/budding_certus_1.snbt" />
 </GameScene>
 
-水晶石英芽会从[萌发赛特斯石英块](../items-blocks-machines/budding_certus.md)上长出，类似于紫水晶。如果你打破一个尚未完全
+赛特斯石英芽会从[赛特斯石英母岩](../items-blocks-machines/budding_certus.md)上长出，类似于紫水晶。如果你打破一个尚未完全
 长成的芽，它会掉落一个<ItemLink id="certus_quartz_dust" />，且不会受到时运影响。如果你打破一个完全长成的晶簇，它会掉落四个
 <ItemLink id="certus_quartz_crystal" />，并且时运会提高这个数量。
 
-赛特斯母岩方块共有 4 个等级：无瑕、瑕疵、碎裂和损坏，而你最初会在[陨石](../ae2-mechanics/meteorites.md)中找到它们。
+赛特斯石英母岩共有 4 个等级：无瑕、有瑕、开裂和损坏，而你最初会在[陨石](../ae2-mechanics/meteorites.md)中找到它们。
 
 <GameScene zoom="4" background="transparent">
   <ImportStructure src="../assets/assemblies/budding_blocks.snbt" />
@@ -30,7 +30,7 @@ navigation:
 
 无瑕的赛特斯石英母岩不会退化，并且会无限生成赛特斯石英。不过它们无法被合成，也不能用镐子移动，即使附有精准采集也不行。（不过它们*可以*通过[封闭空间](../ae2-mechanics/spatial-io.md)来移动）
 
-仅靠自身，水晶石英芽的生长速度非常缓慢。幸运的是，将 <ItemLink id="growth_accelerator" /> 放置在发芽方块旁边时，可以大幅加快这一过程。你应该优先先建造几个这样的装置。
+仅靠自身，赛特斯石英芽的生长速度非常缓慢。幸运的是，将 <ItemLink id="growth_accelerator" /> 放置在发芽方块旁边时，可以大幅加快这一过程。你应该优先先建造几个这样的装置。
 
 <GameScene zoom="4" background="transparent">
   <ImportStructure src="../assets/assemblies/budding_certus_2.snbt" />

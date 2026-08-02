@@ -7,8 +7,8 @@ navigation:
 
 # 紫水晶种植
 
-虽然 <ItemLink id="growth_accelerator" /> 能作用于紫水晶，但用 <ItemLink id="annihilation_plane" /> 过滤[水晶石英芽](../items-blocks-machines/budding_certus.md)
-的常规方法并不适用于紫晶芽。与未成熟的水晶石英芽会掉落
+虽然 <ItemLink id="growth_accelerator" /> 能作用于紫水晶，但用 <ItemLink id="annihilation_plane" /> 过滤[赛特斯石英芽](../items-blocks-machines/budding_certus.md)
+的常规方法并不适用于紫晶芽。与未成熟的赛特斯石英芽会掉落
 <ItemLink id="certus_quartz_dust" /> 不同，未成熟的紫晶芽不会掉落任何东西，因此破坏面板总是会将其破坏，
 因为网络总是能够存储“什么都没有”。
 

@@ -66,7 +66,7 @@ navigation:
   </BoxAnnotation>
 
 <BoxAnnotation color="#aaaadd" min="2 1 2" max="3 2 3">
-        （8）接口：设置为在自身中保留 1 个瑕疵生长赛特斯石英，并装有合成卡。
+        （8）接口：设置为在自身中保留 1 个有瑕的赛特斯石英母岩，并装有合成卡。
         <Row><BlockImage id="flawed_budding_quartz" scale="2" /> <ItemImage id="crafting_card" scale="2" /></Row>
   </BoxAnnotation>
 
