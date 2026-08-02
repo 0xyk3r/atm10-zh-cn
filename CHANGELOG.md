@@ -99,6 +99,26 @@ Roy G. Bpm、Pie Romancer 等 20 来个，整个整合包里查不到中文名�
 现在整本任务书里这类多余空格都去掉了，**6104 处**。中英混排该留的空格没动
 （「AllTheMods 团队」「60 位阶」照旧）。
 
+### 神化附魔的漏译
+
+反馈截图：附魔台改版那几个方块的名字与说明还是英文。
+
+| 哪里 | 之前 | 现在 |
+|---|---|---|
+| 神化附魔台 | Apothic Enchanting Table · A cosmetic variant of the Enchanting Table. | **神化附魔台**·附魔台的外观变体 |
+| 渡鸦附魔台的说明 | Allows manually customizing the core enchanting stats. | 可以手动调整核心附魔属性 |
+| 基础书架 | Basic Bookshelf | **基础书架** |
+| 位阶上限（属性） | Max Eterna · 说明与界面里的钳制提示 | **位阶上限**——Eterna 本包一直译作「位阶」 |
+| 冷却缩减（属性） | Cooldown Reduction 及其说明 | **冷却缩减** |
+| 世界层级界面 | Difficulty: | 难度： |
+
+同一系列的三个命名空间（神化、神化属性、神化附魔）一起查过，
+除上面这些之外剩下的「英文」都是纯符号或格式串（`%s`、`[%s - %s]`、`☑ %s`、
+附魔等级的罗马数字），照原样才对。
+
+物品说明最后那行灰蓝色的 `Apothic Enchanting` 是**模组名**，
+它来自模组自己的元数据而不是语言文件，资源包改不到。
+
 ### 补齐的图鉴
 
 | 哪本 | 之前 | 现在 |

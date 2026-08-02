@@ -157,5 +157,7 @@
   "item.minecraft.potion.effect.apothic_attributes.flying": "飞行药水",
   "item.minecraft.splash_potion.effect.apothic_attributes.flying": "喷溅型飞行药水",
   "item.minecraft.lingering_potion.effect.apothic_attributes.flying": "滞留型飞行药水",
-  "item.minecraft.tipped_arrow.effect.apothic_attributes.flying": "飞行之箭"
+  "item.minecraft.tipped_arrow.effect.apothic_attributes.flying": "飞行之箭",
+  "apothic_attributes:cooldown_reduction": "冷却缩减",
+  "apothic_attributes:cooldown_reduction.desc": "减少触发类技能与效果的冷却时间。冷却以 ⌛ 符号表示。"
 }
