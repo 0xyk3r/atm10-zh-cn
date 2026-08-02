@@ -1,9 +1,18 @@
-# 尚未实测。ATM10 7.3 的内置资源包顺序必须**真起一次实例、干净退出**才拿得到——
-# options.txt 是退出时才写完整列表的，中途 kill 掉只会得到 resourcePacks:[]。
-#
-# 在拿到实测值之前这里保持为空：安装器在全新实例上**不伪造** resourcePacks 行，
-# 只写 lang:zh_cn，并提示玩家先启动一次游戏、退出后再运行一次安装器——
-# 那一次会把汉化包挪到列表最后一位，必定正确。
-#
-# 7.2 那 15 项不能照抄：7.2→7.3 的 modlist 有变动，内置包列表很可能跟着变，
-# 抄错的后果是汉化包被压在别的包下面，而且**没有任何提示**。
+# ATM10 7.3 首次启动后游戏自己写出来的 resourcePacks 顺序（实测，不含本汉化包）。
+# 安装器新建 options.txt 时照抄这一串、把汉化包放最后一位；不这么做的话游戏会把
+# 这些内置包全插到汉化包后面，汉化包会被压在底下，等于没启用。
+modularbees:dynamic_assets
+vanilla
+mod_resources
+add_xycraft_overrides_stone
+add_xycraft_overrides_metal
+add_xycraft_overrides_glass
+moonlight:merged_pack
+mod/towntalk:respack
+mod/dyenamicsandfriends:compat_packs/productivemetalworks/
+mod/dyenamicsandfriends:compat_packs/connectedglass/
+mod/dyenamicsandfriends:compat_packs/luminax/
+mod/dyenamicsandfriends:compat_packs/cookingforblockheads/
+mod/dyenamicsandfriends:compat_packs/botanypots/
+mod/dyenamicsandfriends:compat_packs/chromacarvings/
+modern_industrialization/generated
