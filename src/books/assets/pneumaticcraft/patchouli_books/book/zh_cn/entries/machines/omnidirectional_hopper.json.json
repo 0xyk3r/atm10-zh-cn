@@ -7,7 +7,7 @@
     "name"
    ],
    "Omnidirectional Hopper",
-   "全方位漏斗"
+   "全向漏斗"
   ],
   [
    [
@@ -16,7 +16,7 @@
     "text"
    ],
    "The $(item)Omnidirectional Hopper/$ behaves rather like the vanilla $(item)Hopper/$. However, this Hopper can be oriented in $(italic)any/$ direction, not just up. On top of that, it accepts $(l:base_concepts/upgrades)Upgrades/$, which can be used to speed up the Hopper considerably. It doesn't use $(l:base_concepts/pressure)air/$, so it's a very useful early game device.",
-   "$(item)全方位漏斗/$的行为很像原版的$(item)漏斗/$。不过，这种漏斗可以朝向$(italic)任意/$方向，而不只是向上。除此之外，它还支持安装$(l:base_concepts/upgrades)升级/$，可大幅提升漏斗的速度。它不需要$(l:base_concepts/pressure)空气/$，因此是一个在游戏前期非常实用的装置。"
+   "$(item)全向漏斗/$的行为很像原版的$(item)漏斗/$。不过，这种漏斗可以朝向$(italic)任意/$方向，而不只是向上。除此之外，它还支持安装$(l:base_concepts/upgrades)升级/$，可大幅提升漏斗的速度。它不需要$(l:base_concepts/pressure)空气/$，因此是一个在游戏前期非常实用的装置。"
   ],
   [
    [
@@ -70,7 +70,7 @@
     "text"
    ],
    "Crafting an Omnidirectional Hopper",
-   "合成全方位漏斗"
+   "合成全向漏斗"
   ]
  ]
 }

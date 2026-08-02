@@ -7,7 +7,7 @@
     "name"
    ],
    "Raw Lion Meat",
-   "狮子肉"
+   "生狮子肉"
   ],
   [
    [
@@ -25,7 +25,7 @@
     "text"
    ],
    "$(br)$(bold)Usage:$()$(li)can be eaten$(li)can be smelted to Cooked Lion Meat",
-   "$(br)$(bold)用途：$()$(li)可食用$(li)可冶炼为烤狮子肉"
+   "$(br)$(bold)用途：$()$(li)可食用$(li)可冶炼为烤生狮子肉"
   ]
  ]
 }

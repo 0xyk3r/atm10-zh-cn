@@ -79,7 +79,7 @@
     "text"
    ],
    "Normal variables are unique per $(l:tools/drone)Drone/$; they can't be shared. $(thing)Global variables/$, however, $(italic)can/$ be shared. This allows Drones to communicate with each other.$(p)Additionally, $(l:tools/gps_tool)GPS Tools/$ can link to and modify them, the $(l:machines/universal_sensor)Universal Sensor/$ can emit a $(#f00)redstone signal/$ based on them, and the $(l:tools/remote)Remote/$ can display and modify them.",
-   "普通变量对每个 $(l:tools/drone)雄蜂/$ 都是独立的，无法共享。不过，$(thing)全局变量/$ 则 $(italic)可以/$ 共享。这样一来，雄蜂之间就能彼此通信。$(p)此外，$(l:tools/gps_tool)GPS 工具/$ 也可以链接并修改它们，$(l:machines/universal_sensor)通用传感器/$ 可以根据它们发出 $(#f00)红石信号/$，而 $(l:tools/remote)遥控器/$ 则可以显示并修改它们。"
+   "普通变量对每个 $(l:tools/drone)雄蜂/$ 都是独立的，无法共享。不过，$(thing)全局变量/$ 则 $(italic)可以/$ 共享。这样一来，雄蜂之间就能彼此通信。$(p)此外，$(l:tools/gps_tool)GPS 工具/$ 也可以链接并修改它们，$(l:machines/universal_sensor)通用传感器/$ 可以根据它们发出 $(#f00)红石信号/$，而 $(l:tools/remote)远程终端/$ 则可以显示并修改它们。"
   ],
   [
    [

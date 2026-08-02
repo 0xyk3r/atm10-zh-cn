@@ -25,7 +25,7 @@
     "text"
    ],
    "Extractor and Stocker cards have a default value of 1, and a maximum value of 8, unless $(l:laserio:overclocker_card)Card Overclockers$(/l) are installed.  The following extract amounts are allowed with the designated overclockers installed:$(br)1. 16$(br)2. 32$(br)3. 48$(br)4. 64$(br2)If you want to extract 64 items at a time, you need 4 overclockers installed.",
-   "提取卡和存储卡默认值为 1，最大值为 8；除非装有$(l:laserio:overclocker_card)物流卡超频器$(/l)。传输数量最大值与超频器数量关系如下：$(br)1. 16$(br)2. 32$(br)3. 48$(br)4. 64$(br2)若想要一次提取 64 个物品，你需要装入 4 个超频器。"
+   "提取卡和存储卡默认值为 1，最大值为 8；除非装有$(l:laserio:overclocker_card)卡超频元件$(/l)。传输数量最大值与超频器数量关系如下：$(br)1. 16$(br)2. 32$(br)3. 48$(br)4. 64$(br2)若想要一次提取 64 个物品，你需要装入 4 个超频器。"
   ],
   [
    [

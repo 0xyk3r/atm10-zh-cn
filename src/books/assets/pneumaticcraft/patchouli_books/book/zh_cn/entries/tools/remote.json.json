@@ -7,7 +7,7 @@
     "name"
    ],
    "Remote",
-   "遥控器"
+   "远程终端"
   ],
   [
    [
@@ -16,7 +16,7 @@
     "text"
    ],
    "With a Remote you can create your own GUI to remotely control $(l:tools/drone)Drones/$ or $(l:machines/universal_sensor)Universal Sensors/$ via $(l:programming/variables#global)global variable/$ manipulation. Note that with $(item)Universal Sensors/$, you can use the $(item)Remote/$ to create wireless redstone!$(p)To start creating your own GUI, $(thing)sneak+right-click/$ the $(item)Remote/$ to open up the editor window.",
-   "使用红石遥控器，你可以创建自己的 GUI，通过操作 $(l:programming/variables#global)全局变量/$ 来远程控制 $(l:tools/drone)雄蜂/$ 或 $(l:machines/universal_sensor)万能传感器/$。请注意，对于 $(item)万能传感器/$，你可以使用 $(item)红石遥控器/$ 来实现无线红石！$(p)要开始创建你自己的 GUI，请 $(thing)潜行+右键/$ $(item)红石遥控器/$ 以打开编辑器窗口。"
+   "使用红石远程终端，你可以创建自己的 GUI，通过操作 $(l:programming/variables#global)全局变量/$ 来远程控制 $(l:tools/drone)雄蜂/$ 或 $(l:machines/universal_sensor)万能传感器/$。请注意，对于 $(item)万能传感器/$，你可以使用 $(item)红石远程终端/$ 来实现无线红石！$(p)要开始创建你自己的 GUI，请 $(thing)潜行+右键/$ $(item)红石远程终端/$ 以打开编辑器窗口。"
   ],
   [
    [
@@ -142,7 +142,7 @@
     "text"
    ],
    "In each $(item)Sensor/$ GUI:$(li)Select the $(thing)Dispenser/$ button$(li)Select $(thing)World/$$(li)Select $(thing)Global Variable/$$(li)In the $(thing)Variable Name/$ textfield, enter 'signal1', 'signal2' & 'signal3' respectively.$(p)Now, $(thing)right-click/$ your $(item)Remote/$, and try selecting/deselecting each checkbox. The corresponding $(item)Sensor/$ will emit a redstone signal as appropriate: wireless redstone!",
-   "在每个 $(item)传感器/$ 的 GUI 中：$(li)选择 $(thing)补给器/$ 按钮$(li)选择 $(thing)世界/$$(li)选择 $(thing)全局变量/$$(li)在 $(thing)变量名/$ 文本框中，分别输入“signal1”、“signal2”和“signal3”。$(p)现在，$(thing)右击/$你的 $(item)红石遥控器/$，然后试着选中/取消选中各个复选框。对应的 $(item)传感器/$ 就会根据情况发出红石信号：无线红石！"
+   "在每个 $(item)传感器/$ 的 GUI 中：$(li)选择 $(thing)补给器/$ 按钮$(li)选择 $(thing)世界/$$(li)选择 $(thing)全局变量/$$(li)在 $(thing)变量名/$ 文本框中，分别输入“signal1”、“signal2”和“signal3”。$(p)现在，$(thing)右击/$你的 $(item)红石远程终端/$，然后试着选中/取消选中各个复选框。对应的 $(item)传感器/$ 就会根据情况发出红石信号：无线红石！"
   ],
   [
    [

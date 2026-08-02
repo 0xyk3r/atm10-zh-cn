@@ -16,7 +16,7 @@
     "text"
    ],
    "A fluid produced by the $(l:agr_hus/mob_slaughter_factory)Mob Slaughter Factory$().",
-   "由 $(l:agr_hus/mob_slaughter_factory)生物屠宰厂$() 产出的流体。"
+   "由 $(l:agr_hus/mob_slaughter_factory)屠宰场$() 产出的流体。"
   ]
  ]
 }

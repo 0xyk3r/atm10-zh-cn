@@ -16,7 +16,7 @@
     "text"
    ],
    "The Inventory Manager can communicate with the player's inventory. You need to right click a Memory Card and put the card into the manager to use it.$(p)For the full documentation please see the $(9)$(l:https://docs.advanced-peripherals.de/peripherals/inventory_manager/)official wiki page$(/l)$()!",
-   "库存管理器可与玩家的物品栏进行通信。你需要手持内存卡对其右键点击，并将该内存卡放入库存管理器中，方可启用此功能。$(p)完整说明请参阅$(9)$(l:https://docs.advanced-peripherals.de/peripherals/inventory_manager/)官方维基页面$(/l)$()！"
+   "库存管理器可与玩家的物品栏进行通信。你需要手持记忆卡对其右键点击，并将该记忆卡放入库存管理器中，方可启用此功能。$(p)完整说明请参阅$(9)$(l:https://docs.advanced-peripherals.de/peripherals/inventory_manager/)官方维基页面$(/l)$()！"
   ],
   [
    [

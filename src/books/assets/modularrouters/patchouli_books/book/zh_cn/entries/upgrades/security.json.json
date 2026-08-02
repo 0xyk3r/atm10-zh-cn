@@ -43,7 +43,7 @@
     "text"
    ],
    "Several modules ($(l:modules/placer)Placer/$, $(l:modules/breaker)Breaker/$, $(l:modules/activator)Activator/$) do their work as a $(thing)fake player/$. By default this is a player with the username $(thing)[Modular Routers]/$, but when a security upgrade is installed, those modules operate as the upgrade's owner. This is much safer on multiplayer servers with claim protection than simply allowing $(thing)[Modular Routers]/$ to do anything with your claims.",
-   "多个模块（$(l:modules/placer)放置器/$、$(l:modules/breaker)破坏器/$、$(l:modules/activator)执行器/$）均以$(thing)假玩家/$身份执行操作。默认情况下，该假玩家用户名为$(thing)[模块化路由器]/$；但当安装了安全升级后，这些模块将转而以该升级的所有者身份运行。在启用领地保护的多人服务器上，这种方式远比单纯放任$(thing)[模块化路由器]/$随意操作你的领地更为安全。"
+   "多个模块（$(l:modules/placer)放置器/$、$(l:modules/breaker)破坏器/$、$(l:modules/activator)执行器/$）均以$(thing)假玩家/$身份执行操作。默认情况下，该假玩家用户名为$(thing)[物品路由器]/$；但当安装了安全升级后，这些模块将转而以该升级的所有者身份运行。在启用领地保护的多人服务器上，这种方式远比单纯放任$(thing)[物品路由器]/$随意操作你的领地更为安全。"
   ],
   [
    [

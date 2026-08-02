@@ -25,7 +25,7 @@
     "text"
    ],
    "Ammo must be inserted into the $(item)Minigun's/$ magazine to be used; it will not be consumed from the player's inventory. $(thing)Sneak+right-click/$ the $(item)Minigun/$ to load ammo into it.$(p)Ammo is consumed from the numbered slots 1-4 in order, but you can $(thing)middle-click/$ a slot to lock it, forcing the $(item)Minigun/$ to consume ammo from that slot only; useful if you have multiple ammo types loaded. $(thing)Middle-click/$ a locked slot to unlock it again.",
-   "弹药必须装入$(item)速射机枪/$的弹匣中才能使用；它不会从玩家的物品栏中消耗。对着$(item)速射机枪/$按下$(thing)潜行右击/$即可将弹药装填进去。$(p)弹药会按顺序从编号为 1-4 的槽位中消耗，但你也可以对某个槽位按下$(thing)鼠标中键/$将其锁定，强制$(item)速射机枪/$只从该槽位消耗弹药；如果你装填了多种弹药类型，这会很有用。对已锁定的槽位按下$(thing)鼠标中键/$即可再次解锁。"
+   "弹药必须装入$(item)转管机枪/$的弹匣中才能使用；它不会从玩家的物品栏中消耗。对着$(item)转管机枪/$按下$(thing)潜行右击/$即可将弹药装填进去。$(p)弹药会按顺序从编号为 1-4 的槽位中消耗，但你也可以对某个槽位按下$(thing)鼠标中键/$将其锁定，强制$(item)转管机枪/$只从该槽位消耗弹药；如果你装填了多种弹药类型，这会很有用。对已锁定的槽位按下$(thing)鼠标中键/$即可再次解锁。"
   ],
   [
    [

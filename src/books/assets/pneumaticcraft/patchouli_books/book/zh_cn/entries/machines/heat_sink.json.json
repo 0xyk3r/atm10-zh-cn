@@ -16,7 +16,7 @@
     "text"
    ],
    "The $(item)Heat Sink/$ is a block used to get rid of $(l:base_concepts/heat)Heat/$.$(p)Be careful, a $(item)Heat Sink/$ hotter than 60°C or colder than -60°C will hurt you when touched!$(p)$(item)Heat Sinks/$ only dissipate heat from the block they're directly connected to. To connect up many $(item)Heat Sinks/$, use $(l:machines/heat_pipe)Heat Pipes/$ to provide more surfaces.",
-   "$(item)散热片/$是一种用于散发$(l:base_concepts/heat)热量/$的方块。$(p)注意，如果$(item)散热片/$温度高于 60°C 或低于 -60°C，接触时会对你造成伤害！$(p)$(item)散热片/$只能散发与其直接连接的方块中的热量。要连接多个$(item)散热片/$，请使用$(l:machines/heat_pipe)热能管道/$来提供更多表面。"
+   "$(item)散热片/$是一种用于散发$(l:base_concepts/heat)热量/$的方块。$(p)注意，如果$(item)散热片/$温度高于 60°C 或低于 -60°C，接触时会对你造成伤害！$(p)$(item)散热片/$只能散发与其直接连接的方块中的热量。要连接多个$(item)散热片/$，请使用$(l:machines/heat_pipe)热管/$来提供更多表面。"
   ],
   [
    [

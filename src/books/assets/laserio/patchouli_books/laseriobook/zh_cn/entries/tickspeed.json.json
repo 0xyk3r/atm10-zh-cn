@@ -25,7 +25,7 @@
     "text"
    ],
    "Extractor and Stocker cards have a default and minimum value of 20, with a maximum value of 1200, unless $(l:laserio:overclocker_card)Card Overclockers$(/l) are installed.  The following minimum tick speeds are allowed with the designated overclockers installed:$(br)1. 15$(br)2. 10$(br)3. 5$(br)4. 1$(br2)If you want to extract items every tick, you need 4 overclockers installed.",
-   "提取卡和存储卡默认值（也是最小值）为 20，最大值为 1200；除非装有$(l:laserio:overclocker_card)物流卡超频器$(/l)。传输速度（刻）最小值与超频器数量关系如下：$(br)1. 15$(br)2. 10$(br)3. 5$(br)4. 1$(br2)若想每刻提取一次，你需要装入 4 个超频器。"
+   "提取卡和存储卡默认值（也是最小值）为 20，最大值为 1200；除非装有$(l:laserio:overclocker_card)卡超频元件$(/l)。传输速度（刻）最小值与超频器数量关系如下：$(br)1. 15$(br)2. 10$(br)3. 5$(br)4. 1$(br2)若想每刻提取一次，你需要装入 4 个超频器。"
   ],
   [
    [

@@ -7,7 +7,7 @@
     "name"
    ],
    "Modular Router Overview",
-   "模块化路由器概览"
+   "物品路由器概览"
   ],
   [
    [
@@ -16,7 +16,7 @@
     "text"
    ],
    "The $(item)Modular Router/$ is the central block of the routing system.  By itself, it does nothing other than serve as a one-slot inventory (which can be piped into and out of by hoppers and other mod piping systems).$(p)To do anything useful with a router, however, you need to install one or more (up to nine) $(l:intro/modules)Modules/$.",
-   "$(item)模块化路由器/$是整个路由系统的核心方块。它本身除了作为一个单槽容器外什么也不做（漏斗和其他模组的管道系统都可以向其中输入或从中输出）。$(p)不过，如果想让路由器真正发挥作用，你需要安装一个或多个（最多九个）$(l:intro/modules)模块/$。"
+   "$(item)物品路由器/$是整个路由系统的核心方块。它本身除了作为一个单槽容器外什么也不做（漏斗和其他模组的管道系统都可以向其中输入或从中输出）。$(p)不过，如果想让路由器真正发挥作用，你需要安装一个或多个（最多九个）$(l:intro/modules)模块/$。"
   ],
   [
    [

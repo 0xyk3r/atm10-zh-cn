@@ -43,7 +43,7 @@
     "text"
    ],
    "The armor GUI allows the speed boost to be reduced on-the-fly, if you want to change your speed without needing to find a $(l:machines/charging_station)Charging Station/$ to swap out upgrades.",
-   "护甲 GUI 允许你实时降低速度提升效果，这样如果你想调整移动速度，就不必非得去找一个 $(l:machines/charging_station)充能站/$ 来更换升级卡。"
+   "护甲 GUI 允许你实时降低速度提升效果，这样如果你想调整移动速度，就不必非得去找一个 $(l:machines/charging_station)充气站/$ 来更换升级卡。"
   ],
   [
    [
@@ -70,7 +70,7 @@
     "text"
    ],
    "The armor GUI allows the jump boost to be reduced on-the-fly, if you want to change your jump height without needing to find a $(l:machines/charging_station)Charging Station/$ to swap out upgrades.",
-   "护甲 GUI 允许你随时降低跳跃提升效果，这样你就能在无需寻找 $(l:machines/charging_station)充能站/$ 来更换升级卡的情况下调整跳跃高度。"
+   "护甲 GUI 允许你随时降低跳跃提升效果，这样你就能在无需寻找 $(l:machines/charging_station)充气站/$ 来更换升级卡的情况下调整跳跃高度。"
   ],
   [
    [

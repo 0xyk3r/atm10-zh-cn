@@ -61,7 +61,7 @@
     "text"
    ],
    "Insert a $(l:base_concepts/upgrades#minigun)Minigun Upgrade/$ into the $(l:tools/drone)Drone/$ to give it a $(l:tools/minigun)Minigun/$. When provided with $(l:tools/minigun_ammo)Gun Ammo/$ (using an $(l:programming/inventory_import)Inventory Import/$ widget), the $(thing)Drone/$ will use this Minigun for ranged attacks.$(p)The default range is 16 blocks, which can be upgraded by inserting up to 16 $(l:base_concepts/upgrades#range_upgrade)Range Upgrades/$, for a maximum range of 32 blocks.",
-   "将一个 $(l:base_concepts/upgrades#minigun)机枪升级/$ 插入 $(l:tools/drone)无人机/$，就能赋予它一把 $(l:tools/minigun)速射机枪/$。当提供 $(l:tools/minigun_ammo)枪械弹药/$（使用 $(l:programming/inventory_import)物品导入/$ 组件）后，$(thing)无人机/$ 就会用这把机枪进行远程攻击。$(p)默认射程为 16 格，你最多还可以插入 16 个 $(l:base_concepts/upgrades#range_upgrade)范围升级/$，将最大射程提升到 32 格。"
+   "将一个 $(l:base_concepts/upgrades#minigun)机枪升级/$ 插入 $(l:tools/drone)无人机/$，就能赋予它一把 $(l:tools/minigun)转管机枪/$。当提供 $(l:tools/minigun_ammo)枪械弹药/$（使用 $(l:programming/inventory_import)物品导入/$ 组件）后，$(thing)无人机/$ 就会用这把机枪进行远程攻击。$(p)默认射程为 16 格，你最多还可以插入 16 个 $(l:base_concepts/upgrades#range_upgrade)范围升级/$，将最大射程提升到 32 格。"
   ],
   [
    [

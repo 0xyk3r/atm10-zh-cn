@@ -16,7 +16,7 @@
     "text"
    ],
    "$(thing)Modules/$ are inserted into an $(l:intro/modular_router)Modular Router/$ and tell the router what to do. There are 20 different module types, each of which has a specific function.  All modules have some characteristics in common, however:$(li)All modules have 9 $(thing)filter slots/$ to control which item(s) a module will process.$(li)Many modules have a defined $(thing)direction/$, relative to the router's facing.",
-   "$(thing)模块/$会被插入到$(l:intro/modular_router)模块化路由器/$中，并告诉路由器该做什么。模块共有 20 种不同类型，每种都有特定功能。不过，所有模块都有一些共同特征：$(li)所有模块都有 9 个$(thing)过滤器槽位/$，用于控制模块会处理哪些物品。$(li)许多模块还定义了相对于路由器朝向的$(thing)方向/$。"
+   "$(thing)模块/$会被插入到$(l:intro/modular_router)物品路由器/$中，并告诉路由器该做什么。模块共有 20 种不同类型，每种都有特定功能。不过，所有模块都有一些共同特征：$(li)所有模块都有 9 个$(thing)过滤器槽位/$，用于控制模块会处理哪些物品。$(li)许多模块还定义了相对于路由器朝向的$(thing)方向/$。"
   ],
   [
    [

@@ -25,7 +25,7 @@
     "text"
    ],
    "$(li)For the Sender $(l:modules/sender_1)Mk1/$ / $(l:modules/sender_2)Mk2/$ / $(l:modules/sender_3)Mk3/$ Modules and $(l:modules/player)Player Module/$ (in insert mode), the modules will only send an item to the inventory if there are fewer than the configured number of that item already in the inventory.$(li)For the Puller $(l:modules/puller_1)Mk1/$ / $(l:modules/puller_2)Mk2/$ and $(l:modules/player)Player Module/$ (in extract mode), the modules will only pull an item from the inventory if there are more than the configured number of that item in the inventory.",
-   "$(li)对于发送模块 $(l:modules/sender_1)Mk1/$ / $(l:modules/sender_2)Mk2/$ / $(l:modules/sender_3)Mk3/$ 以及$(l:modules/player)玩家模块/$（插入模式），只有当目标容器中该物品的数量少于设定值时，模块才会将该物品送入容器。$(li)对于抽取模块 $(l:modules/puller_1)Mk1/$ / $(l:modules/puller_2)Mk2/$ 以及$(l:modules/player)玩家模块/$（提取模式），只有当目标容器中该物品的数量多于设定值时，模块才会从容器中抽取该物品。"
+   "$(li)对于发送模块 $(l:modules/sender_1)Mk1/$ / $(l:modules/sender_2)Mk2/$ / $(l:modules/sender_3)Mk3/$ 以及$(l:modules/player)玩家模块/$（插入模式），只有当目标容器中该物品的数量少于设定值时，模块才会将该物品送入容器。$(li)对于抽取模块 Mk1 $(l:modules/puller_1)Mk1/$ / $(l:modules/puller_2)Mk2/$ 以及$(l:modules/player)玩家模块/$（提取模式），只有当目标容器中该物品的数量多于设定值时，模块才会从容器中抽取该物品。"
   ],
   [
    [

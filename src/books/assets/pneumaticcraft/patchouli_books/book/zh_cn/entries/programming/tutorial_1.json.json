@@ -106,7 +106,7 @@
     "text"
    ],
    "Finally, take a $(l:tools/drone)Drone/$, and ensure it's been pressurized in a $(l:machines/charging_station)Charging Station/$. Put the Drone item in the slot in the top right of the Programmer GUI and click the $(thing)⟶ (export)/$ button (you can name the Drone if you want, in the textfield to the left).$(p)You'll get some audible feedback, and your Drone is programmed!",
-   "最后，拿一个$(l:tools/drone)雄蜂/$，并确保它已经在$(l:machines/charging_station)充能站/$中完成加压。将雄蜂物品放入编程器界面右上角的槽位中，然后点击$(thing)⟶（导出）/$按钮（如果你愿意，也可以在左侧的文本框中为雄蜂命名）。$(p)你会听到提示音，这样你的雄蜂就编程完成了！"
+   "最后，拿一个$(l:tools/drone)雄蜂/$，并确保它已经在$(l:machines/charging_station)充气站/$中完成加压。将雄蜂物品放入编程器界面右上角的槽位中，然后点击$(thing)⟶（导出）/$按钮（如果你愿意，也可以在左侧的文本框中为雄蜂命名）。$(p)你会听到提示音，这样你的雄蜂就编程完成了！"
   ],
   [
    [

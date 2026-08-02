@@ -7,7 +7,7 @@
     "name"
    ],
    "Signal Capacitor Box",
-   "信号计数盒"
+   "信号电容器"
   ],
   [
    [
@@ -16,7 +16,7 @@
     "text"
    ],
    "This box can be placed next to a Signal Receiver Box or Signal Block Relay Box and will then emit a Redstone pulse for a predefined length of time whenever the adjacent box emits Redstone. It is conceptually similar to a RedPower State Cell.",
-   "此方块可放置于信号接收盒或信号中继盒旁，每当相邻方块输出红石信号时，它便会按预设时长发射一次红石脉冲。其原理与RedPower状态单元类似。"
+   "此方块可放置于信号接收器或信号中继器旁，每当相邻方块输出红石信号时，它便会按预设时长发射一次红石脉冲。其原理与RedPower状态单元类似。"
   ],
   [
    [

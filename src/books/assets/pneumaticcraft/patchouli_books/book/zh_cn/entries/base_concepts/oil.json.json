@@ -16,7 +16,7 @@
     "text"
    ],
    "In $(pncr), the only world generation is $(thing)Crude Oil/$. It's generated similarly to water lakes; the difference is that Oil lakes are far more likely to spawn deep underground than on the surface. Because of this, assistance from tools like a $(l:tools/seismic_sensor)Seismic Sensor/$ is highly recommended.",
-   "在 $(pncr) 中，唯一会生成的世界资源是 $(thing)原油/$。它的生成方式与水湖类似；不同的是，油湖比起地表，更有可能生成在地下深处。因此，强烈建议借助诸如 $(l:tools/seismic_sensor)地下石油探测器/$ 之类的工具来辅助寻找。"
+   "在 $(pncr) 中，唯一会生成的世界资源是 $(thing)原油/$。它的生成方式与水湖类似；不同的是，油湖比起地表，更有可能生成在地下深处。因此，强烈建议借助诸如 $(l:tools/seismic_sensor)地震传感器/$ 之类的工具来辅助寻找。"
   ],
   [
    [
@@ -43,7 +43,7 @@
     "text"
    ],
    "$(italic)Pumping Oil with a Gas Lift, with a Liquid Hopper above/$",
-   "$(italic)使用气举抽取石油，上方放置液体漏斗/$"
+   "$(italic)使用气举抽取石油，上方放置流体漏斗/$"
   ],
   [
    [

@@ -7,7 +7,7 @@
     "name"
    ],
    "Modular Router",
-   "模块化路由器"
+   "物品路由器"
   ],
   [
    [
@@ -16,7 +16,7 @@
     "text"
    ],
    "The $(thing)Modular Router/$ is the core of the routing system. It is responsible for executing all the modules plugged into it; moving items, blocks and fluids around in various ways.",
-   "该$(thing)模块化路由器/$是整套传输系统的核心。它负责执行所有接入其中的模块，以多种方式搬运物品、方块和流体。"
+   "该$(thing)物品路由器/$是整套传输系统的核心。它负责执行所有接入其中的模块，以多种方式搬运物品、方块和流体。"
   ],
   [
    [
@@ -25,7 +25,7 @@
     "text"
    ],
    "$(italic)An Modular Router GUI with several modules and upgrades installed",
-   "$(italic)一个安装了多个模块和升级的模块化路由器 GUI"
+   "$(italic)一个安装了多个模块和升级的物品路由器 GUI"
   ],
   [
    [
@@ -34,7 +34,7 @@
     "text"
    ],
    "The $(thing)Modular Router/$ has a one-slot buffer, able to hold up to stack of items. This buffer is exposed as a normal inventory, so it can be interacted with via $(item)Hoppers/$ and other mod piping systems.$(p)In addition, a $(item)Comparator/$ placed against the router will measure the slot's fullness as expected.",
-   "$(thing)模块化路由器/$带有一个单槽缓冲区，最多可容纳一组物品。这个缓冲区作为普通容器对外暴露，因此可以通过$(item)漏斗/$和其他模组的管道系统与之交互。$(p)此外，在路由器旁放置$(item)比较器/$时，也会如预期那样检测该槽位的填充程度。"
+   "$(thing)物品路由器/$带有一个单槽缓冲区，最多可容纳一组物品。这个缓冲区作为普通容器对外暴露，因此可以通过$(item)漏斗/$和其他模组的管道系统与之交互。$(p)此外，在路由器旁放置$(item)比较器/$时，也会如预期那样检测该槽位的填充程度。"
   ],
   [
    [
@@ -52,7 +52,7 @@
     "text"
    ],
    "The $(thing)Modular Router/$ has nine slots for $(l:intro/modules)modules/$. Each time the router runs (between 1 and 10 times per second depending on Speed Upgrades), it will $(thing)execute/$ each module in turn, from left to right.$(p)You can configure installed modules without removing them from the router by pressing $(4)$(bold)[$(k:modularrouters.configure)]/$ while hovering over it, or $(thing)Middle-Clicking/$ the module in the GUI.",
-   "$(thing)模块化路由器/$配备九个$(l:intro/modules)模块/$插槽。路由器每秒运行1至10次（具体取决于已安装的速度升级数量），每次运行时将从左至右依次$(thing)执行/$每个模块。$(p)你无需拆卸模块，即可通过悬停于模块上方并按下$(4)$(bold)[$(k:modularrouters.configure)]/$，或在GUI界面中$(thing)中键点击/$该模块，来配置已安装的模块。"
+   "$(thing)物品路由器/$配备九个$(l:intro/modules)模块/$插槽。路由器每秒运行1至10次（具体取决于已安装的速度升级数量），每次运行时将从左至右依次$(thing)执行/$每个模块。$(p)你无需拆卸模块，即可通过悬停于模块上方并按下$(4)$(bold)[$(k:modularrouters.configure)]/$，或在GUI界面中$(thing)中键点击/$该模块，来配置已安装的模块。"
   ],
   [
    [
@@ -70,7 +70,7 @@
     "text"
    ],
    "The $(thing)Modular Router/$ has five slots for $(l:intro/upgrades)upgrades/$. Upgrades enhance the router's functionality in various ways; for example, each inserted $(l:upgrades/speed)Speed Upgrade/$ makes the router tick a little faster, while each $(l:upgrades/stack)Stack Upgrade/$ allows it to handle more items in each operation.",
-   "$(thing)模块化路由器/$配备五个$(l:intro/upgrades)升级/$插槽。升级可从多方面增强路由器的功能；例如，每插入一个$(l:upgrades/speed)速度升级/$，路由器的运行频率便会略微加快；而每插入一个$(l:upgrades/stack)堆叠升级/$，路由器单次操作所能处理的物品数量也会相应增加。"
+   "$(thing)物品路由器/$配备五个$(l:intro/upgrades)升级/$插槽。升级可从多方面增强路由器的功能；例如，每插入一个$(l:upgrades/speed)速度升级/$，路由器的运行频率便会略微加快；而每插入一个$(l:upgrades/stack)堆叠升级/$，路由器单次操作所能处理的物品数量也会相应增加。"
   ],
   [
    [
@@ -88,7 +88,7 @@
     "text"
    ],
    "The $(thing)Modular Router/$ has some flexibility over how it responds to redstone input, controlled by the top-right button:$(li)Default: always run, regardless of redstone signal$(li)Only run when there is $(italic)no/$ redstone signal$(li)Only run when there $(italic)is/$ a redstone signal$(li)Never run$(li)Run $(italic)once/$ when a redstone pulse is received (any signal higher than previously).",
-   "$(thing)模块化路由器/$对红石输入的响应方式具有一定灵活性，由右上角的按钮控制：$(li)默认：始终运行，不受红石信号影响$(li)仅在$(italic)没有/$红石信号时运行$(li)仅在$(italic)有/$红石信号时运行$(li)永不运行$(li)在接收到红石脉冲时仅运行$(italic)一次/$（任何高于先前强度的信号）。"
+   "$(thing)物品路由器/$对红石输入的响应方式具有一定灵活性，由右上角的按钮控制：$(li)默认：始终运行，不受红石信号影响$(li)仅在$(italic)没有/$红石信号时运行$(li)仅在$(italic)有/$红石信号时运行$(li)永不运行$(li)在接收到红石脉冲时仅运行$(italic)一次/$（任何高于先前强度的信号）。"
   ],
   [
    [

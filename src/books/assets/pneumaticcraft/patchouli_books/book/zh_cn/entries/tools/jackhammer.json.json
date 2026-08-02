@@ -16,7 +16,7 @@
     "text"
    ],
    "The $(item)Pneumatic Jackhammer/$ is a highly versatile mining tool, which can break all types of block equally effectively, using $(l:base_concepts/pressure)pressure/$ to do so. Its mining speed and air capacity can be upgraded in a $(l:machines/charging_station)Charging Station/$ with $(l:base_concepts/upgrades#speed)Speed Upgrades/$ and $(l:base_concepts/upgrades#volume)Volume Upgrades/$, respectively.",
-   "$(item)气动凿岩锤/$是一种用途极其广泛的采矿工具，能够借助$(l:base_concepts/pressure)气压/$高效地破坏所有类型的方块。它的挖掘速度和储气容量分别可以在$(l:machines/charging_station)充能站/$中使用$(l:base_concepts/upgrades#speed)速度升级/$和$(l:base_concepts/upgrades#volume)容量升级/$进行提升。"
+   "$(item)气动凿岩锤/$是一种用途极其广泛的采矿工具，能够借助$(l:base_concepts/pressure)气压/$高效地破坏所有类型的方块。它的挖掘速度和储气容量分别可以在$(l:machines/charging_station)充气站/$中使用$(l:base_concepts/upgrades#speed)速度升级/$和$(l:base_concepts/upgrades#volume)容量升级/$进行提升。"
   ],
   [
    [
