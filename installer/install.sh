@@ -597,10 +597,41 @@ do_apply() {
   say "✅ 汉化已应用（$n_copied 个文件）。备份在 backups/$TS/，如需回退运行: bash install.sh restore $TS"
 }
 
+# 实例里是否已经有拼音搜索 mod。mod id 取自我们随包 jar 的文件名首段
+# （jecharacters-1.21.1-neoforge-4.5.26.jar → jecharacters），不写死，
+# 换 jar 时不用改这里。
+#
+# 这不只是省一次按键：同一个 mod id 出现两个 jar，NeoForge 会以
+# 「Mod ID is duplicated」拒绝启动。装过的人按下 y 就进不去游戏了。
+PINYIN_FOUND=""
+pinyin_installed() {
+  PINYIN_FOUND=""
+  [ -d "$PINYIN_DIR" ] || return 1
+  [ -d "$TARGET/mods" ] || return 1
+  for j in "$PINYIN_DIR"/*.jar; do
+    [ -e "$j" ] || continue
+    id="$(basename "$j")"
+    id="$(printf '%s' "${id%%-*}" | tr 'A-Z' 'a-z')"
+    [ -n "$id" ] || continue
+    for m in "$TARGET"/mods/*.jar; do
+      [ -e "$m" ] || continue
+      mb="$(basename "$m")"
+      case "$(printf '%s' "$mb" | tr 'A-Z' 'a-z')" in
+        "$id"-*.jar|"$id".jar) PINYIN_FOUND="mods/$mb"; return 0 ;;
+      esac
+    done
+  done
+  return 1
+}
+
 # 可选 mods（JEI 拼音搜索）：装进实例 mods/，并登记进当前备份以便恢复时删除
 do_pinyin() {
   if [ ! -d "$PINYIN_DIR" ]; then
     say "（未找到 $PINYIN_DIR 目录，跳过可选mods）"
+    return
+  fi
+  if pinyin_installed; then
+    say "（已装有拼音搜索 mod：$PINYIN_FOUND，跳过——同一个 mod 装两个 jar 会让游戏起不来）"
     return
   fi
   found=0
@@ -683,12 +714,17 @@ case "${1:-}" in
     case "$c" in
       1)
         do_apply
-        printf '是否同时安装可选的 JEI 拼音搜索 mod？[y/N]: '
-        read -r ans || ans=""
-        case "$ans" in
-          y|Y) do_pinyin ;;
-          *)   say "（跳过可选mods，之后可运行: bash install.sh apply-with-pinyin）" ;;
-        esac
+        # 已经装过就别问了：每次更新汉化都要按一次 N 属实多余。
+        if pinyin_installed; then
+          say "（已装有拼音搜索 mod：$PINYIN_FOUND，无需重复安装）"
+        else
+          printf '是否同时安装可选的 JEI 拼音搜索 mod？[y/N]: '
+          read -r ans || ans=""
+          case "$ans" in
+            y|Y) do_pinyin ;;
+            *)   say "（跳过可选mods，之后可运行: bash install.sh apply-with-pinyin）" ;;
+          esac
+        fi
         ;;
       u|U) do_update ;;
       2) do_backup ;;

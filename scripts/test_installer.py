@@ -192,6 +192,41 @@ if pin_jars:
     assert f'mods/{jar}' in manifest, '拼音 mod 未登记进新增文件清单'
     run('restore', bk2.name)
     assert not (inst / 'mods' / jar).exists(), '恢复备份未删除拼音 mod'
+
+    # ---- 已装过拼音搜索：不再问、也不再装 ----
+    # 不只是省一次按键。同一个 mod id 出现两个 jar，NeoForge 报
+    # 「Mod ID is duplicated」直接拒绝启动——装过的人按下 y 就进不去游戏。
+    # 预置的这个故意换了大小写与版本号：识别必须按 mod id（文件名首段），
+    # 不能靠文件名全等。
+    planted = inst / 'mods' / 'JECharacters-1.21.1-neoforge-4.5.20.jar'
+    planted.write_text('OLD-JEC', encoding='utf-8')
+
+    def jec_jars():
+        return sorted(p.name for p in (inst / 'mods').glob('*.jar')
+                      if p.name.lower().startswith('jecharacters'))
+
+    run('apply-with-pinyin')
+    assert jec_jars() == [planted.name], \
+        f'已装拼音 mod 时不该再装一个：mods/ 里现在有 {jec_jars()}'
+    assert planted.read_text(encoding='utf-8') == 'OLD-JEC', '不该覆盖玩家已装的那个'
+
+    # 菜单路径：装过就不该再弹那句问话。
+    # 只喂一个「1」；若脚本仍在问，第二次读会拿到 EOF 并打印「跳过可选mods」，
+    # 以此把「没问」和「问了但没答」区分开。
+    if IS_WIN:
+        _cmd = ['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass',
+                '-File', str(rel / 'install.ps1')]
+    else:
+        _cmd = ['bash', str(rel / 'install.sh')]
+    _r = subprocess.run(_cmd, input='1\n', capture_output=True, text=True,
+                        encoding='utf-8', errors='replace')
+    print(_r.stdout)
+    assert _r.returncode == 0, f'菜单路径退出码 {_r.returncode}'
+    assert '已装有拼音搜索 mod' in _r.stdout, '装过了却没提示，说明检测没生效'
+    assert '跳过可选mods' not in _r.stdout, '装过了还在问'
+    assert jec_jars() == [planted.name], f'菜单路径又装了一个：{jec_jars()}'
+
+    planted.unlink()
 else:
     print('（仓库无可选mods jar，跳过拼音分支）')
 

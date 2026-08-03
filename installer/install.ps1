@@ -560,11 +560,40 @@ function Do-Apply {
     Write-Host "✅ 汉化已应用（$copied 个文件）。备份在 backups/$script:TS/，如需回退运行: .\install.ps1 restore $script:TS"
 }
 
+# 实例里是否已经有拼音搜索 mod。mod id 取自我们随包 jar 的文件名首段
+# （jecharacters-1.21.1-neoforge-4.5.26.jar → jecharacters），不写死，
+# 换 jar 时不用改这里。返回已装到的那个 jar 的相对路径，没有则返回 $null。
+#
+# 这不只是省一次按键：同一个 mod id 出现两个 jar，NeoForge 会以
+# 「Mod ID is duplicated」拒绝启动。装过的人按下 y 就进不去游戏了。
+function Get-InstalledPinyin {
+    $pinAbs = Join-Path $ScriptDir $PinyinDir
+    if (!(Test-Path -LiteralPath $pinAbs)) { return $null }
+    $modsDir = Join-Path $script:Target 'mods'
+    if (!(Test-Path -LiteralPath $modsDir)) { return $null }
+    $installed = Get-ChildItem -LiteralPath $modsDir -Filter '*.jar' -File -ErrorAction SilentlyContinue
+    if (!$installed) { return $null }
+    foreach ($j in (Get-ChildItem -LiteralPath $pinAbs -Filter '*.jar' -File)) {
+        $id = ($j.Name -split '-', 2)[0].ToLowerInvariant()
+        if (!$id) { continue }
+        foreach ($m in $installed) {
+            $mb = $m.Name.ToLowerInvariant()
+            if ($mb -eq "$id.jar" -or $mb.StartsWith("$id-")) { return "mods/$($m.Name)" }
+        }
+    }
+    return $null
+}
+
 # 可选 mods（JEI 拼音搜索）：装进实例 mods/，并登记进当前备份以便恢复时删除
 function Do-Pinyin {
     $pinAbs = Join-Path $ScriptDir $PinyinDir
     if (!(Test-Path -LiteralPath $pinAbs)) {
         Write-Host "（未找到 $PinyinDir 目录，跳过可选mods）"
+        return
+    }
+    $already = Get-InstalledPinyin
+    if ($already) {
+        Write-Host "（已装有拼音搜索 mod：$already，跳过——同一个 mod 装两个 jar 会让游戏起不来）"
         return
     }
     $jars = Get-ChildItem -LiteralPath $pinAbs -Filter '*.jar' -File
@@ -649,9 +678,15 @@ switch ($Action) {
         switch ($c) {
             '1' {
                 Do-Apply
-                $ans = Read-Host '是否同时安装可选的 JEI 拼音搜索 mod？[y/N]'
-                if ($ans -eq 'y' -or $ans -eq 'Y') { Do-Pinyin }
-                else { Write-Host '（跳过可选mods，之后可运行: .\install.ps1 apply-with-pinyin）' }
+                # 已经装过就别问了：每次更新汉化都要按一次 N 属实多余。
+                $already = Get-InstalledPinyin
+                if ($already) {
+                    Write-Host "（已装有拼音搜索 mod：$already，无需重复安装）"
+                } else {
+                    $ans = Read-Host '是否同时安装可选的 JEI 拼音搜索 mod？[y/N]'
+                    if ($ans -eq 'y' -or $ans -eq 'Y') { Do-Pinyin }
+                    else { Write-Host '（跳过可选mods，之后可运行: .\install.ps1 apply-with-pinyin）' }
+                }
             }
             'u' { Invoke-OneClickUpdate }
             '2' { Do-Backup }
