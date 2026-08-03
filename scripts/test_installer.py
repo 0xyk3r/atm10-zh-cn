@@ -27,6 +27,22 @@ TREE = Path(sys.argv[1]) if len(sys.argv) > 1 else COMMON
 if not TREE.is_dir():
     sys.exit('❌ 出货树不存在: %s\n'
              '   先跑: python3 scripts/assemble.py && ./scripts/generate_all.sh' % TREE)
+# ── 静态闸：`$var` 后面紧跟中文 ──────────────────────────────────────────
+# bash 在单字节语言环境（CI 容器常见 LANG=C，macOS 自带的 3.2 也一样）会把 UTF-8
+# 的头字节吃进标识符，`$name……` 变成 `$nameâ`，配上 set -u 就是 unbound variable。
+# install.sh 里为此写了一条注释，但没有闸，于是又踩了一次——补上。
+# 这条只能静态查：那两句提示平时走不到，端到端测试跑不出来。
+_BAD_VAR = re.compile(r'\$[A-Za-z_][A-Za-z0-9_]*[^\x00-\x7f]')
+_offenders = [
+    (n, line.strip())
+    for n, line in enumerate((ROOT / 'installer' / 'install.sh')
+                             .read_text(encoding='utf-8').split('\n'), 1)
+    if _BAD_VAR.search(line) and not line.lstrip().startswith('#')
+]
+if _offenders:
+    sys.exit('❌ install.sh 里有 %d 处 `$变量` 紧跟非 ASCII 字符，必须写成 ${变量}：\n%s'
+             % (len(_offenders), '\n'.join('   %4d  %s' % o for o in _offenders)))
+
 # 安装器源码里跟整合包版本有关的字样全是 @@MCVER@@ 占位，由 build_dist.sh 现填。
 # 测试也照同一条路径填一遍——测的必须是玩家真正拿到的那份脚本，不是模板。
 MCVER = sorted((d.name for d in (ROOT / 'versions').iterdir()

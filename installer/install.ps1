@@ -593,7 +593,7 @@ function Do-Pinyin {
     }
     $already = Get-InstalledPinyin
     if ($already) {
-        Write-Host "（已装有拼音搜索 mod：$already，跳过——同一个 mod 装两个 jar 会让游戏起不来）"
+        Write-Host "（已装有拼音搜索 mod：${already}，跳过——同一个 mod 装两个 jar 会让游戏起不来）"
         return
     }
     $jars = Get-ChildItem -LiteralPath $pinAbs -Filter '*.jar' -File
@@ -681,7 +681,7 @@ switch ($Action) {
                 # 已经装过就别问了：每次更新汉化都要按一次 N 属实多余。
                 $already = Get-InstalledPinyin
                 if ($already) {
-                    Write-Host "（已装有拼音搜索 mod：$already，无需重复安装）"
+                    Write-Host "（已装有拼音搜索 mod：${already}，无需重复安装）"
                 } else {
                     $ans = Read-Host '是否同时安装可选的 JEI 拼音搜索 mod？[y/N]'
                     if ($ans -eq 'y' -or $ans -eq 'Y') { Do-Pinyin }

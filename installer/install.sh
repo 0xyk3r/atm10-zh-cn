@@ -631,7 +631,7 @@ do_pinyin() {
     return
   fi
   if pinyin_installed; then
-    say "（已装有拼音搜索 mod：$PINYIN_FOUND，跳过——同一个 mod 装两个 jar 会让游戏起不来）"
+    say "（已装有拼音搜索 mod：${PINYIN_FOUND}，跳过——同一个 mod 装两个 jar 会让游戏起不来）"
     return
   fi
   found=0
@@ -716,7 +716,7 @@ case "${1:-}" in
         do_apply
         # 已经装过就别问了：每次更新汉化都要按一次 N 属实多余。
         if pinyin_installed; then
-          say "（已装有拼音搜索 mod：$PINYIN_FOUND，无需重复安装）"
+          say "（已装有拼音搜索 mod：${PINYIN_FOUND}，无需重复安装）"
         else
           printf '是否同时安装可选的 JEI 拼音搜索 mod？[y/N]: '
           read -r ans || ans=""
