@@ -687,9 +687,28 @@ if not IS_WIN:                       # install.sh 只跑在 macOS / Linux
     assert not (instd3 / 'vaultpatcher').exists(), f'关了更新检查却还是动了实例：\n{out3}'
     assert not list(instd3.glob('.atm10-hanhua-update-*')), f'关了更新检查却还是下载了：\n{out3}'
 
+    # ④ 回归：菜单里得真的**列出** [u]，否则一键更新等于不存在
+    #
+    # 上面三条都是直接 `install.sh update`，绕过了菜单，所以谁都没发现：
+    # check_update 里写的是 latest="$(latest_tag)"，命令替换开子 shell，
+    # fetch_latest_release 在子 shell 里给 LATEST_TAG 的赋值回不到父进程 →
+    # 菜单那行 `has_update && say " [u] …"` 永远为假。警告文案照常打印
+    # （它用的是子 shell 的 stdout），所以从提示上看不出任何异常。
+    # 玩家反馈：提示「你装的不是最新版本」，菜单里却只有 [1][2][3][q]。
+    instd4, srcd4 = make_case('menu')
+    r = subprocess.run(['bash', str(srcd4 / 'install.sh')], input='q\n',
+                       capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', timeout=300, env=UPD_ENV)
+    out4 = (r.stdout or '') + (r.stderr or '')
+    assert r.returncode == 0, f'菜单退出码 {r.returncode}：\n{out4}'
+    assert '你装的不是最新版本' in out4, f'版本检查没提示新版本：\n{out4}'
+    assert '[u] 一键下载并更新到 vr99' in out4, \
+        f'有新版本，菜单里却没有 [u] 那一行——一键更新对玩家不存在：\n{out4}'
+    assert not (instd4 / 'vaultpatcher').exists(), f'只看菜单却动了实例：\n{out4}'
+
     httpd.shutdown()
     print('✅ 一键更新端到端：下载→校验→解包→子安装器→归并备份→换源目录 OK'
-          '（含摘要不符拒绝、ATM_SKIP_UPDATE_CHECK 关闭）')
+          '（含摘要不符拒绝、ATM_SKIP_UPDATE_CHECK 关闭、菜单列出 [u]）')
 
 # ── 覆盖安装：真的覆盖到了吗 ────────────────────────────────────────────
 #

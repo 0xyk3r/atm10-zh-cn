@@ -56,6 +56,10 @@ fetch_latest_release() {
   return 0
 }
 
+# ⚠️ 这个函数只能拿它的**输出**，不能靠它给 LATEST_TAG / RELEASE_JSON 赋值：
+# 调用方一写成 `x="$(latest_tag)"`，命令替换就开了子 shell，里面的赋值回不到父进程。
+# check_update 曾经这么用，结果菜单里的 [u] 一键更新从 vr12 起就没显示过。
+# 需要那两个全局变量的地方，直接调 fetch_latest_release。
 latest_tag() {
   fetch_latest_release
   [ -n "$LATEST_TAG" ] && printf '%s' "$LATEST_TAG"
@@ -70,7 +74,10 @@ check_update() {
   is_beta=0
   case "$PATCH_VER" in *[Bb][Ee][Tt][Aa]*|*[Rr][Cc][0-9]*|dev|DEV) is_beta=1 ;; esac
 
-  latest="$(latest_tag || true)"
+  # 直接调，不要写成 latest="$(latest_tag)"：命令替换开子 shell，
+  # LATEST_TAG 赋不到父进程，随后菜单里的 has_update 就永远为假。
+  fetch_latest_release
+  latest="$LATEST_TAG"
   if [ "$is_beta" = "1" ]; then
     say ""
     say "⚠️ 你装的是**测试版**：$PATCH_VER"
