@@ -222,8 +222,24 @@ jobs:
           fi
           echo "发版说明取自 CHANGELOG 的 $FROM"
 
+          # 发版说明最前面固定顶两行警告。这两件事是支持成本最高的来源：
+          # 一是把 server 包当客户端下，二是装完没把资源包挪到「已选」最顶部——
+          # 后者会让大部分汉化不生效，看上去就像我们没翻。两者都发生在**下载那一刻**，
+          # 游戏内提示救不了：服务端包里根本没有 kubejs/client_scripts。
+          # 例子里的整合包版本按 versions/ 现取，不写死，出 7.4 时不必记得改这里。
+          EX_MC=$(ls -d versions/[0-9]* | xargs -n1 basename | sort -V | tail -1)
           {
             echo 'notes<<RELEASE_NOTES_EOF'
+            printf '%s\n' \
+              '> ## ⚠️ 下载前先看这两行' \
+              '>' \
+              '> **① 认文件名：带 `client` 的是玩家装的，带 `server` 的只有开服的人才需要。**' \
+              "> 例如 \`atm10-zh_cn-client-${RELEASE_VERSION}-atm${EX_MC}.zip\` 就是客户端的包。" \
+              "> 后面的 \`atm${EX_MC}\` 是**整合包版本**，按你自己那个整合包的版本挑。" \
+              '>' \
+              '> **② 装完进游戏检查：选项 → 资源包，汉化包必须在「已选」那一侧的最顶部**，' \
+              '> 否则大部分汉化都不会生效。' \
+              ''
             echo "$NOTES"
             echo 'RELEASE_NOTES_EOF'
           } >> "$GITHUB_OUTPUT"
