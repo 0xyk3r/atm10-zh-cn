@@ -95,6 +95,10 @@ python3 scripts/check.py "$TREE"
 # 「进游戏什么都没发生」——vr16 的更新提示就是这么发出去的，加载阶段还全绿。
 # 拿**目标版本 kubejs jar 里的那张表**现查，不在仓库里存副本。
 python3 scripts/compliance/check_kubejs_classfilter.py "${ATM_PACK_ROOT:-pack}/mods" "$TREE"
+# 资源包生效自检拿脚本里写的键名与版本号去查语言表。这条链子上任何一环对不上，
+# 后果都是给配置完全正常的玩家每次进游戏弹一次红字——比不做这个功能还糟。
+# 四种对不上（文件缺失／键名不一致／值不一致／命名空间不一致）全部静态可判定。
+python3 scripts/compliance/check_pack_probe.py "$TREE"
 # Iron Jetpacks 的等级名（振金/难得素/创造…）不在 lang 里，在整合包 config 里；
 # lang 缺 `jetpack.<name>.name` 就静默回退成英文，跟翻好了完全无法区分。
 # 档位清单随整合包版本变，拿该版官方 config 现查，不手写死在仓库里。

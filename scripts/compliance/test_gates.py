@@ -740,6 +740,88 @@ def _m32(tmp, tree):
     return rc != 0 and 'comb_configurable' in out
 
 
+# ── 第八组反例：资源包生效自检的探针 ─────────────────────────────────────
+#
+# 这道闸守的是一个**会伤到正常用户**的功能：`hanhua_pack_check.js` 查不到探针键
+# 就告诉玩家「你没启用汉化资源包」。所以只要脚本与资源包对不上——文件放错、键名
+# 只改了一边、版本号没被同一次替换填上——所有配置完全正常的玩家都会每次进游戏
+# 被弹一次红字，比不做这个功能还糟。这几种对不上全是静态可判定的。
+#
+# 夹具是现造的最小出货树：一份脚本 + 一份探针 lang，别的什么都没有。
+def _probe_fixture(tmp, consts, lang, ns_dir=None, drop_lang=False):
+    tree = tmp / 'probetree'
+    d = tree / 'kubejs' / 'client_scripts'
+    d.mkdir(parents=True, exist_ok=True)
+    (d / 'hanhua_pack_check.js').write_text(
+        '(function () {\n'
+        + ''.join("  const %s = '%s'\n" % kv for kv in consts.items())
+        + '})()\n', encoding='utf-8')
+    if not drop_lang:
+        ld = (tree / 'resourcepacks' / 'ATM10汉化包' / 'assets'
+              / (ns_dir or consts['PROBE_NAMESPACE']) / 'lang')
+        ld.mkdir(parents=True, exist_ok=True)
+        (ld / 'zh_cn.json').write_text(json.dumps(lang, ensure_ascii=False),
+                                       encoding='utf-8')
+    return tree
+
+
+def _probe_run(tmp, tree):
+    r = subprocess.run([sys.executable,
+                        str(tmp / 'scripts' / 'compliance' / 'check_pack_probe.py'),
+                        str(tree)],
+                       capture_output=True, text=True, cwd=tmp)
+    return r.returncode, r.stdout + r.stderr
+
+
+_PROBE_OK = {'PROBE_KEY': 'atm10zhcn.pack.version',
+             'PROBE_NAMESPACE': 'atm10zhcn',
+             'PACK_VERSION': 'r19'}
+
+
+@missing_case('探针键名与值都跟脚本对得上 → 必须绿（证明这道闸不是一律红）')
+def _m33(tmp, tree):
+    t = _probe_fixture(tmp, _PROBE_OK, {'atm10zhcn.pack.version': 'r19'})
+    rc, out = _probe_run(tmp, t)
+    return rc == 0 and 'atm10zhcn.pack.version' in out
+
+
+@missing_case('资源包里根本没有探针 lang → 必须红')
+def _m34(tmp, tree):
+    t = _probe_fixture(tmp, _PROBE_OK, {}, drop_lang=True)
+    rc, out = _probe_run(tmp, t)
+    return rc != 0 and '缺少探针文件' in out
+
+
+@missing_case('探针键名与脚本里的 PROBE_KEY 不一致 → 必须红')
+def _m35(tmp, tree):
+    t = _probe_fixture(tmp, _PROBE_OK, {'atm10zhcn.pack.ver': 'r19'})
+    rc, out = _probe_run(tmp, t)
+    return rc != 0 and '没有键' in out
+
+
+@missing_case('探针值与脚本里的 PACK_VERSION 不一致 → 必须红（否则误报旧包）')
+def _m36(tmp, tree):
+    t = _probe_fixture(tmp, _PROBE_OK, {'atm10zhcn.pack.version': 'r18'})
+    rc, out = _probe_run(tmp, t)
+    return rc != 0 and '与脚本对不上' in out
+
+
+@missing_case('版本号还是 @@PATCHVER@@ → 必须红，不许把占位符发出去')
+def _m37(tmp, tree):
+    consts = dict(_PROBE_OK, PACK_VERSION='@@PATCHVER@@')
+    t = _probe_fixture(tmp, consts, {'atm10zhcn.pack.version': '@@PATCHVER@@'})
+    rc, out = _probe_run(tmp, t)
+    return rc != 0 and '还是占位符' in out
+
+
+@missing_case('lang 放到了别的命名空间目录下 → 必须红（顺序自检会认不出自己）')
+def _m38(tmp, tree):
+    t = _probe_fixture(tmp, _PROBE_OK, {'atm10zhcn.pack.version': 'r19'},
+                       ns_dir='atm10hanhua')
+    rc, out = _probe_run(tmp, t)
+    return rc != 0 and '缺少探针文件' in out
+
+
 def run_missing(name, fn):
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
