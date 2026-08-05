@@ -7,6 +7,21 @@
 	quest.00AC7CC291A3E590.title: "&3雷击炸弹"
 	quest.00C26068B55F4FD9.quest_desc: ["沉默符文对刷怪笼只干一件事：让它闭嘴。受不了刷怪笼那个吵人的声响？那就用沉默符文。"]
 	quest.00C26068B55F4FD9.title: "小点声，会把怪吵醒的！"
+	quest.00F00B0B66059996.quest_desc: [
+		"好了，又是一个&l多方块结构&r！这个结构需要的接口比任何海军基地见过的都多！\\n\\n我们需要&3流体输入&f和&3输出&r舱口，以及&6物品输入&f和&6输出&r舱口。\\n\\n现在，这个过程有点复杂，请仔细跟着做！\\n\\n首先，我们需要&7未精炼的液态灵魂&r，这可以通过对灵魂树使用流体提取器（来自&lIF&r）获得。\\n\\n接下来，我们需要&d液化源质&r，这可以通过&9源质凝聚器&r获得。&9源质凝聚器&r会从附近的源质罐中提取源质，并将其转化为&d液化源质&r！\\n\\n然后，我们可以使用&b&l符文坩埚&r将灵魂、&7未精炼的液态灵魂&r和&d液化源质&r合成为液态灵魂！\\n\\n最后，我们将使用液态灵魂、&d液化源质&r以及一些来自&l&5通用机械&r的物品来合成&5黑曜石钢&r。"
+		"{@pagebreak}"
+		"{image:atm:textures/questpics/chap3/creative_crucible1.png width:125 height:100 align:center}"
+		"&l&b符文坩埚&r的第一层中央是一个&6镀金錾制磨制暗黑石&r，周围是&9磨制暗黑石&r。然后，在侧面放置倒置的&9磨制暗黑石楼梯&r，角落处放置&7符文块&r。"
+		"{image:atm:textures/questpics/chap3/creative_crucible2.png width:125 height:100 align:center}"
+		"正中央放置一个&b神秘水晶&r，周围是&9磨制暗黑石楼梯&r。侧面将是&6神秘磨制暗黑石柱&r、将被舱口替换的&9磨制暗黑石&r，以及&6神秘磨制暗黑石&r。"
+		"{image:atm:textures/questpics/chap3/creative_crucible3.png width:125 height:100 align:center}"
+		"只需在每个角落放置&b神秘水晶块&r，今天就大功告成了！"
+		"{image:atm:textures/questpics/chap3/creative_crucible4.png width:125 height:100 align:center}"
+		"最后，在中央&b神秘水晶块&r上方一格处放置&7量子注入器&r。"
+		"{image:atm:textures/questpics/chap3/creative_crucible5.png width:150 height:100 align:center}"
+		"{image:atm:textures/questpics/chap3/creative_crucible6.png width:150 height:100 align:center}"
+		"中间层的&9磨制暗黑石块&r是放置我们舱口的地方！"
+	]
 	quest.00FDBA93722ACECE.title: "&4绯夜脂锄"
 	quest.011FCC180FF3BD83.title: "&9瘴紫石剑"
 	quest.0152938EE5651409.quest_desc: ["此任务由 &6AllTheMods 团队&r 或 &2社区贡献者&r 为 AllTheMods 整合包创作。\\n\\n由于所有 &6AllTheMods&r 整合包均受 &e保留所有权利&r 许可证保护，因此此任务未经 &6AllTheMods 团队&r 明确许可，不得用于任何非 AllTheMods 团队发布的公共整合包。\\n\\n此任务默认隐藏，如果你看到此任务，说明你正处于编辑模式。"]
