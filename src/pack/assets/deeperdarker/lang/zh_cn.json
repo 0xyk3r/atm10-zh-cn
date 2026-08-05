@@ -370,8 +370,8 @@
   "tooltips.deeperdarker.sculk_transmitter.location": "位于 %s, %s, %s",
   "upgrade.deeperdarker.resonarium_upgrade": "谐振升级套件",
   "tooltips.deeperdarker.sculk_transmitter.location_level": "维度：%s",
-  "block.deeperdarker.bloom_wall_hanging_sign": "绽放墙上悬挂告示牌",
-  "block.deeperdarker.bloom_wall_sign": "绽放墙上告示牌",
-  "block.deeperdarker.echo_wall_hanging_sign": "回响墙上悬挂告示牌",
-  "block.deeperdarker.echo_wall_sign": "回响墙上告示牌"
+  "block.deeperdarker.bloom_wall_hanging_sign": "墙上的悬挂式繁花木告示牌",
+  "block.deeperdarker.bloom_wall_sign": "墙上的繁花木告示牌",
+  "block.deeperdarker.echo_wall_hanging_sign": "墙上的悬挂式回响木告示牌",
+  "block.deeperdarker.echo_wall_sign": "墙上的回响木告示牌"
 }
