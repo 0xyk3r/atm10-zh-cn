@@ -26,11 +26,11 @@ jobs:
       # 别改回浅克隆：fetch-depth: 2 只够「一次 push 一笔」——一次推三笔时
       # github.event.before 就落在克隆之外，PR 的 base.sha 更是随便就在几十笔前。
       # 那条闸取不到 base 现在会红（见 protect.py 的 base_rev），浅克隆等于直接挂 CI。
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -75,7 +75,7 @@ jobs:
       # 这一步是为了把 CurseForge（全链唯一不可控的外部依赖）从最高频的那道闸上挪开：
       # 命中缓存就完全不联网；未命中才下，且下完必须与 versions/<版本>/overrides.sha256
       # 对得上，否则构建当场红。
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: build/packsrc
           key: packsrc-${{ hashFiles('versions/*/overrides.sha256') }}

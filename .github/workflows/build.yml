@@ -63,7 +63,7 @@ jobs:
 
       # 要完整历史：下面那道保护清单闸得跟 HEAD~1 比「清单有没有变短」，
       # checkout 的默认 depth 是 1，HEAD~1 根本不在克隆里。
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -106,7 +106,7 @@ jobs:
       # 这一步是为了把 CurseForge（全链唯一不可控的外部依赖）从最高频的那道闸上挪开：
       # 命中缓存就完全不联网；未命中才下，且下完必须与 versions/<版本>/overrides.sha256
       # 对得上，否则构建当场红。
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: build/packsrc
           key: packsrc-${{ hashFiles('versions/*/overrides.sha256') }}
@@ -165,7 +165,7 @@ jobs:
           # 不加 || true：这个脚本自己永远返回 0，真报错就是它坏了，那要红。
           python3 scripts/check_en_drift.py "$PREV" "$NEWEST"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: env.NEW_VERSION == '1'
         with:
           name: new-version-baseline-${{ env.NEWEST }}
@@ -201,7 +201,7 @@ jobs:
       - name: 打包全部版本
         run: ./scripts/build_dist.sh "${{ github.event.inputs.patch_version || 'dev' }}" "${{ steps.t.outputs.list }}"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: atm10-zh_cn-${{ github.event.inputs.patch_version || 'dev' }}
           path: dist/*.zip

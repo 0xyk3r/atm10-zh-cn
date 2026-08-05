@@ -46,7 +46,7 @@ jobs:
       # 不许打一行 ℹ️ 就放过去——发版比日常构建更不该有 fail-open。
       GATE_STRICT: '1'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       # 校验挪进 build_dist.sh 了：check.py 查的是**出货树**，而出货树是构建时才有的，
       # 而且每个整合包版本各查一遍（上游文件按版本不同）。
@@ -135,7 +135,7 @@ jobs:
       # 这一步是为了把 CurseForge（全链唯一不可控的外部依赖）从最高频的那道闸上挪开：
       # 命中缓存就完全不联网；未命中才下，且下完必须与 versions/<版本>/overrides.sha256
       # 对得上，否则构建当场红。
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: build/packsrc
           key: packsrc-${{ hashFiles('versions/*/overrides.sha256') }}
