@@ -397,7 +397,6 @@
 		"雪怪这个名字让所有探索严寒之地的人闻风丧胆！它是一种可怕的毛茸茸生物，生活在最严酷、最寒冷的气候中，吞噬任何敢于闯入那里的东西！\\n\\n好吧，不是这个雪怪，这些家伙可爱又友好！它们宁愿打滚也不愿吃掉你。\\n\\n见鬼，它们甚至不会反击，而且只有10颗心的生命值。\\n\\n死亡时，它们会掉落皮毛和线，前者可以作为羊毛的替代品。"
 		"{image:atm:textures/questpics/eternal/starlight_yeti.png width:100 height:100 align:center}"
 	]
-	quest.1AD87CB3226ED224.quest_desc: ["羊毛对刷怪笼只有一个作用：让它闭嘴。不想再听那烦人的刷怪笼噪音了？那就用羊毛吧！颜色无所谓，纱支无所谓，花纹也无所谓！"]
 	quest.1AFCA421A6A50DA4.quest_desc: ["&a流璃升级模板&r同样刷在 Boss 结构里：&9诅咒花园&r和&b傀儡锻造厂&r。\\n\\n把&a流璃&f和&a升级模板&f用在&b永冻石&f装备上，就能做出&a流璃武器&r。"]
 	quest.1AFCA421A6A50DA4.title: "&a流璃锻造模板"
 	quest.1B79F794EDAA810A.quest_subtitle: "造蜂宝宝 2：蜂力加强版"
