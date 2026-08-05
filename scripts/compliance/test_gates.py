@@ -571,6 +571,13 @@ def _m18(tmp, tree):
 #
 # 这一组保的是**反向**风险：处理得太狠，把两侧都是 ASCII 的空格也删掉，
 # 那会毁掉键名行、SNBT 结构和英文词组本身。
+#
+# 「空格挨着中文就删」这条也划错了，而且是**我们自己造的**伤：成对符号只要有一侧
+# 挨着中文就被吃掉半边，`原油&r -> 硫酸轻燃油` 变成 `原油&r-> 硫酸轻燃油`、
+# `9 粒 → 1 锭` 变成 `9粒→ 1锭`。对抗审计在 2290 个删除点里分出 460 个箭头、
+# 293 个短横、73 个序号。病根是 `&#RRGGBB` 不在当时的颜色码正则里，于是箭头右边
+# 隔着色码看不出是中文。现在的判据是「两侧都得是词，且至少一侧是中文」，外加序号
+# 与命令两条例外。下面 _m25/_m26 就是钉这一版的。
 def _space(src):
     import importlib.util
     spec = importlib.util.spec_from_file_location(
@@ -611,6 +618,29 @@ def _m24(tmp, tree):
     return (_space('Just Enough Items is a mod') == 'Just Enough Items is a mod'
             and _space('\t{ id: "0123", type: "item" }') == '\t{ id: "0123", type: "item" }'
             and _space('quest.ABC.quest_desc: ["中文"]') == 'quest.ABC.quest_desc: ["中文"]')
+
+
+@missing_case('成对符号两侧的空格不许单边吃掉（&#RRGGBB 也算颜色码）')
+def _m25(tmp, tree):
+    # 头一版真造出来的伤，逐条钉死：箭头、运算符、列表短横、等号
+    return (_space('&8原油&r -> &#D2CD2D硫酸轻燃油')
+            == '&8原油&r -> &#D2CD2D硫酸轻燃油'
+            and _space('9 粒 → 1 锭') == '9粒 → 1锭'
+            and _space('按 Shift + 左键') == '按Shift + 左键'
+            and _space('&7铝棒&r - 10') == '&7铝棒&r - 10'
+            and _space('干尸 - 生成于沙漠') == '干尸 - 生成于沙漠'
+            and _space('20刻 = 1秒') == '20刻 = 1秒'
+            and _space('&a第一章&r: &b开端') == '&a第一章&r: &b开端')
+
+
+@missing_case('列表序号与命令串两侧的空格要留（删了会粘成一坨）')
+def _m26(tmp, tree):
+    return (_space('1. 放在副手 2. 必须') == '1. 放在副手 2. 必须'
+            and _space('输入 /kubejs hand 来查找') == '输入 /kubejs hand 来查找'
+            # 小数不是序号：`0.5%` 的空格照删
+            and _space('额外获得 0.5% 的概率') == '额外获得0.5%的概率'
+            # 词中间的斜杠不是命令：`25MFE/t` 不许因此保住整句的空格
+            and _space('输出 25MFE/t 的能量') == '输出25MFE/t的能量')
 
 
 @missing_case('键名、颜色码、\\n 转义一个字节都不许动')

@@ -34,7 +34,7 @@
     "text"
    ],
    "When installed in a hive, the BaBee upgrade will give a small chance for the bees living inside the hive to breed and produce new offspring without your involvement. Note that bees which can't breed normally do not work with this upgrade. $(br)When installed in a $(l:blocks/catcher)catcher$(/l), only BaBees will be caught and put in cages.",
-   "安装在蜂箱中时，升级：繁殖会让居住在蜂箱内的蜜蜂有小概率自行繁殖并产生新的后代，无需你的参与。请注意，原本无法正常繁殖的蜜蜂无法使用此升级。$(br)安装在$(l:blocks/catcher)捕捉器$(/l)中时，则只会捕捉 BaBee 并将其装入蜂笼。"
+   "安装在蜂箱中时，升级：幼年蜂会让居住在蜂箱内的蜜蜂有小概率自行繁殖并产生新的后代，无需你的参与。请注意，原本无法正常繁殖的蜜蜂无法使用此升级。$(br)安装在$(l:blocks/catcher)捕捉器$(/l)中时，则只会捕捉幼年蜂并将其装入蜂笼。"
   ],
   [
    [
@@ -43,7 +43,7 @@
     "text"
    ],
    "When installed in a hive, the productivity upgrade will increase the number of combs a bee produces per trip. Multiple productivity upgrades can be installed.",
-   "安装在蜂箱中后，产量升级会提高蜜蜂每次外出产出的蜜脾数量。可以安装多个产量升级。"
+   "安装在蜂箱中后，升级：产量会提高蜜蜂每次外出产出的蜜脾数量。该升级可安装多个。"
   ],
   [
    [
@@ -52,7 +52,7 @@
     "text"
    ],
    "When installed in a hive, the Speed upgrade will decrease the time a bee spends inside the hive. $(br)When installed in a $(l:blocks/centrifuge)centrifuge$(/l) or an $(l:blocks/incubator)incubator$(/l), it will increase the operation speed",
-   "安装在蜂箱中时，速度升级会减少蜜蜂待在蜂箱内的时间。$(br)安装在$(l:blocks/centrifuge)离心机$(/l)或$(l:blocks/incubator)孵化器$(/l)中时，则会提高运行速度"
+   "安装在蜂箱中时，升级：速度会减少蜜蜂待在蜂箱内的时间。$(br)安装在$(l:blocks/centrifuge)离心机$(/l)或$(l:blocks/incubator)孵化器$(/l)中时，则会提高运行速度"
   ],
   [
    [
@@ -70,7 +70,7 @@
     "text"
    ],
    "When installed in a hive, the operating range of Farmer and Collector/Hoarder bees is increased by 1 per upgrade, from default 4. When installed in a catcher, the Range upgrade will expand the area of operation by 1 block in all directions. Multiple range upgrades can be installed.",
-   "安装在蜂箱中时，农夫蜜蜂和收集者/囤积者蜜蜂的工作范围每个升级增加 1 格，默认范围为 4 格。安装在捕捉器中时，范围升级会将工作区域向所有方向各扩大 1 格。可以安装多个范围升级。"
+   "安装在蜂箱中时，农夫蜜蜂和收集者/囤积者蜜蜂的工作范围每个升级增加 1 格，默认范围为 4 格。安装在捕捉器中时，升级：范围会将工作区域向所有方向各扩大 1 格。该升级可安装多个。"
   ],
   [
    [

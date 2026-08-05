@@ -115,9 +115,14 @@
       hit = false
       try {
         res = list[i].open()
-        namespaces = res.getNamespaces(PackTypeClass.CLIENT_RESOURCES)
-        hit = namespaces.contains(PROBE_NAMESPACE)
-        res.close()
+        // close() 放 finally：open() 成功之后任何一步抛异常，句柄都得还回去，
+        // 否则这个循环会在五百多个包上漏一串没关的 zip
+        try {
+          namespaces = res.getNamespaces(PackTypeClass.CLIENT_RESOURCES)
+          hit = namespaces.contains(PROBE_NAMESPACE)
+        } finally {
+          res.close()
+        }
       } catch (err) {
         hit = false
       }
@@ -138,15 +143,18 @@
       hit = false
       try {
         res = pack.open()
-        namespaces = res.getNamespaces(PackTypeClass.CLIENT_RESOURCES).toArray()
-        for (j = 0; j < namespaces.length && !hit; j++) {
-          ns = String(namespaces[j])
-          if (res.getResource(PackTypeClass.CLIENT_RESOURCES,
-                              LocClass.fromNamespaceAndPath(ns, LANG_PATH)) !== null) {
-            hit = true
+        try {
+          namespaces = res.getNamespaces(PackTypeClass.CLIENT_RESOURCES).toArray()
+          for (j = 0; j < namespaces.length && !hit; j++) {
+            ns = String(namespaces[j])
+            if (res.getResource(PackTypeClass.CLIENT_RESOURCES,
+                                LocClass.fromNamespaceAndPath(ns, LANG_PATH)) !== null) {
+              hit = true
+            }
           }
+        } finally {
+          res.close()
         }
-        res.close()
       } catch (err) {
         say('顺序自检：读不动 ' + pack.getId() + '，跳过它（' + err + '）')
         hit = false
