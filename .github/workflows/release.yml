@@ -271,10 +271,12 @@ jobs:
 
       - name: Publish GitHub release
         if: steps.release.outputs.publish == 'true'
-        # 钉完整 commit SHA：这一步握着 contents:write，用可移动的 @v2 意味着
+        # 钉完整 commit SHA：这一步握着 contents:write，用可移动的 @v3 意味着
         # 标签被挪动或上游被入侵时，写权限直接易主。（issue #9 P1-6）
-        # 对应 softprops/action-gh-release 的 v2 标签（2026-08-01 解析）。
-        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
+        # 对应 softprops/action-gh-release 的 v3.0.2（2026-08-06 解析）。
+        # 从 v2.6.2 换上来只为跟上 node24——两版 action.yml 逐行 diff **只差
+        # `using: node20` → `node24` 这一行**，输入项一字未改，是纯换运行时。
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3.0.2
         with:
           tag_name: v${{ steps.release.outputs.version }}
           name: 绿油油版汉化 v${{ steps.release.outputs.version }}
@@ -282,3 +284,49 @@ jobs:
           prerelease: ${{ steps.release.outputs.beta }}
           files: ${{ steps.publish.outputs.files }}
           fail_on_unmatched_files: true
+
+      # 发版这一步的可核对数字摊在 run 摘要页上：挂了哪几个包、多大、sha256，
+      # 以及发版说明取自 CHANGELOG 的哪一段。
+      #
+      # 这里比 build.yml 那份更要紧：发版是**不可回退**的动作，tag 一推、包一挂，
+      # 就已经在别人的下载列表里了。「说明取自哪一段」尤其要能一眼看到——
+      # 历史上出过拿旧段落当新版说明发出去（`## 7.*` 当正则匹配上 `## 7.2`）。
+      #
+      # 整块兜底：算不出数只是没得看，绝不能把已经发出去的版本判红。
+      - name: 作业摘要
+        if: always()
+        # **一律走 env，不把 ${{ }} 内联进 run 的脚本体**：发版说明取自 CHANGELOG，
+        # 那是仓库内容，内联等于把它交给 shell 解析（反引号、$(...) 都会执行）。
+        # 走环境变量则永远是数据。同理也就不必用 heredoc——终止符缩进错了不闭合，
+        # 而且正文里真出现一行 EOF 标记就会截断。
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+          PUBLISH: ${{ steps.release.outputs.publish }}
+          BETA: ${{ steps.release.outputs.beta }}
+          NOTES: ${{ steps.publish.outputs.notes }}
+        run: |
+          {
+            printf '## 发版 v%s\n\n' "$VERSION"
+            echo '| | |'
+            echo '|---|---|'
+            if [ "$PUBLISH" = 'true' ]; then
+              echo '| 是否真的发布 | 是 |'
+            else
+              echo '| 是否真的发布 | 否（只构建，没推 release）|'
+            fi
+            printf '| 预发布 | %s |\n' "$BETA"
+            printf '| 整合包版本 | %s |\n' \
+              "$(ls -d versions/[0-9]* 2>/dev/null | xargs -n1 basename | tr '\n' ' ')"
+            printf '\n### 挂载的包\n\n| 文件 | 大小 | sha256 |\n|---|--:|---|\n'
+            for f in dist/*.zip; do
+              [ -f "$f" ] || continue
+              printf '| `%s` | %s | `%s…` |\n' "$(basename "$f")" \
+                "$(du -h "$f" | cut -f1)" "$(sha256sum "$f" | cut -c1-16)"
+            done
+            printf '\n### 发版说明（就是挂上去的那份）\n\n'
+            echo '<details><summary>展开</summary>'
+            echo
+            printf '%s\n' "$NOTES"
+            echo
+            echo '</details>'
+          } >> "$GITHUB_STEP_SUMMARY" || true
