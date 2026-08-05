@@ -327,7 +327,7 @@
   "ftbquests.gui.use_as_quest_icon": "将任务图标用作任务图标",
   "ftbquests.gui.use_default_lang": "[使用默认语言]",
   "ftbquests.gui.view_dependants": "查看后续任务",
-  "ftbquests.gui.view_dependencies": "查看依赖项",
+  "ftbquests.gui.view_dependencies": "查看前置任务",
   "ftbquests.gui.view_quest_links": "查看任务链接",
   "ftbquests.gui.wiki": "打开维基",
   "ftbquests.gui.xp_rewards_claimed": "已领取经验值奖励",

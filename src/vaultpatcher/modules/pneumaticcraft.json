@@ -38,7 +38,7 @@
     "pairs": [
       {
         "key": "Prog.",
-        "value": "进度"
+        "value": "程序"
       }
     ]
   },
@@ -215,6 +215,21 @@
       {
         "key": "Player Name",
         "value": "玩家名称"
+      }
+    ]
+  },
+  {
+    "target_class": [
+      "me.desht.pneumaticcraft.common.thirdparty.jei.JEIAssemblyControllerCategory"
+    ],
+    "pairs": [
+      {
+        "key": "Required Machines",
+        "value": "所需机器"
+      },
+      {
+        "key": "Prog.",
+        "value": "程序"
       }
     ]
   },

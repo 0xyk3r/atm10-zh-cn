@@ -1,13 +1,13 @@
 ---
 navigation:
-  title: 模组包开发者
+  title: 整合包开发者
   icon: minecraft:writable_book
   position: 7
 ---
 
-# 模组包开发者指南
+# 整合包开发者指南
 
-本篇指南可帮助模组包开发者自定义SpacePloitation的游戏内容，加入自定义配方，创建新行星类别，或是将SpacePloitation整合到模组包中。
+本篇指南可帮助整合包开发者自定义SpacePloitation的游戏内容，加入自定义配方，创建新行星类别，或是将SpacePloitation整合到整合包中。
 
 ## 概览
 
@@ -466,4 +466,4 @@ ServerEvents.recipes(event => {
 
 ## 还有疑问？
 
-如有关于模组包支持的事项，欢迎访问SpacePloitation的GitHub议题页面，也欢迎加入Discord服务器！
+如有关于整合包支持的事项，欢迎访问SpacePloitation的GitHub议题页面，也欢迎加入Discord服务器！

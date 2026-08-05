@@ -144,7 +144,7 @@
     "        Text.of(\"§7Right to Left -> Bottom to Top\"),\n"
    ],
    "replace": [
-    "        Text.of(\"§c§lShift-右击§r§c §c§l克里巴诺核心§r§c，并使用§c§l洁净粉末\"),\n",
+    "        Text.of(\"§c§l手持洁净粉末潜行右击炽炉核心\"),\n",
     "        Text.of(\"§5█§7 = 磨制暗黑石\"),\n",
     "        Text.of(\"§7█ = 磨制暗黑石砖\"),\n",
     "        Text.of(\"§6█§7 = 炽炉核心\"),\n",

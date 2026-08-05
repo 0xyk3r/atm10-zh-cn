@@ -9,14 +9,14 @@
 	quest.00C26068B55F4FD9.title: "小点声，会把怪吵醒的！"
 	quest.00FDBA93722ACECE.title: "&4绯夜脂锄"
 	quest.011FCC180FF3BD83.title: "&9瘴紫石剑"
-	quest.0152938EE5651409.quest_desc: ["此任务由 &6AllTheMods 团队&r 或 &2社区贡献者&r 为 AllTheMods 模组包创作。\\n\\n由于所有 &6AllTheMods&r 模组包均受 &e保留所有权利&r 许可证保护，因此此任务未经 &6AllTheMods 团队&r 明确许可，不得用于任何非 AllTheMods 团队发布的公共模组包。\\n\\n此任务默认隐藏，如果你看到此任务，说明你正处于编辑模式。"]
+	quest.0152938EE5651409.quest_desc: ["此任务由 &6AllTheMods 团队&r 或 &2社区贡献者&r 为 AllTheMods 整合包创作。\\n\\n由于所有 &6AllTheMods&r 整合包均受 &e保留所有权利&r 许可证保护，因此此任务未经 &6AllTheMods 团队&r 明确许可，不得用于任何非 AllTheMods 团队发布的公共整合包。\\n\\n此任务默认隐藏，如果你看到此任务，说明你正处于编辑模式。"]
 	quest.01612963DBBAC9A1.quest_desc: ["希望这能保护你。"]
 	quest.01612963DBBAC9A1.title: "混沌护胸"
 	quest.019CA0E35F888222.title: "&e高级取货升级"
 	quest.01ECFBB5F0574C24.quest_desc: [
-		"此任务由 &6AllTheMods 团队&r 或 &2社区贡献者&r 为 AllTheMods 模组包编写。"
+		"此任务由 &6AllTheMods 团队&r 或 &2社区贡献者&r 为 AllTheMods 整合包编写。"
 		""
-		"由于所有 &6AllTheMods&r 模组包均受 &e保留所有权利&r 许可，此任务不得在未经 &6AllTheMods 团队&r 明确许可的情况下用于任何非 AllTheMods 团队发布的公共模组包。"
+		"由于所有 &6AllTheMods&r 整合包均受 &e保留所有权利&r 许可，此任务不得在未经 &6AllTheMods 团队&r 明确许可的情况下用于任何非 AllTheMods 团队发布的公共整合包。"
 		""
 		"此任务默认隐藏，如果你看到此任务，说明你正处于编辑模式。"
 	]
@@ -69,7 +69,7 @@
 		"{image:atm:textures/questpics/forbidden/forbidden_tier1.png width:100 height:100 align:center}"
 	]
 	quest.050CD33E92601651.title: "&l&32阶&6锻炉"
-	quest.05850541675B2493.quest_desc: ["是的。\\n\\n你已经创造了&6&lATM之星&r，这意味着你已经通关了模组包！\\n\\n那么接下来呢？"]
+	quest.05850541675B2493.quest_desc: ["是的。\\n\\n你已经创造了&6&lATM之星&r，这意味着你已经通关了整合包！\\n\\n那么接下来呢？"]
 	quest.05850541675B2493.title: "&6&lATM之星"
 	quest.05D8C6EF8FCD6250.quest_desc: [
 		"原初浆凝胶是可怖之物添加的第一级凝胶，需要基础主世界材料合成。"
@@ -608,7 +608,7 @@
 		""
 		"如果你还没有，你可以布置并装饰四个独立的仪式区域：一个用于召唤，一个用于附身，一个用于灌注，还有一个用于杂项仪式（主要是荒野与诡秘系仪式）。"
 		""
-		"总有新方法可以利用每一个看似普通的功能，来最大化你的模组包体验。祝仪式制作愉快！"
+		"总有新方法可以利用每一个看似普通的功能，来最大化你的整合包体验。祝仪式制作愉快！"
 	]
 	quest.29EC143D7E0347DE.quest_desc: ["饥渴匕首由饥渴之牙制成。不，我说的不是Tooths（错误复数形式）。\\n\\n匕首有一个饥饿值。当你攻击生物时，它会上升；当它闲置时，它会下降。当达到100%时，你会获得增益。如果降至0%，它会开始杀死你。\\n\\n当你攻击生物（或玩家）时，它还会附加饥饿效果。\\n\\n我不怪它，我饿的时候也会生气。"]
 	quest.29EC143D7E0347DE.title: "&8饥渴匕首"
@@ -633,7 +633,7 @@
 	quest.2B31E6C1707D8195.quest_desc: ["允许无线网络访问的下一个设备是&bME无线接入点&f。接入点用于通过&e无线终端&f打开网络的无线访问，并且接入点中插入的无线增强器数量决定了接入点的范围。"]
 	quest.2B5E14A47062F83C.quest_subtitle: "赤橙黄绿青蓝紫中的'赤'"
 	quest.2B6D71DAF72EAFA4.title: "双足飞龙通量容器"
-	quest.2BB5769119BA2472.quest_desc: ["这个任务由&6AllTheMods团队&r或&2社区贡献者&r为AllTheMods模组包编写。\\n\\n由于所有&6AllTheMods&r包都受&eAll Rights Reserved&r许可，这个任务不能在任何非AllTheMods团队发布的公共包中使用，除非获得&6AllTheMods团队&r的明确许可。\\n\\n这个任务是故意隐藏的，如果你看到这个，说明你正处于编辑模式。"]
+	quest.2BB5769119BA2472.quest_desc: ["这个任务由&6AllTheMods团队&r或&2社区贡献者&r为AllTheMods整合包编写。\\n\\n由于所有&6AllTheMods&r包都受&eAll Rights Reserved&r许可，这个任务不能在任何非AllTheMods团队发布的公共包中使用，除非获得&6AllTheMods团队&r的明确许可。\\n\\n这个任务是故意隐藏的，如果你看到这个，说明你正处于编辑模式。"]
 	quest.2BCB788924BBD849.title: "&b炎葬"
 	quest.2C04B3BA507D5673.quest_desc: ["&b模式&f是存储编码配方的载体，由模式提供者执行。要将配方编码到模式上，必须使用&bME模式编码终端&f。\\n\\n模式可以设置为存储常规&e合成&f配方，这将需要在模式提供者的面上使用&e分子装配室&f，或者存储更通用的&e加工&f配方，其中任何输入物品都可以通过提供者发送到其他机器方块或专门的加工厂。"]
 	quest.2C4299D33D419AA0.quest_desc: ["将传送垫放置在&2&l主世界中，以前往&7&l挖矿维度。"]
@@ -684,7 +684,7 @@
 	quest.3124D945A54938C2.title: "&9瘴紫石"
 	quest.3145B847A15F97F2.title: "&5究极精华煤块"
 	quest.315F1CB8158DFB92.title: "&5星河兜帽"
-	quest.31B0267C47DB9D98.quest_desc: ["这个任务由&6AllTheMods团队&r或一个&2社区贡献者&r为AllTheMods模组包编写。\\n\\n由于所有&6AllTheMods&r包都受&e保留所有权利&r许可，这个任务不能在任何非&6AllTheMods团队&r发布的公共包中使用，除非获得明确许可。\\n\\n这个任务是故意隐藏的，如果你看到这个，你正处于编辑模式。"]
+	quest.31B0267C47DB9D98.quest_desc: ["这个任务由&6AllTheMods团队&r或一个&2社区贡献者&r为AllTheMods整合包编写。\\n\\n由于所有&6AllTheMods&r包都受&e保留所有权利&r许可，这个任务不能在任何非&6AllTheMods团队&r发布的公共包中使用，除非获得明确许可。\\n\\n这个任务是故意隐藏的，如果你看到这个，你正处于编辑模式。"]
 	quest.31BB7EB95CE73C1A.quest_subtitle: "你万万没'雪'到"
 	quest.31DDEA54B6E81EEE.title: "&7深银头盔"
 	quest.31FD9EA513E0D010.quest_desc: ["&c邪恶工艺&r 是一个基于一些邪恶事物的魔法模组。收集敌人的血液并利用一个古老的邪恶来源的力量！\\n\\n这个模组中的所有内容都可以在指南书 &a黑暗起源&r 中找到。\\n\\n要开始，找到一些 &9暗黑宝石&r。"]
@@ -724,7 +724,7 @@
 	quest.34119FC1728B75B9.title: "&4绯夜脂头盔"
 	quest.342EEB042DEC2B8C.title: "岩浆与间歇泉"
 	quest.34D7CA6F99B29C87.title: "&2气囊面罩"
-	quest.34F7325C2AFA6DA7.quest_desc: ["这个任务由 &6AllTheMods 团队&r 或 &2社区贡献者&r 为 AllTheMods 模组包编写。\\n\\n由于所有 &6AllTheMods&r 包都采用 &e保留所有权利&r 的授权方式，这个任务不允许在没有 &6AllTheMods 团队&r 明确许可的情况下用于任何非官方发布的模组包。\\n\\n这个任务是故意隐藏的，如果你看到这个任务，说明你正处于编辑模式。"]
+	quest.34F7325C2AFA6DA7.quest_desc: ["这个任务由 &6AllTheMods 团队&r 或 &2社区贡献者&r 为 AllTheMods 整合包编写。\\n\\n由于所有 &6AllTheMods&r 包都采用 &e保留所有权利&r 的授权方式，这个任务不允许在没有 &6AllTheMods 团队&r 明确许可的情况下用于任何非官方发布的整合包。\\n\\n这个任务是故意隐藏的，如果你看到这个任务，说明你正处于编辑模式。"]
 	quest.34FBD04361657724.title: "时空之晶：恩特罗水晶"
 	quest.354086C858E10154.quest_desc: [
 		"现在我们从小型反应堆中获得了一些青氰，我们需要一种方法将这些废料再处理成有用的东西。"
@@ -757,7 +757,7 @@
 		]
 	quest.360B150190A5C894.title: "&5&l符文附魔台"
 	quest.366431661CC43A6E.quest_desc: [
-		"这个任务由&6AllTheMods团队&r或&2社区贡献者&r为AllTheMods模组包编写。"
+		"这个任务由&6AllTheMods团队&r或&2社区贡献者&r为AllTheMods整合包编写。"
 		"由于所有&6AllTheMods&r包均受&eAll Rights Reserved&r许可，此任务不得在未经AllTheMods团队明确许可的情况下用于任何非AllTheMods团队发布的公共包中。"
 		""
 		""
@@ -1154,7 +1154,7 @@
 	quest.501C6B7580453410.title: "流化器构造"
 	quest.5021D159A5EC2315.title: "神龙能量模块"
 	quest.50326B1D6EE8FA0B.quest_desc: ["&c蓄电池&r是&8&l沉浸工程&r版本的电池。\\n\\n它们储存&c能量&r，其中&6低压&r储存100kFE，&e中压&r储存1MFE，&5高压&r储存4MFE！\\n\\n默认情况下，它们有一个顶部槽位仅允许&9输入&r，但任何一面都可以用&6工程师锤&r更改为&9输入&r、&6输出&r或既不输入也不输出。"]
-	quest.5034A9137E0F3D3D.quest_desc: ["这个任务由&6AllTheMods团队&r或&2社区贡献者&r为AllTheMods模组包编写。\\n\\n由于所有&6AllTheMods&r包都受&e保留所有权利&r许可，这个任务不能在没有&6AllTheMods团队&r明确许可的情况下用于任何公共包。\\n\\n这个任务是故意隐藏的，如果你看到这个，说明你正处于编辑模式。"]
+	quest.5034A9137E0F3D3D.quest_desc: ["这个任务由&6AllTheMods团队&r或&2社区贡献者&r为AllTheMods整合包编写。\\n\\n由于所有&6AllTheMods&r包都受&e保留所有权利&r许可，这个任务不能在没有&6AllTheMods团队&r明确许可的情况下用于任何公共包。\\n\\n这个任务是故意隐藏的，如果你看到这个，说明你正处于编辑模式。"]
 	quest.503AC506720FC59E.quest_desc: ["要对刷怪笼做更进阶的改造，就得把刷怪笼符文拿去&d&l灌注&r。\\n\\n&5附魔台&r上至少要凑齐&a70 位阶&r、&c30% 量子化&r、&550% 阿卡那&r。\\n\\n以下几种搭配都能达到：\\n\\n14 个&9深暗书架&r（不能是&9休眠&r状态）！\\n12 个&4耀光下界书架&r + 2 个&9深暗书架&r！\\n12 个&b澄澈海洋书架&r + 2 个&9深暗书架&r！\\n\\n这套机制详见&5&l神化附魔&r章节。"]
 	quest.503AC506720FC59E.quest_subtitle: "进阶改造"
 	quest.5040B3D29F238BC0.title: "&d跃兔鞋&r"
@@ -1275,7 +1275,7 @@
 	quest.54F7AD64A403C9BF.quest_desc: ["这些催化器可作为柱顶添加到你的&2自然祭坛&r上。它们允许你将更多物品转化为其他物品或将其分解。\\n\\n崩坏催化器允许你将每个黄金叶转化为4个金粉，而不是2个！"]
 	quest.55160BAFFD9E2988.quest_desc: ["最具代表性的&9Macaw&r模组——&9&lMacaw的家具&r！\\n\\n它添加了你需要的一切！椅子、桌子、书架，甚至还有抽屉！"]
 	quest.552CA2ABE659A507.title: "&c岩浆发电机"
-	quest.552F0B9B00F4F914.quest_desc: ["这个任务由&6AllTheMods团队或&2社区贡献者为AllTheMods模组包编写。\\n\\n由于所有&6AllTheMods包均受&e保留所有权利许可，此任务不得在未经&6AllTheMods团队明确许可的情况下用于任何非AllTheMods团队发布的公共包。\\n\\n此任务是故意隐藏的，如果你看到此任务，说明你正处于编辑模式。"]
+	quest.552F0B9B00F4F914.quest_desc: ["这个任务由&6AllTheMods团队或&2社区贡献者为AllTheMods整合包编写。\\n\\n由于所有&6AllTheMods包均受&e保留所有权利许可，此任务不得在未经&6AllTheMods团队明确许可的情况下用于任何非AllTheMods团队发布的公共包。\\n\\n此任务是故意隐藏的，如果你看到此任务，说明你正处于编辑模式。"]
 	quest.553220A2CD7CAFE4.quest_desc: ["在圣诞节期间，所有箱子看起来都像礼物……但熔炉却显得格外扎眼！现在可以用包装纸来改变这一点！你可以右键点击任何&l铁熔炉&r，它就会为假期季节做好准备！季节过后，你可以Shift右键点击它来拆开包装！"]
 	quest.5577F49A93ADB19C.quest_desc: ["&l丰产树木&r是&l资源蜜蜂&r的姊妹模组。\\n\\n为了获得不同的树木，你需要授粉树叶。要获得授粉树叶，你需要花粉。要获得花粉，你需要蜜蜂。\\n\\n在树木附近开花的蜜蜂会自动授粉树叶，或者你可以在蜂巢中使用花粉筛升级来获取和使用花粉！这个免费送你！"]
 	quest.55820773BDD5319D.quest_desc: ["&b工业先锋&r（简称 IF）是一个科技模组，添加了许多用途各异的机器。\\n\\n要开始的话，先做一个 &a简陋机器框架&r 吧。"]
