@@ -68,12 +68,17 @@ jobs:
         id: g_gates
         run: python3 scripts/compliance/test_gates.py
 
-      # 资源树育种公式生成器的反例测试。全合成（自造 jar、自造包目录），不读
-      # 真整合包也不联网，所以放在快闸里，PR 阶段就拦。它守的那道
-      # 「与入库结果逐字一致」在 build.yml——那边要真 jar。
+      # 资源树育种公式：反例测试全合成、不读真包也不联网；
+      # 「各版本一致」这条只读几份 versions/db/<版本>/productive_trees.json，
+      # 同样不下 jar。两条都够便宜，放快闸里 PR 阶段就拦。
+      # 扫基线那一步要真 jar，在 build.yml。
       - name: 育种公式生成器的反例测试
         id: g_trees
         run: python3 scripts/compliance/test_productive_trees_quest_lang.py
+
+      - name: 育种公式在各版本之间必须一致
+        id: g_trees_ver
+        run: python3 scripts/gen_productive_trees_quest_lang.py --verify-versions
 
       - name: 从 src/ 摊出货树
         id: g_assemble
@@ -169,6 +174,7 @@ jobs:
             emit '模块内容哈希'               '${{ steps.g_modhash.outcome }}'
             emit '闸的反例测试'               '${{ steps.g_gates.outcome }}'
             emit '育种公式生成器的反例测试'   '${{ steps.g_trees.outcome }}'
+            emit '育种公式各版本一致'         '${{ steps.g_trees_ver.outcome }}'
             emit '从 src/ 摊出货树'           '${{ steps.g_assemble.outcome }}'
             emit '上游文件漂移检测'           '${{ steps.g_drift.outcome }}'
             emit '汉化文件校验'               '${{ steps.g_check.outcome }}'

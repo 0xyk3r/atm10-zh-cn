@@ -66,6 +66,22 @@ if [ "$HAVE_JARS" = 1 ]; then
   echo "▶ 正文写死在 JSON 里的书（自耕农手册）：语言文件够不着，只能整份覆盖"
   python3 scripts/gen_literal_books.py
 
+fi
+
+# 任务书里「甲 + 乙」那种育种公式：名字必须与 JEI 物品名逐字一致，手写必漂——
+# 改了树名不会有人记得回来改公式。所以从育种结构现套中文。
+#
+# **不在上面那个 HAVE_JARS 块里**：结构由 scan_productive_trees.py 在版本入库时
+# 扫一次、落成 versions/db/<版本>/productive_trees.json，这里只读那份基线，
+# 不碰 jar。改译名重跑就行，不必重扫。
+# 产物**不入库**：路径钉在 assemble.py 的 FORBIDDEN_IN_SRC 里。
+echo "▶ 资源树育种公式（按该版基线套中文）"
+COMMON_DIR=$(python3 -c "import sys;sys.path.insert(0,'scripts');from paths import COMMON;print(COMMON)")
+python3 scripts/gen_productive_trees_quest_lang.py \
+    --out "$COMMON_DIR/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_productive_trees_names.snbt"
+
+if [ "$HAVE_JARS" = 1 ]; then
+
   echo "▶ 资源蜂：双端脚本（真源是资源包的 productivebees/zh_cn.json，这里只做派生）"
   python3 scripts/gen_pb_hanhua.py
   echo "▶ 奖杯名（约 2.5 万条）"

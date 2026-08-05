@@ -1028,7 +1028,6 @@
     "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_oritech.snbt",
     "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_productive_bees.snbt",
     "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_productive_trees.snbt",
-    "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_productive_trees_names.snbt",
     "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_pylons.snbt",
     "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_railcraft.snbt",
     "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_refined_storage.snbt",
@@ -3302,6 +3301,12 @@
     "src/vaultpatcher/modules/yungsapi.json"
   ],
   "released": [
+    {
+      "path": "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_productive_trees_names.snbt",
+      "approved": "用户",
+      "date": "2026-08-06",
+      "why": "这是生成物，不该入库：由 gen_productive_trees_quest_lang.py 在 generate_all.sh 里直接写进出货树。入库的生成物迟早被人手改，然后跟生成器悄悄分叉。路径已钉进 assemble.py 的 FORBIDDEN_IN_SRC，再提交进 src/ 会当场红"
+    },
     {
       "path": "src/可选mods-拼音搜索/LICENSE-just-enough-characters.txt",
       "approved": "用户",

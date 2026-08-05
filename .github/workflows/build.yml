@@ -184,6 +184,45 @@ jobs:
           echo "   提交后重跑本流水线，才会真正出包。"
           exit 1
 
+      # 资源树育种结构（哪个任务对应哪棵树、父本是谁）是**该版基线**，
+      # 跟 jars.json / keybinds.json 一样：版本入库时扫一次，人过目后提交，
+      # 之后每次构建只读它。已发布版本的章节与配方不会再变，没有理由每次都下 jar 重扫。
+      #
+      # 只在缺基线时才扫，也只为缺的那些版本取 jar（按画像单取一个，核 sha256）。
+      # 和上面「新版本首次入库」一样**不自动信任**：扫完上传 artifact 并红着等人提交。
+      - name: 缺育种结构基线的版本：扫一遍（不自动信任，红着等人提交）
+        id: trees
+        run: |
+          set -euo pipefail
+          missing=''
+          for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
+            [ -f "versions/db/$v/productive_trees.json" ] || missing="$missing $v"
+          done
+          if [ -z "$missing" ]; then
+            echo "全部在册版本都已有育种结构基线"; exit 0
+          fi
+          for v in $missing; do
+            echo "───── ATM10 $v 缺基线，现扫 ─────"
+            python3 scripts/fetch_one_jar.py "$v" productivetrees "build/packsrc/$v/mods"
+            python3 scripts/scan_productive_trees.py "$v" "build/packsrc/$v"
+          done
+          echo "TREES_MISSING=1" >> "$GITHUB_ENV"
+
+      - uses: actions/upload-artifact@v7
+        if: env.TREES_MISSING == '1'
+        with:
+          name: productive-trees-baseline
+          path: versions/db/*/productive_trees.json
+          retention-days: 30
+
+      - name: 育种结构基线没入库就到此为止
+        if: env.TREES_MISSING == '1'
+        run: |
+          echo "❌ 有整合包版本还没有育种结构基线，已由本次 CI 扫出但尚未提交。"
+          echo "   下载 artifact「productive-trees-baseline」，核对后提交"
+          echo "   versions/db/<版本>/productive_trees.json，再重跑本流水线。"
+          exit 1
+
       - name: 生成全部汉化产物
         run: ./scripts/generate_all.sh
 
@@ -197,25 +236,6 @@ jobs:
       # 拿真 jar 里的全部蓝图路径回放替换表，改动一个字符就红。要读 jar，所以放这里。
       - name: 蓝图类别路径不许被替换表改动
         run: python3 scripts/compliance/check_minecolonies_paths.py "$ATM_PACK_ROOT/mods"
-
-      # 入库的育种公式必须与「该版配方 + 当前树名」逐字一致，**每个在册版本各查一遍**。
-      #
-      # 上面那些读 jar 的闸只查 $NEWEST，因为它们要整包；这一条只要 productivetrees
-      # 一个 jar，于是按版本画像（versions/db/<版本>/jars.json 里的 projectID /
-      # fileID / sha256）单独取回来核到字节，四个版本全覆盖。7.1/7.2/7.3 是同一个
-      # fileID，第二次起本地已有且哈希正确，直接复用不重下。
-      #
-      # 版本列表来自 versions/[0-9]*，不写死：加版本只需入库画像，不动这里。
-      # 生成器自己不联网——取不到 jar 就红，不会「没网就跳过」。
-      #
-      # 逻辑本身的反例测试在 ci.yml（纯合成、秒跑，PR 阶段就该拦）。
-      - name: 资源树育种公式与入库结果逐字一致（各版本）
-        run: |
-          set -euo pipefail
-          for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
-            python3 scripts/fetch_one_jar.py "$v" productivetrees "build/packsrc/$v/mods"
-          done
-          python3 scripts/gen_productive_trees_quest_lang.py --check
 
       - name: 打包全部版本
         run: ./scripts/build_dist.sh "${{ github.event.inputs.patch_version || 'dev' }}" "${{ steps.t.outputs.list }}"

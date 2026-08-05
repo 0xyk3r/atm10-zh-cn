@@ -48,6 +48,9 @@ FORBIDDEN_IN_SRC = [
     'pack/assets/minecraft/font/default.json',
     'pack/assets/minecraft/font/uniform.json',
     'pack/pack.mcmeta',
+    # 任务书里的育种公式副标题：从 Productive Trees 的授粉配方现推，
+    # 由 gen_productive_trees_quest_lang.py 写进出货树。
+    'config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_productive_trees_names.snbt',
 ]
 
 
