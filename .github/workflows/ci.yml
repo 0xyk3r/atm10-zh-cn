@@ -39,9 +39,11 @@ jobs:
       # 「我觉得这批没用」删的，逐笔回滚过——原委见 scripts/compliance/protect.py。
       # 先验闸自己会不会红——一道从没被触发过的闸等于没有闸。
       - name: 保护闸自检
+        id: g_protect_self
         run: python3 scripts/compliance/test_protect.py
 
       - name: 保护清单（汉化只许加不许删）
+        id: g_protect
         env:
           PROTECT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
           # 流水线里 git 用不了 = 两条闸静默关掉，这里必须当失败。
@@ -52,18 +54,22 @@ jobs:
       # 它不需要 mod jar，PR 阶段就能跑。dynamic 模块里两条 @ 子串键互为子串时，
       # String.replace 的遍历顺序不确定，会把长的那条啃掉、翻出半中半英。
       - name: dynamic 模块的 @ 子串键互不为子串
+        id: g_dynsub
         run: python3 scripts/compliance/check_dynamic_substrings.py
 
       # 保护清单管「文件在不在」，这一条管「内容对不对」。出过「撤回一项汉化只撤了一半」
       # 「以为改好了其实改的是另一份」这类事故——文件都在，内容已经不是预期的了。
       - name: 模块内容哈希
+        id: g_modhash
         run: python3 scripts/compliance/check_module_hashes.py
 
       # 闸的反例测试：每条都复刻一次真实事故，验它真的会红。写了闸不等于有闸。
       - name: 闸的反例测试
+        id: g_gates
         run: python3 scripts/compliance/test_gates.py
 
       - name: 从 src/ 摊出货树
+        id: g_assemble
         run: python3 scripts/assemble.py
 
       # 对着**每个版本各自的**官方文件套映射。找不到原文就退出——
@@ -81,6 +87,7 @@ jobs:
           key: packsrc-${{ hashFiles('versions/*/overrides.sha256') }}
 
       - name: 上游文件漂移检测（各版本）
+        id: g_drift
         run: |
           set -euo pipefail
           for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
@@ -103,6 +110,7 @@ jobs:
       # 产出的那几样（界面 XML / 蜂名脚本 / 上游格式串快照）在这条流水线里真的不存在，
       # 设了就是必红。带 jar 的完整生成在 build.yml，GATE_STRICT=1 设在那边。
       - name: 汉化文件校验（各版本）
+        id: g_check
         run: |
           set -euo pipefail
           for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
@@ -114,6 +122,7 @@ jobs:
       # 「整合包自带中文 + 我们的覆盖」合并后的结果——错在整合包那份文件里，
       # 而那份文件我们不出货，只查出货树是看不见的。
       - name: 任务书 & 颜色码（各版本）
+        id: g_quest
         run: |
           set -euo pipefail
           for v in $(ls -d versions/[0-9]* | xargs -n1 basename); do
@@ -122,4 +131,41 @@ jobs:
           done
 
       - name: 安装脚本语法检查
+        id: g_installer
         run: bash -n installer/install.sh
+
+      # 把这 10 道闸的结果摊在 run 摘要页上。红了直接看是哪一条，不用展开日志往下翻。
+      # 前面某条红了之后，它后面的步骤根本不会跑，outcome 是空的——那也是信息：
+      # 「⬜ 没轮到」与「✅ 过了」必须分得开，否则一眼看去像是全绿。
+      #
+      # **写摘要的语句整块兜底**：这套闸是 fail-closed 的，绝不能让一个只用来看的
+      # 功能变成新的失败源。所以放最后、带 if: always()、末尾 `|| true`。
+      - name: 作业摘要
+        if: always()
+        run: |
+          emit() {
+            case "$2" in
+              success) m='✅ 通过' ;;
+              failure) m='❌ **红了**' ;;
+              *)       m='⬜ 没轮到' ;;
+            esac
+            printf '| %s | %s |\n' "$1" "$m"
+          }
+          {
+            echo '## 上游漂移 + 汉化校验'
+            echo
+            echo '| 闸 | 结果 |'
+            echo '|---|---|'
+            emit '保护闸自检'                 '${{ steps.g_protect_self.outcome }}'
+            emit '保护清单（只许加不许删）'   '${{ steps.g_protect.outcome }}'
+            emit 'dynamic @ 子串键互不为子串' '${{ steps.g_dynsub.outcome }}'
+            emit '模块内容哈希'               '${{ steps.g_modhash.outcome }}'
+            emit '闸的反例测试'               '${{ steps.g_gates.outcome }}'
+            emit '从 src/ 摊出货树'           '${{ steps.g_assemble.outcome }}'
+            emit '上游文件漂移检测'           '${{ steps.g_drift.outcome }}'
+            emit '汉化文件校验'               '${{ steps.g_check.outcome }}'
+            emit '任务书 & 颜色码'            '${{ steps.g_quest.outcome }}'
+            emit '安装脚本语法检查'           '${{ steps.g_installer.outcome }}'
+            echo
+            echo "覆盖的整合包版本：$(ls -d versions/[0-9]* 2>/dev/null | xargs -n1 basename | tr '\n' ' ')"
+          } >> "$GITHUB_STEP_SUMMARY" || true

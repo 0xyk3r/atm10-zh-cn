@@ -206,3 +206,39 @@ jobs:
           name: atm10-zh_cn-${{ github.event.inputs.patch_version || 'dev' }}
           path: dist/*.zip
           retention-days: 30
+
+      # 把产物的可核对数字摊在 run 摘要页上：文件、大小、sha256，以及**键数**。
+      # 键数是这里唯一真正要紧的东西——「这版比上版少了两百个键」是发版前必须发现
+      # 的事，而以前只能等发完拿两个 zip 手工 diff。摘要页会一直留着，两次 run
+      # 并排看就是差值。
+      #
+      # 整块兜底：算不出数只是没得看，绝不能把已经打好的包判红。
+      - name: 作业摘要
+        if: always()
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY" || true
+          import zipfile, hashlib, io, json, re, glob, os
+          KEY = re.compile(r'^\t*([A-Za-z0-9_.]+):\s', re.M)
+          print('## 产物\n')
+          print('| 包 | 大小 | sha256 | 任务书键 | 资源包命名空间 | 资源包键 |')
+          print('|---|---:|---|---:|---:|---:|')
+          for f in sorted(glob.glob('dist/*.zip')):
+              b = open(f, 'rb').read()
+              z = zipfile.ZipFile(io.BytesIO(b))
+              q = ns = pk = 0
+              for n in z.namelist():
+                  if '/quests/lang/zh_cn/' in n and n.endswith('.snbt'):
+                      q += len(KEY.findall(z.read(n).decode('utf-8', 'ignore')))
+              inner = [n for n in z.namelist() if n.endswith('.zip') and 'resourcepacks' in n]
+              if inner:
+                  p = zipfile.ZipFile(io.BytesIO(z.read(inner[0])))
+                  ns = len({n.split('/')[1] for n in p.namelist()
+                            if n.startswith('assets/') and n.count('/') > 1})
+                  for n in p.namelist():
+                      if n.endswith('lang/zh_cn.json'):
+                          try: pk += len(json.loads(p.read(n).decode('utf-8')))
+                          except Exception: pass
+              print('| `%s` | %.1f MB | `%s` | %s | %s | %s |' % (
+                    os.path.basename(f), len(b) / 1048576,
+                    hashlib.sha256(b).hexdigest()[:16], q or '—', ns or '—', pk or '—'))
+          PY
