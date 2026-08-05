@@ -1644,6 +1644,7 @@
 	quest.6BA2BC09E23B34A9.title: "&l&d等级4&6锻炉"
 	quest.6BFD7854F078BF16.quest_subtitle: "麻烦你，抓紧点"
 	quest.6BFF78D4218DF1F2.quest_subtitle: "在赫菲斯托斯锻炉中制造"
+	quest.6BFF78D4218DF1F2.title: "流星蜜蜂"
 	quest.6C16670D16113DE9.quest_desc: ["为了自动化&6&lATM之星&r的制作，我们需要&6ATM之星碎片&r。为了获得&6ATM之星碎片&r，我们需要&6ATM之星蜜蜂&r。\\n\\n当然，为了获得&6ATM之星蜜蜂&r，我们需要&d派大星&a蜜蜂&r！你可以在温暖海洋钓鱼有几率获得&d派大星&a蜜蜂&r！\\n如果你不想转化它们，你也可以用它们养殖&d派大&a星&r。"]
 	quest.6C1F7A0B330B3F42.quest_desc: ["&a&lMekaSuit护甲&r将是&5难得素胸甲&r的升级版。\\n\\n不过，升级它还需要一些其他的&e物品&r，比如&d反物质球&r、&a钋球&r，甚至&d终极感应元件&r！\\n\\n没有&a能量&r时，&a&lMekaSuit护甲&r的效果就和&c下界合金胸甲&r一样。有&a能量&r时呢？它可能会阻挡除魔法伤害外的所有伤害，并使用&a能量&r代替生命值！\\n\\n我们可以把它扔进&7&l改造站&r来添加&7模块单元&r进行升级！&a&lMekaSuit护甲&r拥有所有护甲中最多的&7模块单元&r，所以一定要看看它们！"]
 	quest.6C1F7A0B330B3F42.title: "&a&lMekaSuit胸甲"
