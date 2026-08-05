@@ -16,8 +16,13 @@
 **核不上就红，绝不退而求其次**：这类脚本一旦在取不到时静默返回，靠它的闸就
 变成了「有网就查、没网就过」，比没有闸更糟。
 
-同一个 fileID 在多个版本间常是同一份字节（7.1/7.2/7.3 的 Productive Trees 就
-都是 fileID 8190022），输出目录里已有且哈希正确时直接复用，不重复下载。
+同一个 fileID 在多个版本间常是同一份字节（7.1/7.2/7.3 的 Productive Trees 都是
+fileID 8190022），但它们各去各的 build/packsrc/<版本>/mods，「目标位置已有」
+判断不到，于是同一份字节会被下三遍。所以缓存**按内容寻址**放在
+build/jarcache/<sha256>.jar，跨版本、跨多次运行都命中。
+
+缓存条目自带校验：文件名就是它应有的 sha256，读出来对不上就当没有这个缓存、
+重新下载覆盖——损坏的缓存不许被信任，也不许因为「有个文件在那儿」就跳过下载。
 
     python3 scripts/fetch_one_jar.py 7.0 productivetrees build/packsrc/7.0/mods
 """
@@ -30,6 +35,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_pack import fetch                                     # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
+CACHE = ROOT / 'build' / 'jarcache'
 DL = 'https://www.curseforge.com/api/v1/mods/%d/files/%d/download'
 
 
@@ -61,6 +67,18 @@ def pick(ver, prefix):
     return name, rec
 
 
+def cached(sha):
+    """内容寻址缓存里取字节。**每次都重算哈希**——缓存条目自证，不认文件名。"""
+    p = CACHE / (sha + '.jar')
+    if not p.is_file():
+        return None
+    data = p.read_bytes()
+    if hashlib.sha256(data).hexdigest() == sha:
+        return data
+    print('⚠️ 缓存 %s 内容与文件名不符，当作没有，重新下载覆盖' % p, file=sys.stderr)
+    return None
+
+
 def main(argv):
     if len(argv) != 3:
         die(__doc__.strip().splitlines()[-1].strip())
@@ -77,20 +95,26 @@ def main(argv):
             return 0
         die('%s 已存在但哈希不符：本地 %s，基线 %s' % (dest, got, rec['sha256']))
 
-    data, final = fetch(DL % (rec['projectID'], rec['fileID']), required=False)
-    if not data:
-        die('取 %s（fileID %d）失败：%s' % (name, rec['fileID'], final))
-    got = hashlib.sha256(data).hexdigest()
-    if got != rec['sha256']:
-        # 不写盘：留下一个哈希不符的文件，下一次运行会被上面那条当成
-        # 「已存在但不符」再红一次，看着像两个问题。
-        die('%s（fileID %d）字节与基线不符：拿到 %s，基线 %s'
-            % (name, rec['fileID'], got, rec['sha256']))
-    if len(data) != rec.get('size', len(data)):
-        die('%s 大小与基线不符：拿到 %d，基线 %d' % (name, len(data), rec['size']))
+    data = cached(rec['sha256'])
+    source = '缓存命中'
+    if data is None:
+        source = '已下载'
+        data, final = fetch(DL % (rec['projectID'], rec['fileID']), required=False)
+        if not data:
+            die('取 %s（fileID %d）失败：%s' % (name, rec['fileID'], final))
+        got = hashlib.sha256(data).hexdigest()
+        if got != rec['sha256']:
+            # 不写盘：留下一个哈希不符的文件，下一次运行会被上面那条当成
+            # 「已存在但不符」再红一次，看着像两个问题。
+            die('%s（fileID %d）字节与基线不符：拿到 %s，基线 %s'
+                % (name, rec['fileID'], got, rec['sha256']))
+        if len(data) != rec.get('size', len(data)):
+            die('%s 大小与基线不符：拿到 %d，基线 %d' % (name, len(data), rec['size']))
+        CACHE.mkdir(parents=True, exist_ok=True)
+        (CACHE / (rec['sha256'] + '.jar')).write_bytes(data)
     dest.write_bytes(data)
-    print('✅ ATM10 %s 的 %s → %s（%d 字节，sha256 已核）'
-          % (ver, name, outdir, len(data)))
+    print('✅ ATM10 %s 的 %s → %s（%d 字节，%s，sha256 已核）'
+          % (ver, name, outdir, len(data), source))
     return 0
 
 
