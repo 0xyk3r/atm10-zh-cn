@@ -98,11 +98,13 @@ ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh    # 摊 + 跑全部�
 | 脚本 | 作用 |
 |---|---|
 | `fetch_pack.py` | 把某个版本的 ATM10 备齐成一个可当 `ATM_PACK_ROOT` 用的目录 |
+| `fetch_one_jar.py` | 只需要某一个 mod 的 jar 时用它：按 `versions/db/<版本>/jars.json` 的 fileID 单取一个并核 sha256；缓存按内容寻址，跨版本命中 |
 | `fetch_mods.py` | 按 `src/mods.lock.json` 取随包分发的第三方 jar，逐个核 sha256 |
 | `fetch_fonts.sh` | 取生成 PNG 用的字体（全 OFL，不入库）|
 | `vanilla.py` | 取**原版** Minecraft 的语言文件与字体资源（被 5 个生成器 import，不单独运行）|
 | `build_version_db.py` | 为某版建核验数据库：每个 jar 的 sha256 与不可变 fileID、字节码常量、按键表 |
 | `build_en_baseline.py` | 给每一条译文记下它翻译时对着的英文底本 |
+| `scan_productive_trees.py` | 扫该版资源树的育种结构（哪个任务对应哪棵树、父本是谁）→ `versions/db/<版本>/productive_trees.json`。**产出里一个中文都没有**；只在该版基线缺失时跑 |
 | `gen_format_snapshot.py` | 上游英文的格式快照，供 `check.py` 离线核占位符与颜色码 |
 
 **语言文件够不着的那些汉化**（本包的主要工作量都在这里）
@@ -116,6 +118,7 @@ ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh    # 摊 + 跑全部�
 | `gen_menu_buttons.py` | 主菜单按钮图上的中文 |
 | `gen_mod_textures.py` | 模组把英文**画进贴图**的那几张，擦掉英文重写中文 |
 | `gen_quest_lang_patches.py` | 把本包的任务书覆盖打进 ATM 自己那份章节文件，按**原文件名**出货 |
+| `gen_productive_trees_quest_lang.py` | 任务书里「甲 + 乙」那种育种公式：拿 `versions/db/<版本>/productive_trees.json` 套上树名。名字必须与 JEI 逐字一致，手写必漂 |
 | `gen_quest_space_fix.py` | 去掉中文里从英文原文带过来的半角空格 |
 | `gen_rootsclassic_wrap.py` | 根源经典的教程书按行宽预切、在断点插 ASCII 空格（那本书自己不折中文）|
 | `gen_occultism_flame.py` | 自动化之火 tooltip 上那行橙色的仪式 ID 换成中文仪式名 |
@@ -151,6 +154,8 @@ ATM_PACK_ROOT=<整合包目录> ./scripts/generate_all.sh    # 摊 + 跑全部�
 | 做法 | 后果 | 应当怎么做 |
 |---|---|---|
 | `kubejs/*.js`、`config/*.json` 改几个字符串后整份提交 | ATM 升级后，发出去的是「旧上游 + 我们的改动」，上游的修复被整份覆盖。7.1→7.2 之间 ATM 改过 `CustomAdditions.js` 里冰与火的类名，把 7.2 的副本发给 7.1 用户会直接 `ClassNotFound` | `src/upstream/` 存「找这几行 → 换成这几行」，对**目标版本的官方文件**套用，找不到原文就退出 |
+| **写了生成器，又把它的输出提交进 `src/`** | 等于把 `.o` 签进源码树：入库那份迟早被人手改，然后与生成器悄悄分叉，而两边都还「看着对」。PR #17 与它的 review 先后踩了同一个坑——本节这条判据当时就写在这里，两个人都没打开过 | 产物只写出货树，路径钉进 `assemble.py` 的 `FORBIDDEN_IN_SRC`；要删已入库的，走 `src/protected.json` 的 `released` 并写明谁批的、为什么 |
+| 每次构建都去读 mod jar 重算一遍**该版不会变的**东西 | 白下几十 MB，还把构建绑死在网络与 CurseForge 上；更糟的是没人会为了省事去补闸，于是干脆不查 | 当成该版**基线**：版本入库时扫一次进 `versions/db/<版本>/`，CI 扫完上传 artifact 并**红着等人提交**（照 `build.yml` 里 `NEW_VERSION` 那套）。构建期只读基线 |
 | 导览书整份副本 | 模组更新导览书时，旧副本把新内容整份覆盖，玩家看不到、也不报错（PneumaticCraft 的「切换维度」整页曾因此不显示）| `src/books/` 只存「位置 + 原文 + 译文」，构建时拿 jar 里那份重新套 |
 | VaultPatcher 模块头部写死带版本号的 jar 名 | 以 7.2 那份比对，7.1 只有 116/152 对得上，7.0 只有 83/152 | 按 `versions/db/<版本>/` 现填 |
 | 安装器界面写死「ATM10 7.2」 | 7.0 / 7.1 的包印着别的版本号 | `@@MCVER@@` 占位，打包时填 |
