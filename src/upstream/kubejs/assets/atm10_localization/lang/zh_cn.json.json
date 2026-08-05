@@ -5,7 +5,7 @@
    "find": [
     "    \"_comment\": \"Theurgy_KubeJS\",\n",
     "    \"item.kubejs.stellarite_sulfur\": \"炼金硫%s\",\n",
-    "    \"item.kubejs.stellarite_sulfur.source\": \"流星碎片\",\n",
+    "    \"item.kubejs.stellarite_sulfur.source\": \"陨星碎片\",\n",
     "    \"item.kubejs.stellarite_sulfur.tooltip\": \"由%s%s%s制成的炼金硫。\",\n",
     "    \"item.kubejs.stellarite_sulfur.tooltip.extended\": \"硫象征着物体的“概念”或“灵魂”。\",\n",
     "    \"item.kubejs.stellarite_sulfur.tooltip.usage\": \"硫是萃炼过程中的核心元素。\\n\\n§o提示：不同形态的同种材料（比如矿石和锭）制成的硫可以互相代换。§r\",\n",
