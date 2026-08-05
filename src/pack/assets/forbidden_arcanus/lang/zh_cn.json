@@ -487,6 +487,7 @@
   "residue.forbidden_arcanus.lapis_lazuli": "青金石残渣",
   "residue.forbidden_arcanus.netherite": "下界合金残渣",
   "residue.forbidden_arcanus.rune": "符文残渣",
+  "stat.forbidden_arcanus.interact_with_pedestal": "与基座交互次数",
   "tooltip.forbidden_arcanus.activated": "已激活",
   "tooltip.forbidden_arcanus.corrupted_pixie": "腐化精灵",
   "tooltip.forbidden_arcanus.deactivated": "未激活",
