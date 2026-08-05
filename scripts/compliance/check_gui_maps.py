@@ -50,11 +50,17 @@ def main(argv):
             if j.name.startswith(pre):
                 jars.setdefault(pre, zipfile.ZipFile(j))
     bad = ok = 0
+    skipped = []
     for mapf, pre in MAPS.items():
         p = ROOT / 'src' / 'books' / 'literal' / mapf
-        if not p.is_file() or pre not in jars:
+        if not p.is_file():
             continue
         doc = json.loads(p.read_text(encoding='utf-8'))
+        if pre not in jars:
+            # 有条目要查却没有 jar，记下来，末尾按 GATE_STRICT 决定红不红
+            if doc.get('files'):
+                skipped.append((mapf, len(doc['files'])))
+            continue
         for rel, info in doc['files'].items():
             try:
                 text = jars[pre].read(rel).decode('utf-8')
@@ -83,8 +89,25 @@ def main(argv):
             except Exception as e:                                 # noqa: BLE001
                 print('❌ %s：套用后不是合法 XML —— %s' % (rel, e))
                 bad += 1
-    print(('✅ %d 个界面 XML 套用后全部合法' % ok) if not bad
-          else '\n共 %d 处问题。这三类都要等玩家开那个界面才炸，必须在这里拦住。' % bad)
+    if bad:
+        print('\n共 %d 处问题。这三类都要等玩家开那个界面才炸，必须在这里拦住。' % bad)
+    elif not skipped:
+        print('✅ %d 个界面 XML 套用后全部合法' % ok)
+    if skipped:
+        # 上面那个 GATE_STRICT 只挡住了「没有 mods 目录」。目录**在**、却没有该
+        # mod 的 jar 时，上面的循环是 `continue` 静默跳过的——有映射要查却一条
+        # 都没查，退出码与「查过了没问题」不可分辨。指到一个只放了单个 mod 的
+        # build/packsrc/<版本>/mods 就会这样。
+        #
+        # 注意判据是**待查条目数**不是映射文件数：blockui 那条路撤回后两份映射
+        # 的 files 都是空的，此时 0 条待查是正确状态，不该红。
+        msg = ('%s：%s 下没有它的 jar，%d 条映射一条都没查'
+               % ('；'.join('%s（%d 条）' % s for s in skipped), mods,
+                  sum(n for _, n in skipped)))
+        if (os.environ.get('GATE_STRICT') or '').strip() not in ('', '0'):
+            print('❌ ' + msg + '——本环境声明了 GATE_STRICT，跳过不算通过')
+            return 1
+        print('ℹ️ ' + msg + '（没声明 GATE_STRICT，只作提示）')
     return 1 if bad else 0
 
 
