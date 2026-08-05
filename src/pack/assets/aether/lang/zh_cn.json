@@ -274,7 +274,7 @@
   "block.aether.skyroot_planks": "天根木板",
   "block.aether.skyroot_pressure_plate": "天根木压力板",
   "block.aether.skyroot_sapling": "天根木幼苗",
-  "block.aether.skyroot_sign": "天根告示牌",
+  "block.aether.skyroot_sign": "天根木告示牌",
   "block.aether.skyroot_slab": "天根木台阶",
   "block.aether.skyroot_stairs": "天根木楼梯",
   "block.aether.skyroot_trapdoor": "天根木活板门",
@@ -1244,7 +1244,7 @@
   "block.aether.potted_purple_flower": "盆栽·紫色花",
   "block.aether.potted_skyroot_sapling": "盆栽·天空之根树苗",
   "block.aether.potted_white_flower": "盆栽·白色花",
-  "block.aether.skyroot_wall_hanging_sign": "天空之根墙上悬挂告示牌",
-  "block.aether.skyroot_wall_sign": "天空之根墙上告示牌",
+  "block.aether.skyroot_wall_hanging_sign": "墙上的悬挂式天根木告示牌",
+  "block.aether.skyroot_wall_sign": "墙上的天根木告示牌",
   "biome.aether.aether": "天境"
 }
