@@ -1641,7 +1641,7 @@
 		"这个需要另一个&9錾制磨制暗黑石&r，但现在需要4个&7符文&r和4个&2流星碎片&r。\\n\\n这个&6&l锻炉&r是基础&6&l禁忌与奥秘&r的最后一个。\\n\\n当然，它包含了其余的配方，而且现在所有的遗物槽位都已开放！"
 		"{image:atm:textures/questpics/forbidden/forbidden_tier4.png width:100 height:100 align:center}"
 	]
-	quest.6BA2BC09E23B34A9.title: "&l&d等级4&6锻炉"
+	quest.6BA2BC09E23B34A9.title: "&l&d4阶&6锻炉"
 	quest.6BFD7854F078BF16.quest_subtitle: "麻烦你，抓紧点"
 	quest.6BFF78D4218DF1F2.quest_subtitle: "在赫菲斯托斯锻炉中制造"
 	quest.6BFF78D4218DF1F2.title: "流星蜜蜂"
