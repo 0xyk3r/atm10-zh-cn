@@ -560,9 +560,17 @@ def _m18(tmp, tree):
 
 # ── 第六组反例：任务书断行用的空格处理 ──────────────────────────────────
 #
-# 复刻的事故：issue #10 里 11 条「断行错误」，根因是中文里留着英文词间空格，
-# FTB Quests 在空格处断行，于是断在「有 / 3 个」「抄写台 / 来」这种地方。
-# 这一组保的是**反向**风险：处理得太狠，把中西混排该留的空格也删掉。
+# 复刻的事故：issue #10 报了 11 条「断行错误」，issue #11 又报了 9 条。根因是中文里
+# 留着英文词间空格，FTB Quests 在空格处断行，于是断在「有 / 3 个」「抄写台 / 来」
+# 「会失去全部 / AI，」这种地方，而且断出来的是半截空行。
+#
+# 头一版只删「中文␠中文」与「中文␠数字␠中文」，中西之间的空格当作正常混排排版
+# 特意留着——issue #11 那九条证明这条线划错了：`失去全部 AI，`、`来自 Reliquary，`、
+# `上下调整 1，` 全是被留下来的那种，而且数字后面直接跟中文标点时，旧的「两侧都要
+# 有空格」也匹配不上。现在规则收敛成一条：空格挨着中文就删。
+#
+# 这一组保的是**反向**风险：处理得太狠，把两侧都是 ASCII 的空格也删掉，
+# 那会毁掉键名行、SNBT 结构和英文词组本身。
 def _space(src):
     import importlib.util
     spec = importlib.util.spec_from_file_location(
@@ -583,11 +591,26 @@ def _m20(tmp, tree):
     return _space('你开始时有 3 个基本形态') == '你开始时有3个基本形态'
 
 
-@missing_case('中西之间的空格必须保留，不许一刀切')
+@missing_case('数字后面直接跟中文标点时也要删（issue #11 的九条全是这个形状）')
 def _m21(tmp, tree):
-    return (_space('&6AllTheMods 团队') == '&6AllTheMods 团队'
-            and _space('&a60 位阶&r') == '&a60 位阶&r'
-            and _space('Ars Ocultas 来连接') == 'Ars Ocultas 来连接')
+    return (_space('这个数值上下调整 1，最高可到 16。') == '这个数值上下调整1，最高可到16。'
+            and _space('最高可到 32,767。') == '最高可到32,767。'
+            and _space('额外获得 0.5% 的概率') == '额外获得0.5%的概率')
+
+
+@missing_case('中文与拉丁字母之间的空格同样要删（断行点不分中西）')
+def _m23(tmp, tree):
+    return (_space('这些生物会失去全部 AI，基本') == '这些生物会失去全部AI，基本'
+            and _space('护符碎片来自 Reliquary，可以') == '护符碎片来自Reliquary，可以'
+            and _space('&6AllTheMods 团队') == '&6AllTheMods团队'
+            and _space('还是需要 3x3 的空间') == '还是需要3x3的空间')
+
+
+@missing_case('两侧都是 ASCII 的空格一个都不许动（英文词组、SNBT 结构）')
+def _m24(tmp, tree):
+    return (_space('Just Enough Items is a mod') == 'Just Enough Items is a mod'
+            and _space('\t{ id: "0123", type: "item" }') == '\t{ id: "0123", type: "item" }'
+            and _space('quest.ABC.quest_desc: ["中文"]') == 'quest.ABC.quest_desc: ["中文"]')
 
 
 @missing_case('键名、颜色码、\\n 转义一个字节都不许动')
