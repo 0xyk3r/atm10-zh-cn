@@ -25,7 +25,7 @@
     "text"
    ],
    "A Honey Generator accepts two upgrades; A $(l:items/upgrades#productivity)Productivity upgrade$(/l) will lower the honey consumption. $(l:items/upgrades#speed)Speed upgrade$(/l) will increase the...speed.",
-   "蜂蜜发电机可接受两种升级：$(l:items/upgrades#productivity)产量升级$(/l)会降低蜂蜜消耗；$(l:items/upgrades#speed)速度升级$(/l)会提升……速度。"
+   "蜂蜜发电机可接受两种升级：$(l:items/upgrades#productivity)升级：产量$(/l)会降低蜂蜜消耗；$(l:items/upgrades#speed)升级：速度$(/l)会提升……速度。"
   ]
  ]
 }
