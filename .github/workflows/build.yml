@@ -198,6 +198,27 @@ jobs:
       - name: 蓝图类别路径不许被替换表改动
         run: python3 scripts/compliance/check_minecolonies_paths.py "$ATM_PACK_ROOT/mods"
 
+      # PR #17 带进来的生成器**当时没接进任何流水线**——它的 --check 和那四个
+      # --expect-* 计数一行都不会跑，等于白写。这里补上，两道：
+      #
+      #   1. 边界测试：合成 jar 跑五个反例（缺「树苗」后缀要红、生成范围变了要红、
+      #      生成键还被手写 delta 攥着要报满 3 条）。不读真 jar，本可以放 ci.yml，
+      #      但跟它守护的 --check 分开跑就成了两处各自失效，所以并排放这里。
+      #   2. --check：入库的 zz_hanhua_productive_trees_names.snbt 必须与
+      #      「当前配方 + 当前树苗译名」逐字一致。改了树名不重跑生成器 → 当场红。
+      #
+      # **只覆盖 $NEWEST**：本流水线里只有最新版下了 jar（其余版本走 --no-jars），
+      # 而生成器要读 productivetrees 的 recipe/pollination 与 trees.json。上面
+      # check_gui_maps / check_minecolonies_paths 同样是这个处境。
+      # 已知未覆盖：7.0 装的是 productivetrees 0.8.1，其余版本是 1.0.0，而生成物是
+      # 四个版本共用的一份。0.8.1 若有配方与 1.0.0 不同，7.0 玩家会看到错的育种公式，
+      # 这道闸看不见。真要堵住得给 7.0 也下 jar，那是另一件事。
+      - name: 资源树任务名生成器（边界测试 + 与入库结果逐字一致）
+        run: |
+          set -euo pipefail
+          python3 scripts/compliance/test_productive_trees_quest_lang.py
+          python3 scripts/gen_productive_trees_quest_lang.py "$ATM_PACK_ROOT" --check
+
       - name: 打包全部版本
         run: ./scripts/build_dist.sh "${{ github.event.inputs.patch_version || 'dev' }}" "${{ steps.t.outputs.list }}"
 
