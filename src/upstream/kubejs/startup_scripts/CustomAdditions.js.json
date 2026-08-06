@@ -44,7 +44,7 @@
     "        allthemods.create('starlight_prediction').displayName('Generalized Starlight Prediction');\n"
    ],
    "replace": [
-    "        allthemods.create('starlight_prediction').displayName('通用星光预言');\n"
+    "        allthemods.create('starlight_prediction').displayName('通用星光预测产物');\n"
    ]
   },
   {
