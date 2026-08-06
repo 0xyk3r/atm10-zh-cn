@@ -38,7 +38,7 @@ item_ids:
 
 <BlockImage id="quantum_ring" scale="8" />
 
-在<ItemLink id="quantum_link" />周围放下8个此方块即可创建一个量子网桥。只有与<ItemLink id="quantum_ring" />相邻的4个量子桥才会接受网络连接，角上的4格无法与线缆相连。
+在<ItemLink id="quantum_link" />周围放下8个此方块即可创建一个量子网桥。只有与<ItemLink id="quantum_link" />相邻的4个<ItemLink id="quantum_ring" />才会接受网络连接，角上的4格无法与线缆相连。
 
 ## 配方
 

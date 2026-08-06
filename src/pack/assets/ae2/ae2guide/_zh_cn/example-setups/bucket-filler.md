@@ -74,9 +74,9 @@ navigation:
 ## 工作原理
 
 1. <ItemLink id="pattern_provider" />将材料送入<ItemLink id="interface" />。
-   （作为优化，实际上其会直接向存储总线输出，这些存储总线类似于供应器自身的输出面。物品并不会真正进入接口。）
-2. 经过[管道子网络](pipe-subnet.md#向多处提供材料)中所述的设施，铁桶会抵达<ItemLink id="minecraft:dispenser" />，流体则使用成型面板放置。
+   （作为优化，实际上其会直接穿过存储总线与成型面板输出，就像它们是供应器自身的输出面一样。物品并不会真正进入接口。）
+2. 经过[管道子网络](pipe-subnet.md#向多处提供材料)与<ItemLink id="formation_plane" />两处所述的机制，铁桶会抵达<ItemLink id="minecraft:dispenser" />，流体则由成型面板放置。
 3. <ItemLink id="minecraft:comparator" />检测发射器中的铁桶，并由此同时激活发射器和锁定<ItemLink id="pattern_provider" />。
 4. 发射器用铁桶装起流体，此时发射器内为装有流体的桶。
-5. <ItemLink id="import_bus" />将发射器中的空桶抽出，通过<ItemLink id="storage_bus" />存入样板供应器，并返回至主网络。
+5. <ItemLink id="import_bus" />将发射器中装满的桶抽出，通过<ItemLink id="storage_bus" />存入样板供应器，并送回主网络。
 6. 比较器发现发射器已空，从而解锁供应器。
