@@ -275,7 +275,7 @@
     "pairs": [
       {
         "key": "a Pattern Provider to an Expanded Pattern Provider",
-        "value": "将一个样板供应器升级为拓充样板供应器"
+        "value": "ME样板供应器 → 拓充样板供应器"
       }
     ]
   },
@@ -286,7 +286,7 @@
     "pairs": [
       {
         "key": "an Extended Pattern Provider\n to an Expanded Pattern Provider",
-        "value": "从拓充样板供应器\n升级为拓展样板供应器"
+        "value": "ME扩展样板供应器 → 拓充样板供应器"
       }
     ]
   }

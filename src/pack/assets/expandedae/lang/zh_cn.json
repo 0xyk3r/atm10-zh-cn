@@ -75,7 +75,7 @@
   "item.expandedae.greater_accel_card.tooltip.1": "更强加速",
   "item.expandedae.greater_accel_card.tooltip.2": "注意：非常耗电！",
   "item.expandedae.pattern_refiller_card": "空白样板重填卡",
-  "item.expandedae.upgrade.tooltip": "%s升级",
+  "item.expandedae.upgrade.tooltip": "升级：%s",
   "gui.expandedae.buttons.pattern.mult": "§bx%d§f",
   "block.expandedae.colorable_drive": "可染色硬盘仓"
 }

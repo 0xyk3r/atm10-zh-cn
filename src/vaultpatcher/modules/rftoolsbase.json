@@ -606,18 +606,6 @@
       {
         "key": "Black or whitelist mode",
         "value": "黑名单或白名单模式"
-      },
-      {
-        "key": "Filter ignoring damage",
-        "value": "过滤器忽略耐久值"
-      },
-      {
-        "key": "Filter ignoring Components",
-        "value": "忽略组件筛选"
-      },
-      {
-        "key": "Filter ignoring mod",
-        "value": "忽略模组的筛选器"
       }
     ]
   },
