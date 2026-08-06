@@ -49,7 +49,7 @@
   "text.jei_mekanism_multiblocks.tooltip.click_shift": "SHIFT+点击：%s",
   "text.jei_mekanism_multiblocks.tooltip.warning": "※ 警告",
   "text.jei_mekanism_multiblocks.tooltip.limited": "※ 达到上限",
-  "text.jei_mekanism_multiblocks.tooltip.steam_height": "从天花板到‘%s’的距离。",
+  "text.jei_mekanism_multiblocks.tooltip.steam_height": "从顶面到‘%s’的距离。",
   "text.jei_mekanism_multiblocks.tooltip.value_limited": "‘%s’已达到上限。",
   "text.jei_mekanism_multiblocks.tooltip.when_burn_rate": "当‘燃烧速率为’%s时。",
   "text.jei_mekanism_multiblocks.tooltip.when_temp_ge": "当‘温度’>=%s时。",
