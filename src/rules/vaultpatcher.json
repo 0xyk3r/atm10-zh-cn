@@ -123,5 +123,20 @@
       "/"
     ],
     "why": "以 / 开头的键是路径片段，不是界面文字。structurize 的建筑棒把类别路径（craftsmanship/luxury）同时当面包屑显示、按钮 ID 和 Map 键用，楼层行还把「路径:序号」塞进隐藏 Text 控件、点击时读回来查表。为了让面包屑显示中文而写的 167 条 `/luxury → /豪华` 子串替换，把 458 条真实路径改坏了 277 条，查表落空直接 NPE 闪退（issue #3，7.2 vr14 beta2）。按钮上显示的其实只是路径最后一段的首字母大写形式，用精确键就能译，所以这一类整体放弃。"
+  },
+  {
+    "id": "vp-no-conflicting-values",
+    "kind": "vp_value_conflict",
+    "why": "同一个类、同一条原文、同一种匹配模式下写了两句译文，哪句生效取决于模块加载顺序与表内顺序——本机看到的和玩家看到的可以不是同一句，而且改了其中一句还查不出为什么没生效。2026-08-07 rftoolsbase.json 与 rftoolsbase_filter_zh.json 对同一个 GuiFilterModule 的三条原文各写了一套（「忽略耐久值」对「忽略损伤值」）。value 以 @ 开头是子串替换、其余是全串匹配，两种模式成对出现是对的，不算冲突。"
+  },
+  {
+    "id": "vp-ae-provider-family",
+    "kind": "term_binding",
+    "files": ["ae2.json"],
+    "terms": [
+      { "en": "Extended", "zh": "扩展" },
+      { "en": "Expanded", "zh": "拓充" }
+    ],
+    "why": "AE2 有两个附属各带一件『XX样板供应器』：ExtendedAE 的叫 ME扩展样板供应器（mcmod 词条 784050），ExpandedAE 的叫拓充样板供应器（模组 jar 自带中文）。两张升级卡的说明曾把两者对调，而对调之后的两句话各自读起来都通顺，靠人眼复核拦不住——只有把原文里的词和译文里的词绑起来才判得了。"
   }
 ]

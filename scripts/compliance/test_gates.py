@@ -172,6 +172,46 @@ def _c12(mods):
         "})\n", encoding='utf-8')
 
 
+@case('同一个类的同一条原文有两句译文', 'vp-no-conflicting-values')
+def _c13(mods):
+    # 2026-08-07 的形状：rftoolsbase.json 与 rftoolsbase_filter_zh.json 对同一个
+    # GuiFilterModule 的「Filter ignoring damage」各写了一句（「忽略耐久值」与
+    # 「忽略损伤值」）。谁生效取决于模块加载顺序与表内顺序——改了其中一句进游戏
+    # 没变化，还查不出为什么。
+    p = mods / 'ae2.json'
+    d = json.loads(p.read_text(encoding='utf-8'))
+    d[1]['pairs'] += [{'key': 'Gate Probe Filter Line', 'value': '闸探针甲'},
+                      {'key': 'Gate Probe Filter Line', 'value': '闸探针乙'}]
+    p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
+
+
+@case('Extended 被译成 ExpandedAE 那件东西的名字', 'vp-ae-provider-family')
+def _c14(mods):
+    # 2026-08-07 的形状：两张升级卡把 Extended（AE2扩展的 ME扩展样板供应器）与
+    # Expanded（ExpandedAE 的拓充样板供应器）对调了。对调之后两句话各自读起来
+    # 都通顺，只有把原文里的词和译文里的词绑起来才判得了。
+    p = mods / 'ae2.json'
+    d = json.loads(p.read_text(encoding='utf-8'))
+    d[1]['pairs'].append({'key': 'an Extended Pattern Provider',
+                          'value': '拓充样板供应器'})
+    p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
+
+
+@case('压缩方块某一档的倍数写法跑偏', 'compressed-tier-family')
+def _c15(mods):
+    # 夹具自带这份 lang，不去读真文件：ci.yml 里 test_gates 跑在 assemble.py
+    # 之前，那时出货树还不存在，靠真文件就等于这条反例在 CI 里从来没撞过——
+    # 而且 glob 落空时闸自爆，输出里照样带着规则 id，反例会假绿。
+    d = (mods.parent.parent / 'resourcepacks' / 'ATM10汉化包'
+         / 'assets' / 'allthecompressed' / 'lang')
+    d.mkdir(parents=True, exist_ok=True)
+    (d / 'zh_cn.json').write_text(json.dumps({
+        'block.allthecompressed.calcite_1x': '方解石块1x',
+        'block.allthecompressed.calcite_2x': '2x方解石',        # 倍数跑到了前面
+        'block.allthecompressed.calcite_3x': '白云石块3x',      # 同族词干还飘了
+    }, ensure_ascii=False), encoding='utf-8')
+
+
 @case('物品 tooltip 值里留了换行', 'occultism-tooltip-no-newline')
 def _c9(mods):
     # issue #8 的形状：`\n` 在 tooltip 里不断行，而是被当成普通字符去查字形，
@@ -873,6 +913,21 @@ def _m38(tmp, tree):
                        ns_dir='atm10hanhua')
     rc, out = _probe_run(tmp, t)
     return rc != 0 and '缺少探针文件' in out
+
+
+@missing_case('全串匹配与子串替换成对出现 → 必须绿（这是两种模式，不是冲突）')
+def _m39(tmp, tree):
+    # 这条是给 vp-no-conflicting-values 配的对照。minecolonies_styles 里 124 条
+    # 风格名都是这个形状：`Fortress→要塞` 全串匹配、`Fortress→@要塞` 子串替换。
+    # 闸要是不认这两种模式，它就变成一律红——那等于没有闸，只会被人关掉。
+    p = tree / 'vaultpatcher' / 'modules' / 'minecolonies_styles.json'
+    d = json.loads(p.read_text(encoding='utf-8'))
+    d[1]['pairs'] += [{'key': 'Gate Probe Style', 'value': '闸探针样式'},
+                      {'key': 'Gate Probe Style', 'value': '@闸探针样式'}]
+    p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
+    r = subprocess.run([sys.executable, str(tmp / 'scripts' / 'check.py'), str(tree)],
+                       capture_output=True, text=True, cwd=tmp)
+    return 'vp-no-conflicting-values' not in (r.stdout + r.stderr)
 
 
 def run_missing(name, fn):

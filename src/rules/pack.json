@@ -70,5 +70,13 @@
     "kind": "xml_parses",
     "glob": "resourcepacks/ATM10汉化包/assets/*/gui/**/*.xml",
     "why": "界面 XML 坏了不会在构建时报错，要等玩家打开那个界面才崩（2026-07-28 市政厅事故）。"
+  },
+  {
+    "id": "compressed-tier-family",
+    "kind": "tiered_family",
+    "glob": "resourcepacks/ATM10汉化包/assets/allthecompressed/lang/zh_cn.json",
+    "key_regex": "^block\\.allthecompressed\\.(?P<stem>.+)_(?P<tier>[1-9])x$",
+    "value_template": "块{tier}x",
+    "why": "AllTheCompressed 的 1791 个方块名是 199 族各九档，词干和档位后缀都能从键名推出来，本来就不该靠人记。没有规则约束的那阵子，同一族里混过「1x远古原木」「远古原木 6x」「三重压缩远古原木」几种写法（2026-07-27 那棵树按这条规则查出 837 处），还出现过同族两档词干不同、JEI 里分不清哪个是哪个。"
   }
 ]

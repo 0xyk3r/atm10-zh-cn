@@ -506,7 +506,122 @@ def _vp_keybind_names(rule):
             yield '%s: %s' % (name, msg.format(key=repr(k), value=repr(v)))
 
 
+@checker('vp_value_conflict')
+def _vp_value_conflict(rule):
+    """同一个类、同一条原文、同一种匹配模式，只许有一种译文。
+
+    一条 pair 有两种模式：value 以 `@` 开头是**子串替换**，其余是**全串匹配**
+    （见 compliance/check_minecolonies_paths.py 里对 MatchUtils 的还原）。所以
+    `Fortress→要塞` 与 `Fortress→@要塞` 是两种模式，成对出现是对的，不算冲突。
+
+    真冲突是同类同原文同模式下有两句不同的译文：哪句生效取决于模块加载顺序
+    与表内顺序，本机看到的和玩家看到的可以不是同一句，而且改了其中一句还查不出
+    为什么没生效。2026-08-07 rftoolsbase.json 与 rftoolsbase_filter_zh.json 对同一个
+    GuiFilterModule 的三条原文各写了一套译文（「忽略耐久值」对「忽略损伤值」等）。
+    """
+    seen = {}
+    total = 0
+    for name, tcs, k, v in vp_pairs():
+        total += 1
+        sub = v.startswith('@')
+        scope = tuple(sorted(tcs)) if tcs else ('<全局替换>',)
+        seen.setdefault((scope, k, sub), {}).setdefault(v[1:] if sub else v, set()).add(name)
+    if not total:
+        yield 'vaultpatcher/modules 一条 pair 都没读到（规则失效了，比不加还危险）'
+        return
+    for (scope, k, sub), vs in sorted(seen.items(), key=lambda kv: (kv[0][1], kv[0][0])):
+        if len(vs) < 2:
+            continue
+        where = '；'.join('%r ← %s' % (t, ','.join(sorted(fs))) for t, fs in sorted(vs.items()))
+        yield ('%s 的原文 %r（%s）有 %d 种译文：%s'
+               % (scope[0], k, '子串替换' if sub else '全串匹配', len(vs), where))
+
+
+@checker('term_binding')
+def _term_binding(rule):
+    """英文词与中文词双向绑定：原文出现其一，译文就必须出现其二，反之亦然。
+
+    专治「两个名字长得像的东西被互相译反」——这种错单看一条译文是通顺的，
+    只有把原文和译文绑起来才拦得住。2026-08-07：ExpandedAE 的两张升级卡把
+    Extended（AE2扩展的，mcmod 作 ME扩展样板供应器）译成「拓充」、把 Expanded
+    （ExpandedAE 的，jar 自带中文作 拓充样板供应器）译成「拓展」，正好对调，
+    而两句话各自读起来都没毛病。
+    """
+    terms, = need(rule, 'terms')
+    scope = rule.get('files')            # 文件名清单；缺省 = 全表
+    hits = {t['en']: 0 for t in terms}
+    total = 0
+    for name, _tcs, k, v in vp_pairs():
+        if scope and name not in scope:
+            continue
+        total += 1
+        for t in terms:
+            in_en = t['en'].lower() in k.lower()
+            in_zh = t['zh'] in v
+            if in_en:
+                hits[t['en']] += 1
+            if in_en and not in_zh:
+                yield ('%s: 原文含 %r，译文 %r 里却没有 %r' % (name, t['en'], v, t['zh']))
+            elif in_zh and not in_en:
+                yield ('%s: 译文含 %r，原文 %r 里却没有 %r' % (name, t['zh'], k, t['en']))
+    if not total:
+        yield ('files %r 一条 pair 都没读到（规则失效了，比不加还危险）'
+               % (scope if scope else 'vaultpatcher/modules/*.json',))
+        return
+    for e, c in sorted(hits.items()):
+        if not c:
+            yield ('原文里一次都没出现过 %r —— 上游改了措辞或这些 pair 被挪走了，'
+                   '这条绑定已经形同虚设' % e)
+
+
 # ─────────────────────────────── 资源包检查器 ───────────────────────────────
+
+@checker('tiered_family')
+def _tiered_family(rule):
+    """同一族的 N 档：词干必须完全相同，档位后缀写法必须全表统一。
+
+    AllTheCompressed 有 1796 条这样的键（`_1x`..`_9x` 九档一族）。因为没有任何
+    规则约束，同一族里曾经混着「1x荒古石」「荒古石 6x」「三重压缩荒古石」
+    好几种写法，而且各档的词干本身也能飘（振动合金块与脉冲合金块一字不差）。
+    键名带档位号，词干和后缀就都是可推导的，那就不该靠人记。
+    """
+    g, kr, tpl = need(rule, 'glob', 'key_regex', 'value_template')
+    rx = re.compile(kr)
+    hit = files(g)
+    if not hit:
+        yield 'glob %r 一个文件都没命中（规则失效了，比不加还危险）' % g
+        return
+    total = 0
+    for p in hit:
+        try:
+            d = json.loads(p.read_text(encoding='utf-8'))
+        except Exception as e:
+            yield '%s: JSON 解析失败: %s' % (rel(p), e)
+            continue
+        fam = {}
+        for k, v in sorted(d.items()):
+            m = rx.match(k)
+            if not m:
+                continue
+            total += 1
+            fam.setdefault(m.group('stem'), []).append((k, m.group('tier'), v))
+        for stem, items in sorted(fam.items()):
+            roots = {}
+            for k, tier, v in items:
+                tail = tpl.format(tier=tier)
+                if not v.endswith(tail):
+                    yield ('%s: %s 的译文 %r 不是「词干+%r」的写法'
+                           % (rel(p), k, v, tail))
+                    continue
+                roots.setdefault(v[:-len(tail)], []).append(k)
+            if len(roots) > 1:
+                yield ('%s: %s 这一族 %d 档的词干不一致：%s'
+                       % (rel(p), stem, len(items),
+                          '、'.join('%r(%s)' % (r, ks[0].rsplit('.', 1)[-1])
+                                    for r, ks in sorted(roots.items()))))
+    if not total:
+        yield 'key_regex %r 一个键都没命中（规则失效了，比不加还危险）' % kr
+
 
 @checker('gui_choice_ascii')
 def _gui_choice_ascii(rule):

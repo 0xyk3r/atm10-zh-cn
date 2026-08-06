@@ -40,3 +40,6 @@
 | `format_safety` | 译文的占位符 / 颜色码不得比英文原文更危险 |
 | `snbt_no_dup_keys` | 任务书 delta 之间不许有重复键 |
 | `pb_single_source` | 蜂名脚本表必须与资源包 zh_cn 一致 |
+| `vp_value_conflict` | 同类同原文同匹配模式下不许有两句译文 |
+| `term_binding` | 英文词与中文词双向绑定，出现其一必须出现其二 |
+| `tiered_family` | 同一族 N 档的词干必须相同、档位后缀写法必须统一 |
