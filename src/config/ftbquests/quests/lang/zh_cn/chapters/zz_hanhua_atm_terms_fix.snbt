@@ -85,6 +85,7 @@
 		"{image:atm:textures/questpics/forbidden/forbidden_tier1.png width:100 height:100 align:center}"
 	]
 	quest.050CD33E92601651.title: "&l&32阶&6锻炉"
+	quest.0573B6F1BE5110FD.title: "&e&l资源蜜蜂&r"
 	quest.05850541675B2493.quest_desc: ["是的。\\n\\n你已经创造了&6&lATM之星&r，这意味着你已经通关了整合包！\\n\\n那么接下来呢？"]
 	quest.05850541675B2493.title: "&6&lATM之星"
 	quest.05D8C6EF8FCD6250.quest_desc: [
@@ -493,6 +494,7 @@
 		""
 		"蒸汽采石场只能使用&a铜&r和&a青铜钻头&r。它还可以使用&a泥土&r来生成石头。"
 	]
+	quest.21AB14A8553896E9.quest_desc: ["伙计们，我想你们没听清楚，我说的是&e&l资源蜜蜂&r！哦，等等，还有一个模组！\\n\\n这个模组与&e&l资源蜜蜂&r有关，因为你将需要它们来繁殖树木。\\n\\n不，树木不会用小麦繁殖，它们用蜜蜂。\\n\\n&o树木和蜜蜂&r。"]
 	quest.21B96130EA516B82.quest_desc: ["\"我是压缩铁侠！\" \\n\\n使用和升级它都需要压缩空气！"]
 	quest.21BEE9867796933A.quest_desc: [" 由 &6游牧者&r 与 &6信使&r 代代相传的 &5骑手竹笛&r，能吹出任何 &9坐骑&r 都熟悉的声音。一声可将坐骑 &c召来&r 身边，另一声则能让它安静 &c待命&r，直到再次被需要。 \\n\\n它那神秘的力量可以让佩戴者将最多 &c2 只坐骑&r &5收纳&r 进笛中，随时准备 &c放出&r 或 &6召回&r。潜行并滚动鼠标滚轮可以切换已存储的坐骑；若想彻底放生坐骑，只需 &c潜行&r 并右键，即可把控制权完全交还给它们。 \\n\\n- &l它有 1 个能力： \\n\\n &6马厩&r： \\n 对一只已驯服的 &9骑乘生物&r 右键，可将其收入 &6骑手竹笛&r；再次右键则可将其 &c放出&r 或 &6召回&r。最多可存储 &c2&r 只坐骑，并可在 &c潜行&r 时切换。若想完全释放坐骑，只需 &c潜行&r 并右键。 \\n\\n- 这是一件属于那些以 &6歌声&r 引导 &6坐骑&r 之人的 &6遗物&r……绝不会把同伴留在身后。"]
 	quest.21BEE9867796933A.title: "&c骑手竹笛&r"
@@ -1654,6 +1656,18 @@
 	quest.6B40AF49F505A551.quest_desc: [" 在广阔的 &2主世界&r 大地上，&c旱冰鞋&r 正等待着大胆的 &2冒险者&r。只要穿上它，每一步都会将佩戴者继续向前 &c拉动&r，把移动本身化为势不可挡的 &c动量&r。 \\n\\n- 它有 1 个能力： \\n\\n &b加速&r： \\n 当你持续 &c奔跑&r 时，会逐渐获得 &b移动速度&r 加成，并在几秒后达到 &c最大增益&r。你跑得越快，地面就会变得越 &2湿滑&r，同时也越刺激、越危险。 \\n\\n- 这是一件关于 &c速度&r 与 &6动量&r 的 &6遗物&r……每一步都像在身后留下 &c火焰&r 一般。"]
 	quest.6B40AF49F505A551.title: "&c旱冰鞋"
 	quest.6B747129A85AA768.quest_desc: ["现在更像吸收漏斗了！\\n\\n虚空模块现在也会拾取经验球以及物品。无论你对经验做什么，都由你决定！"]
+	quest.6B7E13AB3BF2C5C8.quest_desc: [
+		"&6&l热力锅炉&r的构建方式与&2&l裂变反应堆&r类似，外壳仅由外壳方块、玻璃和端口组成，而内部则是所有重要的部分！\\n\\n&6&l锅炉&r的边缘需要是&6锅炉外壳&r。顶面和底面可以完全由&6外壳方块&r制成，或者中间可以用玻璃！\\n\\n墙壁类似，只是现在包括&6锅炉端口&r。\\n\\n内部是我们的&9分压元件&r和&6过热元件&r。\\n\\n可以在顶面和&9分压元件&r之间留出空间，为蒸汽提供更多空间。\\n\\n我们还可以在&9分压元件&r下方和&6过热元件&r上方提供更多空间，为&9水&r提供更多空间。"
+		"{@pagebreak}"
+		"&6&l热力锅炉&r本身不会做太多事情，它需要一些&6端口&r来输入&c化学品&f和&b流体&r才能启动！\\n\\n现在我们将专注于冷却&6过热钠&r！为此，我们需要在&6&l锅炉&r内有&6过热钠&r和&9水&r。\\n\\n一旦&6过热钠&r进入，&6&l锅炉的&r&6温度&r将开始上升。有了&9水&r，&6&l过热钠&r将冷却，而&9水&r将沸腾成蒸汽。\\n\\n&6温度&r越高，&9水&r沸腾和&6过热钠&r冷却的速度越快。如果我们想要/需要额外的&6热量&r，我们可以通过&6热导线缆&r传导一些。\\n\\n我们可以从&6电阻型加热器&r甚至&2&l裂变反应堆&r传导热量！"
+		"{@pagebreak}"
+		"这个多方块结构可以按任何可用尺寸建造，而不仅仅是图片中显示的尺寸。图片仅显示我们可以建造的最小尺寸。"
+		"{image:atm:textures/questpics/mek/mek_boiler1.png width:100 height:75 align:center}"
+		"{image:atm:textures/questpics/mek/mek_boiler2.png width:100 height:100 align:center}"
+		"{image:atm:textures/questpics/mek/mek_boiler3.png width:110 height:100 align:center}"
+		"{image:atm:textures/questpics/mek/mek_boiler4.png width:100 height:110 align:center}"
+	]
+	quest.6B7E13AB3BF2C5C8.title: "&6&l热力锅炉"
 	quest.6BA2BC09E23B34A9.quest_desc: [
 		"这个需要另一个&9錾制磨制暗黑石&r，但现在需要4个&7符文&r和4个&2流星碎片&r。\\n\\n这个&6&l锻炉&r是基础&6&l禁忌与奥秘&r的最后一个。\\n\\n当然，它包含了其余的配方，而且现在所有的遗物槽位都已开放！"
 		"{image:atm:textures/questpics/forbidden/forbidden_tier4.png width:100 height:100 align:center}"

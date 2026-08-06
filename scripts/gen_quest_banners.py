@@ -467,6 +467,12 @@ STYLE = {
     'eternal/starlight_tools.png':   ((248, 176, 0), (100, 76, 160)),
     # 金描边 + 浅灰字身，自动采样把描边采成了浅灰，整块糊在一起看不出字
     'forbidden/forbidden_automatic.png': ((188, 140, 12), (178, 178, 178)),
+    # create 那组 8 张横幅原图配色完全一致（字身 167,112,61 / 描边 60,60,60），
+    # 但只有这一张的原文 "Rotational Power" 排了两行、图高 145px 而非 72~85px。
+    # 两行之间那条暗底把采样拉偏，采出来主客颠倒：出货成了浅灰字身(210,218,218)
+    # 配棕色描边，和同一页其余 7 张（字身 167,112,61 + 近黑描边）对不上。
+    # 这里直接钉成与那 7 张一致的配色。同类失效见上面的 pneumaticcraft。
+    'create/create_title_power.png': ((14, 14, 14), (167, 112, 61)),
 }
 
 # 只有这几张确实是「文字当遮罩、底下压材质图」，值得抠；其余一律取本色干净地画。
@@ -600,7 +606,7 @@ BANNERS = {
     'create/create_title_fluid.png': '流体物流',
     'create/create_title_item.png': '物品物流',
     'create/create_title_machines.png': '机器',
-    'create/create_title_power.png': '旋转\n动力',
+    'create/create_title_power.png': '旋转动力',
     'create/create_title_tool.png': '工具',
     'create/create_title_trains.png': '火车',
     'deepndark/dnd_biome.png': '生物群系',
@@ -665,7 +671,7 @@ BANNERS = {
     'mek/mek_title_advanced.png': '高级',
     'mek/mek_title_antimatter.png': '反物质',
     'mek/mek_title_basic.png': '基础',
-    'mek/mek_title_boiler.png': '热电煮沸器',
+    'mek/mek_title_boiler.png': '热力锅炉',
     'mek/mek_title_elite.png': '精英',
     'mek/mek_title_energy.png': '能量',
     'mek/mek_title_fission.png': '裂变反应堆',
