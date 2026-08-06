@@ -38,7 +38,7 @@ Minecraft 的 `assets/<模组>/lang/zh_cn.json` 只能翻译**走翻译键**的�
 
 | 来源 | 说明 | 许可 |
 |---|---|---|
-| **BBSMC 汉化组**（[ATM10 汉化包](https://bbsmc.net/language/all-the-mods-10-cn)） | 早期参考过其汉化包。本包现有内容由各模组自带官方中文、CFPA 社区翻译与本包自译构成。 | 保留所有权益 / 无许可证（项目页标注） |
+| **BBSMC 汉化组**（[ATM10 汉化包](https://bbsmc.net/language/all-the-mods-10-cn)） | 起步阶段参考过其译文。本包现有内容由各模组自带官方中文、CFPA 社区翻译与本包自译构成。**这是翻译上的参考，不是安装上的依赖**——用本包不需要装它。 | 保留所有权益 / 无许可证（项目页标注） |
 | **CFPA 社区翻译**（[Minecraft-Mod-Language-Package](https://github.com/CFPAOrg/Minecraft-Mod-Language-Package)） | 本包 28.6% 的词条与 CFPA 1.21 语言包一致。感谢 CFPA 团队与众多贡献者。 | **CC BY-NC-SA 4.0**（署名—非商业性使用—相同方式共享） |
 | **All the Mods 团队** | 整合包本身，以及任务书的官方中文。 | 见整合包 |
 | **[十一月の风筝](https://space.bilibili.com/2041176282)** | 测试。 | — |
