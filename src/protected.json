@@ -3289,7 +3289,6 @@
     "src/vaultpatcher/modules/titanium.json",
     "src/vaultpatcher/modules/tombstone.json",
     "src/vaultpatcher/modules/torchmaster.json",
-    "src/vaultpatcher/modules/towntalk.json",
     "src/vaultpatcher/modules/transfer_labels.json",
     "src/vaultpatcher/modules/twilightforest.json",
     "src/vaultpatcher/modules/utilityvest_dynamic.json",
@@ -3301,6 +3300,12 @@
     "src/vaultpatcher/modules/yungsapi.json"
   ],
   "released": [
+    {
+      "path": "src/vaultpatcher/modules/towntalk.json",
+      "approved": "用户",
+      "date": "2026-08-06",
+      "why": "模块只有一条替换 Town Talk→Town Talk，是英文替换成同一个英文的空转，跑一遍什么也不改；该串是资源包列表里内置包的显示名，查不到收录的中文名，决定不译。删掉这条后模块没有任何替换对，整个文件失去作用"
+    },
     {
       "path": "src/config/ftbquests/quests/lang/zh_cn/chapters/zz_hanhua_productive_trees_names.snbt",
       "approved": "用户",
