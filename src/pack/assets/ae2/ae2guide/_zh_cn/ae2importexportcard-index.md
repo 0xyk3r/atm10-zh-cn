@@ -4,7 +4,7 @@ navigation:
   icon: ae2importexportcard:export_card
   position: 150
 categories:
-- tools
+  - tools
 item_ids:
 - ae2importexportcard:export_card
 - ae2importexportcard:import_card
@@ -18,24 +18,24 @@ item_ids:
   <ItemImage id="ae2importexportcard:import_card" scale="2" />
 </Row>
 
-导入卡和导出卡可以让你从物品栏中导入/导出物品
+输入卡和输出卡可通过玩家物品栏输入/输出物品。
 
 ## 输入卡
 
 <ItemImage id="ae2importexportcard:import_card" scale="2" />
 
-输入卡会将你物品栏中特定槽位里的物品取出，并放入你的 ME 系统中。
+输入卡会将你物品栏特定槽位中的物品存入ME系统。
 
-![Import Card](diagrams/import_card.png)
+![输入卡](diagrams/import_card.png)
 
-点击槽位会打上勾选标记。带有勾选标记的槽位中放置的任何物品都会被导入到你的 ME 系统中。将物品从你的物品栏拖到上方可更改过滤器。
+点击槽位可进行标记。标记槽位中的任意物品都会输入ME系统。将物品拖放到界面上方以进行过滤。
 
 ### 升级
 
-输入卡支持以下[升级](items-blocks-machines/upgrade_cards.md):
+输入卡支持如下[升级](items-blocks-machines/upgrade_cards.md)：
 
-*   <ItemLink id="fuzzy_card" /> 按耐久值筛选和/或忽略物品 NBT
-*   <ItemLink id="inverter_card" /> 将筛选器从白名单切换为黑名单
+*   <ItemLink id="fuzzy_card" />使得该卡能按耐久度或忽略物品NBT过滤
+*   <ItemLink id="inverter_card" />将白名单变为黑名单
 
 ### 配方
 
@@ -45,19 +45,19 @@ item_ids:
 
 <ItemImage id="ae2importexportcard:export_card" scale="2" />
 
-导出卡的工作方式完全相同，但它会将物品从你的 ME 系统拉取到你的物品栏中。
+输出卡的运作方式与输入卡完全一致，只不过是会从ME网络中抽取物品放入玩家物品栏。
 
-![Export Card](diagrams/export_card.png)
+![输出卡](diagrams/export_card.png)
 
-要指定哪些物品，请将物品从物品栏拖入顶部的某个槽位，然后点击你物品栏中的一个槽位，将其改成所需数量。右键单击可清除并恢复为 X。
+从物品栏中拖动物品至界面上方的槽位，再点击物品栏中槽位，将其标号修改为上方槽位对应的数，即可规定抽取的物品种类。右击可重置为无数字。
 
 ### 升级
 
-输出卡支持以下[升级](items-blocks-machines/upgrade_cards.md):
+输出卡支持如下[升级](items-blocks-machines/upgrade_cards.md)：
 
-* <ItemLink id="fuzzy_card" /> 可按损耗值筛选和/或忽略物品 NBT
-* <ItemLink id="speed_card" /> 将传输速度从 1 个提升到整整一组物品
-* <ItemLink id="crafting_card" /> 会自动请求并合成当前不可用的物品
+*   <ItemLink id="fuzzy_card" />使得该卡能按耐久度或忽略物品NBT过滤
+*   <ItemLink id="speed_card" />增加每次传输时移动的物品数，可从1个物品升级至整组物品
+*   <ItemLink id="crafting_card" />使该卡能请求合成当前不可用的物品
 
 ### 配方
 

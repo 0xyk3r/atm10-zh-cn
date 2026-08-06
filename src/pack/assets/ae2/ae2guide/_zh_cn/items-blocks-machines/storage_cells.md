@@ -1,7 +1,7 @@
 ---
 navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
-  title: 存储单元
+  title: 存储元件
   icon: item_storage_cell_1k
   position: 410
 categories:
@@ -26,7 +26,7 @@ item_ids:
 - ae2:fluid_storage_cell_256k
 ---
 
-# 存储单元
+# 存储元件
 
 <Column>
   <Row>
@@ -54,54 +54,54 @@ item_ids:
   </Row>
 </Column>
 
-存储单元是应用能源中主要的存储方式之一。它们可放入 <ItemLink id="drive" /> 或 <ItemLink id="chest" /> 中。
+存储元件是应用能源中存储的基础方式之一。需将其装入<ItemLink id="drive" />或<ItemLink id="chest" />中。
 
-关于它们以字节和类型表示的容量说明，请参见[字节与类型](../ae2-mechanics/bytes-and-types.md)。
+有关其字节和类型容量的介绍参见[字节与类型](../ae2-mechanics/bytes-and-types.md)。
 
-如果电芯是空的，手持该电芯并潜行右击，即可将存储组件从外壳中取出。
+若存储元件为空，则可手持Shift右击以将存储组件从元件外壳中取出。
 
 <Row>
     <Recipe id="upgrade/item_storage_cell_1k_to_4k" />
 
-    你可以在合成网格中将存储元件与更高等级的存储组件组合，从而将其升级到更高阶。其内容会被保留，并且低阶组件会被返还。
+    在合成方格中将存储元件与更高级的存储组件合成，即可将其升级为更高级的存储元件。元件内的事物会保留，同时会返还较低级的存储组件。
 </Row>
 
-## 不同类型数量下的存储容量
+## 存储容量与类型数变化关系
 
-[类型](../ae2-mechanics/bytes-and-types.md)的前期成本决定了，只存储 1 种类型的存储元件，其容量可以达到 63 种类型全部占用的存储元件的 2 倍。
+[每类型预先占用量](../ae2-mechanics/bytes-and-types.md)设计为：存有1个类型的元件的容量是存满63个元件的容量的两倍。
 
-| 存储元件                                     | 使用 1 种类型时的总容量 | 使用 63 种类型时的总容量 |
-| ---------------------------------------- | ----------------------------------------: | ------------------------------------------: |
-| <ItemLink id="item_storage_cell_1k" />   |                                     8,128 |                                       4,160 |
-| <ItemLink id="item_storage_cell_4k" />   |                                    32,512 |                                      16,640 |
-| <ItemLink id="item_storage_cell_16k" />  |                                   130,048 |                                      66,560 |
-| <ItemLink id="item_storage_cell_64k" />  |                                   520,192 |                                     266,240 |
-| <ItemLink id="item_storage_cell_256k" /> |                                 2,080,768 |                                   1,064,960 |
+| 元件                                     | 使用1个类型时总容量 | 使用63个类型时总容量 |
+| ---------------------------------------- | ------------------: | -------------------: |
+| <ItemLink id="item_storage_cell_1k" />   |               8,128 |                4,160 |
+| <ItemLink id="item_storage_cell_4k" />   |              32,512 |               16,640 |
+| <ItemLink id="item_storage_cell_16k" />  |             130,048 |               66,560 |
+| <ItemLink id="item_storage_cell_64k" />  |             520,192 |              266,240 |
+| <ItemLink id="item_storage_cell_256k" /> |           2,080,768 |            1,064,960 |
 
 
 ## 分区
 
-单元可以设置过滤器，使其只接受特定物品，类似于 <ItemLink id="storage_bus" />ses 也可以被过滤。这是在 <ItemLink id="cell_workbench" /> 中完成的。
+与过滤<ItemLink id="storage_bus" />类似，元件可过滤为只接受特定物品。此操作需在<ItemLink id="cell_workbench" />中完成。
 
-即使你实际上并没有该物品，也可以从 JEI/REI 将物品拖入这些槽位中。
+如果没有所需物品，可从JEI/REI中拖拽以放入过滤槽。
 
 ## 升级
 
-存储元支持以下[升级](upgrade_cards.md)，通过 <ItemLink id="cell_workbench" /> 插入：
+存储元件支持如下[升级](upgrade_cards.md)，需用<ItemLink id="cell_workbench" />装入：
 
-*   <ItemLink id="fuzzy_card" />（流体单元上不可用）可让元件按耐久等级分区，和/或忽略物品NBT
-*   <ItemLink id="inverter_card" /> 可将过滤器从白名单切换为黑名单
-*   <ItemLink id="equal_distribution_card" /> 会为每种类型分配相同数量的元件字节空间，因此某一种类型无法占满整个元件
-*   <ItemLink id="void_card" /> 会在元件已满时清空插入的物品（如果使用了均分卡，则是在该特定类型分配的空间已满时），可用于防止农场产物堆积堵塞。请务必先对此进行分区！
-*   便携元件可以安装 <ItemLink id="energy_card" /> 来提高其电池容量
+*   <ItemLink id="fuzzy_card" />（流体元件不可用）使得元件可按耐久度或忽略NBT分区
+*   <ItemLink id="inverter_card" />将白名单变为黑名单
+*   <ItemLink id="equal_distribution_card" />会为每个类型分配同等大小的扇区，也即单个类型无法填满元件
+*   <ItemLink id="void_card" />会在元件已满（或在装有均分卡时某类型已满）时销毁输入的物品，可避免农场产物堆积。设置分区的时候要小心！
+*   便携元件也接受<ItemLink id="energy_card" />，可增加其能量容量
 
 ## 染色
 
-便携式物品元件和流体元件可以像皮革套装一样染色，只需将它们与染料一起合成即可。
+便携物品和流体元件可像皮革盔甲一样染色，与染料合成即可。
 
 # 外壳
 
-单元可以用一个存储组件和一个外壳来制作，也可以将存储组件放在外壳的配方中进行合成：
+元件可由存储组件和外壳合成，也可在外壳配方中央放入存储组件：
 
 <Row>
   <Recipe id="network/cells/item_storage_cell_1k" />
@@ -109,7 +109,7 @@ item_ids:
   <Recipe id="network/cells/item_storage_cell_1k_storage" />
 </Row>
 
-外壳本身的合成方式如下：
+外壳自身的配方如下：
 
 <Row>
   <RecipeFor id="item_cell_housing" />
@@ -119,7 +119,7 @@ item_ids:
 
 # 存储组件
 
-存储组件是所有 AE2 存储元件的核心，用于决定存储元件的容量。每提升一个等级，容量都会增加 4 倍，并需要消耗 3 个前一等级的存储组件。
+存储组件是所有AE2元件的核心，决定了元件的容量。每级组件的容量是前一级的4倍，消耗则为3倍。
 
 <Column>
   <Row>
@@ -137,9 +137,9 @@ item_ids:
   </Row>
 </Column>
 
-# 物品存储单元
+# 物品存储元件
 
-物品存储元件最多可容纳 63 种不同类型的物品，并提供所有标准容量版本。
+物品存储元件可存储最多63种物品，且覆盖所有标准容量。
 
 <Column>
   <Row>
@@ -157,13 +157,13 @@ item_ids:
   </Row>
 </Column>
 
-## 便携物品存储
+## 便携物品元件
 
-它们就像你口袋里的迷你 <ItemLink id="chest" />，或者说是一种背包。它们可以在 <ItemLink id="charger" /> 中充电
+它们是口袋版（或者背包版）的<ItemLink id="chest" />。可在<ItemLink id="charger" />中为其充能。
 
-与标准存储单元不同，这些存储单元的字节容量越高，类型容量反而会*降低*，并且其总字节容量只有一半。
+和标准的存储元件不同，随着字节容量上升，它们的类型容量会*下降*，且字节容量为标准的一半。
 
-除了所有元件都可接受的升级卡外，它们还可以接受 <ItemLink id="energy_card" />，以升级其内部电池。
+除其他元件能接受的升级卡外，便携元件也接受<ItemLink id="energy_card" />以增加能量容量。
 
 <Column>
   <Row>
@@ -181,9 +181,9 @@ item_ids:
   </Row>
 </Column>
 
-# 流体存储单元
+# 流体存储元件
 
-流体存储元件最多可容纳 5 种不同类型的流体，并且提供所有标准容量可选。
+流体存储元件可存储最多5种流体，且覆盖所有标准容量。
 
 <Column>
   <Row>
@@ -201,13 +201,13 @@ item_ids:
   </Row>
 </Column>
 
-## 便携流体储存
+## 便携流体元件
 
-它们就像你口袋里的迷你 <ItemLink id="chest" />，或者说是一种背包。它们可以在 <ItemLink id="charger" /> 中充电
+它们是口袋版（或者背包版）的<ItemLink id="chest" />。可在<ItemLink id="charger" />中为其充能。
 
-与标准存储单元不同，这些存储单元的字节容量越高，类型容量反而会*降低*，并且其总字节容量只有一半。
+和标准的存储元件不同，随着字节容量上升，它们的类型容量会*下降*，且字节容量为标准的一半。
 
-除了所有元件都可接受的升级卡外，它们还可以接受 <ItemLink id="energy_card" />，以升级其内部电池。
+除其他元件能接受的升级卡外，便携元件也接受<ItemLink id="energy_card" />以增加能量容量。
 
 <Column>
   <Row>
@@ -225,10 +225,10 @@ item_ids:
   </Row>
 </Column>
 
-# 创造模式存储单元
+# 创造存储元件
 
 <Row>
   <ItemImage id="creative_storage_cell" scale="2" />
 </Row>
 
-创造元件**不会提供无限存储空间**。相反，它们会作为你对其进行[分区](cell_workbench.md)的任意物品或流体的无限来源与无限汇。
+创造元件**并不能提供无限存储空间**。它们是所[分区](cell_workbench.md)物品或流体的无限供应源和销毁池。

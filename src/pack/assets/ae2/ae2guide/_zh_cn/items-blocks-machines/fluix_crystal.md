@@ -3,7 +3,7 @@ navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
   title: 福鲁伊克斯水晶
   icon: fluix_crystal
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -14,11 +14,11 @@ item_ids:
 
 <ItemImage id="fluix_crystal" scale="4" />
 
-*"福鲁伊克斯水晶拥有独特的能力，能够吸收并将一种形式的能量转换为另一种形式的能量，是所有质能转换技术的基础"*
+*“福鲁伊克斯水晶具有吸收并转换能量形态的独特能力，也因此是所有物质能量科技的基石之所在”*
 
-是应用能源方块、[设备](../ae2-mechanics/devices.md)和物品的主要材料之一。将下界石英、红石和<ItemLink id="charged_certus_quartz_crystal" />投入水中即可制成。
+福鲁伊克斯水晶是AE2方块、[设备](../ae2-mechanics/devices.md)、物品的基础合成材料之一。通过将下界石英、红石、<ItemLink id="charged_certus_quartz_crystal" />投入水中制得。
 
-它可以使用 <ItemLink id="formation_plane" /> 和 <ItemLink id="annihilation_plane" /> [自动化](../example-setups/throw-in-water-automation.md)。
+它可用<ItemLink id="formation_plane" />和<ItemLink id="annihilation_plane" />[自动化](../example-setups/throw-in-water-automation.md)。
 
 ## 配方
 

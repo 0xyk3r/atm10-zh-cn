@@ -3,7 +3,7 @@ navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
   title: 福鲁伊克斯粉
   icon: fluix_dust
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 - network infrastructure
@@ -15,7 +15,7 @@ item_ids:
 
 <ItemImage id="fluix_dust" scale="4" />
 
-被 <ItemLink id="inscriber" /> 粉碎后的 <ItemLink id="fluix_crystal" />。用于制造多种 AE2 机器和组件。
+被<ItemLink id="inscriber" />粉碎的<ItemLink id="fluix_crystal" />。用于制造部分AE2机器和组件。
 
 ## 配方
 

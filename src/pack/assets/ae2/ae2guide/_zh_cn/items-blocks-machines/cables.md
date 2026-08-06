@@ -94,89 +94,77 @@ item_ids:
 - ae2:fluix_smart_dense_cable
 ---
 
-# 电缆
+# 线缆
 
 <GameScene zoom="3" background="transparent">
   <ImportStructure src="../assets/assemblies/cables.snbt" />
   <IsometricCamera yaw="180" pitch="30" />
 </GameScene>
 
-虽然相邻的支持 ME 的机器也能形成 ME网络，但线缆是在更大范围内
-扩展 ME网络的主要方式。
+虽然相邻的ME机器也可创建ME网络，大面积扩展ME网络的主要方式仍是线缆。
 
-不同颜色的线缆可用于确保相邻的线缆彼此不会连接，
-从而让 [channels](../ae2-mechanics/channels.md) 的分配更加高效。它们还会影响与其连接的终端的颜色，
-这样你的终端就不必全都是紫色了。福鲁伊克斯色线缆可以连接到所有其他颜色。
+线缆异色可避免相邻的线缆连接，使得[频道](../ae2-mechanics/channels.md)的分布更有效率。它们也会影响其上终端的颜色，就不会只出现紫色的终端了。福鲁伊克斯色线缆可与所有颜色的线缆相连。
 
-需要注意的是，**频道与线缆颜色毫无关系**
+需要注意，**频道和线缆颜色没有关系**。
 
-## 重要说明
+## 重要备注
 
-**如果你刚接触应用能源且不熟悉频道，请尽可能使用智能线缆和致密智能线缆。
-它会显示频道是如何通过你的网络进行布线的，让它们的行为更容易理解。**
+**如果你新入门AE2，还不熟悉频道的话，可以在各处尽量使用智能线缆和致密线缆。它们会显示频道在网络中的路径，方便理解频道的行为。**
 
-## 另一条说明
+## 另一则备注
 
-**这些不是物品、流体、能量等管道。** 它们没有内部容器，样板供应器和机器也不会向其中“推送”内容，它们唯一的作用就是将应用能源 ME设备](../ae2-mechanics/devices.md)连接成一个网络。
+**频道不是物品/流体/能量/其他类型的管道。**&zwnj;频道没有内部存储空间，样板供应器和机器不会向频道“输入”物品，频道唯一做的事情便是将AE2[设备](../ae2-mechanics/devices.md)连成一个网络。
 
-## 玻璃电缆
+## 玻璃线缆
 
 <GameScene zoom="6" background="transparent">
 <ImportStructure src="../assets/assemblies/fluix_glass_cable.snbt" />
 <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-<ItemLink id="fluix_glass_cable" /> 是最基础的线缆，能够传输能量
-以及最多 8 个[频道](../ae2-mechanics/channels.md)。它有 17 种不同颜色，默认颜色
-为福鲁伊克斯，也可以使用 16 种染料中的任意一种将其染成对应颜色。
+<ItemLink id="fluix_glass_cable" />是最简单的线缆，能传输能量，最多可传输8个[频道](../ae2-mechanics/channels.md)。它共有17种颜色，默认为福鲁伊克斯色，且可用16种染料染成相应颜色。
 
-要制作有色线缆，将任意一种染料放在中间，周围放上 8 个相同类型的线缆即可
-（线缆的颜色无关紧要，但它们必须是同一种类型，
-例如玻璃、智能等）。你也可以在世界中使用任意与 Forge 兼容的画笔为线缆上色。
+在合成方格内用8个线缆包围染料以合成染色线缆（合成用线缆的颜色不要求一致，但必须是同种线缆，如玻璃，智能等）。也可用任意Forge兼容的颜料刷给世界中的线缆染色。
 
-你可以将任意彩色线缆与一桶水合成以去除染色。
+可将任意染色线缆与水桶合成以洗去染料。
 
-你可以用羊毛包覆电缆来制作 <ItemLink id="fluix_covered_cable" />，并合成 <ItemLink id="fluix_smart_cable" />，以便更好地了解你的
-[频道](../ae2-mechanics/channels.md) 的情况。
+可用羊毛包裹线缆制得<ItemLink id="fluix_covered_cable" />，也可合成<ItemLink id="fluix_smart_cable" />以更好观察[频道](../ae2-mechanics/channels.md)的行为。
 
 <RecipeFor id="fluix_glass_cable" />
 
 <RecipeFor id="blue_glass_cable" />
 
-## 包层电缆
+## 包层线缆
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/fluix_covered_cable.snbt" />
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-包覆线缆变种相比其 <ItemLink id="fluix_glass_cable" /> 对应版本没有任何玩法上的优势。不过，如果你更喜欢包覆外观，它也可以作为另一种美观选择。
+相对<ItemLink id="fluix_glass_cable" />，包层线缆并未提供任何额外游戏功能。不过如果喜欢包层线缆的外观的话，也可以用作实用装饰。
 
-可以像 <ItemLink id="fluix_glass_cable" /> 一样进行染色。四个 <ItemLink id="fluix_covered_cable" /> 可与红石和萤石合成，制成 <ItemLink id="fluix_covered_dense_cable" />。
+包层线缆可像<ItemLink id="fluix_glass_cable" />一样染色。四个<ItemLink id="fluix_covered_cable" />再加红石和荧石就可合成<ItemLink id="fluix_covered_dense_cable" />。
 
 <Recipe id="network/cables/covered_fluix" />
 
 <RecipeFor id="blue_covered_cable" />
 
-## 致密电缆
+## 致密线缆
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/fluix_covered_dense_cable.snbt" />
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-高容量电缆，可传输 32 个频道，而标准电缆只能传输 8 个。
-不过它不支持总线，因此在使用总线或
-面板之前，你必须先将稠密电缆降级为更小的电缆
-（例如 <ItemLink id="fluix_glass_cable" /> 或 <ItemLink id="fluix_smart_cable" />）。
+高容量线缆，能传输32个频道，而非普通线缆的8个。但是致密线缆不支持总线，必须先将致密线缆降为小型线缆（例如<ItemLink id="fluix_glass_cable" />和<ItemLink id="fluix_smart_cable" />），才能放上总线和面板。
 
-致密线缆会在一定程度上覆盖频道的“最短路径”行为，频道会先沿最短路径到达致密线缆，然后再经由该致密线缆沿最短路径连接到控制器。
+致密线缆会对频道的“最短路径”特性稍加修改：频道会先沿最短路径抵达致密线缆，再沿经过该致密线缆的最短路径抵达控制器。
 
 <Recipe id="network/cables/dense_covered_fluix" />
 
 <RecipeFor id="blue_covered_dense_cable" />
 
-## 智能电缆
+## 智能线缆
 
 <Row>
 <GameScene zoom="6" background="transparent">
@@ -189,13 +177,13 @@ item_ids:
 </GameScene>
 </Row>
 
-虽然它们在外观上与 <ItemLink id="fluix_covered_cable" /> 有些相似，但其提供了诊断功能：通过将线缆上的频道使用情况可视化来实现。频道会显示为沿着线缆黑色条纹延伸的发光彩色线条，让你了解网络中的频道是如何被使用的。对于普通智能线缆，前四个频道会显示为与线缆颜色相同的线条，后四个则显示为白色线条。对于致密智能线缆，每一条纹代表 4 个频道。
+虽然外形与<ItemLink id="fluix_covered_cable" />较为相似，但智能线缆能在其上显示频道的使用情况，具有诊断功能。频道会显示为线缆黑色条纹上的带色细线，便于理解网络内频道的使用状况。普通智能线缆上前四个频道与线缆同色，后四个为白色。致密线缆的每条细线则代表4个频道。
 
-在带有 <ItemLink id="controller" /> 的网络中，电缆上的线条会显示频道经过的确切路径。
+在带有<ItemLink id="controller" />的网络中，线缆上的细线和频道的实际线路完全一致。
 
-临时网络中的智能线缆将改为显示整个网络中正在使用的频道数量，而不是流经该特定线缆的频道数量。
+处于自组织网络的智能线缆则会显示全网络所占用的频道数，而非经过自身的频道数。
 
-这些也可以用与 <ItemLink id="fluix_glass_cable" /> 相同的方式染色。
+智能线缆可像<ItemLink id="fluix_glass_cable" />一样染色。
 
 <Recipe id="network/cables/smart_fluix" />
 

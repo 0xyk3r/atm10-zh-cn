@@ -14,8 +14,7 @@ item_ids:
 
 <ItemImage id="meteorite_compass" scale="4" />
 
-陨石罗盘会指向最近的 <ItemLink id="mysterious_cube" />，因此它也会指向最近的
-[陨石](../ae2-mechanics/meteorites.md)。这是你最早应该制作的应用能源物品之一。
+陨石罗盘会指向最近的<ItemLink id="mysterious_cube" />，也即指向最近的[陨石](../ae2-mechanics/meteorites.md)。应当首先制作这种AE2物品。
 
 ## 配方
 

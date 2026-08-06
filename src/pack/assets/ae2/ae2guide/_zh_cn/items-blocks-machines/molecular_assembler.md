@@ -14,12 +14,9 @@ item_ids:
 
 <BlockImage id="molecular_assembler" scale="8" />
 
-分子装配室会接收输入到其中的物品，并执行由相邻的 <ItemLink id="pattern_provider" />
-或插入的 <ItemLink id="crafting_pattern" />、<ItemLink id="smithing_table_pattern" /> 或 <ItemLink id="stonecutting_pattern" /> 所定义的操作，
-然后将结果推送到相邻的容器中。
+分子装配室会接收输入其中的物品并执行相邻<ItemLink id="pattern_provider" />设定的操作，或执行其中<ItemLink id="crafting_pattern" />、<ItemLink id="smithing_table_pattern" />、<ItemLink id="stonecutting_pattern" />设定的操作，并将产物输出到相邻容器。
 
-这台组装机内放有一张指定了 1 个橡木原木 = 4 个橡木木板配方的合成样板。当橡木原木被送入上方的漏斗时，
-组装机会进行合成，并将橡木木板弹出到下方的漏斗中。
+下述装配室装有一个“1x 橡木原木 = 4x 橡木木板”的样板。向上方漏斗放入橡木原木，分子装配室便会开始合成并将橡木木板弹出到下方漏斗。
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/standalone_assembler.snbt" />
@@ -28,10 +25,7 @@ item_ids:
 
 ## 分子装配室的主要用途
 
-不过，它们的主要用途是在 <ItemLink id="pattern_provider" /> 旁边使用。在这种情况下，样板供应器会表现出特殊行为，
-会将相关样板的信息连同材料一起发送给相邻的组装机。由于组装机会自动将
-合成产物弹出到相邻的容器中（也就是样板供应器的返回槽位中），因此，在样板供应器旁放置一台组装机
-就是实现合成样板自动化所需的全部配置。
+它们的主要用途是放在<ItemLink id="pattern_provider" />的相邻位置。样板供应器在此情况下有特殊行为，会将相关样板和材料输入相邻装配室。因为装配室会将产物自动弹出到相邻容器（也即弹出到样板供应器的返回栏内），相邻放置的装配室和样板供应器就是自动化合成样板所需的一切了。
 
 <GameScene zoom="4" background="transparent">
   <ImportStructure src="../assets/assemblies/assembler_tower.snbt" />
@@ -40,7 +34,7 @@ item_ids:
 
 ## 升级
 
-分子装配室支持以下[升级](upgrade_cards.md):
+分子装配室支持以下[升级](upgrade_cards.md)：
 
 *   <ItemLink id="speed_card" />
 
@@ -48,6 +42,6 @@ item_ids:
 
 <RecipeFor id="molecular_assembler" />
 
-## 说明
+## 注释
 
-Optifine 会破坏“将物品输出至附近的容器中”的功能，因此大多数组装机自动化合成方案都无法工作。
+Optifine会破坏“弹出至相邻容器”功能，导致大多数需要装配室的合成设施无法工作。

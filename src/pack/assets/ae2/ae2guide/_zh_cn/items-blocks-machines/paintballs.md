@@ -55,12 +55,11 @@ item_ids:
   <ItemImage id="red_paint_ball" scale="4" />
 </Row>
 
-染色球可在 <ItemLink id="color_applicator" /> 中使用，用于给可染色的方块上色，如[线缆](cables.md)、
-羊毛、陶瓦、玻璃和混凝土。它们也可以在 <ItemLink id="matter_cannon" /> 中使用，以发射小团颜料。
+染色球可用于<ItemLink id="color_applicator" />，以给[线缆](cables.md)、羊毛、陶瓦、玻璃，混凝土等可染色方块染色。它们也可用于<ItemLink id="matter_cannon" />以射出一小滩染料。
 
 ## 配方
 
-8 个物质球围绕一个染料
+在染料周围放置8个物质球。
 
 <Column>
   <Row>
@@ -82,7 +81,7 @@ item_ids:
   <br />
 </Column>
 
-# 流明染色球
+# 光通染色球
 
 <Row gap="-8">
   <ItemImage id="white_lumen_paint_ball" scale="4" />
@@ -96,12 +95,11 @@ item_ids:
   <ItemImage id="red_lumen_paint_ball" scale="4" />
 </Row>
 
-它们的作用与普通染色球完全相同，不过从 <ItemLink id="matter_cannon" /> 发射出去后，留下的斑点会发光。
-我想，这也算是某种信号枪吧。
+它们和普通染色球表现相同，不过在<ItemLink id="matter_cannon" />中发射时，它们留下的染料滩会发光。也许适合拿来当信号枪。
 
 ## 配方
 
-在一个萤石粉周围放置 8 个彩色弹
+在荧石粉周围放置8个染色球。
 
 <Column>
   <Row>

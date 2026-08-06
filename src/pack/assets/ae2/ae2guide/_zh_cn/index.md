@@ -1,33 +1,27 @@
 ---
 navigation:
-  title: 索引/目录
+  title: 内容目录
   position: 0
 ---
 
 ![Logo](assets/logo.png)
 
-# 什么是应用能源2？
+# 应用能源2是什么？
 
-# 如何使用本指南
+# 如何使用此指南
 
-* 点击左侧边栏可查看目录
-* 许多页面都有交互式场景。如果某个场景旁边有 ![Plus](assets/diagrams/plus.png)
-和 ![Minus](assets/diagrams/minus.png)（缩放）按钮，你就可以旋转并移动镜头。
-按住鼠标左键拖动可旋转，按住鼠标右键拖动可平移。
+* 左侧为侧边栏，其中有所有条目的目录。
+* 许多页面都有交互示例图。若示例图旁边有![加号](assets/diagrams/plus.png)和![减号](assets/diagrams/minus.png)（缩放）按钮，即可旋转和移动视角。按住左键拖拽以旋转，按住右键拖拽以平移。
 
-# 什么是应用能源2？
+# 应用能源2是什么？
 
-应用能源2新增了各种组件和机制，以提供物流与存储解决方案。你可以用紧凑的 ME 网络替代
-那间堆满箱子的大房间，但这还只是个开始。
-应用能源旨在与整合包中的其他模组协同工作，并实现自动化。你可以设置你的系统，只需单击一次，
-就能合成复杂合成链所需的全部前置物品（以及最终产物）；也可以让系统始终保持某些
-物品的库存数量，并在需要时继续合成更多，或者只是单纯地在你的基地中转运物品。
+应用能源2（Applied Energistics 2）为物流与存储添加了各类组件与机制。你可以将自己原先一大间屋子的箱子替换成一个紧凑的ME网络，而这也只是冰山一角。应用能源应当与模组包内其他模组一起运作并将其自动化。只需一次点击，就能让系统自动合成复杂合成链上的每一个中间产物以及最终产物，或是在库存中维持物品的数量，根据需求合成更多，抑或仅是向基地各处传输物品。
 
-* [入门指南](getting-started.md)
-* [技巧与窍门](tips-and-tricks.md)
-* [AE2 机制](ae2-mechanics/ae2-mechanics-index.md)
-* [示例配置](example-setups/example-setups-index.md)
-* [物品、方块和机器](items-blocks-machines/items-blocks-machines-index.md)
+* [开始与入门](getting-started.md)
+* [提示与技巧](tips-and-tricks.md)
+* [AE2机制](ae2-mechanics/ae2-mechanics-index.md)
+* [设施示例](example-setups/example-setups-index.md)
+* [物品、方块与机器](items-blocks-machines/items-blocks-machines-index.md)
 
 <GameScene zoom="4" interactive={true}>
   <ImportStructure src="assets/assemblies/autocraft_setup_greebles.snbt" />

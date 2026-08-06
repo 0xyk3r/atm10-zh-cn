@@ -1,9 +1,9 @@
 ---
 navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
-  title: 装饰性陨石
+  title: 陨石装饰方块
   icon: sky_stone_stairs
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -23,7 +23,7 @@ item_ids:
 - ae2:sky_stone_small_brick_slab
 ---
 
-# 装饰性陨石
+# 陨石装饰方块
 
 <Row>
   <GameScene zoom="3" background="transparent">
@@ -34,7 +34,7 @@ item_ids:
   <BlockImage id="smooth_sky_stone_chest" scale="4" />
 </Row>
 
-<ItemLink id="sky_stone_block" /> 方块可以通过合成和切石制成一些装饰性建筑方块
+<ItemLink id="sky_stone_block" />可由合成、切石加工为装饰性建筑方块。
 
 ## 配方
 

@@ -14,22 +14,21 @@ item_ids:
 
 <ItemImage id="color_applicator" scale="4" />
 
-染色器用于给可染色的方块上色，例如[线缆](cables.md)、羊毛、陶瓦、玻璃和混凝土。它使用
-[染色球](paintballs.md)或染料，而雪球可用于清除线缆上的颜色以及方块上的染色球污渍。
+染色器可为[线缆](cables.md)、羊毛、陶瓦、玻璃、混凝土等可染色方块染色。它需要消耗[染色球](paintballs.md)或染料，如果需要洗去线缆颜色或方块上的染料滩的话，可在其中装入雪球。
 
-它的能量可以在<ItemLink id="charger" />中充能。
+可在<ItemLink id="charger" />中为其充能。
 
-染色器的工作方式类似于[存储元](storage_cells.md)，而且将染色器放入 <ItemLink id="chest" /> 的存储元槽位中，是为其涂料存储补充内容最简单的方法
+染色器和[存储元件](storage_cells.md)表现类似，可将其放入<ItemLink id="chest" />的元件槽以补充染料。
 
-右键点击目标以应用所选颜色。若要更改颜色，请按住 shift 滚动鼠标滚轮，或在没有目标时右键点击。
+手持染色器对染色目标右击以染色。Shift滚动滚轮以更改当前染色球和染料，不对准任何目标右击也可更改。
 
 ## 升级
 
-涂色器支持以下[升级](upgrade_cards.md)，通过 <ItemLink id="cell_workbench" /> 插入：
+染色器支持如下[升级](upgrade_cards.md)，需用<ItemLink id="cell_workbench" />装入：
 
-*   <ItemLink id="equal_distribution_card" /> 会为每种类型分配相同数量的单元字节空间，因此单一类型无法占满整个存储单元
-*   如果存储单元已满，<ItemLink id="void_card" /> 会销毁插入的物品（或者在使用均匀分配卡时，销毁插入到该特定类型已分配空间中的物品）。请务必先对此进行分区！
-*   <ItemLink id="energy_card" />，以提高它们的电池容量
+*   <ItemLink id="equal_distribution_card" />会为每个类型分配同等大小的扇区，也即单个类型无法填满染色器
+*   <ItemLink id="void_card" />会在元件已满（或在装有均分卡时某类型已满）时销毁输入的物品，设置分区的时候要小心！
+*   <ItemLink id="energy_card" />可增加其能量容量
 
 ## 配方
 

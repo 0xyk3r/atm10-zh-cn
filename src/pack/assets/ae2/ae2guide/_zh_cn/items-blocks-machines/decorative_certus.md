@@ -1,9 +1,9 @@
 ---
 navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
-  title: 装饰性赛特斯方块
+  title: 赛特斯石英装饰方块
   icon: quartz_stairs
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -32,14 +32,14 @@ item_ids:
 - ae2:chiseled_quartz_slab
 ---
 
-# 装饰性赛特斯方块
+# 赛特斯石英装饰方块
 
 <GameScene zoom="3" background="transparent">
   <ImportStructure src="../assets/assemblies/decorative_certus.snbt" />
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-<ItemLink id="quartz_block" /> 可以通过合成、冶炼和切石制成一些装饰性建筑方块
+<ItemLink id="quartz_block" />可由合成、烧炼、切石加工为装饰性建筑方块。
 
 ## 配方
 

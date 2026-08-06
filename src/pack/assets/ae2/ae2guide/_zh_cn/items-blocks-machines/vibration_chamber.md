@@ -14,32 +14,30 @@ item_ids:
 
 <BlockImage id="vibration_chamber" p:active="true" scale="8" />
 
-虽然为你的网络提供[能量](../ae2-mechanics/energy.md)的主要预期方式是使用 <ItemLink id="energy_acceptor" />，但振动仓也可以直接产生少量到中等数量的 AE。
+给网络供给[能量](../ae2-mechanics/energy.md)的基础方法是<ItemLink id="energy_acceptor" />，谐振仓则能直接生成少量到中量的AE。
 
-默认情况下（无[升级](upgrade_cards.md)且配置为默认）它会产生 40 AE/t。
+默认状况下（无[升级](upgrade_cards.md)且处于默认配置），它会产出40 AE/t。
 
-当网络的[energy](../ae2-mechanics/energy.md)存储已满时，谐振仓会降低功率以节省燃料，但无法完全关闭。
+网络的[能量](../ae2-mechanics/energy.md)存满时，谐振仓会减缓工作速度以减少燃料消耗，但它不会完全停止工作。
 
 ## 设置
 
-*   谐振仓可访问全局设置，以 AE 或 E/FE 显示能量。
+*   谐振仓提供调整全局能量单位（AE、E/FE）的设置
 
 ## 升级
 
-谐振仓支持以下[升级](upgrade_cards.md):
+谐振仓支持如下[升级](upgrade_cards.md)：
 
-*   <ItemLink id="energy_card" /> 可使该腔室的效率提高 +50%，最高可提高至 +150%，即达到基础效率的 250%。
-*   <ItemLink id="speed_card" /> 可使该腔室的燃烧速率提高 +50%，最高可提高至 +150%，即达到基础输出功率的 250%。
+*   每张<ItemLink id="energy_card" />会将谐振仓的效率+50%，最大+150%，也即基础效率的250%
+*   每张<ItemLink id="speed_card" />会将谐振仓的燃烧速率+50%，最大+150%，也即基础能量输出的250%
 
 ## 配置
 
-谐振仓的属性可以在你的 .minecraft\
-目录中的 config 文件夹下的 ae2 文件夹里的 common.json 中进行编辑。
+谐振仓各属性可在.minecraft/config/ae2/common.json中修改。
 
-*   baseEnergyPerFuelTick 用于设置谐振仓未升级时的基础效率。
-*   minEnergyPerGameTick 用于设置最低可能的能量产出（即使网络
-    不需要能量，谐振仓也始终会缓慢消耗一些燃料）。
-*   maxEnergyPerGameTick 用于设置谐振仓未升级时的最大输出（以及速度）。
+*   baseEnergyPerFuelTick设置谐振仓未经升级的基础效率。
+*   minEnergyPerGameTick设置产能水平下限（即便网络不需要能量，谐振仓也会缓慢消耗燃料）。
+*   maxEnergyPerGameTick设置谐振仓未经升级的输出上限（和速度）。
 
 ## 配方
 

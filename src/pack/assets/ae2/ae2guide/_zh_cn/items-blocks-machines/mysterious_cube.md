@@ -3,7 +3,7 @@ navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
   title: 神秘方块
   icon: mysterious_cube
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -15,11 +15,11 @@ item_ids:
 
 <BlockImage id="mysterious_cube" scale="8" />
 
-还记得你以前得找一堆陨石才能集齐所有压印模具吗？现在不用了！现在陨石里会自带一个神秘方块。
+还记得要找好几颗陨石才能集齐压印模板的岁月吗？这段岁月已然不再！现在陨石都会自带一个神秘方块。
 
-我很好奇，要是你把它挖掉（不用精准采集）会发生什么……
+不知道破坏（不带精准采集）的时候会发生什么事⋯⋯
 
-你还可以制作它的复制品——没那么神秘的方块
+也可以制造一个复制翻版⸺没那么神秘的方块。
 
 ## 配方
 

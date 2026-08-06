@@ -7,14 +7,9 @@ navigation:
 
 # 能量
 
-你的网络需要能量才能运行。网络拥有一个能量池，[devices](../ae2-mechanics/devices.md) 会直接从中提取能量，而
-<ItemLink id="vibration_chamber" />、<ItemLink id="energy_acceptor" />（以及 <ItemLink id="controller" />）则会向其中添加能量。你可以
-通过手持 <ItemLink id="network_tool" /> 右键点击网络中的任意位置来查看网络的能量统计信息，或者
-在网络有控制器的情况下，右键点击网络控制器来查看。这种覆盖整个网络的存储与分配方式意味着
-不存在能量传输速率限制，因此设备可以提取任意高数量的能量，而
-能量接收器也能以实际上无限的速度接收能量，唯一的限制就是你的能量存储量。
+网络需要能量才能运作。网络中有一个能量库，[设备](devices.md)能直接从中获取能量，<ItemLink id="vibration_chamber" />、<ItemLink id="energy_acceptor" />（和<ItemLink id="controller" />）则能向其中输入能量。手持<ItemLink id="network_tool" />右击网络任意一处或右击网络的控制器即可查看能量统计。这种以网络为范围的存储和分布意味着能量传输速度没有上限：设备可以消耗任意多的能量，能源接收器能以近乎无限的速度接收能量，唯一的限制是能量存储的容量。
 
-## 能量接收
+## 接收能量
 
 <Row>
   <BlockImage id="energy_acceptor" scale="4" />
@@ -26,22 +21,18 @@ navigation:
   <BlockImage id="controller" p:state="online" scale="4" />
 
   <BlockImage id="vibration_chamber" p:active="true" scale="4" />
-  
+
   <BlockImage id="crystal_resonance_generator" scale="4" />
 </Row>
 
-AE2 内部不使用 Forge Energy（在 Forge 上）或 TechReborn Energy（在 Fabric 上）。
-相反，它会将它们转换为自己的单位 AE。这个转换是单向的。能量可通过 <ItemLink id="energy_acceptor" /> 和
-<ItemLink id="controller" /> 进行转换，不过控制器的面更适合用来提供更多[频道](../ae2-mechanics/channels.md)。
-它也可以由 <ItemLink id="vibration_chamber" /> 产生，或通过 <ItemLink id="crystal_resonance_generator" /> 被动产生，但 AE2 的设计理念
-是与其他拥有更强发电能力的科技模组配合使用。
+AE2内部并不使用Forge Energy（Forge端）或是TechReborn Energy（Fabric端），而是将它们转换为自带的单位⸺AE。这种转换是单向的。能量转换可经由<ItemLink id="energy_acceptor" />和<ItemLink id="controller" />进行，不过控制器各面用于提供[频道](channels.md)更佳。也可用<ItemLink id="vibration_chamber" />和<ItemLink id="crystal_resonance_generator" />生产能量，但是AE2还是与有更强产能能力的科技模组协同工作效果更好。
 
-这意味着，在规划基地的能源分配基础设施时，最好将 AE2 网络视为一台大型的多方块机器。
+或者说，在铺设基地能源基础设施时，更推荐将AE2网络看做一整个多方块结构。
 
-Forge 能量与 Techreborn 能量的转换比例如下
+Forge Energy与Techreborn Energy的转换比为：
 
-*   2 FE 等于 1 AE (Forge)
-*   1 E 等于 2 AE (Fabric)
+*   2 FE = 1 AE（Forge）
+*   1 E  = 2 AE（Fabric）
 
 ## 能量存储
 
@@ -53,18 +44,18 @@ Forge 能量与 Techreborn 能量的转换比例如下
   <BlockImage id="creative_energy_cell" scale="4" />
 </Row>
 
-出于相对显而易见的原因，网络在一个游戏刻内能够接收或消耗的能量，不能超过其可存储的能量。如果一个网络只能存储 800 AE，那么当它的[ME设备](../ae2-mechanics/devices.md)请求能量时，它们最多只能使用 800 AE（假设存储已满），而能源接收器也只能向网络中输入最多 800 AE（假设存储为空）。
+由于一些显而易见的原因，网络无法在单游戏刻内消耗或接收超过其能量容量的能量。如果一个网络只能存储800AE，则在每游戏刻内，其各[设备](devices.md)无法使用超过800AE的能量（即便能量已满），能源接收器也无法接收超过800AE的能量（即便能量为空）。
 
-这是一种导致异常行为的常见原因：有些人只用能源接收器、幻影刃、终端和一些设备搭了一个小型网络，然后尝试将自己物品栏里满满一栏的圆石倒入网络。一次在单个游戏刻内插入这么多圆石，所需的能量会超过网络当前储存的能量，因此并不是所有圆石都能被插入。这样一来，网络会耗尽能量，从而重启。
+这也解释了网络的一些奇怪行为。例如，有人搭建了一个只有能源接收器、驱动器、终端，和某些设备的小型网络，然后往里放进一整个物品栏的圆石。在单个游戏刻内同时放入所有圆石所需要的能量超过了网络能量容量，因此只能存入一部分圆石，网络也会耗尽能量并重启。
 
-**这可以通过添加能量单元来解决。**
+**可以加入能源元件以解决上述问题。**
 
-网络具有内置能量缓冲，每条线缆、机器或部件可储存 25 AE。
+网络中每个线缆、设备、部件均自带25AE的能量缓存。
 
-<ItemLink id="controller" />具有少量内部能量存储，容量为 8,000 AE
+<ItemLink id="controller" />有少量能量缓存：8000AE。
 
-<ItemLink id="energy_cell" /> 可存储 200k AE，仅需一个就足以满足大多数用途，能够轻松应对普通网络使用中的电力峰值。
+<ItemLink id="energy_cell" />可存储200kAE，能轻松应对普通网络的能量尖峰；通常，每个网络中放一个就够了。
 
-<ItemLink id="dense_energy_cell" /> 可存储 1.6M AE，适用于你想依靠储存的电力来运行网络时，或者处理大型[空间塔](spatial-io.md)装置带来的巨大瞬时能量消耗。
+<ItemLink id="dense_energy_cell" />可存储1.6MAE，适用于脱离能量供应运行网络的情况和处理大型[空间存储](spatial-io.md)的巨量瞬时能量消耗。
 
-<ItemLink id="creative_energy_cell" /> 是一个用于测试的创造模式物品，提供无限 POWAHHHH 之类的东西。
+<ItemLink id="creative_energy_cell" />是用于测试的创造模式物品，能提供无！限！能！量！

@@ -1,15 +1,15 @@
 ---
 navigation:
   parent: ae2-mechanics/ae2-mechanics-index.md
-  title: ME设备
+  title: 设备
   icon: interface
 ---
 
 # 设备
 
-“设备”是指 AE2 网络中执行与网络本身相关功能的组件。它们几乎总是需要一个频道，唯一显著的例外是[存储状态发信器](../items-blocks-machines/level_emitter.md)。
+“设备”一词指AE2网络中执行与网络自身相关功能的组件。它们基本都需要占用频道，[标准发信器](../items-blocks-machines/level_emitter.md)除外。
 
-一些示例包括：
+以下是一些例子：
 
 *   <ItemLink id="interface" />
 *   <ItemLink id="import_bus" />

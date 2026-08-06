@@ -1,7 +1,7 @@
 ---
 navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
-  title: 生长加速
+  title: 催生器
   icon: growth_accelerator
   position: 310
 categories:
@@ -10,28 +10,26 @@ item_ids:
 - ae2:growth_accelerator
 ---
 
-# 生长加速器
+# 催生器
 
 <BlockImage id="growth_accelerator" p:powered="true" scale="8"/>
 
-生长加速会在放置于母岩旁边时，大幅加快[](../ae2-mechanics/certus-growth.md)赛特斯或紫水晶的生长。
+与母岩相邻放置时，催生器会大幅加快赛特斯石英和紫水晶的[生长](../ae2-mechanics/certus-growth.md)。
 
-有趣的是，它*也*可以加速各种植物的生长。
+奇怪的是，它*也能*加速各种植物的生长。
 
-它的工作方式是对相邻方块施加“随机刻”，并叠加在自然发生的随机刻之上。
-理论上这意味着 1 个加速器应当能让物品生长速度达到平常的约 90 倍，而且该效果可线性叠加。
+这种加速的本质是对周围方块执行“随机刻”，自然产生的随机刻也依然保留。理论上来说，1台催生器就能使得事物的生长速度变为原本的大约90倍，多台催生器的效果加算。
 
 <GameScene zoom="6" interactive={true}>
   <ImportStructure src="../assets/assemblies/growth_accelerator.snbt" />
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-能量可以从顶部或底部输入，既可以通过 AE2 的[线缆](cables.md)，也可以通过其他模组的电力线缆。它
-既可接受 AE2 的能量（AE），也可接受 Forge 能量（FE）。
+需向其顶面或底面供能，AE2[线缆](cables.md)和其他模组的能量线缆均可。催生器能接受AE2能量（AE）和Forge能量（FE）。
 
-要手动为其供能，请在顶部或底部放置一个 <ItemLink id="crank" />，然后右键它。
+在顶面或底面放置<ItemLink id="crank" />并右击手摇即可手工供能。
 
-顶部和底部可以通过其上的粉色通量装饰细节来辨认。
+顶面和底面可通过粉红色的福鲁伊克斯珠分辨。
 
 <GameScene zoom="6" background="transparent">
 <ImportStructure src="../assets/assemblies/accelerator_connections.snbt" />
