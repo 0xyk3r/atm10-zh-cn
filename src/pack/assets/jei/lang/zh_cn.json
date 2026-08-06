@@ -310,5 +310,9 @@
   "jei.message.server.recipe.sync.error": "该服务器向JEI发送了配方，但没有一个可用。JEI无法显示该服务器的配方。请检查服务器的JEI安装、数据包与配方模组。",
   "jei.message.server.recipe.sync.vanilla": "这是原版服务器。JEI正在显示来自你客户端的默认配方，若服务器使用数据包则可能不同。在服务器上安装Forge、NeoForge或Fabric以及JEI，才能正确显示服务器配方。",
   "jei.message.server.recipe.sync.unavailable": "这个%s服务器不向JEI提供配方。JEI正在显示来自你客户端的默认配方，可能与服务器不同。",
-  "jei.message.server.recipe.sync.jei.missing": "这个%s服务器未安装JEI。JEI正在显示来自你客户端的默认配方，可能与服务器不同。在服务器上安装JEI以正确显示服务器配方。"
+  "jei.message.server.recipe.sync.jei.missing": "这个%s服务器未安装JEI。JEI正在显示来自你客户端的默认配方，可能与服务器不同。在服务器上安装JEI以正确显示服务器配方。",
+  "gui.jei.search": "原料筛选",
+  "key.jei.pauseRecipeCycling": "暂停配方原料轮播",
+  "key.jei.shareToChat": "分享物品到聊天栏",
+  "key.jei.showBookmarkTooltipFeatures": "显示书签提示框功能"
 }

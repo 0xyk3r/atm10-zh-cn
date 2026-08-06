@@ -2379,5 +2379,8 @@
   "block.ars_nouveau.temporary_block": "临时方块",
   "effect.ars_nouveau.familiar_sickness": "魔宠虚弱",
   "effect.ars_nouveau.shield": "法术护盾",
-  "block.ars_nouveau.planarium_projector": "星象投影仪"
+  "block.ars_nouveau.planarium_projector": "星象投影仪",
+  "ars_nouveau.preview": "预览",
+  "painting.ars_nouveau.resting_drygmy.title": "休憩的德格米",
+  "painting.ars_nouveau.starbuncle.title": "星宝石兽"
 }

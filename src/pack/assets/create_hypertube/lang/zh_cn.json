@@ -54,5 +54,14 @@
   "subtitles.create_hypertube.entrance_close": "超级管道入口关闭",
   "item.create_hypertube.hypertube_funnel": "超级管道漏斗",
   "block.create_hypertube.hypertube_junction": "超级管道分流器",
-  "block.create_hypertube.coghweel_hole": "齿轮孔"
+  "block.create_hypertube.coghweel_hole": "齿轮孔",
+  "create_hypertube.ponder.splitter.header": "超级管道分流器",
+  "create_hypertube.ponder.splitter.text_1": "超级管道分流器最多可以连接三段管道，把一条线路分成多条支路。",
+  "create_hypertube.ponder.splitter.text_2": "穿梭途中，你可以用移动键选择要走哪一条。",
+  "create_hypertube.ponder.splitter.text_3": "你可以手持扳手右击分流器，以循环切换其模式。",
+  "create_hypertube.ponder.splitter.text_4": "侧行模式下，管道中的实体一律从侧向的管道通过。",
+  "create_hypertube.ponder.splitter.text_5": "直行模式下，管道中的实体一律从正前方的管道通过。",
+  "create_hypertube.ponder.splitter.text_6": "红石检测管道附件可以让你在这两种强制模式之间切换。",
+  "key.categories.hypertube": "机械动力：超级管道",
+  "key.hypertube.tube_escape": "脱离超级管道"
 }

@@ -166,5 +166,6 @@
   "_comment": "------ 关于集成内容的动力学 ------",
   "info_book.integratedscripting.writing.js": "JavaScript",
   "info_book.integratedscripting.advanced.typescript": "TypeScript",
-  "block.integratedscripting.part_terminal_scripting": "部件终端脚本"
+  "block.integratedscripting.part_terminal_scripting": "部件终端脚本",
+  "script.integratedscripting.error.script_missing": "脚本“%s”在磁盘 %s 上不存在"
 }

@@ -197,6 +197,7 @@
   "fancymenu.actions.screens.build_screen.edit_value.desc.normal": "编辑这个动作的值。",
   "fancymenu.actions.screens.build_screen.finish.no_value_set": "§x你得先编辑动作值！",
   "fancymenu.actions.screens.edit_action": "编辑",
+  "fancymenu.actions.screens.finish.no_action_selected": "§x请先选择一个动作！",
   "fancymenu.actions.screens.manage_screen.actions": "脚本主体",
   "fancymenu.actions.screens.manage_screen.info.value": "值：",
   "fancymenu.actions.screens.manage_screen.info.value.none": "无",

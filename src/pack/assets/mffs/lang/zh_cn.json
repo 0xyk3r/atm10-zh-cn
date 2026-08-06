@@ -179,5 +179,7 @@
   "advancements.mffs.camouflage.title": "隐于无形",
   "advancements.mffs.camouflage.description": "制作一个伪装模块",
   "advancements.mffs.custom_camouflage.title": "进入矩阵",
-  "advancements.mffs.custom_camouflage.description": "使用自定义模式与伪装模块"
+  "advancements.mffs.custom_camouflage.description": "使用自定义模式与伪装模块",
+  "item.mffs.reinforcement_module": "强化模块",
+  "item.mffs.reinforcement_module.description": "使力场方块免疫凋灵的破坏。"
 }
