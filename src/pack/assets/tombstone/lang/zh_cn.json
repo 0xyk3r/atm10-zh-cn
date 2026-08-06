@@ -371,6 +371,7 @@
   "tombstone.message.watcher_knowledge_0.find_rite_of_silent_bond": "你需要找到《静默之契仪式》的所有篇章",
   "tombstone.message.watcher_knowledge_0.unlocked": "你刚刚解锁了被遗忘的知识，可使亡灵将你视为同类",
   "tombstone.message.watcher_knowledge_1.find_elyra_diary": "你需要找到《伊莱拉日记》的所有篇章",
+  "tombstone.message.watcher_knowledge.already_unlocked": "你早已掌握该守望者学识",
   "tombstone.message.watcher_knowledge_1.already_unlocked": "你早已掌握该守望者学识",
   "tombstone.message.watcher_knowledge_1.unlocked": "你刚刚解锁了被遗忘的知识，可强化墓前祈祷的效果",
   "tombstone.message.watcher_knowledge_2.find_coral_chant": "你需要找到《珊瑚圣咏》的所有篇章",
