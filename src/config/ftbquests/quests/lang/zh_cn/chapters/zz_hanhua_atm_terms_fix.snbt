@@ -220,7 +220,7 @@
 		"{image:atm:textures/questpics/chap3/creative_forge6.png width:200 height:100 align:center}"
 		"最后是放置更多仓口！我们需要它们！如果你不想手动完成这一切，可以潜行右键点击&b&l自动赫菲斯托斯锻炉&r的控制器，让它自动帮你搭建这个多方块结构。"
 	]
-	quest.0DAF5D42694EA8C9.title: "&#949494锻造锤"
+	quest.0DAF5D42694EA8C9.title: "&#949494锻压台"
 	quest.0DC0E236C8213050.quest_desc: ["通过将500mB未精炼液态灵魂与一个单一灵魂结合，我们可以制造500mB液态灵魂！\\n\\n这将需要&b液态耀金&r所需&d源材&r量的两倍，即2000 &d源材&r。"]
 	quest.0DF4B01CC5B49E4E.quest_subtitle: "还是老伙计靠谱"
 	quest.0E057B7F76401421.title: "&6铜制背包"
