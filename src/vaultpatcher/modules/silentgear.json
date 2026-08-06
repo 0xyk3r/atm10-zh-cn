@@ -23,7 +23,7 @@
     "pairs": [
       {
         "key": "Unknown Gear Type",
-        "value": "未知齿轮类型"
+        "value": "未知装备类型"
       }
     ]
   },
@@ -60,11 +60,11 @@
       },
       {
         "key": "Unknown gear property: \"",
-        "value": "未知齿轮属性：\""
+        "value": "未知装备属性：\""
       },
       {
         "key": "Unknown gear type: \"",
-        "value": "未知齿轮类型：\""
+        "value": "未知装备类型：\""
       }
     ]
   },
@@ -308,7 +308,7 @@
       },
       {
         "key": "Unknown gear type: ",
-        "value": "未知齿轮类型："
+        "value": "未知装备类型："
       }
     ]
   },

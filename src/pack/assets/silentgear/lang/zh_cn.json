@@ -1218,7 +1218,7 @@
   "command.silentgear.mats.list.header": "已注册的材料:",
   "command.silentgear.mats.list.total": "总计：%s 种材料",
   "command.silentgear.mats.materialNotFound": "未找到材质",
-  "command.silentgear.parts.describe.gearType": "齿轮类型：",
+  "command.silentgear.parts.describe.gearType": "装备类型：",
   "command.silentgear.parts.describe.materials": "材料:",
   "command.silentgear.parts.describe.type": "部件类型:",
   "command.silentgear.parts.describe.visible": "可见:",

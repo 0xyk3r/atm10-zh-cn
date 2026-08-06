@@ -119,11 +119,11 @@
       },
       {
         "key": "Blocks are harvested with silk touch",
-        "value": "方块将使用精准采集进行采收ouch"
+        "value": "方块将以精准采集效果开采"
       },
       {
         "key": "Blocks are harvested with fortune",
-        "value": "方块将使用附魔‘精准采集’进行收获"
+        "value": "方块将以时运效果开采"
       },
       {
         "key": "all blocks in the configured space",
@@ -401,11 +401,11 @@
       },
       {
         "key": "Passive",
-        "value": "数码被动"
+        "value": "被动"
       },
       {
         "key": "Hostile",
-        "value": "（敌方）"
+        "value": "敌对"
       },
       {
         "key": "Item",

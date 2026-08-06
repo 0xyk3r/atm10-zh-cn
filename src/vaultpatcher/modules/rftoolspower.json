@@ -63,15 +63,15 @@
     "pairs": [
       {
         "key": "Lost Pearl",
-        "value": "失落珍珠"
+        "value": "丢失末影珍珠"
       },
       {
         "key": "Pearl Fired",
-        "value": "宝珠已发射"
+        "value": "发射末影珍珠"
       },
       {
         "key": "Pearl Arrived",
-        "value": "宝珠已抵达"
+        "value": "接收末影珍珠"
       }
     ]
   },

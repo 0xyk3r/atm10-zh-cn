@@ -70,11 +70,11 @@
       },
       {
         "key": "Truetype",
-        "value": "东方匠魂传"
+        "value": "TrueType"
       },
       {
         "key": "Vanilla",
-        "value": "香草"
+        "value": "原版"
       },
       {
         "key": "Set truetype font mode",
@@ -197,7 +197,7 @@
       },
       {
         "key": "energy bar",
-        "value": "能量棒"
+        "value": "能量条"
       }
     ]
   },
@@ -236,7 +236,7 @@
       },
       {
         "key": "fluid bar",
-        "value": "流体棒"
+        "value": "流体条"
       }
     ]
   },
