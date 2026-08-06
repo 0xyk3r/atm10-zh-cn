@@ -1,7 +1,7 @@
 ---
 navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
-  title: 能量单元
+  title: 能源元件
   icon: energy_cell
   position: 110
 categories:
@@ -12,7 +12,7 @@ item_ids:
 - ae2:creative_energy_cell
 ---
 
-# 能量单元
+# 能源元件
 
 <Row gap="20">
   <BlockImage id="energy_cell" scale="8" p:fullness="4" />
@@ -22,9 +22,9 @@ item_ids:
   <BlockImage id="creative_energy_cell" scale="8" />
 </Row>
 
-能量单元可为网络提供更多的[能量](../ae2-mechanics/energy.md)存储。一些内部能量缓存有助于平滑大量物品插入或提取时出现的能量消耗尖峰，而更大的能量存储则可让网络在没有发电时继续运行（例如夜晚使用太阳能板时），或应对[空间塔](../ae2-mechanics/spatial-io.md)产生的瞬时巨量能量消耗。
+能源元件给予网络更大的[能量](../ae2-mechanics/energy.md)容量。一定量的能量缓存能减少大量输入输出造成的能量尖峰影响，更大的能量存储容量则使得网络能在脱离供电时（例如晚上的太阳能板阵列）运作，也可处理[空间存储](../ae2-mechanics/spatial-io.md)产生的巨量瞬时能量消耗。
 
-## 填充栏杆
+## 填充条
 
 <Row>
 <BlockImage id="energy_cell" scale="4" p:fullness="0" />
@@ -34,19 +34,19 @@ item_ids:
 <BlockImage id="energy_cell" scale="4" p:fullness="4" />
 </Row>
 
-存储元侧面的条形指示对应其所拥有的能量。
+元件侧面的填充条对应其能量水平。
 
-*   电量低于 25% 时为 0
-*   电量在 25% 到 50% 之间时为 1
-*   电量在 50% 到 75% 之间时为 2
-*   电量在 75% 到 99% 之间时为 3
-*   电量高于 99% 时为 4
+*   充满程度少于25%时为0。
+*   充满程度在25%到50%之间时为1。
+*   充满程度在50%到75%之间时为2。
+*   充满程度在75%到99%之间时为3。
+*   充满程度超过99%时为4。
 
-## 存储元类型
+## 元件种类
 
-*   <ItemLink id="energy_cell" /> 可存储 200k AE，仅一个就足以满足大多数用途，能够轻松应对普通网络使用时的电力波动。
-*   <ItemLink id="dense_energy_cell" /> 可存储 1.6M AE，适用于你想让网络依靠储存的电力运行时，或者应对大型[封闭空间](../ae2-mechanics/spatial-io.md)配置所带来的巨量瞬时能量消耗。
-*   <ItemLink id="creative_energy_cell" /> 是一个用于测试的创造模式物品，能够提供无限的抛瓦啊啊啊之类的。
+*   <ItemLink id="energy_cell" />可存储200kAE，能轻松应对普通网络的能量尖峰；通常，每个网络中放一个就够了。
+*   <ItemLink id="dense_energy_cell" />可存储1.6MAE，适用于脱离能量供应运行网络的情况和处理大型[空间存储](../ae2-mechanics/spatial-io.md)的巨量瞬时能量消耗。
+*   <ItemLink id="creative_energy_cell" />是用于测试的创造模式物品，能提供无！限！能！量！
 
 ## 配方
 

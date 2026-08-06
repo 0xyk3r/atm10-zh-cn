@@ -1,9 +1,9 @@
 ---
 navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
-  title: 石英灯具
+  title: 石英火把
   icon: quartz_fixture
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -11,7 +11,7 @@ item_ids:
 - ae2:light_detector
 ---
 
-# 石英灯具
+# 石英火把
 
 <Row>
 <BlockImage id="quartz_fixture" scale="8" />
@@ -19,9 +19,9 @@ item_ids:
 <BlockImage id="light_detector" scale="8" />
 </Row>
 
-充能石英灯饰是一种会发光的小装饰物。
+充能石英火把是一种能发光的小物件。
 
-光亮探测器则会根据其所在方块的亮度等级发出红石信号。
+光亮探测器则会根据所处方块的光照等级发出红石信号。
 
 ## 配方
 

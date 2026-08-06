@@ -1,7 +1,7 @@
 ---
 navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
-  title: 水晶谐振发电机
+  title: 水晶谐振发生器
   icon: crystal_resonance_generator
   position: 110
 categories:
@@ -10,13 +10,13 @@ item_ids:
 - ae2:crystal_resonance_generator
 ---
 
-# 水晶谐振发电机
+# 水晶谐振发生器
 
 <BlockImage id="crystal_resonance_generator" scale="8" />
 
-该设备无需燃料即可为你的 ME 网络发电。由于此设备产生的水晶振动，每个网络中只能使用一个。该振动甚至可以穿过 <ItemLink id="quartz_fiber" />。
+此设备无需燃料就能为ME网络产生能量。同时它也会产生晶体振荡，同一个网络也因此只能存在一台这种设备。这种振荡甚至能在<ItemLink id="quartz_fiber" />中传播。
 
-**产能速率：** <ae2:ConfigValue name="crystalResonanceGeneratorRate"/> AE/t
+**发电速率：**<ae2:ConfigValue name="crystalResonanceGeneratorRate"/> AE/t
 
 ## 配方
 

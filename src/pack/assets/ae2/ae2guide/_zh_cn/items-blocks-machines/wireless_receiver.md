@@ -3,7 +3,7 @@ navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
   title: 无线接收器
   icon: wireless_receiver
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -14,7 +14,7 @@ item_ids:
 
 <ItemImage id="wireless_receiver" scale="4" />
 
-反射碟中的一个 <ItemLink id="fluix_pearl" />，是短程无线 ME 技术的组件。
+置于反射碟中的<ItemLink id="fluix_pearl" />，是一种短距离无线ME科技组件。
 
 ## 配方
 

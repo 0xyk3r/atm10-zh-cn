@@ -3,7 +3,7 @@ navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
   title: 赛特斯石英粉
   icon: certus_quartz_dust
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -14,7 +14,7 @@ item_ids:
 
 <ItemImage id="certus_quartz_dust" scale="4" />
 
-由 <ItemLink id="inscriber" /> 压碎后的 <ItemLink id="certus_quartz_crystal" />。用于生产多种应用能源材料和组件。
+被<ItemLink id="inscriber" />粉碎的<ItemLink id="certus_quartz_crystal" />。用于制造若干种AE2材料和组件。
 
 ## 配方
 

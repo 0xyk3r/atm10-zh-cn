@@ -3,7 +3,7 @@ navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
   title: 赛特斯石英水晶
   icon: certus_quartz_crystal
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -14,11 +14,11 @@ item_ids:
 
 <ItemImage id="certus_quartz_crystal" scale="4" />
 
-*"赛特斯石英水晶具有独特的特性，能够将大量能量接纳进其晶体矩阵中"*
+*“赛特斯石英水晶具有一种独特性质⸺它的晶态基质中能存储大量能量”*
 
-应用能源方块、[ME设备](../ae2-mechanics/devices.md)和物品的主要材料之一。可通过在[赛特斯石英母岩](../ae2-mechanics/certus-growth.md)上生长获得。
+AE2方块、[设备](../ae2-mechanics/devices.md)、物品的基础合成材料之一。由培养[赛特斯石英母岩](../ae2-mechanics/certus-growth.md)获得。
 
-## 一些替代配方
+## 部分替代配方
 
 <Recipe id="misc/deconstruction_certus_quartz_block" />
 

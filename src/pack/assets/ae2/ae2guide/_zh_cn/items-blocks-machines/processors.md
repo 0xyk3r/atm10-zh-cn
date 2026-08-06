@@ -3,7 +3,7 @@ navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
   title: 处理器
   icon: logic_processor
-  position: 8
+  position: 010
 categories:
 - misc ingredients blocks
 item_ids:
@@ -27,21 +27,19 @@ item_ids:
   <ItemImage id="engineering_processor" scale="4" />
 </Row>
 
-处理器是应用能源 [devices](../ae2-mechanics/devices.md) 和机器的主要材料之一。它们也是你最早会遇到的
-大型自动化挑战之一。处理器共有三种类型，分别使用金、<ItemLink id="certus_quartz_crystal" />
-和钻石制成。它们要使用 [presses](presses.md) 在 <ItemLink id="inscriber" /> 中，经过多步骤
-流程制成（通常通过一系列压印器和过滤管道来实现）。
+处理器是AE2[设备](../ae2-mechanics/devices.md)和机器的基础合成材料之一。它们也是你遇到的第一个大型自动化挑战。共有三种处理器，分别由金、<ItemLink id="certus_quartz_crystal" />、钻石制成。可在<ItemLink id="inscriber" />中以[压印模板](presses.md)通过多步合成过程制造（通常由一系列压印器和带有过滤的管道实现）。
 
 ## 生产步骤
 
 <Column gap="5">
-  1.  收集/制作所需材料：硅单质、红石、金矿、<ItemLink id="certus_quartz_crystal" />、钻石。
+
+  1.  收集/制造所需材料：硅、红石、金、<ItemLink id="certus_quartz_crystal" />、钻石。
 
   <RecipeFor id="silicon" />
 
   <br />
 
-  2. 压制所需的印刷电路前置组件
+  2.  压印出中间产物电路板
 
   <Row>
     <RecipeFor id="printed_silicon" />
@@ -57,7 +55,7 @@ item_ids:
 
   <br />
 
-  3.  最终组装
+  3.  最终组装步骤
 
   <Row>
     <RecipeFor id="logic_processor" />

@@ -7,4 +7,4 @@ navigation:
 
 # P2P通道
 
-参见[P2P通道](../items-blocks-machines/p2p_tunnels.md)
+见[P2P通道](../items-blocks-machines/p2p_tunnels.md)。

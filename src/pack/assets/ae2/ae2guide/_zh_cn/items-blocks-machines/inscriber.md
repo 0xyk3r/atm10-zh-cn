@@ -1,7 +1,7 @@
 ---
 navigation:
   parent: items-blocks-machines/items-blocks-machines-index.md
-  title: 压印机
+  title: 压印器
   icon: inscriber
   position: 310
 categories:
@@ -10,20 +10,15 @@ item_ids:
 - ae2:inscriber
 ---
 
-# 压印机
+# 压印器
 
 <BlockImage id="inscriber" scale="8" />
 
-压印器可使用 [presses](presses.md) 来压印电路和[processors](processors.md)，并将各种物品粉碎成尘土。
-它既可接受 AE2 的能量 (AE)，也可接受 Fabric/Forge Energy (E/FE)。它支持侧面配置，因此从不同侧面插入物品时，
-会将它们放入其容器中的不同槽位。为便于操作，可以使用 <ItemLink id="certus_quartz_wrench" /> 来旋转它。
-它还可以设置为将合成结果推送到相邻的容器中。
+压印器可通过[压印模板](presses.md)压印电路板和[处理器](processors.md)，也可将若干物品打成粉末。它能接受AE2能量（AE）和Fabric/Forge能量（E/FE）。其可设置为面敏感，如此从不同面输入的物品会进入不同槽位。可用<ItemLink id="certus_quartz_wrench" />旋转以利用此特性。也可将其设置为将产物弹出至相邻容器。
 
-输入缓存器的大小可以调整。举例来说，如果你想从一个容器向一大片压印器阵列供料，
-你会希望将缓存器设得小一些，这样材料就能在各个压印器之间更均匀地分配（而不是第一个
-压印器先堆满到 64 个，其余的却还是空的）。
+输入缓存的大小可以调整。假如需要用单个容器为许多压印器提供材料，则可使用小缓存，以提高材料的分配效率（而非第一台填满至64个但其余的仍为空）。
 
-这 4 种电路模板用于制作[处理器](processors.md)
+4种电路板压印模板可用于制作[处理器](processors.md)。
 
 <Row>
   <ItemImage id="silicon_press" scale="4" />
@@ -35,46 +30,45 @@ item_ids:
   <ItemImage id="engineering_processor_press" scale="4" />
 </Row>
 
-虽然“press”这个名称也可以用来称呼类似铁砧的方块，但在 <ItemLink id="pattern_access_terminal" /> 中给物品做标记时会很有用。
+而名称压印模板则可像铁砧一样命名物品，便于在<ItemLink id="pattern_access_terminal" />中标记事物。
 
 <ItemImage id="name_press" scale="4" />
 
 ## 设置
 
-* 压印器可以设置为分侧（如下所述），也可以允许从任意一侧将输入物品放入任意槽位，并由内部过滤器决定
-    物品该进入哪里。处于非分侧模式时，无法从顶部和底部槽位中抽取物品。
-* 压印器可以设置为将物品推入邻近的容器中。
-* 输入缓存的大小可以调整；大型选项适合需要你手动供料的独立压印器，而
-小型选项则能让大型并行化布局更具可行性。
+* 压印器可设置为面敏感（解释见下），或是允许从所有面输入，并交由内部过滤决定目标槽位。在非面敏感模式下，无法从其顶部和底部槽位抽取物品。
+* 压印器可设置为向相邻容器弹出物品。
+* 压印器的输入缓存可调，大缓存适用于手动供材的独立压印器，而小缓存适合大量并行的压印器。
 
-## GUI 与朝向
 
-在分侧模式下，刻印机会根据你从哪一侧插入或抽取来筛选物品的去向。
+## GUI与面敏感性
 
-![Inscriber GUI](../assets/diagrams/inscriber_gui.png) ![Inscriber Sides](../assets/diagrams/inscriber_sides.png)
+处于面敏感模式时，压印器会根据物品输入输出的面决定其目标槽位。
 
-A. **上输入栏**，可通过压印器的顶部访问（物品既可以被推入此槽位，也可以从此槽位拉出）
+![压印器GUI](../assets/diagrams/inscriber_gui.png) ![压印器各面](../assets/diagrams/inscriber_sides.png)
 
-B. **中心输入** 可通过压印器的左侧、右侧、前侧和后侧插入（物品只能被推入此槽位，不能从中拉出）
+A. **顶部输入**需从顶面访问（允许输入输出）
 
-C. **下输入栏** 可通过压印器的底面访问（可将物品推入此槽位，也可从中拉出）
+B. **中央输入**需从左面、右面、正面、背面访问（允许输入，不允许输出）
 
-D. **输出槽**可通过压印机的左侧、右侧、前侧和后侧抽取物品（该槽位中的物品只能被抽出，不能被推入）
+C. **底部输入**需从底面访问（允许输入输出）
 
-## 简易自动化
+D. **输出**可从左面、右面、正面、背面抽出（允许输出，不允许输入）
 
-例如，侧面特性和可旋转性意味着你可以像这样半自动化压印机：
+## 简单自动化
+
+如下例，压印器的面敏感性和可旋转性使其能按下述方式半自动化：
 
 <GameScene zoom="4" background="transparent">
   <ImportStructure src="../assets/assemblies/inscriber_hopper_automation.snbt" />
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-或者在非侧面模式下，直接向压印机输入和输出即可。
+也可以在非面敏感状态直接输入输出物品。
 
 ## 升级
 
-压印器支持以下[升级](upgrade_cards.md):
+压印器支持以下[升级](upgrade_cards.md)：
 
 *   <ItemLink id="speed_card" />
 

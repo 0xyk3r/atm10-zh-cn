@@ -17,7 +17,7 @@ item_ids:
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-当你暂时无法获得电力（或 <ItemLink id="energy_acceptor" />）时，可以用曲柄来为机器提供动力。游戏早期总是这么艰难，不是吗？
+在没有产能途径时，曲柄可为需要能量的机器（或<ItemLink id="energy_acceptor" />）供能。游戏早期的阵痛，是吧？
 
 ## 配方
 

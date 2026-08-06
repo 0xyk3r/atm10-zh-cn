@@ -9,166 +9,148 @@ navigation:
 
 ## “网络”是什么意思？
 
-“网络”是一组由能够传递[频道](../ae2-mechanics/channels.md)的方块连接起来的[设备](../ae2-mechanics/devices.md)，
-例如[线缆](../items-blocks-machines/cables.md)或完整方块机器和[设备](../ae2-mechanics/devices.md)。
-(<ItemLink id="charger" />、<ItemLink id="interface" />、<ItemLink id="drive" /> 等。)
-严格来说，实际上单根线缆也算是一个网络。
+“网络”是有频道连接的一组[设备](devices.md)（<ItemLink id="charger" />、<ItemLink id="interface" />、<ItemLink id="drive" />等）。这些设备之间通过[线缆](../items-blocks-machines/cables.md)或方块形态的机器和[设备](devices.md)传输[频道](channels.md)。单个线缆理论上也算是一个网络。
 
-## 设备位置的补充说明
+## 设备位置简述
 
-对于具有特定网络功能的[设备](../ae2-mechanics/devices.md)（例如可向[网络存储](../ae2-mechanics/import-export-storage.md)推送和从中拉取物品的 <ItemLink id="interface" />、
-读取网络存储内容的 <ItemLink id="level_emitter" />、
-作为网络存储的 <ItemLink id="drive" />，等等），
-设备的实际位置并不重要。
+对于有特殊网络功能的[设备](devices.md)（例如向[网络存储](import-export-storage.md)输入输出的<ItemLink id="interface" />，读取网络存储信息的<ItemLink id="level_emitter" />，作为网络存储的<ItemLink id="drive" />等）来说，设备本身的物理位置不重要。
 
-再次强调，**设备的物理位置并不重要**。真正重要的是设备已连接到网络
-（当然，还包括它连接的是哪个网络）。
+再提一遍，**设备的物理位置不重要**。重要之处在于设备连上了网络（以及连上了哪个网络）。
 
 ## 网络连接
 
-判断网络中连接了什么的一种简单方法是使用 <ItemLink id="network_tool" />。它会显示网络中的每个
-组件，所以如果你看到了本不该出现的东西，或者没看到本该出现的东西，那就说明出了问题。
+可通过<ItemLink id="network_tool" />轻松检测网络中连接的事物。它会显示网络中的每个组件，如果看到不应该出现或者没看到本应该出现的东西，那就是碰上问题了。
 
-例如，这就是 2 个彼此独立的网络。
+例如，如下是2个独立的网络。
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/2_networks_1.snbt" />
 
   <BoxAnnotation color="#915dcd" min="0 0 0" max="1 2 2">
-        网络 1
+        网络1
   </BoxAnnotation>
 
 <BoxAnnotation color="#5CA7CD" min="2 0 0" max="3 2 2">
-        网络 2
+        网络2
   </BoxAnnotation>
 
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-这同样也是两个独立的网络，因为 <ItemLink id="quartz_fiber" /> 共享了 [energy](../ae2-mechanics/energy.md)
-却没有提供网络连接。
+如下也是2个独立的网络，因为<ItemLink id="quartz_fiber" />只传输[能量](energy.md)而不提供网络连接。
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/2_networks_2.snbt" />
 
   <BoxAnnotation color="#915dcd" min="0 0 0" max="1 2 2">
-        网络 1
+        网络1
   </BoxAnnotation>
 
   <BoxAnnotation color="#5CA7CD" min="1.3 0 0" max="3 2 2">
-        网络 2
+        网络2
   </BoxAnnotation>
 
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-然而，这仍然只是 1 个网络，而不是 2 个独立的网络。[量子环](../items-blocks-machines/quantum_bridge.md) 的作用类似于无线的[致密线缆](../items-blocks-machines/cables.md#dense-cable)，因此两端位于同一网络中。
+而如下则只有1个网络（不是2个）。[量子桥](../items-blocks-machines/quantum_bridge.md)类似无线的[致密线缆](../items-blocks-machines/cables.md#致密线缆)，因此其两端处于同一网络。
 
 <GameScene zoom="4" background="transparent">
   <ImportStructure src="../assets/assemblies/actually_1_network.snbt" />
 
   <BoxAnnotation color="#915dcd" min="0 0 0" max="7 3 3">
-        全部属于 1 个网络
+        只有1个网络
   </BoxAnnotation>
 
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-这也仍然只是 1 个网络，因为[cable](../items-blocks-machines/cables.md) 颜色除了不同颜色的数据线不会彼此连接之外，与网络连接无关。所有颜色都可以连接到福鲁伊克斯（或“无色”）数据线。
+如下也只有1个网络，因为[线缆](../items-blocks-machines/cables.md)颜色与网络连接无关而只会阻止不同色线缆连接。所有颜色的线缆都会与福鲁伊克斯色（或“未上色”）的线缆连接。
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/actually_1_network_2.snbt" />
 
   <BoxAnnotation color="#915dcd" min="0 0 0" max="4 2 2">
-        全部属于 1 个网络
+        只有1个网络
   </BoxAnnotation>
 
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-## 子网络语境下的连接
+## 子网络中的连接
 
-[子网络](../ae2-mechanics/subnetworks.md) 利用网络连接（以及特别是**不**连接）
-来限制[设备](../ae2-mechanics/devices.md) 能访问哪些其他设备。
+[子网络](subnetworks.md)通过控制网络连接（主要是**禁止**连接）来限制[设备](devices.md)对其他设备的访问权。
 
-子网本质上就只是一个独立的网络。
+子网络本质上就是一个独立的网络。
 
-例如，以 [自动矿石时运机](../example-setups/ore-fortuner.md) 为例。这里有 3 个彼此独立的网络，
-它们各自负责该装置中的特定功能。
+以[自动时运矿石机](../example-setups/ore-fortuner.md)为例。此设施内有3个独立网络，且均用于完成特定任务。
 
 <GameScene zoom="6" interactive={true}>
   <ImportStructure src="../assets/assemblies/ore_fortuner.snbt" />
 
   <BoxAnnotation color="#915dcd" min="0 0 2" max="3 1 3">
-        网络 1，像一个管道子网一样工作，限制导入总线可访问的内容，从而通过
-        成型面板“存储”矿石方块。
+        网络1，相当于一个管道子网络，限制了输入总线的访问范围，使其只能通过成型面板“存储”矿石方块。
   </BoxAnnotation>
 
   <BoxAnnotation color="#5CA7CD" min="0 0 0" max="3 1 1">
-        网络 2，像另一个管道子网一样工作，限制 ME破坏面板可访问的内容，使它们将
-        时运处理后的矿石碎块存入木桶，而不是你的主网络中。同时也意味着它们不会占用
-        主网络上的任何频道。
+        网络2，相当于另一个管道子网络，限制了破坏面板的访问范围，使其只会将时运所得的矿石小块存入木桶，而非存入子网络。这也说明它不会占用主网络中的频道。
   </BoxAnnotation>
 
   <BoxAnnotation color="#82CD5C" min="2 0 1" max="4 1 2">
-        网络 3，主网络，承载你所有的存储和合成。它实际上只是用来供电的，并且明确地
-        *没有*连接到前面两个子网。
+        网络3，包含所有存储和物品的主网络。此处仅作能源，并且*未*与前两个子网络相连接。
   </BoxAnnotation>
 
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-## P2P 语境下的连接
+## P2P通道中的连接
 
-[P2P通道](../items-blocks-machines/p2p_tunnels.md) 的一种变体传输的是[频道](channels.md)，而不是物品、流体
-或红石信号，而这不知为何总会让人困惑。通道所安装的那个网络与它所传输的
-网络毫无关系。它们*可以*是同一个网络，但并不必须，而且通常也不是。
+有一种[P2P通道](../items-blocks-machines/p2p_tunnels.md)传递的不是物品、流体、红石信号，而是[频道](channels.md)，有些人也因此不能理解它们。P2P通道所处于的网络和其所传递的网络之间没有任何联系。当然这两个网络*可以*是同一个，但一般不会这么做。
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/p2p_channels_network_connection.snbt" />
 
   <BoxAnnotation color="#915dcd" min="0 0 0" max="1.98 2 1">
-        网络 1，被传输的网络（通常是你的主网络）
+        网络1，所传递的网络（通常是主网络）
   </BoxAnnotation>
 
   <BoxAnnotation color="#5CA7CD" min="2.02 0 0" max="3.98 1 1">
-        网络 2，运行 ME P2P通道 的网络（通常*不是*你的主网络）
+        网络2，P2P通道所处的网络（通常*不*是主网络）
   </BoxAnnotation>
 
   <BoxAnnotation color="#915dcd" min="4.02 0 0" max="6 1 1">
-        网络 1，被传输的网络（通常是你的主网络）
+        网络1，所传递的网络（通常是主网络）
   </BoxAnnotation>
 
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-## 不那么直观的连接方式
+## 相对不直观的连接
 
-在这种情况下，这仍然只是 1 个网络，因为 <ItemLink id="pattern_provider" /> 作为一个完整方块设备，会像数据线一样工作，而 <ItemLink id="inscriber" /> 也同样如此。因此，网络连接会穿过供应器和压印器。
+这种情况下只有1个网络，因为方块形态的<ItemLink id="pattern_provider" />和线缆功能类似，<ItemLink id="inscriber" />也是一样。正因此，网络连接能跨供应器和压印器传输。
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/pattern_provider_network_connection_1.snbt" />
 
   <BoxAnnotation color="#915dcd" min="0 0 0" max="4 2 2">
-        全部属于 1 个网络
+        只有1个网络
   </BoxAnnotation>
 
   <IsometricCamera yaw="195" pitch="30" />
 </GameScene>
 
-为防止这种情况发生（这对许多涉及[subnetworks](../ae2-mechanics/subnetworks.md)的自动合成配置都很有用），
-你可以手持 <ItemLink id="certus_quartz_wrench" /> 右键点击供应器，使其变为定向模式，这样它就不会通过其中一侧传递通道。
+为避免这种情况出现（在与[子网络](subnetworks.md)相关的自动化设施中相当有用），可手持<ItemLink id="certus_quartz_wrench" />右击供应器以将其变为方向型，它便不会在选中面传输频道。
 
 <Row gap="40">
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/pattern_provider_network_connection_2.snbt" />
 
   <BoxAnnotation color="#915dcd" min="0 0 0" max="1.98 2 2">
-        网络 1
+        网络1
   </BoxAnnotation>
 
   <BoxAnnotation color="#5CA7CD" min="2.02 0 0" max="4 2 2">
-        网络 2
+        网络2
   </BoxAnnotation>
 
   <IsometricCamera yaw="195" pitch="30" />
@@ -178,16 +160,14 @@ navigation:
   <ImportStructure src="../assets/assemblies/pattern_provider_directional_connection.snbt" />
 
   <BoxAnnotation color="#ee3333" min="1 .3 .3" max="1.3 .7 .7">
-        注意观察线缆是如何没有连接上的
+        需注意线缆并未连接
   </BoxAnnotation>
 
   <IsometricCamera yaw="255" pitch="30" />
 </GameScene>
 </Row>
 
-其他不提供定向网络连接的部件大多是[subpart](../ae2-mechanics/cable-subparts.md)
-[devices](../ae2-mechanics/devices.md)，例如 <ItemLink id="import_bus" />ses、<ItemLink id="storage_bus" />ses 和
-<ItemLink id="cable_interface" />s。
+其他不提供方向型网络连接的大多是[子部件](cable-subparts.md)[设备](devices.md)，例如<ItemLink id="import_bus" />、<ItemLink id="storage_bus" />、<ItemLink id="cable_interface" />。
 
 <GameScene zoom="6" background="transparent">
   <ImportStructure src="../assets/assemblies/subpart_no_connection.snbt" />
