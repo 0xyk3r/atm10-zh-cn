@@ -225,6 +225,29 @@ def _c9(mods):
     p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
 
 
+def _relics_lang(root, extra):
+    """夹具自带这份 lang。理由同 _c15：test_gates 跑在 assemble.py 之前，
+    出货树还不存在，靠真文件等于反例在 CI 里从来没撞过；而 glob 落空时闸自爆，
+    输出里照样带规则 id，反例会假绿。"""
+    p = (root / 'resourcepacks' / 'ATM10汉化包'
+         / 'assets' / 'relics' / 'lang' / 'zh_cn.json')
+    d = {'relics.description.reflective_necklace.ability.reflection.description':
+         '当遗物持有者受到伤害时，有%1$s%%的概率生成一个能量球。'}
+    d.update(extra)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
+
+
+@case('relic 被译成「收藏品」、bearer 被译成「持眼人」', 'relics-relic-is-yiwu')
+def _c18(mods):
+    # 经验分散器那条能力说明的原形。同一个 tooltip 的下两行写的是「遗物」，
+    # 单看这一句通顺，只有跟本表其余 118 个「遗物」放一起才看得出错。
+    _relics_lang(mods.parent.parent, {
+        'relics.description.experience_disperser.ability.dispersion.description':
+            '当持眼人的任意收藏品获得经验时，所有已装备的收藏品还会额外获得该数量的 %1$s%%。',
+    })
+
+
 def _delta(mods, text):
     p = (mods.parent.parent / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn'
          / 'chapters' / 'zz_hanhua_zzz_gate_fixture.snbt')
@@ -928,6 +951,19 @@ def _m39(tmp, tree):
     r = subprocess.run([sys.executable, str(tmp / 'scripts' / 'check.py'), str(tree)],
                        capture_output=True, text=True, cwd=tmp)
     return 'vp-no-conflicting-values' not in (r.stdout + r.stderr)
+
+
+@missing_case('relics 说明里写「遗物」「遗物持有者」→ 必须绿（证明这道闸不是一律红）')
+def _m40(tmp, tree):
+    # 没有这条对照，上面那条反例区分不了「闸拦住了」和「闸因为 glob 落空自爆」——
+    # 两种情况的输出里都带着 relics-relic-is-yiwu 这个 id。
+    _relics_lang(tree, {
+        'relics.description.experience_disperser.ability.dispersion.description':
+            '当遗物持有者的任意遗物获得经验时，所有已装备的遗物还会额外获得该数量的 %1$s%%。',
+    })
+    r = subprocess.run([sys.executable, str(tmp / 'scripts' / 'check.py'), str(tree)],
+                       capture_output=True, text=True, cwd=tmp)
+    return 'relics-relic-is-yiwu' not in (r.stdout + r.stderr)
 
 
 def run_missing(name, fn):

@@ -421,7 +421,7 @@
   "item.relics.experience_disperser": "经验分散器",
   "relics.description.experience_disperser.description": "该遗物不喜欢经验值积聚于一处。一旦它分得属于自己的份额，部分经验值便会向其他装备扩散。因此，经验值并非仅累积于单件遗物，而是同时分布于全部装备之上。",
   "relics.description.experience_disperser.ability.dispersion": "经验分散",
-  "relics.description.experience_disperser.ability.dispersion.description": "当持眼人的任意收藏品获得经验时，所有已装备的收藏品还会额外获得该数量的 %1$s%%。",
+  "relics.description.experience_disperser.ability.dispersion.description": "当遗物持有者的任意遗物获得经验时，所有已装备的遗物还会额外获得该数量的 %1$s%%。",
   "relics.description.experience_disperser.ability.dispersion.rank_modifier.same_item": "同类型的遗物从扩散效果中额外获得 %2$s%% 点经验。",
   "relics.description.experience_disperser.ability.dispersion.rank_modifier.player_xp": "玩家从经验球获得的经验值中，有%3$s%%将分配给所有已装备的遗物。",
   "relics.description.experience_disperser.ability.dispersion.rank_modifier.max_level": "即使获得经验值的遗物已达到其最高等级，分散效果仍会触发。",

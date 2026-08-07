@@ -42,6 +42,15 @@
     "why": "issue #11 A10：模块化路由器按 I 键看到的物品说明里，每个换行都变成一颗写着 LF 的方框。成因与 occultism-tooltip-no-newline 完全相同——vanilla 渲染 tooltip 走 getVisualOrderText，不断行，U+000A 被当普通字符去查字形。上游 en_us 自己就带这些换行（英文同样是方框），升版重导上游译文时会原样带回来，所以要设闸。只管 itemText.*：guiText.* 是模组自己画的 GUI 弹窗，那边的换行是生效的，一并禁掉会把排版毁了。"
   },
   {
+    "id": "relics-relic-is-yiwu",
+    "kind": "lang_value_forbidden",
+    "glob": "resourcepacks/ATM10汉化包/assets/relics/lang/zh_cn.json",
+    "key_regex": "^relics\\.description\\.",
+    "value_regex": "收藏品|持眼人",
+    "message": "{key} 的值里把 relic 译成了「收藏品」或把 bearer 译成了「持眼人」——本表 118 个键都用「遗物」「遗物持有者」",
+    "why": "经验分散器那条能力说明写的是「当持眼人的任意收藏品获得经验时，所有已装备的收藏品还会额外获得…」，原文是 When any of the bearer's relics gains experience, all equipped relics…。同一条 tooltip 的下两行又写「遗物」，玩家在一个框里读到三个名字。这两个词在全表 547 个键里各只出现过一次，是机翻残渣：单看这一句是通顺的，只有把它跟本表其余 118 个「遗物」放在一起才看得出错。范围限定 relics.description.* 是因为能力说明会随模组升版重导，正是这种残渣的入口。"
+  },
+  {
     "id": "gui-choice-must-stay-english",
     "kind": "gui_choice_ascii",
     "glob": "resourcepacks/ATM10汉化包/**/*.gui",
