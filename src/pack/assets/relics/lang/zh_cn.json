@@ -109,7 +109,7 @@
   "relics.description.reflective_necklace.ability.reflection.rank_modifier.piercing": "魔力珠命中首个目标后不再消失，而是穿透路径上最多%4$s个目标。",
   "relics.description.reflective_necklace.ability.reflection.rank_modifier.stun": "魔力珠对目标造成伤害的同时，也会使其眩晕%5$s秒。",
   "relics.description.reflective_necklace.ability.reflection.rank_modifier.bounce": "该球体最多可在实体表面反弹%6$s次，或在距离遗物佩戴者超过16格时反弹。",
-  "relics.description.reflective_necklace.ability.reflection.experience_source.construct": "每生成一个魔力珠，其中储存的伤害值相当于遗物穿戴者最大生命值的 {0}%，即可获得 1 点经验值",
+  "relics.description.reflective_necklace.ability.reflection.experience_source.construct": "每生成一个魔力珠，其中储存的伤害值每达到遗物穿戴者最大生命值的 10%，即可获得 1 点经验值",
   "relics.description.reflective_necklace.ability.reflection.experience_source.impact": "每次魔力珠造成一次命中，即可获得 1 点经验值",
   "relics.description.reflective_necklace.ability.reflection.statistic.total_orbs": "已生成的魔力珠数",
   "relics.description.reflective_necklace.ability.reflection.statistic.total_damage": "魔力珠造成伤害",

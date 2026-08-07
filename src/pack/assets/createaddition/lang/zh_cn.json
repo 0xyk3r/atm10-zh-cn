@@ -162,7 +162,7 @@
   "block.createaddition.large_connector.tooltip.condition1": "高电流",
   "block.createaddition.large_connector.tooltip.behaviour1": "与_高电流线缆_连接。",
   "block.createaddition.large_connector.tooltip.condition2": "右击时",
-  "block.createaddition.large_connector.tooltip.behaviour2": "手持_金线轴_或_琥珀金线轴_时，可与最多 8 个其他_大型接线器_建立_线缆连接_。",
+  "block.createaddition.large_connector.tooltip.behaviour2": "手持_金线轴_或_琥珀金线轴_时，可与最多 6 个其他_大型接线器_建立_线缆连接_。",
   "block.createaddition.large_connector.tooltip.condition3": "手持扳手右击时",
   "block.createaddition.large_connector.tooltip.behaviour3": "在_输入_，_输出_，与_无_模式中切换",
   "block.createaddition.redstone_relay": "红石继电器",
