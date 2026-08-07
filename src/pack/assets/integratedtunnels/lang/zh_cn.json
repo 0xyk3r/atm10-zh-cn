@@ -451,7 +451,7 @@
   "aspect.integratedtunnels.write.list.item.filter": "过滤多个物品",
   "aspect.integratedtunnels.write.list.item.filter.info": "传递给定的物品。",
   "aspect.integratedtunnels.write.operator.item.filter": "谓词过滤物品",
-  "aspect.integratedtunnels.write.operator.item.filter.info": "传递所有匹配给定战利品表谓词的物品。",
+  "aspect.integratedtunnels.write.operator.item.filter.info": "传递所有匹配给定谓词的物品。",
   "aspect.integratedtunnels.write.nbt.item.filter": "NBT过滤物品",
   "aspect.integratedtunnels.write.nbt.item.filter.info": "传递所有匹配给定NBT标签的物品。",
   "aspect.integratedtunnels.write.boolean.fluid.filter": "过滤所有流体",

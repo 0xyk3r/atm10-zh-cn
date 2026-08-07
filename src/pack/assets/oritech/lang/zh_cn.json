@@ -564,7 +564,7 @@
   "block.oritech.framed_superconductor": "带框架的超导体",
   "block.oritech.framed_item_pipe": "带框架的物流管道",
   "block.oritech.framed_fluid_pipe_connection": "带框架的流体管道连接点",
-  "block.oritech.framed_energy_pipe_connection": "带框架的物流管道连接点",
+  "block.oritech.framed_energy_pipe_connection": "带框架的能量线缆连接点",
   "block.oritech.framed_superconductor_connection": "带框架的超导体连接点",
   "block.oritech.framed_item_pipe_connection": "带框架的物流管道连接点",
   "block.oritech.item_pipe_duct_block": "集装物流管道",
