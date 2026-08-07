@@ -16,6 +16,12 @@ productivebees 一个命名空间。2026-08-03 的反馈说明同一个毛病在
 
 前两组是反馈报上来的，第三组是这道闸自己扫出来的——**人眼看不全，必须机械化。**
 
+2026-08-07 又发现 Industrial Foregoing 的无限工具任务把七档原样留成英文，而工具
+tooltip 已经是「差 / 普通 / 罕见 / 稀有 / 史诗 / 传说 / 神器」。档位不是 item/block
+名字，直接把整个命名空间塞进物品名扫描还会让 Plastic、Speed 等常用词满地误报。
+所以这类术语按「目标任务键 → jar 语言键」精确绑定：参照值仍从最终生效的语言表取，
+任务键或任一参照键消失都当红，不能让检查静默空转。
+
 ## 判定
 
 对每个任务条目：英文原文里出现某件物品的英文名 → 我们的中文里必须出现它的中文名。
@@ -60,7 +66,8 @@ mob_grinding_utils 和 iceandfire 里各有一件（腐烂鸡蛋 / 烂鸡蛋）�
 ## fail-closed
 
 拿不到 jar、读不到英文表、找不到中文表、上游英文任务书目录不在、某个模组一对名字都
-配不上、两棵树一个键都对不上——全部当红。这道闸最没用的失败形态就是「没扫到所以通过」。
+配不上、绑定的任务键或语言键消失、两棵树一个键都对不上——全部当红。这道闸最没用的
+失败形态就是「没扫到所以通过」。
 
 用法:
     python3 scripts/compliance/check_item_names_in_quests.py <mods 目录> <上游树> <出货树>
@@ -74,6 +81,17 @@ from pathlib import Path
 # 纳入这道闸的命名空间。加一个模组进来之前先本地跑一遍：报出来的必须条条是真错，
 # 否则说明该模组的名字表不适合当判据（比如物品名是常用词），不许为了「多扫点」硬加。
 NAMESPACES = ('mob_grinding_utils', 'occultism', 'relics')
+
+# 不能全局扫的界面术语：限定到具体任务键，再从 jar 英文和最终生效中文里动态取值。
+# keys 的顺序也是任务正文应使用的顺序。
+QUEST_LANG_BINDINGS = {
+    'quest.41E8550FC36ABCA5.quest_desc': {
+        'label': 'Industrial Foregoing 无限工具档位',
+        'namespace': 'industrialforegoing',
+        'keys': tuple('text.industrialforegoing.tooltip.infinitydrill.%s' % tier for tier in (
+            'poor', 'common', 'uncommon', 'rare', 'epic', 'legendary', 'artifact')),
+    },
+}
 
 PACK_ZH = 'resourcepacks/ATM10汉化包/assets/%s/lang/zh_cn.json'
 EN_QUESTS = 'config/ftbquests/quests/lang/en_us'
@@ -108,10 +126,14 @@ def pack_zh(tree):
 
 
 def collect(mods, tree):
-    """扫全包：→ (英文名 -> 可接受的中文名集合, 被强制检查的英文名集合)。"""
+    """扫全包，收物品名及任务键绑定的界面术语。"""
     ours = pack_zh(tree)
     names, enforced = {}, set()
     seen_ns = set()
+    binding_values = {
+        qkey: {key: set() for key in spec['keys']}
+        for qkey, spec in QUEST_LANG_BINDINGS.items()
+    }
     for jar in sorted(Path(mods).glob('*.jar')):
         try:
             z = zipfile.ZipFile(jar)
@@ -128,6 +150,17 @@ def collect(mods, tree):
                 zh = dict(load_json(z, n.replace('en_us', 'zh_cn')) or {})
                 zh.update(ours.get(ns, {}))       # 我们的包盖在模组自带之上
                 seen_ns.add(ns)
+                for qkey, spec in QUEST_LANG_BINDINGS.items():
+                    if ns != spec['namespace']:
+                        continue
+                    for key in spec['keys']:
+                        e = en.get(key)
+                        if not (isinstance(e, str) and e.strip()):
+                            continue
+                        c = zh.get(key)
+                        if not (isinstance(c, str) and c.strip()):
+                            die('%s 的参照键 %s 没有最终生效的中文值' % (spec['label'], key))
+                        binding_values[qkey][key].add((e, c))
                 for k, e in en.items():
                     # count==2 → 只要 item.<ns>.<id> 这种纯名字键，
                     # 把 .tooltip_1 / .jei.info 这类描述排掉
@@ -150,7 +183,24 @@ def collect(mods, tree):
     if not enforced:
         die('要检查的命名空间（%s）一对「英文名→中文名」都没配上 —— 判不了'
             % '、'.join(NAMESPACES))
-    return names, enforced
+
+    bindings = {}
+    for qkey, spec in QUEST_LANG_BINDINGS.items():
+        pairs = []
+        for key in spec['keys']:
+            got = binding_values[qkey][key]
+            if not got:
+                die('%s 里找不到 %s 的英文语言键 %s —— 术语参照已经失效'
+                    % (mods, spec['label'], key))
+            if len(got) != 1:
+                die('%s 的语言键 %s 在 jar 中有互相冲突的值：%s'
+                    % (spec['label'], key, sorted(got)))
+            pairs.append(next(iter(got)))
+        if len({e for e, _ in pairs}) != len(pairs):
+            die('%s 的英文参照值发生重复，无法逐档核对：%s'
+                % (spec['label'], [e for e, _ in pairs]))
+        bindings[qkey] = (spec['label'], pairs)
+    return names, enforced, bindings
 
 
 def quest_text(root):
@@ -185,6 +235,17 @@ def norm(text):
 
 WORD = re.compile(r'\w+')
 SPACE = re.compile(r'[\s\u00a0]+')
+
+
+def ordered_terms(text, terms):
+    """terms 是否都作为独立词按顺序出现。中文档位也必须是独立列表项。"""
+    pos = 0
+    for term in terms:
+        m = re.search(r'(?<!\w)%s(?!\w)' % re.escape(term), text[pos:])
+        if not m:
+            return False
+        pos += m.end()
+    return True
 
 
 def found_names(text, by_first):
@@ -236,6 +297,26 @@ def mismatches(names, enforced, up, ours, common):
     return bad
 
 
+def binding_mismatches(bindings, up, ours):
+    """限定任务内的术语序列必须跟最终生效的语言键逐项一致。"""
+    bad = []
+    for qkey, (label, pairs) in bindings.items():
+        if qkey not in up:
+            die('上游英文任务书里没有绑定键 %s（%s）——任务可能改版，需重新核对'
+                % (qkey, label))
+        if qkey not in ours:
+            die('出货中文任务书里没有绑定键 %s（%s）——这道闸无从检查'
+                % (qkey, label))
+        en_terms = [e for e, _ in pairs]
+        if not ordered_terms(norm(up[qkey]), en_terms):
+            die('上游任务 %s 已不再按预期列出 %s：%s —— 需重新核对绑定'
+                % (qkey, label, ' / '.join(en_terms)))
+        zh_terms = [c for _, c in pairs]
+        if not ordered_terms(norm(ours[qkey]), zh_terms):
+            bad.append((qkey, label, zh_terms))
+    return bad
+
+
 def main(argv):
     if len(argv) != 4:
         die('用法: check_item_names_in_quests.py <mods 目录> <上游树> <出货树>')
@@ -254,16 +335,22 @@ def main(argv):
     if not common:
         die('英文与中文一个键都对不上 —— 两棵树不是同一版，判了也没意义')
 
-    names, enforced = collect(mods, tree)
+    names, enforced, bindings = collect(mods, tree)
     bad = mismatches(names, enforced, up, ours, common)
+    binding_bad = binding_mismatches(bindings, up, ours)
 
     if bad:
         print('❌ 任务书里的物品名跟游戏内物品名对不上（玩家照任务书去 JEI 搜会搜不到）：')
         for k, e, c in sorted(bad):
             print('   %-40s 英文 %-24s 中文应出现 %s' % (k, e, c))
+    if binding_bad:
+        print('❌ 任务书里的界面术语跟游戏内实际显示对不上：')
+        for k, label, terms in binding_bad:
+            print('   %-40s %s 应按顺序写作 %s' % (k, label, ' / '.join(terms)))
+    if bad or binding_bad:
         return 1
-    print('✅ %s：%d 条任务文本、%d 个物品名当参照，强制检查 %d 个（%s），全部一致'
-          % (tree, len(common), len(names), len(enforced), '、'.join(NAMESPACES)))
+    print('✅ %s：%d 条任务文本、%d 个物品名当参照，强制检查 %d 个（%s）及 %d 组界面术语，全部一致'
+          % (tree, len(common), len(names), len(enforced), '、'.join(NAMESPACES), len(bindings)))
     return 0
 
 

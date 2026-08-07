@@ -725,9 +725,21 @@ def _m22(tmp, tree):
 #   ③ 最长匹配按整段算，短名被长名整条吃掉（Divination Rod / Glass Divination Rod）
 #   ④ 不区分大小写，把 `a falling star` 当成了遗物 Falling Star
 NS_ALL = ('mob_grinding_utils', 'occultism', 'relics')
+IF_TIER_EN = {
+    'text.industrialforegoing.tooltip.infinitydrill.poor': 'Poor',
+    'text.industrialforegoing.tooltip.infinitydrill.common': 'Common',
+    'text.industrialforegoing.tooltip.infinitydrill.uncommon': 'Uncommon',
+    'text.industrialforegoing.tooltip.infinitydrill.rare': 'Rare',
+    'text.industrialforegoing.tooltip.infinitydrill.epic': 'Epic',
+    'text.industrialforegoing.tooltip.infinitydrill.legendary': 'Legendary',
+    'text.industrialforegoing.tooltip.infinitydrill.artifact': 'Artifact',
+}
+IF_TIER_ZH = dict(zip(IF_TIER_EN, ('差', '普通', '罕见', '稀有', '史诗', '传说', '神器')))
+IF_TIER_QUEST = 'quest.41E8550FC36ABCA5.quest_desc'
 
 
-def _item_fixture(tmp, en_quest, zh_quest, names=None, skip_ns=(), extra=None):
+def _item_fixture(tmp, en_quest, zh_quest, names=None, skip_ns=(), extra=None,
+                  tier_zh=None, drop_tier_key=None, drop_tier_quest=False):
     """names: {命名空间: {键: (英文, 中文)}}；缺省给三个命名空间各垫一条。"""
     names = names or {'occultism': {'item.occultism.soul_gem_empty':
                                     ('Empty Soul Gem', '灵魂宝石（空）')}}
@@ -748,15 +760,29 @@ def _item_fixture(tmp, en_quest, zh_quest, names=None, skip_ns=(), extra=None):
                        json.dumps({k: v[0] for k, v in tbl.items()}, ensure_ascii=False))
             z.writestr('assets/%s/lang/zh_cn.json' % ns,
                        json.dumps({k: v[1] for k, v in tbl.items()}, ensure_ascii=False))
+    tier_en, tier_lang_zh = dict(IF_TIER_EN), dict(IF_TIER_ZH)
+    if drop_tier_key:
+        tier_en.pop(drop_tier_key, None)
+        tier_lang_zh.pop(drop_tier_key, None)
+    with zipfile.ZipFile(mods / 'industrialforegoing-fixture.jar', 'w') as z:
+        z.writestr('assets/industrialforegoing/lang/en_us.json',
+                   json.dumps(tier_en, ensure_ascii=False))
+        z.writestr('assets/industrialforegoing/lang/zh_cn.json',
+                   json.dumps(tier_lang_zh, ensure_ascii=False))
     up = tmp / 'iup' / 'config' / 'ftbquests' / 'quests' / 'lang' / 'en_us' / 'chapters'
     up.mkdir(parents=True, exist_ok=True)
-    (up / 'c.snbt').write_text('{\n\tquest.AAA.quest_desc: "%s"\n}\n' % en_quest,
-                               encoding='utf-8')
+    en_rows = ['\tquest.AAA.quest_desc: "%s"' % en_quest]
+    if not drop_tier_quest:
+        en_rows.append('\t%s: "%s"' % (IF_TIER_QUEST, ' '.join(IF_TIER_EN.values())))
+    (up / 'c.snbt').write_text('{\n%s\n}\n' % '\n'.join(en_rows), encoding='utf-8')
     tree = tmp / 'itree'
     zq = tree / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn' / 'chapters'
     zq.mkdir(parents=True, exist_ok=True)
-    (zq / 'zz_hanhua_c.snbt').write_text('{\n\tquest.AAA.quest_desc: "%s"\n}\n' % zh_quest,
-                                         encoding='utf-8')
+    zh_rows = ['\tquest.AAA.quest_desc: "%s"' % zh_quest]
+    if not drop_tier_quest:
+        tier_zh = tier_zh if tier_zh is not None else ' '.join(IF_TIER_ZH.values())
+        zh_rows.append('\t%s: "%s"' % (IF_TIER_QUEST, tier_zh))
+    (zq / 'zz_hanhua_c.snbt').write_text('{\n%s\n}\n' % '\n'.join(zh_rows), encoding='utf-8')
     return mods, tmp / 'iup', tree
 
 
@@ -823,6 +849,34 @@ def _m29(tmp, tree):
     rc, out = _item_run(tmp, *_item_fixture(
         tmp, 'make an Empty Soul Gem', '制作一个灵魂宝石（空）', skip_ns=('relics',)))
     return rc != 0 and 'relics' in out
+
+
+@missing_case('无限工具任务沿用英文档位、跟 tooltip 不一致 → 必须红')
+def _m41(tmp, tree):
+    rc, out = _item_run(tmp, *_item_fixture(
+        tmp, 'an unrelated quest', '一条无关任务', tier_zh=' '.join(IF_TIER_EN.values())))
+    return rc != 0 and '差 / 普通 / 罕见 / 稀有 / 史诗 / 传说 / 神器' in out
+
+
+@missing_case('无限工具任务七档跟 tooltip 一致 → 必须绿')
+def _m42(tmp, tree):
+    rc, out = _item_run(tmp, *_item_fixture(tmp, 'an unrelated quest', '一条无关任务'))
+    return rc == 0 and '1 组界面术语' in out
+
+
+@missing_case('无限工具任一 tooltip 参照键取不到 → 必须红')
+def _m43(tmp, tree):
+    missing = 'text.industrialforegoing.tooltip.infinitydrill.artifact'
+    rc, out = _item_run(tmp, *_item_fixture(
+        tmp, 'an unrelated quest', '一条无关任务', drop_tier_key=missing))
+    return rc != 0 and missing in out and '参照已经失效' in out
+
+
+@missing_case('绑定的无限工具任务键取不到 → 必须红')
+def _m44(tmp, tree):
+    rc, out = _item_run(tmp, *_item_fixture(
+        tmp, 'an unrelated quest', '一条无关任务', drop_tier_quest=True))
+    return rc != 0 and IF_TIER_QUEST in out and '任务可能改版' in out
 
 
 @missing_case('蜜脾块的名字是拿蜂名拼的，任务书对不上也必须红')
