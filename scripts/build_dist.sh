@@ -109,6 +109,7 @@ python3 scripts/compliance/check_bee_names_in_quests.py \
   "${ATM_PACK_ROOT:-pack}/mods" "$UPROOT" "$TREE"
 # 同一条判据推到别的模组：任务书写「XP 果冻豆」而 JEI 里叫「经验果冻宝宝」，
 # 写「空灵魂宝石」而物品叫「灵魂宝石（空）」。反馈报了 4 组，机械扫出 19 处。
+# 工业先锋的无限工具档位不是物品名，另按目标任务键绑定 jar 的 tooltip 语言键逐档核对。
 # 名字表和「更长的名字」都取全包所有模组的并集——Rotten Egg 在两个模组里各有一件，
 # 只按其中一个判，会理直气壮地要求改成另一个模组的物品名。
 python3 scripts/compliance/check_item_names_in_quests.py \
