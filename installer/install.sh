@@ -449,6 +449,16 @@ clean_legacy_config_ui() {
   fi
 }
 
+# 旧命名（r13 及更早的 `<章节>.snbt` / `_<章节>.snbt`）留在玩家盘上的任务书语言文件。
+#
+# **payload 里有同名文件的一律不碰。** gen_quest_lang_patches.py 现在会为每个
+# `zz_hanhua_X.snbt` 一并发出 `X.snbt`（上游全文 + 我们的覆盖）和 `_X.snbt`（空壳），
+# 复制那一步就把它们盖掉了——覆盖比删除彻底，也不会误伤。
+#
+# 不加这个判断会怎样：payload 自己发的 4 字节空壳 `_X.snbt` 与 `zz_hanhua_X.snbt`
+# 内容一模一样，`cmp -s` 必然相等 → 每次安装都「删掉上次装的、再抄回来」，
+# 计数恒等于空壳个数（实测 37），还跟着弹一句早已不成立的警告。
+# 2026-08-08 用户实机报的就是这个：数字和提示永远不变。
 clean_legacy_quest_lang() {
   QD="$TARGET/config/ftbquests/quests/lang/zh_cn/chapters"
   SD="$SCRIPT_DIR/config/ftbquests/quests/lang/zh_cn/chapters"
@@ -458,6 +468,8 @@ clean_legacy_quest_lang() {
     [ -f "$new" ] || continue
     base="$(basename "$new")"; base="${base#zz_hanhua_}"
     for old in "$QD/$base" "$QD/_$base"; do
+      # payload 会写同名文件 → 交给复制那一步，这里不删也不计数
+      [ -f "$SD/$(basename "$old")" ] && continue
       if [ -f "$old" ] && cmp -s "$old" "$new"; then
         rm -f "$old"
         hit=$((hit + 1))
@@ -466,8 +478,6 @@ clean_legacy_quest_lang() {
   done
   if [ "$hit" -gt 0 ]; then
     say "🧹 清理了 $hit 个旧版本残留的任务书语言文件。"
-    say "⚠️ 旧版本可能覆盖过整合包自带的任务书翻译。若任务书仍有整章英文，"
-    say "   请重装一次整合包再运行本安装器（本包已不会再覆盖整合包的文件）。"
   fi
 }
 

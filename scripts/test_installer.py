@@ -165,6 +165,7 @@ def run(*args):
     if r.stderr:
         print(r.stderr, file=sys.stderr)
     assert r.returncode == 0, f'install {args} 退出码 {r.returncode}'
+    return (r.stdout or '') + (r.stderr or '')
 
 
 def read_opts():
@@ -181,8 +182,24 @@ for _s in STALE:
     assert not (inst / 'vaultpatcher' / 'modules' / _s).exists(), \
         f'{_s} 没被清理——装过 r14 的人会继续掉帧'
 
-bks = sorted(p for p in (rel / 'backups').iterdir() if p.is_dir())
-assert len(bks) == 1, f'应有 1 个备份，实际 {len(bks)}'
+# ---- 回归：重复安装不许出现「清理了 N 个旧版本残留的任务书语言文件」----
+# 2026-08-08 用户实机报的：每次装都弹「🧹 清理了 37 个」。
+# 成因是 payload 自己发的 4 字节空壳 `_X.snbt` 与 `zz_hanhua_X.snbt` 字节相同，
+# clean_legacy_quest_lang 的 cmp 必然相等 → 删掉上次装的、复制那步再抄回来，
+# 计数恒等于空壳个数，还跟着弹一句「本包已不会再覆盖整合包的文件」——
+# 而 gen_quest_lang_patches.py 之后我们**就是**按上游原名覆盖的，那句话早已不成立。
+# 判据放在「第二次安装」上：第一次装完盘上就有空壳了，churn 必然在第二次暴露。
+_again = run('apply')
+assert '旧版本残留的任务书语言文件' not in _again, \
+    '重复安装仍在「清理」payload 自己会覆盖的文件——空壳被删了又抄回来：\n' + _again
+assert (inst / 'config' / 'ftbquests' / 'quests' / 'lang' / 'zh_cn').is_dir(), \
+    '第二次安装后任务书语言目录不见了'
+print('✅ 重复安装不再自我清理任务书空壳 OK')
+
+# 备份目录名是秒级时间戳，两次 apply 落在同一秒会并成一个 —— 不拿个数当断言，
+# 只取最早那个（它一定持有第一次安装前的 OLD-CONTENT）。
+bks = sorted(p for p in (rel / 'backups').iterdir() if p.is_dir())[:1]
+assert bks, '一个备份都没有'
 bk = bks[0]
 assert (bk / 'vaultpatcher' / 'modules' / sample).read_text(encoding='utf-8') == 'OLD-CONTENT', \
     '备份里没有被覆盖文件的原内容'

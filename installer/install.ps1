@@ -499,6 +499,10 @@ function Clear-LegacyQuestLang {
         $base = $new.Name -replace '^zz_hanhua_', ''
         foreach ($n in @($base, "_$base")) {
             $old = Join-Path $qd $n
+            # payload 会写同名文件 → 交给复制那一步，这里不删也不计数。
+            # 不加这一句，payload 自己发的空壳 `_X.snbt` 与 `zz_hanhua_X.snbt` 字节相同，
+            # 每次安装都会「删掉上次装的、再抄回来」，计数恒等于空壳个数。
+            if (Test-Path -LiteralPath (Join-Path $sd $n)) { continue }
             if (!(Test-Path -LiteralPath $old)) { continue }
             $a = [System.IO.File]::ReadAllBytes($old)
             $b = [System.IO.File]::ReadAllBytes($new.FullName)
@@ -511,8 +515,6 @@ function Clear-LegacyQuestLang {
     }
     if ($hit -gt 0) {
         Write-Host "🧹 清理了 $hit 个旧版本残留的任务书语言文件。"
-        Write-Host '⚠️ 旧版本可能覆盖过整合包自带的任务书翻译。若任务书仍有整章英文，'
-        Write-Host '   请重装一次整合包再运行本安装器（本包已不会再覆盖整合包的文件）。'
     }
 }
 
