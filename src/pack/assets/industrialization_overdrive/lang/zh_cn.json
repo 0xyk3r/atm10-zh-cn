@@ -23,7 +23,7 @@
   "text.industrialization_overdrive.terminal_help_1": "- 对MI多方块按 %s + %s 来自动搭建。",
   "text.industrialization_overdrive.terminal_help_2": "- 使用玩家物品栏中的部件。",
   "text.industrialization_overdrive.terminal_help_2_alt": "- 使用玩家物品栏，或链接的ME系统中的部件。",
-  "text.industrialization_overdrive.terminal_help_3": "- 按 %s 切换终端模式。",
+  "text.industrialization_overdrive.terminal_help_3": "- 按 %s 循环切换模式。",
   "text.industrialization_overdrive.terminal_link_info": "已链接到位于%s的ME系统。",
   "text.industrialization_overdrive.terminal_link_not_linked": "未链接到ME系统。",
   "text.industrialization_overdrive.terminal_mode_changed": "模式已切换为%s。",
