@@ -504,7 +504,7 @@
   "jei.enderio.weather_change.title": "天气方尖碑",
   "key.enderio.toggle_magnet": "开关电磁铁",
   "key.enderio.travel_staff": "旅行权杖",
-  "keys.categories.enderio": "末影接口（EnderIO）",
+  "keys.categories.enderio": "末影接口",
   "message.enderio.conduit.probe.copied": "已复制数据：%s",
   "message.enderio.conduit.probe.pasted": "已粘贴数据：%s",
   "message.enderio.conduit.probe.switched_mode": "已将导管探测器切换到%s模式",

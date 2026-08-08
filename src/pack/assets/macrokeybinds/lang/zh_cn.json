@@ -5,7 +5,7 @@
  "text.config.needhelp": "需要帮助？Bug？Discord链接",
  "text.tooltip.main.noserver": "你未连接服务器",
  "key.macrokeybinds.openoptions.desc": "打开选项GUI",
- "key.categories.macrokeybinds": "宏键位绑定（Macro Keybinds）",
+ "key.categories.macrokeybinds": "宏键位绑定",
  "text.globalmacros.title": "全局宏",
  "text.createglobalmacros.title": "新建全局宏",
  "text.globalmacros.back": "取消",

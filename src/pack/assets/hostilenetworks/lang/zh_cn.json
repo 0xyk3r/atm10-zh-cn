@@ -115,7 +115,7 @@
   "text.hostilenetworks.selection": "%s -> %s %s",
   "text.hostilenetworks.selections_applied": "已为%2$s中应用%1$s条选择配置",
   "text.hostilenetworks.selections_copied": "已从%2$s中复制%1$s条选择配置",
-  "key.categories.hostilenetworks": "敌对神经网络（Hostile Neural Networks）",
+  "key.categories.hostilenetworks": "敌对神经网络",
   "key.hostilenetworks.open_deep_learner": "打开深度学习器饰品",
   "hostilenetworks.gui.upgrade_disabled": "模型无法通过击杀升级。",
   "hostilenetworks.gui.redstone.ignored": "红石：忽略",
