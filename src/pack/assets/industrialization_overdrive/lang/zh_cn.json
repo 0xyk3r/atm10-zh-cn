@@ -7,7 +7,7 @@
   "key.categories.industrialization_overdrive": "工业化超载",
   "key.industrialization_overdrive.terminal_mode_switch": "切换终端模式",
   "pyro_tier.industrialization_overdrive.modern_industrialization.cupronickel_coil": "白铜级",
-  "pyro_tier.industrialization_overdrive.modern_industrialization.kanthal_coil": "坎塔尔合金级",
+  "pyro_tier.industrialization_overdrive.modern_industrialization.kanthal_coil": "铁铬铝合金级",
   "rei_categories.industrialization_overdrive.pyrolyse_oven": "热解炉",
   "text.industrialization_overdrive.coils_pyro_tier": "可批量处理热解炉配方，最多同时处理%d份，EU消耗系数为%s。",
   "text.industrialization_overdrive.disabled": "已禁用",

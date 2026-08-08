@@ -26,7 +26,7 @@ item_ids:
 
 <Recipe id="modern_industrialization:steam_age/bronze/boiler_asbl" />
 
-要制作耐火黏土砖，你需要烧炼耐火黏土粉，而耐火黏土粉需要红砖粉来合成。将红砖放入锻压台中可制作红砖粉。蒸汽机器或锤子可以提高此过程的效率。
+要制作耐火黏土砖，你需要烧炼耐火粘土粉，而耐火粘土粉需要红砖粉来合成。将红砖放入锻压台中可制作红砖粉。蒸汽机器或锤子可以提高此过程的效率。
 
 <Recipe id="modern_industrialization:materials/fire_clay_dust" />
 
