@@ -46,23 +46,27 @@
       },
       {
         "key": "Down: ",
-        "value": "下： "
+        "value": "下："
+      },
+      {
+        "key": "Up: ",
+        "value": "上："
       },
       {
         "key": "North: ",
-        "value": "北： "
+        "value": "北："
       },
       {
         "key": "South: ",
-        "value": "南： "
+        "value": "南："
       },
       {
         "key": "West: ",
-        "value": "西： "
+        "value": "西："
       },
       {
         "key": "East: ",
-        "value": "东： "
+        "value": "东："
       },
       {
         "key": "Auto Input: ",
@@ -70,7 +74,7 @@
       },
       {
         "key": "Auto Output: ",
-        "value": "自动输出:"
+        "value": "自动输出："
       },
       {
         "key": "Redstone Mode: ",
@@ -82,7 +86,7 @@
       },
       {
         "key": "Direction: ",
-        "value": "方向： "
+        "value": "方向："
       }
     ]
   }
