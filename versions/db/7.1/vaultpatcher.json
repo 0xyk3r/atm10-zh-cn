@@ -1475,6 +1475,14 @@
    }
   ]
  },
+ "atm_custom_name_dynamic.json": {
+  "blocks": [
+   {
+    "global": true,
+    "i": 1
+   }
+  ]
+ },
  "betterendisland.json": {
   "blocks": [
    {
@@ -8111,6 +8119,14 @@
      "South: ": "substring",
      "West: ": "substring"
     }
+   }
+  ]
+ },
+ "ironfurnaces_dynamic.json": {
+  "blocks": [
+   {
+    "global": true,
+    "i": 1
    }
   ]
  },
