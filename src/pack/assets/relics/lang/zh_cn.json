@@ -300,7 +300,7 @@
   "relics.description.cut_glass_boot.ability.glass.description": "手持该遗物时，其功能如同普通桶，最多可储存%2$s种液体，总容量为%1$s毫桶（mB）。切换当前选定液体：手持遗物、按住Shift键并滚动鼠标滚轮。装备该遗物后，可在其内部缓存所含任意液体表面自由移动；液体表面移动速度为正常速度的一半，但每增加1000毫桶同种液体，移动速度提升%3$s%%。",
   "relics.description.cut_glass_boot.ability.glass.experience_source.standing": "每在液体表面移动一秒，获得+1点经验",
   "relics.description.cut_glass_boot.ability.glass.statistic.duration": "站在液体表面的时间",
-  "item.relics.ring_of_the_seven_deadly_sins": "七咒之戒",
+  "item.relics.ring_of_the_seven_deadly_sins": "七宗罪之戒",
   "relics.description.ring_of_the_seven_deadly_sins.description": "该遗物回应穿戴者的罪孽，但其中无一可视为馈赠。它热切地强化那些较受害者更高、更怒、更饥、更富或更具耐心之人，却在每项优势中留下一道裂隙。一旦情势逆转，同样的罪孽便转而反噬其主。",
   "relics.description.ring_of_the_seven_deadly_sins.statistic.unequip_attempts": "尝试移除戒指的次数",
   "relics.description.ring_of_the_seven_deadly_sins.ability.pride": "傲慢者",
