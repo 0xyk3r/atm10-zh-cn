@@ -74,9 +74,23 @@ def main(out_dir):
             # 仓库里已经有这份许可证正文（GPL-3.0 就是本项目代码用的那份），
             # 没有理由再去网上取——出货构建跑在锁定容器里，少一个网络依赖少一个
             # 挂点。gnu.org 在容器里就取不到，Build 一直红在这儿。
+            #
+            # 但「本项目也用同一个许可证」不等于这份文件可以带本项目的版权声明：
+            # 它是随**别人的** jar 一起分发的，掺进「Copyright (C) …」就成了替
+            # 别人的作品声明作者。所以正文必须逐字节等于许可证原文，拿哈希钉死。
             src = ROOT / info['license_file']
+            data = src.read_bytes()
+            want_lic = info.get('license_file_sha256')
+            if not want_lic:
+                sys.exit('❌ %s 记了 license_file，却没记 license_file_sha256' % rel)
+            if sha256(data) != want_lic:
+                sys.exit('❌ %s 的许可证正文 %s 哈希对不上\n'
+                         '   期望 %s\n   实得 %s\n'
+                         '   这份文件随第三方 jar 分发，必须是许可证原文本身，'
+                         '不得掺入本项目的版权声明。'
+                         % (rel, info['license_file'], want_lic, sha256(data)))
             (t.parent / ('LICENSE-%s.txt' % info.get('project', 'third-party'))
-             ).write_bytes(src.read_bytes())
+             ).write_bytes(data)
         elif info.get('license_url'):
             lic = CACHE / (info['license_sha256'] + '.txt')
             if not lic.exists():

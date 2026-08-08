@@ -4,9 +4,12 @@
 
 ## 一、本包不含广告，也不含任何加载器 / 启动器模组
 
-本包只有一个 jar：`mods/vaultpatcher.jar`（[VaultPatcher](https://modrinth.com/mod/vault-patcher) 1.5.2，GPL-3.0，
+本包只有一个 jar：`mods/vaultpatcher.jar`（[VaultPatcher](https://modrinth.com/mod/vault-patcher) 1.5.2，
+作者 [FengMing3093](https://github.com/3093FengMing/VaultPatcher)，GPL-3.0-only，
 字节码文本替换框架，替换表全部在 `vaultpatcher/modules/` 里，明文可查）。
 它不入本仓库，构建时按 `src/mods.lock.json` 里记的 sha256 从 Modrinth 现取并校验。
+随它分发的 `mods/LICENSE-vault-patcher.txt` 是 GPL-3.0 许可证正文本身（FSF 原文），
+不含本项目的版权声明——那个 jar 不是本项目的作品。
 资源包的启用与语言设置由安装器直接改 `options.txt` 完成，不需要任何常驻模组代劳。
 
 ## 二、语言文件够不着的三类文本

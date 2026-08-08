@@ -48,11 +48,18 @@ CC BY-NC-SA 4.0 含有非商业性使用限制；将两者合并声明为单一�
 
 随包分发的第三方 jar，其许可证全文与 jar 置于同一目录：
 
-    mods/vaultpatcher.jar                   GPL-3.0
+    mods/vaultpatcher.jar                   GPL-3.0-only（作者：FengMing3093）
         → mods/LICENSE-vault-patcher.txt
     可选mods-拼音搜索/jecharacters-*.jar     MIT
         → 可选mods-拼音搜索/LICENSE-just-enough-characters.txt
         → 可选mods-拼音搜索/来源与许可.md（版本、作者、项目地址、sha256）
+
+`mods/LICENSE-vault-patcher.txt` 与本包根目录的 `LICENSE-GPL-3.0` 是同一份文件：
+GPL-3.0 许可证正文本身，取自 FSF 原文、未作任何增删，不含任何一方的版权声明。
+VaultPatcher 的著作权属其作者，与本项目无关；本项目自己的著作权声明见第一节。
+两者选用的 GPL 变体也不同：本项目代码是 GPL-3.0-or-later；VaultPatcher 的作者在
+Modrinth 项目页标为 GPL-3.0-only，jar 内 `META-INF/neoforge.mods.toml` 写的是
+已废弃的 `GPL-3.0`，此处按前者记为 only，两处均为作者本人的声明，本项目不作解释。
 
 本包为其提供译文的各模组，其许可证声明与随带的许可证全文见随包分发的：
 
