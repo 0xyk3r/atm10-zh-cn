@@ -11,7 +11,7 @@
   "block.factory_blocks.srust": "工厂方块",
   "item.factory_blocks.srust.tooltip": "微锈板",
   "block.factory_blocks.wireframe": "工厂方块",
-  "item.factory_blocks.wireframe.tooltip": "格栅",
+  "item.factory_blocks.wireframe.tooltip": "线框",
   "block.factory_blocks.pwireframe": "工厂方块",
   "item.factory_blocks.pwireframe.tooltip": "紫影格栅",
   "block.factory_blocks.hazard": "工厂方块",

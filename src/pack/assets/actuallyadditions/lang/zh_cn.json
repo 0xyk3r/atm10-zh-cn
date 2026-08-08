@@ -842,7 +842,7 @@
   "booklet.actuallyadditions.chapter.lensDetonation": "爆破透镜",
   "booklet.actuallyadditions.chapter.lensDetonation.text.1": "装有<item>爆破透镜<r>后发射的激光束，<imp>击中方块后<r>会起火并爆炸。<n>所以请小心使用它。<n>（使用这个透镜后，激光束的发射距离是普通情况下的3倍）",
   "booklet.actuallyadditions.chapter.lensDisenchanting": "祛魔透镜",
-  "booklet.actuallyadditions.chapter.lensDisenchanting.text.1": "装有<item>祛魔透镜<r>后发射的激光束可以把已经拥有附魔的工具上的单个<imp>附魔<r><imp>转移到<r><item>书<r>或者<item>附魔书<r>上面。<n>使用方式很简单，在再构机前方丢出两个物品<r>（需要注意两个物品必须要丢在<imp>同一个格子里面<r>）<n>当激光束击中它们时，物品上的<imp>高等级附魔<r>将会被<imp>转移<r>或者<imp>添加<r>到普通的书或者附魔书上面<r>。<n><n>使用一次耗能为<imp><energy>CF<r>。",
+  "booklet.actuallyadditions.chapter.lensDisenchanting.text.1": "<item>祛魔透镜<r>可以把附魔物品上的单个<imp>附魔<r><imp>转移<r>到<item>书<r>或已有的<item>附魔书<r>上。<n>使用时，将这两种物品丢在激光前方（任一种物品丢出多个都不会生效！），并确保它们位于<imp>同一个方块空间<r>内。<n>激光击中后，非书物品上<imp>最上方的附魔<r>会被<imp>移除<r>并<imp>添加到书上<r>。<n><n>每次操作消耗<imp><energy> CF<r>。",
   "booklet.actuallyadditions.chapter.lensMining": "矿工透镜",
   "booklet.actuallyadditions.chapter.lensMining.text.1": "<item>矿工透镜<r>能够<imp>创造出矿物<r>。<n>当激光击中在<item>石头<r>上面时，它能够被转化成<imp>随机的主世界矿物<r>。同理<item>地狱岩<r>能够被转化为<imp>地狱的矿石<r>。<n>每次操作消耗<imp><energy>CF<r>能量，除此之外还依据生成矿物的稀有程度，消耗一些<imp>额外的能量<r>。",
   "booklet.actuallyadditions.chapter.miscDecorStuffsAndThings": "一些装饰品",
