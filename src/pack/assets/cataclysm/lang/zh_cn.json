@@ -23,7 +23,7 @@
   "item.cataclysm.cursium_helmet.desc": "幽灵视觉",
   "item.cataclysm.cursium_helmet.desc2": "按下%s以用发光效果标记范围内墙壁后方的实体",
   "item.cataclysm.cursium_chestplate.desc": "不死新生",
-  "item.cataclysm.cursium_chestplate.desc2": "死亡后立刻恢复到7点生命值并获得5秒无敌时间",
+  "item.cataclysm.cursium_chestplate.desc2": "死亡后立刻恢复到5点生命值并获得5秒无敌时间",
   "item.cataclysm.cursium_chestplate.desc3": "复活后，穿戴者会被削弱6分钟，削弱持续期间无法复活",
   "item.cataclysm.cursium_leggings.desc": "魂灵闪避",
   "item.cataclysm.cursium_leggings.desc2": "有低概率免疫本次受到的伤害. 如果是弹射物攻击，则提升触发免疫的概率",

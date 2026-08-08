@@ -559,7 +559,7 @@
   "book.mysticalagriculture.entry.experience_capsule": "经验胶囊",
   "book.mysticalagriculture.entry.experience_capsule.page.1": "经验胶囊可以收集经验以便合成经验种子。$(br2)为了收集经验，只需要在物品栏持有经验胶囊然后捡起一些经验球。",
   "book.mysticalagriculture.entry.elemental_essences": "元素精华",
-  "book.mysticalagriculture.entry.elemental_essences.page.1": "敬请期待",
+  "book.mysticalagriculture.entry.elemental_essences.page.1": "气、地、水、火四种精华可通过$(l:elemental/essence_vessel)精华储罐$()参与$(l:elemental/awakening_altar)觉醒祭坛$()配方。$(br2)元素种子可种植在$(l:basics/essence_farmland)1级精华耕地$()上以获得额外掉落。",
   "book.mysticalagriculture.entry.cognizant_dust": "觉醒粉",
   "book.mysticalagriculture.entry.cognizant_dust.page.1": "$(bold)通常$()要获得觉醒粉，你需要使用附有神秘启示的$(l:tinkering/essence_tools)精华武器$()杀死凋零或者末影龙。$(br2)更高等级的神秘启示可以增加每次击杀掉落的觉醒粉的量。",
   "book.mysticalagriculture.entry.essence_vessel": "精华储罐",

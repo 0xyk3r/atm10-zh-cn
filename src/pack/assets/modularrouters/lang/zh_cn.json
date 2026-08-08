@@ -295,7 +295,7 @@
   "modularrouters.itemText.misc.routerConfigured": "此路由器已配置",
   "modularrouters.itemText.misc.strongSignal.false": "弱充能",
   "modularrouters.itemText.misc.strongSignal.true": "强充能",
-  "modularrouters.itemText.misc.upgradeCount": "升级：%d",
+  "modularrouters.itemText.misc.upgradeCount": "升级：%d × %s",
   "modularrouters.itemText.misc.upgrades": "升级",
   "modularrouters.itemText.misc.whitelist": "白名单",
   "modularrouters.itemText.security.count": "%d / %d 其他玩家：",
