@@ -7,7 +7,7 @@
     "name"
    ],
    "Fluid Module Mk2",
-   "流体模块2型"
+   "流体模块 Mk2"
   ],
   [
    [
@@ -16,7 +16,7 @@
     "text"
    ],
    "Like the $(l:modules/fluid_1)Fluid Module Mk1/$, this module can transfer fluids into or out of the router, if it has a fluid-containing item in the buffer. However, this module can also target more distant locations, up to 12 blocks away (up to 24 with $(l:augments/range_up)Range Up Augments/$).",
-   "和$(l:modules/fluid_1)流体模块1型/$一样，如果路由器缓冲区中有储液物品，这个模块就可以在路由器与外界之间传输流体。不过，这个模块还能够以更远处的位置为目标，最远可达 12 格（配合$(l:augments/range_up)范围升级拓展/$时可达 24 格）。"
+   "和$(l:modules/fluid_1)流体模块 Mk1/$一样，如果路由器缓冲区中有储液物品，这个模块就可以在路由器与外界之间传输流体。不过，这个模块还能够以更远处的位置为目标，最远可达 12 格（配合$(l:augments/range_up)范围升级拓展/$时可达 24 格）。"
   ],
   [
    [
