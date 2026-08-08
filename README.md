@@ -423,5 +423,6 @@ Windows 与 macOS / Linux 走的是同一套流程（`install.ps1` / `install.sh
 而 CC BY-NC-SA 4.0 含有非商业性使用限制。
 
 致谢：**[十一月の风筝](https://space.bilibili.com/2041176282)**（测试）·
-**BBSMC 汉化组**（早期参考）· **All the Mods 团队**（整合包与任务书官方中文）·
+**[0xyk3r](https://github.com/0xyk3r)**（贡献者）· **BBSMC 汉化组**（早期参考）·
+**All the Mods 团队**（整合包与任务书官方中文）·
 各模组原作者与 CFPA 社区 · **Claude Fable 5**（fable5 老师，我还记得你）。
