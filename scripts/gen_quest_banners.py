@@ -66,7 +66,7 @@ ATM 的任务书每章顶上挂一张标题图，文字直接画在 PNG 里。�
   若某个 k≥2 能让每个格子内部要么全实要么全空，说明原图是 1 倍点阵放大 k 倍来的，
   即像素字体 → 用 Minecraft 自己的 Unifont 点阵渲染，放大倍率对齐原图的 k。
 - **笔画粗细**：量平均笔画宽度占字高的比例，据此在细黑 / 粗黑 / 粗宋之间选。
-- 少数明显是衬线体的（天境 / 嗡嗡领域 / 自然灵气 / 遗物 / 神秘学 等）在 SERIF 表里点名，
+- 少数明显是衬线体的（天境 / 蜜蜂领域 / 自然灵气 / 遗物 / 神秘学 等）在 SERIF 表里点名，
   走宋体 Black。
 
 ## 点阵渲染细节
@@ -522,7 +522,7 @@ BANNERS = {
     'building_tips/building_building.png':                  '建造',
     'building_tips/building_tips.png':                      '技巧',
     'building_tips/tips.png':                               '技巧',
-    'bumblezone/bumble_title.png':                          '嗡嗡领域',
+    'bumblezone/bumble_title.png':                          '蜜蜂领域',
     'cataclysm/cataclysm_title.png':                        '灾变',
     'create/create_title.png':                              '机械动力',
     'deepndark/dnd_title.png':                              '更深更暗',
