@@ -23,10 +23,20 @@ mkdir -p "$DIR"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
+# GitHub 的 release CDN 会偶发把连接掐断（curl 35 Recv failure: Connection reset
+# by peer），2026-08-10 的 Build 就这么红过一次，而且红在第一个字体上。
+# 不带重试的话，一次网络抖动就要人手动重跑整条流水线。
+#
+# 重试不会放坏字节进来：下完还要过 toolchain.py --fonts 逐个核哈希，
+# 半截文件或换了版本的字体在那一步必红。
+dl() {
+    curl -fsSL --retry 5 --retry-delay 2 --retry-all-errors -o "$1" "$2"
+}
+
 for px in 10 12; do
     f="fusion-pixel-font-${px}px-proportional-ttf-v${VER}.zip"
     echo "下载 ${f} ..."
-    curl -fsSL -o "$TMP/$f" "$BASE/$f"
+    dl "$TMP/$f" "$BASE/$f"
     unzip -o -q "$TMP/$f" -d "$TMP/x$px"
     cp "$TMP/x$px/fusion-pixel-${px}px-proportional-zh_hans.ttf" "$DIR/pixel-${px}.ttf"
 done
@@ -42,7 +52,7 @@ cp -R "$TMP/x12/LICENSES" "$DIR/pixel-LICENSES"
 #   thin  ← 思源黑体 Light  （原冬青黑 W3）
 #   serif ← 思源宋体 Black  （原宋体 SC Black）
 echo "下载 思源黑体 SC ..."
-curl -fsSL -o "$TMP/sans.zip" \
+dl "$TMP/sans.zip" \
   "https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/18_NotoSansSC.zip"
 unzip -o -q "$TMP/sans.zip" -d "$TMP/sans"
 cp "$TMP/sans/NotoSansSC-Bold.otf"  "$DIR/bold.otf"
@@ -50,7 +60,7 @@ cp "$TMP/sans/NotoSansSC-Light.otf" "$DIR/thin.otf"
 cp "$TMP/sans/LICENSE" "$DIR/noto-OFL.txt"
 
 echo "下载 思源宋体 SC ..."
-curl -fsSL -o "$TMP/serif.zip" \
+dl "$TMP/serif.zip" \
   "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/14_NotoSerifSC.zip"
 unzip -o -q -j "$TMP/serif.zip" 'SubsetOTF/SC/NotoSerifSC-Black.otf' -d "$TMP"
 cp "$TMP/NotoSerifSC-Black.otf" "$DIR/serif.otf"
