@@ -242,7 +242,7 @@
   "hostilenetworks.gui.mode.disabled": "训练模式已被服务器配置禁用",
   "hostilenetworks.gui.data_center.io": "输入 / 输出",
   "hostilenetworks.fail.shell_broken": "多结构外壳不完整或无效",
-  "hostilenetworks.fail.not_self_aware": "模型至少需达到自我感知等级",
+  "hostilenetworks.fail.not_self_aware": "模型至少需达到自我意识等级",
   "hostilenetworks.fail.no_selection": "未选择输出\n右键点击插槽进行配置",
   "hostilenetworks.run.train.0": "> 正在启动运行时 ",
   "hostilenetworks.run.train.1": "> 第 %s 次迭代已开始",
