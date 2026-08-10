@@ -12,7 +12,7 @@
 	quest.60C8272DD1A2B262.quest_subtitle: "不装升级，符文星辰祭坛不干活"
 	quest.6A46A9F04D2A0748.title: "&3&l可怖之物"
 	quest.7154D73516548149.title: "&l&6ATM"
-	quest.71581992E8E4C43E.quest_desc: ["将几个&8凋灵骷髅头颅&r和一个&d防护之精华&r投入以制作一个&8凋零&3之魔符&r！\\n\\n如果不起作用，你可能需要更多的&a经验&r。"]
+	quest.71581992E8E4C43E.quest_desc: ["将三个&8凋灵骷髅头颅&r和一个&d防护之精华&r放进抄写台，即可创造出一个&8凋零&3之魔符&r！\\n\\n如果抄写台没有反应，可能是你的&a经验&r不够。"]
 	quest.71581992E8E4C43E.title: "&8凋零&3之魔符"
 	quest.7D972A3C4211EB26.quest_desc: ["&c彩&e虹&9煤&a炭&r是用爆炸炸掉&c彩&e虹&9熔&a炉&r得到的。"]
 	task.1230A5C0C9D1A0CF.title: "升级"
