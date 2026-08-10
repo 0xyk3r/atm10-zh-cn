@@ -509,6 +509,7 @@
 		"{image:atm:textures/questpics/railcraft/rail_crusher.png width:100 height:100 align:center}"
 	]
 	quest.21693C4DE6531D73.title: "粉碎机"
+	quest.216DA9782EBDFF34.quest_desc: ["我觉得这个模组不太现实。不管你手上有什么书、什么物品，我都不信恶魔会对你言听计从、还甘心给你当苦力。\\n\\n不过话说回来，你照着任务书的指引来，还真就能做到。"]
 	quest.2171DC0B13C4BD43.quest_desc: ["&a&l根源魔法经典版&r在JEI里看起来内容不多，但我可以向你保证，它的内容远比看起来丰富！\\n\\n根源的核心玩法，就是用大自然的馈赠来举行仪式。\\n\\n相信我，这些物品在各处都能找到！"]
 	quest.2182492BCC1B33D8.quest_desc: ["安装在蜂巢中时，每次产出蜂蜜都有5%的几率生成一只新的幼蜂。\\n\\n放置在捕捉器中时，只允许捕捉器捕捉幼蜂。\\n\\n可以叠加使用多个，以获得更高的几率。"]
 	quest.2188C52C1F384DE4.title: "&c&l贤者之燃料"
@@ -739,6 +740,7 @@
 	quest.311F43D48B9C26FF.title: "&d黑曜石发电机"
 	quest.3124D945A54938C2.quest_desc: ["&7深银&r以前叫做沼泽银，只会在&9暗沼&r生成；现在它在地下各处都能找到，而&9暗沼&r则改为生成&9瘴紫石&r。"]
 	quest.3124D945A54938C2.title: "&9瘴紫石"
+	quest.3145B847A15F97F2.quest_desc: ["你可以把&2&l神秘农业&r的精华合起来，做出……&8煤炭&r。\\n\\n它当燃料确实好用，不过&5究极精华煤&r这东西对我来说还是太离谱了点。"]
 	quest.3145B847A15F97F2.title: "&5究极精华煤块"
 	quest.315F1CB8158DFB92.title: "&5星河兜帽"
 	quest.31AD9826FB036C98.quest_desc: ["&7符文&r可以从基岩到Y坐标2生成。这包括&9暗黑石&r附近！\\n\\n它们比&2流星碎片&r更有用，但不如&b神秘水晶&r有用。"]
@@ -771,6 +773,7 @@
 	quest.3311B79A8F6C6ADD.quest_desc: ["&6&l渡鸦附魔台&r是&5附魔台&r的强力升级版：不用摆书架，就能直接自定义台子的&a位阶&r、&c量子化&r和&5阿卡那&r数值。\\n\\n有了它，任何&d&l灌注&r都能轻松凑出来。\\n\\n&a王室宝石&r可以在主世界获得。"]
 	quest.3311B79A8F6C6ADD.quest_subtitle: "渡鸦答曰：永不复焉"
 	quest.3311B79A8F6C6ADD.title: "&6&l渡鸦附魔台"
+	quest.3331EBE1BB4BF64D.quest_desc: ["核反应堆对有些人来说挺吓人的，尤其是想到它出事时的后果！\\n\\n好在&a&l极限反应堆&r唯一吓人的地方，是它的配方绕得让人头大！\\n\\n至于爆炸那部分——放心，它不会炸。"]
 	quest.33415CB421F7620A.title: "&b&l提纯仓"
 	quest.33436ED0D9F128BD.title: "&4强化组件：烟熏炉"
 	quest.337D376BE2653F0F.title: "&b永冻石靴子"
@@ -1929,6 +1932,7 @@
 		"当涡轮机完全建造完成后，右键点击涡轮机控制器将显示涡轮界面。\\n\\n在这里，你可以看到涡轮机的所有统计数据。将鼠标悬停在每个数据上可以查看更多信息。\\n\\n在左下角，你有2个箭头来控制&9流量率&r。这控制了泵入涡轮机的加热蒸汽量。要确定应设置多少，请以反应堆的&d蒸汽生产率&r为起点。"
 		"{image:atm:textures/questpics/extremereactors/turbineui.png width:200 height:150 align:1}"
 	]
+	quest.7766E66A14643F4D.quest_desc: ["&6觉醒&r是&2&l神秘农业&r里较新加入的内容。通过&6觉醒仪式&r，你可以获得&6觉醒精华&r。\\n\\n然后把这些精华和锭合到一起，就能得到这个方块！"]
 	quest.7798BC7C5112D6FB.title: "&b永冻石护腿"
 	quest.77B5B23A2C01ED7E.title: "牵引魔杖"
 	quest.77F241BEE9902751.quest_subtitle: "地方大得很，能整的\"活动\"可多了！"
