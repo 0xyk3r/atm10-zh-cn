@@ -678,6 +678,7 @@
 		"{image:atm:textures/questpics/cataclysm/cataclysm_guardiuan.png width:100 height:100 align:center}"
 	]
 	quest.2B31E6C1707D8195.quest_desc: ["允许无线网络访问的下一个设备是&bME无线接入点&f。接入点用于通过&e无线终端&f打开网络的无线访问，并且接入点中插入的无线增强器数量决定了接入点的范围。"]
+	quest.2B57C8D2F98A9279.quest_desc: ["&l&7便携式存储&r这个模组加入了简易的手持存储。\\n\\n右键打开便携存储单元，就能往里存物品。每种物品都有一个最大存储数量，存满之后再往里放，溢出的部分会被销毁。它还会自动吸起掉在地上、且已经存在里面的物品。\\n\\n你也可以把里面的东西快速卸进容器，或者从容器里快速取出已存入其中的物品。\\n\\n等级越高的便携存储单元，槽位数和最大存储数量也越多。"]
 	quest.2B5E14A47062F83C.quest_subtitle: "赤橙黄绿青蓝紫中的'赤'"
 	quest.2B6D71DAF72EAFA4.title: "双足飞龙通量容器"
 	quest.2BB5769119BA2472.quest_desc: ["这个任务由&6AllTheMods团队&r或&2社区贡献者&r为AllTheMods整合包编写。\\n\\n由于所有&6AllTheMods&r包都受&eAll Rights Reserved&r许可，这个任务不能在任何非AllTheMods团队发布的公共包中使用，除非获得&6AllTheMods团队&r的明确许可。\\n\\n这个任务是故意隐藏的，如果你看到这个，说明你正处于编辑模式。"]
@@ -901,7 +902,7 @@
 	quest.3BC0A50886A3222B.quest_desc: ["ATM10是一个自由探索的整合包，允许你以自己的方式探索模组化的Minecraft世界！\\n\\n如有任何问题或疑问，欢迎加入ATM的Discord！"]
 	quest.3BDB94F17765EE77.quest_desc: ["如果你想要产生大量能量，你可以从扩大 &9中期能源&r 部分的一些选项开始。让你的 &a反应堆&r 更大。将你的 &9热力发电机&r 升到 &9下界&r 这一档。尽情发挥。\\n\\n然而，你可能需要甚至更多的能量。"]
 	quest.3BE5CD0C7CC4BCC6.quest_desc: [
-		"灵魂熔岩是&6&lATM&r的一部分。它可以在&b&l异界&r中非常罕见地在地下找到，或者在猪巫妖村庄中常见！\\n\\n我们需要取一桶&9灵魂熔岩&r并倒在恶魂蜜蜂蛋上，以制作一个&9灵魂熔岩蜜蜂蛋&r。\\n\\n然后，你需要挤压它们或戳它们以获取它们的DNA来制作一个刷怪蛋！\\n"
+		"灵魂熔岩是&6&lATM&r的一部分。它可以在&b&l异界&r中非常罕见地在地下找到，或者在猪巫妖村庄中常见！\\n\\n我们需要取一桶&9灵魂熔岩&r浇铸在恶魂蜜蜂刷怪蛋上，做出&9灵魂熔岩蜜蜂刷怪蛋&r。\\n\\n然后，你需要挤压它们或戳它们以获取它们的DNA来制作一个刷怪蛋！\\n"
 		"{image:atm:textures/questpics/soul_lava_process.png width:100 height:100 align:center}"
 	]
 	quest.3C37018123D3653C.title: "&2气囊靴"
