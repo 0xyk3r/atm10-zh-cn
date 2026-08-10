@@ -857,7 +857,7 @@
   "booklet.actuallyadditions.chapter.rf.text.1": "随着我们最近所熟知的红石通量（Redstone Flux）势力的衰退，一种新的能量单位开始崛起：<item>水晶通量（Crystal Flux）<r>。<n>这种能量能够被<imp>所有实用拓展的机器<r>产出，并且能够和<imp>Tesla和Forge Units兼容<r>。所有使用<item>水晶通量<r>的机器<imp>不需要经过转换<r>直接可与上述相关系统<imp>直接相连<r>。",
   "booklet.actuallyadditions.chapter.rf.text.2": "为了<imp>传输<r><item>水晶通量<r>，只需要将<imp>发电机<r>或者<imp>传输设备<r><imp>紧贴<r>着<imp>使用设备<r>或者存储设备（只需要符合上述描述的均可）。你还可以用<item>充能站<r><imp>充能物品<r>。",
   "booklet.actuallyadditions.chapter.enderStar": "末影之星",
-  "booklet.actuallyadditions.chapter.enderStar.text.1": "<item>末影之星<r>要通过击杀凋零和前往末地收集龙之吐息获得。龙之吐息就是那些末影龙喷吐出的紫色颗粒，可以用瓶子来收集它们。<n><item>末影之星<r>是<imp>许多合成所必需的材料<r>。",
+  "booklet.actuallyadditions.chapter.enderStar.text.1": "<item>末影之星<r>要通过击杀凋灵和前往末地收集龙之吐息获得。龙之吐息就是那些末影龙喷吐出的紫色颗粒，可以用瓶子来收集它们。<n><item>末影之星<r>是<imp>许多合成所必需的材料<r>。",
   "booklet.actuallyadditions.chapter.phantomRedstoneface": "幻灵红石接口",
   "booklet.actuallyadditions.chapter.phantomRedstoneface.text.1": "<imp>如果你还不知道什么是幻灵接口，请先阅读幻灵接口条目。<r><n><n><item>幻灵红石接口<r>是用来传输红石信号的幻灵接口。但和一般的幻灵接口<imp>不一样<r>，它“只在一个方向上工作”。换句话说，它只对<imp>相连的方块<r>提供红石信号，它<imp>不会<r>对那些周围的<imp>其他方块<r>工作。",
   "booklet.actuallyadditions.chapter.spawnerShard": "刷怪笼碎片",

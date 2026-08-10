@@ -442,7 +442,7 @@
   "mahoutsukai.book.replica4.name": "暗夜之影 (后续)",
   "mahoutsukai.book.retribution.desc": "惩戒卷轴可以让你和目标交换血量。根据交换的血量吸取法力。 消耗的法力为%%val0倍交换的血量。",
   "mahoutsukai.book.retribution.name": "惩戒",
-  "mahoutsukai.book.reversion_eyes.desc": "使用后施法者所视的怪物和玩家会失去其增益和特性。水生生物无法在水下呼吸 - 下界生物会受到火焰和岩浆伤害。末影人、潜影贝和凋零无法免疫弓箭。尸壳会在阳光下自燃。 %%n %%n每次使用消耗施法者%%val0点法力。",
+  "mahoutsukai.book.reversion_eyes.desc": "使用后施法者所视的怪物和玩家会失去其增益和特性。水生生物无法在水下呼吸 - 下界生物会受到火焰和岩浆伤害。末影人、潜影贝和凋灵无法免疫弓箭。尸壳会在阳光下自燃。 %%n %%n每次使用消耗施法者%%val0点法力。",
   "mahoutsukai.book.reversion_eyes.name": "回溯之魔眼",
   "mahoutsukai.book.rho_aias.desc": "这个卷轴会在施法者面前创造出大型护盾。 护盾会抵御怪物并删除穿过的弹射物。 施法者也可以潜行穿过护盾来弹飞自己。 %%n %%n每次使用消耗%%val0点法力。",
   "mahoutsukai.book.rho_aias.name": "炽天覆七重圆环",
