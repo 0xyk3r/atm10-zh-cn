@@ -1,5 +1,11 @@
 {
+	quest.15DC6770B112EE69.quest_desc: [
+		"溶解成型机是&l&7工业先锋&r添加的机器，也是我们将&3振金&r和&5难得素&r结合的工具。\\n\\n你需要&d粉红黏液&r，它来自工业先锋添加的另一个机器——屠宰场。\\n\\n你还需要灵魂熔岩，它在&b&l异界&r中很常见，尤其是在猪灵村庄。\\n\\n之后，你需要将你的合金锭和猪灵之心按正确的顺序放入成型机中，然后通电，它就会完成！\\n"
+		"{ \"text\": \"INDUSTRIAL FOREGOING QUESTLINE\", \"color\": \"#55FF55\", \"underlined\": true, \"clickEvent\": { \"action\": \"change_page\", \"value\": \"193F91842D2ED7D9\" } }"
+	]
+	quest.2CF6EA138B53CE1B.quest_desc: ["&3振金&r与&5难得素&r的结合！"]
 	quest.4B2146C9527C54E7.title: "&6&lATM"
+	quest.6E0624750DF8CD18.quest_desc: ["现在你不能再通过合成获得这些了，你需要将&c下界合金&r升级到它。\\n是的，它会保留附魔并修复它！"]
 	task.2A7CD3F14D3DC7C5.title: "难得素盔甲"
 	task.2E3BC536B8A9FD91.title: "难得素法师盔甲"
 	task.32447C5882610D6C.title: "前往末地"
