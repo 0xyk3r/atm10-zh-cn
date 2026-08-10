@@ -61,22 +61,6 @@
   },
   {
    "find": [
-    "    allthemods.create('atm_star_shard_1').displayName('ATM Star Fragment')\n",
-    "    allthemods.create('atm_star_shard_2').displayName('ATM Star Fragment')\n",
-    "    allthemods.create('atm_star_shard_3').displayName('ATM Star Fragment')\n",
-    "    allthemods.create('atm_star_shard_4').displayName('ATM Star Fragment')\n",
-    "    allthemods.create('atm_star_shard_5').displayName('ATM Star Fragment')\n"
-   ],
-   "replace": [
-    "    allthemods.create('atm_star_shard_1').displayName('ATM之星碎片')\n",
-    "    allthemods.create('atm_star_shard_2').displayName('ATM之星碎片')\n",
-    "    allthemods.create('atm_star_shard_3').displayName('ATM之星碎片')\n",
-    "    allthemods.create('atm_star_shard_4').displayName('ATM之星碎片')\n",
-    "    allthemods.create('atm_star_shard_5').displayName('ATM之星碎片')\n"
-   ]
-  },
-  {
-   "find": [
     "    allthemods.create(\"allthemodium_solar_sail_package\").displayName(\"Allthemodium Solar Sail Package\").component(\"dysoncubeproject:sphere_component_solar_sail\", Java.cast(\"java.lang.Integer\", 64))\n",
     "    allthemods.create(\"allthemodium_beam_package\").displayName(\"Allthemodium Beam Package\").component(\"dysoncubeproject:sphere_component_beam\", Java.cast(\"java.lang.Integer\", 16))\n"
    ],
