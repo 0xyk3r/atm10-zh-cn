@@ -1468,7 +1468,7 @@
   "book.occultism.dictionary_of_spirits.summoning_rituals.summon_transport_items.usage.text": "使用召唤之书来设置搬运工的存取位置。\n \\\n \\\n更多信息参阅[召唤之书](entry://getting_started/books_of_calling)。\n",
   "book.occultism.dictionary_of_spirits.summoning_rituals.summon_transport_items.usage.title": "使用方法",
   "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wondering.description": "异界旅行商人",
-  "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wondering.intro.text": "只有有通过[#](AA00AA)第三只眼[#]()或者[](item://occultism:otherworld_goggles)，才能勘破此商人的真实形态，\n否则，他与普通的流浪商人别无二致，\n或许你早已在不知不觉中遇到过一位。\n \\\n \\\n初次与其交互时，显示的总是常规交易。\n这些商贩热衷于兜售他们拥有的一切。\n",
+  "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wondering.intro.text": "只有通过[#](AA00AA)第三只眼[#]()或者[](item://occultism:otherworld_goggles)，才能勘破此商人的真实形态，\n否则，他与普通的流浪商人别无二致，\n或许你早已在不知不觉中遇到过一位。\n \\\n \\\n初次与其交互时，显示的总是常规交易。\n这些商贩热衷于兜售他们拥有的一切。\n",
   "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wondering.intro.title": "流琅商人",
   "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wondering.name": "召唤流琅商人",
   "book.occultism.dictionary_of_spirits.summoning_rituals.time_magic.description": "很遗憾，这不是时间之瓶、时间之袋，或者其他同类设备。",
