@@ -97,6 +97,8 @@
 
 感谢 **[SWAUS](https://space.bilibili.com/1662610)** 的反馈。
 
+感谢 **[四十连装暴风雪鱼雷](https://space.bilibili.com/1110181)** 的反馈。
+
 感谢 **[Sym601ETH](https://space.bilibili.com/527186286)** 的反馈：
 [#33](https://github.com/chiba233/atm10-zh-cn/issues/33)。
 
