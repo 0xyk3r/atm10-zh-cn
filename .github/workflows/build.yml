@@ -26,6 +26,12 @@ on:
   push:
     branches: [main]
     paths-ignore: ['**.md', 'docs/**']
+  # PR 也跑完整构建。ci.yml 是 --no-jars 的快闸，查不到「摊树 / 生成器 / 对着官方
+  # 文件打补丁」这一整段——而那正是最容易被一次改动搞坏、又只有下了 jar 才看得见的
+  # 部分。只在 PR 上跑快闸，等于把最慢也最有价值的那道闸推迟到合进 main 之后才发现。
+  # 本工作流不引用任何 secrets，只上传 artifact，所以从 fork 提的 PR 一样能跑完。
+  pull_request:
+    paths-ignore: ['**.md', 'docs/**']
 
 jobs:
   build:
@@ -80,6 +86,10 @@ jobs:
       # 发出去的包不许少汉化，而「少汉化」最常见的成因就是有人（我）把源删了。
       - name: 保护清单（汉化只许加不许删）
         env:
+          # 与 ci.yml 取同一个基准。不写的话会回落到 HEAD~1——push 到 main 时那是对的，
+          # 但 PR 上 checkout 拿到的是 refs/pull/N/merge，HEAD~1 恰好等于 base 只是碰巧，
+          # 依赖这个形状太脆。显式给出 base.sha，取不到时 protect.py 会红（它不静默跳过）。
+          PROTECT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
           # 流水线里 git 用不了 = 两条闸静默关掉，这在这里必须当失败，
           # 不许像本地那样降级放过——见 protect.py 里 PROTECT_REQUIRE_GIT 的注释。
           PROTECT_REQUIRE_GIT: '1'
