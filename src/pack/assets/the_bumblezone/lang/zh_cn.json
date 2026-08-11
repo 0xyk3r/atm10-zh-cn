@@ -675,6 +675,7 @@
   "container.the_bumblezone.crystalline_flower.tier_cost": "层级花费：%s",
   "container.the_bumblezone.crystalline_flower.tier_cost_arrow": "↓%s",
   "container.the_bumblezone.crystalline_flower.too_many_enchants": "附魔限制3",
+  "container.the_bumblezone.crystalline_flower.search": "搜索…",
   "container.the_bumblezone.crystalline_flower.sort_alphabetically": "根据名称排序",
   "container.the_bumblezone.crystalline_flower.sort_namespace": "根据ModID排序",
   "container.the_bumblezone.crystalline_flower.sort_treasure_curse": "根据宝藏/诅咒排序",
