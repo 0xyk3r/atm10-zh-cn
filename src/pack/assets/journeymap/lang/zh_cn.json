@@ -1003,7 +1003,7 @@
   "jm.waypoint.delete.label": "删除路径点",
   "jm.waypoint.delete_group.confirm.checkbox": "随组删除路径点",
   "jm.waypoint.delete_group.confirm.checkbox.": "删除组中的路径点",
-  "jm.waypoint.delete_group.confirm.checkbox.tooltip": "启用此选项将删除此组中的所有路径点。取消选中将将所有路径点移动到 %s 组。",
+  "jm.waypoint.delete_group.confirm.checkbox.tooltip": "启用此选项将删除此组中的所有路径点。取消选中将所有路径点移动到 %s 组。",
   "jm.waypoint.delete_group.label": "删除组",
   "jm.waypoint.delete_group.title": "删除组 %s",
   "jm.waypoint.delete_group_native.purge": "仅删除该组的路径点。",
