@@ -1004,7 +1004,7 @@
   "configuration.mekanism.gear.meka_suit.energy_usage.jump": "跳跃提升",
   "configuration.mekanism.gear.meka_suit.energy_usage.jump.tooltip": "MekaSuit 每提升0.1点跳跃高度时消耗的能量（单位：J）。",
   "configuration.mekanism.gear.meka_suit.energy_usage.magic": "魔法防御",
-  "configuration.mekanism.gear.meka_suit.energy_usage.magic.tooltip": "通过吸入净化装置减少魔法伤害所消耗的的能量倍数。 消耗的能量计算公式：魔法伤害*吸收的魔法伤害。(1点魔法伤害为半颗心)。",
+  "configuration.mekanism.gear.meka_suit.energy_usage.magic.tooltip": "通过吸入净化装置减少魔法伤害所消耗的能量倍数。 消耗的能量计算公式：魔法伤害*吸收的魔法伤害。(1点魔法伤害为半颗心)。",
   "configuration.mekanism.gear.meka_suit.energy_usage.magnet": "磁力吸引",
   "configuration.mekanism.gear.meka_suit.energy_usage.magnet.tooltip": "MekaSuit 吸引一件物品时每刻消耗的能量（单位：J）。",
   "configuration.mekanism.gear.meka_suit.energy_usage.potion": "药水效果加速",

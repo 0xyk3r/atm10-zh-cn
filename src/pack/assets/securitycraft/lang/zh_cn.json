@@ -1305,7 +1305,7 @@
   "option.securitycraft.alarm.resetCooldown": "重置冷却：%s",
   "option.securitycraft.alarm.resetCooldown.description": "激活报警器时，警报声的间隔时间是否重置？这意味着声音总是立即播放。",
   "option.securitycraft.block_change_detector.range": "检测范围：%s",
-  "option.securitycraft.block_change_detector.range.description": "该方块变化检测器可以探测到玩家造成的方块变化的的范围有多远？",
+  "option.securitycraft.block_change_detector.range.description": "该方块变化检测器可以探测到玩家造成的方块变化的范围有多远？",
   "option.securitycraft.block_change_detector.signalLength": "信号时长：%s",
   "option.securitycraft.block_change_detector.signalLength.description": "检测到方块变化后，红石信号应该持续多久？（以游戏刻为单位，20游戏刻=1秒。设置为0即为切换信号）",
   "option.securitycraft.cage_trap.captureMobs": "捕捉生物：%s",
