@@ -1,6 +1,7 @@
 {
 	chapter.007B547630FF0478.title: "神通术"
 	chapter.13B172FA69904D9F.title: "幽邃黑暗"
+	chapter.2A6EBEEBAB882679.title: "Powah"
 	chapter.4EAAE0CEB26378A6.title: "可怖之物"
 	quest.0000A88BB40B2149.quest_desc: ["在你前往混沌岛之前，我建议做好准备，他看起来像末影龙，但这个要困难得多。你最好使用龙族武器或造成大量伤害的工具，这样会更容易。他还会造成大量伤害，推荐使用优质盔甲，如难得素或Meka-Suit。再生、吸收和抗性效果将有助于你生存。别担心，如果你还没准备好，随时可以回来另选一天再战。"]
 	quest.001A348054127235.quest_desc: ["&5紫水晶母岩&r在合成配方中非常有用，甚至可以用来培育&5紫水晶&r！\\n\\n使用&5紫水晶块&r、&a60 位阶&r、&c30% &f到 &c50% 量子化&r、&550% 阿卡那&r可以灌注出一个。\\n\\n要获得这些数值，我们可以使用15个&4耀光下界书架&r和4个&2西瓜书架&r。"]
@@ -2058,6 +2059,7 @@
 		"{image:atm:textures/questpics/mek/mek_fission4.png width:100 height:110 align:center}"
 	]
 	quest.7E4367252A39BE6C.quest_desc: ["&c&lPowah&r 是一个能量模组！生成 FE 这样的能量，用来驱动其他模组的机器，比如 &5&l通用机械&r 或 &l工业先锋&r！\\n\\n你需要一路合成到不同的等级，当然，我们需要合成到最后一级，才能制作 &6&lATM之星&r！"]
+	quest.7E4367252A39BE6C.title: "&c&lPowah"
 	quest.7E79F52147B606F9.quest_desc: ["要开始收集血液，我们需要制作 &c血液提取器&r。\\n\\n只要你拥有这个物品，击杀生物时会收集血液到提取器中。&c血液&r 是 邪恶工艺 中的重要资源。\\n\\n需要增加提取器的存储容量？只需制作另一个，然后在合成表中将它们结合！\\n\\n这些也可以用来从你发现（或创造）在地面上的 &c血迹&r 中提取血液。\\n\\n最后，当存储了足够的血液时，你可以潜行右键点击地面来放置一桶血液。"]
 	quest.7EC8814940C4C3D7.title: "个人缩放装置"
 	quest.7EF873DCEB3B9D48.quest_desc: ["最后一个&l世界层级&r，&l世界层级：&4顶点&r。要获得它，你需要至少杀死一次&d&l末影龙&r，并装备全套&5史诗&r或&6神话&r&e盔甲&r和&e工具/武器&r。\\n\\n现在&5史诗&r和&6神话&r对于&a宝石&r和&e工具&r来说是最常见的，此外我们更有可能获得&c完&6美&e宝&d石&5（&4P&6e&er&ff&de&5c&4t&r）&r！这伴随着&8常见&r和&a卓越&r的消失，但嘿，谁会想念它们呢！\\n\\n按照同样的升级模式，我们将获得125%的经验获取、100%的幸运值提升，&a位阶上限&r也会达到最高的&a100&r。\\n\\n&4敌对生物&r将获得它们的最终升级，获得：16点护甲值、20点盔甲韧性、25点护甲穿透和20点保护穿透。"]
@@ -2068,7 +2070,15 @@
 	quest.7FBB431AC055FE93.title: "&7移魂之眼"
 	quest.7FBD51663C1A711A.title: "&4绯夜脂剑"
 	quest.7FE969CB4B419FC6.quest_desc: ["只需在通用机械上稍加改造，这台机器就能让你无线传输任何东西。\\n\\n你可以设置特定的频道来传输单个物品、能量，甚至是通用机械的气体。这相当酷。"]
+	reward_table.04285B94275AB879.title: "Powah：棒与电缆"
+	reward_table.047C4C58EC06DBF3.title: "Powah：硬化"
+	reward_table.13DF975BE0A23373.title: "Powah：氮气"
+	reward_table.1C750D27FEF7C386.title: "Powah：炽热"
 	reward_table.1DB1EEDA7B79672B.title: "铁路工艺：铁轨"
+	reward_table.3AC97B13FF3E4FD3.title: "Powah：基础"
+	reward_table.4B19C9059B3AA9AC.title: "Powah：基础"
+	reward_table.4E550B6FE754E446.title: "Powah：尼奥提克"
+	reward_table.51D32A776892238B.title: "Powah：精神"
 	reward_table.75FE7CDF68581EDE.title: "铁路工艺：随机"
 	task.011F410922A4D859.title: "收割刀"
 	task.065E5450AC87F1D5.title: "远古蜜蜂蜜脾"
