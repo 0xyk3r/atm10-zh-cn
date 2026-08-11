@@ -1297,7 +1297,7 @@
   "mahoutsukai.config.power_consolidation_lake_radius.name": "力量固结之湖大小",
   "mahoutsukai.config.power_consolidation_lake_threshhold.comment": "将剑转换为石中剑所需的最低门槛",
   "mahoutsukai.config.power_consolidation_lake_threshhold.name": "力量固结之湖门槛",
-  "mahoutsukai.config.power_consolidation_nerf_factor.comment": "这个因数可降低固结力量的强度。数值越低，换得的剑越辣鸡",
+  "mahoutsukai.config.power_consolidation_nerf_factor.comment": "这个因数可降低固结力量的强度。数值越高，换得的剑越辣鸡",
   "mahoutsukai.config.power_consolidation_nerf_factor.name": "力量固结削弱因数",
   "mahoutsukai.config.power_consolidation_projections_allowed.comment": "是否可以使用石中剑的投影来制作新的石中剑/誓约胜利之剑——「摩根」。",
   "mahoutsukai.config.power_consolidation_projections_allowed.name": "允许力量固结投影",
